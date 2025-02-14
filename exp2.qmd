@@ -1,0 +1,26 @@
+---
+title: "Registered Seminars"
+---
+
+**\[Webinar\] The Nexus of Climate Change and Malaria**
+
+*Date & Time*: Feb 20, 2025 (14:00 Vietnam)
+![](s1.png){width=400px style="float: right; margin-right: 20px;"}
+
+*Location*: Room 3.03 (HCDC - District 8)
+
+*Via*: Zoom 
+
+*Speakers*: 
+
+-   Asssoc. Prof. Kimberly Fornace (National University of Singapore)
+
+-   Dr. Jetsumon Prachumsri (Mahidol Vivax Research Unit)
+
+*Cotent*:
+
+-   How climate and environmental factors affect malaria.
+
+-   Use data in malaria research.
+
+-   Regional initiatives towards malari control.

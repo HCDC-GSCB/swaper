@@ -1,0 +1,31 @@
+project:
+  type: website
+
+website:
+  title: "SWAPER"
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "Overview"
+        href: index.qmd
+      - text: "Seminars"
+        menu: 
+          - text: "All seminars"
+            href: exp1.qmd
+          - text: "Registerd"
+            href: exp2.qmd
+
+    tools:
+      - icon: github
+        menu:
+          - text: "Source code"
+            href: https://github.com/HCDC-GSCB/
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+editor: visual
+
