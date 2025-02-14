@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Khoa Giám sát cảnh báo – SWAPER</title>
+<title>SWAPER</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -128,35 +128,173 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Khoa Giám sát cảnh báo</h1>
+
+
+
+<style>
+/* Mở rộng nội dung */
+main {
+    max-width: 100%;
+}
+
+/* Bố cục logo + thông tin */
+.header-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.header-logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.header-info {
+    flex-grow: 1;
+}
+
+/* Bố cục nhóm staff */
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.member {
+    text-align: left;
+    background-color: #e6f7ff;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Leader chiếm nguyên hàng */
+.leader {
+    width: 100%;
+    background-color: #f0f8ff;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+/* Hàng 4 người */
+.row1 {
+    width: calc(25% - 20px);
+    min-width: 180px;
+}
+
+/* Hàng 3 người */
+.row2 {
+    width: calc(33.33% - 20px);
+}
+
+/* Ảnh đại diện */
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.leader-info {
+    flex-grow: 1;
+    text-align: left;
+}
+
+/* Căn trái toàn bộ nội dung của Staff */
+.member h3,
+.member p {
+    text-align: left;
+    width: 100%;
+}
+</style>
+
+<!-- Bố cục logo + thông tin -->
+<div class="header-container">
+    <img src="logo.png" class="header-logo">
+    <div class="header-info">
+        <h2 class="anchored">Department of Surveillance, Warning and Preparedness, Emergency Response 🏡</h2>
+        <p><strong>Established:</strong> June, 2023</p>
+        <p><strong>Affiliation:</strong> Ho Chi Minh Center for Diseases Control</p>
+        <p>The Department of Surveillance, Warning, and Preparedness for Epidemic Response (SWAPER) monitors, analyzes, and forecasts epidemic trends, assesses risks, and issues timely alerts. It plays a key role in coordinating surveillance and ensuring effective preparedness and response at all administrative levels.</p>
+    </div>
+</div>
+<section id="members" class="level1">
+<h1>🔹 <strong>Members</strong></h1>
+<div class="team-container">
+    <!-- Leader -->
+    <div class="leader">
+        <img src="lantruong.jpg" class="avatar">
+        <div class="leader-info">
+            <h3 class="anchored" data-anchor-id="members">Lan Truong</h3>
+            <p><strong>Position:</strong> Head of Department of Surveillance, Warning and Preparedness, Emergency Response</p>
+            <p><strong>Major:</strong> Master of Public Health</p>
+        </div>
+    </div>
+
+    <!-- Staff (4 người hàng trên) -->
+    <div class="member row1">
+        <img src="antran.jpg" class="avatar">
+        <h3 class="anchored">An Tran</h3>
+        <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
+        <p>Data analysis and forecasting, Risk assessment (Modeling team)</p>
+    </div>
+    <div class="member row1">
+        <img src="anhhuynh.jpg" class="avatar">
+        <h3 class="anchored">Anh Huynh</h3>
+        <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
+        <p>Data analysis and forecasting, Risk assessment (Modeling team)</p>
+    </div>
+    <div class="member row1">
+        <img src="diemle.jpg" class="avatar">
+        <h3 class="anchored">Diem Le</h3>
+        <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
+        <p>Surveillance System, Data analysis and forecasting (Modeling team)</p>
+    </div>
+    <div class="member row1">
+        <img src="thupham.jpg" class="avatar">
+        <h3 class="anchored">Thu Pham</h3>
+        <p><strong>Major:</strong> Bachelor of Public Health</p>
+        <p>Data analysis and forecasting, Risk assessment (Modeling team)</p>
+    </div>
+
+    <!-- Staff (3 người hàng dưới) -->
+    <div class="member row2">
+        <img src="khanghuynh.jpg" class="avatar">
+        <h3 class="anchored">Khang Huynh</h3>
+        <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
+        <p>Data analysis and forecasting, Prepare to respond to emergencies(EOC team)</p>
+    </div>
+    <div class="member row2">
+        <img src="vytran.jpg" class="avatar">
+        <h3 class="anchored">Vy Tran</h3>
+        <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
+        <p>Prepare to respond to emergencies, RRT (EOC team)</p>
+    </div>
+    <div class="member row2">
+        <img src="ngocdinh.jpg" class="avatar">
+        <h3 class="anchored">Ngoc Dinh</h3>
+        <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
+        <p>Prepare to respond to emergencies, RRT (EOC team)</p>
+    </div>
 </div>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>This is a Quarto website.</p>
-<p><img src="logo.jpg" class="img-fluid" width="150"></p>
-
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
