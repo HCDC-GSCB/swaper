@@ -5,7 +5,7 @@ project:
 website:
   title: "SWAPER"
   navbar:
-    background: primary
+    background: secondary
     search: true
     left:
       - text: "Overview"
@@ -16,12 +16,14 @@ website:
             href: exp1.qmd
           - text: "Registerd"
             href: exp2.qmd
-
     tools:
       - icon: github
         menu:
           - text: "Source code"
             href: https://github.com/HCDC-GSCB/
+    back-to-top-navigation: true
+    page-footer: "Copyright 2025, SWAPER"
+      
 format:
   html:
     theme: cosmo
