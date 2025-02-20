@@ -1,1 +1,35 @@
-/* css styles */
+body {
+    background: radial-gradient(circle at center, #1c3d5a, #0a192f);
+    color: white;
+}
+
+/* Bọc lại member để tránh bị ghi đè */
+.member, .leader {
+    background-color: rgba(0, 0, 0, 0.7) !important; /* Tăng độ tối và thêm !important */
+    color: white !important;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm hiệu ứng nổi nhẹ */
+}
+
+/* Leader có thể tối hơn để nổi bật */
+.leader {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Chữ đậm rõ hơn */
+h1, h2, h3, h4, h5, h6, p {
+    color: white !important;
+}
+
+/* Đảm bảo card không bị nền trắng */
+.card, .panel, .alert {
+    background: rgba(0, 0, 0, 0.6) !important;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+/* Navbar tối hơn */
+.navbar, .toc {
+    background: rgba(10, 25, 47, 0.9) !important;
+}

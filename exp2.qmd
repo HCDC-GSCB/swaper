@@ -1,26 +1,24 @@
----
-title: "Registered Seminars"
----
+## 1. Risk Assessment
 
-**\[Webinar\] The Nexus of Climate Change and Malaria**
+**Date & Time**: Feb 21, 2025 (14:00 Vietnam) 
 
-*Date & Time*: Feb 20, 2025 (14:00 Vietnam)
-![](s1.png){width=400px style="float: right; margin-right: 20px;"}
+**Location**: Room 3.03 (HCDC - District 8)
 
-*Location*: Room 3.03 (HCDC - District 8)
+**Via**: Zoom
 
-*Via*: Zoom 
+**Speakers**: Dr. Nguyen Dac Tho *(Ho Chi Minh City Center for Diseases Control)*
 
-*Speakers*: 
+**Content**: Overview
 
--   Asssoc. Prof. Kimberly Fornace (National University of Singapore)
 
--   Dr. Jetsumon Prachumsri (Mahidol Vivax Research Unit)
+## 2. MIDSEA
 
-*Content*:
+**Date & Time**: March 12, 2025 (13:00 Vietnam) 
 
--   How climate and environmental factors affect malaria.
+**Location**: Room 3.03 (HCDC - District 8)
 
--   Use data in malaria research.
+**Via**: Zoom
 
--   Regional initiatives towards malari control.
+**Speakers**: Prof. Azra Ghani *(Professor of Infectious Disease Epidemiology with Imperial College London)*
+
+**Content**: The future for malaria vaccines: progress and challenges in supporting malaria eradication
