@@ -4,7 +4,7 @@ format: html
 ---
 
 ::: center-text
-[🚀 Presentation](docs/slide_r04.html){.btn .btn-outline-secondary style="border-radius: 12px;"}
+[🚀 Presentation](slide_r04.html){.btn .btn-outline-secondary style="border-radius: 12px;"}
 :::
 
 ## Data visualization

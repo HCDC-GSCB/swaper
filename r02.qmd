@@ -4,7 +4,7 @@ format: html
 ---
 
 ::: center-text
-[🚀 Presentation](docs/slide_r02.html){.btn .btn-outline-secondary style="border-radius: 12px;"}
+[🚀 Presentation](slide_r02.html){.btn .btn-outline-secondary style="border-radius: 12px;"}
 :::
 
 ## Why cleaning data with R?
