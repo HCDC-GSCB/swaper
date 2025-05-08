@@ -7,117 +7,122 @@ format: html
 [🚀 Presentation](slide_r01.html){.btn .btn-outline-secondary style="border-radius: 12px;"}
 :::
 
-# Giới thiệu về R
+# Introduction about R
 
-## R là gì
+## What is R?
 
--   R là một ngôn ngữ lập trình được phát triển bởi GS. Robert Gentleman và GS. Ross Ihaka tại Đại học Auckland^[1](https://drthinhong.com/r4babies/references.html#ref-ihaka1996)^. Tên gọi R được đặt theo chữ cái đầu của tên 2 tác giả (Robert và Ross).
--   Để tính toán thống kê và trực quan hóa dữ liệu.
--   Bao gồm phần cơ bản (tích hợp sẵn khi cài đặt R) và phần mở rộng thông qua các gói (packages)
+-   R is a programming language developed by Professor Robert Gentleman and Professor Ross Ihaka at the University of Auckland^[1](https://drthinhong.com/r4babies/references.html#ref-ihaka1996)^. The name R is derived from the first letters of the two authors' names (Robert and Ross).
 
-## Ngôn ngữ lập trình
+-   For statistical computation and data visualization.
 
--   Ngôn ngữ lập trình là một tập hợp các hướng dẫn để yêu cầu máy tính thực hiện một số tác vụ nhất định.
--   Người dùng giao tiếp, đối thoại với máy tính bằng cách nhập những câu văn (code) giống như chat với máy tính, để máy hiểu và làm đúng những gì con người muốn
+-   Includes a basic part (built-in when installing R) and extensions through packages
 
-## Nên sử dụng R vì
+## Programming language
 
--   Miễn phí, liên tục cập nhật
--   Rất tốt trong xử lý thống kê và vẽ đồ họa
--   Lưu trữ câu lệnh và thực hiện lại dễ dàng
--   Nên sử dụng RStudio thay vì R cơ bản
--   Hoàn toàn có thể tự học từ nguồn internet
+-   A programming language is a set of instructions that tell a computer to perform certain tasks.
 
-# R và RStudio
+-   Users communicate and converse with computers by entering sentences (code) like chatting with the computer, so that the computer understands and does exactly what the person wants.
 
-## Phân biệt R và RStudio
+## Using R because
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| R                                                                                                                                                        | RStudio                                                                                                                                              |
-+==========================================================================================================================================================+======================================================================================================================================================+
-| -   là ngôn ngữ lập trình                                                                                                                                | -   là một môi trường phát triển tích hợp (integrated development environment hay IDE) hay nói đơn giản là một phần mềm để viết code R hiệu quả hơn. |
-|                                                                                                                                                          |                                                                                                                                                      |
-| -   Sau khi cài R, chúng ta mở lên sẽ thấy giao diện giống như một khung chat trống. Khung chat này là nơi chúng ta viết code để giao tiếp với máy tính. |                                                                                                                                                      |
-+----------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+-   Free, constantly updated.
 
-## Cài đặt R
+-   Great for statistics and graphics.
 
-Trang web chính thức của R: <https://www.r-project.org>
+-   Easy to store commands and re-execute.
+
+-   Should use RStudio instead of basic R.
+
+-   Completely self-taught from internet sources.
+
+# R and RStudio
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+| R                                                                                                                                                     | RStudio                                                                                                   |
++=======================================================================================================================================================+===========================================================================================================+
+| -   is a programming language                                                                                                                         | -   is an integrated development environment (IDE) or simply a software to write R code more efficiently. |
+|                                                                                                                                                       |                                                                                                           |
+| -   After installing R, we open it and see an interface like a blank chat box. This chat box is where we write code to communicate with the computer. |                                                                                                           |
++-------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
+
+## Installation R
+
+R Official Website: <https://www.r-project.org>
 
 ![](RStudio.png){fig-align="center"}
 
-## Cài đặt RStudio
+## Installation R-Studio
 
-Trang web chính thức của RStudio: <https://posit.co/download/rstudio-desktop/>
+RStudio Official Website: <https://posit.co/download/rstudio-desktop/>
 
-Cần cài đặt R trước khi cài RStudio
+R must be installed before RStudio can be installed.
 
 ![](/RStudio.png){fig-align="center"}
 
-# Ứng dụng phổ biến của R
+# Popular Applications of R
 
-## Phân tích và trực quan hóa dữ liệu
+## Data analysis and visualization
 
--   R cung cấp nhiều thư viện mạnh mẽ như `ggplot2`, `dplyr`, `tidyverse` để xử lý và trực quan hóa dữ liệu.
--   Thường được sử dụng trong nghiên cứu khoa học, kinh tế, y tế và kinh doanh để phân tích dữ liệu và tạo báo cáo.
+-   R provides many powerful libraries like `ggplot2`, `dplyr`, `tidyverse` for data processing and visualization.
+-   Commonly used in scientific, economic, medical and business research to analyze data and generate reports.
 
-## Thống kê và kiểm định giả thuyết
+## Statistics and hypothesis testing
 
--   Hỗ trợ các phương pháp thống kê như hồi quy tuyến tính, kiểm định t-test, ANOVA, và các mô hình thống kê khác.
--   Phù hợp cho nghiên cứu học thuật và phân tích dữ liệu chuyên sâu.
+-   Supports statistical methods such as linear regression, t-test, ANOVA, and many other statistical models.
+-   Suitable for academic research and in-depth data analysis.
 
-## **Học máy (Machine Learning)**
+## **Machine Learning**
 
--   Có các thư viện như `caret`, `randomForest`, `e1071`, `xgboost` giúp xây dựng mô hình dự đoán.
--   R thường được dùng để phát triển và đánh giá các mô hình học máy.
+-   There are libraries like `caret`, `randomForest`, `e1071`, `xgboost` for building predictive models.
+-   R is commonly used to develop and evaluate machine learning models.
 
-## **Xử lý dữ liệu lớn (Big Data Analytics)**
+## **Big Data Analytics**
 
--   R có thể tích hợp với Apache Spark thông qua `sparklyr`, giúp xử lý dữ liệu lớn.
--   Kết hợp SQL, NoSQL để phân tích dữ liệu quy mô lớn.
+-   R có thể tích hợp với Apache Spark thông qua `sparklyr`, which helps in big data processing.
+-   Combining SQL, NoSQL for large-scale data analysis.
 
-## **Khoa học dữ liệu và báo cáo tự động**
+## Data science and automated reporting
 
--   R hỗ trợ tạo báo cáo động với `R Markdown`, giúp tự động hóa báo cáo dữ liệu.
--   R Shiny cho phép xây dựng ứng dụng web tương tác để trình bày dữ liệu.
+-   R supports dynamic reporting with `R Markdown`, which helps automate data reporting.
+-   R Shiny allows building interactive web applications to present data.
 
-## **Y học và sinh học**
+## Medicine and Biology
 
--   Hỗ trợ nghiên cứu dịch tễ học, mô hình hóa bệnh tật
+-   Supporting epidemiological research and disease modeling
 
-# Git và GitHub trong R
+# Git and GitHub in R
 
 ## Git ![](/Git.png){width="27"}
 
--   Git là một phần mềm mã nguồn mở, quản lý phiên bản (Version Control System - VCS), mục đích của nó là theo dõi các thay đổi của tệp trong một kho lưu trữ và cung cấp khả năng quay lại phiên bản trước đó (bao gồm các thay đổi trong mã nguồn mở cho các mô hình tính toán, thuật toán theo thời gian).
+-   Git is an open source, version control system (VCS) whose purpose is to track changes to files in a repository and provide the ability to roll back to previous versions (including changes in open source code for computational models and algorithms over time).
 
--   Git là một phần mềm hoạt động cục bộ. Bạn không cần GitHub để Git có thể hoạt động. Bạn có thể sử dụng Git độc lập.
+-   Git is a local software. You do not need GitHub for Git to work. You can use Git independently.
 
 ## GitHub
 
--   GitHub là một dịch vụ dựa trên đám mây để lưu trữ Git.
--   Đóng vai trò như một máy chủ từ xa cho Git.
--   Giao diện Web-based, miễn phí và công khai. ![](/giaodienGitHub.png)
+-   GitHub is a cloud-based service for hosting Git.
+-   Acts as a remote server for Git.
+-   Web-based interface, free and public.![](/giaodienGitHub.png)
 
 ## **Repository**
 
-**Kho lưu trữ (Repository):** Chứa một tập hợp các tệp và thư mục, ghi lại lịch sử thay đổi, theo dõi trạng thái và các phiên bản của chúng. Có hai loại:
+Contains a collection of files and folders, records the history of changes, tracks their status and versions. There are two types:
 
--   **Kho lưu trữ từ xa (Remote repository):** Lưu trữ trên máy chủ từ xa, được chia sẻ giữa nhiều thành viên trong nhóm.
+-   **Remote repository:** Stored on a remote server, shared among multiple team members.
 
--   **Kho lưu trữ cục bộ (Local repository):** Lưu trữ trên máy tính cá nhân của người dùng.
+-   **Local repository:** Stored on a user's personal computer.
 
 ## GitHub Desktop ![](/GitHubDesktop.png){width="27"}
 
--   GitHub Desktop là một phần mềm giúp bạn sử dụng Git dễ dàng hơn. Nó là một phần mềm được xây dựng bởi GitHub, một lần nữa, tách biệt với Git
--   **Ưu điểm:**
-    -   Đơn giản hóa mọi thứ và chỉ cung cấp các chức năng thường được sử dụng của Git
-    -   Giảm khả năng bạn sẽ mắc lỗi khi sử dụng Git
-    -   Tích hợp trực tiếp với GitHub, giúp xác thực dễ dàng hơn
+-   **GitHub Desktop** is a software that makes it easier for you to use Git. It is a software built by GitHub, again, separate from Git.
+-   **Advantages:**
+    -   Keeps things simple and only provides commonly used Git functionality.
+    -   Reduces the chance of you making mistakes when using Git.
+    -   Integrates directly with GitHub, making authentication easier.
 
-# Sản phẩm từ GitHub và R
+# Products from GitHub and R
 
-## **Thiết kế Website giới thiệu Khoa, thông tin khóa học**
+## Website design to introduce Faculty and course information
 
 ::::: columns
 ::: {.column width="50%"}
@@ -129,7 +134,7 @@ Cần cài đặt R trước khi cài RStudio
 :::
 :::::
 
-## **Trình bày kết quả phân tích, cảnh báo, dự báo dịch**
+## Presenting analysis results, warnings, and epidemic forecasting
 
 ::::: columns
 ::: {.column width="50%"}
@@ -141,6 +146,6 @@ Cần cài đặt R trước khi cài RStudio
 :::
 :::::
 
-## **Thiết kế Dashboard**
+## **Deploying Dashboard**
 
 ![](/Picture5.png)

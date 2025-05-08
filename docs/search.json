@@ -509,121 +509,111 @@
     ]
   },
   {
-    "objectID": "r01.html#r-là-gì",
-    "href": "r01.html#r-là-gì",
+    "objectID": "r01.html#what-is-r",
+    "href": "r01.html#what-is-r",
     "title": "Overview of R",
-    "section": "R là gì",
-    "text": "R là gì\n\nR là một ngôn ngữ lập trình được phát triển bởi GS. Robert Gentleman và GS. Ross Ihaka tại Đại học Auckland1. Tên gọi R được đặt theo chữ cái đầu của tên 2 tác giả (Robert và Ross).\nĐể tính toán thống kê và trực quan hóa dữ liệu.\nBao gồm phần cơ bản (tích hợp sẵn khi cài đặt R) và phần mở rộng thông qua các gói (packages)",
+    "section": "What is R?",
+    "text": "What is R?\n\nR is a programming language developed by Professor Robert Gentleman and Professor Ross Ihaka at the University of Auckland1. The name R is derived from the first letters of the two authors’ names (Robert and Ross).\nFor statistical computation and data visualization.\nIncludes a basic part (built-in when installing R) and extensions through packages",
     "crumbs": [
       "Overview of R"
     ]
   },
   {
-    "objectID": "r01.html#ngôn-ngữ-lập-trình",
-    "href": "r01.html#ngôn-ngữ-lập-trình",
+    "objectID": "r01.html#programming-language",
+    "href": "r01.html#programming-language",
     "title": "Overview of R",
-    "section": "Ngôn ngữ lập trình",
-    "text": "Ngôn ngữ lập trình\n\nNgôn ngữ lập trình là một tập hợp các hướng dẫn để yêu cầu máy tính thực hiện một số tác vụ nhất định.\nNgười dùng giao tiếp, đối thoại với máy tính bằng cách nhập những câu văn (code) giống như chat với máy tính, để máy hiểu và làm đúng những gì con người muốn",
+    "section": "Programming language",
+    "text": "Programming language\n\nA programming language is a set of instructions that tell a computer to perform certain tasks.\nUsers communicate and converse with computers by entering sentences (code) like chatting with the computer, so that the computer understands and does exactly what the person wants.",
     "crumbs": [
       "Overview of R"
     ]
   },
   {
-    "objectID": "r01.html#nên-sử-dụng-r-vì",
-    "href": "r01.html#nên-sử-dụng-r-vì",
+    "objectID": "r01.html#using-r-because",
+    "href": "r01.html#using-r-because",
     "title": "Overview of R",
-    "section": "Nên sử dụng R vì",
-    "text": "Nên sử dụng R vì\n\nMiễn phí, liên tục cập nhật\nRất tốt trong xử lý thống kê và vẽ đồ họa\nLưu trữ câu lệnh và thực hiện lại dễ dàng\nNên sử dụng RStudio thay vì R cơ bản\nHoàn toàn có thể tự học từ nguồn internet",
+    "section": "Using R because",
+    "text": "Using R because\n\nFree, constantly updated.\nGreat for statistics and graphics.\nEasy to store commands and re-execute.\nShould use RStudio instead of basic R.\nCompletely self-taught from internet sources.",
     "crumbs": [
       "Overview of R"
     ]
   },
   {
-    "objectID": "r01.html#phân-biệt-r-và-rstudio",
-    "href": "r01.html#phân-biệt-r-và-rstudio",
+    "objectID": "r01.html#installation-r",
+    "href": "r01.html#installation-r",
     "title": "Overview of R",
-    "section": "Phân biệt R và RStudio",
-    "text": "Phân biệt R và RStudio\n\n\n\n\n\n\n\nR\nRStudio\n\n\n\n\n\nlà ngôn ngữ lập trình\nSau khi cài R, chúng ta mở lên sẽ thấy giao diện giống như một khung chat trống. Khung chat này là nơi chúng ta viết code để giao tiếp với máy tính.\n\n\nlà một môi trường phát triển tích hợp (integrated development environment hay IDE) hay nói đơn giản là một phần mềm để viết code R hiệu quả hơn.",
+    "section": "Installation R",
+    "text": "Installation R\nR Official Website: https://www.r-project.org",
     "crumbs": [
       "Overview of R"
     ]
   },
   {
-    "objectID": "r01.html#cài-đặt-r",
-    "href": "r01.html#cài-đặt-r",
+    "objectID": "r01.html#installation-r-studio",
+    "href": "r01.html#installation-r-studio",
     "title": "Overview of R",
-    "section": "Cài đặt R",
-    "text": "Cài đặt R\nTrang web chính thức của R: https://www.r-project.org",
+    "section": "Installation R-Studio",
+    "text": "Installation R-Studio\nRStudio Official Website: https://posit.co/download/rstudio-desktop/\nR must be installed before RStudio can be installed.",
     "crumbs": [
       "Overview of R"
     ]
   },
   {
-    "objectID": "r01.html#cài-đặt-rstudio",
-    "href": "r01.html#cài-đặt-rstudio",
+    "objectID": "r01.html#data-analysis-and-visualization",
+    "href": "r01.html#data-analysis-and-visualization",
     "title": "Overview of R",
-    "section": "Cài đặt RStudio",
-    "text": "Cài đặt RStudio\nTrang web chính thức của RStudio: https://posit.co/download/rstudio-desktop/\nCần cài đặt R trước khi cài RStudio",
+    "section": "Data analysis and visualization",
+    "text": "Data analysis and visualization\n\nR provides many powerful libraries like ggplot2, dplyr, tidyverse for data processing and visualization.\nCommonly used in scientific, economic, medical and business research to analyze data and generate reports.",
     "crumbs": [
       "Overview of R"
     ]
   },
   {
-    "objectID": "r01.html#phân-tích-và-trực-quan-hóa-dữ-liệu",
-    "href": "r01.html#phân-tích-và-trực-quan-hóa-dữ-liệu",
+    "objectID": "r01.html#statistics-and-hypothesis-testing",
+    "href": "r01.html#statistics-and-hypothesis-testing",
     "title": "Overview of R",
-    "section": "Phân tích và trực quan hóa dữ liệu",
-    "text": "Phân tích và trực quan hóa dữ liệu\n\nR cung cấp nhiều thư viện mạnh mẽ như ggplot2, dplyr, tidyverse để xử lý và trực quan hóa dữ liệu.\nThường được sử dụng trong nghiên cứu khoa học, kinh tế, y tế và kinh doanh để phân tích dữ liệu và tạo báo cáo.",
+    "section": "Statistics and hypothesis testing",
+    "text": "Statistics and hypothesis testing\n\nSupports statistical methods such as linear regression, t-test, ANOVA, and many other statistical models.\nSuitable for academic research and in-depth data analysis.",
     "crumbs": [
       "Overview of R"
     ]
   },
   {
-    "objectID": "r01.html#thống-kê-và-kiểm-định-giả-thuyết",
-    "href": "r01.html#thống-kê-và-kiểm-định-giả-thuyết",
+    "objectID": "r01.html#machine-learning",
+    "href": "r01.html#machine-learning",
     "title": "Overview of R",
-    "section": "Thống kê và kiểm định giả thuyết",
-    "text": "Thống kê và kiểm định giả thuyết\n\nHỗ trợ các phương pháp thống kê như hồi quy tuyến tính, kiểm định t-test, ANOVA, và các mô hình thống kê khác.\nPhù hợp cho nghiên cứu học thuật và phân tích dữ liệu chuyên sâu.",
+    "section": "Machine Learning",
+    "text": "Machine Learning\n\nThere are libraries like caret, randomForest, e1071, xgboost for building predictive models.\nR is commonly used to develop and evaluate machine learning models.",
     "crumbs": [
       "Overview of R"
     ]
   },
   {
-    "objectID": "r01.html#học-máy-machine-learning",
-    "href": "r01.html#học-máy-machine-learning",
+    "objectID": "r01.html#big-data-analytics",
+    "href": "r01.html#big-data-analytics",
     "title": "Overview of R",
-    "section": "Học máy (Machine Learning)",
-    "text": "Học máy (Machine Learning)\n\nCó các thư viện như caret, randomForest, e1071, xgboost giúp xây dựng mô hình dự đoán.\nR thường được dùng để phát triển và đánh giá các mô hình học máy.",
+    "section": "Big Data Analytics",
+    "text": "Big Data Analytics\n\nR có thể tích hợp với Apache Spark thông qua sparklyr, which helps in big data processing.\nCombining SQL, NoSQL for large-scale data analysis.",
     "crumbs": [
       "Overview of R"
     ]
   },
   {
-    "objectID": "r01.html#xử-lý-dữ-liệu-lớn-big-data-analytics",
-    "href": "r01.html#xử-lý-dữ-liệu-lớn-big-data-analytics",
+    "objectID": "r01.html#data-science-and-automated-reporting",
+    "href": "r01.html#data-science-and-automated-reporting",
     "title": "Overview of R",
-    "section": "Xử lý dữ liệu lớn (Big Data Analytics)",
-    "text": "Xử lý dữ liệu lớn (Big Data Analytics)\n\nR có thể tích hợp với Apache Spark thông qua sparklyr, giúp xử lý dữ liệu lớn.\nKết hợp SQL, NoSQL để phân tích dữ liệu quy mô lớn.",
+    "section": "Data science and automated reporting",
+    "text": "Data science and automated reporting\n\nR supports dynamic reporting with R Markdown, which helps automate data reporting.\nR Shiny allows building interactive web applications to present data.",
     "crumbs": [
       "Overview of R"
     ]
   },
   {
-    "objectID": "r01.html#khoa-học-dữ-liệu-và-báo-cáo-tự-động",
-    "href": "r01.html#khoa-học-dữ-liệu-và-báo-cáo-tự-động",
+    "objectID": "r01.html#medicine-and-biology",
+    "href": "r01.html#medicine-and-biology",
     "title": "Overview of R",
-    "section": "Khoa học dữ liệu và báo cáo tự động",
-    "text": "Khoa học dữ liệu và báo cáo tự động\n\nR hỗ trợ tạo báo cáo động với R Markdown, giúp tự động hóa báo cáo dữ liệu.\nR Shiny cho phép xây dựng ứng dụng web tương tác để trình bày dữ liệu.",
-    "crumbs": [
-      "Overview of R"
-    ]
-  },
-  {
-    "objectID": "r01.html#y-học-và-sinh-học",
-    "href": "r01.html#y-học-và-sinh-học",
-    "title": "Overview of R",
-    "section": "Y học và sinh học",
-    "text": "Y học và sinh học\n\nHỗ trợ nghiên cứu dịch tễ học, mô hình hóa bệnh tật",
+    "section": "Medicine and Biology",
+    "text": "Medicine and Biology\n\nSupporting epidemiological research and disease modeling",
     "crumbs": [
       "Overview of R"
     ]
@@ -633,7 +623,7 @@
     "href": "r01.html#git",
     "title": "Overview of R",
     "section": "Git ",
-    "text": "Git \n\nGit là một phần mềm mã nguồn mở, quản lý phiên bản (Version Control System - VCS), mục đích của nó là theo dõi các thay đổi của tệp trong một kho lưu trữ và cung cấp khả năng quay lại phiên bản trước đó (bao gồm các thay đổi trong mã nguồn mở cho các mô hình tính toán, thuật toán theo thời gian).\nGit là một phần mềm hoạt động cục bộ. Bạn không cần GitHub để Git có thể hoạt động. Bạn có thể sử dụng Git độc lập.",
+    "text": "Git \n\nGit is an open source, version control system (VCS) whose purpose is to track changes to files in a repository and provide the ability to roll back to previous versions (including changes in open source code for computational models and algorithms over time).\nGit is a local software. You do not need GitHub for Git to work. You can use Git independently.",
     "crumbs": [
       "Overview of R"
     ]
@@ -643,7 +633,7 @@
     "href": "r01.html#github",
     "title": "Overview of R",
     "section": "GitHub",
-    "text": "GitHub\n\nGitHub là một dịch vụ dựa trên đám mây để lưu trữ Git.\nĐóng vai trò như một máy chủ từ xa cho Git.\nGiao diện Web-based, miễn phí và công khai.",
+    "text": "GitHub\n\nGitHub is a cloud-based service for hosting Git.\nActs as a remote server for Git.\nWeb-based interface, free and public.",
     "crumbs": [
       "Overview of R"
     ]
@@ -653,7 +643,7 @@
     "href": "r01.html#repository",
     "title": "Overview of R",
     "section": "Repository",
-    "text": "Repository\nKho lưu trữ (Repository): Chứa một tập hợp các tệp và thư mục, ghi lại lịch sử thay đổi, theo dõi trạng thái và các phiên bản của chúng. Có hai loại:\n\nKho lưu trữ từ xa (Remote repository): Lưu trữ trên máy chủ từ xa, được chia sẻ giữa nhiều thành viên trong nhóm.\nKho lưu trữ cục bộ (Local repository): Lưu trữ trên máy tính cá nhân của người dùng.",
+    "text": "Repository\nContains a collection of files and folders, records the history of changes, tracks their status and versions. There are two types:\n\nRemote repository: Stored on a remote server, shared among multiple team members.\nLocal repository: Stored on a user’s personal computer.",
     "crumbs": [
       "Overview of R"
     ]
@@ -663,37 +653,37 @@
     "href": "r01.html#github-desktop",
     "title": "Overview of R",
     "section": "GitHub Desktop ",
-    "text": "GitHub Desktop \n\nGitHub Desktop là một phần mềm giúp bạn sử dụng Git dễ dàng hơn. Nó là một phần mềm được xây dựng bởi GitHub, một lần nữa, tách biệt với Git\nƯu điểm:\n\nĐơn giản hóa mọi thứ và chỉ cung cấp các chức năng thường được sử dụng của Git\nGiảm khả năng bạn sẽ mắc lỗi khi sử dụng Git\nTích hợp trực tiếp với GitHub, giúp xác thực dễ dàng hơn",
+    "text": "GitHub Desktop \n\nGitHub Desktop is a software that makes it easier for you to use Git. It is a software built by GitHub, again, separate from Git.\nAdvantages:\n\nKeeps things simple and only provides commonly used Git functionality.\nReduces the chance of you making mistakes when using Git.\nIntegrates directly with GitHub, making authentication easier.",
     "crumbs": [
       "Overview of R"
     ]
   },
   {
-    "objectID": "r01.html#thiết-kế-website-giới-thiệu-khoa-thông-tin-khóa-học",
-    "href": "r01.html#thiết-kế-website-giới-thiệu-khoa-thông-tin-khóa-học",
+    "objectID": "r01.html#website-design-to-introduce-faculty-and-course-information",
+    "href": "r01.html#website-design-to-introduce-faculty-and-course-information",
     "title": "Overview of R",
-    "section": "Thiết kế Website giới thiệu Khoa, thông tin khóa học",
-    "text": "Thiết kế Website giới thiệu Khoa, thông tin khóa học",
+    "section": "Website design to introduce Faculty and course information",
+    "text": "Website design to introduce Faculty and course information",
     "crumbs": [
       "Overview of R"
     ]
   },
   {
-    "objectID": "r01.html#trình-bày-kết-quả-phân-tích-cảnh-báo-dự-báo-dịch",
-    "href": "r01.html#trình-bày-kết-quả-phân-tích-cảnh-báo-dự-báo-dịch",
+    "objectID": "r01.html#presenting-analysis-results-warnings-and-epidemic-forecasting",
+    "href": "r01.html#presenting-analysis-results-warnings-and-epidemic-forecasting",
     "title": "Overview of R",
-    "section": "Trình bày kết quả phân tích, cảnh báo, dự báo dịch",
-    "text": "Trình bày kết quả phân tích, cảnh báo, dự báo dịch",
+    "section": "Presenting analysis results, warnings, and epidemic forecasting",
+    "text": "Presenting analysis results, warnings, and epidemic forecasting",
     "crumbs": [
       "Overview of R"
     ]
   },
   {
-    "objectID": "r01.html#thiết-kế-dashboard",
-    "href": "r01.html#thiết-kế-dashboard",
+    "objectID": "r01.html#deploying-dashboard",
+    "href": "r01.html#deploying-dashboard",
     "title": "Overview of R",
-    "section": "Thiết kế Dashboard",
-    "text": "Thiết kế Dashboard",
+    "section": "Deploying Dashboard",
+    "text": "Deploying Dashboard",
     "crumbs": [
       "Overview of R"
     ]
@@ -759,7 +749,7 @@
     "href": "intro.html",
     "title": "SWAPER",
     "section": "",
-    "text": "Hello newbies,\nFirstly, we enjoy for your appearance in deparment. The Department of Surveillance, Warning, and Preparedness for Epidemic Response (SWAPER) was established in June 1st, 2023. Our mission which monitors and forecasts epidemic trends, assesses risks, and issues alerts. It coordinates actions across all administrative levels, enhances the quality of disease surveillance and warning systems, and manages Ho Chi Minh City’s Emergency Operations Centre.\nTo adapt for that, we need to know using R. In this course, you will learn how to use R at basic level. R is not a software, it is programming language and analytic is one of functions in R. Now let it starting. 🚀\nWelcome home 🏡\nTo more information about SWAPER, please click on following link:\nhttps://hcdc-gscb.github.io/swaper/",
+    "text": "Hello newbies,\nFirstly, thank you for joining us in the department. The Department of Surveillance, Warning, and Preparedness for Epidemic Response (SWAPER) was established on June 1st, 2023. Our mission is to monitor and forecast epidemic trends, assess risks, and issue timely alerts. The department coordinates response efforts across all administrative levels, improves the quality of disease surveillance and early warning systems, and manages Ho Chi Minh City’s Emergency Operations Centre.\nTo fulfill this mission, we need to learn how to use R.\nIn this course, you’ll learn how to use R at a basic level. R is not just software — it is a programming language designed for data analysis and visualization. In public health, R allows us to analyze surveillance data, detect unusual patterns, and generate automatic reports and alerts. These tools strengthen our capacity to provide faster, data-driven responses to health threats.\nLet’s get started. 🚀\nWelcome home! 🏡\nTo more information about SWAPER, please click on following link:\nhttps://hcdc-gscb.github.io/swaper/",
     "crumbs": [
       "Introduction"
     ]
@@ -769,7 +759,7 @@
     "href": "intro.html#introduction",
     "title": "SWAPER",
     "section": "",
-    "text": "Hello newbies,\nFirstly, we enjoy for your appearance in deparment. The Department of Surveillance, Warning, and Preparedness for Epidemic Response (SWAPER) was established in June 1st, 2023. Our mission which monitors and forecasts epidemic trends, assesses risks, and issues alerts. It coordinates actions across all administrative levels, enhances the quality of disease surveillance and warning systems, and manages Ho Chi Minh City’s Emergency Operations Centre.\nTo adapt for that, we need to know using R. In this course, you will learn how to use R at basic level. R is not a software, it is programming language and analytic is one of functions in R. Now let it starting. 🚀\nWelcome home 🏡\nTo more information about SWAPER, please click on following link:\nhttps://hcdc-gscb.github.io/swaper/",
+    "text": "Hello newbies,\nFirstly, thank you for joining us in the department. The Department of Surveillance, Warning, and Preparedness for Epidemic Response (SWAPER) was established on June 1st, 2023. Our mission is to monitor and forecast epidemic trends, assess risks, and issue timely alerts. The department coordinates response efforts across all administrative levels, improves the quality of disease surveillance and early warning systems, and manages Ho Chi Minh City’s Emergency Operations Centre.\nTo fulfill this mission, we need to learn how to use R.\nIn this course, you’ll learn how to use R at a basic level. R is not just software — it is a programming language designed for data analysis and visualization. In public health, R allows us to analyze surveillance data, detect unusual patterns, and generate automatic reports and alerts. These tools strengthen our capacity to provide faster, data-driven responses to health threats.\nLet’s get started. 🚀\nWelcome home! 🏡\nTo more information about SWAPER, please click on following link:\nhttps://hcdc-gscb.github.io/swaper/",
     "crumbs": [
       "Introduction"
     ]
@@ -1145,137 +1135,130 @@
     ]
   },
   {
-    "objectID": "slide_r01.html#r-là-gì",
-    "href": "slide_r01.html#r-là-gì",
+    "objectID": "slide_r01.html#what-is-r",
+    "href": "slide_r01.html#what-is-r",
     "title": "Overview of R",
-    "section": "R là gì",
-    "text": "R là gì\n\nR là một ngôn ngữ lập trình được phát triển bởi GS. Robert Gentleman và GS. Ross Ihaka tại Đại học Auckland1. Tên gọi R được đặt theo chữ cái đầu của tên 2 tác giả (Robert và Ross).\nĐể tính toán thống kê và trực quan hóa dữ liệu.\nBao gồm phần cơ bản (tích hợp sẵn khi cài đặt R) và phần mở rộng thông qua các gói (packages)"
+    "section": "What is R?",
+    "text": "What is R?\n\nR is a programming language developed by Professor Robert Gentleman and Professor Ross Ihaka at the University of Auckland1. The name R is derived from the first letters of the two authors’ names (Robert and Ross).\nFor statistical computation and data visualization.\nIncludes a basic part (built-in when installing R) and extensions through packages"
   },
   {
-    "objectID": "slide_r01.html#ngôn-ngữ-lập-trình",
-    "href": "slide_r01.html#ngôn-ngữ-lập-trình",
+    "objectID": "slide_r01.html#programming-language",
+    "href": "slide_r01.html#programming-language",
     "title": "Overview of R",
-    "section": "Ngôn ngữ lập trình",
-    "text": "Ngôn ngữ lập trình\n\nNgôn ngữ lập trình là một tập hợp các hướng dẫn để yêu cầu máy tính thực hiện một số tác vụ nhất định.\nNgười dùng giao tiếp, đối thoại với máy tính bằng cách nhập những câu văn (code) giống như chat với máy tính, để máy hiểu và làm đúng những gì con người muốn"
+    "section": "Programming language",
+    "text": "Programming language\n\nA programming language is a set of instructions that tell a computer to perform certain tasks.\nUsers communicate and converse with computers by entering sentences (code) like chatting with the computer, so that the computer understands and does exactly what the person wants."
   },
   {
-    "objectID": "slide_r01.html#nên-sử-dụng-r-vì",
-    "href": "slide_r01.html#nên-sử-dụng-r-vì",
+    "objectID": "slide_r01.html#using-r-because",
+    "href": "slide_r01.html#using-r-because",
     "title": "Overview of R",
-    "section": "Nên sử dụng R vì",
-    "text": "Nên sử dụng R vì\n\nMiễn phí, liên tục cập nhật\nRất tốt trong xử lý thống kê và vẽ đồ họa\nLưu trữ câu lệnh và thực hiện lại dễ dàng\nNên sử dụng RStudio thay vì R cơ bản\nHoàn toàn có thể tự học từ nguồn internet"
+    "section": "Using R because",
+    "text": "Using R because\n\nFree, constantly updated.\nGreat for statistics and graphics.\nEasy to store commands and re-execute.\nShould use RStudio instead of basic R.\nCompletely self-taught from internet sources."
   },
   {
-    "objectID": "slide_r01.html#phân-biệt-r-và-rstudio",
-    "href": "slide_r01.html#phân-biệt-r-và-rstudio",
+    "objectID": "slide_r01.html#installation-r",
+    "href": "slide_r01.html#installation-r",
     "title": "Overview of R",
-    "section": "Phân biệt R và RStudio",
-    "text": "Phân biệt R và RStudio\n\n\n\n\n\n\n\nR\nRStudio\n\n\n\n\n\nlà ngôn ngữ lập trình\nSau khi cài R, chúng ta mở lên sẽ thấy giao diện giống như một khung chat trống. Khung chat này là nơi chúng ta viết code để giao tiếp với máy tính.\n\n\nlà một môi trường phát triển tích hợp (integrated development environment hay IDE) hay nói đơn giản là một phần mềm để viết code R hiệu quả hơn."
+    "section": "Installation R",
+    "text": "Installation R\nR Official Website: https://www.r-project.org"
   },
   {
-    "objectID": "slide_r01.html#cài-đặt-r",
-    "href": "slide_r01.html#cài-đặt-r",
+    "objectID": "slide_r01.html#installation-r-studio",
+    "href": "slide_r01.html#installation-r-studio",
     "title": "Overview of R",
-    "section": "Cài đặt R",
-    "text": "Cài đặt R\nTrang web chính thức của R: https://www.r-project.org"
+    "section": "Installation R-Studio",
+    "text": "Installation R-Studio\nRStudio Official Website: https://posit.co/download/rstudio-desktop/\nR must be installed before RStudio can be installed."
   },
   {
-    "objectID": "slide_r01.html#cài-đặt-rstudio",
-    "href": "slide_r01.html#cài-đặt-rstudio",
+    "objectID": "slide_r01.html#data-analysis-and-visualization",
+    "href": "slide_r01.html#data-analysis-and-visualization",
     "title": "Overview of R",
-    "section": "Cài đặt RStudio",
-    "text": "Cài đặt RStudio\nTrang web chính thức của RStudio: https://posit.co/download/rstudio-desktop/\nCần cài đặt R trước khi cài RStudio"
+    "section": "Data analysis and visualization",
+    "text": "Data analysis and visualization\n\nR provides many powerful libraries like ggplot2, dplyr, tidyverse for data processing and visualization.\nCommonly used in scientific, economic, medical and business research to analyze data and generate reports."
   },
   {
-    "objectID": "slide_r01.html#phân-tích-và-trực-quan-hóa-dữ-liệu",
-    "href": "slide_r01.html#phân-tích-và-trực-quan-hóa-dữ-liệu",
+    "objectID": "slide_r01.html#statistics-and-hypothesis-testing",
+    "href": "slide_r01.html#statistics-and-hypothesis-testing",
     "title": "Overview of R",
-    "section": "Phân tích và trực quan hóa dữ liệu",
-    "text": "Phân tích và trực quan hóa dữ liệu\n\nR cung cấp nhiều thư viện mạnh mẽ như ggplot2, dplyr, tidyverse để xử lý và trực quan hóa dữ liệu.\nThường được sử dụng trong nghiên cứu khoa học, kinh tế, y tế và kinh doanh để phân tích dữ liệu và tạo báo cáo."
+    "section": "Statistics and hypothesis testing",
+    "text": "Statistics and hypothesis testing\n\nSupports statistical methods such as linear regression, t-test, ANOVA, and many other statistical models.\nSuitable for academic research and in-depth data analysis."
   },
   {
-    "objectID": "slide_r01.html#thống-kê-và-kiểm-định-giả-thuyết",
-    "href": "slide_r01.html#thống-kê-và-kiểm-định-giả-thuyết",
+    "objectID": "slide_r01.html#machine-learning",
+    "href": "slide_r01.html#machine-learning",
     "title": "Overview of R",
-    "section": "Thống kê và kiểm định giả thuyết",
-    "text": "Thống kê và kiểm định giả thuyết\n\nHỗ trợ các phương pháp thống kê như hồi quy tuyến tính, kiểm định t-test, ANOVA, và các mô hình thống kê khác.\nPhù hợp cho nghiên cứu học thuật và phân tích dữ liệu chuyên sâu."
+    "section": "Machine Learning",
+    "text": "Machine Learning\n\nThere are libraries like caret, randomForest, e1071, xgboost for building predictive models.\nR is commonly used to develop and evaluate machine learning models."
   },
   {
-    "objectID": "slide_r01.html#học-máy-machine-learning",
-    "href": "slide_r01.html#học-máy-machine-learning",
+    "objectID": "slide_r01.html#big-data-analytics",
+    "href": "slide_r01.html#big-data-analytics",
     "title": "Overview of R",
-    "section": "Học máy (Machine Learning)",
-    "text": "Học máy (Machine Learning)\n\nCó các thư viện như caret, randomForest, e1071, xgboost giúp xây dựng mô hình dự đoán.\nR thường được dùng để phát triển và đánh giá các mô hình học máy."
+    "section": "Big Data Analytics",
+    "text": "Big Data Analytics\n\nR có thể tích hợp với Apache Spark thông qua sparklyr, which helps in big data processing.\nCombining SQL, NoSQL for large-scale data analysis."
   },
   {
-    "objectID": "slide_r01.html#xử-lý-dữ-liệu-lớn-big-data-analytics",
-    "href": "slide_r01.html#xử-lý-dữ-liệu-lớn-big-data-analytics",
+    "objectID": "slide_r01.html#data-science-and-automated-reporting",
+    "href": "slide_r01.html#data-science-and-automated-reporting",
     "title": "Overview of R",
-    "section": "Xử lý dữ liệu lớn (Big Data Analytics)",
-    "text": "Xử lý dữ liệu lớn (Big Data Analytics)\n\nR có thể tích hợp với Apache Spark thông qua sparklyr, giúp xử lý dữ liệu lớn.\nKết hợp SQL, NoSQL để phân tích dữ liệu quy mô lớn."
+    "section": "Data science and automated reporting",
+    "text": "Data science and automated reporting\n\nR supports dynamic reporting with R Markdown, which helps automate data reporting.\nR Shiny allows building interactive web applications to present data."
   },
   {
-    "objectID": "slide_r01.html#khoa-học-dữ-liệu-và-báo-cáo-tự-động",
-    "href": "slide_r01.html#khoa-học-dữ-liệu-và-báo-cáo-tự-động",
+    "objectID": "slide_r01.html#medicine-and-biology",
+    "href": "slide_r01.html#medicine-and-biology",
     "title": "Overview of R",
-    "section": "Khoa học dữ liệu và báo cáo tự động",
-    "text": "Khoa học dữ liệu và báo cáo tự động\n\nR hỗ trợ tạo báo cáo động với R Markdown, giúp tự động hóa báo cáo dữ liệu.\nR Shiny cho phép xây dựng ứng dụng web tương tác để trình bày dữ liệu."
-  },
-  {
-    "objectID": "slide_r01.html#y-học-và-sinh-học",
-    "href": "slide_r01.html#y-học-và-sinh-học",
-    "title": "Overview of R",
-    "section": "Y học và sinh học",
-    "text": "Y học và sinh học\n\nHỗ trợ nghiên cứu dịch tễ học, mô hình hóa bệnh tật"
+    "section": "Medicine and Biology",
+    "text": "Medicine and Biology\n\nSupporting epidemiological research and disease modeling"
   },
   {
     "objectID": "slide_r01.html#git",
     "href": "slide_r01.html#git",
     "title": "Overview of R",
     "section": "Git ",
-    "text": "Git \n\nGit là một phần mềm mã nguồn mở, quản lý phiên bản (Version Control System - VCS), mục đích của nó là theo dõi các thay đổi của tệp trong một kho lưu trữ và cung cấp khả năng quay lại phiên bản trước đó (bao gồm các thay đổi trong mã nguồn mở cho các mô hình tính toán, thuật toán theo thời gian).\nGit là một phần mềm hoạt động cục bộ. Bạn không cần GitHub để Git có thể hoạt động. Bạn có thể sử dụng Git độc lập."
+    "text": "Git \n\nGit is an open source, version control system (VCS) whose purpose is to track changes to files in a repository and provide the ability to roll back to previous versions (including changes in open source code for computational models and algorithms over time).\nGit is a local software. You do not need GitHub for Git to work. You can use Git independently."
   },
   {
     "objectID": "slide_r01.html#github",
     "href": "slide_r01.html#github",
     "title": "Overview of R",
     "section": "GitHub",
-    "text": "GitHub\n\nGitHub là một dịch vụ dựa trên đám mây để lưu trữ Git.\nĐóng vai trò như một máy chủ từ xa cho Git.\nGiao diện Web-based, miễn phí và công khai."
+    "text": "GitHub\n\nGitHub is a cloud-based service for hosting Git.\nActs as a remote server for Git.\nWeb-based interface, free and public."
   },
   {
     "objectID": "slide_r01.html#repository",
     "href": "slide_r01.html#repository",
     "title": "Overview of R",
     "section": "Repository",
-    "text": "Repository\nKho lưu trữ (Repository): Chứa một tập hợp các tệp và thư mục, ghi lại lịch sử thay đổi, theo dõi trạng thái và các phiên bản của chúng. Có hai loại:\n\nKho lưu trữ từ xa (Remote repository): Lưu trữ trên máy chủ từ xa, được chia sẻ giữa nhiều thành viên trong nhóm.\nKho lưu trữ cục bộ (Local repository): Lưu trữ trên máy tính cá nhân của người dùng."
+    "text": "Repository\nContains a collection of files and folders, records the history of changes, tracks their status and versions. There are two types:\n\nRemote repository: Stored on a remote server, shared among multiple team members.\nLocal repository: Stored on a user’s personal computer."
   },
   {
     "objectID": "slide_r01.html#github-desktop",
     "href": "slide_r01.html#github-desktop",
     "title": "Overview of R",
     "section": "GitHub Desktop ",
-    "text": "GitHub Desktop \n\nGitHub Desktop là một phần mềm giúp bạn sử dụng Git dễ dàng hơn. Nó là một phần mềm được xây dựng bởi GitHub, một lần nữa, tách biệt với Git\nƯu điểm:\n\nĐơn giản hóa mọi thứ và chỉ cung cấp các chức năng thường được sử dụng của Git\nGiảm khả năng bạn sẽ mắc lỗi khi sử dụng Git\nTích hợp trực tiếp với GitHub, giúp xác thực dễ dàng hơn"
+    "text": "GitHub Desktop \n\nGitHub Desktop is a software that makes it easier for you to use Git. It is a software built by GitHub, again, separate from Git.\nAdvantages:\n\nKeeps things simple and only provides commonly used Git functionality.\nReduces the chance of you making mistakes when using Git.\nIntegrates directly with GitHub, making authentication easier."
   },
   {
-    "objectID": "slide_r01.html#thiết-kế-website-giới-thiệu-khoa-thông-tin-khóa-học",
-    "href": "slide_r01.html#thiết-kế-website-giới-thiệu-khoa-thông-tin-khóa-học",
+    "objectID": "slide_r01.html#website-design-to-introduce-faculty-and-course-information",
+    "href": "slide_r01.html#website-design-to-introduce-faculty-and-course-information",
     "title": "Overview of R",
-    "section": "Thiết kế Website giới thiệu Khoa, thông tin khóa học",
-    "text": "Thiết kế Website giới thiệu Khoa, thông tin khóa học"
+    "section": "Website design to introduce Faculty and course information",
+    "text": "Website design to introduce Faculty and course information"
   },
   {
-    "objectID": "slide_r01.html#trình-bày-kết-quả-phân-tích-cảnh-báo-dự-báo-dịch",
-    "href": "slide_r01.html#trình-bày-kết-quả-phân-tích-cảnh-báo-dự-báo-dịch",
+    "objectID": "slide_r01.html#presenting-analysis-results-warnings-and-epidemic-forecasting",
+    "href": "slide_r01.html#presenting-analysis-results-warnings-and-epidemic-forecasting",
     "title": "Overview of R",
-    "section": "Trình bày kết quả phân tích, cảnh báo, dự báo dịch",
-    "text": "Trình bày kết quả phân tích, cảnh báo, dự báo dịch"
+    "section": "Presenting analysis results, warnings, and epidemic forecasting",
+    "text": "Presenting analysis results, warnings, and epidemic forecasting"
   },
   {
-    "objectID": "slide_r01.html#thiết-kế-dashboard",
-    "href": "slide_r01.html#thiết-kế-dashboard",
+    "objectID": "slide_r01.html#deploying-dashboard",
+    "href": "slide_r01.html#deploying-dashboard",
     "title": "Overview of R",
-    "section": "Thiết kế Dashboard",
-    "text": "Thiết kế Dashboard"
+    "section": "Deploying Dashboard",
+    "text": "Deploying Dashboard"
   },
   {
     "objectID": "slide_r04.html#data-visualization",
