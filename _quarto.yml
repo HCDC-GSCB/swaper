@@ -41,7 +41,7 @@ website:
 format:
   html:
     self-contained: true
-    theme: flatly 
+    theme: brite 
     css: bootstrap.min.css
     toc: true
 
