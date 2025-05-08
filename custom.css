@@ -1,0 +1,37 @@
+/* Navbar */
+.navbar {
+  background-color: #A8E639 !important; /* màu xanh lá cây */
+  border-bottom: 2px solid #000;
+}
+
+/* Navbar text */
+.navbar .navbar-brand,
+.navbar .nav-link,
+.navbar .dropdown-toggle {
+  color: #000 !important;
+  font-weight: 600;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  background-color: #fff !important; /* nền dropdown màu trắng */
+  border: 2px solid #000;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  padding: 0.5rem;
+}
+
+/* Dropdown item */
+.dropdown-item {
+  color: #000 !important;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+/* Hover effect: sáng màu xanh lá cây khi rê vào */
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: #A8E639 !important; /* màu giống navbar */
+  color: #000 !important;
+}

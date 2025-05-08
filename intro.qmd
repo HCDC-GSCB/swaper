@@ -1,0 +1,43 @@
+## Introduction {.unnumbered}
+
+Hello newbies,
+
+Firstly, we enjoy for your appearance in deparment. The Department of Surveillance, Warning, and Preparedness for Epidemic Response (SWAPER) was established in June 1st, 2023. Our mission which monitors and forecasts epidemic trends, assesses risks, and issues alerts. It coordinates actions across all administrative levels, enhances the quality of disease surveillance and warning systems, and manages Ho Chi Minh City’s Emergency Operations Centre.
+
+To adapt for that, we need to know using R. In this course, you will learn how to use R at basic level. R is not a software, it is programming language and analytic is one of functions in R. Now let it starting. 🚀
+
+Welcome home 🏡
+
+To more information about SWAPER, please click on following link:
+
+<https://hcdc-gscb.github.io/swaper/>
+
+## Agenda of R-Together {.unnumbered}
+
++--------------+--------------------------------------------+----------------------------------+
+|              | Lesson                                     | Content                          |
++==============+============================================+==================================+
+| Day 1        | Overview of R                              | R and RStudio                    |
+|              |                                            |                                  |
+|              |                                            | Popular applications with R      |
+|              |                                            |                                  |
+|              |                                            | Git and Github                   |
++--------------+--------------------------------------------+----------------------------------+
+| Day 2        | Data management, data cleaning and R style | Importing and exporting data     |
+|              |                                            |                                  |
+|              |                                            | Data cleaning and Tidyverse      |
+|              |                                            |                                  |
+|              |                                            | Function in R                    |
++--------------+--------------------------------------------+----------------------------------+
+| Day 3        | Data analysis                              | R project, R markdown            |
+|              |                                            |                                  |
+|              |                                            | Working with gtsummary           |
++--------------+--------------------------------------------+----------------------------------+
+| Day 4        | Data visualization                         | Grammar of graphics with ggplot2 |
+|              |                                            |                                  |
+|              |                                            | Basic geometries                 |
+|              |                                            |                                  |
+|              |                                            | Practice                         |
++--------------+--------------------------------------------+----------------------------------+
+| Day 5        | Capstone                                   | Practice with Rmarkdown          |
++--------------+--------------------------------------------+----------------------------------+

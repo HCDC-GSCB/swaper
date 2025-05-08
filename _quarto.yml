@@ -1,0 +1,48 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "SWAPER"
+  navbar:
+    left:
+      - text: "Overview"
+        href: index.qmd
+      - text: "Seminars"
+        menu: 
+          - text: "All seminars"
+            href: exp1.qmd
+          - text: "Registered"
+            href: exp2.qmd
+      - text: "Documents"
+        menu:
+          - text: "Quality of surveillance system"
+            href: htgs.qmd
+          - text: "Warning, forcasting in infectious diseases"
+            href: threshold.qmd
+          - text: "R language"
+            href: intro.qmd
+    right:
+      - icon: github
+        href: https://github.com/HCDC-GSCB/
+
+  sidebar:
+    - id: r-together
+      title: "R language"
+      contents:
+        - intro.qmd
+        - r01.qmd
+        - r02.qmd
+        - r04.qmd
+
+  back-to-top-navigation: true
+  page-footer: "Copyright 2025, SWAPER"
+      
+format:
+  html:
+    self-contained: true
+    theme: flatly 
+    css: custom.css
+    toc: true
+
+editor: visual
