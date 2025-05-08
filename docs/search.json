@@ -593,7 +593,7 @@
     "href": "r01.html#big-data-analytics",
     "title": "Overview of R",
     "section": "Big Data Analytics",
-    "text": "Big Data Analytics\n\nR có thể tích hợp với Apache Spark thông qua sparklyr, which helps in big data processing.\nCombining SQL, NoSQL for large-scale data analysis.",
+    "text": "Big Data Analytics\n\nR can integrate with Apache Spark through sparklyr, which helps in big data processing.\nCombining SQL, NoSQL for large-scale data analysis.",
     "crumbs": [
       "Overview of R"
     ]
@@ -1195,7 +1195,7 @@
     "href": "slide_r01.html#big-data-analytics",
     "title": "Overview of R",
     "section": "Big Data Analytics",
-    "text": "Big Data Analytics\n\nR có thể tích hợp với Apache Spark thông qua sparklyr, which helps in big data processing.\nCombining SQL, NoSQL for large-scale data analysis."
+    "text": "Big Data Analytics\n\nR can integrate with Apache Spark through sparklyr, which helps in big data processing.\nCombining SQL, NoSQL for large-scale data analysis."
   },
   {
     "objectID": "slide_r01.html#data-science-and-automated-reporting",

@@ -74,7 +74,7 @@ R must be installed before RStudio can be installed.
 
 ## **Big Data Analytics**
 
--   R có thể tích hợp với Apache Spark thông qua `sparklyr`, which helps in big data processing.
+-   R can integrate with Apache Spark through `sparklyr`, which helps in big data processing.
 -   Combining SQL, NoSQL for large-scale data analysis.
 
 ## Data science and automated reporting
