@@ -333,7 +333,7 @@
     "href": "r04.html#grammar-of-graphics-3",
     "title": "Data visualization",
     "section": "Grammar of graphics",
-    "text": "Grammar of graphics\nggplot(mtcars, aes(x = wt, y = mpg)) - Data: mtcars. - Aesthetics: aes(x = wt, y = mpg) - Geometries: geom_point - Coordinates: scale_x_continuous, scale_y_continuous, ggtitle - Theme: theme_bw\n\n\n\n\n\n\nTip\n\n\n\nggplot2 must run with data which is data frame, and we couldn’t run with another type of data (eg: matrix or vector).",
+    "text": "Grammar of graphics\n\nData: mtcars\nAesthetics: aes(x = wt, y = mpg)\nGeometries: geom_point\nCoordinates: scale_x_continuous, scale_y_continuous, ggtitle\nTheme: theme_bw\n\n\n\n\n\n\n\nTip\n\n\n\nggplot2 must run with data which is data frame, and we couldn’t run with another type of data (eg: matrix or vector).",
     "crumbs": [
       "Data visualization"
     ]
