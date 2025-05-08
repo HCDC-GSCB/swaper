@@ -1,24 +1,13 @@
-## 1. Risk Assessment
+## MIDSEA
 
-**Date & Time**: Feb 21, 2025 (14:00 Vietnam) 
-
-**Location**: Room 3.03 (HCDC - District 8)
-
-**Via**: Zoom
-
-**Speakers**: Dr. Nguyen Dac Tho *(Ho Chi Minh City Center for Diseases Control)*
-
-**Content**: Overview
-
-
-## 2. MIDSEA
-
-**Date & Time**: March 12, 2025 (13:00 Vietnam) 
+**Date & Time**: May 14, 2025 (13:00 Vietnam)
 
 **Location**: Room 3.03 (HCDC - District 8)
 
 **Via**: Zoom
 
-**Speakers**: Prof. Azra Ghani *(Professor of Infectious Disease Epidemiology with Imperial College London)*
+**Speakers**: Prof. Sheetal Silal *(The modelling and Simulation Hub, Africa)*
 
-**Content**: The future for malaria vaccines: progress and challenges in supporting malaria eradication
+**Content**: Novel Approaches to Strengthening Analytics & Modelling Capacity
+
+![](poster.jpg)

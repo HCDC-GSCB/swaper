@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "🔹 Members",
-    "section": "",
-    "text": "Department of Surveillance, Warning and Preparedness, Emergency Response 🏡\n        Established: June, 2023\n        Affiliation: Ho Chi Minh Center for Diseases Control\n        The Department of Surveillance, Warning, and Preparedness for Epidemic Response (SWAPER) monitors and forecasts epidemic trends, assesses risks, and issues alerts. It coordinates actions across all administrative levels, enhances the quality of disease surveillance and warning systems, and manages Ho Chi Minh City’s Emergency Operations Centre.\n    \n\n\n🔹 Members\n\n    \n    \n        \n        \n            Lan Truong\n            Position: Head of Department of Surveillance, Warning and Preparedness, Emergency Response\n            Major: Master of Public Health\n        \n    \n\n    \n    \n        \n        An Tran\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n    \n        \n        Anh Huynh\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n    \n        \n        Diem Le\n        Major: Doctor of Preventive Medicine\n        Surveillance System, Data analysis and forecasting (Modeling team)\n    \n    \n        \n        Thu Pham\n        Major: Bachelor of Public Health\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n\n    \n    \n        \n        Khang Huynh\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Prepare to respond to emergencies(EOC team)\n    \n    \n        \n        Vy Tran\n        Major: Doctor of Preventive Medicine\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n        \n        Ngoc Dinh\n        Major: Doctor of Preventive Medicine\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n        \n        Le Tran\n        Major: Doctor of Preventive Medicine\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n\n    \n        \n        Tuyen Pham\n        Major: Doctor of Preventive Medicine\n        Surveillance, warning epidemic\n    \n    \n        \n        Quan Truong\n        Major: Doctor of Preventive Medicine\n        Surveillance, warning epidemic\n    \n    \n        \n        Vinh Tran\n        Major: Bachelor of Public Health\n        Surveillance, warning epidemic\n    \n    \n        \n        Nhon Nguyen\n        Major: Bachelor of Public Health\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n\n\n\n\n\n Back to top"
-  },
-  {
     "objectID": "threshold.html",
     "href": "threshold.html",
     "title": "Warning and forcasting epidemic",
@@ -21,18 +14,11 @@
     "text": "Agenda of Topic\n\n\n\n\nLesson\nContent\n\n\n\n\nDay 1\nThreshold and methods for determining threshold in IBS 🚀 Presentation\nWhat is threshold?\nOverview of methods for determining threshold\nPerformance of threshold, and research introduction\n\n\nDay 2\nTransmission in infectious diseases and the reproduction number 🚀 Presentation\nTimeline of infection in infectious diseases\nMeasurements in infectious diseases\nReproduction number\n\n\nDay 3\nMathematical models and applications in infectious disease forecasting 🚀 Presentation\nWhat is mathmatical models?\nDeterministic and stochastic models\nApplication of mathematical models in infectious diseases forecasting"
   },
   {
-    "objectID": "slide_r02.html",
-    "href": "slide_r02.html",
-    "title": "Data management, data cleaning and R style",
-    "section": "",
-    "text": "It can be written into an automated data inspection process, combining descriptive statistics and visualization to detect issues that need cleaning.\nAll cleaning steps are logged.\nSave time cleaning new data."
-  },
-  {
     "objectID": "slide_r02.html#why-cleaning-data-with-r",
     "href": "slide_r02.html#why-cleaning-data-with-r",
     "title": "Data management, data cleaning and R style",
-    "section": "",
-    "text": "It can be written into an automated data inspection process, combining descriptive statistics and visualization to detect issues that need cleaning.\nAll cleaning steps are logged.\nSave time cleaning new data."
+    "section": "Why cleaning data with R?",
+    "text": "Why cleaning data with R?\n\nIt can be written into an automated data inspection process, combining descriptive statistics and visualization to detect issues that need cleaning.\nAll cleaning steps are logged.\nSave time cleaning new data."
   },
   {
     "objectID": "slide_r02.html#objective-and-sentence-in-r",
@@ -53,7 +39,7 @@
     "href": "slide_r02.html#objective-and-sentence-in-r-2",
     "title": "Data management, data cleaning and R style",
     "section": "Objective and sentence in R",
-    "text": "Objective and sentence in R\nExample:\n\n\n[1] 1000\n\n\n\nMax: maximum value function of variable\nx: input agrument, choose id column in data df\nna.rm=TRUE: eliminate NA value in id column before maximizing value.\n\n\n\n\n\n\n\n\nTip\n\n\n\nTo read the instruction manual for a command, type ?command-name."
+    "text": "Objective and sentence in R\nExample:\n\n\n[1] 1000\n\n\n\nMax: maximum value function of variable\nx: input agrument, choose id column in data df\nna.rm=TRUE: eliminate NA value in id column before maximizing value.\n\n\n\n\n\n\n\n\nTip\n\n\nTo read the instruction manual for a command, type ?command-name."
   },
   {
     "objectID": "slide_r02.html#process-of-cleaning-data",
@@ -95,7 +81,7 @@
     "href": "slide_r02.html#clean-name-of-columns-1",
     "title": "Data management, data cleaning and R style",
     "section": "Clean name of columns",
-    "text": "Clean name of columns\n\n\n [1] \"id\"        \"gioitinh\"  \"ngaysinh\"  \"huyen\"     \"xa\"        \"tinh\"     \n [7] \"VGB &lt;24\"   \"VGB &gt;24\"   \"VGB_1\"     \"VGB_2\"     \"VGB_3\"     \"VGB_4+\"   \n[13] \"HG_1\"      \"HG_2\"      \"HG_3\"      \"HG_4+\"     \"UV_1\"      \"UV_2\"     \n[19] \"UV_3\"      \"UV_4+\"     \"tinhtrang\"\n\n\n\n\n\n [1] \"id\"        \"gioitinh\"  \"ngaysinh\"  \"huyen\"     \"xa\"        \"tinh\"     \n [7] \"vgb_24\"    \"vgb_24_2\"  \"vgb_1\"     \"vgb_2\"     \"vgb_3\"     \"vgb_4\"    \n[13] \"hg_1\"      \"hg_2\"      \"hg_3\"      \"hg_4\"      \"uv_1\"      \"uv_2\"     \n[19] \"uv_3\"      \"uv_4\"      \"tinhtrang\"\n\n\n\n\n\n\n\n\n\n\n\n\n\nCaution\n\n\n\nIf you don’t use &lt;- then R will only return the results of the statements but the df table will not change."
+    "text": "Clean name of columns\n\n\n [1] \"id\"        \"gioitinh\"  \"ngaysinh\"  \"huyen\"     \"xa\"        \"tinh\"     \n [7] \"VGB &lt;24\"   \"VGB &gt;24\"   \"VGB_1\"     \"VGB_2\"     \"VGB_3\"     \"VGB_4+\"   \n[13] \"HG_1\"      \"HG_2\"      \"HG_3\"      \"HG_4+\"     \"UV_1\"      \"UV_2\"     \n[19] \"UV_3\"      \"UV_4+\"     \"tinhtrang\"\n\n\n\n\n\n [1] \"id\"        \"gioitinh\"  \"ngaysinh\"  \"huyen\"     \"xa\"        \"tinh\"     \n [7] \"vgb_24\"    \"vgb_24_2\"  \"vgb_1\"     \"vgb_2\"     \"vgb_3\"     \"vgb_4\"    \n[13] \"hg_1\"      \"hg_2\"      \"hg_3\"      \"hg_4\"      \"uv_1\"      \"uv_2\"     \n[19] \"uv_3\"      \"uv_4\"      \"tinhtrang\"\n\n\n\n\n\n\n\n\n\n\n\n\n\nCaution\n\n\nIf you don’t use &lt;- then R will only return the results of the statements but the df table will not change."
   },
   {
     "objectID": "slide_r02.html#convert-data-type",
@@ -158,14 +144,14 @@
     "href": "slide_r02.html#check-na-values",
     "title": "Data management, data cleaning and R style",
     "section": "Check NA values",
-    "text": "Check NA values\n\n\n\n[1] NA\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nIn R, NA is a special value that cannot be calculated or compared with other datatypes (the result always returns NA).\n\n\n\n\nReplace NA with another value.\nRemove rows containing NA."
+    "text": "Check NA values\n\n\n\n[1] NA\n\n\n\n\n\n\n\n\n\n\nTip\n\n\nIn R, NA is a special value that cannot be calculated or compared with other datatypes (the result always returns NA).\n\n\n\n\n\nReplace NA with another value.\nRemove rows containing NA."
   },
   {
     "objectID": "slide_r02.html#check-outliers",
     "href": "slide_r02.html#check-outliers",
     "title": "Data management, data cleaning and R style",
     "section": "Check outliers",
-    "text": "Check outliers\nTo quickly check whether the data contains outliers, we can use boxplot to find value points that are far away from the remaining values.\n\n\n\n\n\n\n\n\nTip\n\n\n\nIn many cases, data that is considered an outlier may still be a valid value and should be kept for analysis.\nIf outliers are wrong, handle it as same as missing values."
+    "text": "Check outliers\nTo quickly check whether the data contains outliers, we can use boxplot to find value points that are far away from the remaining values.\n\n\n\n\n\n\n\n\nTip\n\n\nIn many cases, data that is considered an outlier may still be a valid value and should be kept for analysis.\nIf outliers are wrong, handle it as same as missing values."
   },
   {
     "objectID": "slide_r02.html#check-outliers-1",
@@ -228,7 +214,7 @@
     "href": "slide_r02.html#why-tidyverse",
     "title": "Data management, data cleaning and R style",
     "section": "Why tidyverse",
-    "text": "Why tidyverse\n\nEvery function in tidyverse shares a consistent structure and pattern.\nYour R code may look cleaner and easier to follow, compared to base R.\nYou just need to install everything once, instead of different packages for different things.\n\n\n\n\n\n\n\nWarning\n\n\n\n\nIt is just a collection of R packages\nYou don’t have to use tidyverse when using R"
+    "text": "Why tidyverse\n\nEvery function in tidyverse shares a consistent structure and pattern.\nYour R code may look cleaner and easier to follow, compared to base R.\nYou just need to install everything once, instead of different packages for different things.\n\n\n\n\n\n\n\nWarning\n\n\n\nIt is just a collection of R packages\nYou don’t have to use tidyverse when using R"
   },
   {
     "objectID": "slide_r02.html#commonly-used-tidyverse-function",
@@ -242,7 +228,7 @@
     "href": "slide_r02.html#piping-with",
     "title": "Data management, data cleaning and R style",
     "section": "Piping with %>%",
-    "text": "Piping with %&gt;%\n\n\n\n\n\n\n\n\n\n\nIs this a better way to write it? Can we improve it even further?"
+    "text": "Piping with %&gt;%\n\n\nIs this a better way to write it? Can we improve it even further?"
   },
   {
     "objectID": "slide_r02.html#piping-with-1",
@@ -277,7 +263,7 @@
     "href": "r04.html",
     "title": "Data visualization",
     "section": "",
-    "text": "📎 Presentation",
+    "text": "🚀 Presentation",
     "crumbs": [
       "Data visualization"
     ]
@@ -513,11 +499,297 @@
     ]
   },
   {
+    "objectID": "r01.html",
+    "href": "r01.html",
+    "title": "Overview of R",
+    "section": "",
+    "text": "🚀 Presentation",
+    "crumbs": [
+      "Overview of R"
+    ]
+  },
+  {
+    "objectID": "r01.html#r-là-gì",
+    "href": "r01.html#r-là-gì",
+    "title": "Overview of R",
+    "section": "R là gì",
+    "text": "R là gì\n\nR là một ngôn ngữ lập trình được phát triển bởi GS. Robert Gentleman và GS. Ross Ihaka tại Đại học Auckland1. Tên gọi R được đặt theo chữ cái đầu của tên 2 tác giả (Robert và Ross).\nĐể tính toán thống kê và trực quan hóa dữ liệu.\nBao gồm phần cơ bản (tích hợp sẵn khi cài đặt R) và phần mở rộng thông qua các gói (packages)",
+    "crumbs": [
+      "Overview of R"
+    ]
+  },
+  {
+    "objectID": "r01.html#ngôn-ngữ-lập-trình",
+    "href": "r01.html#ngôn-ngữ-lập-trình",
+    "title": "Overview of R",
+    "section": "Ngôn ngữ lập trình",
+    "text": "Ngôn ngữ lập trình\n\nNgôn ngữ lập trình là một tập hợp các hướng dẫn để yêu cầu máy tính thực hiện một số tác vụ nhất định.\nNgười dùng giao tiếp, đối thoại với máy tính bằng cách nhập những câu văn (code) giống như chat với máy tính, để máy hiểu và làm đúng những gì con người muốn",
+    "crumbs": [
+      "Overview of R"
+    ]
+  },
+  {
+    "objectID": "r01.html#nên-sử-dụng-r-vì",
+    "href": "r01.html#nên-sử-dụng-r-vì",
+    "title": "Overview of R",
+    "section": "Nên sử dụng R vì",
+    "text": "Nên sử dụng R vì\n\nMiễn phí, liên tục cập nhật\nRất tốt trong xử lý thống kê và vẽ đồ họa\nLưu trữ câu lệnh và thực hiện lại dễ dàng\nNên sử dụng RStudio thay vì R cơ bản\nHoàn toàn có thể tự học từ nguồn internet",
+    "crumbs": [
+      "Overview of R"
+    ]
+  },
+  {
+    "objectID": "r01.html#phân-biệt-r-và-rstudio",
+    "href": "r01.html#phân-biệt-r-và-rstudio",
+    "title": "Overview of R",
+    "section": "Phân biệt R và RStudio",
+    "text": "Phân biệt R và RStudio\n\n\n\n\n\n\n\nR\nRStudio\n\n\n\n\n\nlà ngôn ngữ lập trình\nSau khi cài R, chúng ta mở lên sẽ thấy giao diện giống như một khung chat trống. Khung chat này là nơi chúng ta viết code để giao tiếp với máy tính.\n\n\nlà một môi trường phát triển tích hợp (integrated development environment hay IDE) hay nói đơn giản là một phần mềm để viết code R hiệu quả hơn.",
+    "crumbs": [
+      "Overview of R"
+    ]
+  },
+  {
+    "objectID": "r01.html#cài-đặt-r",
+    "href": "r01.html#cài-đặt-r",
+    "title": "Overview of R",
+    "section": "Cài đặt R",
+    "text": "Cài đặt R\nTrang web chính thức của R: https://www.r-project.org",
+    "crumbs": [
+      "Overview of R"
+    ]
+  },
+  {
+    "objectID": "r01.html#cài-đặt-rstudio",
+    "href": "r01.html#cài-đặt-rstudio",
+    "title": "Overview of R",
+    "section": "Cài đặt RStudio",
+    "text": "Cài đặt RStudio\nTrang web chính thức của RStudio: https://posit.co/download/rstudio-desktop/\nCần cài đặt R trước khi cài RStudio",
+    "crumbs": [
+      "Overview of R"
+    ]
+  },
+  {
+    "objectID": "r01.html#phân-tích-và-trực-quan-hóa-dữ-liệu",
+    "href": "r01.html#phân-tích-và-trực-quan-hóa-dữ-liệu",
+    "title": "Overview of R",
+    "section": "Phân tích và trực quan hóa dữ liệu",
+    "text": "Phân tích và trực quan hóa dữ liệu\n\nR cung cấp nhiều thư viện mạnh mẽ như ggplot2, dplyr, tidyverse để xử lý và trực quan hóa dữ liệu.\nThường được sử dụng trong nghiên cứu khoa học, kinh tế, y tế và kinh doanh để phân tích dữ liệu và tạo báo cáo.",
+    "crumbs": [
+      "Overview of R"
+    ]
+  },
+  {
+    "objectID": "r01.html#thống-kê-và-kiểm-định-giả-thuyết",
+    "href": "r01.html#thống-kê-và-kiểm-định-giả-thuyết",
+    "title": "Overview of R",
+    "section": "Thống kê và kiểm định giả thuyết",
+    "text": "Thống kê và kiểm định giả thuyết\n\nHỗ trợ các phương pháp thống kê như hồi quy tuyến tính, kiểm định t-test, ANOVA, và các mô hình thống kê khác.\nPhù hợp cho nghiên cứu học thuật và phân tích dữ liệu chuyên sâu.",
+    "crumbs": [
+      "Overview of R"
+    ]
+  },
+  {
+    "objectID": "r01.html#học-máy-machine-learning",
+    "href": "r01.html#học-máy-machine-learning",
+    "title": "Overview of R",
+    "section": "Học máy (Machine Learning)",
+    "text": "Học máy (Machine Learning)\n\nCó các thư viện như caret, randomForest, e1071, xgboost giúp xây dựng mô hình dự đoán.\nR thường được dùng để phát triển và đánh giá các mô hình học máy.",
+    "crumbs": [
+      "Overview of R"
+    ]
+  },
+  {
+    "objectID": "r01.html#xử-lý-dữ-liệu-lớn-big-data-analytics",
+    "href": "r01.html#xử-lý-dữ-liệu-lớn-big-data-analytics",
+    "title": "Overview of R",
+    "section": "Xử lý dữ liệu lớn (Big Data Analytics)",
+    "text": "Xử lý dữ liệu lớn (Big Data Analytics)\n\nR có thể tích hợp với Apache Spark thông qua sparklyr, giúp xử lý dữ liệu lớn.\nKết hợp SQL, NoSQL để phân tích dữ liệu quy mô lớn.",
+    "crumbs": [
+      "Overview of R"
+    ]
+  },
+  {
+    "objectID": "r01.html#khoa-học-dữ-liệu-và-báo-cáo-tự-động",
+    "href": "r01.html#khoa-học-dữ-liệu-và-báo-cáo-tự-động",
+    "title": "Overview of R",
+    "section": "Khoa học dữ liệu và báo cáo tự động",
+    "text": "Khoa học dữ liệu và báo cáo tự động\n\nR hỗ trợ tạo báo cáo động với R Markdown, giúp tự động hóa báo cáo dữ liệu.\nR Shiny cho phép xây dựng ứng dụng web tương tác để trình bày dữ liệu.",
+    "crumbs": [
+      "Overview of R"
+    ]
+  },
+  {
+    "objectID": "r01.html#y-học-và-sinh-học",
+    "href": "r01.html#y-học-và-sinh-học",
+    "title": "Overview of R",
+    "section": "Y học và sinh học",
+    "text": "Y học và sinh học\n\nHỗ trợ nghiên cứu dịch tễ học, mô hình hóa bệnh tật",
+    "crumbs": [
+      "Overview of R"
+    ]
+  },
+  {
+    "objectID": "r01.html#git",
+    "href": "r01.html#git",
+    "title": "Overview of R",
+    "section": "Git ",
+    "text": "Git \n\nGit là một phần mềm mã nguồn mở, quản lý phiên bản (Version Control System - VCS), mục đích của nó là theo dõi các thay đổi của tệp trong một kho lưu trữ và cung cấp khả năng quay lại phiên bản trước đó (bao gồm các thay đổi trong mã nguồn mở cho các mô hình tính toán, thuật toán theo thời gian).\nGit là một phần mềm hoạt động cục bộ. Bạn không cần GitHub để Git có thể hoạt động. Bạn có thể sử dụng Git độc lập.",
+    "crumbs": [
+      "Overview of R"
+    ]
+  },
+  {
+    "objectID": "r01.html#github",
+    "href": "r01.html#github",
+    "title": "Overview of R",
+    "section": "GitHub",
+    "text": "GitHub\n\nGitHub là một dịch vụ dựa trên đám mây để lưu trữ Git.\nĐóng vai trò như một máy chủ từ xa cho Git.\nGiao diện Web-based, miễn phí và công khai.",
+    "crumbs": [
+      "Overview of R"
+    ]
+  },
+  {
+    "objectID": "r01.html#repository",
+    "href": "r01.html#repository",
+    "title": "Overview of R",
+    "section": "Repository",
+    "text": "Repository\nKho lưu trữ (Repository): Chứa một tập hợp các tệp và thư mục, ghi lại lịch sử thay đổi, theo dõi trạng thái và các phiên bản của chúng. Có hai loại:\n\nKho lưu trữ từ xa (Remote repository): Lưu trữ trên máy chủ từ xa, được chia sẻ giữa nhiều thành viên trong nhóm.\nKho lưu trữ cục bộ (Local repository): Lưu trữ trên máy tính cá nhân của người dùng.",
+    "crumbs": [
+      "Overview of R"
+    ]
+  },
+  {
+    "objectID": "r01.html#github-desktop",
+    "href": "r01.html#github-desktop",
+    "title": "Overview of R",
+    "section": "GitHub Desktop ",
+    "text": "GitHub Desktop \n\nGitHub Desktop là một phần mềm giúp bạn sử dụng Git dễ dàng hơn. Nó là một phần mềm được xây dựng bởi GitHub, một lần nữa, tách biệt với Git\nƯu điểm:\n\nĐơn giản hóa mọi thứ và chỉ cung cấp các chức năng thường được sử dụng của Git\nGiảm khả năng bạn sẽ mắc lỗi khi sử dụng Git\nTích hợp trực tiếp với GitHub, giúp xác thực dễ dàng hơn",
+    "crumbs": [
+      "Overview of R"
+    ]
+  },
+  {
+    "objectID": "r01.html#thiết-kế-website-giới-thiệu-khoa-thông-tin-khóa-học",
+    "href": "r01.html#thiết-kế-website-giới-thiệu-khoa-thông-tin-khóa-học",
+    "title": "Overview of R",
+    "section": "Thiết kế Website giới thiệu Khoa, thông tin khóa học",
+    "text": "Thiết kế Website giới thiệu Khoa, thông tin khóa học",
+    "crumbs": [
+      "Overview of R"
+    ]
+  },
+  {
+    "objectID": "r01.html#trình-bày-kết-quả-phân-tích-cảnh-báo-dự-báo-dịch",
+    "href": "r01.html#trình-bày-kết-quả-phân-tích-cảnh-báo-dự-báo-dịch",
+    "title": "Overview of R",
+    "section": "Trình bày kết quả phân tích, cảnh báo, dự báo dịch",
+    "text": "Trình bày kết quả phân tích, cảnh báo, dự báo dịch",
+    "crumbs": [
+      "Overview of R"
+    ]
+  },
+  {
+    "objectID": "r01.html#thiết-kế-dashboard",
+    "href": "r01.html#thiết-kế-dashboard",
+    "title": "Overview of R",
+    "section": "Thiết kế Dashboard",
+    "text": "Thiết kế Dashboard",
+    "crumbs": [
+      "Overview of R"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "🔹 Members",
+    "section": "",
+    "text": "Department of Surveillance, Warning and Preparedness, Emergency Response 🏡\n        Established: June, 2023\n        Affiliation: Ho Chi Minh Center for Diseases Control\n        The Department of Surveillance, Warning, and Preparedness for Epidemic Response (SWAPER) monitors and forecasts epidemic trends, assesses risks, and issues alerts. It coordinates actions across all administrative levels, enhances the quality of disease surveillance and warning systems, and manages Ho Chi Minh City’s Emergency Operations Centre.\n    \n\n\n🔹 Members\n\n    \n    \n        \n        \n            Lan Truong\n            Position: Head of Department of Surveillance, Warning and Preparedness, Emergency Response\n            Major: Master of Public Health\n        \n    \n\n    \n    \n        \n        An Tran\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n    \n        \n        Anh Huynh\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n    \n        \n        Diem Le\n        Major: Doctor of Preventive Medicine\n        Surveillance System, Data analysis and forecasting (Modeling team)\n    \n    \n        \n        Thu Pham\n        Major: Bachelor of Public Health\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n\n    \n    \n        \n        Khang Huynh\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Prepare to respond to emergencies(EOC team)\n    \n    \n        \n        Vy Tran\n        Major: Doctor of Preventive Medicine\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n        \n        Ngoc Dinh\n        Major: Doctor of Preventive Medicine\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n        \n        Le Tran\n        Major: Doctor of Preventive Medicine\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n\n    \n        \n        Tuyen Pham\n        Major: Doctor of Preventive Medicine\n        Surveillance, warning epidemic\n    \n    \n        \n        Quan Truong\n        Major: Doctor of Preventive Medicine\n        Surveillance, warning epidemic\n    \n    \n        \n        Vinh Tran\n        Major: Bachelor of Public Health\n        Surveillance, warning epidemic\n    \n    \n        \n        Nhon Nguyen\n        Major: Bachelor of Public Health\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "exp2.html",
+    "href": "exp2.html",
+    "title": "SWAPER",
+    "section": "",
+    "text": "Date & Time: May 14, 2025 (13:00 Vietnam)\nLocation: Room 3.03 (HCDC - District 8)\nVia: Zoom\nSpeakers: Prof. Sheetal Silal (The modelling and Simulation Hub, Africa)\nContent: Novel Approaches to Strengthening Analytics & Modelling Capacity"
+  },
+  {
+    "objectID": "exp2.html#midsea",
+    "href": "exp2.html#midsea",
+    "title": "SWAPER",
+    "section": "",
+    "text": "Date & Time: May 14, 2025 (13:00 Vietnam)\nLocation: Room 3.03 (HCDC - District 8)\nVia: Zoom\nSpeakers: Prof. Sheetal Silal (The modelling and Simulation Hub, Africa)\nContent: Novel Approaches to Strengthening Analytics & Modelling Capacity"
+  },
+  {
+    "objectID": "exp1.html",
+    "href": "exp1.html",
+    "title": "Online semniars for infectious diseases",
+    "section": "",
+    "text": "Joint UNIversities Pandemic and Epidemiological Research (JUNIPER) seminar 🚀\nLSHTM Centre for Epidemic Preparedness and Response seminar series 🚀\nHavard T.H. Chan School of Public Health: Seminars in Epidemiology 🚀\nHavard T.H. Chan School of Public Health: Center for Communicable Disease Dynamics, ID Epi Spring Seminar Series 🚀"
+  },
+  {
+    "objectID": "exp1.html#epidemiology",
+    "href": "exp1.html#epidemiology",
+    "title": "Online semniars for infectious diseases",
+    "section": "",
+    "text": "Joint UNIversities Pandemic and Epidemiological Research (JUNIPER) seminar 🚀\nLSHTM Centre for Epidemic Preparedness and Response seminar series 🚀\nHavard T.H. Chan School of Public Health: Seminars in Epidemiology 🚀\nHavard T.H. Chan School of Public Health: Center for Communicable Disease Dynamics, ID Epi Spring Seminar Series 🚀"
+  },
+  {
+    "objectID": "exp1.html#modeling",
+    "href": "exp1.html#modeling",
+    "title": "Online semniars for infectious diseases",
+    "section": "Modeling",
+    "text": "Modeling\n\nAdvances in Socio-Epidemic Mathematical Modelling UMI-MSE online seminar 🚀\nLSHTM Centre for data and statistical science for health seminar series 🚀\nLSHTM Centre for Mathematical Modelling of Infectious Diseases seminar series 🚀\nThe MIDSEA Network 🚀"
+  },
+  {
+    "objectID": "htgs.html",
+    "href": "htgs.html",
+    "title": "Quality of surveillance system",
+    "section": "",
+    "text": "To more information about SWAPER, please click on following link: https://hcdc-gscb.github.io/swaper/"
+  },
+  {
+    "objectID": "htgs.html#agenda-of-topic",
+    "href": "htgs.html#agenda-of-topic",
+    "title": "Quality of surveillance system",
+    "section": "Agenda of Topic",
+    "text": "Agenda of Topic\n\n\n\n\nLesson\nContent\n\n\n\n\nDay 1\nIBS, EBS and tools for supporting EBS\n🚀 Presentation\nIndicator-based surveillance\nEvent-based surveillance\nTools for supporting EBS\n\n\nDay 2\nData structures required for BTN monitoring and integrated monitoring systems\nData collection requirements in service response\nAdvantages and disadvantages in monitoring system of ID\nIntroduction to integrated monitoring system\n\n\nDay 3\nEvaluation of infectious disease surveillance systems\n🚀 Presentation\nResearch introduction: Assessment of the current status of infectious disease surveillance system and public health events in Ho Chi Minh City in 2024\n\n\nDay 4\nCollect, analyze, and present infectious disease data\n🚀 Presentation"
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "SWAPER",
+    "section": "",
+    "text": "Hello newbies,\nFirstly, we enjoy for your appearance in deparment. The Department of Surveillance, Warning, and Preparedness for Epidemic Response (SWAPER) was established in June 1st, 2023. Our mission which monitors and forecasts epidemic trends, assesses risks, and issues alerts. It coordinates actions across all administrative levels, enhances the quality of disease surveillance and warning systems, and manages Ho Chi Minh City’s Emergency Operations Centre.\nTo adapt for that, we need to know using R. In this course, you will learn how to use R at basic level. R is not a software, it is programming language and analytic is one of functions in R. Now let it starting. 🚀\nWelcome home 🏡\nTo more information about SWAPER, please click on following link:\nhttps://hcdc-gscb.github.io/swaper/",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "intro.html#introduction",
+    "href": "intro.html#introduction",
+    "title": "SWAPER",
+    "section": "",
+    "text": "Hello newbies,\nFirstly, we enjoy for your appearance in deparment. The Department of Surveillance, Warning, and Preparedness for Epidemic Response (SWAPER) was established in June 1st, 2023. Our mission which monitors and forecasts epidemic trends, assesses risks, and issues alerts. It coordinates actions across all administrative levels, enhances the quality of disease surveillance and warning systems, and manages Ho Chi Minh City’s Emergency Operations Centre.\nTo adapt for that, we need to know using R. In this course, you will learn how to use R at basic level. R is not a software, it is programming language and analytic is one of functions in R. Now let it starting. 🚀\nWelcome home 🏡\nTo more information about SWAPER, please click on following link:\nhttps://hcdc-gscb.github.io/swaper/",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "intro.html#agenda-of-r-together",
+    "href": "intro.html#agenda-of-r-together",
+    "title": "SWAPER",
+    "section": "Agenda of R-Together",
+    "text": "Agenda of R-Together\n\n\n\n\n\n\n\n\n\nLesson\nContent\n\n\n\n\nDay 1\nOverview of R\nR and RStudio\nPopular applications with R\nGit and Github\n\n\nDay 2\nData management, data cleaning and R style\nImporting and exporting data\nData cleaning and Tidyverse\nFunction in R\n\n\nDay 3\nData analysis\nR project, R markdown\nWorking with gtsummary\n\n\nDay 4\nData visualization\nGrammar of graphics with ggplot2\nBasic geometries\nPractice\n\n\nDay 5\nCapstone\nPractice with Rmarkdown",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
     "objectID": "r02.html",
     "href": "r02.html",
     "title": "Data management, data cleaning and R style",
     "section": "",
-    "text": "📎 Presentation",
+    "text": "🚀 Presentation",
     "crumbs": [
       "Data management, data cleaning and R  style"
     ]
@@ -873,32 +1145,25 @@
     ]
   },
   {
-    "objectID": "slide_r01.html",
-    "href": "slide_r01.html",
-    "title": "Overview of R",
-    "section": "",
-    "text": "R là một ngôn ngữ lập trình được phát triển bởi GS. Robert Gentleman và GS. Ross Ihaka tại Đại học Auckland1. Tên gọi R được đặt theo chữ cái đầu của tên 2 tác giả (Robert và Ross).\nĐể tính toán thống kê và trực quan hóa dữ liệu.\nBao gồm phần cơ bản (tích hợp sẵn khi cài đặt R) và phần mở rộng thông qua các gói (packages)\n\n\n\n\n\nNgôn ngữ lập trình là một tập hợp các hướng dẫn để yêu cầu máy tính thực hiện một số tác vụ nhất định.\nNgười dùng giao tiếp, đối thoại với máy tính bằng cách nhập những câu văn (code) giống như chat với máy tính, để máy hiểu và làm đúng những gì con người muốn\n\n\n\n\n\nMiễn phí, liên tục cập nhật\nRất tốt trong xử lý thống kê và vẽ đồ họa\nLưu trữ câu lệnh và thực hiện lại dễ dàng\nNên sử dụng RStudio thay vì R cơ bản\nHoàn toàn có thể tự học từ nguồn internet"
-  },
-  {
     "objectID": "slide_r01.html#r-là-gì",
     "href": "slide_r01.html#r-là-gì",
     "title": "Overview of R",
-    "section": "",
-    "text": "R là một ngôn ngữ lập trình được phát triển bởi GS. Robert Gentleman và GS. Ross Ihaka tại Đại học Auckland1. Tên gọi R được đặt theo chữ cái đầu của tên 2 tác giả (Robert và Ross).\nĐể tính toán thống kê và trực quan hóa dữ liệu.\nBao gồm phần cơ bản (tích hợp sẵn khi cài đặt R) và phần mở rộng thông qua các gói (packages)"
+    "section": "R là gì",
+    "text": "R là gì\n\nR là một ngôn ngữ lập trình được phát triển bởi GS. Robert Gentleman và GS. Ross Ihaka tại Đại học Auckland1. Tên gọi R được đặt theo chữ cái đầu của tên 2 tác giả (Robert và Ross).\nĐể tính toán thống kê và trực quan hóa dữ liệu.\nBao gồm phần cơ bản (tích hợp sẵn khi cài đặt R) và phần mở rộng thông qua các gói (packages)"
   },
   {
     "objectID": "slide_r01.html#ngôn-ngữ-lập-trình",
     "href": "slide_r01.html#ngôn-ngữ-lập-trình",
     "title": "Overview of R",
-    "section": "",
-    "text": "Ngôn ngữ lập trình là một tập hợp các hướng dẫn để yêu cầu máy tính thực hiện một số tác vụ nhất định.\nNgười dùng giao tiếp, đối thoại với máy tính bằng cách nhập những câu văn (code) giống như chat với máy tính, để máy hiểu và làm đúng những gì con người muốn"
+    "section": "Ngôn ngữ lập trình",
+    "text": "Ngôn ngữ lập trình\n\nNgôn ngữ lập trình là một tập hợp các hướng dẫn để yêu cầu máy tính thực hiện một số tác vụ nhất định.\nNgười dùng giao tiếp, đối thoại với máy tính bằng cách nhập những câu văn (code) giống như chat với máy tính, để máy hiểu và làm đúng những gì con người muốn"
   },
   {
     "objectID": "slide_r01.html#nên-sử-dụng-r-vì",
     "href": "slide_r01.html#nên-sử-dụng-r-vì",
     "title": "Overview of R",
-    "section": "",
-    "text": "Miễn phí, liên tục cập nhật\nRất tốt trong xử lý thống kê và vẽ đồ họa\nLưu trữ câu lệnh và thực hiện lại dễ dàng\nNên sử dụng RStudio thay vì R cơ bản\nHoàn toàn có thể tự học từ nguồn internet"
+    "section": "Nên sử dụng R vì",
+    "text": "Nên sử dụng R vì\n\nMiễn phí, liên tục cập nhật\nRất tốt trong xử lý thống kê và vẽ đồ họa\nLưu trữ câu lệnh và thực hiện lại dễ dàng\nNên sử dụng RStudio thay vì R cơ bản\nHoàn toàn có thể tự học từ nguồn internet"
   },
   {
     "objectID": "slide_r01.html#phân-biệt-r-và-rstudio",
@@ -1013,18 +1278,11 @@
     "text": "Thiết kế Dashboard"
   },
   {
-    "objectID": "slide_r04.html",
-    "href": "slide_r04.html",
-    "title": "Data visualization",
-    "section": "",
-    "text": "Now that we have the results of our study, we should visualise it to disseminate the information.\nIn base R, we use plot() (and other functions) to draw figures.\nIn tidyverse, we use the ggplot2 package"
-  },
-  {
     "objectID": "slide_r04.html#data-visualization",
     "href": "slide_r04.html#data-visualization",
     "title": "Data visualization",
-    "section": "",
-    "text": "Now that we have the results of our study, we should visualise it to disseminate the information.\nIn base R, we use plot() (and other functions) to draw figures.\nIn tidyverse, we use the ggplot2 package"
+    "section": "Data visualization",
+    "text": "Data visualization\n\nNow that we have the results of our study, we should visualise it to disseminate the information.\nIn base R, we use plot() (and other functions) to draw figures.\nIn tidyverse, we use the ggplot2 package"
   },
   {
     "objectID": "slide_r04.html#example",
@@ -1059,21 +1317,21 @@
     "href": "slide_r04.html#grammar-of-graphics-2",
     "title": "Data visualization",
     "section": "Grammar of graphics",
-    "text": "Grammar of graphics\n\nLook back at the example code:\n\n\n\n\n\n\n\n\n\n\n\nCan you identify the different layers of this plot?"
+    "text": "Grammar of graphics\n\nLook back at the example code:\n\n\n\nCan you identify the different layers of this plot?"
   },
   {
     "objectID": "slide_r04.html#grammar-of-graphics-3",
     "href": "slide_r04.html#grammar-of-graphics-3",
     "title": "Data visualization",
     "section": "Grammar of graphics",
-    "text": "Grammar of graphics\nggplot(mtcars, aes(x = wt, y = mpg)) - Data: mtcars. - Aesthetics: aes(x = wt, y = mpg) - Geometries: geom_point - Coordinates: scale_x_continuous, scale_y_continuous, ggtitle - Theme: theme_bw\n\n\n\n\n\n\nTip\n\n\n\nggplot2 must run with data which is data frame, and we couldn’t run with another type of data (eg: matrix or vector)."
+    "text": "Grammar of graphics\nggplot(mtcars, aes(x = wt, y = mpg)) - Data: mtcars. - Aesthetics: aes(x = wt, y = mpg) - Geometries: geom_point - Coordinates: scale_x_continuous, scale_y_continuous, ggtitle - Theme: theme_bw\n\n\n\n\n\n\nTip\n\n\nggplot2 must run with data which is data frame, and we couldn’t run with another type of data (eg: matrix or vector)."
   },
   {
     "objectID": "slide_r04.html#geometries",
     "href": "slide_r04.html#geometries",
     "title": "Data visualization",
     "section": "Geometries",
-    "text": "Geometries\n\ngeom_col or geom_bar: bar charts\ngeom_histogram: histogram charts\ngeom_point: scatter plots\ngeom_line or geom_smooth: line charts\ngeom_boxplot: box plots\nBla bla bla\n\n\n\n\n\n\n\nTip\n\n\n\nData, aesthetic, geometric object were important components of plot, if this structure is not have enough so plot wasn’t actived."
+    "text": "Geometries\n\ngeom_col or geom_bar: bar charts\ngeom_histogram: histogram charts\ngeom_point: scatter plots\ngeom_line or geom_smooth: line charts\ngeom_boxplot: box plots\nBla bla bla\n\n\n\n\n\n\n\nTip\n\n\nData, aesthetic, geometric object were important components of plot, if this structure is not have enough so plot wasn’t actived."
   },
   {
     "objectID": "slide_r04.html#shape-of-geom_point",
@@ -1115,7 +1373,7 @@
     "href": "slide_r04.html#practice-3",
     "title": "Data visualization",
     "section": "Practice",
-    "text": "Practice\n\nAfter that, we must to display the name of country. ::::fragment\n\n\n\n\n\n\n\n\n\n\n::::"
+    "text": "Practice\n\nAfter that, we must to display the name of country. ::::fragment\n\n\n::::"
   },
   {
     "objectID": "slide_r04.html#practice-4",
@@ -1178,282 +1436,6 @@
     "href": "slide_r04.html#the-end",
     "title": "Data visualization",
     "section": "The end",
-    "text": "The end\n\n\n\n\n\n\nTip\n\n\n\nIf we use `ggplot2, we need to use tidyverse."
-  },
-  {
-    "objectID": "htgs.html",
-    "href": "htgs.html",
-    "title": "Quality of surveillance system",
-    "section": "",
-    "text": "To more information about SWAPER, please click on following link: https://hcdc-gscb.github.io/swaper/"
-  },
-  {
-    "objectID": "htgs.html#agenda-of-topic",
-    "href": "htgs.html#agenda-of-topic",
-    "title": "Quality of surveillance system",
-    "section": "Agenda of Topic",
-    "text": "Agenda of Topic\n\n\n\n\nLesson\nContent\n\n\n\n\nDay 1\nIBS, EBS and tools for supporting EBS 📎 Presentation\nIndicator-based surveillance\nEvent-based surveillance\nTools for supporting EBS\n\n\nDay 2\nData structures required for BTN monitoring and integrated monitoring systems\nData collection requirements in service response\nAdvantages and disadvantages in monitoring system of ID\nIntroduction to integrated monitoring system\n\n\nDay 3\nEvaluation of infectious disease surveillance systems 📎 Presentation\nResearch introduction: Assessment of the current status of infectious disease surveillance system and public health events in Ho Chi Minh City in 2024\n\n\nDay 4\nCollect, analyze, and present infectious disease data 📎 Presentation"
-  },
-  {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "Introduction",
-    "section": "",
-    "text": "Hello newbies,\nFirstly, we enjoy for your appearance in deparment. The Department of Surveillance, Warning, and Preparedness for Epidemic Response (SWAPER) was established in June 1st, 2023. Our mission which monitors and forecasts epidemic trends, assesses risks, and issues alerts. It coordinates actions across all administrative levels, enhances the quality of disease surveillance and warning systems, and manages Ho Chi Minh City’s Emergency Operations Centre.\nTo adapt for that, we need to know using R. In this course, you will learn how to use R at basic level. R is not a software, it is programming language and analytic is one of functions in R. Now let it starting. 🚀\nWelcome home 🏡\nTo more information about SWAPER, please click on following link: https://hcdc-gscb.github.io/swaper/\n\n\n\n\n\n\n\n\n\n\n\nLesson\nContent\n\n\n\n\nDay 1\nOverview of R\nR and RStudio\nPopular applications with R\nGit and Github\n\n\nDay 2\nData management, data cleaning and R style\nImporting and exporting data\nData cleaning and Tidyverse\nFunction in R\n\n\nDay 3\nData analysis\nR project, R markdown\nWorking with gtsummary\n\n\nDay 4\nData visualization\nGrammar of graphics with ggplot2\nBasic geometries\nPractice\n\n\nDay 5\nCapstone\nPractice with Rmarkdown",
-    "crumbs": [
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "intro.html#agenda-of-r-together",
-    "href": "intro.html#agenda-of-r-together",
-    "title": "Introduction",
-    "section": "",
-    "text": "Lesson\nContent\n\n\n\n\nDay 1\nOverview of R\nR and RStudio\nPopular applications with R\nGit and Github\n\n\nDay 2\nData management, data cleaning and R style\nImporting and exporting data\nData cleaning and Tidyverse\nFunction in R\n\n\nDay 3\nData analysis\nR project, R markdown\nWorking with gtsummary\n\n\nDay 4\nData visualization\nGrammar of graphics with ggplot2\nBasic geometries\nPractice\n\n\nDay 5\nCapstone\nPractice with Rmarkdown",
-    "crumbs": [
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "r01.html",
-    "href": "r01.html",
-    "title": "Overview of R",
-    "section": "",
-    "text": "📎 Presentation",
-    "crumbs": [
-      "Overview of R"
-    ]
-  },
-  {
-    "objectID": "r01.html#r-là-gì",
-    "href": "r01.html#r-là-gì",
-    "title": "Overview of R",
-    "section": "R là gì",
-    "text": "R là gì\n\nR là một ngôn ngữ lập trình được phát triển bởi GS. Robert Gentleman và GS. Ross Ihaka tại Đại học Auckland1. Tên gọi R được đặt theo chữ cái đầu của tên 2 tác giả (Robert và Ross).\nĐể tính toán thống kê và trực quan hóa dữ liệu.\nBao gồm phần cơ bản (tích hợp sẵn khi cài đặt R) và phần mở rộng thông qua các gói (packages)",
-    "crumbs": [
-      "Overview of R"
-    ]
-  },
-  {
-    "objectID": "r01.html#ngôn-ngữ-lập-trình",
-    "href": "r01.html#ngôn-ngữ-lập-trình",
-    "title": "Overview of R",
-    "section": "Ngôn ngữ lập trình",
-    "text": "Ngôn ngữ lập trình\n\nNgôn ngữ lập trình là một tập hợp các hướng dẫn để yêu cầu máy tính thực hiện một số tác vụ nhất định.\nNgười dùng giao tiếp, đối thoại với máy tính bằng cách nhập những câu văn (code) giống như chat với máy tính, để máy hiểu và làm đúng những gì con người muốn",
-    "crumbs": [
-      "Overview of R"
-    ]
-  },
-  {
-    "objectID": "r01.html#nên-sử-dụng-r-vì",
-    "href": "r01.html#nên-sử-dụng-r-vì",
-    "title": "Overview of R",
-    "section": "Nên sử dụng R vì",
-    "text": "Nên sử dụng R vì\n\nMiễn phí, liên tục cập nhật\nRất tốt trong xử lý thống kê và vẽ đồ họa\nLưu trữ câu lệnh và thực hiện lại dễ dàng\nNên sử dụng RStudio thay vì R cơ bản\nHoàn toàn có thể tự học từ nguồn internet",
-    "crumbs": [
-      "Overview of R"
-    ]
-  },
-  {
-    "objectID": "r01.html#phân-biệt-r-và-rstudio",
-    "href": "r01.html#phân-biệt-r-và-rstudio",
-    "title": "Overview of R",
-    "section": "Phân biệt R và RStudio",
-    "text": "Phân biệt R và RStudio\n\n\n\n\n\n\n\nR\nRStudio\n\n\n\n\n\nlà ngôn ngữ lập trình\nSau khi cài R, chúng ta mở lên sẽ thấy giao diện giống như một khung chat trống. Khung chat này là nơi chúng ta viết code để giao tiếp với máy tính.\n\n\nlà một môi trường phát triển tích hợp (integrated development environment hay IDE) hay nói đơn giản là một phần mềm để viết code R hiệu quả hơn.",
-    "crumbs": [
-      "Overview of R"
-    ]
-  },
-  {
-    "objectID": "r01.html#cài-đặt-r",
-    "href": "r01.html#cài-đặt-r",
-    "title": "Overview of R",
-    "section": "Cài đặt R",
-    "text": "Cài đặt R\nTrang web chính thức của R: https://www.r-project.org",
-    "crumbs": [
-      "Overview of R"
-    ]
-  },
-  {
-    "objectID": "r01.html#cài-đặt-rstudio",
-    "href": "r01.html#cài-đặt-rstudio",
-    "title": "Overview of R",
-    "section": "Cài đặt RStudio",
-    "text": "Cài đặt RStudio\nTrang web chính thức của RStudio: https://posit.co/download/rstudio-desktop/\nCần cài đặt R trước khi cài RStudio",
-    "crumbs": [
-      "Overview of R"
-    ]
-  },
-  {
-    "objectID": "r01.html#phân-tích-và-trực-quan-hóa-dữ-liệu",
-    "href": "r01.html#phân-tích-và-trực-quan-hóa-dữ-liệu",
-    "title": "Overview of R",
-    "section": "Phân tích và trực quan hóa dữ liệu",
-    "text": "Phân tích và trực quan hóa dữ liệu\n\nR cung cấp nhiều thư viện mạnh mẽ như ggplot2, dplyr, tidyverse để xử lý và trực quan hóa dữ liệu.\nThường được sử dụng trong nghiên cứu khoa học, kinh tế, y tế và kinh doanh để phân tích dữ liệu và tạo báo cáo.",
-    "crumbs": [
-      "Overview of R"
-    ]
-  },
-  {
-    "objectID": "r01.html#thống-kê-và-kiểm-định-giả-thuyết",
-    "href": "r01.html#thống-kê-và-kiểm-định-giả-thuyết",
-    "title": "Overview of R",
-    "section": "Thống kê và kiểm định giả thuyết",
-    "text": "Thống kê và kiểm định giả thuyết\n\nHỗ trợ các phương pháp thống kê như hồi quy tuyến tính, kiểm định t-test, ANOVA, và các mô hình thống kê khác.\nPhù hợp cho nghiên cứu học thuật và phân tích dữ liệu chuyên sâu.",
-    "crumbs": [
-      "Overview of R"
-    ]
-  },
-  {
-    "objectID": "r01.html#học-máy-machine-learning",
-    "href": "r01.html#học-máy-machine-learning",
-    "title": "Overview of R",
-    "section": "Học máy (Machine Learning)",
-    "text": "Học máy (Machine Learning)\n\nCó các thư viện như caret, randomForest, e1071, xgboost giúp xây dựng mô hình dự đoán.\nR thường được dùng để phát triển và đánh giá các mô hình học máy.",
-    "crumbs": [
-      "Overview of R"
-    ]
-  },
-  {
-    "objectID": "r01.html#xử-lý-dữ-liệu-lớn-big-data-analytics",
-    "href": "r01.html#xử-lý-dữ-liệu-lớn-big-data-analytics",
-    "title": "Overview of R",
-    "section": "Xử lý dữ liệu lớn (Big Data Analytics)",
-    "text": "Xử lý dữ liệu lớn (Big Data Analytics)\n\nR có thể tích hợp với Apache Spark thông qua sparklyr, giúp xử lý dữ liệu lớn.\nKết hợp SQL, NoSQL để phân tích dữ liệu quy mô lớn.",
-    "crumbs": [
-      "Overview of R"
-    ]
-  },
-  {
-    "objectID": "r01.html#khoa-học-dữ-liệu-và-báo-cáo-tự-động",
-    "href": "r01.html#khoa-học-dữ-liệu-và-báo-cáo-tự-động",
-    "title": "Overview of R",
-    "section": "Khoa học dữ liệu và báo cáo tự động",
-    "text": "Khoa học dữ liệu và báo cáo tự động\n\nR hỗ trợ tạo báo cáo động với R Markdown, giúp tự động hóa báo cáo dữ liệu.\nR Shiny cho phép xây dựng ứng dụng web tương tác để trình bày dữ liệu.",
-    "crumbs": [
-      "Overview of R"
-    ]
-  },
-  {
-    "objectID": "r01.html#y-học-và-sinh-học",
-    "href": "r01.html#y-học-và-sinh-học",
-    "title": "Overview of R",
-    "section": "Y học và sinh học",
-    "text": "Y học và sinh học\n\nHỗ trợ nghiên cứu dịch tễ học, mô hình hóa bệnh tật",
-    "crumbs": [
-      "Overview of R"
-    ]
-  },
-  {
-    "objectID": "r01.html#git",
-    "href": "r01.html#git",
-    "title": "Overview of R",
-    "section": "Git ",
-    "text": "Git \n\nGit là một phần mềm mã nguồn mở, quản lý phiên bản (Version Control System - VCS), mục đích của nó là theo dõi các thay đổi của tệp trong một kho lưu trữ và cung cấp khả năng quay lại phiên bản trước đó (bao gồm các thay đổi trong mã nguồn mở cho các mô hình tính toán, thuật toán theo thời gian).\nGit là một phần mềm hoạt động cục bộ. Bạn không cần GitHub để Git có thể hoạt động. Bạn có thể sử dụng Git độc lập.",
-    "crumbs": [
-      "Overview of R"
-    ]
-  },
-  {
-    "objectID": "r01.html#github",
-    "href": "r01.html#github",
-    "title": "Overview of R",
-    "section": "GitHub",
-    "text": "GitHub\n\nGitHub là một dịch vụ dựa trên đám mây để lưu trữ Git.\nĐóng vai trò như một máy chủ từ xa cho Git.\nGiao diện Web-based, miễn phí và công khai.",
-    "crumbs": [
-      "Overview of R"
-    ]
-  },
-  {
-    "objectID": "r01.html#repository",
-    "href": "r01.html#repository",
-    "title": "Overview of R",
-    "section": "Repository",
-    "text": "Repository\nKho lưu trữ (Repository): Chứa một tập hợp các tệp và thư mục, ghi lại lịch sử thay đổi, theo dõi trạng thái và các phiên bản của chúng. Có hai loại:\n\nKho lưu trữ từ xa (Remote repository): Lưu trữ trên máy chủ từ xa, được chia sẻ giữa nhiều thành viên trong nhóm.\nKho lưu trữ cục bộ (Local repository): Lưu trữ trên máy tính cá nhân của người dùng.",
-    "crumbs": [
-      "Overview of R"
-    ]
-  },
-  {
-    "objectID": "r01.html#github-desktop",
-    "href": "r01.html#github-desktop",
-    "title": "Overview of R",
-    "section": "GitHub Desktop ",
-    "text": "GitHub Desktop \n\nGitHub Desktop là một phần mềm giúp bạn sử dụng Git dễ dàng hơn. Nó là một phần mềm được xây dựng bởi GitHub, một lần nữa, tách biệt với Git\nƯu điểm:\n\nĐơn giản hóa mọi thứ và chỉ cung cấp các chức năng thường được sử dụng của Git\nGiảm khả năng bạn sẽ mắc lỗi khi sử dụng Git\nTích hợp trực tiếp với GitHub, giúp xác thực dễ dàng hơn",
-    "crumbs": [
-      "Overview of R"
-    ]
-  },
-  {
-    "objectID": "r01.html#thiết-kế-website-giới-thiệu-khoa-thông-tin-khóa-học",
-    "href": "r01.html#thiết-kế-website-giới-thiệu-khoa-thông-tin-khóa-học",
-    "title": "Overview of R",
-    "section": "Thiết kế Website giới thiệu Khoa, thông tin khóa học",
-    "text": "Thiết kế Website giới thiệu Khoa, thông tin khóa học",
-    "crumbs": [
-      "Overview of R"
-    ]
-  },
-  {
-    "objectID": "r01.html#trình-bày-kết-quả-phân-tích-cảnh-báo-dự-báo-dịch",
-    "href": "r01.html#trình-bày-kết-quả-phân-tích-cảnh-báo-dự-báo-dịch",
-    "title": "Overview of R",
-    "section": "Trình bày kết quả phân tích, cảnh báo, dự báo dịch",
-    "text": "Trình bày kết quả phân tích, cảnh báo, dự báo dịch",
-    "crumbs": [
-      "Overview of R"
-    ]
-  },
-  {
-    "objectID": "r01.html#thiết-kế-dashboard",
-    "href": "r01.html#thiết-kế-dashboard",
-    "title": "Overview of R",
-    "section": "Thiết kế Dashboard",
-    "text": "Thiết kế Dashboard",
-    "crumbs": [
-      "Overview of R"
-    ]
-  },
-  {
-    "objectID": "exp2.html",
-    "href": "exp2.html",
-    "title": "SWAPER",
-    "section": "",
-    "text": "Date & Time: Feb 21, 2025 (14:00 Vietnam)\nLocation: Room 3.03 (HCDC - District 8)\nVia: Zoom\nSpeakers: Dr. Nguyen Dac Tho (Ho Chi Minh City Center for Diseases Control)\nContent: Overview"
-  },
-  {
-    "objectID": "exp2.html#risk-assessment",
-    "href": "exp2.html#risk-assessment",
-    "title": "SWAPER",
-    "section": "",
-    "text": "Date & Time: Feb 21, 2025 (14:00 Vietnam)\nLocation: Room 3.03 (HCDC - District 8)\nVia: Zoom\nSpeakers: Dr. Nguyen Dac Tho (Ho Chi Minh City Center for Diseases Control)\nContent: Overview"
-  },
-  {
-    "objectID": "exp2.html#midsea",
-    "href": "exp2.html#midsea",
-    "title": "SWAPER",
-    "section": "2. MIDSEA",
-    "text": "2. MIDSEA\nDate & Time: March 12, 2025 (13:00 Vietnam)\nLocation: Room 3.03 (HCDC - District 8)\nVia: Zoom\nSpeakers: Prof. Azra Ghani (Professor of Infectious Disease Epidemiology with Imperial College London)\nContent: The future for malaria vaccines: progress and challenges in supporting malaria eradication"
-  },
-  {
-    "objectID": "exp1.html",
-    "href": "exp1.html",
-    "title": "Online semniars for infectious diseases",
-    "section": "",
-    "text": "Joint UNIversities Pandemic and Epidemiological Research (JUNIPER) seminar 🚀\nLSHTM Centre for Epidemic Preparedness and Response seminar series 🚀\nHavard T.H. Chan School of Public Health: Seminars in Epidemiology 🚀\nHavard T.H. Chan School of Public Health: Center for Communicable Disease Dynamics, ID Epi Spring Seminar Series 🚀"
-  },
-  {
-    "objectID": "exp1.html#epidemiology",
-    "href": "exp1.html#epidemiology",
-    "title": "Online semniars for infectious diseases",
-    "section": "",
-    "text": "Joint UNIversities Pandemic and Epidemiological Research (JUNIPER) seminar 🚀\nLSHTM Centre for Epidemic Preparedness and Response seminar series 🚀\nHavard T.H. Chan School of Public Health: Seminars in Epidemiology 🚀\nHavard T.H. Chan School of Public Health: Center for Communicable Disease Dynamics, ID Epi Spring Seminar Series 🚀"
-  },
-  {
-    "objectID": "exp1.html#modeling",
-    "href": "exp1.html#modeling",
-    "title": "Online semniars for infectious diseases",
-    "section": "Modeling",
-    "text": "Modeling\n\nAdvances in Socio-Epidemic Mathematical Modelling UMI-MSE online seminar 🚀\nLSHTM Centre for data and statistical science for health seminar series 🚀\nLSHTM Centre for Mathematical Modelling of Infectious Diseases seminar series 🚀\nThe MIDSEA Network 🚀"
+    "text": "The end\n\n\n\n\n\n\nTip\n\n\nIf we use `ggplot2, we need to use tidyverse."
   }
 ]
