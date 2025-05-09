@@ -4,7 +4,7 @@
     "href": "threshold.html",
     "title": "Warning and forcasting epidemic",
     "section": "",
-    "text": "Lesson\nContent\n\n\n\n\nDay 1\nThreshold and methods for determining threshold in IBS 🚀 Presentation\nWhat is threshold?\nOverview of methods for determining threshold\nPerformance of threshold, and research introduction\n\n\nDay 2\nTransmission in infectious diseases and the reproduction number 🚀 Presentation\nTimeline of infection in infectious diseases\nMeasurements in infectious diseases\nReproduction number\n\n\nDay 3\nMathematical models and applications in infectious disease forecasting 🚀 Presentation\nWhat is mathmatical models?\nDeterministic and stochastic models\nApplication of mathematical models in infectious diseases forecasting\n\n\n\n\n\n\n Back to top",
+    "text": "Lesson\nContent\n\n\n\n\nDay 1\nThreshold and methods for determining threshold in IBS\n🚀 Presentation\nWhat is threshold?\nOverview of methods for determining threshold\nPerformance of threshold, and research introduction\n\n\nDay 2\nTransmission in infectious diseases and the reproduction number\n🚀 Presentation\nTimeline of infection in infectious diseases\nMeasurements in infectious diseases\nReproduction number\n\n\nDay 3\nMathematical models and applications in infectious disease forecasting\n🚀 Presentation\nWhat is mathmatical models?\nDeterministic and stochastic models\nApplication of mathematical models in infectious diseases forecasting\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Modelling team",
       "Warning and forcasting epidemic"
@@ -239,7 +239,7 @@
     "href": "r03.html",
     "title": "Data analysis",
     "section": "",
-    "text": "🚀 Presentation📎 simulated_covid 📎 cleaned_vacdata",
+    "text": "📎 simulated_covid 📎 cleaned_vacdata",
     "crumbs": [
       "Modelling team",
       "R language",
@@ -301,7 +301,7 @@
     "section": "",
     "text": "🚀 Presentation",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Overview of R"
@@ -314,7 +314,7 @@
     "section": "What is R?",
     "text": "What is R?\n\nR is a programming language developed by Professor Robert Gentleman and Professor Ross Ihaka at the University of Auckland1. The name R is derived from the first letters of the two authors’ names (Robert and Ross).\nFor statistical computation and data visualization.\nIncludes a basic part (built-in when installing R) and extensions through packages",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Overview of R"
@@ -327,7 +327,7 @@
     "section": "Programming language",
     "text": "Programming language\n\nA programming language is a set of instructions that tell a computer to perform certain tasks.\nUsers communicate and converse with computers by entering sentences (code) like chatting with the computer, so that the computer understands and does exactly what the person wants.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Overview of R"
@@ -340,7 +340,7 @@
     "section": "Using R because",
     "text": "Using R because\n\nFree, constantly updated.\nGreat for statistics and graphics.\nEasy to store commands and re-execute.\nShould use RStudio instead of basic R.\nCompletely self-taught from internet sources.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Overview of R"
@@ -353,7 +353,7 @@
     "section": "Installation R",
     "text": "Installation R\nR Official Website: https://www.r-project.org",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Overview of R"
@@ -366,7 +366,7 @@
     "section": "Installation R-Studio",
     "text": "Installation R-Studio\nRStudio Official Website: https://posit.co/download/rstudio-desktop/\nR must be installed before RStudio can be installed.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Overview of R"
@@ -379,7 +379,7 @@
     "section": "Data analysis and visualization",
     "text": "Data analysis and visualization\n\nR provides many powerful libraries like ggplot2, dplyr, tidyverse for data processing and visualization.\nCommonly used in scientific, economic, medical and business research to analyze data and generate reports.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Overview of R"
@@ -392,7 +392,7 @@
     "section": "Statistics and hypothesis testing",
     "text": "Statistics and hypothesis testing\n\nSupports statistical methods such as linear regression, t-test, ANOVA, and many other statistical models.\nSuitable for academic research and in-depth data analysis.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Overview of R"
@@ -405,7 +405,7 @@
     "section": "Machine Learning",
     "text": "Machine Learning\n\nThere are libraries like caret, randomForest, e1071, xgboost for building predictive models.\nR is commonly used to develop and evaluate machine learning models.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Overview of R"
@@ -418,7 +418,7 @@
     "section": "Big Data Analytics",
     "text": "Big Data Analytics\n\nR can integrate with Apache Spark through sparklyr, which helps in big data processing.\nCombining SQL, NoSQL for large-scale data analysis.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Overview of R"
@@ -431,7 +431,7 @@
     "section": "Data science and automated reporting",
     "text": "Data science and automated reporting\n\nR supports dynamic reporting with R Markdown, which helps automate data reporting.\nR Shiny allows building interactive web applications to present data.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Overview of R"
@@ -444,7 +444,7 @@
     "section": "Medicine and Biology",
     "text": "Medicine and Biology\n\nSupporting epidemiological research and disease modeling",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Overview of R"
@@ -457,7 +457,7 @@
     "section": "Git ",
     "text": "Git \n\nGit is an open source, version control system (VCS) whose purpose is to track changes to files in a repository and provide the ability to roll back to previous versions (including changes in open source code for computational models and algorithms over time).\nGit is a local software. You do not need GitHub for Git to work. You can use Git independently.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Overview of R"
@@ -470,7 +470,7 @@
     "section": "GitHub",
     "text": "GitHub\n\nGitHub is a cloud-based service for hosting Git.\nActs as a remote server for Git.\nWeb-based interface, free and public.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Overview of R"
@@ -483,7 +483,7 @@
     "section": "Repository",
     "text": "Repository\nContains a collection of files and folders, records the history of changes, tracks their status and versions. There are two types:\n\nRemote repository: Stored on a remote server, shared among multiple team members.\nLocal repository: Stored on a user’s personal computer.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Overview of R"
@@ -496,7 +496,7 @@
     "section": "GitHub Desktop ",
     "text": "GitHub Desktop \n\nGitHub Desktop is a software that makes it easier for you to use Git. It is a software built by GitHub, again, separate from Git.\nAdvantages:\n\nKeeps things simple and only provides commonly used Git functionality.\nReduces the chance of you making mistakes when using Git.\nIntegrates directly with GitHub, making authentication easier.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Overview of R"
@@ -509,7 +509,7 @@
     "section": "Website design to introduce Faculty and course information",
     "text": "Website design to introduce Faculty and course information",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Overview of R"
@@ -522,7 +522,7 @@
     "section": "Presenting analysis results, warnings, and epidemic forecasting",
     "text": "Presenting analysis results, warnings, and epidemic forecasting",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Overview of R"
@@ -535,7 +535,7 @@
     "section": "Deploying Dashboard",
     "text": "Deploying Dashboard",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Overview of R"
@@ -548,7 +548,7 @@
     "section": "",
     "text": "Time\nLesson\nContent\n\n\n\n\nDay 1\nOverview of Global Health Security and Public Health Emergency Management\n🚀 Presentation\nGlobal Health Security 101\nPublic Health Emergency Management 101\nFEMA (USA)\n\n\n\n\n\n\n Back to top",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "PHEOC team",
       "The Public Health Emergency Management (PHEM) framework and emergency management cycle"
     ]
@@ -558,7 +558,7 @@
     "href": "index.html",
     "title": "🔹 Members",
     "section": "",
-    "text": "Department of Surveillance, Warning and Preparedness, Emergency Response 🏡\n        Established: June, 2023\n        Affiliation: Ho Chi Minh Center for Diseases Control\n        The Department of Surveillance, Warning, and Preparedness for Epidemic Response (SWAPER) monitors and forecasts epidemic trends, assesses risks, and issues alerts. It coordinates actions across all administrative levels, enhances the quality of disease surveillance and warning systems, and manages Ho Chi Minh City’s Emergency Operations Centre.\n        To more information about SWAPER, please click on following link: https://hcdc-gscb.github.io/swaper/\n    \n\n\n🔹 Members\n\n    \n    \n        \n        \n            Lan Truong\n            Position: Head of Department of Surveillance, Warning and Preparedness, Emergency Response\n            Major: Master of Public Health\n        \n    \n\n    \n    \n        \n        An Tran\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n    \n        \n        Anh Huynh\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n    \n        \n        Diem Le\n        Major: Doctor of Preventive Medicine\n        Surveillance System, Data analysis and forecasting (Modeling team)\n    \n    \n        \n        Thu Pham\n        Major: Bachelor of Public Health\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n\n    \n    \n        \n        Khang Huynh\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Prepare to respond to emergencies(EOC team)\n    \n    \n        \n        Vy Tran\n        Major: Doctor of Preventive Medicine\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n        \n        Ngoc Dinh\n        Major: Doctor of Preventive Medicine\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n        \n        Le Tran\n        Major: Doctor of Preventive Medicine\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n\n    \n        \n        Tuyen Pham\n        Major: Doctor of Preventive Medicine\n        Surveillance, warning epidemic\n    \n    \n        \n        Quan Truong\n        Major: Doctor of Preventive Medicine\n        Surveillance, warning epidemic\n    \n    \n        \n        Vinh Tran\n        Major: Bachelor of Public Health\n        Surveillance, warning epidemic\n    \n    \n        \n        Nhon Nguyen\n        Major: Bachelor of Public Health\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n\n\n\n\n\n Back to top"
+    "text": "Department of Surveillance, Warning and Preparedness, Emergency Response 🏡\n        Established: June, 2023\n        Affiliation: Ho Chi Minh Center for Diseases Control\n        The Department of Surveillance, Warning, and Preparedness for Epidemic Response (SWAPER) monitors and forecasts epidemic trends, assesses risks, and issues alerts. It coordinates actions across all administrative levels, enhances the quality of disease surveillance and warning systems, and manages Ho Chi Minh City’s Emergency Operations Centre.\n    \n\n\n🔹 Members\n\n    \n    \n        \n        \n            Lan Truong\n            Position: Head of Department of Surveillance, Warning and Preparedness, Emergency Response\n            Major: Master of Public Health\n        \n    \n\n    \n    \n        \n        An Tran\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n    \n        \n        Anh Huynh\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n    \n        \n        Diem Le\n        Major: Doctor of Preventive Medicine\n        Surveillance System, Data analysis and forecasting (Modeling team)\n    \n    \n        \n        Thu Pham\n        Major: Bachelor of Public Health\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n\n    \n    \n        \n        Khang Huynh\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Prepare to respond to emergencies(EOC team)\n    \n    \n        \n        Vy Tran\n        Major: Doctor of Preventive Medicine\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n        \n        Ngoc Dinh\n        Major: Doctor of Preventive Medicine\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n        \n        Le Tran\n        Major: Doctor of Preventive Medicine\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n\n    \n        \n        Tuyen Pham\n        Major: Doctor of Preventive Medicine\n        Surveillance, warning epidemic\n    \n    \n        \n        Quan Truong\n        Major: Doctor of Preventive Medicine\n        Surveillance, warning epidemic\n    \n    \n        \n        Vinh Tran\n        Major: Bachelor of Public Health\n        Surveillance, warning epidemic\n    \n    \n        \n        Nhon Nguyen\n        Major: Bachelor of Public Health\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "ghs.html",
@@ -567,7 +567,7 @@
     "section": "",
     "text": "Time\nLesson\nContent\n\n\n\n\nDay 1\nOverview of Global Health Security and Public Health Emergency Management\n🚀 Presentation\nGlobal Health Security 101\nPublic Health Emergency Management 101\nFEMA (USA)\n\n\n\n\n\n\n Back to top",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "PHEOC team",
       "Global Health Security (GHS) and its relevance to public health systems"
     ]
@@ -626,7 +626,7 @@
     "href": "htgs.html",
     "title": "Quality of surveillance system",
     "section": "",
-    "text": "Lesson\nContent\n\n\n\n\nDay 1\nIBS, EBS and tools for supporting EBS\n🚀 Presentation\nIndicator-based surveillance\nEvent-based surveillance\nTools for supporting EBS\n\n\nDay 2\nData structures required for infectious diseases monitoring and integrated monitoring systems\nData collection requirements in service response\nAdvantages and disadvantages in monitoring system of ID\nIntroduction to integrated monitoring system\n\n\nDay 3\nEvaluation of infectious disease surveillance systems\n🚀 Presentation\nResearch introduction: Assessment of the current status of infectious disease surveillance system and public health events in Ho Chi Minh City in 2024\n\n\nDay 4\nCollect, analyze, and present infectious disease data\n🚀 Presentation\n\n\n\n\n\n\n\n Back to top",
+    "text": "Lesson\nContent\n\n\n\n\nDay 1\nIBS, EBS and tools for supporting EBS\n🚀 Presentation\nIndicator-based surveillance\nEvent-based surveillance\nTools for supporting EBS\n\n\nDay 2\nData structures required for infectious diseases monitoring and integrated monitoring systems\n🚀 Presentation\nData collection requirements in service response\nAdvantages and disadvantages in monitoring system of ID\nIntroduction to integrated monitoring system\n\n\nDay 3\nEvaluation of infectious disease surveillance systems\n🚀 Presentation\nResearch introduction: Assessment of the current status of infectious disease surveillance system and public health events in Ho Chi Minh City in 2024\n\n\nDay 4\nCollect, analyze, and present infectious disease data\n🚀 Presentation\n\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Modelling team",
       "Quality of surveillance system"
@@ -639,7 +639,7 @@
     "section": "",
     "text": "Lesson\nContent\n\n\n\n\nDay 1\nOverview of R\nR and RStudio\nPopular applications with R\nGit and Github\n\n\nDay 2\nData management, data cleaning and R style\nImporting and exporting data\nData cleaning and Tidyverse\nFunction in R\n\n\nDay 3\nData analysis\nR project, R markdown\nWorking with gtsummary\n\n\nDay 4\nData visualization\nGrammar of graphics with ggplot2\nBasic geometries\nPractice\n\n\nDay 5\nCapstone\nPractice with Rmarkdown\n\n\n\n\n\n\n Back to top",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Agenda"
@@ -652,7 +652,7 @@
     "section": "",
     "text": "Day 2\nOverview of Public Health Emergency Operations Centre (PHEOC)\n🚀 Presentation\nWhat is a Public Health Emergency Operations Centre\nThe PHEOC system and its modes of Operations\nCore Functions and Structure\n\n\nDay 3\nPublic Health Emergency Operations Centre at Ho Chi Minh City (PHEOC HCMC)\n🚀 Presentation\nCurrent Status of the City’s Disease Control Steering Committee Operations\nOrganizational Structure of Public Health Emergency Management (PHEM) in Ho Chi Minh City\nIntroduction to Ho Chi Minh City’s PHEOC\n\n\nDay 4\nPHEOC Watch Mode\n🚀 Presentation\nOverview of Watch Level\nCore Activities\nKey Outputs and Products\n\n\nDay 5\nPHEOC Alert Mode\n🚀 Presentation\nOverview of Alert Level\nCore Activities\n\n\nDay 6\nOverview of Rapid Response Team\n🚀 Presentation\nCharacteristics and operations\nComposition\nRoles and responsibilities\n\n\nDay 6\nRapid Response Team Management\n🚀 Presentation\nManagers’ responsibilities\nRRT in non-emergency phase\nRRT in emergency phase\nMonitoring, supervision, and performance evaluation\n\n\nDay 7\nPHEOC Response Mode\n🚀 Presentation\nOverview of Response Level\nIncident Management System (IMS)\n\n\nDay 8\nPHEOC Deactivation and Recovery Mode\n🚀 Presentation\nOverview of Deactivation Level\nOverview of Recovery Level\n\n\n\n\n\n\n Back to top",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "PHEOC team",
       "The functions and operation of a Public Health Emergency Operations Centre (PHEOC)"
     ]
@@ -664,7 +664,7 @@
     "section": "",
     "text": "🚀 Presentation📎 covid_cases 📎 vaccine_data",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -677,7 +677,7 @@
     "section": "Why cleaning data with R?",
     "text": "Why cleaning data with R?\n\nIt can be written into an automated data inspection process, combining descriptive statistics and visualization to detect issues that need cleaning.\nAll cleaning steps are logged.\nSave time cleaning new data.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -690,7 +690,7 @@
     "section": "Objective and sentence in R",
     "text": "Objective and sentence in R\n\na &lt;- 2\nb &lt;- 2\n\n\na is objective, and 2 is value of objective.\nIf put a = 3, b = 2, and c = a x b so results of c?\n\n\n\na &lt;- 3\nb &lt;- 2\nc &lt;- a * b\nc\n\n[1] 6\n\n\n\n\nObjective is value, vector, matrix or data.frame\n\n\n\ndf &lt;- readxl::read_xlsx(\"data/vaccine_data.xlsx\")\nclass(df)\n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\"",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -703,7 +703,7 @@
     "section": "Objective and sentence in R",
     "text": "Objective and sentence in R\nCommand or function are sentences in R for communicating with computer.\n\n# Function(agruments = data_frame or options)\n\n\nFunction before the (): what the function to do\nAgruments put into (): detail requirements\nTo assign value to agruments, we need to use = instead of using &lt;-",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -716,7 +716,7 @@
     "section": "Objective and sentence in R",
     "text": "Objective and sentence in R\nExample:\n\nmax(x = df$id, na.rm = TRUE)\n\n[1] 1000\n\n\n\nMax: maximum value function of variable\nx: input agrument, choose id column in data df\nna.rm=TRUE: eliminate NA value in id column before maximizing value.\n\n\n\n\n\n\n\n\nTip\n\n\n\nTo read the instruction manual for a command, type ?command-name.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -729,7 +729,7 @@
     "section": "Process of cleaning data",
     "text": "Process of cleaning data\nThe process of cleaning data usually includes the following steps:\n\nClean column names.\nCheck datatype.\nCheck values.\nFormat tables according to clean data rules.\nJoin tables (if necessary).\nHandle error data.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -742,7 +742,7 @@
     "section": "Data type in R",
     "text": "Data type in R\n\n\n\n\n\n\n\n\nClasses\nExplanation\nExamples\n\n\n\n\nnumeric\nfor numerical data, including decimals\n2, 3.14, -1000, 2e6, etc\n\n\nlogical\nfor boolean data (TRUE/FALSE) without quotation marks\nTRUE/FALSE\n\n\ncharacter\nfor text/characters data (also referred to as string)\n\"Hello world\", \"R Together\"\n\n\nDate\ndata classified as Date\n2024-12-09, s, etc\n\n\nfactor\nfor categorical data\nsex, economic status, etc\n\n\ndata frame\ncommon way for R to store dataset, consists of vectors\n\n\n\ntibble\nan “enhanced” version of data.frame which is less prone to error and printed more nicely in the console",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -755,7 +755,7 @@
     "section": "Special values",
     "text": "Special values\n\n\n\n\n\n\n\nValue\nDescription\n\n\n\n\nNA\nStands for Not Available. Indicates missing values.\n\n\nNULL\nIndicates undefined/abscence of value. (e.g. numb &lt;- NULL indicates value for variable numb is undefined)\n\n\nNaN\nStands for Not a Number. Indicates unrepresentable number.\n\n\nInf/-Inf\nInfinity/Negative infinity",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -768,7 +768,7 @@
     "section": "Data type convert",
     "text": "Data type convert\n\nas.numeric() convert to numeric type\nas.character() convert to character type\nas.factor() convert to factor type\nas.Date() convert to Date type (Be carefully)\nas.logical() convert to logical\nifelse() may be used for create a new variable\nis.na() check NA values according to logical value.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -781,7 +781,7 @@
     "section": "Clean name of columns",
     "text": "Clean name of columns\nRules for column names typically include:\n\nShort\nNo spaces (replace with underscore _).\nNo special characters (&, #, &lt;, &gt;, …) or punctuation.\nDo not start with a number.\n\nUsing clean_names() in janitor package to to automate the column name",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -794,7 +794,7 @@
     "section": "Clean name of columns",
     "text": "Clean name of columns\n\nlibrary(janitor)\n\n\nAttaching package: 'janitor'\n\n\nThe following objects are masked from 'package:stats':\n\n    chisq.test, fisher.test\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\ndf %&gt;% colnames()\n\n [1] \"id\"        \"gioitinh\"  \"ngaysinh\"  \"huyen\"     \"xa\"        \"tinh\"     \n [7] \"VGB &lt;24\"   \"VGB &gt;24\"   \"VGB_1\"     \"VGB_2\"     \"VGB_3\"     \"VGB_4+\"   \n[13] \"HG_1\"      \"HG_2\"      \"HG_3\"      \"HG_4+\"     \"UV_1\"      \"UV_2\"     \n[19] \"UV_3\"      \"UV_4+\"     \"tinhtrang\"\n\n\n\n\ndf %&gt;% clean_names() %&gt;% colnames()\n\n [1] \"id\"        \"gioitinh\"  \"ngaysinh\"  \"huyen\"     \"xa\"        \"tinh\"     \n [7] \"vgb_24\"    \"vgb_24_2\"  \"vgb_1\"     \"vgb_2\"     \"vgb_3\"     \"vgb_4\"    \n[13] \"hg_1\"      \"hg_2\"      \"hg_3\"      \"hg_4\"      \"uv_1\"      \"uv_2\"     \n[19] \"uv_3\"      \"uv_4\"      \"tinhtrang\"\n\n\n\n\n\ndf &lt;- df %&gt;% \n  clean_names() %&gt;% # Clean column name automatically\n  rename( \n    vgb_truoc_24 = vgb_24, # new name = old name\n    vgb_sau_24 = vgb_24_2\n  )\n\n\n\n\n\n\n\n\n\nCaution\n\n\n\nIf you don’t use &lt;- then R will only return the results of the statements but the df table will not change.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -807,7 +807,7 @@
     "section": "Convert data type",
     "text": "Convert data type\n\nstr(df)\n\ntibble [1,000 × 21] (S3: tbl_df/tbl/data.frame)\n $ id          : num [1:1000] 1 2 3 4 5 6 7 8 9 10 ...\n $ gioitinh    : chr [1:1000] \"nam\" \"nữ\" \"nữ\" \"nữ\" ...\n $ ngaysinh    : chr [1:1000] \"27/02/2024\" \"06/03/2024\" \"27/01/2024\" \"12/02/2024\" ...\n $ huyen       : chr [1:1000] \"Bình Chánh\" \"Huyện Thạnh Phú\" \"Thành phố Vĩnh Long\" \"Hóc Môn\" ...\n $ xa          : chr [1:1000] \"Phường Bình Hưng Hòa\" \"Phường 01\" \"Phường Phú Thuận\" \"Xã Đông Thạnh\" ...\n $ tinh        : chr [1:1000] \"Thành phố Hồ Chí Minh\" \"Thành phố Hồ Chí Minh\" \"Thành phố Hồ Chí Minh\" \"Thành phố Hồ Chí Minh\" ...\n $ vgb_truoc_24: chr [1:1000] \"28/02/2024\" \"07/03/2024\" \"28/01/2024\" \"13/02/2024\" ...\n $ vgb_sau_24  : chr [1:1000] \"29/02/2024\" \"08/03/2024\" \"29/01/2024\" \"14/02/2024\" ...\n $ vgb_1       : chr [1:1000] \"10/03/2024\" \"23/03/2024\" \"08/02/2024\" \"17/02/2024\" ...\n $ vgb_2       : chr [1:1000] \"20/03/2024\" \"27/03/2024\" \"18/02/2024\" \"27/02/2024\" ...\n $ vgb_3       : chr [1:1000] \"20/03/2024\" \"11/04/2024\" \"19/02/2024\" \"28/02/2024\" ...\n $ vgb_4       : chr [1:1000] \"04/04/2024\" \"26/04/2024\" \"19/02/2024\" \"28/02/2024\" ...\n $ hg_1        : chr [1:1000] \"28/02/2024\" \"07/03/2024\" \"28/01/2024\" \"12/02/2024\" ...\n $ hg_2        : chr [1:1000] \"02/03/2024\" \"22/03/2024\" \"07/02/2024\" \"16/02/2024\" ...\n $ hg_3        : chr [1:1000] \"12/03/2024\" \"06/04/2024\" \"17/02/2024\" \"02/03/2024\" ...\n $ hg_4        : chr [1:1000] \"12/03/2024\" \"16/04/2024\" \"27/02/2024\" \"12/03/2024\" ...\n $ uv_1        : chr [1:1000] \"27/02/2024\" \"07/03/2024\" \"27/01/2024\" \"12/02/2024\" ...\n $ uv_2        : chr [1:1000] \"28/02/2024\" \"22/03/2024\" \"06/02/2024\" \"22/02/2024\" ...\n $ uv_3        : chr [1:1000] \"09/03/2024\" \"06/04/2024\" \"21/02/2024\" \"08/03/2024\" ...\n $ uv_4        : chr [1:1000] \"19/03/2024\" \"21/04/2024\" \"02/03/2024\" \"23/03/2024\" ...\n $ tinhtrang   : chr [1:1000] \"theo dõi\" \"ngừng theo dõi\" \"ngừng theo dõi\" \"theo dõi\" ...\n\n\nWhen importing data into R, columns will be automatically converted to the most appropriate datatype. - Date columns: R cannot automatically convert to Date because this format does not match. - Sex column should be converted to factor. - Status should be converted to logical.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -820,7 +820,7 @@
     "section": "Convert data type",
     "text": "Convert data type\n\n\ndate_cols &lt;- c(\"ngaysinh\", \"vgb_truoc_24\",\"vgb_sau_24\",\"vgb_1\",\"vgb_2\",\"vgb_3\",\"vgb_4\",\"hg_1\",\"hg_2\",\"hg_3\",\"hg_4\",\"uv_1\",\"uv_2\",\"uv_3\",\"uv_4\")\n\ndf &lt;- df %&gt;% \n  mutate( # Each column\n    gioitinh = as.factor(gioitinh),\n    tinhtrang = ifelse(tinhtrang == \"theo dõi\", TRUE, FALSE)\n  ) %&gt;% \n  mutate_at( # Multiple column\n    date_cols, \n    dmy\n  ) %&gt;% \n  rename(\n    theodoi = tinhtrang\n  )\n\nstr(df)\n\ntibble [1,000 × 21] (S3: tbl_df/tbl/data.frame)\n $ id          : num [1:1000] 1 2 3 4 5 6 7 8 9 10 ...\n $ gioitinh    : Factor w/ 2 levels \"nam\",\"nữ\": 1 2 2 2 2 2 1 1 1 1 ...\n $ ngaysinh    : Date[1:1000], format: \"2024-02-27\" \"2024-03-06\" ...\n $ huyen       : chr [1:1000] \"Bình Chánh\" \"Huyện Thạnh Phú\" \"Thành phố Vĩnh Long\" \"Hóc Môn\" ...\n $ xa          : chr [1:1000] \"Phường Bình Hưng Hòa\" \"Phường 01\" \"Phường Phú Thuận\" \"Xã Đông Thạnh\" ...\n $ tinh        : chr [1:1000] \"Thành phố Hồ Chí Minh\" \"Thành phố Hồ Chí Minh\" \"Thành phố Hồ Chí Minh\" \"Thành phố Hồ Chí Minh\" ...\n $ vgb_truoc_24: Date[1:1000], format: \"2024-02-28\" \"2024-03-07\" ...\n $ vgb_sau_24  : Date[1:1000], format: \"2024-02-29\" \"2024-03-08\" ...\n $ vgb_1       : Date[1:1000], format: \"2024-03-10\" \"2024-03-23\" ...\n $ vgb_2       : Date[1:1000], format: \"2024-03-20\" \"2024-03-27\" ...\n $ vgb_3       : Date[1:1000], format: \"2024-03-20\" \"2024-04-11\" ...\n $ vgb_4       : Date[1:1000], format: \"2024-04-04\" \"2024-04-26\" ...\n $ hg_1        : Date[1:1000], format: \"2024-02-28\" \"2024-03-07\" ...\n $ hg_2        : Date[1:1000], format: \"2024-03-02\" \"2024-03-22\" ...\n $ hg_3        : Date[1:1000], format: \"2024-03-12\" \"2024-04-06\" ...\n $ hg_4        : Date[1:1000], format: \"2024-03-12\" \"2024-04-16\" ...\n $ uv_1        : Date[1:1000], format: \"2024-02-27\" \"2024-03-07\" ...\n $ uv_2        : Date[1:1000], format: \"2024-02-28\" \"2024-03-22\" ...\n $ uv_3        : Date[1:1000], format: \"2024-03-09\" \"2024-04-06\" ...\n $ uv_4        : Date[1:1000], format: \"2024-03-19\" \"2024-04-21\" ...\n $ theodoi     : logi [1:1000] TRUE FALSE FALSE TRUE TRUE TRUE ...",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -833,7 +833,7 @@
     "section": "Filter data",
     "text": "Filter data\n\n\n\nCharacter\nDescription\n\n\n\n\nx == y\nx is equal to y\n\n\nx != y\nx is different from y\n\n\nx &lt; y\nx is less than y\n\n\nx &lt;= y\nx is less than or equal to y\n\n\nis.na(x)\nx is missing value\n\n\nA & B\nx and y\n\n\nA | B\nx or y\n\n\n!\nnot",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -846,7 +846,7 @@
     "section": "Filter data",
     "text": "Filter data\n\nWho have District 2\nWho have vgb_1 before February 20, 2024\nWho have District 2 or vgb_1 before February 20, 2024\nWho have District 2 and vgb_1 before February 20, 2024\n\n\n\ndf %&gt;% filter(huyen == \"Quận 2\") %&gt;% select(id, huyen)\n\ndf %&gt;% filter(vgb_1 &lt; as.Date(\"2024-02-20\")) %&gt;% select(id, vgb_1)\n\ndf %&gt;% filter(huyen == \"Quận 2\" | vgb_1 &lt; as.Date(\"2024-02-20\")) %&gt;% select(id, huyen, vgb_1)\n\ndf %&gt;% filter(huyen == \"Quận 2\" & vgb_1 &lt; as.Date(\"2024-02-20\")) %&gt;% select(id, huyen, vgb_1)",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -859,7 +859,7 @@
     "section": "String data type",
     "text": "String data type\n\n\n\n\n\n\n\n\nFunction\nPackage\nTo use\n\n\n\n\ntolower\nbase\nLowercase\n\n\ntoupper\nbase\nUppercase\n\n\nstring_to_title\nstringr\nCapitalize the first letter of each word\n\n\nstri_trans_general\nstringi\nRemove mark",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -872,7 +872,7 @@
     "section": "Date data type",
     "text": "Date data type\n\n\n\n\n\n\n\n\nFunction\nPackage\nTo use\n\n\n\n\ndiffertime\nbase\nCalculate the distance between 2 time points\n\n\nmonth/year\nlubridate\nGet motnh/ year\n\n\nquarter\nlubridate\nChange date to quarter\n\n\ntoday\nlubridate\nGet current date\n\n\ndmy, ymd, mdy\nlubridate\nConvert string in various formats to date",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -885,7 +885,7 @@
     "section": "Date data type",
     "text": "Date data type\n\nFind children vaccinated with vgb_2 within 2 month of birth\n\n\n\n# --- Cách 1\ndf %&gt;% \n  filter(\n    # Gọi month để lấy tháng sau đó trừ nhau\n    month(vgb_2) - month(ngaysinh)  &lt;= 2\n  )\n\n# --- Cách 2\ndf %&gt;% \n  filter(\n    # gọi difftime để tính khoảng cách thời gian\n    difftime(vgb_2, ngaysinh, units = \"days\")/30 &lt;= 2\n  )",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -898,7 +898,7 @@
     "section": "Check values",
     "text": "Check values\nUsually includes the main operations: - Check for NA values. - Check for outliers and ranges of each column. - Check values between columns (if necessary).",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -911,7 +911,7 @@
     "section": "Check NA values",
     "text": "Check NA values\n\n\nsum(c(1, 2, 3, 4, NA))\n\n[1] NA\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nIn R, NA is a special value that cannot be calculated or compared with other datatypes (the result always returns NA).\n\n\n\n\nReplace NA with another value.\nRemove rows containing NA.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -924,7 +924,7 @@
     "section": "Check outliers",
     "text": "Check outliers\nTo quickly check whether the data contains outliers, we can use boxplot to find value points that are far away from the remaining values.\n\n\n\n\n\n\n\n\nTip\n\n\n\nIn many cases, data that is considered an outlier may still be a valid value and should be kept for analysis.\nIf outliers are wrong, handle it as same as missing values.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -937,7 +937,7 @@
     "section": "Check outliers",
     "text": "Check outliers\n\n\nexample_outlier &lt;- c(-5,1,3,4,1,2,5,10)\n\n\n\n\nboxplot(example_outlier)",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -950,7 +950,7 @@
     "section": "Tidy data",
     "text": "Tidy data\n\nA dataset with rows and columns.\nEach column is a variable.\nEach row is an observation.\nEach cell contains 1 value only.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -963,7 +963,7 @@
     "section": "Tidy data",
     "text": "Tidy data\n\n\n        date cases_chn cases_kor cases_aus cases_jpn cases_mys\n1 2020-01-20         0         0         0         0         0\n2 2020-01-21        31         0         0         0         0\n3 2020-01-23       262         0         0         0         0\n\n\nOR\n\n\n# A tibble: 3 × 3\n  date       country   cases\n  &lt;date&gt;     &lt;chr&gt;     &lt;dbl&gt;\n1 2020-01-20 cases_chn     0\n2 2020-01-20 cases_kor     0\n3 2020-01-20 cases_aus     0",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -976,7 +976,7 @@
     "section": "Joint table",
     "text": "Joint table\n\n\n\n\n\n\n\n\nFunction\nDescription\nGIF\n\n\n\n\nleft_join()\nTake the left table as the reference, and search for the corresponding rows of the right table to join.\nIf rows without corresponding row to join, leave the value NA\n\n\n\ninner_join()\nTake the left table as the reference, and search for corresponding rows of the right table to join.\nRows without corresponding rows to join will be deleted\n\n\n\nfull_join()\nKêp all rows of 2 tables after joining\nRows of 2 tables that cannot be joined will be replaced with NA values",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -989,7 +989,7 @@
     "section": "Handle error data",
     "text": "Handle error data\n\nEdit data values\nFilter duplicates\nFilter rows by conditions",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -1002,7 +1002,7 @@
     "section": "Edit data values",
     "text": "Edit data values\n\nMissing values.\nTRUE/FALSE data is displayed differently in the original data (eg: Marked X or left blank in the excel file).\nData uniformity.\n\nreplace_na(): replace NA values with the provided value is.na(): blank data (NA) has TRUE value and vice versa ifelse(): simple conditional coding, if yes else no case_when(): encode values for certain cases",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -1015,7 +1015,7 @@
     "section": "Filter rows and columns",
     "text": "Filter rows and columns\n\nRemove missing values.\nFilter by row number.\nFilter by value.\nFilter duplicate. drop_na(): drop all within NA values left_joint(), inner_joint(), full_joint(): joint tables filter(): filter rows and columns with conditions distinct(): filter duplicate observations.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -1028,7 +1028,7 @@
     "section": "Tidyverse",
     "text": "Tidyverse",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -1041,7 +1041,7 @@
     "section": "Why tidyverse",
     "text": "Why tidyverse\n\nEvery function in tidyverse shares a consistent structure and pattern.\nYour R code may look cleaner and easier to follow, compared to base R.\nYou just need to install everything once, instead of different packages for different things.\n\n\n\n\n\n\n\nWarning\n\n\n\n\nIt is just a collection of R packages\nYou don’t have to use tidyverse when using R",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -1054,7 +1054,7 @@
     "section": "Commonly used tidyverse function",
     "text": "Commonly used tidyverse function\n\ninstall.packages(\"tidyverse\")\n\nWarning: package 'tidyverse' is in use and will not be installed\n\n\n\ndplyr::select(): to select columns from df/tiblle\ndplyr::mutate(): to change and create columns in a df/tibble\ndplyr::group_by() and dplyr::summarise(): to group data and summarise it using a function, e.g. mean, max, min, sum\ntidyr::pivot_longer(): to transform a df/tibble from wide to long format (less columns, more rows)\ntidyr::pivot_wider(): to transform a df/tibble from long to wide format (less rows, more columns)",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -1067,7 +1067,7 @@
     "section": "Piping with %>%",
     "text": "Piping with %&gt;%\n\ngrouped_by_gear &lt;- group_by(mtcars, gear)\nmean_mpg_by_gear  &lt;- summarise(grouped_by_gear, mean_mpg = mean(mpg))\nungrouped_data &lt;- ungroup(mean_mpg_by_gear)\n\nggplot(\n  data = ungrouped_data,\n  aes(x = gear, y = mean_mpg)\n) +\n  geom_col()\n\n\n\n\n\n\n\n\n\nIs this a better way to write it? Can we improve it even further?",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -1080,7 +1080,7 @@
     "section": "Piping with %>%",
     "text": "Piping with %&gt;%\n\nggplot(\n  data = ungroup(summarise(group_by(mtcars, gear), mean_mpg = mean(mpg))),\n  aes(x = gear, y = mean_mpg)\n) +\n  geom_col()\n\n\n\n\n\n\n\n\nOR\n\nmtcars %&gt;% \n  group_by(gear) %&gt;% \n  summarise(mean_mpg = mean(mpg)) %&gt;% \n  ungroup() %&gt;% \n  ggplot(aes(x = gear, y = mean_mpg)) +\n  geom_col()",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -1093,7 +1093,7 @@
     "section": "Piping with %>%",
     "text": "Piping with %&gt;%\n\nA powerful tool to express a sequence of actions.\nIt helps you write code that is easier to read and understand.\nIn R, you can pipe between functions using the %&gt;% or |&gt; operators.\nRstudio shortcut: Cmd+Shift+M or Ctrl+Shift+M. :::: fragment ::: callout-tip R Together will use %&gt;%. ::: ::::",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -1106,7 +1106,7 @@
     "section": "Functions",
     "text": "Functions\n\nA function is a reusable sequence of code.\nIt can be created using the syntax.\n\n\nfunction_name &lt;- function(){\n\n# function content\n\n}",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -1119,7 +1119,7 @@
     "section": "Functions",
     "text": "Functions\nExample: a simple function\n\nprint_hello &lt;- function(){\n  print(\"Hello newbies\")\n  print(\"We are SWAPER\")\n}\n\nprint_hello()\n\n[1] \"Hello newbies\"\n[1] \"We are SWAPER\"",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data management, data cleaning and R  style"
@@ -1132,7 +1132,7 @@
     "section": "",
     "text": "🚀 Presentation",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1145,7 +1145,7 @@
     "section": "Data visualization",
     "text": "Data visualization\n\nNow that we have the results of our study, we should visualise it to disseminate the information.\nIn base R, we use plot() (and other functions) to draw figures.\nIn tidyverse, we use the ggplot2 package",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1158,7 +1158,7 @@
     "section": "Example",
     "text": "Example\n\n\nBase R:\n\nplot(\n  x = mtcars$wt,\n  y = mtcars$mpg,\n  xlab = \"Weight (1000 lbs)\",\n  ylab = \"Miles Per Gallon\",\n  main = \"MPG vs. Weight\",\n  pch = 19,       # Solid circle points\n  col = \"blue\"\n)\n\n\n\n\n\n\n\n\n\nggplot2:\n\nlibrary(ggplot2)\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point(color = \"blue\") +\n  scale_x_continuous(\"Weight (1000 lbs)\") +\n  scale_y_continuous(\"Miles Per Gallon\") +\n  ggtitle(\"MPG vs. Weight\") + \n  theme_bw()",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1171,7 +1171,7 @@
     "section": "ggplot2 structure",
     "text": "ggplot2 structure\n\nggplot2 works directly with tidy data (same as everything under tidyverse).\nIt is based on a concept called “grammar of graphics”.\nHas intuitive and comprehensive documentation on how to use it effectively.\nProvide enough flexibility for customisation.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1184,7 +1184,7 @@
     "section": "Grammar of graphics",
     "text": "Grammar of graphics\n\nA framework to describe and construct graphics in a structured manner.\nHas a layered approach, i.e. each component of a figure is a separate layer.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1197,7 +1197,7 @@
     "section": "Grammar of graphics",
     "text": "Grammar of graphics",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1210,7 +1210,7 @@
     "section": "Grammar of graphics",
     "text": "Grammar of graphics\n\nLook back at the example code:\n\n\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point(color = \"blue\") +\n  scale_x_continuous(\"Weight (1000 lbs)\") +\n  scale_y_continuous(\"Miles Per Gallon\") +\n  ggtitle(\"MPG vs. Weight\") + \n  theme_bw()\n\n\n\n\n\n\n\n\n\nCan you identify the different layers of this plot?",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1223,7 +1223,7 @@
     "section": "Grammar of graphics",
     "text": "Grammar of graphics\n\nData: mtcars\nAesthetics: aes(x = wt, y = mpg)\nGeometries: geom_point\nCoordinates: scale_x_continuous, scale_y_continuous, ggtitle\nTheme: theme_bw\n\n\n\n\n\n\n\nTip\n\n\n\nggplot2 must run with data which is data frame, and we couldn’t run with another type of data (eg: matrix or vector).",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1236,7 +1236,7 @@
     "section": "Geometries",
     "text": "Geometries\n\ngeom_col or geom_bar: bar charts\ngeom_histogram: histogram charts\ngeom_point: scatter plots\ngeom_line or geom_smooth: line charts\ngeom_boxplot: box plots\nBla bla bla\n\n\n\n\n\n\n\nTip\n\n\n\nData, aesthetic, geometric object were important components of plot, if this structure is not have enough so plot wasn’t actived.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1249,7 +1249,7 @@
     "section": "Shape of geom_point",
     "text": "Shape of geom_point",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1262,7 +1262,7 @@
     "section": "Grammar of graphics",
     "text": "Grammar of graphics",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1275,7 +1275,7 @@
     "section": "Practice",
     "text": "Practice\n\nCan we make the plot like that?",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1288,7 +1288,7 @@
     "section": "Practice",
     "text": "Practice\n\ncountry &lt;- c(\"Angola\", \"Papua New Guinea\", \"Pakistan\", \"Chad\", \"Ethiopia\", \"Kenya\", \"Nigeria\", \"Liberia\", \"Burkina Faso\", \"India\")\ncoverage &lt;- c(-0.14, -0.35, 0.12, 0.14, 0.32, 0.07, 0.2, 0.18, 0.3, 0.35)\ninequality &lt;- c(0.1, 0.08, 0.05, 0.01, 0.005, -0.06, -0.07, -0.11, -0.13, -0.16)\ndf_plot &lt;- data.frame(country, coverage, inequality)\ndf_plot\n\n            country coverage inequality\n1            Angola    -0.14      0.100\n2  Papua New Guinea    -0.35      0.080\n3          Pakistan     0.12      0.050\n4              Chad     0.14      0.010\n5          Ethiopia     0.32      0.005\n6             Kenya     0.07     -0.060\n7           Nigeria     0.20     -0.070\n8           Liberia     0.18     -0.110\n9      Burkina Faso     0.30     -0.130\n10            India     0.35     -0.160",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1301,7 +1301,7 @@
     "section": "Practice",
     "text": "Practice\n\nLet remember, what is important components of plot?\nFirstly, we determine the axis of plot. ::::fragment\n\n\nggplot(df_plot, aes(x = coverage, y = inequality))\n\n\n\n\n\n\n\n\n:::: ## Practice\n\nThen, what we should to use type of geometry? ::::fragment\n\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point()\n\n\n\n\n\n\n\n\n::::",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1314,7 +1314,7 @@
     "section": "Practice",
     "text": "Practice\n\nAfter that, we must to display the name of country. ::::fragment\n\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point() +\n  geom_text(aes(label = country))\n\n\n\n\n\n\n\n\n::::",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1327,7 +1327,7 @@
     "section": "Practice",
     "text": "Practice\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point() +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2)",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1340,7 +1340,7 @@
     "section": "Practice",
     "text": "Practice\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point() +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  xlim(c(-0.35, 0.55)) +\n  ylim(c(-0.17, 0.1))",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1353,7 +1353,7 @@
     "section": "Practice",
     "text": "Practice\n\nThe size of each point was different, so we must to create 2 variables: size, and color. ::::fragment\n\n\ndf_plot$size &lt;- c(1.1, 0.6, 3, 1, 2, 1.1, 3, 0.7, 1.1, 8)\ndf_plot$color &lt;- c(\"purple\", \"blue\", \"yellow\", \"purple\", \"purple\", \"purple\", \"purple\", \"purple\", \"purple\", \"yellow\")\ndf_plot\n\n            country coverage inequality size  color\n1            Angola    -0.14      0.100  1.1 purple\n2  Papua New Guinea    -0.35      0.080  0.6   blue\n3          Pakistan     0.12      0.050  3.0 yellow\n4              Chad     0.14      0.010  1.0 purple\n5          Ethiopia     0.32      0.005  2.0 purple\n6             Kenya     0.07     -0.060  1.1 purple\n7           Nigeria     0.20     -0.070  3.0 purple\n8           Liberia     0.18     -0.110  0.7 purple\n9      Burkina Faso     0.30     -0.130  1.1 purple\n10            India     0.35     -0.160  8.0 yellow\n\n\n::::",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1366,7 +1366,7 @@
     "section": "Practice",
     "text": "Practice\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color)) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  xlim(c(-0.35, 0.55)) +\n  ylim(c(-0.17, 0.1))",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1379,7 +1379,7 @@
     "section": "Practice",
     "text": "Practice\n\nset.seed(123)\nnp &lt;- 50\nrd &lt;- data.frame(\n  country = rep(\"\", np),\n  coverage = rnorm(n = np, mean = 0.1, sd = 0.12),\n  inequality = rnorm(n = np, mean = -0.05, sd = 0.04),\n  size = rnorm(n = np, mean = 1, sd = 0.4),\n  color = sample(\n    c(\"red\", \"green\", \"darkblue\", \"yellow\", \"blue\", \"purple\"),\n    np,\n    replace = T\n  )\n)\nhead(rd)\n\n  country   coverage   inequality      size color\n1         0.03274292 -0.039867259 0.7158374 green\n2         0.07237870 -0.051141870 1.1027535 green\n3         0.28704500 -0.051714818 0.9013232   red\n4         0.10846101  0.004744091 0.8609830 green\n5         0.11551453 -0.059030839 0.6193526   red\n6         0.30580780  0.010658824 0.9819889  blue\n\n\n\nset.seed(123): dùng để cố định cách tạo ra các điểm ngẫu nhiên.\nnp &lt;- 50: tạo ra 50 điểm ngẫu nhiên.\ncountry = rep(\"\", np): các điểm này không có tên quốc gia.\ncoverage = rnorm(n = np, mean = 0.1, sd = 0.12): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là 0.1 và độ lệch chuẩn là 0.12.\ninequality = rnorm(n = np, mean = -0.05, sd = 0.04): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là -0.05 và độ lệch chuẩn là 0.04.\nsize = rnorm(n = np, mean = 1, sd = 0.4): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là 1 và độ lệch chuẩn là 0.4.\ncolor = sample(1:6, np, replace = T): màu sắc là số nguyên ngẫu nhiên từ 1 đến 6.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1392,7 +1392,7 @@
     "section": "Practice",
     "text": "Practice\n\nWe must to merge two data.\n\n\n\ndf_plot &lt;- rbind(df_plot, rd)\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color)) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  xlim(c(-0.35, 0.55)) +\n  ylim(c(-0.17, 0.1))",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1405,7 +1405,7 @@
     "section": "Practice",
     "text": "Practice\n\ncols &lt;- c(\n  \"red\" = \"#fa8495\",\n  \"green\" = \"#4ca258\",\n  \"darkblue\" = \"#6493bb\",\n  \"yellow\" = \"#d7c968\",\n  \"blue\" = \"#7dd8f3\",\n  \"purple\" = \"#bc5c91\"\n)\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color), alpha = 0.8) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  geom_vline(xintercept = 0, color = \"#999999\") +\n  geom_hline(yintercept = 0, color = \"#999999\") +\n  scale_x_continuous(breaks = c(-0.25, 0, 0.25, 0.5),\n                     limits = c(-0.4, 0.55)) +\n  scale_y_continuous(breaks = c(-0.1, 0, 0.1), limits = c(-0.16, 0.1)) +\n  scale_size_continuous(\n    breaks = c(2, 4, 6, 8),\n    labels = c(\"50 million\", \"100 million\", \"150 million\", \"200 million\"),\n    range = c(0, 8),\n    guide = guide_legend(order = 1)\n  ) +\n  scale_color_manual(\n    values = cols,\n    breaks = c(\"red\", \"green\", \"darkblue\", \"yellow\", \"blue\", \"purple\"),\n    labels = c(\n      \"Central Europe, Eastern Europe and Central Asia\",\n      \"Latin America and Caribbean\",\n      \"North Africa and Middle East\",\n      \"South Asia\",\n      \"Southeast Asia, East Asia and Oceania\",\n      \"Sub-Saharan Africa\"\n    ),\n    guide = guide_legend(order = 2)\n  ) +\n  labs(x = \"Change in MCV1 coverage (2019-2000)\",\n       y = \"Change in absolute geographical inequality (2019-2000)\",\n       size = NULL,\n       color = NULL) +\n  theme_classic() +\n  theme(\n    legend.position = \"top\",\n    legend.direction = \"vertical\",\n    legend.text = element_text(size = 11),\n    legend.key.height = unit(0.5, \"cm\"),\n    axis.text = element_text(size = 11)\n  )",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1418,7 +1418,7 @@
     "section": "Mapping",
     "text": "Mapping\n\nBefore you want to create a map, you must to have a shapefile (format as .shp).\nIn ggplot2, you can use function geom_map to create a map.\nYou can see more information in Cheatsheet.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"
@@ -1431,7 +1431,7 @@
     "section": "The end",
     "text": "The end\n\n\n\n\n\n\nTip\n\n\n\nIf we use `ggplot2, we need to use tidyverse.",
     "crumbs": [
-      "🔹 **Members**",
+      "Home",
       "Modelling team",
       "R language",
       "Data visualization"

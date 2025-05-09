@@ -16,7 +16,7 @@ execute:
 ---
 
 ::: center-text
-[🚀 Presentation](slide_r03.html){.btn .btn-outline-secondary style="border-radius: 12px;"}[📎 simulated_covid](data/simulated_covid.rds){.btn .btn-outline-secondary style="border-radius: 12px;"} [📎 cleaned_vacdata](data/cleaned_vacdata.rds){.btn .btn-outline-secondary style="border-radius: 12px;"}
+[📎 simulated_covid](data/simulated_covid.rds){.btn .btn-outline-secondary style="border-radius: 12px;"} [📎 cleaned_vacdata](data/cleaned_vacdata.rds){.btn .btn-outline-secondary style="border-radius: 12px;"}
 :::
 
 ## R project
@@ -112,6 +112,7 @@ Package gtsummary được dùng vẽ bảng thống kê một cách nhanh ch�
 #| results: hide
 linelist %>% tbl_summary()
 ```
+
 ```{r, echo=F, message=FALSE, results='asis'}
 cat("<details><summary>Output</summary>\n")
 
@@ -765,8 +766,7 @@ Tạo bảng thống kê số mũi viêm gan b sơ sinh (`khangnguyen` mang giá
 Tạo bảng tỷ lệ tiêm chủng bằng `tbl_summary` theo quận/huyện
 
 ::: {.callout-tip collapse="true" title="Gợi ý"}
-- Chuyển từ bảng dạng ngang sang dọc bằng `pivot_wider`
-- Format các biến ngày tiêm thành tình trạng tiêm
-- Dùng `tbl_summary` để hiển thị số trẻ được tiêm cho từng mũi
+-   Chuyển từ bảng dạng ngang sang dọc bằng `pivot_wider`
+-   Format các biến ngày tiêm thành tình trạng tiêm
+-   Dùng `tbl_summary` để hiển thị số trẻ được tiêm cho từng mũi
 :::
-

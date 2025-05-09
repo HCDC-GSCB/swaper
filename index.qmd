@@ -110,7 +110,6 @@ main {
         <p><strong>Established:</strong> June, 2023</p>
         <p><strong>Affiliation:</strong> Ho Chi Minh Center for Diseases Control</p>
         <p>The Department of Surveillance, Warning, and Preparedness for Epidemic Response (SWAPER) monitors and forecasts epidemic trends, assesses risks, and issues alerts. It coordinates actions across all administrative levels, enhances the quality of disease surveillance and warning systems, and manages Ho Chi Minh City’s Emergency Operations Centre.</p>
-        <p>To more information about SWAPER, please click on following link: https://hcdc-gscb.github.io/swaper/</p>
     </div>
 </div>
 ```
