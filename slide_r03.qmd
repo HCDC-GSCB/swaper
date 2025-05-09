@@ -3,9 +3,7 @@ title: "Data analysis"
 format: revealjs
 ---
 
-## R project
-
-### Tạo Project trong R Studio
+## Tạo Project trong R Studio
 
 R project là một thư mục với file `.Rproj` . Để thuận tiện cho việc quản lý code và dữ liệu, ta nên tạo R project cho mỗi nghiên cứu/ báo cáo.
 
@@ -21,7 +19,7 @@ Quá trình tạo R project như sau:
 
 -   Bấm **`Create Project`**
 
-### Cấu trúc của một Project
+## Cấu trúc của một Project
 
 Cấu trúc của một R project sẽ có định dạng như sau:
 
@@ -33,7 +31,7 @@ Cấu trúc của một R project sẽ có định dạng như sau:
 
 -   `analysis.R` là tệp chứa mã R. Có thể có nhiều file `.R` trong 1 project.
 
-### R markdown
+## R markdown
 
 File `.Rmd` thường được dùng cho báo cáo vì có thể kết hợp các lệnh R, văn bản thường, đồ thị trong 1 file 
 
@@ -50,12 +48,6 @@ Gồm 3 phần chính:
 Tạo R Markdown bằng cách vào menu `File` \> `New File` \> `R Markdown...`
 
 ## Bảng phân tích thống kê
-
--   Tải data:
-
-::: center-text
-[📎 simulated_covid](data/simulated_covid.rds){.btn .btn-outline-secondary style="border-radius: 12px;"} [📎 cleaned_vacdata](data/cleaned_vacdata.rds){.btn .btn-outline-secondary style="border-radius: 12px;"}
-:::
 
 -   Tải package:  `tidyverse`, `gtsummary`
 
@@ -86,7 +78,7 @@ linelist <- read_rds("data/simulated_covid.rds") %>% mutate_if(is.Date, ymd)
 
 Dữ liệu bao gồm 2 đợt bùng phát dịch.
 
-### gtsummary
+## gtsummary
 
 Package gtsummary được dùng vẽ bảng thống kê một cách nhanh chóng bằng lệnh tbl_summary()
 
@@ -115,7 +107,7 @@ linelist %>%
 cat("\n</details>")
 ```
 
-### Điều chỉnh bảng thống kê
+## Điều chỉnh bảng thống kê
 
 Một số tham số của `tbl_summary` hỗ trợ điều chỉnh bảng thống kê
 
@@ -133,6 +125,8 @@ Một số tham số của `tbl_summary` hỗ trợ điều chỉnh bảng th�
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 linelist %>%
   tbl_summary(
     include = c(age, sex, outcome, date_onset, date_admission, date_first_contact, date_last_contact, outbreak)
@@ -148,6 +142,8 @@ linelist %>%
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 linelist %>% tbl_summary(
     include = c(age, sex, outcome, date_onset, date_admission,
                 date_first_contact, date_last_contact, outbreak),
@@ -174,6 +170,8 @@ linelist %>% tbl_summary(
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 linelist %>% tbl_summary(
   include = c(age, sex, outcome, date_onset, date_admission,
                 date_first_contact, date_last_contact, outbreak),
@@ -201,6 +199,8 @@ Người dùng có thể lựa chọn các phép thống kê để áp dụng l�
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 linelist %>% tbl_summary(
   include = c(age, sex, outcome, date_onset, date_admission,
                 date_first_contact, date_last_contact, outbreak),
@@ -230,6 +230,8 @@ linelist %>% tbl_summary(
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 linelist %>% tbl_summary(
   include = c(age, sex, outcome, date_onset, date_admission,
                 date_first_contact, date_last_contact, outbreak),
@@ -265,6 +267,8 @@ linelist %>% tbl_summary(
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 linelist %>% 
   mutate(
     # ------ đổi tên các nhóm trong biến phân loại ----
@@ -299,7 +303,7 @@ linelist %>%
   )
 ```
 
-### Kết hợp nhiều bảng thống kê
+## Kết hợp nhiều bảng thống kê
 
 Lệnh `tbl_stack` được sử dụng để kết hợp nhiều bảng thống kê có header giống nhau
 
@@ -310,6 +314,8 @@ Lệnh `tbl_stack` được sử dụng để kết hợp nhiều bảng thố
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 # ----- Bảng tỷ lệ tử vong trong cả 2 đợt dịch -----
 both_outbreak <- linelist %>% 
   mutate(
@@ -398,7 +404,7 @@ Tổng hợp các phép kiểm định thống kê
 | **Kiểm định Fisher’s Exact** | Tương tự như Chi-squared, kiểm tra mối liên hệ giữa hai biến phân loại nhưng cho cỡ mẫu nhỏ |                                                    |
 +------------------------------+---------------------------------------------------------------------------------------------+----------------------------------------------------+
 
-### Kiểm định T
+## Kiểm định T
 
 **VD 1:** Kiểm tra độ tuổi trung bình giữa 2 đợt dịch
 
@@ -407,6 +413,8 @@ Tổng hợp các phép kiểm định thống kê
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 linelist %>% 
   mutate(
     outbreak = factor(outbreak, 
@@ -429,6 +437,8 @@ linelist %>%
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 # ----- Bảng kết quả cho đợt dịch đầu ---- 
 first_outbreak <- linelist %>% 
   mutate(
@@ -452,6 +462,8 @@ first_outbreak <- linelist %>%
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 # ----- Bảng kết quả cho đợt dịch thứ hai ---- 
 second_outbreak <- linelist %>% 
   filter(outbreak == "2nd outbreak") %>% 
@@ -474,6 +486,8 @@ second_outbreak <- linelist %>%
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 # ----- Bảng kết quả cho cả hai đợt dịch ---- 
 both_outbreak <- linelist %>% 
   mutate(
@@ -496,6 +510,8 @@ both_outbreak <- linelist %>%
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 tbl_stack(list(first_outbreak, second_outbreak, both_outbreak), 
           group_header = c("Đợt 1", "Đợt 2", "Cả 2 đợt")) %>% 
   # --- optional: code điều chỉnh style header ---- 
@@ -507,7 +523,7 @@ tbl_stack(list(first_outbreak, second_outbreak, both_outbreak),
   )
 ```
 
-### Kiểm định Chi bình phương
+## Kiểm định Chi bình phương
 
 **VD:** Kiểm tra giới tính có ảnh hưởng đến khả năng tử vong hay không
 
@@ -516,6 +532,8 @@ tbl_stack(list(first_outbreak, second_outbreak, both_outbreak),
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 # ----- Bảng kết quả cho đợt dịch đầu ---- 
 tbl_first_outbreak <- linelist %>%
   mutate(
@@ -539,6 +557,8 @@ tbl_first_outbreak <- linelist %>%
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 # ----- Bảng kết quả cho đợt dịch thứ 2 ---- 
 tbl_second_outbreak <- linelist %>%
   mutate(
@@ -561,6 +581,8 @@ tbl_second_outbreak <- linelist %>%
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 # ----- Bảng kết quả cho cả 2 đợt dịch ---- 
 both_outbreak <- linelist %>% 
   mutate(
@@ -584,6 +606,8 @@ both_outbreak <- linelist %>%
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 tbl_stack(list(tbl_first_outbreak, tbl_second_outbreak, both_outbreak), 
           group_header = c(c("Đợt 1", "Đợt 2", "Cả 2 đợt"))) %>%
   # --- optional: code điều chỉnh style header ---- 
@@ -595,7 +619,7 @@ tbl_stack(list(tbl_first_outbreak, tbl_second_outbreak, both_outbreak),
   )
 ```
 
-### Kiểm định Fisher exact
+## Kiểm định Fisher exact
 
 Thử thực hiện kiểm định Fisher trên bộ dữ liệu và so sánh với kiểm định Chi bình phương
 
@@ -604,6 +628,8 @@ Thử thực hiện kiểm định Fisher trên bộ dữ liệu và so sánh v�
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 # ----- Bảng kết quả cho đợt dịch đầu ---- 
 tbl_first_outbreak <- linelist %>%
   mutate(
@@ -627,6 +653,8 @@ tbl_first_outbreak <- linelist %>%
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 # ----- Bảng kết quả cho đợt dịch thứ 2 ---- 
 tbl_second_outbreak <- linelist %>%
   mutate(
@@ -649,6 +677,8 @@ tbl_second_outbreak <- linelist %>%
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 # ----- Bảng kết quả cho cả 2 đợt dịch ---- 
 both_outbreak <- linelist %>% 
   mutate(
@@ -672,6 +702,8 @@ both_outbreak <- linelist %>%
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 tbl_stack(list(tbl_first_outbreak, tbl_second_outbreak, both_outbreak), 
           group_header = c(c("Đợt 1", "Đợt 2", "Cả 2 đợt"))) %>%
   # --- optional: code điều chỉnh style header ---- 
@@ -683,9 +715,7 @@ tbl_stack(list(tbl_first_outbreak, tbl_second_outbreak, both_outbreak),
   )
 ```
 
-## Bài tập
-
-### Đọc dữ liệu
+## Đọc dữ liệu
 
 Đọc dữ liệu tiêm chủng sau phần làm sạch
 
@@ -693,7 +723,7 @@ tbl_stack(list(tbl_first_outbreak, tbl_second_outbreak, both_outbreak),
 
 ```
 
-### Tạo và điều chỉnh bảng thống kê
+## Tạo và điều chỉnh bảng thống kê
 
 Tạo bảng thống kê cho dữ liệu vaccine theo các yêu cầu sau
 
@@ -705,7 +735,7 @@ Tạo bảng thống kê cho dữ liệu vaccine theo các yêu cầu sau
 
 ```
 
-### Phân tích
+## Phân tích
 
 Tạo bảng thống kê số mũi viêm gan b sơ sinh (`khangnguyen` mang giá trị vgb_truoc_24, vgb_sau_24) theo quận huyện
 

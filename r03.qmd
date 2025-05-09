@@ -112,7 +112,6 @@ Package gtsummary được dùng vẽ bảng thống kê một cách nhanh ch�
 #| results: hide
 linelist %>% tbl_summary()
 ```
-
 ```{r, echo=F, message=FALSE, results='asis'}
 cat("<details><summary>Output</summary>\n")
 
@@ -143,6 +142,8 @@ Một số tham số của `tbl_summary` hỗ trợ điều chỉnh bảng th�
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 linelist %>%
   tbl_summary(
     include = c(age, sex, outcome, date_onset, date_admission, date_first_contact, date_last_contact, outbreak)
@@ -158,6 +159,8 @@ linelist %>%
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 linelist %>% tbl_summary(
     include = c(age, sex, outcome, date_onset, date_admission,
                 date_first_contact, date_last_contact, outbreak),
@@ -184,6 +187,8 @@ linelist %>% tbl_summary(
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 linelist %>% tbl_summary(
   include = c(age, sex, outcome, date_onset, date_admission,
                 date_first_contact, date_last_contact, outbreak),
@@ -211,6 +216,8 @@ Người dùng có thể lựa chọn các phép thống kê để áp dụng l�
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 linelist %>% tbl_summary(
   include = c(age, sex, outcome, date_onset, date_admission,
                 date_first_contact, date_last_contact, outbreak),
@@ -240,6 +247,8 @@ linelist %>% tbl_summary(
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 linelist %>% tbl_summary(
   include = c(age, sex, outcome, date_onset, date_admission,
                 date_first_contact, date_last_contact, outbreak),
@@ -275,6 +284,8 @@ linelist %>% tbl_summary(
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 linelist %>% 
   mutate(
     # ------ đổi tên các nhóm trong biến phân loại ----
@@ -320,6 +331,8 @@ Lệnh `tbl_stack` được sử dụng để kết hợp nhiều bảng thố
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 # ----- Bảng tỷ lệ tử vong trong cả 2 đợt dịch -----
 both_outbreak <- linelist %>% 
   mutate(
@@ -417,6 +430,8 @@ Tổng hợp các phép kiểm định thống kê
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 linelist %>% 
   mutate(
     outbreak = factor(outbreak, 
@@ -439,6 +454,8 @@ linelist %>%
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 # ----- Bảng kết quả cho đợt dịch đầu ---- 
 first_outbreak <- linelist %>% 
   mutate(
@@ -462,6 +479,8 @@ first_outbreak <- linelist %>%
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 # ----- Bảng kết quả cho đợt dịch thứ hai ---- 
 second_outbreak <- linelist %>% 
   filter(outbreak == "2nd outbreak") %>% 
@@ -484,6 +503,8 @@ second_outbreak <- linelist %>%
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 # ----- Bảng kết quả cho cả hai đợt dịch ---- 
 both_outbreak <- linelist %>% 
   mutate(
@@ -506,6 +527,8 @@ both_outbreak <- linelist %>%
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 tbl_stack(list(first_outbreak, second_outbreak, both_outbreak), 
           group_header = c("Đợt 1", "Đợt 2", "Cả 2 đợt")) %>% 
   # --- optional: code điều chỉnh style header ---- 
@@ -526,6 +549,8 @@ tbl_stack(list(first_outbreak, second_outbreak, both_outbreak),
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 # ----- Bảng kết quả cho đợt dịch đầu ---- 
 tbl_first_outbreak <- linelist %>%
   mutate(
@@ -549,6 +574,8 @@ tbl_first_outbreak <- linelist %>%
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 # ----- Bảng kết quả cho đợt dịch thứ 2 ---- 
 tbl_second_outbreak <- linelist %>%
   mutate(
@@ -571,6 +598,8 @@ tbl_second_outbreak <- linelist %>%
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 # ----- Bảng kết quả cho cả 2 đợt dịch ---- 
 both_outbreak <- linelist %>% 
   mutate(
@@ -594,6 +623,8 @@ both_outbreak <- linelist %>%
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 tbl_stack(list(tbl_first_outbreak, tbl_second_outbreak, both_outbreak), 
           group_header = c(c("Đợt 1", "Đợt 2", "Cả 2 đợt"))) %>%
   # --- optional: code điều chỉnh style header ---- 
@@ -614,6 +645,8 @@ Thử thực hiện kiểm định Fisher trên bộ dữ liệu và so sánh v�
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 # ----- Bảng kết quả cho đợt dịch đầu ---- 
 tbl_first_outbreak <- linelist %>%
   mutate(
@@ -637,6 +670,8 @@ tbl_first_outbreak <- linelist %>%
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 # ----- Bảng kết quả cho đợt dịch thứ 2 ---- 
 tbl_second_outbreak <- linelist %>%
   mutate(
@@ -659,6 +694,8 @@ tbl_second_outbreak <- linelist %>%
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 # ----- Bảng kết quả cho cả 2 đợt dịch ---- 
 both_outbreak <- linelist %>% 
   mutate(
@@ -682,6 +719,8 @@ both_outbreak <- linelist %>%
 ```
 
 ```{r, message=FALSE}
+#| code-fold: true
+#| code-summary: "Code"
 tbl_stack(list(tbl_first_outbreak, tbl_second_outbreak, both_outbreak), 
           group_header = c(c("Đợt 1", "Đợt 2", "Cả 2 đợt"))) %>%
   # --- optional: code điều chỉnh style header ---- 
@@ -726,7 +765,8 @@ Tạo bảng thống kê số mũi viêm gan b sơ sinh (`khangnguyen` mang giá
 Tạo bảng tỷ lệ tiêm chủng bằng `tbl_summary` theo quận/huyện
 
 ::: {.callout-tip collapse="true" title="Gợi ý"}
--   Chuyển từ bảng dạng ngang sang dọc bằng `pivot_wider`
--   Format các biến ngày tiêm thành tình trạng tiêm
--   Dùng `tbl_summary` để hiển thị số trẻ được tiêm cho từng mũi
+- Chuyển từ bảng dạng ngang sang dọc bằng `pivot_wider`
+- Format các biến ngày tiêm thành tình trạng tiêm
+- Dùng `tbl_summary` để hiển thị số trẻ được tiêm cho từng mũi
 :::
+

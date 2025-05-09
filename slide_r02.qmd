@@ -1,5 +1,5 @@
 ---
-title: "Data management, data cleaning and R  style"
+title: "Data management, data cleaning and R style"
 format: revealjs
 ---
 
