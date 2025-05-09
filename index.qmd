@@ -110,6 +110,7 @@ main {
         <p><strong>Established:</strong> June, 2023</p>
         <p><strong>Affiliation:</strong> Ho Chi Minh Center for Diseases Control</p>
         <p>The Department of Surveillance, Warning, and Preparedness for Epidemic Response (SWAPER) monitors and forecasts epidemic trends, assesses risks, and issues alerts. It coordinates actions across all administrative levels, enhances the quality of disease surveillance and warning systems, and manages Ho Chi Minh City’s Emergency Operations Centre.</p>
+        <p>To more information about SWAPER, please click on following link: https://hcdc-gscb.github.io/swaper/</p>
     </div>
 </div>
 ```
@@ -174,7 +175,7 @@ main {
         <p>Prepare to respond to emergencies, RRT (EOC team)</p>
     </div>
     <div class="member row2">
-        <img src="chile.jpg" class="avatar">
+        <img src="chile.png" class="avatar">
         <h3>Le Tran</h3>
         <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
         <p>Prepare to respond to emergencies, RRT (EOC team)</p>
@@ -182,25 +183,25 @@ main {
     
 <!-- Staff (4 người hàng dưới) -->
     <div class="member row3">
-        <img src="tuyenpham.jpg" class="avatar">
+        <img src="tuyenpham.png" class="avatar">
         <h3>Tuyen Pham</h3>
         <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
         <p>Surveillance, warning epidemic</p>
     </div>
     <div class="member row3">
-        <img src="quantruong.jpg" class="avatar">
+        <img src="quantruong.png" class="avatar">
         <h3>Quan Truong</h3>
         <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
         <p>Surveillance, warning epidemic</p>
     </div>
     <div class="member row3">
-        <img src="vinhtran.jpg" class="avatar">
+        <img src="vinhtran.png" class="avatar">
         <h3>Vinh Tran</h3>
         <p><strong>Major:</strong> Bachelor of Public Health</p>
         <p>Surveillance, warning epidemic</p>
     </div>
     <div class="member row3">
-        <img src="nhonnguyen.jpg" class="avatar">
+        <img src="nhonnguyen.png" class="avatar">
         <h3>Nhon Nguyen</h3>
         <p><strong>Major:</strong> Bachelor of Public Health</p>
         <p>Prepare to respond to emergencies, RRT (EOC team)</p>

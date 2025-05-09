@@ -1,5 +1,6 @@
 ---
 title: "Overview of R"
+sidebar: documents
 format: html
 ---
 

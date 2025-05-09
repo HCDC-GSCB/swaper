@@ -21,3 +21,15 @@ title: "Online semniars for infectious diseases"
 3.  LSHTM Centre for Mathematical Modelling of Infectious Diseases seminar series [🚀](https://www.lshtm.ac.uk/newsevents/events/series/centre-mathematical-modelling-infectious-diseases)
 
 4.  The MIDSEA Network [🚀](https://midsea.network/event/)
+
+## The Public Health Emergency Operations Centre
+
+This session introduces key online learning resources on Public Health Emergency Operations Centres (PHEOC) and Public Health Emergency Management (PHEM). Participants will be guided to relevant self-paced courses provided by trusted institutions such as WHO, CDC, and other global partners. These resources support capacity building for emergency preparedness and response.
+
+1. Ready4Response Tier 2: Systems, structures and skills [🚀](https://drive.google.com/drive/u/2/folders/1aLq6bfMAk0dv1HtO_lg4WAqQFLWs64K8)
+
+2. The Public Health Emergency Operations Centre (PHEOC) [🚀](https://drive.google.com/drive/u/2/folders/1Qzv4Yt9El_9C88xDRLWtgPfWs1R1s211)
+
+3. King County Emergency Management [🚀](https://kingcounty.gov/en/dept/executive-services/governance-leadership/)
+
+4. Rapid Response Teams Training Programme - WHO [🚀](https://extranet.who.int/hslp/package/rapid-response-teams-training-programme)

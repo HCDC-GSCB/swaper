@@ -1,5 +1,6 @@
 ---
 title: "Data visualization"
+sidebar: documents
 format: html
 ---
 
@@ -87,7 +88,7 @@ ggplot(mtcars, aes(x = wt, y = mpg)) +
 
 ## Grammar of graphics
 
--   Data: `mtcars` 
+-   Data: `mtcars`
 -   Aesthetics: `aes(x = wt, y = mpg)`
 -   Geometries: `geom_point`
 -   Coordinates: `scale_x_continuous`, `scale_y_continuous`, `ggtitle`

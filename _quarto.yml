@@ -5,8 +5,10 @@ project:
 website:
   title: "SWAPER"
   navbar:
+    logo: logo.png
     left:
       - text: "Overview"
+        icon: house
         href: index.qmd
       - text: "Seminars"
         menu: 
@@ -15,34 +17,40 @@ website:
           - text: "Registered"
             href: exp2.qmd
       - text: "Documents"
-        menu:
-          - text: "Quality of surveillance system"
-            href: htgs.qmd
-          - text: "Warning, forcasting in infectious diseases"
-            href: threshold.qmd
-          - text: "R language"
-            href: intro.qmd
+        href: documents.qmd
+
     right:
       - icon: github
         href: https://github.com/HCDC-GSCB/
 
   sidebar:
-    - id: r-together
-      title: "R language"
+    - id: documents
+      title: "Documents"
       contents:
-        - intro.qmd
-        - r01.qmd
-        - r02.qmd
-        - r04.qmd
+        - section: "Modelling team"
+          contents:
+            - htgs.qmd
+            - threshold.qmd
+            - section: "R language"
+              contents:
+                - intro.qmd
+                - r01.qmd
+                - r02.qmd
+                - r03.qmd
+                - r04.qmd
+        - section: "PHEOC team"
+          contents:
+            - ghs.qmd
+            - phem.qmd
+            - pheoc.qmd
 
   back-to-top-navigation: true
   page-footer: "Copyright 2025, SWAPER"
-      
+
 format:
   html:
     self-contained: true
-    theme: brite 
-    css: bootstrap.min.css
+    theme: quartz
     toc: true
 
 editor: visual

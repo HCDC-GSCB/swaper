@@ -1,0 +1,14 @@
+---
+title: "The Public Health Emergency Management (PHEM) framework and emergency management cycle"
+sidebar: documents
+---
+
++-------+-----------------------------------------------------------------------------------------+----------------------------------------+
+| Time  | Lesson                                                                                  | Content                                |
++=======+=========================================================================================+========================================+
+| Day 1 | Overview of Global Health Security and Public Health Emergency Management               | Global Health Security 101             |
+|       |                                                                                         |                                        |
+|       | [🚀 Presentation](https://www.canva.com/design/DAGc4TnSb8s/iAoaMEwOBVs8HTfHtCH9KQ/edit) | Public Health Emergency Management 101 |
+|       |                                                                                         |                                        |
+|       |                                                                                         | FEMA (USA)                             |
++-------+-----------------------------------------------------------------------------------------+----------------------------------------+

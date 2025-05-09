@@ -1,22 +1,7 @@
-## Introduction {.unnumbered}
-
-Hello newbies,
-
-Firstly, thank you for joining us in the department. The Department of Surveillance, Warning, and Preparedness for Epidemic Response (SWAPER) was established on June 1st, 2023. Our mission is to monitor and forecast epidemic trends, assess risks, and issue timely alerts. The department coordinates response efforts across all administrative levels, improves the quality of disease surveillance and early warning systems, and manages Ho Chi Minh City’s Emergency Operations Centre.
-
-To fulfill this mission, we need to learn how to use R.
-
-In this course, you’ll learn how to use R at a basic level. R is not just software — it is a programming language designed for data analysis and visualization. In public health, R allows us to analyze surveillance data, detect unusual patterns, and generate automatic reports and alerts. These tools strengthen our capacity to provide faster, data-driven responses to health threats.
-
-Let’s get started. 🚀
-
-Welcome home! 🏡
-
-To more information about SWAPER, please click on following link:
-
-<https://hcdc-gscb.github.io/swaper/>
-
-## Agenda of R-Together {.unnumbered}
+---
+title: "Agenda"
+sidebar: documents
+---
 
 +--------------+--------------------------------------------+----------------------------------+
 |              | Lesson                                     | Content                          |
