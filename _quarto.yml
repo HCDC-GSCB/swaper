@@ -17,6 +17,9 @@ website:
             href: exp2.qmd
       - text: "Training"
         href: documents.qmd
+      - text: "Scan media"
+        icon: newspaper
+        href: "https://script.google.com/macros/s/AKfycbx6pyU0QxupPG96rKOAt0sPoy8oUL9dcdSGM5d39vcYaBJRvoDMJZpxUAF_YQLXhmiN/exec"
     right:
       - icon: github
         href: https://github.com/HCDC-GSCB/
