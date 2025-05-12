@@ -19,7 +19,7 @@ website:
         href: documents.qmd
       - text: "Scan media"
         icon: newspaper
-        href: scan-media.qmd
+        href: scan-media.html
     right:
       - icon: github
         href: https://github.com/HCDC-GSCB/
@@ -57,5 +57,6 @@ format:
       light: flatly
       dark: darkly
     toc: true
+    css: custom.css
 
 editor: visual
