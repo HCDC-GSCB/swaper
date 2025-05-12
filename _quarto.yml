@@ -2,6 +2,9 @@ project:
   type: website
   output-dir: docs
 
+resources:
+  - scan-media.html
+
 website:
   title: "SWAPER"
   navbar:
@@ -58,8 +61,5 @@ format:
       dark: darkly
     toc: true
     css: custom.css
-
-resources:
-  - static/scan-media.html
 
 editor: visual
