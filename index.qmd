@@ -44,6 +44,7 @@ main {
 .member {
     text-align: left;
     background-color: #e6f7ff;
+    color: #000;
     padding: 15px;
     border-radius: 10px;
     display: flex;
@@ -54,6 +55,7 @@ main {
 .leader {
     width: 100%;
     background-color: #f0f8ff;
+    color: #000;
     padding: 20px;
     border-radius: 10px;
     display: flex;
@@ -61,6 +63,18 @@ main {
     gap: 20px;
     justify-content: space-between;
     flex-direction: row-reverse;
+}
+
+@media (prefers-color-scheme: dark) {
+    .member {
+        background-color: #1e1e1e;
+        color: #fff;
+    }
+
+    .leader {
+        background-color: #2b2b2b;
+        color: #fff;
+    }
 }
 
 /* Hàng 4 người */
