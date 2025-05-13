@@ -2,24 +2,24 @@
 title: "Warning and forcasting epidemic"
 ---
 
-+------------+-----------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
-|            | Lesson                                                                                                                      | Content                                                               |
-+============+=============================================================================================================================+=======================================================================+
-| Day 1      | Threshold and methods for determining threshold in IBS                                                                      | What is threshold?                                                    |
-|            |                                                                                                                             |                                                                       |
-|            | [🚀 Presentation](https://www.canva.com/design/DAGjS-RK18c/SDgaVrDi0GHyNkavFfi5mQ/edit?ui=eyJIIjp7IkEiOnRydWV9fQ)           | Overview of methods for determining threshold                         |
-|            |                                                                                                                             |                                                                       |
-|            |                                                                                                                             | Performance of threshold, and research introduction                   |
-+------------+-----------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
-| Day 2      | Transmission in infectious diseases and the reproduction number                                                             | Timeline of infection in infectious diseases                          |
-|            |                                                                                                                             |                                                                       |
-|            | [🚀 Presentation](https://www.canva.com/design/DAGkAq8mibs/xVPSiyCVq9dTjFLYB_Vsfg/edit?ui=eyJEIjp7IlAiOnsiQiI6ZmFsc2V9fX0)  | Measurements in infectious diseases                                   |
-|            |                                                                                                                             |                                                                       |
-|            |                                                                                                                             | Reproduction number                                                   |
-+------------+-----------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
-| Day 3      | Mathematical models and applications in infectious disease forecasting                                                      | What is mathmatical models?                                           |
-|            |                                                                                                                             |                                                                       |
-|            | [🚀 Presentation](https://www.canva.com/design/DAGKL2wOBvU/cnHQAmOwT75TeFIv7Ij4Lg/edit?ui=eyJIIjp7IkEiOnRydWV9fQ)           | Deterministic and stochastic models                                   |
-|            |                                                                                                                             |                                                                       |
-|            |                                                                                                                             | Application of mathematical models in infectious diseases forecasting |
-+------------+-----------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
++-------+----------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
+|       | Lesson                                                                                                                     | Content                                                               |
++=======+============================================================================================================================+=======================================================================+
+| Day 1 | Threshold and methods for determining threshold in IBS                                                                     | What is threshold?                                                    |
+|       |                                                                                                                            |                                                                       |
+|       | [🚀 Presentation](https://www.canva.com/design/DAGjS-RK18c/SDgaVrDi0GHyNkavFfi5mQ/edit?ui=eyJIIjp7IkEiOnRydWV9fQ)          | Overview of methods for determining threshold                         |
+|       |                                                                                                                            |                                                                       |
+|       |                                                                                                                            | Performance of threshold, and research introduction                   |
++-------+----------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
+| Day 2 | Transmission in infectious diseases and the reproduction number                                                            | Timeline of infection in infectious diseases                          |
+|       |                                                                                                                            |                                                                       |
+|       | [🚀 Presentation](https://www.canva.com/design/DAGkAq8mibs/xVPSiyCVq9dTjFLYB_Vsfg/edit?ui=eyJEIjp7IlAiOnsiQiI6ZmFsc2V9fX0) | Measurements in infectious diseases                                   |
+|       |                                                                                                                            |                                                                       |
+|       |                                                                                                                            | Reproduction number                                                   |
++-------+----------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
+| Day 3 | Mathematical models and applications in infectious disease forecasting                                                     | What is mathmatical models?                                           |
+|       |                                                                                                                            |                                                                       |
+|       | [🚀 Presentation](https://www.canva.com/design/DAGKL2wOBvU/cnHQAmOwT75TeFIv7Ij4Lg/edit?ui=eyJIIjp7IkEiOnRydWV9fQ)          | Deterministic and stochastic models                                   |
+|       |                                                                                                                            |                                                                       |
+|       |                                                                                                                            | Application of mathematical models in infectious diseases forecasting |
++-------+----------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
