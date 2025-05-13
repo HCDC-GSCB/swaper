@@ -7,6 +7,7 @@ resources:
 
 website:
   title: "SWAPER"
+  favicon: logo.png
   navbar:
     left:
       - text: "Home"
@@ -61,5 +62,7 @@ format:
       dark: darkly
     toc: true
     css: custom.css
+    includes: 
+      after-body: loading.html
 
 editor: visual
