@@ -53,10 +53,6 @@ Tạo R Markdown bằng cách vào menu `File` \> `New File` \> `R Markdown
 
 -   Load package:
 
-```{webr-r}
-
-```
-
 ```{r, warning=F, message = F}
 #| code-fold: true
 #| code-summary: "Code"
@@ -65,10 +61,6 @@ library(gtsummary)
 ```
 
 Chúng ta sẽ sử dụng dữ liệu mô phỏng các ca bệnh Covid 19
-
-```{webr-r}
-
-```
 
 ```{r, message=FALSE, warning=FALSE}
 #| code-fold: true
@@ -83,10 +75,6 @@ Dữ liệu bao gồm 2 đợt bùng phát dịch.
 Package gtsummary được dùng vẽ bảng thống kê một cách nhanh chóng bằng lệnh tbl_summary()
 
 **VD:** sử dụng tbl_summary() 
-
-```{webr-r}
-
-```
 
 ```{r, message=FALSE}
 #| code-fold: true
@@ -120,10 +108,6 @@ Một số tham số của `tbl_summary` hỗ trợ điều chỉnh bảng th�
 
 **Chọn các biến được thống kê qua tham số `include`**
 
-```{webr-r}
-
-```
-
 ```{r, message=FALSE}
 #| code-fold: true
 #| code-summary: "Code"
@@ -136,10 +120,6 @@ linelist %>%
 **Thay đổi tên biến qua tham số `label`**
 
 **VD**: đổi tên được hiển thị cho các biến
-
-```{webr-r}
-
-```
 
 ```{r, message=FALSE}
 #| code-fold: true
@@ -165,10 +145,6 @@ linelist %>% tbl_summary(
 
 **VD:** hiện thống kê cho từng đợt dịch
 
-```{webr-r}
-
-```
-
 ```{r, message=FALSE}
 #| code-fold: true
 #| code-summary: "Code"
@@ -193,10 +169,6 @@ linelist %>% tbl_summary(
 Người dùng có thể lựa chọn các phép thống kê để áp dụng lên các biến
 
 **VD:** format thống kê cho  `sex`  và `outcome`
-
-```{webr-r}
-
-```
 
 ```{r, message=FALSE}
 #| code-fold: true
@@ -224,10 +196,6 @@ linelist %>% tbl_summary(
 **Điều chỉnh số chữ số thập phân qua tham số `digits`**
 
 **VD:** Hiển thị tuổi với 2 chữ số thập phân
-
-```{webr-r}
-
-```
 
 ```{r, message=FALSE}
 #| code-fold: true
@@ -261,10 +229,6 @@ linelist %>% tbl_summary(
 Để thay đổi cách hiển thị giá trị bị thiếu, ta có thể sử dụng tham số `missing_text`của `tbl_summary`
 
 **VD:**
-
-```{webr-r}
-
-```
 
 ```{r, message=FALSE}
 #| code-fold: true
@@ -308,10 +272,6 @@ linelist %>%
 Lệnh `tbl_stack` được sử dụng để kết hợp nhiều bảng thống kê có header giống nhau
 
 **VD**: Làm bảng tỉ lệ tử vong theo quận trong đợt 1, đợt 2 và cả 2 đợt
-
-```{webr-r}
-
-```
 
 ```{r, message=FALSE}
 #| code-fold: true
@@ -408,10 +368,6 @@ Tổng hợp các phép kiểm định thống kê
 
 **VD 1:** Kiểm tra độ tuổi trung bình giữa 2 đợt dịch
 
-```{webr-r}
-
-```
-
 ```{r, message=FALSE}
 #| code-fold: true
 #| code-summary: "Code"
@@ -431,10 +387,6 @@ linelist %>%
 ```
 
 **VD 2:** Kiểm tra độ tuổi trung bình của 2 nhóm khỏi bệnh và tử vong
-
-```{webr-r}
-
-```
 
 ```{r, message=FALSE}
 #| code-fold: true
@@ -457,10 +409,6 @@ first_outbreak <- linelist %>%
   add_p(test = age ~ "t.test")
 ```
 
-```{webr-r}
-
-```
-
 ```{r, message=FALSE}
 #| code-fold: true
 #| code-summary: "Code"
@@ -479,10 +427,6 @@ second_outbreak <- linelist %>%
   ) %>% 
   modify_header(all_stat_cols() ~ "**{level}**") %>% 
   add_p(test = age ~ "t.test")
-```
-
-```{webr-r}
-
 ```
 
 ```{r, message=FALSE}
@@ -505,10 +449,6 @@ both_outbreak <- linelist %>%
   add_p(test = age ~ "t.test")
 ```
 
-```{webr-r}
-
-```
-
 ```{r, message=FALSE}
 #| code-fold: true
 #| code-summary: "Code"
@@ -526,10 +466,6 @@ tbl_stack(list(first_outbreak, second_outbreak, both_outbreak),
 ## Kiểm định Chi bình phương
 
 **VD:** Kiểm tra giới tính có ảnh hưởng đến khả năng tử vong hay không
-
-```{webr-r}
-
-```
 
 ```{r, message=FALSE}
 #| code-fold: true
@@ -552,10 +488,6 @@ tbl_first_outbreak <- linelist %>%
   add_p(test = outcome ~ "chisq.test")
 ```
 
-```{webr-r}
-
-```
-
 ```{r, message=FALSE}
 #| code-fold: true
 #| code-summary: "Code"
@@ -574,10 +506,6 @@ tbl_second_outbreak <- linelist %>%
   # điều chỉnh header để các bảng có chung header
   modify_header(all_stat_cols() ~ "**{level}**") %>% 
   add_p(test = outcome ~ "chisq.test")
-```
-
-```{webr-r}
-
 ```
 
 ```{r, message=FALSE}
@@ -599,10 +527,6 @@ both_outbreak <- linelist %>%
   # điều chỉnh header để các bảng có chung header
   modify_header(all_stat_cols() ~ "**{level}**") %>% 
   add_p(test = outcome ~ "chisq.test")
-```
-
-```{webr-r}
-
 ```
 
 ```{r, message=FALSE}
@@ -623,10 +547,6 @@ tbl_stack(list(tbl_first_outbreak, tbl_second_outbreak, both_outbreak),
 
 Thử thực hiện kiểm định Fisher trên bộ dữ liệu và so sánh với kiểm định Chi bình phương
 
-```{webr-r}
-
-```
-
 ```{r, message=FALSE}
 #| code-fold: true
 #| code-summary: "Code"
@@ -648,10 +568,6 @@ tbl_first_outbreak <- linelist %>%
   add_p(test = outcome ~ "fisher.test")
 ```
 
-```{webr-r}
-
-```
-
 ```{r, message=FALSE}
 #| code-fold: true
 #| code-summary: "Code"
@@ -670,10 +586,6 @@ tbl_second_outbreak <- linelist %>%
   # điều chỉnh header để các bảng có chung header
   modify_header(all_stat_cols() ~ "**{level}**") %>% 
   add_p(test = outcome ~ "fisher.test")
-```
-
-```{webr-r}
-
 ```
 
 ```{r, message=FALSE}
@@ -697,10 +609,6 @@ both_outbreak <- linelist %>%
   add_p(test = outcome ~ "fisher.test")
 ```
 
-```{webr-r}
-
-```
-
 ```{r, message=FALSE}
 #| code-fold: true
 #| code-summary: "Code"
@@ -719,10 +627,6 @@ tbl_stack(list(tbl_first_outbreak, tbl_second_outbreak, both_outbreak),
 
 Đọc dữ liệu tiêm chủng sau phần làm sạch
 
-```{webr-r}
-
-```
-
 ## Tạo và điều chỉnh bảng thống kê
 
 Tạo bảng thống kê cho dữ liệu vaccine theo các yêu cầu sau
@@ -731,17 +635,9 @@ Tạo bảng thống kê cho dữ liệu vaccine theo các yêu cầu sau
 
 -   Thay đổi tên các biến được hiển thị như sau: `ngaysinh` -\> `Ngày sinh,` `ngaytiem` -\> `Ngày tiêm`, `khangnguyen` -\> `Kháng nguyên`
 
-```{webr-r}
-
-```
-
 ## Phân tích
 
 Tạo bảng thống kê số mũi viêm gan b sơ sinh (`khangnguyen` mang giá trị vgb_truoc_24, vgb_sau_24) theo quận huyện
-
-```{webr-r}
-
-```
 
 Tạo bảng tỷ lệ tiêm chủng bằng `tbl_summary` theo quận/huyện
 

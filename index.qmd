@@ -208,7 +208,7 @@ main {
         <p>Surveillance, warning epidemic</p>
     </div>
     <div class="member row3">
-        <img src="vinhtran.png" class="avatar">
+        <img src="vinhtran.jpg" class="avatar">
         <h3>Vinh Tran</h3>
         <p><strong>Major:</strong> Bachelor of Public Health</p>
         <p>Surveillance, warning epidemic</p>
