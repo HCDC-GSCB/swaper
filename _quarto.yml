@@ -25,7 +25,7 @@ website:
         icon: newspaper
         href: scan-media.html
       - text: "Documents"
-        href: docu
+        href: document.qmd
     right:
       - icon: github
         href: https://github.com/HCDC-GSCB/
