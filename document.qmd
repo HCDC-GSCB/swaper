@@ -4,22 +4,20 @@ title: ""
 
 ## Book
 
-1. Principles of Epidemiology in Public Health Practice, 2012 **(USCDC)** [Link](documents/Book_USCDC. Principles of Epidemiology in Public Health Practice. Third- 2012.pdf){target=_blank}
+1.  Principles of Epidemiology in Public Health Practice, 2012 **(USCDC)** [Link](documents/uscdc_epidemic_2012.pdf){target="_blank"}
 
-2. National RRT SOPs, 2024 **(NIH, Pakistan)** [Link](National RRT SOPs - 25-08-2024 Revised 2.pdf){target=_blank}
+2.  National RRT SOPs, 2024 **(NIH, Pakistan)** [Link](national_rrt_sops_2024.pdf){target="_blank"}
 
-3. Handbook of Applied Health Economics 
-in Vaccines, 2023 [Link](oso-9780192896087.pdf){target=_blank}
+3.  Handbook of Applied Health Economics in Vaccines, 2023 [Link](documents/health_economic_vaccine_2023.pdf){target="_blank"}
 
 ## E-Book
 
-1. Epidemic R Handbook, 2024 [Link](https://epirhandbook.com/en/){target=_blank}
+1.  Epidemic R Handbook, 2024 [Link](https://epirhandbook.com/en/){target="_blank"}
 
-2. Introduction to Data Science, 2019 [Link](https://rafalab.dfci.harvard.edu/dsbook/index.html){target=_blank}
+2.  Introduction to Data Science, 2019 [Link](https://rafalab.dfci.harvard.edu/dsbook/index.html){target="_blank"}
 
-3. ggplot2: Elegant Graphics for Data Analysis, 2019 [Link](https://ggplot2-book.org/){target=_blank}
+3.  ggplot2: Elegant Graphics for Data Analysis, 2019 [Link](https://ggplot2-book.org/){target="_blank"}
 
-4. Telling Stories with Data, 2023 [Link](https://tellingstorieswithdata.com/){target=_blank}
+4.  Telling Stories with Data, 2023 [Link](https://tellingstorieswithdata.com/){target="_blank"}
 
-5. Spatial Statistics for Data Science: Theory and Practice with R, 2019 [Link](https://www.paulamoraga.com/book-spatial/index.html){target=_blank}
-
+5.  Spatial Statistics for Data Science: Theory and Practice with R, 2019 [Link](https://www.paulamoraga.com/book-spatial/index.html){target="_blank"}
