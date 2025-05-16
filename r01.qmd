@@ -50,7 +50,7 @@ format: html
 
 Trang web chính thức của R: <https://www.r-project.org>
 
-![](RStudio.png){fig-align="center"}
+![](webr.png){fig-align="center"}
 
 ## Installation R-Studio
 

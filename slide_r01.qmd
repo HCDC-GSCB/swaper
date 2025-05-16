@@ -45,7 +45,7 @@ format: revealjs
 
 Trang web chính thức của R: <https://www.r-project.org>
 
-![](RStudio.png){fig-align="center"}
+![](webr.png){fig-align="center"}
 
 ## Installation R-Studio
 
@@ -121,12 +121,13 @@ Miễn phí và công khai.
 
 **GitHub Desktop** là một phần mềm giúp bạn sử dụng Git dễ dàng hơn. Nó là một phần mềm được xây dựng bởi GitHub.
 
-**Ưu điểm:**
-    -   Đơn giản hóa mọi thứ và chỉ cung cấp các chức năng thường được sử dụng của Git.
-    
-    -   Giảm khả năng bạn sẽ mắc lỗi khi sử dụng Git.
-    
-    -   Tích hợp trực tiếp với GitHub, giúp xác thực dễ dàng hơn.
+**Ưu điểm:** - Đơn giản hóa mọi thứ và chỉ cung cấp các chức năng thường được sử dụng của Git.
+
+```         
+-   Giảm khả năng bạn sẽ mắc lỗi khi sử dụng Git.
+
+-   Tích hợp trực tiếp với GitHub, giúp xác thực dễ dàng hơn.
+```
 
 # Sản phẩm từ GitHub
 
@@ -198,21 +199,18 @@ R Script là file chứa các câu lệnh R và những dòng chú thích ngắn
 
 -   Phải xuống hàng **2 lần** để viết hàng mới trong văn bản.
 
-**Đoạn code (code chunks)**: là nơi để viết code và xuất ra các kết quả mong muốn. Code chunks của R được đặt trong cặp dấu: 
-![](rmarkdown.png)
+**Đoạn code (code chunks)**: là nơi để viết code và xuất ra các kết quả mong muốn. Code chunks của R được đặt trong cặp dấu: ![](rmarkdown.png)
 
 ## R Markdown
 
 -   Để tạo code chunk chúng ta nhấn tổ hợp phím tắt `Ctrl + Alt + I`, hoặc nhấn vào icon này trên thanh công cụ, chọn R: ![](rmd-add-chunk.png)
 
--   Ví dụ có file R Markdown sau: 
-![](rmd.png)
+-   Ví dụ có file R Markdown sau: ![](rmd.png)
 
 ## R Markdown
 
 -   Khi `knit` file R Markdown trên sẽ tạo ra file báo cáo sau với đầy đủ tiêu đề, đề mục, bảng kết quả, biểu đồ… giống như được tạo ra từ 1 chương trình soạn thảo văn bản như Word.
--   Để knit file R Markdown thì chọn kí hiệu knit trên thanh công cụ: 
-![](rmd-add-chunk.png)
+-   Để knit file R Markdown thì chọn kí hiệu knit trên thanh công cụ: ![](rmd-add-chunk.png)
 
 ![](rmd-outp.png)
 

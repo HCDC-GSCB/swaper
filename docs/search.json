@@ -1993,5 +1993,12 @@
       "Modelling team",
       "Warning and forcasting epidemic"
     ]
+  },
+  {
+    "objectID": "slide_r01.html",
+    "href": "slide_r01.html",
+    "title": "Overview of R",
+    "section": "",
+    "text": "R là một ngôn ngữ lập trình được phát triển bởi GS. Robert Gentleman và GS. Ross Ihaka tại Đại học Auckland1. Tên gọi R được đặt theo chữ cái đầu của tên 2 tác giả (Robert và Ross).\nĐể tính toán thống kê và trực quan hóa dữ liệu.\nBao gồm phần cơ bản (tích hợp sẵn khi cài đặt R) và phần mở rộng thông qua các gói (packages)\n\n\n\n\n\nNgôn ngữ lập trình là một tập hợp các hướng dẫn để yêu cầu máy tính thực hiện một số tác vụ nhất định.\nNgười dùng giao tiếp, đối thoại với máy tính bằng cách nhập những câu văn (code) giống như chat với máy tính, để máy hiểu và làm đúng những gì con người muốn\n\n\n\n\n\nMiễn phí, liên tục cập nhật\nRất tốt trong xử lý thống kê và vẽ đồ họa\nLưu trữ câu lệnh và thực hiện lại dễ dàng\nNên sử dụng RStudio thay vì R cơ bản\nHoàn toàn có thể tự học từ nguồn internet"
   }
 ]
