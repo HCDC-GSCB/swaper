@@ -1,6 +1,6 @@
 ---
 title: "Overview of R"
-sidebar: training
+sidebar: documents
 format: html
 ---
 

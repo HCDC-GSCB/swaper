@@ -1,6 +1,6 @@
 ---
 title: "Data visualization"
-sidebar: training
+sidebar: documents
 format: html
 ---
 

@@ -6,31 +6,31 @@ title: ""
 
 1.  Principles of Epidemiology in Public Health Practice, 2012 **(USCDC)** [Link](documents/uscdc_epidemic_2012.pdf){target="_blank"}
 
-2. Handbook of Applied Health Economics in Vaccines, 2023 [Link](documents/health_economic_vaccine_2023.pdf){target="_blank"}  
+2.  Handbook of Applied Health Economics in Vaccines, 2023 [Link](documents/health_economic_vaccine_2023.pdf){target="_blank"}
 
-3. National RRT SOPs, 2024 **(NIH, Pakistan)** [Link](documents/national_rrt_sops_2024.pdf){target="_blank"}  
+3.  National RRT SOPs, 2024 **(NIH, Pakistan)** [Link](documents/national_rrt_sops_2024.pdf){target="_blank"}
 
-4. Framework for a Public Health Emergency Operations Centre [Link](documents/framework_pheoc.pdf){target="_blank"} 	
+4.  Framework for a Public Health Emergency Operations Centre [Link](documents/framework_pheoc.pdf){target="_blank"}
 
-5. International Health Regulation (2005)	[Link](documents/ihr_2005.pdf){target="_blank"} 
+5.  International Health Regulation (2005) [Link](documents/ihr_2005.pdf){target="_blank"}
 
-6. Handbook for Developing a Public Health Emergency Operations Center (Part A) [Link](documents/handbook_parta.pdf){target="_blank"} 
+6.  Handbook for Developing a Public Health Emergency Operations Center (Part A) [Link](documents/handbook_parta.pdf){target="_blank"}
 
-7. Handbook for Developing a Public Health Emergency Operations Center (Part C) [Link](documents/handbook_partc.pdf){target="_blank"} 
+7.  Handbook for Developing a Public Health Emergency Operations Center (Part C) [Link](documents/handbook_partc.pdf){target="_blank"}
 
-8. Handbook for Public Health Emergency Operations Center Operations and Management-WHO Regional Office for Africa [Link](documents/handbook_pheoc_2021.pdf){target="_blank"} 
+8.  Handbook for Public Health Emergency Operations Center Operations and Management-WHO Regional Office for Africa [Link](documents/handbook_pheoc_2021.pdf){target="_blank"}
 
-9. Establishment and Management of Public Health Rapid Response Teams For Diseases Outbreaks	[Link](documents/cdc_rrt_2020.pdf){target="_blank"} 
+9.  Establishment and Management of Public Health Rapid Response Teams For Diseases Outbreaks [Link](documents/cdc_rrt_2020.pdf){target="_blank"}
 
-10. Guidance for after action review [Link](documents/aar_2019.pdf){target="_blank"} 
+10. Guidance for after action review [Link](documents/aar_2019.pdf){target="_blank"}
 
-11. WHO Simulation Exercise Manual [Link](documents/who_exercise_2017.pdf){target="_blank"} 
+11. WHO Simulation Exercise Manual [Link](documents/who_exercise_2017.pdf){target="_blank"}
 
-12. Emergency Exercise Development [Link](documents/who_exercise_2009.pdf){target="_blank"} 
+12. Emergency Exercise Development [Link](documents/who_exercise_2009.pdf){target="_blank"}
 
-13. Communicating risk in public health emergencies: a WHO guideline for emergency risk communication policy and practice [Link](documents/erc_2017.pdf){target="_blank"} 
+13. Communicating risk in public health emergencies: a WHO guideline for emergency risk communication policy and practice [Link](documents/erc_2017.pdf){target="_blank"}
 
-14. WHO community engagement framework for quality, people-centred and resilient health services [Link](documents/who_2017.pdf){target="_blank"} 	
+14. WHO community engagement framework for quality, people-centred and resilient health services [Link](documents/who_2017.pdf){target="_blank"}
 
 ## E-Book
 
@@ -44,4 +44,4 @@ title: ""
 
 5.  Spatial Statistics for Data Science: Theory and Practice with R, 2019 [Link](https://www.paulamoraga.com/book-spatial/index.html){target="_blank"}
 
-6. 
+6.  

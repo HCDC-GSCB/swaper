@@ -1,6 +1,6 @@
 ---
 title: "Data analysis"
-sidebar: training
+sidebar: documents
 format: html
 engine: knitr
 filters:
