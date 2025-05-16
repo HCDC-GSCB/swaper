@@ -190,7 +190,7 @@ main {
     <div class="member row2">
         <img src="chile.png" class="avatar">
         <h3>Le Tran</h3>
-        <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
+        <p><strong>Major:</strong> Bachelor of Public Health</p>
         <p>Prepare to respond to emergencies, RRT (EOC team)</p>
     </div>
     
