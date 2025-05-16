@@ -1,6 +1,6 @@
 ---
 title: ""
-sidebar: documents
+sidebar: training
 ---
 
 **Welcome to the SWAPER!**

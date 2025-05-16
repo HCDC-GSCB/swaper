@@ -1,6 +1,6 @@
 ---
 title: "Data management, data cleaning and R  style"
-sidebar: documents
+sidebar: training
 format: html
 ---
 
