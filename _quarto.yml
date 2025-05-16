@@ -31,9 +31,10 @@ website:
         href: https://github.com/HCDC-GSCB/
 
   sidebar:
-    - id: documents
-      title: "Documents"
+    - id: training
+      title: "Training"
       style: "docked"
+      background: info
       contents:
         - section: "Modelling team"
           contents:
