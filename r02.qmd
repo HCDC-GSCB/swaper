@@ -5,7 +5,7 @@ format: html
 ---
 
 ::: center-text
-[🚀 Presentation](slide_r02.html){.btn .btn-outline-secondary style="border-radius: 12px;"}[📎 covid_cases](data/covid_cases.rds){.btn .btn-outline-secondary style="border-radius: 12px;"} [📎 vaccine_data](data/vaccine_data.xlsx){.btn .btn-outline-secondary style="border-radius: 12px;"}
+[🚀 Presentation](slide_r02.html){.btn .btn-outline-secondary style="border-radius: 12px;"}[📎 covid_cases](data/covid_cases.rds){.btn .btn-outline-secondary style="border-radius: 12px;"} [📎 vaccine_data](data/vaccine_data.xlsx){.btn .btn-outline-secondary style="border-radius: 12px;"}[📎 life-exp](data/life-exp.csv){.btn .btn-outline-secondary style="border-radius: 12px;"}[📎 linelist-raw](data/linelist-raw.dta){.btn .btn-outline-secondary style="border-radius: 12px;"}
 :::
 
 ## Xác định đường dẫn
@@ -36,7 +36,13 @@ Trong Windows, khi copy path vào R cần sửa lại theo 1 trong 2 cách sau:
 
 ## Quy tắc đặt tên file
 
-Để tránh bị lỗi trong quá trình sử dụng R, nên đặt tên files, folders theo các quy tắc sau: - Không đặt tên có dấu tiếng Việt. - Không đặt tên quá dài. - Không đặt tên có các kí tự đặc biệt như `/`, `\`, `&`, `,` , `(`, `)`, tốt nhất chỉ nên đặt chữ và số. - Không đặt tên chữ viết hoa viết thường lẫn lộn, nếu cần thì chỉ đặt theo quy luật camelCase (viết hoa chữ cái đầu của các từ sau từ đầu tiên, ví dụ dataSoiHcm) hoặc PascalCase (viết hoa chữ cái đầu của tất cả các từ, ví dụ DataSoiHcm). - Không có khoảng trống `" "` trong tên, có thể đặt kiểu camelCase, hoặc sử dụng dấu `-`, `_` thay thế các khoảng trống: ví dụ không dùng tên `data soi HCM 2023.xlsx` mà có thể đặt là `dataSoiHcm2023.xlsx`, hoặc `data-soi-hcm-2023.xlsx`, hoặc `data_soi_hcm_2023.xlsx`.
+Để tránh bị lỗi trong quá trình sử dụng R, nên đặt tên files, folders theo các quy tắc sau:
+
+-   Không đặt tên có dấu tiếng Việt.
+-   Không đặt tên quá dài.
+-   Không đặt tên có các kí tự đặc biệt như `/`, `\`, `&`, `,` , `(`, `)`, tốt nhất chỉ nên đặt chữ và số.
+-   Không đặt tên chữ viết hoa viết thường lẫn lộn, nếu cần thì chỉ đặt theo quy luật camelCase (viết hoa chữ cái đầu của các từ sau từ đầu tiên, ví dụ dataSoiHcm) hoặc PascalCase (viết hoa chữ cái đầu của tất cả các từ, ví dụ `DataSoiHcm`).
+-   Không có khoảng trống `" "` trong tên, có thể đặt kiểu camelCase, hoặc sử dụng dấu `-`, `_` thay thế các khoảng trống: ví dụ không dùng tên `data soi HCM 2023.xlsx` mà có thể đặt là `dataSoiHcm2023.xlsx`, hoặc `data-soi-hcm-2023.xlsx`, hoặc `data_soi_hcm_2023.xlsx`.
 
 ## Đọc data vào R (Text files)
 
@@ -636,7 +642,6 @@ print_hello <- function(){
 print_hello()
 ```
 
-
 ## Functions
 
 ```{r}
@@ -706,7 +711,7 @@ basic_stats
 
 ## Exercise tại lớp
 
--   Đa số các cột đều có cấu trúc `cases_{country_code}` 
+-   Đa số các cột đều có cấu trúc `cases_{country_code}`
 
 -   Tạo function để tính cho các quốc gia khác.
 
@@ -727,7 +732,7 @@ compute_stats <- function(data, colname){
 
 ## Exercise tại lớp
 
--   Thay đổi `colname = ` là sẽ làm tương tự cho các quốc gia khác.
+-   Thay đổi `colname =` là sẽ làm tương tự cho các quốc gia khác.
 
 ```{r}
 compute_stats(covid_cases, colname = "cases_chn")

@@ -193,7 +193,7 @@
     "href": "slide_r02.html#quy-tắc-đặt-tên-file",
     "title": "Data management, data cleaning and R style",
     "section": "Quy tắc đặt tên file",
-    "text": "Quy tắc đặt tên file\nĐể tránh bị lỗi trong quá trình sử dụng R, nên đặt tên files, folders theo các quy tắc sau: - Không đặt tên có dấu tiếng Việt. - Không đặt tên quá dài. - Không đặt tên có các kí tự đặc biệt như /, \\, &, , , (, ), tốt nhất chỉ nên đặt chữ và số. - Không đặt tên chữ viết hoa viết thường lẫn lộn, nếu cần thì chỉ đặt theo quy luật camelCase (viết hoa chữ cái đầu của các từ sau từ đầu tiên, ví dụ dataSoiHcm) hoặc PascalCase (viết hoa chữ cái đầu của tất cả các từ, ví dụ DataSoiHcm). - Không có khoảng trống \" \" trong tên, có thể đặt kiểu camelCase, hoặc sử dụng dấu -, _ thay thế các khoảng trống: ví dụ không dùng tên data soi HCM 2023.xlsx mà có thể đặt là dataSoiHcm2023.xlsx, hoặc data-soi-hcm-2023.xlsx, hoặc data_soi_hcm_2023.xlsx."
+    "text": "Quy tắc đặt tên file\nĐể tránh bị lỗi trong quá trình sử dụng R, nên đặt tên files, folders theo các quy tắc sau:\n\nKhông đặt tên có dấu tiếng Việt.\nKhông đặt tên quá dài.\nKhông đặt tên có các kí tự đặc biệt như /, \\, &, , , (, ), tốt nhất chỉ nên đặt chữ và số.\nKhông đặt tên chữ viết hoa viết thường lẫn lộn, nếu cần thì chỉ đặt theo quy luật camelCase (viết hoa chữ cái đầu của các từ sau từ đầu tiên, ví dụ dataSoiHcm) hoặc PascalCase (viết hoa chữ cái đầu của tất cả các từ, ví dụ DataSoiHcm).\nKhông có khoảng trống \" \" trong tên, có thể đặt kiểu camelCase, hoặc sử dụng dấu -, _ thay thế các khoảng trống: ví dụ không dùng tên data soi HCM 2023.xlsx mà có thể đặt là dataSoiHcm2023.xlsx, hoặc data-soi-hcm-2023.xlsx, hoặc data_soi_hcm_2023.xlsx."
   },
   {
     "objectID": "slide_r02.html#đọc-data-vào-r-text-files",
@@ -824,7 +824,7 @@
     "href": "r02.html",
     "title": "Data management, data cleaning and R style",
     "section": "",
-    "text": "🚀 Presentation📎 covid_cases 📎 vaccine_data",
+    "text": "🚀 Presentation📎 covid_cases 📎 vaccine_data📎 life-exp📎 linelist-raw",
     "crumbs": [
       "Home",
       "R language",
@@ -872,7 +872,7 @@
     "href": "r02.html#quy-tắc-đặt-tên-file",
     "title": "Data management, data cleaning and R style",
     "section": "Quy tắc đặt tên file",
-    "text": "Quy tắc đặt tên file\nĐể tránh bị lỗi trong quá trình sử dụng R, nên đặt tên files, folders theo các quy tắc sau: - Không đặt tên có dấu tiếng Việt. - Không đặt tên quá dài. - Không đặt tên có các kí tự đặc biệt như /, \\, &, , , (, ), tốt nhất chỉ nên đặt chữ và số. - Không đặt tên chữ viết hoa viết thường lẫn lộn, nếu cần thì chỉ đặt theo quy luật camelCase (viết hoa chữ cái đầu của các từ sau từ đầu tiên, ví dụ dataSoiHcm) hoặc PascalCase (viết hoa chữ cái đầu của tất cả các từ, ví dụ DataSoiHcm). - Không có khoảng trống \" \" trong tên, có thể đặt kiểu camelCase, hoặc sử dụng dấu -, _ thay thế các khoảng trống: ví dụ không dùng tên data soi HCM 2023.xlsx mà có thể đặt là dataSoiHcm2023.xlsx, hoặc data-soi-hcm-2023.xlsx, hoặc data_soi_hcm_2023.xlsx.",
+    "text": "Quy tắc đặt tên file\nĐể tránh bị lỗi trong quá trình sử dụng R, nên đặt tên files, folders theo các quy tắc sau:\n\nKhông đặt tên có dấu tiếng Việt.\nKhông đặt tên quá dài.\nKhông đặt tên có các kí tự đặc biệt như /, \\, &, , , (, ), tốt nhất chỉ nên đặt chữ và số.\nKhông đặt tên chữ viết hoa viết thường lẫn lộn, nếu cần thì chỉ đặt theo quy luật camelCase (viết hoa chữ cái đầu của các từ sau từ đầu tiên, ví dụ dataSoiHcm) hoặc PascalCase (viết hoa chữ cái đầu của tất cả các từ, ví dụ DataSoiHcm).\nKhông có khoảng trống \" \" trong tên, có thể đặt kiểu camelCase, hoặc sử dụng dấu -, _ thay thế các khoảng trống: ví dụ không dùng tên data soi HCM 2023.xlsx mà có thể đặt là dataSoiHcm2023.xlsx, hoặc data-soi-hcm-2023.xlsx, hoặc data_soi_hcm_2023.xlsx.",
     "crumbs": [
       "Home",
       "R language",

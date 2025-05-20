@@ -5011,7 +5011,7 @@ vertical-align: -.125em;
 
 
 <div class="center-text">
-<p><a href="slide_r02.html" class="btn btn-outline-secondary" style="border-radius: 12px;">🚀 Presentation</a><a href="data/covid_cases.rds" class="btn btn-outline-secondary" style="border-radius: 12px;">📎 covid_cases</a> <a href="data/vaccine_data.xlsx" class="btn btn-outline-secondary" style="border-radius: 12px;">📎 vaccine_data</a></p>
+<p><a href="slide_r02.html" class="btn btn-outline-secondary" style="border-radius: 12px;">🚀 Presentation</a><a href="data/covid_cases.rds" class="btn btn-outline-secondary" style="border-radius: 12px;">📎 covid_cases</a> <a href="data/vaccine_data.xlsx" class="btn btn-outline-secondary" style="border-radius: 12px;">📎 vaccine_data</a><a href="data/life-exp.csv" class="btn btn-outline-secondary" style="border-radius: 12px;">📎 life-exp</a><a href="data/linelist-raw.dta" class="btn btn-outline-secondary" style="border-radius: 12px;">📎 linelist-raw</a></p>
 </div>
 <section id="xác-định-đường-dẫn" class="level2">
 <h2 class="anchored" data-anchor-id="xác-định-đường-dẫn">Xác định đường dẫn</h2>
@@ -5055,7 +5055,14 @@ Tip
 </section>
 <section id="quy-tắc-đặt-tên-file" class="level2">
 <h2 class="anchored" data-anchor-id="quy-tắc-đặt-tên-file">Quy tắc đặt tên file</h2>
-<p>Để tránh bị lỗi trong quá trình sử dụng R, nên đặt tên files, folders theo các quy tắc sau: - Không đặt tên có dấu tiếng Việt. - Không đặt tên quá dài. - Không đặt tên có các kí tự đặc biệt như <code>/</code>, <code>\</code>, <code>&amp;</code>, <code>,</code> , <code>(</code>, <code>)</code>, tốt nhất chỉ nên đặt chữ và số. - Không đặt tên chữ viết hoa viết thường lẫn lộn, nếu cần thì chỉ đặt theo quy luật camelCase (viết hoa chữ cái đầu của các từ sau từ đầu tiên, ví dụ dataSoiHcm) hoặc PascalCase (viết hoa chữ cái đầu của tất cả các từ, ví dụ DataSoiHcm). - Không có khoảng trống <code>&quot; &quot;</code> trong tên, có thể đặt kiểu camelCase, hoặc sử dụng dấu <code>-</code>, <code>_</code> thay thế các khoảng trống: ví dụ không dùng tên <code>data soi HCM 2023.xlsx</code> mà có thể đặt là <code>dataSoiHcm2023.xlsx</code>, hoặc <code>data-soi-hcm-2023.xlsx</code>, hoặc <code>data_soi_hcm_2023.xlsx</code>.</p>
+<p>Để tránh bị lỗi trong quá trình sử dụng R, nên đặt tên files, folders theo các quy tắc sau:</p>
+<ul>
+<li>Không đặt tên có dấu tiếng Việt.</li>
+<li>Không đặt tên quá dài.</li>
+<li>Không đặt tên có các kí tự đặc biệt như <code>/</code>, <code>\</code>, <code>&amp;</code>, <code>,</code> , <code>(</code>, <code>)</code>, tốt nhất chỉ nên đặt chữ và số.</li>
+<li>Không đặt tên chữ viết hoa viết thường lẫn lộn, nếu cần thì chỉ đặt theo quy luật camelCase (viết hoa chữ cái đầu của các từ sau từ đầu tiên, ví dụ dataSoiHcm) hoặc PascalCase (viết hoa chữ cái đầu của tất cả các từ, ví dụ <code>DataSoiHcm</code>).</li>
+<li>Không có khoảng trống <code>&quot; &quot;</code> trong tên, có thể đặt kiểu camelCase, hoặc sử dụng dấu <code>-</code>, <code>_</code> thay thế các khoảng trống: ví dụ không dùng tên <code>data soi HCM 2023.xlsx</code> mà có thể đặt là <code>dataSoiHcm2023.xlsx</code>, hoặc <code>data-soi-hcm-2023.xlsx</code>, hoặc <code>data_soi_hcm_2023.xlsx</code>.</li>
+</ul>
 </section>
 <section id="đọc-data-vào-r-text-files" class="level2">
 <h2 class="anchored" data-anchor-id="đọc-data-vào-r-text-files">Đọc data vào R (Text files)</h2>
