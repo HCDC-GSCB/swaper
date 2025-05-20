@@ -198,67 +198,10 @@
 </div>
 
 </section>
-<section id="why-cleaning-data-with-r" class="slide level2">
-<h2>Why cleaning data with R?</h2>
+<section id="xác-định-đường-dẫn" class="slide level2">
+<h2>Xác định đường dẫn</h2>
 <ul>
-<li><p>It can be written into an automated data inspection process, combining descriptive statistics and visualization to detect issues that need cleaning.</p></li>
-<li><p>All cleaning steps are logged.</p></li>
-<li><p>Save time cleaning new data.</p></li>
-</ul>
-</section>
-<section id="objective-and-sentence-in-r" class="slide level2">
-<h2>Objective and sentence in R</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>a <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb1-2"><a></a>b <span class="ot">&lt;-</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li><p><strong>a</strong> is objective, and <strong>2</strong> is value of objective.</p></li>
-<li><p>If put a = 3, b = 2, and c = a x b so results of c?</p></li>
-</ul>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>a <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb2-2"><a></a>b <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb2-3"><a></a>c <span class="ot">&lt;-</span> a <span class="sc">*</span> b</span>
-<span id="cb2-4"><a></a>c</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
-</div>
-</div>
-</div>
-<ul>
-<li>Objective is value, vector, matrix or data.frame</li>
-</ul>
-<div class="fragment">
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "tbl_df"     "tbl"        "data.frame"</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="objective-and-sentence-in-r-1" class="slide level2">
-<h2>Objective and sentence in R</h2>
-<p>Command or function are sentences in R for communicating with computer.</p>
-<ul>
-<li>Function before the (): what the function to do</li>
-<li>Agruments put into (): detail requirements</li>
-<li>To assign value to agruments, we need to use <strong>=</strong> instead of using <strong>&lt;-</strong></li>
-</ul>
-</section>
-<section id="objective-and-sentence-in-r-2" class="slide level2">
-<h2>Objective and sentence in R</h2>
-<p>Example:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1000</code></pre>
-</div>
-</div>
-<ul>
-<li><strong><em>Max</em></strong>: maximum value function of variable</li>
-<li><strong><em>x</em></strong>: input agrument, choose <em>id</em> column in data <em>df</em></li>
-<li><strong><em>na.rm=TRUE</em></strong>: eliminate NA value in <strong>id</strong> column before maximizing value.</li>
+<li><strong>Path</strong> là vị trí, hay địa chỉ, hay đường dẫn lưu file data trong máy tính</li>
 </ul>
 <div class="fragment">
 <div class="callout callout-tip callout-titled callout-style-default">
@@ -270,31 +213,232 @@
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p>To read the instruction manual for a command, type ?command-name.</p>
+<p>Trong Windows, khi copy path vào R cần sửa lại theo 1 trong 2 cách sau:</p>
+<ul>
+<li>Sửa tất cả dấu <code>\</code> thành <code>/</code>: <code>C:/Documents/Github/R-Together/day1/data</code></li>
+<li>Sửa tất cả dấu <code>\</code> thành <code>\\</code>: <code>C:\\Documents\\Github\\R-Together\\day1\\data</code></li>
+</ul>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="process-of-cleaning-data" class="slide level2">
-<h2>Process of cleaning data</h2>
-<p>The process of cleaning data usually includes the following steps:</p>
+<section id="đường-dẫn-tuyệt-đối" class="slide level2">
+<h2>Đường dẫn tuyệt đối</h2>
 <ul>
-<li><p>Clean column names.</p></li>
-<li><p>Check datatype.</p></li>
-<li><p>Check values.</p></li>
-<li><p>Format tables according to clean data rules.</p></li>
-<li><p>Join tables (if necessary).</p></li>
-<li><p>Handle error data.</p></li>
+<li>Trong ví dụ trên, <code>C:/Documents/Github/R-Together/day1/data</code> là đường dẫn tuyệt đối (absolute path).</li>
+<li>Là path đầy đủ từ đầu ổ đĩa cho đến file hay folder hiện tại.</li>
 </ul>
 </section>
-<section id="data-type-in-r" class="slide level2">
-<h2>Data type in R</h2>
+<section id="đường-dẫn-tương-đối" class="slide level2">
+<h2>Đường dẫn tương đối</h2>
+<ul>
+<li><p>Mỗi máy sẽ lưu ở 1 đường khác nhau, do đó nếu sử dụng đường dẫn tuyệt đối để làm việc nhóm thì sẽ gặp khó khăn.</p></li>
+<li><p>Là path ngắn gọn hơn, có thể từ folder đến file cần mở <code>day1/data</code> (relative path).</p></li>
+<li><p>Nếu dùng Github, đường dẫn tương đối dễ dàng cho việc chia sẻ code <code>~Github/R-Together/day1/data</code>.</p></li>
+</ul>
+</section>
+<section id="quy-tắc-đặt-tên-file" class="slide level2">
+<h2>Quy tắc đặt tên file</h2>
+<p>Để tránh bị lỗi trong quá trình sử dụng R, nên đặt tên files, folders theo các quy tắc sau: - Không đặt tên có dấu tiếng Việt. - Không đặt tên quá dài. - Không đặt tên có các kí tự đặc biệt như <code>/</code>, <code>\</code>, <code>&amp;</code>, <code>,</code> , <code>(</code>, <code>)</code>, tốt nhất chỉ nên đặt chữ và số. - Không đặt tên chữ viết hoa viết thường lẫn lộn, nếu cần thì chỉ đặt theo quy luật camelCase (viết hoa chữ cái đầu của các từ sau từ đầu tiên, ví dụ dataSoiHcm) hoặc PascalCase (viết hoa chữ cái đầu của tất cả các từ, ví dụ DataSoiHcm). - Không có khoảng trống <code>" "</code> trong tên, có thể đặt kiểu camelCase, hoặc sử dụng dấu <code>-</code>, <code>_</code> thay thế các khoảng trống: ví dụ không dùng tên <code>data soi HCM 2023.xlsx</code> mà có thể đặt là <code>dataSoiHcm2023.xlsx</code>, hoặc <code>data-soi-hcm-2023.xlsx</code>, hoặc <code>data_soi_hcm_2023.xlsx</code>.</p>
+</section>
+<section id="đọc-data-vào-r-text-files" class="slide level2">
+<h2>Đọc data vào R (Text files)</h2>
+<ul>
+<li>Các file như <code>.txt</code>, <code>.csv</code>, <code>.json</code> đều là text files, là những file mà đọc được bằng <strong>Notepad</strong></li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>           V1   V2         V3               V4              V5            V6
+1     Country Year     Status Life expectancy  Adult Mortality infant deaths
+2 Afghanistan 2015 Developing             65.0             263            62
+3 Afghanistan 2014 Developing             59.9             271            64
+4 Afghanistan 2013 Developing             59.9             268            66
+5 Afghanistan 2012 Developing             59.5             272            69
+6 Afghanistan 2011 Developing             59.2             275            71
+       V7                     V8          V9      V10   V11                V12
+1 Alcohol percentage expenditure Hepatitis B Measles   BMI  under-five deaths 
+2    0.01            71.27962362          65     1154  19.1                 83
+3    0.01            73.52358168          62      492  18.6                 86
+4    0.01            73.21924272          64      430  18.1                 89
+5    0.01             78.1842153          67     2787  17.6                 93
+6    0.01            7.097108703          68     3013  17.2                 97
+    V13               V14         V15       V16        V17         V18
+1 Polio Total expenditure Diphtheria   HIV/AIDS        GDP  Population
+2     6              8.16          65       0.1  584.25921 3.3736494e7
+3    58              8.18          62       0.1 612.696514    327582.0
+4    62              8.13          64       0.1 631.744976 3.1731688e7
+5    67              8.52          67       0.1    669.959  3.696958e6
+6    68              7.87          68       0.1  63.537231  2.978599e6
+                    V19                 V20                             V21
+1  thinness  1-19 years  thinness 5-9 years Income composition of resources
+2                  17.2                17.3                           0.479
+3                  17.5                17.5                           0.476
+4                  17.7                17.7                            0.47
+5                  17.9                18.0                           0.463
+6                  18.2                18.2                           0.454
+        V22
+1 Schooling
+2      10.1
+3      10.0
+4       9.9
+5       9.8
+6       9.5</code></pre>
+</div>
+</div>
+</section>
+<section id="đọc-data-vào-r-text-files-1" class="slide level2">
+<h2>Đọc data vào R (Text files)</h2>
+</section>
+<section id="đọc-data-vào-r-binary-files" class="slide level2">
+<h2>Đọc data vào R (Binary files)</h2>
+<ul>
+<li><p>Các file như <code>.xlsx</code>, <code>.dta</code>, <code>.sas</code> đều là binary files, là những file phải đọc bằng phần mềm chuyên dụng.</p></li>
+<li><p>Package <code>readxl</code> để đọc file <code>.xlsx</code> (hoặc <code>.xls</code>).</p></li>
+<li><p>Package <code>haven</code> để đọc file <code>.dta</code>, <code>.sas</code>.</p></li>
+</ul>
+</section>
+<section id="đọc-data-vào-r-binary-files-1" class="slide level2">
+<h2>Đọc data vào R (Binary files)</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 21
+     id gioitinh ngaysinh   huyen    xa    tinh  `VGB &lt;24` `VGB &gt;24` VGB_1 VGB_2
+  &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;
+1     1 nam      27/02/2024 Bình Ch… Phườ… Thàn… 28/02/20… 29/02/20… 10/0… 20/0…
+2     2 nữ       06/03/2024 Huyện T… Phườ… Thàn… 07/03/20… 08/03/20… 23/0… 27/0…
+3     3 nữ       27/01/2024 Thành p… Phườ… Thàn… 28/01/20… 29/01/20… 08/0… 18/0…
+4     4 nữ       12/02/2024 Hóc Môn  Xã Đ… Thàn… 13/02/20… 14/02/20… 17/0… 27/0…
+5     5 nữ       21/02/2024 Bình Ch… Xã B… Thàn… 21/02/20… 20/02/20… 23/0… 09/0…
+6     6 nữ       07/03/2024 Quận 7   Phú … Thàn… 07/03/20… 08/03/20… 23/0… 02/0…
+# ℹ 11 more variables: VGB_3 &lt;chr&gt;, `VGB_4+` &lt;chr&gt;, HG_1 &lt;chr&gt;, HG_2 &lt;chr&gt;,
+#   HG_3 &lt;chr&gt;, `HG_4+` &lt;chr&gt;, UV_1 &lt;chr&gt;, UV_2 &lt;chr&gt;, UV_3 &lt;chr&gt;,
+#   `UV_4+` &lt;chr&gt;, tinhtrang &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="đọc-data-vào-r-binary-files-2" class="slide level2">
+<h2>Đọc data vào R (Binary files)</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 28
+  case_id generation infection_date      date_onset hosp_date          
+  &lt;chr&gt;        &lt;dbl&gt; &lt;dttm&gt;              &lt;chr&gt;      &lt;dttm&gt;             
+1 5fe599           4 2014-05-08 00:00:00 2014-05-13 2014-05-15 00:00:00
+2 8689b7           4 NA                  2014-05-13 2014-05-14 00:00:00
+3 11f8ea           2 NA                  2014-05-16 2014-05-18 00:00:00
+4 b8812a           3 2014-05-04 00:00:00 2014-05-18 2014-05-20 00:00:00
+5 893f25           3 2014-05-18 00:00:00 2014-05-21 2014-05-22 00:00:00
+6 be99c8           3 2014-05-03 00:00:00 2014-05-22 2014-05-23 00:00:00
+# ℹ 23 more variables: date_of_outcome &lt;dttm&gt;, outcome &lt;chr&gt;, gender &lt;chr&gt;,
+#   hospital &lt;chr&gt;, lon &lt;dbl&gt;, lat &lt;dbl&gt;, infector &lt;chr&gt;, source &lt;chr&gt;,
+#   age &lt;chr&gt;, age_unit &lt;chr&gt;, row_num &lt;dbl&gt;, wt_kg &lt;dbl&gt;, ht_cm &lt;dbl&gt;,
+#   ct_blood &lt;dbl&gt;, fever &lt;chr&gt;, chills &lt;chr&gt;, cough &lt;chr&gt;, aches &lt;chr&gt;,
+#   vomit &lt;chr&gt;, temp &lt;dbl&gt;, time_admission &lt;chr&gt;, merged_header &lt;chr&gt;,
+#   x28 &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="tại-sao-cần-làm-sạch-với-r" class="slide level2">
+<h2>Tại sao cần làm sạch với R?</h2>
+<ul>
+<li><p>Có thể được viết thành quy trình kiểm tra dữ liệu tự động, kết hợp thống kê mô tả và trực quan hóa để phát hiện các vấn đề cần làm sạch.</p></li>
+<li><p>Tất cả các bước làm sạch đều được ghi lại.</p></li>
+<li><p>Tiết kiệm thời gian làm sạch dữ liệu mới.</p></li>
+</ul>
+</section>
+<section id="đối-tượng-và-câu-văn-trong-r" class="slide level2">
+<h2>Đối tượng và câu văn trong R</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>a <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb4-2"><a></a>b <span class="ot">&lt;-</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p><code>a</code> là đối tượng, và <strong>2</strong> là giá trị của đối tượng.</p></li>
+<li><p>Nếu a = 3, b = 2, và c = a x b thì kết quả?</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>a <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb5-2"><a></a>b <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb5-3"><a></a>c <span class="ot">&lt;-</span> a <span class="sc">*</span> b</span>
+<span id="cb5-4"><a></a>c</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="đối-tượng-và-câu-văn-trong-r-1" class="slide level2">
+<h2>Đối tượng và câu văn trong R</h2>
+<ul>
+<li>Đối tượng có thể là giá trị, vectơ, ma trận hoặc data.frame</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "tbl_df"     "tbl"        "data.frame"</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="đối-tượng-và-câu-văn-trong-r-2" class="slide level2">
+<h2>Đối tượng và câu văn trong R</h2>
+<p>Lệnh hoặc chức năng là những câu văn giao tiếp với máy tính trong R.</p>
+<ul>
+<li>Tên câu lệnh (): thể hiện ý nghĩa câu lệnh dùng để làm gì.</li>
+<li>Tên tham số (): yêu cầu chi tiết.</li>
+<li>Để gán giá trị cho tham số, chúng ta cần sử dụng <strong>=</strong> thay vì sử dụng <strong>&lt;-</strong>.</li>
+</ul>
+</section>
+<section id="đối-tượng-và-câu-văn-trong-r-3" class="slide level2">
+<h2>Đối tượng và câu văn trong R</h2>
+<p>Ví dụ:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1000</code></pre>
+</div>
+</div>
+<ul>
+<li><strong><em>Max</em></strong>: tìm giá trị lớn nhất của 1 biến</li>
+<li><strong><em>x</em></strong>: tham số đầu vào, chọn cột <em>id</em> trong dữ liệu <em>df</em></li>
+<li><strong><em>na.rm=TRUE</em></strong>: loại bỏ giá trị missing cột <strong>id</strong> trước khi tìm giá trị lớn nhất.</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Để đọc hướng dẫn sử dụng của một lệnh, hãy nhập ?command-name.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="làm-sạch-dữ-liệu" class="slide level2">
+<h2>Làm sạch dữ liệu</h2>
+<p>Quá trình làm sạch dữ liệu thường bao gồm các bước sau:</p>
+<ul>
+<li><p>Làm sạch tên cột.</p></li>
+<li><p>Kiểm tra kiểu dữ liệu.</p></li>
+<li><p>Kiểm tra giá trị.</p></li>
+<li><p>Định dạng bảng theo các quy tắc làm sạch dữ liệu.</p></li>
+<li><p>Nối các bảng (nếu cần).</p></li>
+<li><p>Xử lý dữ liệu lỗi.</p></li>
+</ul>
+</section>
+<section id="loại-dữ-liệu-trong-r" class="slide level2">
+<h2>Loại dữ liệu trong R</h2>
 <table class="caption-top" style="width:99%;">
 <colgroup>
 <col style="width: 9%">
-<col style="width: 68%">
-<col style="width: 21%">
+<col style="width: 66%">
+<col style="width: 22%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -306,44 +450,45 @@
 <tbody>
 <tr class="odd">
 <td><code>numeric</code></td>
-<td>for numerical data, including decimals</td>
+<td>dữ liệu dạng số</td>
 <td>2, 3.14, -1000, 2e6, etc</td>
 </tr>
 <tr class="even">
 <td><code>logical</code></td>
-<td>for boolean data (<code>TRUE</code>/<code>FALSE</code>)&nbsp;<strong>without quotation marks</strong></td>
+<td>dữ liệu dạng đúng/sai <strong>(boolean)</strong> (<code>TRUE</code>/<code>FALSE</code>)</td>
 <td><code>TRUE</code>/<code>FALSE</code></td>
 </tr>
 <tr class="odd">
 <td><code>character</code></td>
-<td>for text/characters data (also referred to as string)</td>
+<td>dữ liệu dạng ký tự (hay còn gọi là string), được đặt trong dấu ngoặc kép&nbsp;<code>""</code>.<br>
+đối tượng dạng ký tự thì&nbsp;<strong>không thể tính toán</strong></td>
 <td><code>"Hello world"</code>,&nbsp;<code>"R Together"</code></td>
 </tr>
 <tr class="even">
 <td><code>Date</code></td>
-<td>data classified as Date</td>
+<td>dữ liệu ngày tháng</td>
 <td>2024-12-09, s, etc</td>
 </tr>
 <tr class="odd">
 <td><code>factor</code></td>
-<td>for categorical data</td>
+<td>dữ liệu dạng phân loại (categorical)</td>
 <td>sex, economic status, etc</td>
 </tr>
 <tr class="even">
 <td><code>data frame</code></td>
-<td>common way for R to store dataset, consists of vectors</td>
+<td>dữ liệu dạng bảng</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><code>tibble</code></td>
-<td>an “enhanced” version of&nbsp;<code>data.frame</code>&nbsp;which is less prone to error and printed more nicely in the console</td>
+<td>dữ liệu dạng bảng tương tự như data.frame, sự khác biệt chính là tibble in đẹp hơn trong R console</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="special-values" class="slide level2">
-<h2>Special values</h2>
+<section id="các-giá-trị-đặc-biệt" class="slide level2">
+<h2>Các giá trị đặc biệt</h2>
 <table class="caption-top">
 <colgroup>
 <col style="width: 10%">
@@ -358,48 +503,48 @@
 <tbody>
 <tr class="odd">
 <td><code>NA</code></td>
-<td>Stands for&nbsp;<u>Not Available</u>. Indicates missing values.</td>
+<td>Có nghĩa là <strong>Not Available</strong>. Biểu thị các giá trị bị thiếu.</td>
 </tr>
 <tr class="even">
 <td><code>NULL</code></td>
-<td>Indicates undefined/abscence of value. (e.g.&nbsp;<code>numb &lt;- NULL</code>&nbsp;indicates value for variable&nbsp;<code>numb</code>&nbsp;is undefined)</td>
+<td>Biểu thị giá trị không xác định/không có. (ví dụ:&nbsp;numb &lt;- NULL&nbsp;biểu thị giá trị cho biến&nbsp;numb&nbsp;là không xác định)</td>
 </tr>
 <tr class="odd">
 <td><code>NaN</code></td>
-<td>Stands for&nbsp;<u>Not a Number</u>. Indicates unrepresentable number.</td>
+<td>Viết tắt của <strong>Not a Number</strong>. Biểu thị số không thể biểu diễn.</td>
 </tr>
 <tr class="even">
 <td><code>Inf/-Inf</code></td>
-<td>Infinity/Negative infinity</td>
+<td>Dương vô cực/ Âm vô cực</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="data-type-convert" class="slide level2">
-<h2>Data type convert</h2>
+<section id="chuyển-đổi-dữ-liệu" class="slide level2">
+<h2>Chuyển đổi dữ liệu</h2>
 <ul>
-<li><p><code>as.numeric()</code> convert to numeric type</p></li>
-<li><p><code>as.character()</code> convert to character type</p></li>
-<li><p><code>as.factor()</code> convert to factor type</p></li>
-<li><p><code>as.Date()</code> convert to Date type (Be carefully)</p></li>
-<li><p><code>as.logical()</code> convert to logical</p></li>
-<li><p><code>ifelse()</code> may be used for create a new variable</p></li>
-<li><p><code>is.na()</code> check NA values according to logical value.</p></li>
+<li><p><code>as.numeric()</code> chuyển sang <strong>numeric</strong></p></li>
+<li><p><code>as.character()</code> chuyển sang <strong>character</strong></p></li>
+<li><p><code>as.factor()</code> chuyển sang <strong>factor</strong></p></li>
+<li><p><code>as.Date()</code> chuyển sang <strong>Date</strong> (Be carefully)</p></li>
+<li><p><code>as.logical()</code> chuyển sang <strong>logical</strong></p></li>
+<li><p><code>ifelse()</code> có thể sử dụng để tạo biến mới</p></li>
+<li><p><code>is.na()</code> kiểm tra dữ liệu bị thiếu, trả về kiểu giá trị <strong>logical</strong></p></li>
 </ul>
 </section>
-<section id="clean-name-of-columns" class="slide level2">
-<h2>Clean name of columns</h2>
-<p>Rules for column names typically include:</p>
+<section id="làm-sạch-tên-cột" class="slide level2">
+<h2>Làm sạch tên cột</h2>
+<p>Quy tắc cho tên cột thường bao gồm:</p>
 <ul>
-<li><p>Short</p></li>
-<li><p>No spaces (replace with underscore <code>_</code>).</p></li>
-<li><p>No special characters (<code>&amp;, #, &lt;, &gt;, …</code>) or punctuation.</p></li>
-<li><p>Do not start with a number.</p></li>
+<li><p>Ngắn.</p></li>
+<li><p>Không có khoảng trắng (thay thế bằng dấu gạch dưới <code>_</code>).</p></li>
+<li><p>Không có ký tự đặc biệt (<code>&amp;, #, &lt;, &gt;, …</code>) hoặc dấu câu.</p></li>
+<li><p>Không bắt đầu bằng số.</p></li>
 </ul>
-<p>Using <code>clean_names()</code> in <code>janitor</code> package to to automate the column name</p>
+<p>Sử dụng <code>clean_names()</code> trong gói <code>janitor</code> để tự động hóa tên cột.</p>
 </section>
-<section id="clean-name-of-columns-1" class="slide level2">
-<h2>Clean name of columns</h2>
+<section id="làm-sạch-tên-cột-1" class="slide level2">
+<h2>Làm sạch tên cột</h2>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "id"        "gioitinh"  "ngaysinh"  "huyen"     "xa"        "tinh"     
@@ -431,14 +576,14 @@
 <p><strong>Caution</strong></p>
 </div>
 <div class="callout-content">
-<p>If you don’t use <code>&lt;-</code> then R will only return the results of the statements but the <code>df</code> table <strong>will not change</strong>.</p>
+<p>Nếu bạn không sử dụng <code>&lt;-</code> thì R sẽ chỉ trả về kết quả của các câu lệnh nhưng <code>df</code> <strong>sẽ không thay đổi</strong>.</p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="convert-data-type" class="slide level2">
-<h2>Convert data type</h2>
+<section id="chuyển-đổi-dữ-liệu-1" class="slide level2">
+<h2>Chuyển đổi dữ liệu</h2>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [1,000 × 21] (S3: tbl_df/tbl/data.frame)
@@ -465,10 +610,10 @@
  $ tinhtrang   : chr [1:1000] "theo dõi" "ngừng theo dõi" "ngừng theo dõi" "theo dõi" ...</code></pre>
 </div>
 </div>
-<p>When importing data into R, columns will be automatically converted to the most appropriate datatype. - <code>Date columns</code>: R cannot automatically convert to Date because this format does not match. - <code>Sex column</code> should be converted to factor. - <code>Status</code> should be converted to logical.</p>
+<p>Khi nhập dữ liệu vào R, các cột sẽ tự động được chuyển đổi sang kiểu dữ liệu phù hợp nhất. - <code>Ngày</code>: R không thể tự động chuyển đổi sang Ngày vì định dạng này không khớp. - <code>Giới tính</code> phải được chuyển đổi thành yếu tố. - <code>Trạng thái</code> phải được chuyển đổi thành logic.</p>
 </section>
-<section id="convert-data-type-1" class="slide level2">
-<h2>Convert data type</h2>
+<section id="chuyển-đổi-dữ-liệu-2" class="slide level2">
+<h2>Chuyển đổi dữ liệu</h2>
 <div class="fragment">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -498,70 +643,70 @@
 </div>
 </div>
 </section>
-<section id="filter-data" class="slide level2">
-<h2>Filter data</h2>
+<section id="lọc-dữ-liệu" class="slide level2">
+<h2>Lọc dữ liệu</h2>
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th>Character</th>
-<th>Description</th>
+<th>Ký hiệu</th>
+<th>Mô tả</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><code>x == y</code></td>
-<td>x is equal to y</td>
+<td>x bằng y</td>
 </tr>
 <tr class="even">
 <td><code>x != y</code></td>
-<td>x is different from y</td>
+<td>x khác y</td>
 </tr>
 <tr class="odd">
 <td><code>x &lt; y</code></td>
-<td>x is less than y</td>
+<td>x nhỏ hơn y</td>
 </tr>
 <tr class="even">
 <td><code>x &lt;= y</code></td>
-<td>x is less than or equal to y</td>
+<td>x nhỏ hơn hoặc bằng y</td>
 </tr>
 <tr class="odd">
 <td><code>is.na(x)</code></td>
-<td>x is missing value</td>
+<td>x là giá trị thiếu</td>
 </tr>
 <tr class="even">
 <td><code>A &amp; B</code></td>
-<td>x and y</td>
+<td>x và y</td>
 </tr>
 <tr class="odd">
 <td><code>A | B</code></td>
-<td>x or y</td>
+<td>x hoặc y</td>
 </tr>
 <tr class="even">
 <td><code>!</code></td>
-<td>not</td>
+<td>không</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="filter-data-1" class="slide level2">
-<h2>Filter data</h2>
+<section id="lọc-dữ-liệu-1" class="slide level2">
+<h2>Lọc dữ liệu</h2>
 <ul>
-<li>Who have District 2</li>
-<li>Who have <code>vgb_1</code> before February 20, 2024</li>
-<li>Who have District 2 or <code>vgb_1</code> before February 20, 2024</li>
-<li>Who have District 2 and <code>vgb_1</code> before February 20, 2024</li>
+<li>Những người có Quận 2.</li>
+<li>Những người có <code>vgb_1</code> trước ngày 20 tháng 2 năm 2024.</li>
+<li>Những người có Quận 2 hoặc <code>vgb_1</code> trước ngày 20 tháng 2 năm 2024.</li>
+<li>Những người có Quận 2 và <code>vgb_1</code> trước ngày 20 tháng 2 năm 2024.</li>
 </ul>
 <div class="fragment">
 
 </div>
 </section>
-<section id="string-data-type" class="slide level2">
-<h2>String data type</h2>
+<section id="loại-dữ-liệu-dạng-chuỗi" class="slide level2">
+<h2>Loại dữ liệu dạng chuỗi</h2>
 <table class="caption-top" style="width:99%;">
 <colgroup>
-<col style="width: 27%">
-<col style="width: 19%">
-<col style="width: 51%">
+<col style="width: 29%">
+<col style="width: 20%">
+<col style="width: 49%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -574,33 +719,33 @@
 <tr class="odd">
 <td><code>tolower</code></td>
 <td>base</td>
-<td>Lowercase</td>
+<td>Chữ thường</td>
 </tr>
 <tr class="even">
 <td><code>toupper</code></td>
 <td>base</td>
-<td>Uppercase</td>
+<td>Chữ in</td>
 </tr>
 <tr class="odd">
 <td><code>string_to_title</code></td>
 <td>stringr</td>
-<td>Capitalize the first letter of each word</td>
+<td>Viết hoa chữ cái đầu tiên của mỗi từ</td>
 </tr>
 <tr class="even">
 <td><code>stri_trans_general</code></td>
 <td>stringi</td>
-<td>Remove mark</td>
+<td>Xóa dấu</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="date-data-type" class="slide level2">
-<h2>Date data type</h2>
+<section id="loại-dữ-liệu-ngày-tháng" class="slide level2">
+<h2>Loại dữ liệu ngày tháng</h2>
 <table class="caption-top" style="width:99%;">
 <colgroup>
 <col style="width: 22%">
 <col style="width: 18%">
-<col style="width: 58%">
+<col style="width: 56%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -613,46 +758,51 @@
 <tr class="odd">
 <td><code>differtime</code></td>
 <td>base</td>
-<td>Calculate the distance between 2 time points</td>
+<td>Tính khoảng cách giữa 2 điểm thời gian</td>
 </tr>
 <tr class="even">
 <td><code>month/year</code></td>
 <td>lubridate</td>
-<td>Get motnh/ year</td>
+<td>Trả về tháng/ năm</td>
 </tr>
 <tr class="odd">
 <td><code>quarter</code></td>
 <td>lubridate</td>
-<td>Change date to quarter</td>
+<td>Chuyển ngày tháng sang quý</td>
 </tr>
 <tr class="even">
 <td><code>today</code></td>
 <td>lubridate</td>
-<td>Get current date</td>
+<td>Trả về ngày tháng hiện tại</td>
 </tr>
 <tr class="odd">
 <td><code>dmy, ymd, mdy</code></td>
 <td>lubridate</td>
-<td>Convert string in various formats to date</td>
+<td>Chuyển đổi thành nhiều định dạng khác nhau</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="date-data-type-1" class="slide level2">
-<h2>Date data type</h2>
+<section id="chuyển-đổi-dữ-liệu-ngày-tháng" class="slide level2">
+<h2>Chuyển đổi dữ liệu ngày tháng</h2>
 <ul>
-<li>Find children vaccinated with <code>vgb_2</code> within 2 month of <code>birth</code></li>
+<li>Tìm trẻ em được tiêm vắc-xin <code>vgb_2</code> trong vòng 2 tháng sau khi sinh</li>
 </ul>
 <div class="fragment">
 
 </div>
 </section>
-<section id="check-values" class="slide level2">
-<h2>Check values</h2>
-<p>Usually includes the main operations: - Check for NA values. - Check for outliers and ranges of each column. - Check values between columns (if necessary).</p>
+<section id="kiểm-tra-dữ-liệu" class="slide level2">
+<h2>Kiểm tra dữ liệu</h2>
+<p>Thông thường bao gồm các hoạt động chính:</p>
+<ul>
+<li><p>Kiểm tra giá trị NA.</p></li>
+<li><p>Kiểm tra các giá trị ngoại lai và phạm vi của mỗi cột.</p></li>
+<li><p>Kiểm tra giá trị giữa các cột (nếu cần).</p></li>
+</ul>
 </section>
-<section id="check-na-values" class="slide level2">
-<h2>Check NA values</h2>
+<section id="kiểm-tra-giá-trị-na" class="slide level2">
+<h2>Kiểm tra giá trị NA</h2>
 <div class="fragement">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -670,19 +820,19 @@
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p>In R, NA is a special value that cannot be calculated or compared with other datatypes (the result always returns NA).</p>
+<p>Trong R, NA là một giá trị đặc biệt không thể tính toán hoặc so sánh với các kiểu dữ liệu khác (kết quả luôn trả về NA).</p>
 </div>
 </div>
 </div>
 </div>
 <ul>
-<li>Replace NA with another value.</li>
-<li>Remove rows containing NA.</li>
+<li>Thay thế NA bằng giá trị khác.</li>
+<li>Xóa các hàng có chứa NA.</li>
 </ul>
 </section>
-<section id="check-outliers" class="slide level2">
-<h2>Check outliers</h2>
-<p>To quickly check whether the data contains outliers, we can use boxplot to find value points that are far away from the remaining values.</p>
+<section id="kiểm-tra-outliers" class="slide level2">
+<h2>Kiểm tra outliers</h2>
+<p>Để nhanh chóng kiểm tra xem dữ liệu có chứa giá trị ngoại lai hay không, chúng ta có thể sử dụng <strong>boxplot</strong> để tìm các điểm giá trị cách xa các giá trị còn lại.</p>
 
 <img data-src="boxplot.png" class="r-stretch"><div class="fragment">
 <div class="callout callout-tip callout-titled callout-style-default">
@@ -694,15 +844,15 @@
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p>In many cases, data that is considered an outlier may still be a valid value and should be kept for analysis.</p>
-<p>If outliers are wrong, handle it as same as missing values.</p>
+<p>Trong nhiều trường hợp, dữ liệu được coi là giá trị ngoại lai vẫn có thể là giá trị hợp lệ và nên được giữ lại để phân tích.</p>
+<p>Nếu giá trị ngoại lai là sai, hãy xử lý nó giống như các giá trị bị thiếu.</p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="check-outliers-1" class="slide level2">
-<h2>Check outliers</h2>
+<section id="kiểm-tra-outliers-1" class="slide level2">
+<h2>Kiểm tra outliers</h2>
 <div class="fragement">
 
 </div>
@@ -711,7 +861,7 @@
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slide_r02_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
+<p><img data-src="slide_r02_files/figure-revealjs/unnamed-chunk-20-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -721,10 +871,10 @@
 <section id="tidy-data" class="slide level2">
 <h2>Tidy data</h2>
 <ul>
-<li>A dataset with rows and columns.</li>
-<li>Each column is a variable.</li>
-<li>Each row is an observation.</li>
-<li>Each cell contains 1 value only.</li>
+<li><p>Một tập dữ liệu có các hàng và cột.</p></li>
+<li><p>Mỗi cột là một biến.</p></li>
+<li><p>Mỗi hàng là một quan sát.</p></li>
+<li><p>Mỗi ô chỉ chứa 1 giá trị.</p></li>
 </ul>
 </section>
 <section id="tidy-data-1" class="slide level2">
@@ -737,7 +887,7 @@
 3 2020-01-23       262         0         0         0         0</code></pre>
 </div>
 </div>
-<p><strong>OR</strong></p>
+<p><strong>Hoặc</strong></p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
@@ -753,75 +903,81 @@
 <h2>Joint table</h2>
 <table class="caption-top" style="width:99%;">
 <colgroup>
-<col style="width: 11%">
-<col style="width: 72%">
-<col style="width: 15%">
+<col style="width: 12%">
+<col style="width: 69%">
+<col style="width: 16%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Function</th>
-<th>Description</th>
+<th>Lệnh</th>
+<th>Mô tả</th>
 <th>GIF</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><code>left_join()</code></td>
-<td><p>Take the left table as the reference, and search for the corresponding rows of the right table to join.</p>
-<p>If rows <strong>without corresponding row</strong> to join, leave the <strong>value NA</strong></p></td>
+<td><p>Lấy bảng bên trái làm tham chiếu và tìm kiếm các hàng tương ứng của bảng bên phải để nối.</p>
+<p>Nếu các hàng không có hàng tương ứng để nối, trả về giá trị <strong>NA</strong></p></td>
 <td><img data-src="left-join.gif"></td>
 </tr>
 <tr class="even">
 <td><code>inner_join()</code></td>
-<td><p>Take the left table as the reference, and search for corresponding rows of the right table to join.</p>
-<p>Rows <strong>without corresponding rows</strong> to join will <strong>be deleted</strong></p></td>
+<td><p>Lấy bảng bên trái làm tham chiếu và tìm kiếm các hàng tương ứng của bảng bên phải để nối.</p>
+<p>Các hàng không có hàng tương ứng để nối <strong>sẽ bị xóa</strong></p></td>
 <td><img data-src="inner-join.gif"></td>
 </tr>
 <tr class="odd">
 <td><code>full_join()</code></td>
-<td><p>Kêp all rows of 2 tables after joining</p>
-<p>Rows of 2 tables that <strong>cannot be joined</strong> will be replaced with <strong>NA values</strong></p></td>
+<td><p>Giữ lại tất cả các hàng của 2 bảng sau khi nối</p>
+<p>Các hàng của 2 bảng không thể nối sẽ được thay thế bằng các giá trị <strong>NA</strong></p></td>
 <td><img data-src="full-join.gif"></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="handle-error-data" class="slide level2">
-<h2>Handle error data</h2>
+<section id="xử-lý-dữ-liệu-lỗi" class="slide level2">
+<h2>Xử lý dữ liệu lỗi</h2>
 <ul>
-<li><p>Edit data values</p></li>
-<li><p>Filter duplicates</p></li>
-<li><p>Filter rows by conditions</p></li>
+<li><p>Chỉnh sửa giá trị dữ liệu.</p></li>
+<li><p>Lọc trùng.</p></li>
+<li><p>Lọc các hàng theo điều kiện.</p></li>
 </ul>
 </section>
-<section id="edit-data-values" class="slide level2">
-<h2>Edit data values</h2>
+<section id="chỉnh-sửa-giá-trị-dữ-liệu" class="slide level2">
+<h2>Chỉnh sửa giá trị dữ liệu</h2>
 <ul>
-<li><p>Missing values.</p></li>
-<li><p>TRUE/FALSE data is displayed differently in the original data (eg: Marked X or left blank in the excel file).</p></li>
-<li><p>Data uniformity.</p></li>
+<li><p>Giá trị bị thiếu.</p></li>
+<li><p>Dữ liệu <strong>TRUE/FALSE</strong> được hiển thị khác nhau trong dữ liệu gốc (ví dụ: Đánh dấu X hoặc để trống trong tệp excel).</p></li>
+<li><p>Tính đồng nhất của dữ liệu.</p></li>
 </ul>
-<p><code>replace_na()</code>: replace NA values with the provided value <code>is.na()</code>: blank data (NA) has TRUE value and vice versa <code>ifelse()</code>: simple conditional coding, if yes else no <code>case_when()</code>: encode values for certain cases</p>
+<p><code>replace_na()</code>: thay thế giá trị NA bằng giá trị được cung cấp</p>
+<p><code>is.na()</code>: dữ liệu trống <strong>NA</strong> có giá trị <strong>TRUE</strong> và ngược lại</p>
+<p><code>ifelse()</code>: mã hóa điều kiện đơn giản, nếu có thì không</p>
+<p><code>case_when()</code>: mã hóa các giá trị cho các trường hợp nhất định</p>
 </section>
-<section id="filter-rows-and-columns" class="slide level2">
-<h2>Filter rows and columns</h2>
+<section id="lọc-hàng-và-cột" class="slide level2">
+<h2>Lọc hàng và cột</h2>
 <ul>
-<li><p>Remove missing values.</p></li>
-<li><p>Filter by row number.</p></li>
-<li><p>Filter by value.</p></li>
-<li><p>Filter duplicate. <code>drop_na()</code>: drop all within NA values <code>left_joint()</code>, <code>inner_joint()</code>, <code>full_joint()</code>: joint tables <code>filter()</code>: filter rows and columns with conditions <code>distinct()</code>: filter duplicate observations.</p></li>
+<li><p>Loại bỏ giá trị bị thiếu.</p></li>
+<li><p>Lọc theo hàng.</p></li>
+<li><p>Lọc theo giá trị.</p></li>
+<li><p>Lọc trùng.</p>
+<p><code>left_joint()</code>, <code>inner_joint()</code>, <code>full_joint()</code>: nối bảng</p>
+<p><code>filter()</code>: lọc hàng và cột theo điều kiện</p>
+<p><code>distinct()</code>: lọc trùng</p></li>
 </ul>
 </section>
 <section id="tidyverse" class="slide level2">
 <h2>Tidyverse</h2>
 
 <img data-src="tidy-packages.png" class="r-stretch"></section>
-<section id="why-tidyverse" class="slide level2">
-<h2>Why tidyverse</h2>
+<section id="tại-sao-chọn-tidyverse" class="slide level2">
+<h2>Tại sao chọn Tidyverse?</h2>
 <ul>
-<li><p>Every function in tidyverse shares a consistent structure and pattern.</p></li>
-<li><p>Your R code may look cleaner and easier to follow, compared to base R.</p></li>
-<li><p>You just need to install everything once, instead of different packages for different things.</p></li>
+<li><p>Mọi lệnh trong tidyverse đều có chung một cấu trúc và mẫu nhất quán.</p></li>
+<li><p>Code R của bạn có thể sạch hơn và dễ theo dõi hơn so với Based-R.</p></li>
+<li><p>Bạn chỉ cần cài đặt mọi thứ một lần, thay vì nhiều package khác nhau cho những thứ khác nhau.</p></li>
 </ul>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
@@ -833,28 +989,28 @@
 </div>
 <div class="callout-content">
 <ul>
-<li>It is just a collection of R packages</li>
-<li>You don’t have to use tidyverse when using R</li>
+<li>Nó chỉ là một tập hợp các R Packages</li>
+<li>Bạn không cần phải sử dụng tidyverse khi sử dụng R</li>
 </ul>
 </div>
 </div>
 </div>
 </section>
-<section id="commonly-used-tidyverse-function" class="slide level2">
-<h2>Commonly used tidyverse function</h2>
+<section id="hàm-tidyverse-thường-dùng" class="slide level2">
+<h2>Hàm tidyverse thường dùng</h2>
 <ul>
-<li><code>dplyr::select()</code>: to select columns from df/tiblle</li>
-<li><code>dplyr::mutate()</code>: to change and create columns in a df/tibble</li>
-<li><code>dplyr::group_by()</code> and <code>dplyr::summarise()</code>: to group data and summarise it using a function, e.g.&nbsp;mean, max, min, sum</li>
-<li><code>tidyr::pivot_longer()</code>: to transform a df/tibble from wide to long format (less columns, more rows)</li>
-<li><code>tidyr::pivot_wider()</code>: to transform a df/tibble from long to wide format (less rows, more columns)</li>
+<li><code>dplyr::select()</code>: để chọn các cột từ <strong>df/tibble</strong></li>
+<li><code>dplyr::mutate()</code>: để thay đổi hoặc tạo cột mới từ <strong>df/tibble</strong></li>
+<li><code>dplyr::group_by()</code> và <code>dplyr::summarise()</code>: để nhóm dữ liệu và tóm tắt nó bằng cách sử dụng một hàm, ví dụ: trung bình, tối đa, tối thiểu, tổng</li>
+<li><code>tidyr::pivot_longer()</code>: để chuyển đổi một df/tibble từ định dạng rộng sang định dạng dài (ít cột hơn, nhiều hàng hơn)</li>
+<li><code>tidyr::pivot_wider()</code>: để chuyển đổi một df/tibble từ định dạng dài sang định dạng rộng (ít hàng hơn, nhiều cột hơn)</li>
 </ul>
 </section>
 <section id="piping-with" class="slide level2">
 <h2>Piping with <code>%&gt;%</code></h2>
 
-<img data-src="slide_r02_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"><ul>
-<li>Is this a better way to write it? Can we improve it even further?</li>
+<img data-src="slide_r02_files/figure-revealjs/unnamed-chunk-24-1.png" width="960" class="r-stretch"><ul>
+<li>Đây có phải là là cách viết tốt không? Chúng ta có thể cải thiện nó hơn nữa không?</li>
 </ul>
 </section>
 <section id="piping-with-1" class="slide level2">
@@ -863,17 +1019,17 @@
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slide_r02_files/figure-revealjs/unnamed-chunk-20-1.png" width="960"></p>
+<p><img data-src="slide_r02_files/figure-revealjs/unnamed-chunk-25-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
-<p><strong>OR</strong></p>
+<p><strong>Hoặc</strong></p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slide_r02_files/figure-revealjs/unnamed-chunk-21-1.png" width="960"></p>
+<p><img data-src="slide_r02_files/figure-revealjs/unnamed-chunk-26-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -882,26 +1038,93 @@
 <section id="piping-with-2" class="slide level2">
 <h2>Piping with <code>%&gt;%</code></h2>
 <ul>
-<li>A powerful tool to express a sequence of actions.</li>
-<li>It helps you write code that is easier to read and understand.</li>
-<li>In R, you can pipe between functions using the <code>%&gt;%</code> or <code>|&gt;</code> operators.</li>
-<li>Rstudio shortcut: <strong>Cmd+Shift+M</strong> or <strong>Ctrl+Shift+M</strong>. :::: fragment ::: callout-tip R Together will use <code>%&gt;%</code>. ::: ::::</li>
+<li><p>Một công cụ mạnh mẽ để thể hiện một chuỗi hành động.</p></li>
+<li><p>Nó giúp bạn viết mã dễ đọc và dễ hiểu hơn.</p></li>
+<li><p>Trong R, bạn có thể chuyển đổi giữa các hàm bằng cách sử dụng toán tử <code>%&gt;%</code> hoặc <code>|&gt;</code>.</p></li>
+<li><p>Phím tắt: <strong>Cmd+Shift+M</strong> or <strong>Ctrl+Shift+M</strong>.</p></li>
 </ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>R Together will use <code>%&gt;%</code></p>
+</div>
+</div>
+</div>
 </section>
 <section id="functions" class="slide level2">
 <h2>Functions</h2>
 <ul>
-<li>A function is a reusable sequence of code.</li>
-<li>It can be created using the syntax.</li>
+<li>Hàm là một chuỗi mã có thể tái sử dụng.</li>
+<li>Có thể tạo hàm bằng cú pháp.</li>
 </ul>
 </section>
 <section id="functions-1" class="slide level2">
 <h2>Functions</h2>
-<p>Example: a simple function</p>
+<p><strong>Ví dụ:</strong> một hàm đơn giản</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Hello newbies"
 [1] "We are SWAPER"</code></pre>
+</div>
+</div>
+</section>
+<section id="functions-2" class="slide level2">
+<h2>Functions</h2>
+</section>
+<section id="functions-3" class="slide level2">
+<h2>Functions</h2>
+</section>
+<section id="functions-4" class="slide level2">
+<h2>Functions</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 25</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 32</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-tại-lớp" class="slide level2">
+<h2>Exercise tại lớp</h2>
+<ul>
+<li><p>Mở file từ đường dẫn <code>day1/inclass.R</code>.</p></li>
+<li><p>Import dữ liệu</p></li>
+</ul>
+</section>
+<section id="exercise-tại-lớp-1" class="slide level2">
+<h2>Exercise tại lớp</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>    min      q1  median      q3     max 
+    0.0    65.5   128.0   950.5 19461.0 </code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-tại-lớp-2" class="slide level2">
+<h2>Exercise tại lớp</h2>
+<ul>
+<li><p>Đa số các cột đều có cấu trúc <code>cases_{country_code}</code></p></li>
+<li><p>Tạo function để tính cho các quốc gia khác.</p></li>
+</ul>
+</section>
+<section id="exercise-tại-lớp-3" class="slide level2">
+<h2>Exercise tại lớp</h2>
+<ul>
+<li>Thay đổi <code>colname =</code> là sẽ làm tương tự cho các quốc gia khác.</li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>    min      q1  median      q3     max 
+    0.0    65.5   128.0   950.5 19461.0 </code></pre>
 </div>
 </div>
 
