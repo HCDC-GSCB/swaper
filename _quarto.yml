@@ -29,6 +29,8 @@ website:
     right:
       - icon: github
         href: https://github.com/HCDC-GSCB/
+      - text: "Chill"
+        href: game.html
 
   sidebar:
     - id: training
