@@ -70,7 +70,6 @@ ggplot(mtcars, aes(x = wt, y = mpg)) +
 -   Hãy xem code ví dụ sau:
 
 ```{r}
-#| results: hide
 ggplot(mtcars, aes(x = wt, y = mpg)) +
   geom_point(color = "blue") +
   scale_x_continuous("Weight (1000 lbs)") +

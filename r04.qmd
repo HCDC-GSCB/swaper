@@ -106,8 +106,6 @@ ggplot(mtcars, aes(x = wt, y = mpg)) +
 
 ## Aesthetics
 
-::::: columns
-::: {.column width="50%"}
 ```{r}
 #| code-fold: false
 df <- data.frame(
@@ -115,7 +113,11 @@ df <- data.frame(
   y = (1:10)^2,
   group = rep(c("A", "B"), each = 5)
 ) 
+```
 
+::::: columns
+::: {.column width="50%"}
+```{r}
 ggplot(df, aes(x, y, color = group)) + 
   geom_col()
 ```
@@ -123,7 +125,6 @@ ggplot(df, aes(x, y, color = group)) +
 
 ::: {.column width="50%"}
 ```{r}
-#| code-fold: false
 ggplot(df, aes(x, y, fill = group)) + 
   geom_col()
 ```
