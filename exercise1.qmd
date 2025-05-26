@@ -1,4 +1,4 @@
-# Take home exercise
+# Take home Day 1
 
 ## Dataset
 
@@ -8,9 +8,9 @@ Dữ liệu `covid_cases.rds` từ [R-Together/day1/data/covid_cases.rds](https:
 
 <summary>Từ điển dữ liệu</summary>
 
-| Cột                                          | Mô tả                                                   |
+| Cột | Mô tả |
 |----------------------------------|--------------------------------------|
-| `date`                                       | Ngày báo cáo của ca bệnh                                |
+| `date` | Ngày báo cáo của ca bệnh |
 | 211 cột với định dạng `cases_{country_code}` | Số trường hợp được báo cáo của mỗi quốc gia và quần đảo |
 
 Mã quốc gia quan tâm (tức là Mã cho các quốc gia cần thiết cho bài tập)
@@ -42,7 +42,6 @@ Trên Github Desktop
 Trên RStudio
 
 -   Tạo một R project từ thư mục [R-Together](https://github.com/HCDC-GSCB/R-Together)
-
 :::
 
 ::: callout-note
