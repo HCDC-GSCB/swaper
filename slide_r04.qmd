@@ -5,11 +5,11 @@ format: revealjs
 
 ## Data visualization
 
--   Now that we have the results of our study, we should visualise it to disseminate the information.
+-   Trực quan hóa nó để truyền bá thông tin.
 
--   In base R, we use `plot()` (and other functions) to draw figures.
+-   Trong **R-based**, chúng ta sử dụng `plot()` để vẽ hình.
 
--   In `tidyverse`, we use the `ggplot2` package
+-   Trong **tidyverse**, chúng ta sử dụng gói `ggplot2`
 
 ## Example
 
@@ -45,21 +45,21 @@ ggplot(mtcars, aes(x = wt, y = mpg)) +
 :::
 :::::
 
-## ggplot2 structure
+## Structure of `ggplot2` 
 
--   `ggplot2` works directly with tidy data (same as everything under tidyverse).
+-   `ggplot2` hoạt động trực tiếp với dữ liệu **tidy** (giống như mọi thứ trong **tidyverse**).
 
--   It is based on a concept called “grammar of graphics”.
+-   Nó dựa trên một khái niệm gọi là **grammar of graphics**.
 
--   Has intuitive and comprehensive documentation on how to use it effectively.
+-   Có tài liệu hướng dẫn toàn diện về cách sử dụng.
 
--   Provide **enough** flexibility for customisation.
+-   Cung cấp đủ tính linh hoạt để tùy chỉnh.
 
 ## Grammar of graphics
 
--   A framework to describe and construct graphics in a structured manner.
+-   Một khuôn khổ để mô tả và xây dựng biểu đồ theo cách có **cấu trúc**.
 
--   Has a layered approach, i.e. each component of a figure is a separate layer.
+-   Phương pháp tiếp cận theo **layer**, tức là mỗi thành phần của một hình là các **layer** riêng biệt.
 
 ## Grammar of graphics
 
@@ -67,7 +67,7 @@ ggplot(mtcars, aes(x = wt, y = mpg)) +
 
 ## Grammar of graphics
 
--   Look back at the example code:
+-   Hãy xem code ví dụ sau:
 
 ```{r}
 #| results: hide
@@ -79,34 +79,83 @@ ggplot(mtcars, aes(x = wt, y = mpg)) +
   theme_bw()
 ```
 
--   Can you identify the different layers of this plot?
+-   Bạn có thể xác định được các **layer** khác nhau của biểu đồ này không?
 
 ## Grammar of graphics
 
-`ggplot(mtcars, aes(x = wt, y = mpg))` - Data: `mtcars`. - Aesthetics: `aes(x = wt, y = mpg)` - Geometries: `geom_point` - Coordinates: `scale_x_continuous`, `scale_y_continuous`, `ggtitle` - Theme: `theme_bw`
+-   Data: `mtcars`
+-   Aesthetics: `aes(x = wt, y = mpg)`
+-   Geometries: `geom_point`
+-   Coordinates: `scale_x_continuous`, `scale_y_continuous`
+-   Theme: `theme_bw`,  `ggtitle`
 
 ::: callout-tip
-`ggplot2` must run with data which is **data frame**, and we couldn't run with another type of data (eg: matrix or vector).
+`ggplot2` chỉ chạy với dữ liệu là **data frame** và không thể chạy với loại dữ liệu khác (ví dụ: ma trận hoặc vectơ).
 :::
+
+## Aesthetics
+
+-   Phải đặt trong `aes()`.
+-   Khai báo thông tin các trục `x`, `y`.
+-   Khai báo màu sắc `color`, `fill`.
+
+## Aesthetics
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| code-fold: false
+df <- data.frame(
+  x = 1:10,
+  y = (1:10)^2,
+  group = rep(c("A", "B"), each = 5)
+) 
+```
+
+```{r}
+ggplot(df, aes(x, y, color = group)) + 
+  geom_col()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+ggplot(df, aes(x, y, fill = group)) + 
+  geom_col()
+```
+:::
+:::::
 
 ## Geometries
 
--   `geom_col` or `geom_bar`: bar charts
--   `geom_histogram`: histogram charts
--   `geom_point`: scatter plots
--   `geom_line` or `geom_smooth`: line charts
--   `geom_boxplot`: box plots
+-   `geom_col` or `geom_bar`: biểu đồ cột/ thanh
+-   `geom_histogram`: histograms
+-   `geom_point`: biểu đồ chấm (scatter)
+-   `geom_line` or `geom_smooth`: biểu đồ đường (làm mượt)
+-   `geom_boxplot`: biểu đồ hộp
 -   Bla bla bla
 
 ::: callout-tip
-**Data, aesthetic, geometric** object were important components of plot, if this structure is not have enough so plot wasn't actived.
+**Data, aesthetic, geometric** đối tượng là thành phần quan trọng của biểu đồ, nếu cấu trúc này không đủ thì cốt truyện sẽ không hoạt động.
 :::
 
 ## Shape of `geom_point`
 
 ![](shape_ggplot2.png)
 
-## Grammar of graphics
+## Coordinates
+
+-   Tùy chỉnh hiển thị của các trục: `scale_x_...`, `scale_y_...`, `xlim`, `ylim`,...
+-   Tùy chỉnh màu sắc theo giá trị của từng biến: `scale_color_...`, `scale_fill_...`,...
+-   Tùy chỉnh tên cột, tên biểu đồ, tên chú thích: `labs`
+
+## Themes
+
+-   Tùy chỉnh background của biểu đồ: màu sắc, lưới,...
+-   Tùy chỉnh kiểu chữ trên biểu đồ.
+-   Có sẵn một số theme để lựa chọn: `theme_classic`, `theme_minimal`,...
+
+## Cheatseet
 
 ![](cheatseat1.png)
 
@@ -114,7 +163,8 @@ ggplot(mtcars, aes(x = wt, y = mpg)) +
 
 ## Practice
 
--   Can we make the plot like that? ![](exam_ggplot2.png)
+-   Chúng ta có thể vẽ biểu đồ như thế này không?
+![](exam_ggplot2.png)
 
 ## Practice
 
@@ -128,37 +178,41 @@ df_plot
 
 ## Practice
 
--   Let remember, what is important components of plot?
--   Firstly, we determine the axis of plot. ::::fragment
+- Chúng ta hãy nhớ lại, thành phần quan trọng của biểu đồ là gì?
+- Đầu tiên, chúng ta xác định trục của biểu đồ.
 
+::::fragment
 ```{r}
 ggplot(df_plot, aes(x = coverage, y = inequality))
 ```
+:::: 
 
-:::: \## Practice
+## Practice
 
--   Then, what we should to use type of geometry? ::::fragment
+-   Tiếp theo, chúng ta nên sử dụng loại hình học nào?
 
+::::fragment
 ```{r}
 ggplot(df_plot, aes(x = coverage, y = inequality)) +
   geom_point()
 ```
-
 ::::
 
 ## Practice
 
--   After that, we must to display the name of country. ::::fragment
+-   Sau đó, chúng ta phải hiển thị tên quốc gia.
 
+::::fragment
 ```{r}
 ggplot(df_plot, aes(x = coverage, y = inequality)) +
   geom_point() +
   geom_text(aes(label = country))
 ```
-
 ::::
 
 ## Practice
+
+-   Căn chỉnh tên quốc gia sao cho dễ nhìn.
 
 ```{r}
 ggplot(df_plot, aes(x = coverage, y = inequality)) +
@@ -167,6 +221,8 @@ ggplot(df_plot, aes(x = coverage, y = inequality)) +
 ```
 
 ## Practice
+
+-   Tùy chỉnh giá trị hiển thị của trục `x`, `y`.
 
 ```{r}
 ggplot(df_plot, aes(x = coverage, y = inequality)) +
@@ -178,14 +234,14 @@ ggplot(df_plot, aes(x = coverage, y = inequality)) +
 
 ## Practice
 
--   The size of each point was different, so we must to create 2 variables: **size**, and **color**. ::::fragment
+-   Kích thước của mỗi điểm là khác nhau, vì vậy chúng ta phải tạo 2 biến: **kích thước** và **màu sắc**.
 
+::::fragment
 ```{r}
 df_plot$size <- c(1.1, 0.6, 3, 1, 2, 1.1, 3, 0.7, 1.1, 8)
 df_plot$color <- c("purple", "blue", "yellow", "purple", "purple", "purple", "purple", "purple", "purple", "yellow")
 df_plot
 ```
-
 ::::
 
 ## Practice
@@ -227,7 +283,7 @@ head(rd)
 
 ## Practice
 
--   We must to merge two data.
+-   Chúng ta thử ghép 2 bộ dữ liệu.
 
 ::: fragment
 ```{r}
@@ -295,14 +351,14 @@ ggplot(df_plot, aes(x = coverage, y = inequality)) +
 
 ## Mapping
 
--   Before you want to create a map, you must to have a shapefile (format as `.shp`).
+-   Trước khi bạn muốn tạo bản đồ, bạn phải có shapefile (định dạng là `.shp`).
 
--   In `ggplot2`, you can use function `geom_map` to create a map.
+-   Trong `ggplot2`, bạn có thể sử dụng hàm `geom_map` để tạo bản đồ.
 
--   You can see more information in Cheatsheet.
+-   Bạn có thể xem thêm thông tin trong Cheatsheet.
 
 ## The end
 
 ::: callout-tip
-If we use \``ggplot2`, we need to use `tidyverse`.
+Nếu sử dụng \``ggplot2`, chúng ta cần sử dụng `tidyverse`.
 :::

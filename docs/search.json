@@ -11,7 +11,7 @@
     "href": "slide_r04.html#data-visualization",
     "title": "Data visualization",
     "section": "Data visualization",
-    "text": "Data visualization\n\nNow that we have the results of our study, we should visualise it to disseminate the information.\nIn base R, we use plot() (and other functions) to draw figures.\nIn tidyverse, we use the ggplot2 package"
+    "text": "Data visualization\n\nTrực quan hóa nó để truyền bá thông tin.\nTrong R-based, chúng ta sử dụng plot() để vẽ hình.\nTrong tidyverse, chúng ta sử dụng gói ggplot2"
   },
   {
     "objectID": "slide_r04.html#example",
@@ -32,7 +32,7 @@
     "href": "slide_r04.html#grammar-of-graphics",
     "title": "Data visualization",
     "section": "Grammar of graphics",
-    "text": "Grammar of graphics\n\nA framework to describe and construct graphics in a structured manner.\nHas a layered approach, i.e. each component of a figure is a separate layer."
+    "text": "Grammar of graphics\n\nMột khuôn khổ để mô tả và xây dựng biểu đồ theo cách có cấu trúc.\nPhương pháp tiếp cận theo layer, tức là mỗi thành phần của một hình là các layer riêng biệt."
   },
   {
     "objectID": "slide_r04.html#grammar-of-graphics-1",
@@ -46,21 +46,21 @@
     "href": "slide_r04.html#grammar-of-graphics-2",
     "title": "Data visualization",
     "section": "Grammar of graphics",
-    "text": "Grammar of graphics\n\nLook back at the example code:\n\n\n\nCan you identify the different layers of this plot?"
+    "text": "Grammar of graphics\n\nHãy xem code ví dụ sau:\n\n\n\nBạn có thể xác định được các layer khác nhau của biểu đồ này không?"
   },
   {
     "objectID": "slide_r04.html#grammar-of-graphics-3",
     "href": "slide_r04.html#grammar-of-graphics-3",
     "title": "Data visualization",
     "section": "Grammar of graphics",
-    "text": "Grammar of graphics\nggplot(mtcars, aes(x = wt, y = mpg)) - Data: mtcars. - Aesthetics: aes(x = wt, y = mpg) - Geometries: geom_point - Coordinates: scale_x_continuous, scale_y_continuous, ggtitle - Theme: theme_bw\n\n\n\n\n\n\nTip\n\n\nggplot2 must run with data which is data frame, and we couldn’t run with another type of data (eg: matrix or vector)."
+    "text": "Grammar of graphics\n\nData: mtcars\nAesthetics: aes(x = wt, y = mpg)\nGeometries: geom_point\nCoordinates: scale_x_continuous, scale_y_continuous\nTheme: theme_bw, ggtitle\n\n\n\n\n\n\n\nTip\n\n\nggplot2 chỉ chạy với dữ liệu là data frame và không thể chạy với loại dữ liệu khác (ví dụ: ma trận hoặc vectơ)."
   },
   {
     "objectID": "slide_r04.html#geometries",
     "href": "slide_r04.html#geometries",
     "title": "Data visualization",
     "section": "Geometries",
-    "text": "Geometries\n\ngeom_col or geom_bar: bar charts\ngeom_histogram: histogram charts\ngeom_point: scatter plots\ngeom_line or geom_smooth: line charts\ngeom_boxplot: box plots\nBla bla bla\n\n\n\n\n\n\n\nTip\n\n\nData, aesthetic, geometric object were important components of plot, if this structure is not have enough so plot wasn’t actived."
+    "text": "Geometries\n\ngeom_col or geom_bar: biểu đồ cột/ thanh\ngeom_histogram: histograms\ngeom_point: biểu đồ chấm (scatter)\ngeom_line or geom_smooth: biểu đồ đường (làm mượt)\ngeom_boxplot: biểu đồ hộp\nBla bla bla\n\n\n\n\n\n\n\nTip\n\n\nData, aesthetic, geometric đối tượng là thành phần quan trọng của biểu đồ, nếu cấu trúc này không đủ thì cốt truyện sẽ không hoạt động."
   },
   {
     "objectID": "slide_r04.html#shape-of-geom_point",
@@ -81,7 +81,7 @@
     "href": "slide_r04.html#practice",
     "title": "Data visualization",
     "section": "Practice",
-    "text": "Practice\n\nCan we make the plot like that?"
+    "text": "Practice\n\nChúng ta có thể vẽ biểu đồ như thế này không?"
   },
   {
     "objectID": "slide_r04.html#practice-1",
@@ -95,77 +95,77 @@
     "href": "slide_r04.html#practice-2",
     "title": "Data visualization",
     "section": "Practice",
-    "text": "Practice\n\nLet remember, what is important components of plot?\nFirstly, we determine the axis of plot. ::::fragment\n\n\n\n\n\n\n\n\n\n\n:::: ## Practice\n\nThen, what we should to use type of geometry? ::::fragment\n\n\n\n\n\n\n\n\n\n\n::::"
+    "text": "Practice\n\nChúng ta hãy nhớ lại, thành phần quan trọng của biểu đồ là gì?\nĐầu tiên, chúng ta xác định trục của biểu đồ."
   },
   {
     "objectID": "slide_r04.html#practice-3",
     "href": "slide_r04.html#practice-3",
     "title": "Data visualization",
     "section": "Practice",
-    "text": "Practice\n\nAfter that, we must to display the name of country. ::::fragment\n\n\n::::"
+    "text": "Practice\n\nTiếp theo, chúng ta nên sử dụng loại hình học nào?"
   },
   {
     "objectID": "slide_r04.html#practice-4",
     "href": "slide_r04.html#practice-4",
     "title": "Data visualization",
     "section": "Practice",
-    "text": "Practice"
+    "text": "Practice\n\nSau đó, chúng ta phải hiển thị tên quốc gia."
   },
   {
     "objectID": "slide_r04.html#practice-5",
     "href": "slide_r04.html#practice-5",
     "title": "Data visualization",
     "section": "Practice",
-    "text": "Practice"
+    "text": "Practice\n\nCăn chỉnh tên quốc gia sao cho dễ nhìn."
   },
   {
     "objectID": "slide_r04.html#practice-6",
     "href": "slide_r04.html#practice-6",
     "title": "Data visualization",
     "section": "Practice",
-    "text": "Practice\n\nThe size of each point was different, so we must to create 2 variables: size, and color. ::::fragment\n\n\n\n            country coverage inequality size  color\n1            Angola    -0.14      0.100  1.1 purple\n2  Papua New Guinea    -0.35      0.080  0.6   blue\n3          Pakistan     0.12      0.050  3.0 yellow\n4              Chad     0.14      0.010  1.0 purple\n5          Ethiopia     0.32      0.005  2.0 purple\n6             Kenya     0.07     -0.060  1.1 purple\n7           Nigeria     0.20     -0.070  3.0 purple\n8           Liberia     0.18     -0.110  0.7 purple\n9      Burkina Faso     0.30     -0.130  1.1 purple\n10            India     0.35     -0.160  8.0 yellow\n\n\n::::"
+    "text": "Practice\n\nTùy chỉnh giá trị hiển thị của trục x, y."
   },
   {
     "objectID": "slide_r04.html#practice-7",
     "href": "slide_r04.html#practice-7",
     "title": "Data visualization",
     "section": "Practice",
-    "text": "Practice"
+    "text": "Practice\n\nKích thước của mỗi điểm là khác nhau, vì vậy chúng ta phải tạo 2 biến: kích thước và màu sắc.\n\n\n\n\n            country coverage inequality size  color\n1            Angola    -0.14      0.100  1.1 purple\n2  Papua New Guinea    -0.35      0.080  0.6   blue\n3          Pakistan     0.12      0.050  3.0 yellow\n4              Chad     0.14      0.010  1.0 purple\n5          Ethiopia     0.32      0.005  2.0 purple\n6             Kenya     0.07     -0.060  1.1 purple\n7           Nigeria     0.20     -0.070  3.0 purple\n8           Liberia     0.18     -0.110  0.7 purple\n9      Burkina Faso     0.30     -0.130  1.1 purple\n10            India     0.35     -0.160  8.0 yellow"
   },
   {
     "objectID": "slide_r04.html#practice-8",
     "href": "slide_r04.html#practice-8",
     "title": "Data visualization",
     "section": "Practice",
-    "text": "Practice\n\n\n  country   coverage   inequality      size color\n1         0.03274292 -0.039867259 0.7158374 green\n2         0.07237870 -0.051141870 1.1027535 green\n3         0.28704500 -0.051714818 0.9013232   red\n4         0.10846101  0.004744091 0.8609830 green\n5         0.11551453 -0.059030839 0.6193526   red\n6         0.30580780  0.010658824 0.9819889  blue\n\n\n\nset.seed(123): dùng để cố định cách tạo ra các điểm ngẫu nhiên.\nnp &lt;- 50: tạo ra 50 điểm ngẫu nhiên.\ncountry = rep(\"\", np): các điểm này không có tên quốc gia.\ncoverage = rnorm(n = np, mean = 0.1, sd = 0.12): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là 0.1 và độ lệch chuẩn là 0.12.\ninequality = rnorm(n = np, mean = -0.05, sd = 0.04): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là -0.05 và độ lệch chuẩn là 0.04.\nsize = rnorm(n = np, mean = 1, sd = 0.4): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là 1 và độ lệch chuẩn là 0.4.\ncolor = sample(1:6, np, replace = T): màu sắc là số nguyên ngẫu nhiên từ 1 đến 6."
+    "text": "Practice"
   },
   {
     "objectID": "slide_r04.html#practice-9",
     "href": "slide_r04.html#practice-9",
     "title": "Data visualization",
     "section": "Practice",
-    "text": "Practice\n\nWe must to merge two data."
+    "text": "Practice\n\n\n  country   coverage   inequality      size color\n1         0.03274292 -0.039867259 0.7158374 green\n2         0.07237870 -0.051141870 1.1027535 green\n3         0.28704500 -0.051714818 0.9013232   red\n4         0.10846101  0.004744091 0.8609830 green\n5         0.11551453 -0.059030839 0.6193526   red\n6         0.30580780  0.010658824 0.9819889  blue\n\n\n\nset.seed(123): dùng để cố định cách tạo ra các điểm ngẫu nhiên.\nnp &lt;- 50: tạo ra 50 điểm ngẫu nhiên.\ncountry = rep(\"\", np): các điểm này không có tên quốc gia.\ncoverage = rnorm(n = np, mean = 0.1, sd = 0.12): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là 0.1 và độ lệch chuẩn là 0.12.\ninequality = rnorm(n = np, mean = -0.05, sd = 0.04): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là -0.05 và độ lệch chuẩn là 0.04.\nsize = rnorm(n = np, mean = 1, sd = 0.4): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là 1 và độ lệch chuẩn là 0.4.\ncolor = sample(1:6, np, replace = T): màu sắc là số nguyên ngẫu nhiên từ 1 đến 6."
   },
   {
     "objectID": "slide_r04.html#practice-10",
     "href": "slide_r04.html#practice-10",
     "title": "Data visualization",
     "section": "Practice",
-    "text": "Practice"
+    "text": "Practice\n\nChúng ta thử ghép 2 bộ dữ liệu."
   },
   {
     "objectID": "slide_r04.html#mapping",
     "href": "slide_r04.html#mapping",
     "title": "Data visualization",
     "section": "Mapping",
-    "text": "Mapping\n\nBefore you want to create a map, you must to have a shapefile (format as .shp).\nIn ggplot2, you can use function geom_map to create a map.\nYou can see more information in Cheatsheet."
+    "text": "Mapping\n\nTrước khi bạn muốn tạo bản đồ, bạn phải có shapefile (định dạng là .shp).\nTrong ggplot2, bạn có thể sử dụng hàm geom_map để tạo bản đồ.\nBạn có thể xem thêm thông tin trong Cheatsheet."
   },
   {
     "objectID": "slide_r04.html#the-end",
     "href": "slide_r04.html#the-end",
     "title": "Data visualization",
     "section": "The end",
-    "text": "The end\n\n\n\n\n\n\nTip\n\n\nIf we use `ggplot2, we need to use tidyverse."
+    "text": "The end\n\n\n\n\n\n\nTip\n\n\nNếu sử dụng `ggplot2, chúng ta cần sử dụng tidyverse."
   },
   {
     "objectID": "slide_r01.html#r-là-gì",
@@ -1617,7 +1617,7 @@
     "href": "r04.html#data-visualization",
     "title": "Data visualization",
     "section": "Data visualization",
-    "text": "Data visualization\n\nNow that we have the results of our study, we should visualise it to disseminate the information.\nIn base R, we use plot() (and other functions) to draw figures.\nIn tidyverse, we use the ggplot2 package",
+    "text": "Data visualization\n\nTrực quan hóa nó để truyền bá thông tin.\nTrong R-based, chúng ta sử dụng plot() để vẽ hình.\nTrong tidyverse, chúng ta sử dụng gói ggplot2",
     "crumbs": [
       "Home",
       "R language",
@@ -1653,7 +1653,7 @@
     "href": "r04.html#grammar-of-graphics",
     "title": "Data visualization",
     "section": "Grammar of graphics",
-    "text": "Grammar of graphics\n\nA framework to describe and construct graphics in a structured manner.\nHas a layered approach, i.e. each component of a figure is a separate layer.",
+    "text": "Grammar of graphics\n\nMột khuôn khổ để mô tả và xây dựng biểu đồ theo cách có cấu trúc.\nPhương pháp tiếp cận theo layer, tức là mỗi thành phần của một hình là các layer riêng biệt.",
     "crumbs": [
       "Home",
       "R language",
@@ -1677,7 +1677,7 @@
     "href": "r04.html#grammar-of-graphics-2",
     "title": "Data visualization",
     "section": "Grammar of graphics",
-    "text": "Grammar of graphics\n\nLook back at the example code:\n\n\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point(color = \"blue\") +\n  scale_x_continuous(\"Weight (1000 lbs)\") +\n  scale_y_continuous(\"Miles Per Gallon\") +\n  ggtitle(\"MPG vs. Weight\") + \n  theme_bw()\n\n\n\n\n\n\n\n\n\nCan you identify the different layers of this plot?",
+    "text": "Grammar of graphics\n\nHãy xem code ví dụ sau:\n\n\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point(color = \"blue\") +\n  scale_x_continuous(\"Weight (1000 lbs)\") +\n  scale_y_continuous(\"Miles Per Gallon\") +\n  ggtitle(\"MPG vs. Weight\") + \n  theme_bw()\n\n\n\n\n\n\n\n\n\nBạn có thể xác định được các layer khác nhau của biểu đồ này không?",
     "crumbs": [
       "Home",
       "R language",
@@ -1689,7 +1689,7 @@
     "href": "r04.html#grammar-of-graphics-3",
     "title": "Data visualization",
     "section": "Grammar of graphics",
-    "text": "Grammar of graphics\n\nData: mtcars\nAesthetics: aes(x = wt, y = mpg)\nGeometries: geom_point\nCoordinates: scale_x_continuous, scale_y_continuous, ggtitle\nTheme: theme_bw\n\n\n\n\n\n\n\nTip\n\n\n\nggplot2 must run with data which is data frame, and we couldn’t run with another type of data (eg: matrix or vector).",
+    "text": "Grammar of graphics\n\nData: mtcars\nAesthetics: aes(x = wt, y = mpg)\nGeometries: geom_point\nCoordinates: scale_x_continuous, scale_y_continuous\nTheme: theme_bw, ggtitle\n\n\n\n\n\n\n\nTip\n\n\n\nggplot2 chỉ chạy với dữ liệu là data frame và không thể chạy với loại dữ liệu khác (ví dụ: ma trận hoặc vectơ).",
     "crumbs": [
       "Home",
       "R language",
@@ -1701,7 +1701,7 @@
     "href": "r04.html#geometries",
     "title": "Data visualization",
     "section": "Geometries",
-    "text": "Geometries\n\ngeom_col or geom_bar: bar charts\ngeom_histogram: histogram charts\ngeom_point: scatter plots\ngeom_line or geom_smooth: line charts\ngeom_boxplot: box plots\nBla bla bla\n\n\n\n\n\n\n\nTip\n\n\n\nData, aesthetic, geometric object were important components of plot, if this structure is not have enough so plot wasn’t actived.",
+    "text": "Geometries\n\ngeom_col or geom_bar: biểu đồ cột/ thanh\ngeom_histogram: histograms\ngeom_point: biểu đồ chấm (scatter)\ngeom_line or geom_smooth: biểu đồ đường (làm mượt)\ngeom_boxplot: biểu đồ hộp\nBla bla bla\n\n\n\n\n\n\n\nTip\n\n\n\nData, aesthetic, geometric đối tượng là thành phần quan trọng của biểu đồ, nếu cấu trúc này không đủ thì cốt truyện sẽ không hoạt động.",
     "crumbs": [
       "Home",
       "R language",
@@ -1737,7 +1737,7 @@
     "href": "r04.html#practice",
     "title": "Data visualization",
     "section": "Practice",
-    "text": "Practice\n\nCan we make the plot like that?",
+    "text": "Practice\n\nChúng ta có thể vẽ biểu đồ như thế này không?",
     "crumbs": [
       "Home",
       "R language",
@@ -1761,7 +1761,7 @@
     "href": "r04.html#practice-2",
     "title": "Data visualization",
     "section": "Practice",
-    "text": "Practice\n\nLet remember, what is important components of plot?\nFirstly, we determine the axis of plot. ::::fragment\n\n\nggplot(df_plot, aes(x = coverage, y = inequality))\n\n\n\n\n\n\n\n\n:::: ## Practice\n\nThen, what we should to use type of geometry? ::::fragment\n\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point()\n\n\n\n\n\n\n\n\n::::",
+    "text": "Practice\n\nChúng ta hãy nhớ lại, thành phần quan trọng của biểu đồ là gì?\nĐầu tiên, chúng ta xác định trục của biểu đồ.\n\n\n\nggplot(df_plot, aes(x = coverage, y = inequality))",
     "crumbs": [
       "Home",
       "R language",
@@ -1773,7 +1773,7 @@
     "href": "r04.html#practice-3",
     "title": "Data visualization",
     "section": "Practice",
-    "text": "Practice\n\nAfter that, we must to display the name of country. ::::fragment\n\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point() +\n  geom_text(aes(label = country))\n\n\n\n\n\n\n\n\n::::",
+    "text": "Practice\n\nTiếp theo, chúng ta nên sử dụng loại hình học nào?\n\n\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point()",
     "crumbs": [
       "Home",
       "R language",
@@ -1785,7 +1785,7 @@
     "href": "r04.html#practice-4",
     "title": "Data visualization",
     "section": "Practice",
-    "text": "Practice\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point() +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2)",
+    "text": "Practice\n\nSau đó, chúng ta phải hiển thị tên quốc gia.\n\n\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point() +\n  geom_text(aes(label = country))",
     "crumbs": [
       "Home",
       "R language",
@@ -1797,7 +1797,7 @@
     "href": "r04.html#practice-5",
     "title": "Data visualization",
     "section": "Practice",
-    "text": "Practice\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point() +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  xlim(c(-0.35, 0.55)) +\n  ylim(c(-0.17, 0.1))",
+    "text": "Practice\n\nCăn chỉnh tên quốc gia sao cho dễ nhìn.\n\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point() +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2)",
     "crumbs": [
       "Home",
       "R language",
@@ -1809,7 +1809,7 @@
     "href": "r04.html#practice-6",
     "title": "Data visualization",
     "section": "Practice",
-    "text": "Practice\n\nThe size of each point was different, so we must to create 2 variables: size, and color. ::::fragment\n\n\ndf_plot$size &lt;- c(1.1, 0.6, 3, 1, 2, 1.1, 3, 0.7, 1.1, 8)\ndf_plot$color &lt;- c(\"purple\", \"blue\", \"yellow\", \"purple\", \"purple\", \"purple\", \"purple\", \"purple\", \"purple\", \"yellow\")\ndf_plot\n\n            country coverage inequality size  color\n1            Angola    -0.14      0.100  1.1 purple\n2  Papua New Guinea    -0.35      0.080  0.6   blue\n3          Pakistan     0.12      0.050  3.0 yellow\n4              Chad     0.14      0.010  1.0 purple\n5          Ethiopia     0.32      0.005  2.0 purple\n6             Kenya     0.07     -0.060  1.1 purple\n7           Nigeria     0.20     -0.070  3.0 purple\n8           Liberia     0.18     -0.110  0.7 purple\n9      Burkina Faso     0.30     -0.130  1.1 purple\n10            India     0.35     -0.160  8.0 yellow\n\n\n::::",
+    "text": "Practice\n\nTùy chỉnh giá trị hiển thị của trục x, y.\n\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point() +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  xlim(c(-0.35, 0.55)) +\n  ylim(c(-0.17, 0.1))",
     "crumbs": [
       "Home",
       "R language",
@@ -1821,7 +1821,7 @@
     "href": "r04.html#practice-7",
     "title": "Data visualization",
     "section": "Practice",
-    "text": "Practice\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color)) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  xlim(c(-0.35, 0.55)) +\n  ylim(c(-0.17, 0.1))",
+    "text": "Practice\n\nKích thước của mỗi điểm là khác nhau, vì vậy chúng ta phải tạo 2 biến: kích thước và màu sắc.\n\n\n\ndf_plot$size &lt;- c(1.1, 0.6, 3, 1, 2, 1.1, 3, 0.7, 1.1, 8)\ndf_plot$color &lt;- c(\"purple\", \"blue\", \"yellow\", \"purple\", \"purple\", \"purple\", \"purple\", \"purple\", \"purple\", \"yellow\")\ndf_plot\n\n            country coverage inequality size  color\n1            Angola    -0.14      0.100  1.1 purple\n2  Papua New Guinea    -0.35      0.080  0.6   blue\n3          Pakistan     0.12      0.050  3.0 yellow\n4              Chad     0.14      0.010  1.0 purple\n5          Ethiopia     0.32      0.005  2.0 purple\n6             Kenya     0.07     -0.060  1.1 purple\n7           Nigeria     0.20     -0.070  3.0 purple\n8           Liberia     0.18     -0.110  0.7 purple\n9      Burkina Faso     0.30     -0.130  1.1 purple\n10            India     0.35     -0.160  8.0 yellow",
     "crumbs": [
       "Home",
       "R language",
@@ -1833,7 +1833,7 @@
     "href": "r04.html#practice-8",
     "title": "Data visualization",
     "section": "Practice",
-    "text": "Practice\n\nset.seed(123)\nnp &lt;- 50\nrd &lt;- data.frame(\n  country = rep(\"\", np),\n  coverage = rnorm(n = np, mean = 0.1, sd = 0.12),\n  inequality = rnorm(n = np, mean = -0.05, sd = 0.04),\n  size = rnorm(n = np, mean = 1, sd = 0.4),\n  color = sample(\n    c(\"red\", \"green\", \"darkblue\", \"yellow\", \"blue\", \"purple\"),\n    np,\n    replace = T\n  )\n)\nhead(rd)\n\n  country   coverage   inequality      size color\n1         0.03274292 -0.039867259 0.7158374 green\n2         0.07237870 -0.051141870 1.1027535 green\n3         0.28704500 -0.051714818 0.9013232   red\n4         0.10846101  0.004744091 0.8609830 green\n5         0.11551453 -0.059030839 0.6193526   red\n6         0.30580780  0.010658824 0.9819889  blue\n\n\n\nset.seed(123): dùng để cố định cách tạo ra các điểm ngẫu nhiên.\nnp &lt;- 50: tạo ra 50 điểm ngẫu nhiên.\ncountry = rep(\"\", np): các điểm này không có tên quốc gia.\ncoverage = rnorm(n = np, mean = 0.1, sd = 0.12): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là 0.1 và độ lệch chuẩn là 0.12.\ninequality = rnorm(n = np, mean = -0.05, sd = 0.04): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là -0.05 và độ lệch chuẩn là 0.04.\nsize = rnorm(n = np, mean = 1, sd = 0.4): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là 1 và độ lệch chuẩn là 0.4.\ncolor = sample(1:6, np, replace = T): màu sắc là số nguyên ngẫu nhiên từ 1 đến 6.",
+    "text": "Practice\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color)) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  xlim(c(-0.35, 0.55)) +\n  ylim(c(-0.17, 0.1))",
     "crumbs": [
       "Home",
       "R language",
@@ -1845,7 +1845,7 @@
     "href": "r04.html#practice-9",
     "title": "Data visualization",
     "section": "Practice",
-    "text": "Practice\n\nWe must to merge two data.\n\n\n\ndf_plot &lt;- rbind(df_plot, rd)\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color)) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  xlim(c(-0.35, 0.55)) +\n  ylim(c(-0.17, 0.1))",
+    "text": "Practice\n\nset.seed(123)\nnp &lt;- 50\nrd &lt;- data.frame(\n  country = rep(\"\", np),\n  coverage = rnorm(n = np, mean = 0.1, sd = 0.12),\n  inequality = rnorm(n = np, mean = -0.05, sd = 0.04),\n  size = rnorm(n = np, mean = 1, sd = 0.4),\n  color = sample(\n    c(\"red\", \"green\", \"darkblue\", \"yellow\", \"blue\", \"purple\"),\n    np,\n    replace = T\n  )\n)\nhead(rd)\n\n  country   coverage   inequality      size color\n1         0.03274292 -0.039867259 0.7158374 green\n2         0.07237870 -0.051141870 1.1027535 green\n3         0.28704500 -0.051714818 0.9013232   red\n4         0.10846101  0.004744091 0.8609830 green\n5         0.11551453 -0.059030839 0.6193526   red\n6         0.30580780  0.010658824 0.9819889  blue\n\n\n\nset.seed(123): dùng để cố định cách tạo ra các điểm ngẫu nhiên.\nnp &lt;- 50: tạo ra 50 điểm ngẫu nhiên.\ncountry = rep(\"\", np): các điểm này không có tên quốc gia.\ncoverage = rnorm(n = np, mean = 0.1, sd = 0.12): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là 0.1 và độ lệch chuẩn là 0.12.\ninequality = rnorm(n = np, mean = -0.05, sd = 0.04): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là -0.05 và độ lệch chuẩn là 0.04.\nsize = rnorm(n = np, mean = 1, sd = 0.4): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là 1 và độ lệch chuẩn là 0.4.\ncolor = sample(1:6, np, replace = T): màu sắc là số nguyên ngẫu nhiên từ 1 đến 6.",
     "crumbs": [
       "Home",
       "R language",
@@ -1857,7 +1857,7 @@
     "href": "r04.html#practice-10",
     "title": "Data visualization",
     "section": "Practice",
-    "text": "Practice\n\ncols &lt;- c(\n  \"red\" = \"#fa8495\",\n  \"green\" = \"#4ca258\",\n  \"darkblue\" = \"#6493bb\",\n  \"yellow\" = \"#d7c968\",\n  \"blue\" = \"#7dd8f3\",\n  \"purple\" = \"#bc5c91\"\n)\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color), alpha = 0.8) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  geom_vline(xintercept = 0, color = \"#999999\") +\n  geom_hline(yintercept = 0, color = \"#999999\") +\n  scale_x_continuous(breaks = c(-0.25, 0, 0.25, 0.5),\n                     limits = c(-0.4, 0.55)) +\n  scale_y_continuous(breaks = c(-0.1, 0, 0.1), limits = c(-0.16, 0.1)) +\n  scale_size_continuous(\n    breaks = c(2, 4, 6, 8),\n    labels = c(\"50 million\", \"100 million\", \"150 million\", \"200 million\"),\n    range = c(0, 8),\n    guide = guide_legend(order = 1)\n  ) +\n  scale_color_manual(\n    values = cols,\n    breaks = c(\"red\", \"green\", \"darkblue\", \"yellow\", \"blue\", \"purple\"),\n    labels = c(\n      \"Central Europe, Eastern Europe and Central Asia\",\n      \"Latin America and Caribbean\",\n      \"North Africa and Middle East\",\n      \"South Asia\",\n      \"Southeast Asia, East Asia and Oceania\",\n      \"Sub-Saharan Africa\"\n    ),\n    guide = guide_legend(order = 2)\n  ) +\n  labs(x = \"Change in MCV1 coverage (2019-2000)\",\n       y = \"Change in absolute geographical inequality (2019-2000)\",\n       size = NULL,\n       color = NULL) +\n  theme_classic() +\n  theme(\n    legend.position = \"top\",\n    legend.direction = \"vertical\",\n    legend.text = element_text(size = 11),\n    legend.key.height = unit(0.5, \"cm\"),\n    axis.text = element_text(size = 11)\n  )",
+    "text": "Practice\n\nChúng ta thử ghép 2 bộ dữ liệu.\n\n\n\ndf_plot &lt;- rbind(df_plot, rd)\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color)) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  xlim(c(-0.35, 0.55)) +\n  ylim(c(-0.17, 0.1))",
     "crumbs": [
       "Home",
       "R language",
@@ -1869,7 +1869,7 @@
     "href": "r04.html#mapping",
     "title": "Data visualization",
     "section": "Mapping",
-    "text": "Mapping\n\nBefore you want to create a map, you must to have a shapefile (format as .shp).\nIn ggplot2, you can use function geom_map to create a map.\nYou can see more information in Cheatsheet.",
+    "text": "Mapping\n\nTrước khi bạn muốn tạo bản đồ, bạn phải có shapefile (định dạng là .shp).\nTrong ggplot2, bạn có thể sử dụng hàm geom_map để tạo bản đồ.\nBạn có thể xem thêm thông tin trong Cheatsheet.",
     "crumbs": [
       "Home",
       "R language",
@@ -1881,7 +1881,7 @@
     "href": "r04.html#the-end",
     "title": "Data visualization",
     "section": "The end",
-    "text": "The end\n\n\n\n\n\n\nTip\n\n\n\nIf we use `ggplot2, we need to use tidyverse.",
+    "text": "The end\n\n\n\n\n\n\nTip\n\n\n\nNếu sử dụng `ggplot2, chúng ta cần sử dụng tidyverse.",
     "crumbs": [
       "Home",
       "R language",
@@ -2269,5 +2269,138 @@
     "title": "Online semniars for infectious diseases",
     "section": "Field Epidemiology Training Program",
     "text": "Field Epidemiology Training Program\n\nAbstract Writing (18/6/2025) Link\nQualitative Data Collection During an Outbreak Part I (16/7/2025) Link\nQualitative Data Collection During an Outbreak Part II (20/8/2025) Link\nInformatics & Data Viz Basics for Field Epidemiology (17/9/2025) Link\nSurveillance System Evaluations (15/10/2025) Link\nMatching in Case: Control Studies: Should I Do It? When to Do It and Why (19/11/2025) Link\nUsing an Outline When Writing: How to Clear Your Thoughts Before Putting Pen to Paper (21/1/2026) Link\nFacilitating a Case Study (18/2/2026) Link"
+  },
+  {
+    "objectID": "r04.html#structure-of-ggplot2",
+    "href": "r04.html#structure-of-ggplot2",
+    "title": "Data visualization",
+    "section": "Structure of ggplot2",
+    "text": "Structure of ggplot2\n\nggplot2 hoạt động trực tiếp với dữ liệu tidy (giống như mọi thứ trong tidyverse).\nNó dựa trên một khái niệm gọi là grammar of graphics.\nCó tài liệu hướng dẫn toàn diện về cách sử dụng.\nCung cấp đủ tính linh hoạt để tùy chỉnh.",
+    "crumbs": [
+      "Home",
+      "R language",
+      "Data visualization"
+    ]
+  },
+  {
+    "objectID": "r04.html#aesthetics",
+    "href": "r04.html#aesthetics",
+    "title": "Data visualization",
+    "section": "Aesthetics",
+    "text": "Aesthetics\n\nPhải đặt trong aes().\nKhai báo thông tin các trục x, y.\nKhai báo màu sắc color, fill.",
+    "crumbs": [
+      "Home",
+      "R language",
+      "Data visualization"
+    ]
+  },
+  {
+    "objectID": "r04.html#aesthetics-1",
+    "href": "r04.html#aesthetics-1",
+    "title": "Data visualization",
+    "section": "Aesthetics",
+    "text": "Aesthetics\n\n\n\ndf &lt;- data.frame(\n  x = 1:10,\n  y = (1:10)^2,\n  group = rep(c(\"A\", \"B\"), each = 5)\n) \n\nggplot(df, aes(x, y, color = group)) + \n  geom_col()\n\n\n\n\n\n\n\n\n\n\nggplot(df, aes(x, y, fill = group)) + \n  geom_col()",
+    "crumbs": [
+      "Home",
+      "R language",
+      "Data visualization"
+    ]
+  },
+  {
+    "objectID": "r04.html#coordinates",
+    "href": "r04.html#coordinates",
+    "title": "Data visualization",
+    "section": "Coordinates",
+    "text": "Coordinates\n\nTùy chỉnh hiển thị của các trục: scale_x_..., scale_y_..., xlim, ylim,…\nTùy chỉnh màu sắc theo giá trị của từng biến: scale_color_..., scale_fill_...,…\nTùy chỉnh tên cột, tên biểu đồ, tên chú thích: labs",
+    "crumbs": [
+      "Home",
+      "R language",
+      "Data visualization"
+    ]
+  },
+  {
+    "objectID": "r04.html#themes",
+    "href": "r04.html#themes",
+    "title": "Data visualization",
+    "section": "Themes",
+    "text": "Themes\n\nTùy chỉnh background của biểu đồ: màu sắc, lưới,…\nTùy chỉnh kiểu chữ trên biểu đồ.\nCó sẵn một số theme để lựa chọn: theme_classic, theme_minimal,…",
+    "crumbs": [
+      "Home",
+      "R language",
+      "Data visualization"
+    ]
+  },
+  {
+    "objectID": "r04.html#cheatseet",
+    "href": "r04.html#cheatseet",
+    "title": "Data visualization",
+    "section": "Cheatseet",
+    "text": "Cheatseet",
+    "crumbs": [
+      "Home",
+      "R language",
+      "Data visualization"
+    ]
+  },
+  {
+    "objectID": "r04.html#practice-11",
+    "href": "r04.html#practice-11",
+    "title": "Data visualization",
+    "section": "Practice",
+    "text": "Practice\n\ncols &lt;- c(\n  \"red\" = \"#fa8495\",\n  \"green\" = \"#4ca258\",\n  \"darkblue\" = \"#6493bb\",\n  \"yellow\" = \"#d7c968\",\n  \"blue\" = \"#7dd8f3\",\n  \"purple\" = \"#bc5c91\"\n)\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color), alpha = 0.8) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  geom_vline(xintercept = 0, color = \"#999999\") +\n  geom_hline(yintercept = 0, color = \"#999999\") +\n  scale_x_continuous(breaks = c(-0.25, 0, 0.25, 0.5),\n                     limits = c(-0.4, 0.55)) +\n  scale_y_continuous(breaks = c(-0.1, 0, 0.1), limits = c(-0.16, 0.1)) +\n  scale_size_continuous(\n    breaks = c(2, 4, 6, 8),\n    labels = c(\"50 million\", \"100 million\", \"150 million\", \"200 million\"),\n    range = c(0, 8),\n    guide = guide_legend(order = 1)\n  ) +\n  scale_color_manual(\n    values = cols,\n    breaks = c(\"red\", \"green\", \"darkblue\", \"yellow\", \"blue\", \"purple\"),\n    labels = c(\n      \"Central Europe, Eastern Europe and Central Asia\",\n      \"Latin America and Caribbean\",\n      \"North Africa and Middle East\",\n      \"South Asia\",\n      \"Southeast Asia, East Asia and Oceania\",\n      \"Sub-Saharan Africa\"\n    ),\n    guide = guide_legend(order = 2)\n  ) +\n  labs(x = \"Change in MCV1 coverage (2019-2000)\",\n       y = \"Change in absolute geographical inequality (2019-2000)\",\n       size = NULL,\n       color = NULL) +\n  theme_classic() +\n  theme(\n    legend.position = \"top\",\n    legend.direction = \"vertical\",\n    legend.text = element_text(size = 11),\n    legend.key.height = unit(0.5, \"cm\"),\n    axis.text = element_text(size = 11)\n  )",
+    "crumbs": [
+      "Home",
+      "R language",
+      "Data visualization"
+    ]
+  },
+  {
+    "objectID": "slide_r04.html#structure-of-ggplot2",
+    "href": "slide_r04.html#structure-of-ggplot2",
+    "title": "Data visualization",
+    "section": "Structure of ggplot2",
+    "text": "Structure of ggplot2\n\nggplot2 hoạt động trực tiếp với dữ liệu tidy (giống như mọi thứ trong tidyverse).\nNó dựa trên một khái niệm gọi là grammar of graphics.\nCó tài liệu hướng dẫn toàn diện về cách sử dụng.\nCung cấp đủ tính linh hoạt để tùy chỉnh."
+  },
+  {
+    "objectID": "slide_r04.html#aesthetics",
+    "href": "slide_r04.html#aesthetics",
+    "title": "Data visualization",
+    "section": "Aesthetics",
+    "text": "Aesthetics\n\nPhải đặt trong aes().\nKhai báo thông tin các trục x, y.\nKhai báo màu sắc color, fill."
+  },
+  {
+    "objectID": "slide_r04.html#aesthetics-1",
+    "href": "slide_r04.html#aesthetics-1",
+    "title": "Data visualization",
+    "section": "Aesthetics",
+    "text": "Aesthetics"
+  },
+  {
+    "objectID": "slide_r04.html#coordinates",
+    "href": "slide_r04.html#coordinates",
+    "title": "Data visualization",
+    "section": "Coordinates",
+    "text": "Coordinates\n\nTùy chỉnh hiển thị của các trục: scale_x_..., scale_y_..., xlim, ylim,…\nTùy chỉnh màu sắc theo giá trị của từng biến: scale_color_..., scale_fill_...,…\nTùy chỉnh tên cột, tên biểu đồ, tên chú thích: labs"
+  },
+  {
+    "objectID": "slide_r04.html#themes",
+    "href": "slide_r04.html#themes",
+    "title": "Data visualization",
+    "section": "Themes",
+    "text": "Themes\n\nTùy chỉnh background của biểu đồ: màu sắc, lưới,…\nTùy chỉnh kiểu chữ trên biểu đồ.\nCó sẵn một số theme để lựa chọn: theme_classic, theme_minimal,…"
+  },
+  {
+    "objectID": "slide_r04.html#cheatseet",
+    "href": "slide_r04.html#cheatseet",
+    "title": "Data visualization",
+    "section": "Cheatseet",
+    "text": "Cheatseet"
+  },
+  {
+    "objectID": "slide_r04.html#practice-11",
+    "href": "slide_r04.html#practice-11",
+    "title": "Data visualization",
+    "section": "Practice",
+    "text": "Practice"
   }
 ]

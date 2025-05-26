@@ -136,9 +136,9 @@
 <section id="data-visualization" class="slide level2">
 <h2>Data visualization</h2>
 <ul>
-<li><p>Now that we have the results of our study, we should visualise it to disseminate the information.</p></li>
-<li><p>In base R, we use <code>plot()</code> (and other functions) to draw figures.</p></li>
-<li><p>In <code>tidyverse</code>, we use the <code>ggplot2</code> package</p></li>
+<li><p>Trực quan hóa nó để truyền bá thông tin.</p></li>
+<li><p>Trong <strong>R-based</strong>, chúng ta sử dụng <code>plot()</code> để vẽ hình.</p></li>
+<li><p>Trong <strong>tidyverse</strong>, chúng ta sử dụng gói <code>ggplot2</code></p></li>
 </ul>
 </section>
 <section id="example" class="slide level2">
@@ -168,20 +168,20 @@
 </div>
 </div></div>
 </section>
-<section id="ggplot2-structure" class="slide level2">
-<h2>ggplot2 structure</h2>
+<section id="structure-of-ggplot2" class="slide level2">
+<h2>Structure of <code>ggplot2</code></h2>
 <ul>
-<li><p><code>ggplot2</code> works directly with tidy data (same as everything under tidyverse).</p></li>
-<li><p>It is based on a concept called “grammar of graphics”.</p></li>
-<li><p>Has intuitive and comprehensive documentation on how to use it effectively.</p></li>
-<li><p>Provide <strong>enough</strong> flexibility for customisation.</p></li>
+<li><p><code>ggplot2</code> hoạt động trực tiếp với dữ liệu <strong>tidy</strong> (giống như mọi thứ trong <strong>tidyverse</strong>).</p></li>
+<li><p>Nó dựa trên một khái niệm gọi là <strong>grammar of graphics</strong>.</p></li>
+<li><p>Có tài liệu hướng dẫn toàn diện về cách sử dụng.</p></li>
+<li><p>Cung cấp đủ tính linh hoạt để tùy chỉnh.</p></li>
 </ul>
 </section>
 <section id="grammar-of-graphics" class="slide level2">
 <h2>Grammar of graphics</h2>
 <ul>
-<li><p>A framework to describe and construct graphics in a structured manner.</p></li>
-<li><p>Has a layered approach, i.e.&nbsp;each component of a figure is a separate layer.</p></li>
+<li><p>Một khuôn khổ để mô tả và xây dựng biểu đồ theo cách có <strong>cấu trúc</strong>.</p></li>
+<li><p>Phương pháp tiếp cận theo <strong>layer</strong>, tức là mỗi thành phần của một hình là các <strong>layer</strong> riêng biệt.</p></li>
 </ul>
 </section>
 <section id="grammar-of-graphics-1" class="slide level2">
@@ -191,16 +191,22 @@
 <section id="grammar-of-graphics-2" class="slide level2">
 <h2>Grammar of graphics</h2>
 <ul>
-<li>Look back at the example code:</li>
+<li>Hãy xem code ví dụ sau:</li>
 </ul>
 
 <img data-src="slide_r04_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"><ul>
-<li>Can you identify the different layers of this plot?</li>
+<li>Bạn có thể xác định được các <strong>layer</strong> khác nhau của biểu đồ này không?</li>
 </ul>
 </section>
 <section id="grammar-of-graphics-3" class="slide level2">
 <h2>Grammar of graphics</h2>
-<p><code>ggplot(mtcars, aes(x = wt, y = mpg))</code> - Data: <code>mtcars</code>. - Aesthetics: <code>aes(x = wt, y = mpg)</code> - Geometries: <code>geom_point</code> - Coordinates: <code>scale_x_continuous</code>, <code>scale_y_continuous</code>, <code>ggtitle</code> - Theme: <code>theme_bw</code></p>
+<ul>
+<li>Data: <code>mtcars</code></li>
+<li>Aesthetics: <code>aes(x = wt, y = mpg)</code></li>
+<li>Geometries: <code>geom_point</code></li>
+<li>Coordinates: <code>scale_x_continuous</code>, <code>scale_y_continuous</code></li>
+<li>Theme: <code>theme_bw</code>, <code>ggtitle</code></li>
+</ul>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -210,19 +216,52 @@
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p><code>ggplot2</code> must run with data which is <strong>data frame</strong>, and we couldn’t run with another type of data (eg: matrix or vector).</p>
+<p><code>ggplot2</code> chỉ chạy với dữ liệu là <strong>data frame</strong> và không thể chạy với loại dữ liệu khác (ví dụ: ma trận hoặc vectơ).</p>
 </div>
 </div>
 </div>
 </section>
+<section id="aesthetics" class="slide level2">
+<h2>Aesthetics</h2>
+<ul>
+<li>Phải đặt trong <code>aes()</code>.</li>
+<li>Khai báo thông tin các trục <code>x</code>, <code>y</code>.</li>
+<li>Khai báo màu sắc <code>color</code>, <code>fill</code>.</li>
+</ul>
+</section>
+<section id="aesthetics-1" class="slide level2">
+<h2>Aesthetics</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slide_r04_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slide_r04_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
 <section id="geometries" class="slide level2">
 <h2>Geometries</h2>
 <ul>
-<li><code>geom_col</code> or <code>geom_bar</code>: bar charts</li>
-<li><code>geom_histogram</code>: histogram charts</li>
-<li><code>geom_point</code>: scatter plots</li>
-<li><code>geom_line</code> or <code>geom_smooth</code>: line charts</li>
-<li><code>geom_boxplot</code>: box plots</li>
+<li><code>geom_col</code> or <code>geom_bar</code>: biểu đồ cột/ thanh</li>
+<li><code>geom_histogram</code>: histograms</li>
+<li><code>geom_point</code>: biểu đồ chấm (scatter)</li>
+<li><code>geom_line</code> or <code>geom_smooth</code>: biểu đồ đường (làm mượt)</li>
+<li><code>geom_boxplot</code>: biểu đồ hộp</li>
 <li>Bla bla bla</li>
 </ul>
 <div class="callout callout-tip callout-titled callout-style-default">
@@ -234,7 +273,7 @@
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Data, aesthetic, geometric</strong> object were important components of plot, if this structure is not have enough so plot wasn’t actived.</p>
+<p><strong>Data, aesthetic, geometric</strong> đối tượng là thành phần quan trọng của biểu đồ, nếu cấu trúc này không đủ thì cốt truyện sẽ không hoạt động.</p>
 </div>
 </div>
 </div>
@@ -243,15 +282,31 @@
 <h2>Shape of <code>geom_point</code></h2>
 
 <img data-src="shape_ggplot2.png" class="r-stretch"></section>
-<section id="grammar-of-graphics-4" class="slide level2">
-<h2>Grammar of graphics</h2>
+<section id="coordinates" class="slide level2">
+<h2>Coordinates</h2>
+<ul>
+<li>Tùy chỉnh hiển thị của các trục: <code>scale_x_...</code>, <code>scale_y_...</code>, <code>xlim</code>, <code>ylim</code>,…</li>
+<li>Tùy chỉnh màu sắc theo giá trị của từng biến: <code>scale_color_...</code>, <code>scale_fill_...</code>,…</li>
+<li>Tùy chỉnh tên cột, tên biểu đồ, tên chú thích: <code>labs</code></li>
+</ul>
+</section>
+<section id="themes" class="slide level2">
+<h2>Themes</h2>
+<ul>
+<li>Tùy chỉnh background của biểu đồ: màu sắc, lưới,…</li>
+<li>Tùy chỉnh kiểu chữ trên biểu đồ.</li>
+<li>Có sẵn một số theme để lựa chọn: <code>theme_classic</code>, <code>theme_minimal</code>,…</li>
+</ul>
+</section>
+<section id="cheatseet" class="slide level2">
+<h2>Cheatseet</h2>
 <p><img data-src="cheatseat1.png"></p>
 <p><img data-src="cheatseat2.png"></p>
 </section>
 <section id="practice" class="slide level2">
 <h2>Practice</h2>
 <ul>
-<li>Can we make the plot like that? <img data-src="exam_ggplot2.png"></li>
+<li>Chúng ta có thể vẽ biểu đồ như thế này không? <img data-src="exam_ggplot2.png"></li>
 </ul>
 </section>
 <section id="practice-1" class="slide level2">
@@ -275,54 +330,75 @@
 <section id="practice-2" class="slide level2">
 <h2>Practice</h2>
 <ul>
-<li>Let remember, what is important components of plot?</li>
-<li>Firstly, we determine the axis of plot. ::::fragment</li>
+<li>Chúng ta hãy nhớ lại, thành phần quan trọng của biểu đồ là gì?</li>
+<li>Đầu tiên, chúng ta xác định trục của biểu đồ.</li>
 </ul>
+<div class="fragment">
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slide_r04_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+<p><img data-src="slide_r04_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>:::: ## Practice</p>
-<ul>
-<li>Then, what we should to use type of geometry? ::::fragment</li>
-</ul>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="slide_r04_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
-</figure>
 </div>
-</div>
-</div>
-<p>::::</p>
 </section>
 <section id="practice-3" class="slide level2">
 <h2>Practice</h2>
 <ul>
-<li>After that, we must to display the name of country. ::::fragment</li>
+<li>Tiếp theo, chúng ta nên sử dụng loại hình học nào?</li>
 </ul>
-
-<img data-src="slide_r04_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"><p>::::</p>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slide_r04_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="practice-4" class="slide level2">
 <h2>Practice</h2>
-
-<img data-src="slide_r04_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<ul>
+<li>Sau đó, chúng ta phải hiển thị tên quốc gia.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slide_r04_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="practice-5" class="slide level2">
 <h2>Practice</h2>
+<ul>
+<li>Căn chỉnh tên quốc gia sao cho dễ nhìn.</li>
+</ul>
 
-<img data-src="slide_r04_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section>
+<img data-src="slide_r04_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
 <section id="practice-6" class="slide level2">
 <h2>Practice</h2>
 <ul>
-<li>The size of each point was different, so we must to create 2 variables: <strong>size</strong>, and <strong>color</strong>. ::::fragment</li>
+<li>Tùy chỉnh giá trị hiển thị của trục <code>x</code>, <code>y</code>.</li>
 </ul>
+
+<img data-src="slide_r04_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"></section>
+<section id="practice-7" class="slide level2">
+<h2>Practice</h2>
+<ul>
+<li>Kích thước của mỗi điểm là khác nhau, vì vậy chúng ta phải tạo 2 biến: <strong>kích thước</strong> và <strong>màu sắc</strong>.</li>
+</ul>
+<div class="fragment">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>            country coverage inequality size  color
@@ -338,13 +414,13 @@
 10            India     0.35     -0.160  8.0 yellow</code></pre>
 </div>
 </div>
-<p>::::</p>
+</div>
 </section>
-<section id="practice-7" class="slide level2">
+<section id="practice-8" class="slide level2">
 <h2>Practice</h2>
 
-<img data-src="slide_r04_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
-<section id="practice-8" class="slide level2">
+<img data-src="slide_r04_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
+<section id="practice-9" class="slide level2">
 <h2>Practice</h2>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -367,33 +443,33 @@
 <li><code>color = sample(1:6, np, replace = T)</code>: màu sắc là số nguyên ngẫu nhiên từ 1 đến 6.</li>
 </ul>
 </section>
-<section id="practice-9" class="slide level2">
+<section id="practice-10" class="slide level2">
 <h2>Practice</h2>
 <ul>
-<li>We must to merge two data.</li>
+<li>Chúng ta thử ghép 2 bộ dữ liệu.</li>
 </ul>
 <div class="fragment">
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slide_r04_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
+<p><img data-src="slide_r04_files/figure-revealjs/unnamed-chunk-16-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="practice-10" class="slide level2">
+<section id="practice-11" class="slide level2">
 <h2>Practice</h2>
 
-<img data-src="slide_r04_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
+<img data-src="slide_r04_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"></section>
 <section id="mapping" class="slide level2">
 <h2>Mapping</h2>
 <ul>
-<li><p>Before you want to create a map, you must to have a shapefile (format as <code>.shp</code>).</p></li>
-<li><p>In <code>ggplot2</code>, you can use function <code>geom_map</code> to create a map.</p></li>
-<li><p>You can see more information in Cheatsheet.</p></li>
+<li><p>Trước khi bạn muốn tạo bản đồ, bạn phải có shapefile (định dạng là <code>.shp</code>).</p></li>
+<li><p>Trong <code>ggplot2</code>, bạn có thể sử dụng hàm <code>geom_map</code> để tạo bản đồ.</p></li>
+<li><p>Bạn có thể xem thêm thông tin trong Cheatsheet.</p></li>
 </ul>
 </section>
 <section id="the-end" class="slide level2">
@@ -407,7 +483,7 @@
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p>If we use `<code>ggplot2</code>, we need to use <code>tidyverse</code>.</p>
+<p>Nếu sử dụng `<code>ggplot2</code>, chúng ta cần sử dụng <code>tidyverse</code>.</p>
 </div>
 </div>
 </div>
