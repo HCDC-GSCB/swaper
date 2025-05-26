@@ -11,7 +11,7 @@
     "href": "slide_r04.html#data-visualization",
     "title": "Data visualization",
     "section": "Data visualization",
-    "text": "Data visualization\n\nTrực quan hóa nó để truyền bá thông tin.\nTrong R-based, chúng ta sử dụng plot() để vẽ hình.\nTrong tidyverse, chúng ta sử dụng gói ggplot2"
+    "text": "Data visualization\n\nTrực quan hóa để truyền thông thông tin.\nTrong R-based, chúng ta sử dụng plot() để vẽ hình.\nTrong tidyverse, chúng ta sử dụng gói ggplot2"
   },
   {
     "objectID": "slide_r04.html#example",

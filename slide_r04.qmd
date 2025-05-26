@@ -9,7 +9,7 @@ format:
 
 ## Data visualization
 
--   Trực quan hóa nó để truyền bá thông tin.
+-   Trực quan hóa để truyền thông thông tin.
 
 -   Trong **R-based**, chúng ta sử dụng `plot()` để vẽ hình.
 
