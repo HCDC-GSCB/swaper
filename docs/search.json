@@ -10,8 +10,8 @@
     "objectID": "slide_r04.html#data-visualization",
     "href": "slide_r04.html#data-visualization",
     "title": "Data visualization",
-    "section": "",
-    "text": "Trực quan hóa nó để truyền bá thông tin.\nTrong R-based, chúng ta sử dụng plot() để vẽ hình.\nTrong tidyverse, chúng ta sử dụng gói ggplot2"
+    "section": "Data visualization",
+    "text": "Data visualization\n\nTrực quan hóa nó để truyền bá thông tin.\nTrong R-based, chúng ta sử dụng plot() để vẽ hình.\nTrong tidyverse, chúng ta sử dụng gói ggplot2"
   },
   {
     "objectID": "slide_r04.html#example",
@@ -46,21 +46,21 @@
     "href": "slide_r04.html#grammar-of-graphics-2",
     "title": "Data visualization",
     "section": "Grammar of graphics",
-    "text": "Grammar of graphics\n\nHãy xem code ví dụ sau:\n\n\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point(color = \"blue\") +\n  scale_x_continuous(\"Weight (1000 lbs)\") +\n  scale_y_continuous(\"Miles Per Gallon\") +\n  ggtitle(\"MPG vs. Weight\") + \n  theme_bw()\n\n\n\n\n\n\n\n\n\nBạn có thể xác định được các layer khác nhau của biểu đồ này không?"
+    "text": "Grammar of graphics\n\nHãy xem code ví dụ sau:\n\n\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point(color = \"blue\") +\n  scale_x_continuous(\"Weight (1000 lbs)\") +\n  scale_y_continuous(\"Miles Per Gallon\") +\n  ggtitle(\"MPG vs. Weight\")\n\n\n\nBạn có thể xác định được các layer khác nhau của biểu đồ này không?"
   },
   {
     "objectID": "slide_r04.html#grammar-of-graphics-3",
     "href": "slide_r04.html#grammar-of-graphics-3",
     "title": "Data visualization",
     "section": "Grammar of graphics",
-    "text": "Grammar of graphics\n\nData: mtcars\nAesthetics: aes(x = wt, y = mpg)\nGeometries: geom_point\nCoordinates: scale_x_continuous, scale_y_continuous\nTheme: theme_bw, ggtitle\n\n\n\n\n\n\n\nTip\n\n\n\nggplot2 chỉ chạy với dữ liệu là data frame và không thể chạy với loại dữ liệu khác (ví dụ: ma trận hoặc vectơ)."
+    "text": "Grammar of graphics\n\nData: mtcars\nAesthetics: aes(x = wt, y = mpg)\nGeometries: geom_point\nCoordinates: scale_x_continuous, scale_y_continuous\nTheme: theme_bw, ggtitle\n\n\n\n\n\n\n\nTip\n\n\nggplot2 chỉ chạy với dữ liệu là data frame và không thể chạy với loại dữ liệu khác (ví dụ: ma trận hoặc vectơ)."
   },
   {
     "objectID": "slide_r04.html#geometries",
     "href": "slide_r04.html#geometries",
     "title": "Data visualization",
     "section": "Geometries",
-    "text": "Geometries\n\ngeom_col or geom_bar: biểu đồ cột/ thanh\ngeom_histogram: histograms\ngeom_point: biểu đồ chấm (scatter)\ngeom_line or geom_smooth: biểu đồ đường (làm mượt)\ngeom_boxplot: biểu đồ hộp\nBla bla bla\n\n\n\n\n\n\n\nTip\n\n\n\nData, aesthetic, geometric đối tượng là thành phần quan trọng của biểu đồ, nếu cấu trúc này không đủ thì cốt truyện sẽ không hoạt động."
+    "text": "Geometries\n\ngeom_col or geom_bar: biểu đồ cột/ thanh\ngeom_histogram: histograms\ngeom_point: biểu đồ chấm (scatter)\ngeom_line or geom_smooth: biểu đồ đường (làm mượt)\ngeom_boxplot: biểu đồ hộp\nBla bla bla\n\n\n\n\n\n\n\nTip\n\n\nData, aesthetic, geometric đối tượng là thành phần quan trọng của biểu đồ, nếu cấu trúc này không đủ thì cốt truyện sẽ không hoạt động."
   },
   {
     "objectID": "slide_r04.html#shape-of-geom_point",
@@ -165,7 +165,7 @@
     "href": "slide_r04.html#the-end",
     "title": "Data visualization",
     "section": "The end",
-    "text": "The end\n\n\n\n\n\n\nTip\n\n\n\nNếu sử dụng `ggplot2, chúng ta cần sử dụng tidyverse."
+    "text": "The end\n\n\n\n\n\n\nTip\n\n\nNếu sử dụng `ggplot2, chúng ta cần sử dụng tidyverse."
   },
   {
     "objectID": "slide_r01.html#r-là-gì",
@@ -2373,7 +2373,7 @@
     "href": "slide_r04.html#aesthetics-1",
     "title": "Data visualization",
     "section": "Aesthetics",
-    "text": "Aesthetics\n\n\n\ndf &lt;- data.frame(\n  x = 1:10,\n  y = (1:10)^2,\n  group = rep(c(\"A\", \"B\"), each = 5)\n) \n\n\nggplot(df, aes(x, y, color = group)) + \n  geom_col()\n\n\n\n\n\n\n\n\n\n\nggplot(df, aes(x, y, fill = group)) + \n  geom_col()"
+    "text": "Aesthetics\n\ndf &lt;- data.frame(\n  x = 1:10,\n  y = (1:10)^2,\n  group = rep(c(\"A\", \"B\"), each = 5)\n) \n\n\n\n\nggplot(df, aes(x, y, color = group)) + \n  geom_col()\n\n\n\n\n\n\n\n\n\n\nggplot(df, aes(x, y, fill = group)) + \n  geom_col()"
   },
   {
     "objectID": "slide_r04.html#coordinates",

@@ -1,6 +1,10 @@
 ---
 title: "Data visualization"
-format: revealjs
+format: 
+  revealjs:
+    scrollable: true
+    code-tools: true
+    echo: true
 ---
 
 ## Data visualization
@@ -74,8 +78,7 @@ ggplot(mtcars, aes(x = wt, y = mpg)) +
   geom_point(color = "blue") +
   scale_x_continuous("Weight (1000 lbs)") +
   scale_y_continuous("Miles Per Gallon") +
-  ggtitle("MPG vs. Weight") + 
-  theme_bw()
+  ggtitle("MPG vs. Weight")
 ```
 
 -   Bạn có thể xác định được các **layer** khác nhau của biểu đồ này không?
@@ -100,10 +103,7 @@ ggplot(mtcars, aes(x = wt, y = mpg)) +
 
 ## Aesthetics
 
-::::: columns
-::: {.column width="50%"}
 ```{r}
-#| code-fold: false
 df <- data.frame(
   x = 1:10,
   y = (1:10)^2,
@@ -111,6 +111,8 @@ df <- data.frame(
 ) 
 ```
 
+::::: columns
+::: {.column width="50%"}
 ```{r}
 ggplot(df, aes(x, y, color = group)) + 
   geom_col()
