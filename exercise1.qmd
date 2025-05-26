@@ -1,4 +1,8 @@
-# Take home Day 1
+---
+title: "Take home Day 1"
+sidebar: training
+format: html
+---
 
 ## Dataset
 
