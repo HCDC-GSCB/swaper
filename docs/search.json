@@ -21,11 +21,11 @@
     "text": "Example\n\n\nBase R:\n\nplot(\n  x = mtcars$wt,\n  y = mtcars$mpg,\n  xlab = \"Weight (1000 lbs)\",\n  ylab = \"Miles Per Gallon\",\n  main = \"MPG vs. Weight\",\n  pch = 19,       # Solid circle points\n  col = \"blue\"\n)\n\n\n\n\n\n\n\n\n\nggplot2:\n\nlibrary(ggplot2)\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point(color = \"blue\") +\n  scale_x_continuous(\"Weight (1000 lbs)\") +\n  scale_y_continuous(\"Miles Per Gallon\") +\n  ggtitle(\"MPG vs. Weight\") + \n  theme_bw()"
   },
   {
-    "objectID": "slide_r04.html#ggplot2-structure",
-    "href": "slide_r04.html#ggplot2-structure",
+    "objectID": "slide_r04.html#structure-of-ggplot2",
+    "href": "slide_r04.html#structure-of-ggplot2",
     "title": "Data visualization",
-    "section": "ggplot2 structure",
-    "text": "ggplot2 structure\n\nggplot2 works directly with tidy data (same as everything under tidyverse).\nIt is based on a concept called “grammar of graphics”.\nHas intuitive and comprehensive documentation on how to use it effectively.\nProvide enough flexibility for customisation."
+    "section": "Structure of ggplot2",
+    "text": "Structure of ggplot2\n\nggplot2 hoạt động trực tiếp với dữ liệu tidy (giống như mọi thứ trong tidyverse).\nNó dựa trên một khái niệm gọi là grammar of graphics.\nCó tài liệu hướng dẫn toàn diện về cách sử dụng.\nCung cấp đủ tính linh hoạt để tùy chỉnh."
   },
   {
     "objectID": "slide_r04.html#grammar-of-graphics",
@@ -56,6 +56,20 @@
     "text": "Grammar of graphics\n\nData: mtcars\nAesthetics: aes(x = wt, y = mpg)\nGeometries: geom_point\nCoordinates: scale_x_continuous, scale_y_continuous\nTheme: theme_bw, ggtitle\n\n\n\n\n\n\n\nTip\n\n\nggplot2 chỉ chạy với dữ liệu là data frame và không thể chạy với loại dữ liệu khác (ví dụ: ma trận hoặc vectơ)."
   },
   {
+    "objectID": "slide_r04.html#aesthetics",
+    "href": "slide_r04.html#aesthetics",
+    "title": "Data visualization",
+    "section": "Aesthetics",
+    "text": "Aesthetics\n\nPhải đặt trong aes().\nKhai báo thông tin các trục x, y.\nKhai báo màu sắc color, fill."
+  },
+  {
+    "objectID": "slide_r04.html#aesthetics-1",
+    "href": "slide_r04.html#aesthetics-1",
+    "title": "Data visualization",
+    "section": "Aesthetics",
+    "text": "Aesthetics\n\ndf &lt;- data.frame(\n  x = 1:10,\n  y = (1:10)^2,\n  group = rep(c(\"A\", \"B\"), each = 5)\n) \n\n\n\n\nggplot(df, aes(x, y, color = group)) + \n  geom_col()\n\n\n\n\n\n\n\n\n\n\nggplot(df, aes(x, y, fill = group)) + \n  geom_col()"
+  },
+  {
     "objectID": "slide_r04.html#geometries",
     "href": "slide_r04.html#geometries",
     "title": "Data visualization",
@@ -70,11 +84,25 @@
     "text": "Shape of geom_point"
   },
   {
-    "objectID": "slide_r04.html#grammar-of-graphics-4",
-    "href": "slide_r04.html#grammar-of-graphics-4",
+    "objectID": "slide_r04.html#coordinates",
+    "href": "slide_r04.html#coordinates",
     "title": "Data visualization",
-    "section": "Grammar of graphics",
-    "text": "Grammar of graphics"
+    "section": "Coordinates",
+    "text": "Coordinates\n\nTùy chỉnh hiển thị của các trục: scale_x_..., scale_y_..., xlim, ylim,…\nTùy chỉnh màu sắc theo giá trị của từng biến: scale_color_..., scale_fill_...,…\nTùy chỉnh tên cột, tên biểu đồ, tên chú thích: labs"
+  },
+  {
+    "objectID": "slide_r04.html#themes",
+    "href": "slide_r04.html#themes",
+    "title": "Data visualization",
+    "section": "Themes",
+    "text": "Themes\n\nTùy chỉnh background của biểu đồ: màu sắc, lưới,…\nTùy chỉnh kiểu chữ trên biểu đồ.\nCó sẵn một số theme để lựa chọn: theme_classic, theme_minimal,…"
+  },
+  {
+    "objectID": "slide_r04.html#cheatseet",
+    "href": "slide_r04.html#cheatseet",
+    "title": "Data visualization",
+    "section": "Cheatseet",
+    "text": "Cheatseet"
   },
   {
     "objectID": "slide_r04.html#practice",
@@ -152,6 +180,13 @@
     "title": "Data visualization",
     "section": "Practice",
     "text": "Practice\n\nChúng ta thử ghép 2 bộ dữ liệu.\n\n\n\ndf_plot &lt;- rbind(df_plot, rd)\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color)) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  xlim(c(-0.35, 0.55)) +\n  ylim(c(-0.17, 0.1))"
+  },
+  {
+    "objectID": "slide_r04.html#practice-11",
+    "href": "slide_r04.html#practice-11",
+    "title": "Data visualization",
+    "section": "Practice",
+    "text": "Practice\n\ncols &lt;- c(\n  \"red\" = \"#fa8495\",\n  \"green\" = \"#4ca258\",\n  \"darkblue\" = \"#6493bb\",\n  \"yellow\" = \"#d7c968\",\n  \"blue\" = \"#7dd8f3\",\n  \"purple\" = \"#bc5c91\"\n)\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color), alpha = 0.8) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  geom_vline(xintercept = 0, color = \"#999999\") +\n  geom_hline(yintercept = 0, color = \"#999999\") +\n  scale_x_continuous(breaks = c(-0.25, 0, 0.25, 0.5),\n                     limits = c(-0.4, 0.55)) +\n  scale_y_continuous(breaks = c(-0.1, 0, 0.1), limits = c(-0.16, 0.1)) +\n  scale_size_continuous(\n    breaks = c(2, 4, 6, 8),\n    labels = c(\"50 million\", \"100 million\", \"150 million\", \"200 million\"),\n    range = c(0, 8),\n    guide = guide_legend(order = 1)\n  ) +\n  scale_color_manual(\n    values = cols,\n    breaks = c(\"red\", \"green\", \"darkblue\", \"yellow\", \"blue\", \"purple\"),\n    labels = c(\n      \"Central Europe, Eastern Europe and Central Asia\",\n      \"Latin America and Caribbean\",\n      \"North Africa and Middle East\",\n      \"South Asia\",\n      \"Southeast Asia, East Asia and Oceania\",\n      \"Sub-Saharan Africa\"\n    ),\n    guide = guide_legend(order = 2)\n  ) +\n  labs(x = \"Change in MCV1 coverage (2019-2000)\",\n       y = \"Change in absolute geographical inequality (2019-2000)\",\n       size = NULL,\n       color = NULL) +\n  theme_classic() +\n  theme(\n    legend.position = \"top\",\n    legend.direction = \"vertical\",\n    legend.text = element_text(size = 11),\n    legend.key.height = unit(0.5, \"cm\"),\n    axis.text = element_text(size = 11)\n  )"
   },
   {
     "objectID": "slide_r04.html#mapping",
@@ -850,6 +885,61 @@
     "text": "The Public Health Emergency Operations Centre\nThis session introduces key online learning resources on Public Health Emergency Operations Centres (PHEOC) and Public Health Emergency Management (PHEM). Participants will be guided to relevant self-paced courses provided by trusted institutions such as WHO, CDC, and other global partners. These resources support capacity building for emergency preparedness and response.\n\nReady4Response Tier 2: Systems, structures and skills Link\nThe Public Health Emergency Operations Centre (PHEOC) Link\nKing County Emergency Management Link\nRapid Response Teams Training Programme - WHO Link"
   },
   {
+    "objectID": "exp1.html#field-epidemiology-training-program",
+    "href": "exp1.html#field-epidemiology-training-program",
+    "title": "Online semniars for infectious diseases",
+    "section": "Field Epidemiology Training Program",
+    "text": "Field Epidemiology Training Program\n\nAbstract Writing (18/6/2025) Link\nQualitative Data Collection During an Outbreak Part I (16/7/2025) Link\nQualitative Data Collection During an Outbreak Part II (20/8/2025) Link\nInformatics & Data Viz Basics for Field Epidemiology (17/9/2025) Link\nSurveillance System Evaluations (15/10/2025) Link\nMatching in Case: Control Studies: Should I Do It? When to Do It and Why (19/11/2025) Link\nUsing an Outline When Writing: How to Clear Your Thoughts Before Putting Pen to Paper (21/1/2026) Link\nFacilitating a Case Study (18/2/2026) Link"
+  },
+  {
+    "objectID": "exercise1.html",
+    "href": "exercise1.html",
+    "title": "Take home Day 1",
+    "section": "",
+    "text": "Dữ liệu covid_cases.rds từ R-Together/day1/data/covid_cases.rds sẽ được sử dụng cho bài tập này\n\n\nTừ điển dữ liệu\n\n\n\n\n\n\n\n\nCột\nMô tả\n\n\n\n\ndate\nNgày báo cáo của ca bệnh\n\n\n211 cột với định dạng cases_{country_code}\nSố trường hợp được báo cáo của mỗi quốc gia và quần đảo\n\n\n\nMã quốc gia quan tâm (tức là Mã cho các quốc gia cần thiết cho bài tập)\n\n\n\nCode\nTên Quốc gia\n\n\n\n\nchn\nChina\n\n\nusa\nUnited States of America\n\n\nvnm\nVietnam\n\n\nsgp\nSingapore",
+    "crumbs": [
+      "Home",
+      "R language",
+      "Take home Day 1"
+    ]
+  },
+  {
+    "objectID": "exercise1.html#dataset",
+    "href": "exercise1.html#dataset",
+    "title": "Take home Day 1",
+    "section": "",
+    "text": "Dữ liệu covid_cases.rds từ R-Together/day1/data/covid_cases.rds sẽ được sử dụng cho bài tập này\n\n\nTừ điển dữ liệu\n\n\n\n\n\n\n\n\nCột\nMô tả\n\n\n\n\ndate\nNgày báo cáo của ca bệnh\n\n\n211 cột với định dạng cases_{country_code}\nSố trường hợp được báo cáo của mỗi quốc gia và quần đảo\n\n\n\nMã quốc gia quan tâm (tức là Mã cho các quốc gia cần thiết cho bài tập)\n\n\n\nCode\nTên Quốc gia\n\n\n\n\nchn\nChina\n\n\nusa\nUnited States of America\n\n\nvnm\nVietnam\n\n\nsgp\nSingapore",
+    "crumbs": [
+      "Home",
+      "R language",
+      "Take home Day 1"
+    ]
+  },
+  {
+    "objectID": "exercise1.html#chuẩn-bị",
+    "href": "exercise1.html#chuẩn-bị",
+    "title": "Take home Day 1",
+    "section": "Chuẩn bị",
+    "text": "Chuẩn bị\nTrước khi thực hiện bài tập này, bạn nên hoàn thành checklist sau\n\n\n\n\n\n\nChecklist\n\n\n\nTrên Github Desktop\n\nCloned R-Together repository\nTạo nhánh riêng của bạn trên kho lưu trữ\nChuyển sang nhánh riêng của bạn\n\nTrên RStudio\n\nTạo một R project từ thư mục R-Together\n\n\n\n\n\n\n\n\n\nBài làm\n\n\n\nBạn cần lưu bài làm của mình tại đường dẫn R-Together/day1/takehome.R",
+    "crumbs": [
+      "Home",
+      "R language",
+      "Take home Day 1"
+    ]
+  },
+  {
+    "objectID": "exercise1.html#bài-tập",
+    "href": "exercise1.html#bài-tập",
+    "title": "Take home Day 1",
+    "section": "Bài tập",
+    "text": "Bài tập\n\nNhiệm vụ 1: Nhập dữ liệu\nĐọc dữ liệu từ file R-Together/day1/data/covid_cases.rds\n\n\nNhiệm vụ 2: Tính toán đơn giản\nTính toán những điều sau:\n\nNgày báo cáo dữ liệu sớm nhất và muộn nhất trong tập dữ liệu và gán chúng cho 2 biến first_report_date, last_report_date\nTạo cột mới case_global cho covid_cases, đại diện cho tổng số trường hợp trên mọi quốc gia mỗi ngày báo cáo.\nTạo cột mới percent_chn trong covid_cases, đại diện cho tỷ lệ phần trăm các trường hợp toàn cầu mà các trường hợp Trung Quốc báo cáo trong ngày\n\n\n\n\n\n\n\nGợi ý: tính tổng của từng hàng\n\n\n\nSử dụng hàm  rowSums()  để tính tổng theo hàng của các cột chứa số ca\nVí dụ:\n\nvd_bang &lt;- data.frame(\n  a = c(1:3), b = c(4:6)\n)\n# hiển thị bảng ví dụ\nvd_bang\n\n  a b\n1 1 4\n2 2 5\n3 3 6\n\n\n\n# Xem kết quả đầu ra của hàm rowSums\nrowSums(vd_bang)\n\n[1] 5 7 9\n\n\n\n\n\n\n\n\n\n\nGợi ý: tạo cột mới/cập nhật giá trị của cột\n\n\n\nĐể tạo hoặc cập nhật một cột, sử dụng cú pháp data[[\"tên_cột\"]] &lt;- giá_trị_cho_cột, trong đó độ dài của giá_trị_cho_cột phải bằng với số hàng của bảng dữ liệu.\nVí dụ:\n\nvd_bang &lt;- data.frame(\n  a = c(1:3), b = c(4:6)\n)\n\n# tạo cột mới có tên là new_col\nvd_bang[[\"new_col\"]] &lt;- c(7,9,11)\nvd_bang\n\n  a b new_col\n1 1 4       7\n2 2 5       9\n3 3 6      11\n\n\n\n\n\n\nNhiệm vụ 3: Tạo một function\nHoàn thành phần sau đây::\n\nTạo một function compute_percent mà function đó\n\nnhận bộ dữ liệu và mã quốc gia (3 ký tự sau cases_ trong tên cột) làm đầu vào.\ntrả về tỷ lệ phần trăm số ca toàn cầu mà số ca của Quốc gia được chỉ định chiếm trên mỗi ngày báo cáo.\n\nSử dụng function đó để tạo 3 cột mới cho bảng covid_cases: percent_vnm, percent_usa, percent_sgp\nIn bảng covid_cases cuối cùng, chỉ chọn các cột sau date, percent_chn, percent_vnm, percent_usa, percent_sgp\n\n\n\n\n\n\n\nGợi ý: nối chuỗi\n\n\n\nSử dụng function paste() để nối nhiều chuỗi lại với nhau\nVí dụ\n\n# nối 2 chuỗi\npaste(\"cases_\", \"chn\", sep = \"\")\n\n[1] \"cases_chn\"\n\n\n\n# nối 3 chuỗi\npaste(\"hello\", \"world,\", \"welcome to R-together\", sep = \" \")\n\n[1] \"hello world, welcome to R-together\"\n\n\n\n\n\n\nNhiệm vụ 3.5 (Tùy chọn): Tạo một hàm từ đoạn mã đã cho\nTạo môt hàm trả về biểu đồ số ca được báo cáo theo thời gian cho một quốc gia, trong đó người dùng có thể\n\nChọn cột số ca cần được vẽ biểu đồ\nThay đổi tên Quốc gia được hiển thị trên tiêu đề của biểu đồ\nThay đổi màu của biểu đồ cột và đường\nThiết lập ngày nhỏ nhất và lớn nhất (giới hạn trục x) cho biểu đồ\n\nGiả sử đoạn mã để vẽ biểu đồ báo cáo số ca của Trung Quốc như sau\n\n# Bỏ dấu # và chạy đoạn mã sau nếu bạn chưa cài đặt tidyverse hoặc ggplot2\n# install.packages(\"tidyverse\")\nlibrary(tidyverse)\ncovid_cases &lt;- read_rds(\"data/covid_cases.rds\") %&gt;% mutate_if(is.Date, ymd) \nlibrary(ggplot2)\nplot_col &lt;- \"cases_chn\"\ncountry &lt;- \"China\"\n\nggplot() +\n  geom_col( # lớp biểu đồ cột\n    aes( # xác định các cột cho trục x, y \n      x = covid_cases$date, # điều này tương đương với covid_cases[[\"date\"]]\n      y = covid_cases[[plot_col]] \n      ), \n    fill = \"cornflowerblue\" # chọn màu cho biểu đồ cột\n  ) +\n  geom_line( # lớp biểu đồ đường\n    aes( # xác định các cột cho trục x, y\n      x = covid_cases$date, \n      y = covid_cases[[plot_col]] \n      ), \n    color = \"red\" # chọn màu cho biểu đồ đường\n  ) +\n  labs(\n    y = \"Cases\",\n    x = \"Date\",\n    title = paste0(\"Reported Covid cases for \", country) # xác định tiêu đề cho biểu đồ\n  )\n\n\n\n\n\n\n\n\n\n\nNhiệm vụ 4: Tạo bảng tóm tắt dữ liệu\nHoàn thành các yêu cầu sau:\n\nSử dụng function skim() từ package skimr để tạo bảng tóm tắt dữ liệu cho các Quốc gia sau: China, Vietnam, USA, Singapore\nMô tả những quan sát đáng chú ý từ từng Quốc gia dựa trên kết quả của skim()\n\n\n\nNhiệm vụ 5: Đánh giá\nHoàn thành các yêu cầu sau:\n\nĐẩy bài của bạn lên GitHub với nội dung commit: \"day 1 take home solution your_name\"\nTạo một issue để bình luận về ít nhất 1 bài làm của 1 người tham gia khác",
+    "crumbs": [
+      "Home",
+      "R language",
+      "Take home Day 1"
+    ]
+  },
+  {
     "objectID": "document.html",
     "href": "document.html",
     "title": "SWAPER",
@@ -871,47 +961,51 @@
     "text": "E-Book\n\nEpidemic R Handbook, 2024 Link\nIntroduction to Data Science, 2019 Link\nggplot2: Elegant Graphics for Data Analysis, 2019 Link\nTelling Stories with Data, 2023 Link\nSpatial Statistics for Data Science: Theory and Practice with R, 2019 Link"
   },
   {
-    "objectID": "exercise1.html",
-    "href": "exercise1.html",
-    "title": "Take home exercise",
+    "objectID": "exercise2.html",
+    "href": "exercise2.html",
+    "title": "Take home exercise - Day 2",
     "section": "",
-    "text": "Dữ liệu covid_cases.rds từ R-Together/day1/data/covid_cases.rds sẽ được sử dụng cho bài tập này\n\n\nTừ điển dữ liệu\n\n\n\n\n\n\n\n\nCột\nMô tả\n\n\n\n\ndate\nNgày báo cáo của ca bệnh\n\n\n211 cột với định dạng cases_{country_code}\nSố trường hợp được báo cáo của mỗi quốc gia và quần đảo\n\n\n\nMã quốc gia quan tâm (tức là Mã cho các quốc gia cần thiết cho bài tập)\n\n\n\nCode\nTên Quốc gia\n\n\n\n\nchn\nChina\n\n\nusa\nUnited States of America\n\n\nvnm\nVietnam\n\n\nsgp\nSingapore\n\n\n\n\n\n\n\nTrước khi thực hiện bài tập này, bạn nên hoàn thành checklist sau\n\n\n\n\n\n\nChecklist\n\n\n\nTrên Github Desktop\n\nCloned R-Together repository\nTạo nhánh riêng của bạn trên kho lưu trữ\nChuyển sang nhánh riêng của bạn\n\nTrên RStudio\n\nTạo một R project từ thư mục R-Together\n\n\n\n\n\n\n\n\n\nBài làm\n\n\n\nBạn cần lưu bài làm của mình tại đường dẫn R-Together/day1/takehome.R\n\n\n\n\n\n\n\nĐọc dữ liệu từ file R-Together/day1/data/covid_cases.rds\n\n\n\nTính toán những điều sau:\n\nNgày báo cáo dữ liệu sớm nhất và muộn nhất trong tập dữ liệu và gán chúng cho 2 biến first_report_date, last_report_date\nTạo cột mới case_global cho covid_cases, đại diện cho tổng số trường hợp trên mọi quốc gia mỗi ngày báo cáo.\nTạo cột mới percent_chn trong covid_cases, đại diện cho tỷ lệ phần trăm các trường hợp toàn cầu mà các trường hợp Trung Quốc báo cáo trong ngày\n\n\n\n\n\n\n\nGợi ý: tính tổng của từng hàng\n\n\n\nSử dụng hàm  rowSums()  để tính tổng theo hàng của các cột chứa số ca\nVí dụ:\n\nvd_bang &lt;- data.frame(\n  a = c(1:3), b = c(4:6)\n)\n# hiển thị bảng ví dụ\nvd_bang\n\n  a b\n1 1 4\n2 2 5\n3 3 6\n\n\n\n# Xem kết quả đầu ra của hàm rowSums\nrowSums(vd_bang)\n\n[1] 5 7 9\n\n\n\n\n\n\n\n\n\n\nGợi ý: tạo cột mới/cập nhật giá trị của cột\n\n\n\nĐể tạo hoặc cập nhật một cột, sử dụng cú pháp data[[\"tên_cột\"]] &lt;- giá_trị_cho_cột, trong đó độ dài của giá_trị_cho_cột phải bằng với số hàng của bảng dữ liệu.\nVí dụ:\n\nvd_bang &lt;- data.frame(\n  a = c(1:3), b = c(4:6)\n)\n\n# tạo cột mới có tên là new_col\nvd_bang[[\"new_col\"]] &lt;- c(7,9,11)\nvd_bang\n\n  a b new_col\n1 1 4       7\n2 2 5       9\n3 3 6      11\n\n\n\n\n\n\n\nHoàn thành phần sau đây::\n\nTạo một function compute_percent mà function đó\n\nnhận bộ dữ liệu và mã quốc gia (3 ký tự sau cases_ trong tên cột) làm đầu vào.\ntrả về tỷ lệ phần trăm số ca toàn cầu mà số ca của Quốc gia được chỉ định chiếm trên mỗi ngày báo cáo.\n\nSử dụng function đó để tạo 3 cột mới cho bảng covid_cases: percent_vnm, percent_usa, percent_sgp\nIn bảng covid_cases cuối cùng, chỉ chọn các cột sau date, percent_chn, percent_vnm, percent_usa, percent_sgp\n\n\n\n\n\n\n\nGợi ý: nối chuỗi\n\n\n\nSử dụng function paste() để nối nhiều chuỗi lại với nhau\nVí dụ\n\n# nối 2 chuỗi\npaste(\"cases_\", \"chn\", sep = \"\")\n\n[1] \"cases_chn\"\n\n\n\n# nối 3 chuỗi\npaste(\"hello\", \"world,\", \"welcome to R-together\", sep = \" \")\n\n[1] \"hello world, welcome to R-together\"\n\n\n\n\n\n\n\nTạo môt hàm trả về biểu đồ số ca được báo cáo theo thời gian cho một quốc gia, trong đó người dùng có thể\n\nChọn cột số ca cần được vẽ biểu đồ\nThay đổi tên Quốc gia được hiển thị trên tiêu đề của biểu đồ\nThay đổi màu của biểu đồ cột và đường\nThiết lập ngày nhỏ nhất và lớn nhất (giới hạn trục x) cho biểu đồ\n\nGiả sử đoạn mã để vẽ biểu đồ báo cáo số ca của Trung Quốc như sau\n\n# Bỏ dấu # và chạy đoạn mã sau nếu bạn chưa cài đặt tidyverse hoặc ggplot2\n# install.packages(\"tidyverse\")\nlibrary(tidyverse)\ncovid_cases &lt;- read_rds(\"data/covid_cases.rds\") %&gt;% mutate_if(is.Date, ymd) \nlibrary(ggplot2)\nplot_col &lt;- \"cases_chn\"\ncountry &lt;- \"China\"\n\nggplot() +\n  geom_col( # lớp biểu đồ cột\n    aes( # xác định các cột cho trục x, y \n      x = covid_cases$date, # điều này tương đương với covid_cases[[\"date\"]]\n      y = covid_cases[[plot_col]] \n      ), \n    fill = \"cornflowerblue\" # chọn màu cho biểu đồ cột\n  ) +\n  geom_line( # lớp biểu đồ đường\n    aes( # xác định các cột cho trục x, y\n      x = covid_cases$date, \n      y = covid_cases[[plot_col]] \n      ), \n    color = \"red\" # chọn màu cho biểu đồ đường\n  ) +\n  labs(\n    y = \"Cases\",\n    x = \"Date\",\n    title = paste0(\"Reported Covid cases for \", country) # xác định tiêu đề cho biểu đồ\n  )\n\n\n\n\n\n\n\n\n\n\n\nHoàn thành các yêu cầu sau:\n\nSử dụng function skim() từ package skimr để tạo bảng tóm tắt dữ liệu cho các Quốc gia sau: China, Vietnam, USA, Singapore\nMô tả những quan sát đáng chú ý từ từng Quốc gia dựa trên kết quả của skim()\n\n\n\n\nHoàn thành các yêu cầu sau:\n\nĐẩy bài của bạn lên GitHub với nội dung commit: \"day 1 take home solution your_name\"\nTạo một issue để bình luận về ít nhất 1 bài làm của 1 người tham gia khác",
+    "text": "Bài làm\n\n\n\nĐược lưu theo thư mục R-Together/day2/takehome.R\n\n\n\n\n\n\n\n\nPiping\n\n\n\nDự kiến các câu lệnh sẽ chủ yếu sử dụng toán tử %&gt;%, thay vì đặt các lệnh bên trong nhau.",
     "crumbs": [
+      "Home",
       "R language",
-      "Take home exercise"
+      "Take home exercise - Day 2"
     ]
   },
   {
-    "objectID": "exercise1.html#dataset",
-    "href": "exercise1.html#dataset",
-    "title": "Take home exercise",
+    "objectID": "exercise2.html#lưu-ý",
+    "href": "exercise2.html#lưu-ý",
+    "title": "Take home exercise - Day 2",
     "section": "",
-    "text": "Dữ liệu covid_cases.rds từ R-Together/day1/data/covid_cases.rds sẽ được sử dụng cho bài tập này\n\n\nTừ điển dữ liệu\n\n\n\n\n\n\n\n\nCột\nMô tả\n\n\n\n\ndate\nNgày báo cáo của ca bệnh\n\n\n211 cột với định dạng cases_{country_code}\nSố trường hợp được báo cáo của mỗi quốc gia và quần đảo\n\n\n\nMã quốc gia quan tâm (tức là Mã cho các quốc gia cần thiết cho bài tập)\n\n\n\nCode\nTên Quốc gia\n\n\n\n\nchn\nChina\n\n\nusa\nUnited States of America\n\n\nvnm\nVietnam\n\n\nsgp\nSingapore",
+    "text": "Bài làm\n\n\n\nĐược lưu theo thư mục R-Together/day2/takehome.R\n\n\n\n\n\n\n\n\nPiping\n\n\n\nDự kiến các câu lệnh sẽ chủ yếu sử dụng toán tử %&gt;%, thay vì đặt các lệnh bên trong nhau.",
     "crumbs": [
+      "Home",
       "R language",
-      "Take home exercise"
+      "Take home exercise - Day 2"
     ]
   },
   {
-    "objectID": "exercise1.html#chuẩn-bị",
-    "href": "exercise1.html#chuẩn-bị",
-    "title": "Take home exercise",
-    "section": "",
-    "text": "Trước khi thực hiện bài tập này, bạn nên hoàn thành checklist sau\n\n\n\n\n\n\nChecklist\n\n\n\nTrên Github Desktop\n\nCloned R-Together repository\nTạo nhánh riêng của bạn trên kho lưu trữ\nChuyển sang nhánh riêng của bạn\n\nTrên RStudio\n\nTạo một R project từ thư mục R-Together\n\n\n\n\n\n\n\n\n\nBài làm\n\n\n\nBạn cần lưu bài làm của mình tại đường dẫn R-Together/day1/takehome.R",
+    "objectID": "exercise2.html#dữ-liệu",
+    "href": "exercise2.html#dữ-liệu",
+    "title": "Take home exercise - Day 2",
+    "section": "Dữ liệu",
+    "text": "Dữ liệu\nTương tự như bài tập Day 1, chúng ta cũng sẽ sử dụng covid_cases.rds trong R-Together/day1/data/covid_cases.rds cho bài tập này.",
     "crumbs": [
+      "Home",
       "R language",
-      "Take home exercise"
+      "Take home exercise - Day 2"
     ]
   },
   {
-    "objectID": "exercise1.html#bài-tập",
-    "href": "exercise1.html#bài-tập",
-    "title": "Take home exercise",
-    "section": "",
-    "text": "Đọc dữ liệu từ file R-Together/day1/data/covid_cases.rds\n\n\n\nTính toán những điều sau:\n\nNgày báo cáo dữ liệu sớm nhất và muộn nhất trong tập dữ liệu và gán chúng cho 2 biến first_report_date, last_report_date\nTạo cột mới case_global cho covid_cases, đại diện cho tổng số trường hợp trên mọi quốc gia mỗi ngày báo cáo.\nTạo cột mới percent_chn trong covid_cases, đại diện cho tỷ lệ phần trăm các trường hợp toàn cầu mà các trường hợp Trung Quốc báo cáo trong ngày\n\n\n\n\n\n\n\nGợi ý: tính tổng của từng hàng\n\n\n\nSử dụng hàm  rowSums()  để tính tổng theo hàng của các cột chứa số ca\nVí dụ:\n\nvd_bang &lt;- data.frame(\n  a = c(1:3), b = c(4:6)\n)\n# hiển thị bảng ví dụ\nvd_bang\n\n  a b\n1 1 4\n2 2 5\n3 3 6\n\n\n\n# Xem kết quả đầu ra của hàm rowSums\nrowSums(vd_bang)\n\n[1] 5 7 9\n\n\n\n\n\n\n\n\n\n\nGợi ý: tạo cột mới/cập nhật giá trị của cột\n\n\n\nĐể tạo hoặc cập nhật một cột, sử dụng cú pháp data[[\"tên_cột\"]] &lt;- giá_trị_cho_cột, trong đó độ dài của giá_trị_cho_cột phải bằng với số hàng của bảng dữ liệu.\nVí dụ:\n\nvd_bang &lt;- data.frame(\n  a = c(1:3), b = c(4:6)\n)\n\n# tạo cột mới có tên là new_col\nvd_bang[[\"new_col\"]] &lt;- c(7,9,11)\nvd_bang\n\n  a b new_col\n1 1 4       7\n2 2 5       9\n3 3 6      11\n\n\n\n\n\n\n\nHoàn thành phần sau đây::\n\nTạo một function compute_percent mà function đó\n\nnhận bộ dữ liệu và mã quốc gia (3 ký tự sau cases_ trong tên cột) làm đầu vào.\ntrả về tỷ lệ phần trăm số ca toàn cầu mà số ca của Quốc gia được chỉ định chiếm trên mỗi ngày báo cáo.\n\nSử dụng function đó để tạo 3 cột mới cho bảng covid_cases: percent_vnm, percent_usa, percent_sgp\nIn bảng covid_cases cuối cùng, chỉ chọn các cột sau date, percent_chn, percent_vnm, percent_usa, percent_sgp\n\n\n\n\n\n\n\nGợi ý: nối chuỗi\n\n\n\nSử dụng function paste() để nối nhiều chuỗi lại với nhau\nVí dụ\n\n# nối 2 chuỗi\npaste(\"cases_\", \"chn\", sep = \"\")\n\n[1] \"cases_chn\"\n\n\n\n# nối 3 chuỗi\npaste(\"hello\", \"world,\", \"welcome to R-together\", sep = \" \")\n\n[1] \"hello world, welcome to R-together\"\n\n\n\n\n\n\n\nTạo môt hàm trả về biểu đồ số ca được báo cáo theo thời gian cho một quốc gia, trong đó người dùng có thể\n\nChọn cột số ca cần được vẽ biểu đồ\nThay đổi tên Quốc gia được hiển thị trên tiêu đề của biểu đồ\nThay đổi màu của biểu đồ cột và đường\nThiết lập ngày nhỏ nhất và lớn nhất (giới hạn trục x) cho biểu đồ\n\nGiả sử đoạn mã để vẽ biểu đồ báo cáo số ca của Trung Quốc như sau\n\n# Bỏ dấu # và chạy đoạn mã sau nếu bạn chưa cài đặt tidyverse hoặc ggplot2\n# install.packages(\"tidyverse\")\nlibrary(tidyverse)\ncovid_cases &lt;- read_rds(\"data/covid_cases.rds\") %&gt;% mutate_if(is.Date, ymd) \nlibrary(ggplot2)\nplot_col &lt;- \"cases_chn\"\ncountry &lt;- \"China\"\n\nggplot() +\n  geom_col( # lớp biểu đồ cột\n    aes( # xác định các cột cho trục x, y \n      x = covid_cases$date, # điều này tương đương với covid_cases[[\"date\"]]\n      y = covid_cases[[plot_col]] \n      ), \n    fill = \"cornflowerblue\" # chọn màu cho biểu đồ cột\n  ) +\n  geom_line( # lớp biểu đồ đường\n    aes( # xác định các cột cho trục x, y\n      x = covid_cases$date, \n      y = covid_cases[[plot_col]] \n      ), \n    color = \"red\" # chọn màu cho biểu đồ đường\n  ) +\n  labs(\n    y = \"Cases\",\n    x = \"Date\",\n    title = paste0(\"Reported Covid cases for \", country) # xác định tiêu đề cho biểu đồ\n  )\n\n\n\n\n\n\n\n\n\n\n\nHoàn thành các yêu cầu sau:\n\nSử dụng function skim() từ package skimr để tạo bảng tóm tắt dữ liệu cho các Quốc gia sau: China, Vietnam, USA, Singapore\nMô tả những quan sát đáng chú ý từ từng Quốc gia dựa trên kết quả của skim()\n\n\n\n\nHoàn thành các yêu cầu sau:\n\nĐẩy bài của bạn lên GitHub với nội dung commit: \"day 1 take home solution your_name\"\nTạo một issue để bình luận về ít nhất 1 bài làm của 1 người tham gia khác",
+    "objectID": "exercise2.html#bài-tập",
+    "href": "exercise2.html#bài-tập",
+    "title": "Take home exercise - Day 2",
+    "section": "Bài tập",
+    "text": "Bài tập\n\nNhiệm vụ 1: Nhập dữ liệu\n\nĐọc dữ liệu từ R-Together/day1/data/covid_cases.rds.\nGọi thư viện tidyverse\n\n\n\n\n\n\n\nLưu ý\n\n\n\ntidyverse là một meta-package (chứa nhiều packages khác).\n\n\n\n\nNhiệm vụ 2: Làm sạch và lọc dữ liệu\n\nDữ liệu có tuân theo quy tắc tidy data không?\n\nNếu không, xoay dữ liệu thành một tibble tuân theo tiêu chuẩn tidy data.\n\nHãy sử dụng skimr để kiểm tra toàn diện dữ liệu. Kiểm tra xem có biến nào không hợp lý không?\n\nNếu có thì gán toàn bộ dữ liệu sai vào incorrect_data.\nLoại bỏ những dòng bị sai và gán vào correct_data.\n\nLọc dữ liệu để chúng ta chỉ có tuần 3-12 của năm 2020 và gán thành covid_cases.\n\n\n\n\n\n\n\nChuyển đổi kiểu bảng\n\n\n\n\nNếu dữ liệu của bạn không phải là tidy data:\n\n“Kéo dài” dữ liệu bằng pivot_longer(), tức là ít cột hơn, nhiều hàng hơn.\n“Mở rộng” dữ liệu bằng pivot_wider(), tức là ít hàng hơn, nhiều cột hơn.\n\n\n\n\n\n\n\n\n\n\nXử lý và làm sạch dữ liệu\n\n\n\n\nBiến chính ở đây là số ca bệnh từ mỗi quốc gia. Chúng phải có kiểu số và không được thấp hơn 0. Bạn không thể có số ca bệnh âm.\nBạn có thể xóa hoặc lọc các giá trị không mong muốn bằng cách sử dụng filter().\nlubridate là package tốt nhất để xử lý dữ liệu ngày tháng\n\n\n\n\n\nNhiệm vụ 3: Chuyển đổi dữ liệu\n\nSử dụng covid_cases được tạo từ Nhiệm vụ 2 để thực hiện:\n\nNhóm dữ liệu và tính tổng số ca bệnh theo mỗi quốc gia.\nChọn 5 quốc gia có tổng số ca bệnh cao nhất.\nTrích xuất mã quốc gia và lưu chúng vào một đối tượng mới là top_countries.\n\nSử dụng lần nữa covid_cases từ Nhiệm vụ 2 để thực hiện:\n\nNhóm lại dữ liệu, tính lại tổng số ca bệnh theo từng quốc gia.\nHiệu chỉnh cột country theo các yêu cầu:\n\nChỉ giữ lại tên của các quốc gia trong top 5 (đã tạo ở trên). Các quốc gia khác sẽ được đổi thành \"Others\"\nBiến cột này thành một loại biến factor.\nNhóm dữ liệu một lần nữa, lần này nhóm theo date và country.\nTính tổng số ca bệnh theo ngày theo quốc gia.\nTạo một cột mới có tên là pct_cases (là tỷ lệ phần trăm tổng số ca bệnh theo ngày theo quốc gia).\nXóa các hàng có NA khỏi tibble.\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nCó nhiều cách để thực hiện phần này của nhiệm vụ\n\n\n\n\n\n\n\n\nNhóm dữ liệu và tính tổng\n\n\n\n\nSử dụng group_by() để nhóm dữ liệu, tương tự sử dụng ungroup() để bỏ nhóm.\nThống kê mỗi nhóm thành một hàng duy nhất với summarise()\nCó thể nhóm nhiều biến cùng 1 lúc.\n\n\n\n\n\n\n\n\n\nTruy xuất hàng\n\n\n\n\nSử dụng slice_max() để truy xuất n hàng có giá trị x lớn nhất.\nSử dụng slice_min() để truy xuất n hàng có giá trị x nhỏ nhất.\n\n\n\n\n\n\n\n\n\nKéo dữ liệu\n\n\n\n\nSử dụng pull() để kéo giá trị quan tâm.\n\n\n\n\n\n\n\n\n\nBiến đổi giá trị và trả kiểu dữ liệu về factor\n\n\n\n\nBạn có thể “gộp” hoặc thu thập các cấp yếu tố không thường xuyên với fct_lump_n()\n\n\n\n\n\nNhiệm vụ 4: Trực quan hóa dữ liệu\n\nSử dụng ggplot2 và cố gắng hết sức để tạo ra hình sau:\n\n\n\n\n\n\n\n\nLàm sao để vẽ biểu đồ trên?\n\n\n\n\nggplot2 rất hữu ích.\nSau đây là tất cả các hàm được sử dụng để tạo biểu đồ trên:\n\nggplot()\ngeom_area()\nscale_y_continuous()\nscale_x_date()\nscale_fill_discrete()\nggtitle()\nMỗi lệnh được kết nối với toán tử +",
     "crumbs": [
+      "Home",
       "R language",
-      "Take home exercise"
+      "Take home exercise - Day 2"
     ]
   },
   {
@@ -1637,11 +1731,11 @@
     ]
   },
   {
-    "objectID": "r04.html#ggplot2-structure",
-    "href": "r04.html#ggplot2-structure",
+    "objectID": "r04.html#structure-of-ggplot2",
+    "href": "r04.html#structure-of-ggplot2",
     "title": "Data visualization",
-    "section": "ggplot2 structure",
-    "text": "ggplot2 structure\n\nggplot2 works directly with tidy data (same as everything under tidyverse).\nIt is based on a concept called “grammar of graphics”.\nHas intuitive and comprehensive documentation on how to use it effectively.\nProvide enough flexibility for customisation.",
+    "section": "Structure of ggplot2",
+    "text": "Structure of ggplot2\n\nggplot2 hoạt động trực tiếp với dữ liệu tidy (giống như mọi thứ trong tidyverse).\nNó dựa trên một khái niệm gọi là grammar of graphics.\nCó tài liệu hướng dẫn toàn diện về cách sử dụng.\nCung cấp đủ tính linh hoạt để tùy chỉnh.",
     "crumbs": [
       "Home",
       "R language",
@@ -1697,6 +1791,30 @@
     ]
   },
   {
+    "objectID": "r04.html#aesthetics",
+    "href": "r04.html#aesthetics",
+    "title": "Data visualization",
+    "section": "Aesthetics",
+    "text": "Aesthetics\n\nPhải đặt trong aes().\nKhai báo thông tin các trục x, y.\nKhai báo màu sắc color, fill.",
+    "crumbs": [
+      "Home",
+      "R language",
+      "Data visualization"
+    ]
+  },
+  {
+    "objectID": "r04.html#aesthetics-1",
+    "href": "r04.html#aesthetics-1",
+    "title": "Data visualization",
+    "section": "Aesthetics",
+    "text": "Aesthetics\n\ndf &lt;- data.frame(\n  x = 1:10,\n  y = (1:10)^2,\n  group = rep(c(\"A\", \"B\"), each = 5)\n) \n\n\n\n\nggplot(df, aes(x, y, color = group)) + \n  geom_col()\n\n\n\n\n\n\n\n\n\n\nggplot(df, aes(x, y, fill = group)) + \n  geom_col()",
+    "crumbs": [
+      "Home",
+      "R language",
+      "Data visualization"
+    ]
+  },
+  {
     "objectID": "r04.html#geometries",
     "href": "r04.html#geometries",
     "title": "Data visualization",
@@ -1721,11 +1839,35 @@
     ]
   },
   {
-    "objectID": "r04.html#grammar-of-graphics-4",
-    "href": "r04.html#grammar-of-graphics-4",
+    "objectID": "r04.html#coordinates",
+    "href": "r04.html#coordinates",
     "title": "Data visualization",
-    "section": "Grammar of graphics",
-    "text": "Grammar of graphics",
+    "section": "Coordinates",
+    "text": "Coordinates\n\nTùy chỉnh hiển thị của các trục: scale_x_..., scale_y_..., xlim, ylim,…\nTùy chỉnh màu sắc theo giá trị của từng biến: scale_color_..., scale_fill_...,…\nTùy chỉnh tên cột, tên biểu đồ, tên chú thích: labs",
+    "crumbs": [
+      "Home",
+      "R language",
+      "Data visualization"
+    ]
+  },
+  {
+    "objectID": "r04.html#themes",
+    "href": "r04.html#themes",
+    "title": "Data visualization",
+    "section": "Themes",
+    "text": "Themes\n\nTùy chỉnh background của biểu đồ: màu sắc, lưới,…\nTùy chỉnh kiểu chữ trên biểu đồ.\nCó sẵn một số theme để lựa chọn: theme_classic, theme_minimal,…",
+    "crumbs": [
+      "Home",
+      "R language",
+      "Data visualization"
+    ]
+  },
+  {
+    "objectID": "r04.html#cheatseet",
+    "href": "r04.html#cheatseet",
+    "title": "Data visualization",
+    "section": "Cheatseet",
+    "text": "Cheatseet",
     "crumbs": [
       "Home",
       "R language",
@@ -1858,6 +2000,18 @@
     "title": "Data visualization",
     "section": "Practice",
     "text": "Practice\n\nChúng ta thử ghép 2 bộ dữ liệu.\n\n\n\ndf_plot &lt;- rbind(df_plot, rd)\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color)) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  xlim(c(-0.35, 0.55)) +\n  ylim(c(-0.17, 0.1))",
+    "crumbs": [
+      "Home",
+      "R language",
+      "Data visualization"
+    ]
+  },
+  {
+    "objectID": "r04.html#practice-11",
+    "href": "r04.html#practice-11",
+    "title": "Data visualization",
+    "section": "Practice",
+    "text": "Practice\n\ncols &lt;- c(\n  \"red\" = \"#fa8495\",\n  \"green\" = \"#4ca258\",\n  \"darkblue\" = \"#6493bb\",\n  \"yellow\" = \"#d7c968\",\n  \"blue\" = \"#7dd8f3\",\n  \"purple\" = \"#bc5c91\"\n)\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color), alpha = 0.8) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  geom_vline(xintercept = 0, color = \"#999999\") +\n  geom_hline(yintercept = 0, color = \"#999999\") +\n  scale_x_continuous(breaks = c(-0.25, 0, 0.25, 0.5),\n                     limits = c(-0.4, 0.55)) +\n  scale_y_continuous(breaks = c(-0.1, 0, 0.1), limits = c(-0.16, 0.1)) +\n  scale_size_continuous(\n    breaks = c(2, 4, 6, 8),\n    labels = c(\"50 million\", \"100 million\", \"150 million\", \"200 million\"),\n    range = c(0, 8),\n    guide = guide_legend(order = 1)\n  ) +\n  scale_color_manual(\n    values = cols,\n    breaks = c(\"red\", \"green\", \"darkblue\", \"yellow\", \"blue\", \"purple\"),\n    labels = c(\n      \"Central Europe, Eastern Europe and Central Asia\",\n      \"Latin America and Caribbean\",\n      \"North Africa and Middle East\",\n      \"South Asia\",\n      \"Southeast Asia, East Asia and Oceania\",\n      \"Sub-Saharan Africa\"\n    ),\n    guide = guide_legend(order = 2)\n  ) +\n  labs(x = \"Change in MCV1 coverage (2019-2000)\",\n       y = \"Change in absolute geographical inequality (2019-2000)\",\n       size = NULL,\n       color = NULL) +\n  theme_classic() +\n  theme(\n    legend.position = \"top\",\n    legend.direction = \"vertical\",\n    legend.text = element_text(size = 11),\n    legend.key.height = unit(0.5, \"cm\"),\n    axis.text = element_text(size = 11)\n  )",
     "crumbs": [
       "Home",
       "R language",
@@ -2262,152 +2416,5 @@
       "Modelling team",
       "Warning and forcasting epidemic"
     ]
-  },
-  {
-    "objectID": "exp1.html#field-epidemiology-training-program",
-    "href": "exp1.html#field-epidemiology-training-program",
-    "title": "Online semniars for infectious diseases",
-    "section": "Field Epidemiology Training Program",
-    "text": "Field Epidemiology Training Program\n\nAbstract Writing (18/6/2025) Link\nQualitative Data Collection During an Outbreak Part I (16/7/2025) Link\nQualitative Data Collection During an Outbreak Part II (20/8/2025) Link\nInformatics & Data Viz Basics for Field Epidemiology (17/9/2025) Link\nSurveillance System Evaluations (15/10/2025) Link\nMatching in Case: Control Studies: Should I Do It? When to Do It and Why (19/11/2025) Link\nUsing an Outline When Writing: How to Clear Your Thoughts Before Putting Pen to Paper (21/1/2026) Link\nFacilitating a Case Study (18/2/2026) Link"
-  },
-  {
-    "objectID": "r04.html#structure-of-ggplot2",
-    "href": "r04.html#structure-of-ggplot2",
-    "title": "Data visualization",
-    "section": "Structure of ggplot2",
-    "text": "Structure of ggplot2\n\nggplot2 hoạt động trực tiếp với dữ liệu tidy (giống như mọi thứ trong tidyverse).\nNó dựa trên một khái niệm gọi là grammar of graphics.\nCó tài liệu hướng dẫn toàn diện về cách sử dụng.\nCung cấp đủ tính linh hoạt để tùy chỉnh.",
-    "crumbs": [
-      "Home",
-      "R language",
-      "Data visualization"
-    ]
-  },
-  {
-    "objectID": "r04.html#aesthetics",
-    "href": "r04.html#aesthetics",
-    "title": "Data visualization",
-    "section": "Aesthetics",
-    "text": "Aesthetics\n\nPhải đặt trong aes().\nKhai báo thông tin các trục x, y.\nKhai báo màu sắc color, fill.",
-    "crumbs": [
-      "Home",
-      "R language",
-      "Data visualization"
-    ]
-  },
-  {
-    "objectID": "r04.html#aesthetics-1",
-    "href": "r04.html#aesthetics-1",
-    "title": "Data visualization",
-    "section": "Aesthetics",
-    "text": "Aesthetics\n\ndf &lt;- data.frame(\n  x = 1:10,\n  y = (1:10)^2,\n  group = rep(c(\"A\", \"B\"), each = 5)\n) \n\n\n\n\nggplot(df, aes(x, y, color = group)) + \n  geom_col()\n\n\n\n\n\n\n\n\n\n\nggplot(df, aes(x, y, fill = group)) + \n  geom_col()",
-    "crumbs": [
-      "Home",
-      "R language",
-      "Data visualization"
-    ]
-  },
-  {
-    "objectID": "r04.html#coordinates",
-    "href": "r04.html#coordinates",
-    "title": "Data visualization",
-    "section": "Coordinates",
-    "text": "Coordinates\n\nTùy chỉnh hiển thị của các trục: scale_x_..., scale_y_..., xlim, ylim,…\nTùy chỉnh màu sắc theo giá trị của từng biến: scale_color_..., scale_fill_...,…\nTùy chỉnh tên cột, tên biểu đồ, tên chú thích: labs",
-    "crumbs": [
-      "Home",
-      "R language",
-      "Data visualization"
-    ]
-  },
-  {
-    "objectID": "r04.html#themes",
-    "href": "r04.html#themes",
-    "title": "Data visualization",
-    "section": "Themes",
-    "text": "Themes\n\nTùy chỉnh background của biểu đồ: màu sắc, lưới,…\nTùy chỉnh kiểu chữ trên biểu đồ.\nCó sẵn một số theme để lựa chọn: theme_classic, theme_minimal,…",
-    "crumbs": [
-      "Home",
-      "R language",
-      "Data visualization"
-    ]
-  },
-  {
-    "objectID": "r04.html#cheatseet",
-    "href": "r04.html#cheatseet",
-    "title": "Data visualization",
-    "section": "Cheatseet",
-    "text": "Cheatseet",
-    "crumbs": [
-      "Home",
-      "R language",
-      "Data visualization"
-    ]
-  },
-  {
-    "objectID": "r04.html#practice-11",
-    "href": "r04.html#practice-11",
-    "title": "Data visualization",
-    "section": "Practice",
-    "text": "Practice\n\ncols &lt;- c(\n  \"red\" = \"#fa8495\",\n  \"green\" = \"#4ca258\",\n  \"darkblue\" = \"#6493bb\",\n  \"yellow\" = \"#d7c968\",\n  \"blue\" = \"#7dd8f3\",\n  \"purple\" = \"#bc5c91\"\n)\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color), alpha = 0.8) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  geom_vline(xintercept = 0, color = \"#999999\") +\n  geom_hline(yintercept = 0, color = \"#999999\") +\n  scale_x_continuous(breaks = c(-0.25, 0, 0.25, 0.5),\n                     limits = c(-0.4, 0.55)) +\n  scale_y_continuous(breaks = c(-0.1, 0, 0.1), limits = c(-0.16, 0.1)) +\n  scale_size_continuous(\n    breaks = c(2, 4, 6, 8),\n    labels = c(\"50 million\", \"100 million\", \"150 million\", \"200 million\"),\n    range = c(0, 8),\n    guide = guide_legend(order = 1)\n  ) +\n  scale_color_manual(\n    values = cols,\n    breaks = c(\"red\", \"green\", \"darkblue\", \"yellow\", \"blue\", \"purple\"),\n    labels = c(\n      \"Central Europe, Eastern Europe and Central Asia\",\n      \"Latin America and Caribbean\",\n      \"North Africa and Middle East\",\n      \"South Asia\",\n      \"Southeast Asia, East Asia and Oceania\",\n      \"Sub-Saharan Africa\"\n    ),\n    guide = guide_legend(order = 2)\n  ) +\n  labs(x = \"Change in MCV1 coverage (2019-2000)\",\n       y = \"Change in absolute geographical inequality (2019-2000)\",\n       size = NULL,\n       color = NULL) +\n  theme_classic() +\n  theme(\n    legend.position = \"top\",\n    legend.direction = \"vertical\",\n    legend.text = element_text(size = 11),\n    legend.key.height = unit(0.5, \"cm\"),\n    axis.text = element_text(size = 11)\n  )",
-    "crumbs": [
-      "Home",
-      "R language",
-      "Data visualization"
-    ]
-  },
-  {
-    "objectID": "slide_r04.html#structure-of-ggplot2",
-    "href": "slide_r04.html#structure-of-ggplot2",
-    "title": "Data visualization",
-    "section": "Structure of ggplot2",
-    "text": "Structure of ggplot2\n\nggplot2 hoạt động trực tiếp với dữ liệu tidy (giống như mọi thứ trong tidyverse).\nNó dựa trên một khái niệm gọi là grammar of graphics.\nCó tài liệu hướng dẫn toàn diện về cách sử dụng.\nCung cấp đủ tính linh hoạt để tùy chỉnh."
-  },
-  {
-    "objectID": "slide_r04.html#aesthetics",
-    "href": "slide_r04.html#aesthetics",
-    "title": "Data visualization",
-    "section": "Aesthetics",
-    "text": "Aesthetics\n\nPhải đặt trong aes().\nKhai báo thông tin các trục x, y.\nKhai báo màu sắc color, fill."
-  },
-  {
-    "objectID": "slide_r04.html#aesthetics-1",
-    "href": "slide_r04.html#aesthetics-1",
-    "title": "Data visualization",
-    "section": "Aesthetics",
-    "text": "Aesthetics\n\ndf &lt;- data.frame(\n  x = 1:10,\n  y = (1:10)^2,\n  group = rep(c(\"A\", \"B\"), each = 5)\n) \n\n\n\n\nggplot(df, aes(x, y, color = group)) + \n  geom_col()\n\n\n\n\n\n\n\n\n\n\nggplot(df, aes(x, y, fill = group)) + \n  geom_col()"
-  },
-  {
-    "objectID": "slide_r04.html#coordinates",
-    "href": "slide_r04.html#coordinates",
-    "title": "Data visualization",
-    "section": "Coordinates",
-    "text": "Coordinates\n\nTùy chỉnh hiển thị của các trục: scale_x_..., scale_y_..., xlim, ylim,…\nTùy chỉnh màu sắc theo giá trị của từng biến: scale_color_..., scale_fill_...,…\nTùy chỉnh tên cột, tên biểu đồ, tên chú thích: labs"
-  },
-  {
-    "objectID": "slide_r04.html#themes",
-    "href": "slide_r04.html#themes",
-    "title": "Data visualization",
-    "section": "Themes",
-    "text": "Themes\n\nTùy chỉnh background của biểu đồ: màu sắc, lưới,…\nTùy chỉnh kiểu chữ trên biểu đồ.\nCó sẵn một số theme để lựa chọn: theme_classic, theme_minimal,…"
-  },
-  {
-    "objectID": "slide_r04.html#cheatseet",
-    "href": "slide_r04.html#cheatseet",
-    "title": "Data visualization",
-    "section": "Cheatseet",
-    "text": "Cheatseet"
-  },
-  {
-    "objectID": "slide_r04.html#practice-11",
-    "href": "slide_r04.html#practice-11",
-    "title": "Data visualization",
-    "section": "Practice",
-    "text": "Practice\n\ncols &lt;- c(\n  \"red\" = \"#fa8495\",\n  \"green\" = \"#4ca258\",\n  \"darkblue\" = \"#6493bb\",\n  \"yellow\" = \"#d7c968\",\n  \"blue\" = \"#7dd8f3\",\n  \"purple\" = \"#bc5c91\"\n)\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color), alpha = 0.8) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  geom_vline(xintercept = 0, color = \"#999999\") +\n  geom_hline(yintercept = 0, color = \"#999999\") +\n  scale_x_continuous(breaks = c(-0.25, 0, 0.25, 0.5),\n                     limits = c(-0.4, 0.55)) +\n  scale_y_continuous(breaks = c(-0.1, 0, 0.1), limits = c(-0.16, 0.1)) +\n  scale_size_continuous(\n    breaks = c(2, 4, 6, 8),\n    labels = c(\"50 million\", \"100 million\", \"150 million\", \"200 million\"),\n    range = c(0, 8),\n    guide = guide_legend(order = 1)\n  ) +\n  scale_color_manual(\n    values = cols,\n    breaks = c(\"red\", \"green\", \"darkblue\", \"yellow\", \"blue\", \"purple\"),\n    labels = c(\n      \"Central Europe, Eastern Europe and Central Asia\",\n      \"Latin America and Caribbean\",\n      \"North Africa and Middle East\",\n      \"South Asia\",\n      \"Southeast Asia, East Asia and Oceania\",\n      \"Sub-Saharan Africa\"\n    ),\n    guide = guide_legend(order = 2)\n  ) +\n  labs(x = \"Change in MCV1 coverage (2019-2000)\",\n       y = \"Change in absolute geographical inequality (2019-2000)\",\n       size = NULL,\n       color = NULL) +\n  theme_classic() +\n  theme(\n    legend.position = \"top\",\n    legend.direction = \"vertical\",\n    legend.text = element_text(size = 11),\n    legend.key.height = unit(0.5, \"cm\"),\n    axis.text = element_text(size = 11)\n  )"
-  },
-  {
-    "objectID": "slide_r04.html",
-    "href": "slide_r04.html",
-    "title": "Data visualization",
-    "section": "",
-    "text": "Trực quan hóa nó để truyền bá thông tin.\nTrong R-based, chúng ta sử dụng plot() để vẽ hình.\nTrong tidyverse, chúng ta sử dụng gói ggplot2"
   }
 ]

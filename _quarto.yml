@@ -54,6 +54,7 @@ website:
             - r03.qmd
             - r04.qmd
             - exercise1.qmd
+            - exercise2.qmd
 
   back-to-top-navigation: true
   page-footer: "Copyright 2025, SWAPER"
