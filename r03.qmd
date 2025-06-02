@@ -94,7 +94,7 @@ Chúng ta sẽ sử dụng dữ liệu mô phỏng các ca bệnh Covid 19
 #| code-summary: "Code"
 #linelist <- read_rds("https://raw.githubusercontent.com/HCDC-GSCB/swaper/main/data/simulated_covid.rds") %>% mutate_if(is.Date, ymd) 
 
-linelist <- read_rds("data/simulated_covid.rds")
+linelist <- read_rds("data/simulated_covid.rds") %>% mutate_if(is.Date, ymd)
 ```
 
 Dữ liệu bao gồm 2 đợt bùng phát dịch.
@@ -113,13 +113,13 @@ Package gtsummary được dùng vẽ bảng thống kê một cách nhanh ch�
 #| code-fold: true
 #| code-summary: "Code"
 #| results: hide
-linelist %>% tbl_summary()
+linelist[,-2] %>% tbl_summary()
 ```
 
 ```{r, echo=F, message=FALSE, results='asis'}
 cat("<details><summary>Output</summary>\n")
 
-linelist %>%
+linelist[,-2] %>%
   tbl_summary() %>%
   as_gt() %>%
   gt::as_raw_html() %>%
