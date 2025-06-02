@@ -92,7 +92,9 @@ Chúng ta sẽ sử dụng dữ liệu mô phỏng các ca bệnh Covid 19
 ```{r, message=FALSE, warning=FALSE}
 #| code-fold: true
 #| code-summary: "Code"
-linelist <- read_rds("data/simulated_covid.rds") %>% mutate_if(is.Date, ymd) 
+#linelist <- read_rds("https://raw.githubusercontent.com/HCDC-GSCB/swaper/main/data/simulated_covid.rds") %>% mutate_if(is.Date, ymd) 
+
+linelist <- read_rds("data/simulated_covid.rds")
 ```
 
 Dữ liệu bao gồm 2 đợt bùng phát dịch.
