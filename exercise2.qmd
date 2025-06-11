@@ -40,15 +40,14 @@ Tương tự như bài tập Day 1, chúng ta cũng sẽ sử dụng `covid_case
 
 -   Dữ liệu có tuân theo quy tắc **tidy data** không?
     -   Nếu không, xoay dữ liệu thành một tibble tuân theo tiêu chuẩn **tidy data**.
-    
--   Hãy sử dụng `skimr` để kiểm tra toàn diện dữ liệu. Kiểm tra xem có biến nào không hợp lý không? 
+-   Hãy sử dụng `skimr` để kiểm tra toàn diện dữ liệu. Kiểm tra xem có biến nào không hợp lý không?
     -   Nếu có thì gán toàn bộ dữ liệu sai vào `incorrect_data`.
     -   Loại bỏ những dòng bị sai và gán vào `correct_data`.
-    
 -   Lọc dữ liệu để chúng ta chỉ có **tuần 3-12** của năm 2020 và gán thành `covid_cases`.
 
 ::: callout-tip
-#### Chuyển đổi kiểu bảng 
+#### Chuyển đổi kiểu bảng
+
 -   Nếu dữ liệu của bạn không phải là **tidy data**:
     -   “Kéo dài” dữ liệu bằng `pivot_longer()`, tức là ít cột hơn, nhiều hàng hơn.
     -   “Mở rộng” dữ liệu bằng `pivot_wider()`, tức là ít hàng hơn, nhiều cột hơn.
@@ -56,6 +55,7 @@ Tương tự như bài tập Day 1, chúng ta cũng sẽ sử dụng `covid_case
 
 ::: callout-tip
 #### Xử lý và làm sạch dữ liệu
+
 -   Biến chính ở đây là số ca bệnh từ mỗi quốc gia. Chúng phải có kiểu số và không được thấp hơn 0. Bạn không thể có số ca bệnh âm.
 
 -   Bạn có thể xóa hoặc lọc các giá trị không mong muốn bằng cách sử dụng `filter()`.
@@ -69,7 +69,6 @@ Tương tự như bài tập Day 1, chúng ta cũng sẽ sử dụng `covid_case
     -   Nhóm dữ liệu và tính tổng số ca bệnh theo mỗi quốc gia.
     -   Chọn 5 quốc gia có tổng số ca bệnh cao nhất.
     -   Trích xuất mã quốc gia và lưu chúng vào một đối tượng mới là `top_countries`.
-    
 -   Sử dụng lần nữa `covid_cases` từ Nhiệm vụ 2 để thực hiện:
     -   Nhóm lại dữ liệu, tính lại tổng số ca bệnh theo từng quốc gia.
     -   Hiệu chỉnh cột `country` theo các yêu cầu:
@@ -86,6 +85,7 @@ Có nhiều cách để thực hiện phần này của nhiệm vụ
 
 ::: callout-tip
 #### Nhóm dữ liệu và tính tổng
+
 -   Sử dụng `group_by()` để nhóm dữ liệu, tương tự sử dụng `ungroup()` để bỏ nhóm.
 
 -   Thống kê mỗi nhóm thành một hàng duy nhất với `summarise()`
@@ -95,6 +95,7 @@ Có nhiều cách để thực hiện phần này của nhiệm vụ
 
 ::: callout-tip
 #### Truy xuất hàng
+
 -   Sử dụng `slice_max()` để truy xuất n hàng có giá trị x lớn nhất.
 
 -   Sử dụng `slice_min()` để truy xuất n hàng có giá trị x nhỏ nhất.
@@ -102,11 +103,13 @@ Có nhiều cách để thực hiện phần này của nhiệm vụ
 
 ::: callout-tip
 #### Kéo dữ liệu
+
 -   Sử dụng `pull()` để kéo giá trị quan tâm.
 :::
 
 ::: callout-tip
 #### Biến đổi giá trị và trả kiểu dữ liệu về factor
+
 -   Bạn có thể "gộp" hoặc thu thập các cấp yếu tố không thường xuyên với `fct_lump_n()`
 :::
 
@@ -118,6 +121,7 @@ Có nhiều cách để thực hiện phần này của nhiệm vụ
 
 ::: callout-tip
 #### Làm sao để vẽ biểu đồ trên?
+
 -   `ggplot2` rất hữu ích.
 -   Sau đây là tất cả các hàm được sử dụng để tạo biểu đồ trên:
     -   `ggplot()`

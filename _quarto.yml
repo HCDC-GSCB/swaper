@@ -26,6 +26,9 @@ website:
         href: scan-media.html
       - text: "Documents"
         href: document.qmd
+      - text: "Report"
+        icon: table-layout
+        href: report.qmd
     right:
       - icon: github
         href: https://github.com/HCDC-GSCB/
@@ -55,6 +58,7 @@ website:
             - r04.qmd
             - exercise1.qmd
             - exercise2.qmd
+            - exercise3.qmd
 
   back-to-top-navigation: true
   page-footer: "Copyright 2025, SWAPER"
