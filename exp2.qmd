@@ -1,13 +1,25 @@
 ## MIDSEA
 
-**Date & Time**: May 14, 2025 (13:00 Vietnam)
+::: {.columns}
+
+::: {.column width="60%"}
+
+**Date & Time**: June 18, 2025 (13:00 Vietnam)
 
 **Location**: Room 3.03 (HCDC - District 8)
 
 **Via**: Zoom
 
-**Speakers**: Prof. Sheetal Silal *(The modelling and Simulation Hub, Africa)*
+**Speakers**: Dr. Michael Lydeamore *(Monash University, Melbourne, Australia)*
 
-**Content**: Novel Approaches to Strengthening Analytics & Modelling Capacity
+**Topic**: Understanding prevalence, and potential for tranmission of healthcare associated infections in Victoria, Australia
 
-![](poster.jpg)
+:::
+
+::: {.column width="40%"}
+
+![](midsea.png)
+
+:::
+
+:::
