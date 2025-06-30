@@ -5,7 +5,7 @@ format: html
 ---
 
 ::: center-text
-[🚀 Presentation](slide_r02.html){.btn .btn-outline-secondary style="border-radius: 12px;"}[📎 covid_cases](data/covid_cases.rds){.btn .btn-outline-secondary style="border-radius: 12px;"} [📎 vaccine_data](data/vaccine_data.xlsx){.btn .btn-outline-secondary style="border-radius: 12px;"}[📎 life-exp](data/life-exp.csv){.btn .btn-outline-secondary style="border-radius: 12px;"}[📎 linelist-raw](data/linelist-raw.dta){.btn .btn-outline-secondary style="border-radius: 12px;"}
+[📎 covid_cases](data/covid_cases.rds){.btn .btn-outline-secondary style="border-radius: 12px;"} [📎 vaccine_data](data/vaccine_data.xlsx){.btn .btn-outline-secondary style="border-radius: 12px;"}[📎 life-exp](data/life-exp.csv){.btn .btn-outline-secondary style="border-radius: 12px;"}[📎 linelist-raw](data/linelist-raw.dta){.btn .btn-outline-secondary style="border-radius: 12px;"}
 :::
 
 ## Xác định đường dẫn
@@ -423,7 +423,7 @@ Trong R, NA là một giá trị đặc biệt không thể tính toán hoặc s
 
 Để nhanh chóng kiểm tra xem dữ liệu có chứa giá trị ngoại lai hay không, chúng ta có thể sử dụng **boxplot** để tìm các điểm giá trị cách xa các giá trị còn lại.
 
-![](boxplot.png)
+![](picture/boxplot.png)
 
 :::: fragment
 ::: callout-tip
@@ -478,15 +478,15 @@ head(dff_pivot, 3)
 +----------------+-------------------------------------------------------------------------------------------+---------------------+
 | Lệnh           | Mô tả                                                                                     | GIF                 |
 +================+===========================================================================================+=====================+
-| `left_join()`  | Lấy bảng bên trái làm tham chiếu và tìm kiếm các hàng tương ứng của bảng bên phải để nối. | ![](left-join.gif)  |
+| `left_join()`  | Lấy bảng bên trái làm tham chiếu và tìm kiếm các hàng tương ứng của bảng bên phải để nối. | ![](picture/left-join.gif)  |
 |                |                                                                                           |                     |
 |                | Nếu các hàng không có hàng tương ứng để nối, trả về giá trị **NA**                        |                     |
 +----------------+-------------------------------------------------------------------------------------------+---------------------+
-| `inner_join()` | Lấy bảng bên trái làm tham chiếu và tìm kiếm các hàng tương ứng của bảng bên phải để nối. | ![](inner-join.gif) |
+| `inner_join()` | Lấy bảng bên trái làm tham chiếu và tìm kiếm các hàng tương ứng của bảng bên phải để nối. | ![](picture/inner-join.gif) |
 |                |                                                                                           |                     |
 |                | Các hàng không có hàng tương ứng để nối **sẽ bị xóa**                                     |                     |
 +----------------+-------------------------------------------------------------------------------------------+---------------------+
-| `full_join()`  | Giữ lại tất cả các hàng của 2 bảng sau khi nối                                            | ![](full-join.gif)  |
+| `full_join()`  | Giữ lại tất cả các hàng của 2 bảng sau khi nối                                            | ![](picture/full-join.gif)  |
 |                |                                                                                           |                     |
 |                | Các hàng của 2 bảng không thể nối sẽ được thay thế bằng các giá trị **NA**                |                     |
 +----------------+-------------------------------------------------------------------------------------------+---------------------+
@@ -533,7 +533,7 @@ head(dff_pivot, 3)
 
 ## Tidyverse
 
-![](tidy-packages.png)
+![](picture/tidy-packages.png)
 
 ## Tại sao chọn Tidyverse?
 

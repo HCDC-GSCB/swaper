@@ -4,10 +4,6 @@ sidebar: training
 format: html
 ---
 
-::: center-text
-[🚀 Presentation](slide_r04.html){.btn .btn-outline-secondary style="border-radius: 12px;"}
-:::
-
 ## Data visualization
 
 -   Trực quan hóa nó để truyền bá thông tin.
@@ -50,7 +46,7 @@ ggplot(mtcars, aes(x = wt, y = mpg)) +
 :::
 :::::
 
-## Structure of `ggplot2` 
+## Structure of `ggplot2`
 
 -   `ggplot2` hoạt động trực tiếp với dữ liệu **tidy** (giống như mọi thứ trong **tidyverse**).
 
@@ -68,7 +64,7 @@ ggplot(mtcars, aes(x = wt, y = mpg)) +
 
 ## Grammar of graphics
 
-![](ggplot2.png)
+![](picture/ggplot2.png)
 
 ## Grammar of graphics
 
@@ -92,7 +88,7 @@ ggplot(mtcars, aes(x = wt, y = mpg)) +
 -   Aesthetics: `aes(x = wt, y = mpg)`
 -   Geometries: `geom_point`
 -   Coordinates: `scale_x_continuous`, `scale_y_continuous`
--   Theme: `theme_bw`,  `ggtitle`
+-   Theme: `theme_bw`, `ggtitle`
 
 ::: callout-tip
 `ggplot2` chỉ chạy với dữ liệu là **data frame** và không thể chạy với loại dữ liệu khác (ví dụ: ma trận hoặc vectơ).
@@ -138,7 +134,6 @@ ggplot(df, aes(x, y, fill = group)) +
 -   `geom_point`: biểu đồ chấm (scatter)
 -   `geom_line` or `geom_smooth`: biểu đồ đường (làm mượt)
 -   `geom_boxplot`: biểu đồ hộp
--   Bla bla bla
 
 ::: callout-tip
 **Data, aesthetic, geometric** đối tượng là thành phần quan trọng của biểu đồ, nếu cấu trúc này không đủ thì cốt truyện sẽ không hoạt động.
@@ -146,7 +141,7 @@ ggplot(df, aes(x, y, fill = group)) +
 
 ## Shape of `geom_point`
 
-![](shape_ggplot2.png)
+![](picture/shape_ggplot2.png)
 
 ## Coordinates
 
@@ -162,14 +157,13 @@ ggplot(df, aes(x, y, fill = group)) +
 
 ## Cheatseet
 
-![](cheatseat1.png)
+![](picture/cheatseat1.png)
 
-![](cheatseat2.png)
+![](picture/cheatseat2.png)
 
 ## Practice
 
--   Chúng ta có thể vẽ biểu đồ như thế này không?
-![](exam_ggplot2.png)
+-   Chúng ta có thể vẽ biểu đồ như thế này không? ![](picture/exam_ggplot2.png)
 
 ## Practice
 
@@ -183,37 +177,37 @@ df_plot
 
 ## Practice
 
-- Chúng ta hãy nhớ lại, thành phần quan trọng của biểu đồ là gì?
-- Đầu tiên, chúng ta xác định trục của biểu đồ.
+-   Chúng ta hãy nhớ lại, thành phần quan trọng của biểu đồ là gì?
+-   Đầu tiên, chúng ta xác định trục của biểu đồ.
 
-::::fragment
+::: fragment
 ```{r}
 ggplot(df_plot, aes(x = coverage, y = inequality))
 ```
-:::: 
+:::
 
 ## Practice
 
 -   Tiếp theo, chúng ta nên sử dụng loại hình học nào?
 
-::::fragment
+::: fragment
 ```{r}
 ggplot(df_plot, aes(x = coverage, y = inequality)) +
   geom_point()
 ```
-::::
+:::
 
 ## Practice
 
 -   Sau đó, chúng ta phải hiển thị tên quốc gia.
 
-::::fragment
+::: fragment
 ```{r}
 ggplot(df_plot, aes(x = coverage, y = inequality)) +
   geom_point() +
   geom_text(aes(label = country))
 ```
-::::
+:::
 
 ## Practice
 
@@ -241,13 +235,13 @@ ggplot(df_plot, aes(x = coverage, y = inequality)) +
 
 -   Kích thước của mỗi điểm là khác nhau, vì vậy chúng ta phải tạo 2 biến: **kích thước** và **màu sắc**.
 
-::::fragment
+::: fragment
 ```{r}
 df_plot$size <- c(1.1, 0.6, 3, 1, 2, 1.1, 3, 0.7, 1.1, 8)
 df_plot$color <- c("purple", "blue", "yellow", "purple", "purple", "purple", "purple", "purple", "purple", "yellow")
 df_plot
 ```
-::::
+:::
 
 ## Practice
 

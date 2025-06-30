@@ -13,7 +13,7 @@ Dữ liệu `covid_cases.rds` từ [R-Together/day1/data/covid_cases.rds](https:
 <summary>Từ điển dữ liệu</summary>
 
 | Cột | Mô tả |
-|----------------------------------|--------------------------------------|
+|----|----|
 | `date` | Ngày báo cáo của ca bệnh |
 | 211 cột với định dạng `cases_{country_code}` | Số trường hợp được báo cáo của mỗi quốc gia và quần đảo |
 

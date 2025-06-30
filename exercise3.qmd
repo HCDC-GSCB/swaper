@@ -101,5 +101,3 @@ Mục tiêu của dự án này là để bạn áp dụng các kỹ năng đã 
 -   `indicator` là tên của chỉ số bạn muốn vẽ.
 
 **Function này sẽ vẽ theo các chỉ số và quốc gia mà bạn muốn từ giai đoạn 2000-2015**
-
-

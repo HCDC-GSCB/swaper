@@ -42,7 +42,7 @@ Quá trình tạo R project như sau:
 
 Cấu trúc của một R project sẽ có định dạng như sau:
 
-![](rproject.png){width="218"}
+![](picture/rproject.png){width="218"}
 
 -   `data` thư mục chứa dữ liệu cần phân tích
 
@@ -62,7 +62,7 @@ Gồm 3 phần chính:
 
 -   Phần lệnh R (được gọi là **chunk**). Phần kết quả của câu lệnh R (chunk output) có thể hiển thị dưới dạng string, bảng dữ liệu hoặc đồ thị.
 
-![](rmarkdown.png)
+![](picture/rmarkdown.png)
 
 Tạo R Markdown bằng cách vào menu `File` \> `New File` \> `R Markdown...`
 

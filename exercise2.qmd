@@ -1,5 +1,5 @@
 ---
-title: "Take home exercise - Day 2"
+title: "Take home Day 2"
 sidebar: training
 format: html
 ---
@@ -117,7 +117,7 @@ Có nhiều cách để thực hiện phần này của nhiệm vụ
 
 -   Sử dụng `ggplot2` và cố gắng hết sức để tạo ra hình sau:
 
-![](day2.png)
+![](picture/day2.png)
 
 ::: callout-tip
 #### Làm sao để vẽ biểu đồ trên?

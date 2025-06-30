@@ -13,19 +13,24 @@ website:
       - text: "Home"
         icon: house
         href: index.qmd
+      - text: "News"
+        icon: circle-info
+        href: news.qmd
       - text: "Seminars"
         menu: 
           - text: "All seminars"
             href: exp1.qmd
           - text: "Registered"
             href: exp2.qmd
-      - text: "Training"
-        href: training.qmd
+      - text: "Learning"
+        menu:
+          - text: "Training"
+            href: training.qmd
+          - text: "Documents"
+            href: document.qmd
       - text: "Scan media"
         icon: newspaper
         href: scan-media.html
-      - text: "Documents"
-        href: document.qmd
       - text: "Report"
         icon: table-layout
         href: report.qmd

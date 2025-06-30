@@ -4,10 +4,6 @@ sidebar: training
 format: html
 ---
 
-::: center-text
-[🚀 Presentation](slide_r01.html){.btn .btn-outline-secondary style="border-radius: 12px;"}
-:::
-
 # Giới thiệu về R
 
 ## R là gì?
@@ -50,7 +46,7 @@ format: html
 
 Trang web chính thức của R: <https://www.r-project.org>
 
-![](webr.png){fig-align="center"}
+![](picture/webr.png){fig-align="center"}
 
 ## Installation R-Studio
 
@@ -58,7 +54,7 @@ Trang web chính thức của R: <https://www.r-project.org>
 
 -   Cần cài đặt R trước khi cài RStudio
 
-![](/RStudio.png){fig-align="center"}
+![](picture/RStudio.png){fig-align="center"}
 
 # Ứng dụng phổ biến của R
 
@@ -98,7 +94,7 @@ Trang web chính thức của R: <https://www.r-project.org>
 
 # Git và GitHub trong R
 
-## Git ![](/Git.png){width="27"}
+## Git ![](picture/Git.png){width="27"}
 
 Git là một phần mềm mã nguồn mở, quản lý phiên bản (Version Control System - VCS), mục đích của nó là theo dõi các thay đổi của tệp trong một kho lưu trữ và cung cấp khả năng quay lại phiên bản trước đó (bao gồm các thay đổi trong mã nguồn mở cho các mô hình tính toán, thuật toán theo thời gian).
 
@@ -112,7 +108,7 @@ Giao diện dưới dạng Web-based.
 
 Miễn phí và công khai.
 
-![](/giaodienGitHub.png)
+![](picture/giaodienGitHub.png)
 
 ## Repository
 
@@ -122,7 +118,7 @@ Miễn phí và công khai.
 
 -   **Kho lưu trữ cục bộ (Local repository):** Lưu trữ trên máy tính cá nhân của người dùng.
 
-## GitHub Desktop ![](/GitHubDesktop.png){width="27"}
+## GitHub Desktop ![](picture/GitHubDesktop.png){width="27"}
 
 **GitHub Desktop** là một phần mềm giúp bạn sử dụng Git dễ dàng hơn. Nó là một phần mềm được xây dựng bởi GitHub.
 
@@ -140,11 +136,11 @@ Miễn phí và công khai.
 
 ::::: columns
 ::: {.column width="50%"}
-![](/Picture1.png){width="100%"}
+![](picture/Picture1.png){width="100%"}
 :::
 
 ::: {.column width="50%"}
-![](/Picture2.png){width="100%"}
+![](picture/Picture2.png){width="100%"}
 :::
 :::::
 
@@ -152,17 +148,17 @@ Miễn phí và công khai.
 
 ::::: columns
 ::: {.column width="50%"}
-![](/Picture3.png)
+![](picture/Picture3.png)
 :::
 
 ::: {.column width="50%"}
-![](/Picture4.png)
+![](picture/Picture4.png)
 :::
 :::::
 
 ## **Thiết kế Dashboard**
 
-![](/Picture5.png)
+![](picture/Picture5.png)
 
 ## R script
 
@@ -184,7 +180,7 @@ R Script là file chứa các câu lệnh R và những dòng chú thích ngắn
 
 ## R script
 
-![](rscript.png)
+![](picture/rscript.png)
 
 ## R Markdown
 
@@ -204,35 +200,35 @@ R Script là file chứa các câu lệnh R và những dòng chú thích ngắn
 
 -   Phải xuống hàng **2 lần** để viết hàng mới trong văn bản.
 
-**Đoạn code (code chunks)**: là nơi để viết code và xuất ra các kết quả mong muốn. Code chunks của R được đặt trong cặp dấu: ![](rmarkdown.png)
+**Đoạn code (code chunks)**: là nơi để viết code và xuất ra các kết quả mong muốn. Code chunks của R được đặt trong cặp dấu: ![](picture/rmarkdown.png)
 
 ## R Markdown
 
--   Để tạo code chunk chúng ta nhấn tổ hợp phím tắt `Ctrl + Alt + I`, hoặc nhấn vào icon này trên thanh công cụ, chọn R: ![](rmd-add-chunk.png)
+-   Để tạo code chunk chúng ta nhấn tổ hợp phím tắt `Ctrl + Alt + I`, hoặc nhấn vào icon này trên thanh công cụ, chọn R: ![](picture/rmd-add-chunk.png)
 
--   Ví dụ có file R Markdown sau: ![](rmd.png)
+-   Ví dụ có file R Markdown sau: ![](picture/rmd.png)
 
 ## R Markdown
 
 -   Khi `knit` file R Markdown trên sẽ tạo ra file báo cáo sau với đầy đủ tiêu đề, đề mục, bảng kết quả, biểu đồ… giống như được tạo ra từ 1 chương trình soạn thảo văn bản như Word.
--   Để knit file R Markdown thì chọn kí hiệu knit trên thanh công cụ: ![](rmd-add-chunk.png)
+-   Để knit file R Markdown thì chọn kí hiệu knit trên thanh công cụ: ![](picture/rmd-add-chunk.png)
 
-![](rmd-outp.png)
-
-## R Markdown
-
-![](intro-rmd-1.png)
+![](picture/rmd-outp.png)
 
 ## R Markdown
 
-![](intro-rmd-2.png)
+![](picture/intro-rmd-1.png)
 
 ## R Markdown
 
-![](intro-rmd-3.png)
+![](picture/intro-rmd-2.png)
 
 ## R Markdown
 
-![](intro-rmd-4.png)
+![](picture/intro-rmd-3.png)
 
-![](intro-rmd-5.png)
+## R Markdown
+
+![](picture/intro-rmd-4.png)
+
+![](picture/intro-rmd-5.png)
