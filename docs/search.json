@@ -2,7 +2,7 @@
   {
     "objectID": "training.html",
     "href": "training.html",
-    "title": "SWAPER",
+    "title": "",
     "section": "",
     "text": "Welcome to the SWAPER!\nTo better support new team members in quickly understanding their roles and responsibilities, our department has developed a series of foundational training materials tailored to the specific functions of each team.\nOur department consists of two key teams:\n\nSurveillance and Early Warning Team: Focused on epidemiological surveillance and outbreak forecasting, this team requires a solid understanding of epidemiology as well as proficiency in R programming for data analysis and modeling.\nPreparedness and Emergency Response Team: Responsible for ensuring rapid preparedness and effective response to public health emergencies, this team focuses on planning, coordination, and operational readiness during outbreaks.\n\nThese training modules aim to equip our new colleagues with essential knowledge and practical skills, ensuring a smooth integration into their respective roles while maintaining the high standards of our department’s work.\nThis page provides key documents and reference materials that support the SWAPER Department’s work in areas such as infectious disease modelling, health surveillance, epidemic risk assessment, and the effective coordination of public health emergency operations through established systems and frameworks.\nWe welcome you to explore the content and hope it supports you in building a strong foundation for your professional journey with us.\nLet’s begin this important journey. 🌍💪\n\n\n\n Back to top"
   },
@@ -412,7 +412,7 @@
     "section": "",
     "text": "Trực quan hóa nó để truyền bá thông tin.\nTrong R-based, chúng ta sử dụng plot() để vẽ hình.\nTrong tidyverse, chúng ta sử dụng gói ggplot2",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -424,7 +424,7 @@
     "section": "",
     "text": "Trực quan hóa nó để truyền bá thông tin.\nTrong R-based, chúng ta sử dụng plot() để vẽ hình.\nTrong tidyverse, chúng ta sử dụng gói ggplot2",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -436,7 +436,7 @@
     "section": "Example",
     "text": "Example\n\n\nBase R:\n\nplot(\n  x = mtcars$wt,\n  y = mtcars$mpg,\n  xlab = \"Weight (1000 lbs)\",\n  ylab = \"Miles Per Gallon\",\n  main = \"MPG vs. Weight\",\n  pch = 19,       # Solid circle points\n  col = \"blue\"\n)\n\n\n\n\n\n\n\n\n\nggplot2:\n\nlibrary(ggplot2)\n\nWarning: package 'ggplot2' was built under R version 4.4.3\n\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point(color = \"blue\") +\n  scale_x_continuous(\"Weight (1000 lbs)\") +\n  scale_y_continuous(\"Miles Per Gallon\") +\n  ggtitle(\"MPG vs. Weight\") + \n  theme_bw()",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -448,7 +448,7 @@
     "section": "Structure of ggplot2",
     "text": "Structure of ggplot2\n\nggplot2 hoạt động trực tiếp với dữ liệu tidy (giống như mọi thứ trong tidyverse).\nNó dựa trên một khái niệm gọi là grammar of graphics.\nCó tài liệu hướng dẫn toàn diện về cách sử dụng.\nCung cấp đủ tính linh hoạt để tùy chỉnh.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -460,7 +460,7 @@
     "section": "Grammar of graphics",
     "text": "Grammar of graphics\n\nMột khuôn khổ để mô tả và xây dựng biểu đồ theo cách có cấu trúc.\nPhương pháp tiếp cận theo layer, tức là mỗi thành phần của một hình là các layer riêng biệt.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -472,7 +472,7 @@
     "section": "Grammar of graphics",
     "text": "Grammar of graphics",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -484,7 +484,7 @@
     "section": "Grammar of graphics",
     "text": "Grammar of graphics\n\nHãy xem code ví dụ sau:\n\n\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point(color = \"blue\") +\n  scale_x_continuous(\"Weight (1000 lbs)\") +\n  scale_y_continuous(\"Miles Per Gallon\") +\n  ggtitle(\"MPG vs. Weight\") + \n  theme_bw()\n\n\n\n\n\n\n\n\n\nBạn có thể xác định được các layer khác nhau của biểu đồ này không?",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -496,7 +496,7 @@
     "section": "Grammar of graphics",
     "text": "Grammar of graphics\n\nData: mtcars\nAesthetics: aes(x = wt, y = mpg)\nGeometries: geom_point\nCoordinates: scale_x_continuous, scale_y_continuous\nTheme: theme_bw, ggtitle\n\n\n\n\n\n\n\nTip\n\n\n\nggplot2 chỉ chạy với dữ liệu là data frame và không thể chạy với loại dữ liệu khác (ví dụ: ma trận hoặc vectơ).",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -508,7 +508,7 @@
     "section": "Aesthetics",
     "text": "Aesthetics\n\nPhải đặt trong aes().\nKhai báo thông tin các trục x, y.\nKhai báo màu sắc color, fill.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -520,7 +520,7 @@
     "section": "Aesthetics",
     "text": "Aesthetics\n\ndf &lt;- data.frame(\n  x = 1:10,\n  y = (1:10)^2,\n  group = rep(c(\"A\", \"B\"), each = 5)\n) \n\n\n\n\nggplot(df, aes(x, y, color = group)) + \n  geom_col()\n\n\n\n\n\n\n\n\n\n\nggplot(df, aes(x, y, fill = group)) + \n  geom_col()",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -532,7 +532,7 @@
     "section": "Geometries",
     "text": "Geometries\n\ngeom_col or geom_bar: biểu đồ cột/ thanh\ngeom_histogram: histograms\ngeom_point: biểu đồ chấm (scatter)\ngeom_line or geom_smooth: biểu đồ đường (làm mượt)\ngeom_boxplot: biểu đồ hộp\n\n\n\n\n\n\n\nTip\n\n\n\nData, aesthetic, geometric đối tượng là thành phần quan trọng của biểu đồ, nếu cấu trúc này không đủ thì cốt truyện sẽ không hoạt động.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -544,7 +544,7 @@
     "section": "Shape of geom_point",
     "text": "Shape of geom_point",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -556,7 +556,7 @@
     "section": "Coordinates",
     "text": "Coordinates\n\nTùy chỉnh hiển thị của các trục: scale_x_..., scale_y_..., xlim, ylim,…\nTùy chỉnh màu sắc theo giá trị của từng biến: scale_color_..., scale_fill_...,…\nTùy chỉnh tên cột, tên biểu đồ, tên chú thích: labs",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -568,7 +568,7 @@
     "section": "Themes",
     "text": "Themes\n\nTùy chỉnh background của biểu đồ: màu sắc, lưới,…\nTùy chỉnh kiểu chữ trên biểu đồ.\nCó sẵn một số theme để lựa chọn: theme_classic, theme_minimal,…",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -580,7 +580,7 @@
     "section": "Cheatseet",
     "text": "Cheatseet",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -592,7 +592,7 @@
     "section": "Practice",
     "text": "Practice\n\nChúng ta có thể vẽ biểu đồ như thế này không?",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -604,7 +604,7 @@
     "section": "Practice",
     "text": "Practice\n\ncountry &lt;- c(\"Angola\", \"Papua New Guinea\", \"Pakistan\", \"Chad\", \"Ethiopia\", \"Kenya\", \"Nigeria\", \"Liberia\", \"Burkina Faso\", \"India\")\ncoverage &lt;- c(-0.14, -0.35, 0.12, 0.14, 0.32, 0.07, 0.2, 0.18, 0.3, 0.35)\ninequality &lt;- c(0.1, 0.08, 0.05, 0.01, 0.005, -0.06, -0.07, -0.11, -0.13, -0.16)\ndf_plot &lt;- data.frame(country, coverage, inequality)\ndf_plot\n\n            country coverage inequality\n1            Angola    -0.14      0.100\n2  Papua New Guinea    -0.35      0.080\n3          Pakistan     0.12      0.050\n4              Chad     0.14      0.010\n5          Ethiopia     0.32      0.005\n6             Kenya     0.07     -0.060\n7           Nigeria     0.20     -0.070\n8           Liberia     0.18     -0.110\n9      Burkina Faso     0.30     -0.130\n10            India     0.35     -0.160",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -616,7 +616,7 @@
     "section": "Practice",
     "text": "Practice\n\nChúng ta hãy nhớ lại, thành phần quan trọng của biểu đồ là gì?\nĐầu tiên, chúng ta xác định trục của biểu đồ.\n\n\n\nggplot(df_plot, aes(x = coverage, y = inequality))",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -628,7 +628,7 @@
     "section": "Practice",
     "text": "Practice\n\nTiếp theo, chúng ta nên sử dụng loại hình học nào?\n\n\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point()",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -640,7 +640,7 @@
     "section": "Practice",
     "text": "Practice\n\nSau đó, chúng ta phải hiển thị tên quốc gia.\n\n\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point() +\n  geom_text(aes(label = country))",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -652,7 +652,7 @@
     "section": "Practice",
     "text": "Practice\n\nCăn chỉnh tên quốc gia sao cho dễ nhìn.\n\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point() +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2)",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -664,7 +664,7 @@
     "section": "Practice",
     "text": "Practice\n\nTùy chỉnh giá trị hiển thị của trục x, y.\n\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point() +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  xlim(c(-0.35, 0.55)) +\n  ylim(c(-0.17, 0.1))",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -676,7 +676,7 @@
     "section": "Practice",
     "text": "Practice\n\nKích thước của mỗi điểm là khác nhau, vì vậy chúng ta phải tạo 2 biến: kích thước và màu sắc.\n\n\n\ndf_plot$size &lt;- c(1.1, 0.6, 3, 1, 2, 1.1, 3, 0.7, 1.1, 8)\ndf_plot$color &lt;- c(\"purple\", \"blue\", \"yellow\", \"purple\", \"purple\", \"purple\", \"purple\", \"purple\", \"purple\", \"yellow\")\ndf_plot\n\n            country coverage inequality size  color\n1            Angola    -0.14      0.100  1.1 purple\n2  Papua New Guinea    -0.35      0.080  0.6   blue\n3          Pakistan     0.12      0.050  3.0 yellow\n4              Chad     0.14      0.010  1.0 purple\n5          Ethiopia     0.32      0.005  2.0 purple\n6             Kenya     0.07     -0.060  1.1 purple\n7           Nigeria     0.20     -0.070  3.0 purple\n8           Liberia     0.18     -0.110  0.7 purple\n9      Burkina Faso     0.30     -0.130  1.1 purple\n10            India     0.35     -0.160  8.0 yellow",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -688,7 +688,7 @@
     "section": "Practice",
     "text": "Practice\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color)) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  xlim(c(-0.35, 0.55)) +\n  ylim(c(-0.17, 0.1))",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -700,7 +700,7 @@
     "section": "Practice",
     "text": "Practice\n\nset.seed(123)\nnp &lt;- 50\nrd &lt;- data.frame(\n  country = rep(\"\", np),\n  coverage = rnorm(n = np, mean = 0.1, sd = 0.12),\n  inequality = rnorm(n = np, mean = -0.05, sd = 0.04),\n  size = rnorm(n = np, mean = 1, sd = 0.4),\n  color = sample(\n    c(\"red\", \"green\", \"darkblue\", \"yellow\", \"blue\", \"purple\"),\n    np,\n    replace = T\n  )\n)\nhead(rd)\n\n  country   coverage   inequality      size color\n1         0.03274292 -0.039867259 0.7158374 green\n2         0.07237870 -0.051141870 1.1027535 green\n3         0.28704500 -0.051714818 0.9013232   red\n4         0.10846101  0.004744091 0.8609830 green\n5         0.11551453 -0.059030839 0.6193526   red\n6         0.30580780  0.010658824 0.9819889  blue\n\n\n\nset.seed(123): dùng để cố định cách tạo ra các điểm ngẫu nhiên.\nnp &lt;- 50: tạo ra 50 điểm ngẫu nhiên.\ncountry = rep(\"\", np): các điểm này không có tên quốc gia.\ncoverage = rnorm(n = np, mean = 0.1, sd = 0.12): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là 0.1 và độ lệch chuẩn là 0.12.\ninequality = rnorm(n = np, mean = -0.05, sd = 0.04): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là -0.05 và độ lệch chuẩn là 0.04.\nsize = rnorm(n = np, mean = 1, sd = 0.4): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là 1 và độ lệch chuẩn là 0.4.\ncolor = sample(1:6, np, replace = T): màu sắc là số nguyên ngẫu nhiên từ 1 đến 6.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -712,7 +712,7 @@
     "section": "Practice",
     "text": "Practice\n\nChúng ta thử ghép 2 bộ dữ liệu.\n\n\n\ndf_plot &lt;- rbind(df_plot, rd)\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color)) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  xlim(c(-0.35, 0.55)) +\n  ylim(c(-0.17, 0.1))",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -724,7 +724,7 @@
     "section": "Practice",
     "text": "Practice\n\ncols &lt;- c(\n  \"red\" = \"#fa8495\",\n  \"green\" = \"#4ca258\",\n  \"darkblue\" = \"#6493bb\",\n  \"yellow\" = \"#d7c968\",\n  \"blue\" = \"#7dd8f3\",\n  \"purple\" = \"#bc5c91\"\n)\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color), alpha = 0.8) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  geom_vline(xintercept = 0, color = \"#999999\") +\n  geom_hline(yintercept = 0, color = \"#999999\") +\n  scale_x_continuous(breaks = c(-0.25, 0, 0.25, 0.5),\n                     limits = c(-0.4, 0.55)) +\n  scale_y_continuous(breaks = c(-0.1, 0, 0.1), limits = c(-0.16, 0.1)) +\n  scale_size_continuous(\n    breaks = c(2, 4, 6, 8),\n    labels = c(\"50 million\", \"100 million\", \"150 million\", \"200 million\"),\n    range = c(0, 8),\n    guide = guide_legend(order = 1)\n  ) +\n  scale_color_manual(\n    values = cols,\n    breaks = c(\"red\", \"green\", \"darkblue\", \"yellow\", \"blue\", \"purple\"),\n    labels = c(\n      \"Central Europe, Eastern Europe and Central Asia\",\n      \"Latin America and Caribbean\",\n      \"North Africa and Middle East\",\n      \"South Asia\",\n      \"Southeast Asia, East Asia and Oceania\",\n      \"Sub-Saharan Africa\"\n    ),\n    guide = guide_legend(order = 2)\n  ) +\n  labs(x = \"Change in MCV1 coverage (2019-2000)\",\n       y = \"Change in absolute geographical inequality (2019-2000)\",\n       size = NULL,\n       color = NULL) +\n  theme_classic() +\n  theme(\n    legend.position = \"top\",\n    legend.direction = \"vertical\",\n    legend.text = element_text(size = 11),\n    legend.key.height = unit(0.5, \"cm\"),\n    axis.text = element_text(size = 11)\n  )",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -736,7 +736,7 @@
     "section": "Mapping",
     "text": "Mapping\n\nTrước khi bạn muốn tạo bản đồ, bạn phải có shapefile (định dạng là .shp).\nTrong ggplot2, bạn có thể sử dụng hàm geom_map để tạo bản đồ.\nBạn có thể xem thêm thông tin trong Cheatsheet.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -748,7 +748,7 @@
     "section": "The end",
     "text": "The end\n\n\n\n\n\n\nTip\n\n\n\nNếu sử dụng `ggplot2, chúng ta cần sử dụng tidyverse.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data visualization"
     ]
@@ -760,7 +760,7 @@
     "section": "",
     "text": "📎 covid_cases 📎 vaccine_data📎 life-exp📎 linelist-raw",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -772,7 +772,7 @@
     "section": "Xác định đường dẫn",
     "text": "Xác định đường dẫn\n\nPath là vị trí, hay địa chỉ, hay đường dẫn lưu file data trong máy tính\n\n\n\n\n\n\n\n\nTip\n\n\n\nTrong Windows, khi copy path vào R cần sửa lại theo 1 trong 2 cách sau:\n\nSửa tất cả dấu \\ thành /: C:/Documents/Github/R-Together/day1/data\nSửa tất cả dấu \\ thành \\\\: C:\\\\Documents\\\\Github\\\\R-Together\\\\day1\\\\data",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -784,7 +784,7 @@
     "section": "Đường dẫn tuyệt đối",
     "text": "Đường dẫn tuyệt đối\n\nTrong ví dụ trên, C:/Documents/Github/R-Together/day1/data là đường dẫn tuyệt đối (absolute path).\nLà path đầy đủ từ đầu ổ đĩa cho đến file hay folder hiện tại.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -796,7 +796,7 @@
     "section": "Đường dẫn tương đối",
     "text": "Đường dẫn tương đối\n\nMỗi máy sẽ lưu ở 1 đường khác nhau, do đó nếu sử dụng đường dẫn tuyệt đối để làm việc nhóm thì sẽ gặp khó khăn.\nLà path ngắn gọn hơn, có thể từ folder đến file cần mở day1/data (relative path).\nNếu dùng Github, đường dẫn tương đối dễ dàng cho việc chia sẻ code ~Github/R-Together/day1/data.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -808,7 +808,7 @@
     "section": "Quy tắc đặt tên file",
     "text": "Quy tắc đặt tên file\nĐể tránh bị lỗi trong quá trình sử dụng R, nên đặt tên files, folders theo các quy tắc sau:\n\nKhông đặt tên có dấu tiếng Việt.\nKhông đặt tên quá dài.\nKhông đặt tên có các kí tự đặc biệt như /, \\, &, , , (, ), tốt nhất chỉ nên đặt chữ và số.\nKhông đặt tên chữ viết hoa viết thường lẫn lộn, nếu cần thì chỉ đặt theo quy luật camelCase (viết hoa chữ cái đầu của các từ sau từ đầu tiên, ví dụ dataSoiHcm) hoặc PascalCase (viết hoa chữ cái đầu của tất cả các từ, ví dụ DataSoiHcm).\nKhông có khoảng trống \" \" trong tên, có thể đặt kiểu camelCase, hoặc sử dụng dấu -, _ thay thế các khoảng trống: ví dụ không dùng tên data soi HCM 2023.xlsx mà có thể đặt là dataSoiHcm2023.xlsx, hoặc data-soi-hcm-2023.xlsx, hoặc data_soi_hcm_2023.xlsx.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -820,7 +820,7 @@
     "section": "Đọc data vào R (Text files)",
     "text": "Đọc data vào R (Text files)\n\nCác file như .txt, .csv, .json đều là text files, là những file mà đọc được bằng Notepad\n\n\ndf &lt;- read.table(file = \"data/life-exp.csv\", header = F, sep = \",\")\nhead(df)\n\n           V1   V2         V3               V4              V5            V6\n1     Country Year     Status Life expectancy  Adult Mortality infant deaths\n2 Afghanistan 2015 Developing             65.0             263            62\n3 Afghanistan 2014 Developing             59.9             271            64\n4 Afghanistan 2013 Developing             59.9             268            66\n5 Afghanistan 2012 Developing             59.5             272            69\n6 Afghanistan 2011 Developing             59.2             275            71\n       V7                     V8          V9      V10   V11                V12\n1 Alcohol percentage expenditure Hepatitis B Measles   BMI  under-five deaths \n2    0.01            71.27962362          65     1154  19.1                 83\n3    0.01            73.52358168          62      492  18.6                 86\n4    0.01            73.21924272          64      430  18.1                 89\n5    0.01             78.1842153          67     2787  17.6                 93\n6    0.01            7.097108703          68     3013  17.2                 97\n    V13               V14         V15       V16        V17         V18\n1 Polio Total expenditure Diphtheria   HIV/AIDS        GDP  Population\n2     6              8.16          65       0.1  584.25921 3.3736494e7\n3    58              8.18          62       0.1 612.696514    327582.0\n4    62              8.13          64       0.1 631.744976 3.1731688e7\n5    67              8.52          67       0.1    669.959  3.696958e6\n6    68              7.87          68       0.1  63.537231  2.978599e6\n                    V19                 V20                             V21\n1  thinness  1-19 years  thinness 5-9 years Income composition of resources\n2                  17.2                17.3                           0.479\n3                  17.5                17.5                           0.476\n4                  17.7                17.7                            0.47\n5                  17.9                18.0                           0.463\n6                  18.2                18.2                           0.454\n        V22\n1 Schooling\n2      10.1\n3      10.0\n4       9.9\n5       9.8\n6       9.5",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -832,7 +832,7 @@
     "section": "Đọc data vào R (Text files)",
     "text": "Đọc data vào R (Text files)\n\ndf &lt;- read.table(file = \"data/life-exp.csv\", header = T, sep = \",\")\nhead(df)",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -844,7 +844,7 @@
     "section": "Đọc data vào R (Binary files)",
     "text": "Đọc data vào R (Binary files)\n\nCác file như .xlsx, .dta, .sas đều là binary files, là những file phải đọc bằng phần mềm chuyên dụng.\nPackage readxl để đọc file .xlsx (hoặc .xls).\nPackage haven để đọc file .dta, .sas.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -856,7 +856,7 @@
     "section": "Đọc data vào R (Binary files)",
     "text": "Đọc data vào R (Binary files)\n\nlibrary(readxl)\n\nWarning: package 'readxl' was built under R version 4.4.3\n\ndf &lt;- read_excel(path = \"data/vaccine_data.xlsx\", sheet = 1)\nhead(df)\n\n# A tibble: 6 × 21\n     id gioitinh ngaysinh   huyen    xa    tinh  `VGB &lt;24` `VGB &gt;24` VGB_1 VGB_2\n  &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;\n1     1 nam      27/02/2024 Bình Ch… Phườ… Thàn… 28/02/20… 29/02/20… 10/0… 20/0…\n2     2 nữ       06/03/2024 Huyện T… Phườ… Thàn… 07/03/20… 08/03/20… 23/0… 27/0…\n3     3 nữ       27/01/2024 Thành p… Phườ… Thàn… 28/01/20… 29/01/20… 08/0… 18/0…\n4     4 nữ       12/02/2024 Hóc Môn  Xã Đ… Thàn… 13/02/20… 14/02/20… 17/0… 27/0…\n5     5 nữ       21/02/2024 Bình Ch… Xã B… Thàn… 21/02/20… 20/02/20… 23/0… 09/0…\n6     6 nữ       07/03/2024 Quận 7   Phú … Thàn… 07/03/20… 08/03/20… 23/0… 02/0…\n# ℹ 11 more variables: VGB_3 &lt;chr&gt;, `VGB_4+` &lt;chr&gt;, HG_1 &lt;chr&gt;, HG_2 &lt;chr&gt;,\n#   HG_3 &lt;chr&gt;, `HG_4+` &lt;chr&gt;, UV_1 &lt;chr&gt;, UV_2 &lt;chr&gt;, UV_3 &lt;chr&gt;,\n#   `UV_4+` &lt;chr&gt;, tinhtrang &lt;chr&gt;",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -868,7 +868,7 @@
     "section": "Đọc data vào R (Binary files)",
     "text": "Đọc data vào R (Binary files)\n\nlibrary(haven)\n\nWarning: package 'haven' was built under R version 4.4.3\n\ndf &lt;- read_dta(file = \"data/linelist-raw.dta\")\nhead(df)\n\n# A tibble: 6 × 28\n  case_id generation infection_date      date_onset hosp_date          \n  &lt;chr&gt;        &lt;dbl&gt; &lt;dttm&gt;              &lt;chr&gt;      &lt;dttm&gt;             \n1 5fe599           4 2014-05-08 00:00:00 2014-05-13 2014-05-15 00:00:00\n2 8689b7           4 NA                  2014-05-13 2014-05-14 00:00:00\n3 11f8ea           2 NA                  2014-05-16 2014-05-18 00:00:00\n4 b8812a           3 2014-05-04 00:00:00 2014-05-18 2014-05-20 00:00:00\n5 893f25           3 2014-05-18 00:00:00 2014-05-21 2014-05-22 00:00:00\n6 be99c8           3 2014-05-03 00:00:00 2014-05-22 2014-05-23 00:00:00\n# ℹ 23 more variables: date_of_outcome &lt;dttm&gt;, outcome &lt;chr&gt;, gender &lt;chr&gt;,\n#   hospital &lt;chr&gt;, lon &lt;dbl&gt;, lat &lt;dbl&gt;, infector &lt;chr&gt;, source &lt;chr&gt;,\n#   age &lt;chr&gt;, age_unit &lt;chr&gt;, row_num &lt;dbl&gt;, wt_kg &lt;dbl&gt;, ht_cm &lt;dbl&gt;,\n#   ct_blood &lt;dbl&gt;, fever &lt;chr&gt;, chills &lt;chr&gt;, cough &lt;chr&gt;, aches &lt;chr&gt;,\n#   vomit &lt;chr&gt;, temp &lt;dbl&gt;, time_admission &lt;chr&gt;, merged_header &lt;chr&gt;,\n#   x28 &lt;chr&gt;",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -880,7 +880,7 @@
     "section": "Tại sao cần làm sạch với R?",
     "text": "Tại sao cần làm sạch với R?\n\nCó thể được viết thành quy trình kiểm tra dữ liệu tự động, kết hợp thống kê mô tả và trực quan hóa để phát hiện các vấn đề cần làm sạch.\nTất cả các bước làm sạch đều được ghi lại.\nTiết kiệm thời gian làm sạch dữ liệu mới.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -892,7 +892,7 @@
     "section": "Đối tượng và câu văn trong R",
     "text": "Đối tượng và câu văn trong R\n\na &lt;- 2\nb &lt;- 2\n\n\na là đối tượng, và 2 là giá trị của đối tượng.\nNếu a = 3, b = 2, và c = a x b thì kết quả?\n\n\n\na &lt;- 3\nb &lt;- 2\nc &lt;- a * b\nc\n\n[1] 6",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -904,7 +904,7 @@
     "section": "Đối tượng và câu văn trong R",
     "text": "Đối tượng và câu văn trong R\n\nĐối tượng có thể là giá trị, vectơ, ma trận hoặc data.frame\n\n\na &lt;- 2 # Giá trị\na &lt;- c(1:4) # Vector\ndf &lt;- data.frame(a = c(1:4),\n                 b = c(2:5)) # Matrix\n\n\n\ndf &lt;- readxl::read_xlsx(\"data/vaccine_data.xlsx\")\nclass(df)\n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\"",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -916,7 +916,7 @@
     "section": "Đối tượng và câu văn trong R",
     "text": "Đối tượng và câu văn trong R\nLệnh hoặc chức năng là những câu văn giao tiếp với máy tính trong R.\n\n# tên-câu-lệnh(tên-tham-số = data-đầu-vào hoặc lựa-chọn)\n\n\nTên câu lệnh (): thể hiện ý nghĩa câu lệnh dùng để làm gì.\nTên tham số (): yêu cầu chi tiết.\nĐể gán giá trị cho tham số, chúng ta cần sử dụng = thay vì sử dụng &lt;-.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -928,7 +928,7 @@
     "section": "Đối tượng và câu văn trong R",
     "text": "Đối tượng và câu văn trong R\nVí dụ:\n\nmax(x = df$id, na.rm = TRUE)\n\n[1] 1000\n\n\n\nMax: tìm giá trị lớn nhất của 1 biến\nx: tham số đầu vào, chọn cột id trong dữ liệu df\nna.rm=TRUE: loại bỏ giá trị missing cột id trước khi tìm giá trị lớn nhất.\n\n\n\n\n\n\n\n\nTip\n\n\n\nĐể đọc hướng dẫn sử dụng của một lệnh, hãy nhập ?command-name.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -940,7 +940,7 @@
     "section": "Làm sạch dữ liệu",
     "text": "Làm sạch dữ liệu\nQuá trình làm sạch dữ liệu thường bao gồm các bước sau:\n\nLàm sạch tên cột.\nKiểm tra kiểu dữ liệu.\nKiểm tra giá trị.\nĐịnh dạng bảng theo các quy tắc làm sạch dữ liệu.\nNối các bảng (nếu cần).\nXử lý dữ liệu lỗi.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -952,7 +952,7 @@
     "section": "Loại dữ liệu trong R",
     "text": "Loại dữ liệu trong R\n\n\n\n\n\n\n\n\nClasses\nExplanation\nExamples\n\n\n\n\nnumeric\ndữ liệu dạng số\n2, 3.14, -1000, 2e6, etc\n\n\nlogical\ndữ liệu dạng đúng/sai (boolean) (TRUE/FALSE)\nTRUE/FALSE\n\n\ncharacter\ndữ liệu dạng ký tự (hay còn gọi là string), được đặt trong dấu ngoặc kép \"\".\nđối tượng dạng ký tự thì không thể tính toán\n\"Hello world\", \"R Together\"\n\n\nDate\ndữ liệu ngày tháng\n2024-12-09, s, etc\n\n\nfactor\ndữ liệu dạng phân loại (categorical)\nsex, economic status, etc\n\n\ndata frame\ndữ liệu dạng bảng\n\n\n\ntibble\ndữ liệu dạng bảng tương tự như data.frame, sự khác biệt chính là tibble in đẹp hơn trong R console",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -964,7 +964,7 @@
     "section": "Các giá trị đặc biệt",
     "text": "Các giá trị đặc biệt\n\n\n\n\n\n\n\nValue\nDescription\n\n\n\n\nNA\nCó nghĩa là Not Available. Biểu thị các giá trị bị thiếu.\n\n\nNULL\nBiểu thị giá trị không xác định/không có. (ví dụ: numb &lt;- NULL biểu thị giá trị cho biến numb là không xác định)\n\n\nNaN\nViết tắt của Not a Number. Biểu thị số không thể biểu diễn.\n\n\nInf/-Inf\nDương vô cực/ Âm vô cực",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -976,7 +976,7 @@
     "section": "Chuyển đổi dữ liệu",
     "text": "Chuyển đổi dữ liệu\n\nas.numeric() chuyển sang numeric\nas.character() chuyển sang character\nas.factor() chuyển sang factor\nas.Date() chuyển sang Date (Be carefully)\nas.logical() chuyển sang logical\nifelse() có thể sử dụng để tạo biến mới\nis.na() kiểm tra dữ liệu bị thiếu, trả về kiểu giá trị logical",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -988,7 +988,7 @@
     "section": "Làm sạch tên cột",
     "text": "Làm sạch tên cột\nQuy tắc cho tên cột thường bao gồm:\n\nNgắn.\nKhông có khoảng trắng (thay thế bằng dấu gạch dưới _).\nKhông có ký tự đặc biệt (&, #, &lt;, &gt;, …) hoặc dấu câu.\nKhông bắt đầu bằng số.\n\nSử dụng clean_names() trong gói janitor để tự động hóa tên cột.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1000,7 +1000,7 @@
     "section": "Làm sạch tên cột",
     "text": "Làm sạch tên cột\n\nlibrary(janitor)\n\n\nAttaching package: 'janitor'\n\n\nThe following objects are masked from 'package:stats':\n\n    chisq.test, fisher.test\n\nlibrary(tidyverse)\n\nWarning: package 'tidyverse' was built under R version 4.4.3\n\n\nWarning: package 'ggplot2' was built under R version 4.4.3\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\ndf %&gt;% colnames()\n\n [1] \"id\"        \"gioitinh\"  \"ngaysinh\"  \"huyen\"     \"xa\"        \"tinh\"     \n [7] \"VGB &lt;24\"   \"VGB &gt;24\"   \"VGB_1\"     \"VGB_2\"     \"VGB_3\"     \"VGB_4+\"   \n[13] \"HG_1\"      \"HG_2\"      \"HG_3\"      \"HG_4+\"     \"UV_1\"      \"UV_2\"     \n[19] \"UV_3\"      \"UV_4+\"     \"tinhtrang\"\n\n\n\n\ndf %&gt;% clean_names() %&gt;% colnames()\n\n [1] \"id\"        \"gioitinh\"  \"ngaysinh\"  \"huyen\"     \"xa\"        \"tinh\"     \n [7] \"vgb_24\"    \"vgb_24_2\"  \"vgb_1\"     \"vgb_2\"     \"vgb_3\"     \"vgb_4\"    \n[13] \"hg_1\"      \"hg_2\"      \"hg_3\"      \"hg_4\"      \"uv_1\"      \"uv_2\"     \n[19] \"uv_3\"      \"uv_4\"      \"tinhtrang\"\n\n\n\n\n\ndf &lt;- df %&gt;% \n  clean_names() %&gt;% # Tự động làm sạch tên cột\n  rename( \n    vgb_truoc_24 = vgb_24, # Tên mới = Tên cũ\n    vgb_sau_24 = vgb_24_2\n  )\n\n\n\n\n\n\n\n\n\nCaution\n\n\n\nNếu bạn không sử dụng &lt;- thì R sẽ chỉ trả về kết quả của các câu lệnh nhưng df sẽ không thay đổi.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1012,7 +1012,7 @@
     "section": "Chuyển đổi dữ liệu",
     "text": "Chuyển đổi dữ liệu\n\nstr(df)\n\ntibble [1,000 × 21] (S3: tbl_df/tbl/data.frame)\n $ id          : num [1:1000] 1 2 3 4 5 6 7 8 9 10 ...\n $ gioitinh    : chr [1:1000] \"nam\" \"nữ\" \"nữ\" \"nữ\" ...\n $ ngaysinh    : chr [1:1000] \"27/02/2024\" \"06/03/2024\" \"27/01/2024\" \"12/02/2024\" ...\n $ huyen       : chr [1:1000] \"Bình Chánh\" \"Huyện Thạnh Phú\" \"Thành phố Vĩnh Long\" \"Hóc Môn\" ...\n $ xa          : chr [1:1000] \"Phường Bình Hưng Hòa\" \"Phường 01\" \"Phường Phú Thuận\" \"Xã Đông Thạnh\" ...\n $ tinh        : chr [1:1000] \"Thành phố Hồ Chí Minh\" \"Thành phố Hồ Chí Minh\" \"Thành phố Hồ Chí Minh\" \"Thành phố Hồ Chí Minh\" ...\n $ vgb_truoc_24: chr [1:1000] \"28/02/2024\" \"07/03/2024\" \"28/01/2024\" \"13/02/2024\" ...\n $ vgb_sau_24  : chr [1:1000] \"29/02/2024\" \"08/03/2024\" \"29/01/2024\" \"14/02/2024\" ...\n $ vgb_1       : chr [1:1000] \"10/03/2024\" \"23/03/2024\" \"08/02/2024\" \"17/02/2024\" ...\n $ vgb_2       : chr [1:1000] \"20/03/2024\" \"27/03/2024\" \"18/02/2024\" \"27/02/2024\" ...\n $ vgb_3       : chr [1:1000] \"20/03/2024\" \"11/04/2024\" \"19/02/2024\" \"28/02/2024\" ...\n $ vgb_4       : chr [1:1000] \"04/04/2024\" \"26/04/2024\" \"19/02/2024\" \"28/02/2024\" ...\n $ hg_1        : chr [1:1000] \"28/02/2024\" \"07/03/2024\" \"28/01/2024\" \"12/02/2024\" ...\n $ hg_2        : chr [1:1000] \"02/03/2024\" \"22/03/2024\" \"07/02/2024\" \"16/02/2024\" ...\n $ hg_3        : chr [1:1000] \"12/03/2024\" \"06/04/2024\" \"17/02/2024\" \"02/03/2024\" ...\n $ hg_4        : chr [1:1000] \"12/03/2024\" \"16/04/2024\" \"27/02/2024\" \"12/03/2024\" ...\n $ uv_1        : chr [1:1000] \"27/02/2024\" \"07/03/2024\" \"27/01/2024\" \"12/02/2024\" ...\n $ uv_2        : chr [1:1000] \"28/02/2024\" \"22/03/2024\" \"06/02/2024\" \"22/02/2024\" ...\n $ uv_3        : chr [1:1000] \"09/03/2024\" \"06/04/2024\" \"21/02/2024\" \"08/03/2024\" ...\n $ uv_4        : chr [1:1000] \"19/03/2024\" \"21/04/2024\" \"02/03/2024\" \"23/03/2024\" ...\n $ tinhtrang   : chr [1:1000] \"theo dõi\" \"ngừng theo dõi\" \"ngừng theo dõi\" \"theo dõi\" ...\n\n\nKhi nhập dữ liệu vào R, các cột sẽ tự động được chuyển đổi sang kiểu dữ liệu phù hợp nhất. - Ngày: R không thể tự động chuyển đổi sang Ngày vì định dạng này không khớp. - Giới tính phải được chuyển đổi thành yếu tố. - Trạng thái phải được chuyển đổi thành logic.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1024,7 +1024,7 @@
     "section": "Chuyển đổi dữ liệu",
     "text": "Chuyển đổi dữ liệu\n\n\ndate_cols &lt;- c(\"ngaysinh\", \"vgb_truoc_24\",\"vgb_sau_24\",\"vgb_1\",\"vgb_2\",\"vgb_3\",\"vgb_4\",\"hg_1\",\"hg_2\",\"hg_3\",\"hg_4\",\"uv_1\",\"uv_2\",\"uv_3\",\"uv_4\")\n\ndf &lt;- df %&gt;% \n  mutate( # Each column\n    gioitinh = as.factor(gioitinh),\n    tinhtrang = ifelse(tinhtrang == \"theo dõi\", TRUE, FALSE)\n  ) %&gt;% \n  mutate_at( # Multiple column\n    date_cols, \n    dmy\n  ) %&gt;% \n  rename(\n    theodoi = tinhtrang\n  )\n\nstr(df)\n\ntibble [1,000 × 21] (S3: tbl_df/tbl/data.frame)\n $ id          : num [1:1000] 1 2 3 4 5 6 7 8 9 10 ...\n $ gioitinh    : Factor w/ 2 levels \"nam\",\"nữ\": 1 2 2 2 2 2 1 1 1 1 ...\n $ ngaysinh    : Date[1:1000], format: \"2024-02-27\" \"2024-03-06\" ...\n $ huyen       : chr [1:1000] \"Bình Chánh\" \"Huyện Thạnh Phú\" \"Thành phố Vĩnh Long\" \"Hóc Môn\" ...\n $ xa          : chr [1:1000] \"Phường Bình Hưng Hòa\" \"Phường 01\" \"Phường Phú Thuận\" \"Xã Đông Thạnh\" ...\n $ tinh        : chr [1:1000] \"Thành phố Hồ Chí Minh\" \"Thành phố Hồ Chí Minh\" \"Thành phố Hồ Chí Minh\" \"Thành phố Hồ Chí Minh\" ...\n $ vgb_truoc_24: Date[1:1000], format: \"2024-02-28\" \"2024-03-07\" ...\n $ vgb_sau_24  : Date[1:1000], format: \"2024-02-29\" \"2024-03-08\" ...\n $ vgb_1       : Date[1:1000], format: \"2024-03-10\" \"2024-03-23\" ...\n $ vgb_2       : Date[1:1000], format: \"2024-03-20\" \"2024-03-27\" ...\n $ vgb_3       : Date[1:1000], format: \"2024-03-20\" \"2024-04-11\" ...\n $ vgb_4       : Date[1:1000], format: \"2024-04-04\" \"2024-04-26\" ...\n $ hg_1        : Date[1:1000], format: \"2024-02-28\" \"2024-03-07\" ...\n $ hg_2        : Date[1:1000], format: \"2024-03-02\" \"2024-03-22\" ...\n $ hg_3        : Date[1:1000], format: \"2024-03-12\" \"2024-04-06\" ...\n $ hg_4        : Date[1:1000], format: \"2024-03-12\" \"2024-04-16\" ...\n $ uv_1        : Date[1:1000], format: \"2024-02-27\" \"2024-03-07\" ...\n $ uv_2        : Date[1:1000], format: \"2024-02-28\" \"2024-03-22\" ...\n $ uv_3        : Date[1:1000], format: \"2024-03-09\" \"2024-04-06\" ...\n $ uv_4        : Date[1:1000], format: \"2024-03-19\" \"2024-04-21\" ...\n $ theodoi     : logi [1:1000] TRUE FALSE FALSE TRUE TRUE TRUE ...",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1036,7 +1036,7 @@
     "section": "Lọc dữ liệu",
     "text": "Lọc dữ liệu\n\n\n\nKý hiệu\nMô tả\n\n\n\n\nx == y\nx bằng y\n\n\nx != y\nx khác y\n\n\nx &lt; y\nx nhỏ hơn y\n\n\nx &lt;= y\nx nhỏ hơn hoặc bằng y\n\n\nis.na(x)\nx là giá trị thiếu\n\n\nA & B\nx và y\n\n\nA | B\nx hoặc y\n\n\n!\nkhông",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1048,7 +1048,7 @@
     "section": "Lọc dữ liệu",
     "text": "Lọc dữ liệu\n\nNhững người có Quận 2.\nNhững người có vgb_1 trước ngày 20 tháng 2 năm 2024.\nNhững người có Quận 2 hoặc vgb_1 trước ngày 20 tháng 2 năm 2024.\nNhững người có Quận 2 và vgb_1 trước ngày 20 tháng 2 năm 2024.\n\n\n\ndf %&gt;% filter(huyen == \"Quận 2\") %&gt;% select(id, huyen)\n\ndf %&gt;% filter(vgb_1 &lt; as.Date(\"2024-02-20\")) %&gt;% select(id, vgb_1)\n\ndf %&gt;% filter(huyen == \"Quận 2\" | vgb_1 &lt; as.Date(\"2024-02-20\")) %&gt;% select(id, huyen, vgb_1)\n\ndf %&gt;% filter(huyen == \"Quận 2\" & vgb_1 &lt; as.Date(\"2024-02-20\")) %&gt;% select(id, huyen, vgb_1)",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1060,7 +1060,7 @@
     "section": "Loại dữ liệu dạng chuỗi",
     "text": "Loại dữ liệu dạng chuỗi\n\n\n\n\n\n\n\n\nFunction\nPackage\nTo use\n\n\n\n\ntolower\nbase\nChữ thường\n\n\ntoupper\nbase\nChữ in\n\n\nstring_to_title\nstringr\nViết hoa chữ cái đầu tiên của mỗi từ\n\n\nstri_trans_general\nstringi\nXóa dấu",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1072,7 +1072,7 @@
     "section": "Loại dữ liệu ngày tháng",
     "text": "Loại dữ liệu ngày tháng\n\n\n\n\n\n\n\n\nFunction\nPackage\nTo use\n\n\n\n\ndiffertime\nbase\nTính khoảng cách giữa 2 điểm thời gian\n\n\nmonth/year\nlubridate\nTrả về tháng/ năm\n\n\nquarter\nlubridate\nChuyển ngày tháng sang quý\n\n\ntoday\nlubridate\nTrả về ngày tháng hiện tại\n\n\ndmy, ymd, mdy\nlubridate\nChuyển đổi thành nhiều định dạng khác nhau",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1084,7 +1084,7 @@
     "section": "Chuyển đổi dữ liệu ngày tháng",
     "text": "Chuyển đổi dữ liệu ngày tháng\n\nTìm trẻ em được tiêm vắc-xin vgb_2 trong vòng 2 tháng sau khi sinh\n\n\n\n# --- Cách 1\ndf %&gt;% \n  filter(\n    # Gọi month để lấy tháng sau đó trừ nhau\n    month(vgb_2) - month(ngaysinh)  &lt;= 2\n  )\n\n# --- Cách 2\ndf %&gt;% \n  filter(\n    # gọi difftime để tính khoảng cách thời gian\n    difftime(vgb_2, ngaysinh, units = \"days\")/30 &lt;= 2\n  )",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1096,7 +1096,7 @@
     "section": "Kiểm tra dữ liệu",
     "text": "Kiểm tra dữ liệu\nThông thường bao gồm các hoạt động chính:\n\nKiểm tra giá trị NA.\nKiểm tra các giá trị ngoại lai và phạm vi của mỗi cột.\nKiểm tra giá trị giữa các cột (nếu cần).",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1108,7 +1108,7 @@
     "section": "Kiểm tra giá trị NA",
     "text": "Kiểm tra giá trị NA\n\n\nsum(c(1, 2, 3, 4, NA))\n\n[1] NA\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nTrong R, NA là một giá trị đặc biệt không thể tính toán hoặc so sánh với các kiểu dữ liệu khác (kết quả luôn trả về NA).\n\n\n\n\nThay thế NA bằng giá trị khác.\nXóa các hàng có chứa NA.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1120,7 +1120,7 @@
     "section": "Kiểm tra outliers",
     "text": "Kiểm tra outliers\nĐể nhanh chóng kiểm tra xem dữ liệu có chứa giá trị ngoại lai hay không, chúng ta có thể sử dụng boxplot để tìm các điểm giá trị cách xa các giá trị còn lại.\n\n\n\n\n\n\n\n\nTip\n\n\n\nTrong nhiều trường hợp, dữ liệu được coi là giá trị ngoại lai vẫn có thể là giá trị hợp lệ và nên được giữ lại để phân tích.\nNếu giá trị ngoại lai là sai, hãy xử lý nó giống như các giá trị bị thiếu.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1132,7 +1132,7 @@
     "section": "Kiểm tra outliers",
     "text": "Kiểm tra outliers\n\n\nexample_outlier &lt;- c(-5,1,3,4,1,2,5,10)\n\n\n\n\nboxplot(example_outlier)",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1144,7 +1144,7 @@
     "section": "Tidy data",
     "text": "Tidy data\n\nMột tập dữ liệu có các hàng và cột.\nMỗi cột là một biến.\nMỗi hàng là một quan sát.\nMỗi ô chỉ chứa 1 giá trị.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1156,7 +1156,7 @@
     "section": "Tidy data",
     "text": "Tidy data\n\n\n        date cases_chn cases_kor cases_aus cases_jpn cases_mys\n1 2020-01-20         0         0         0         0         0\n2 2020-01-21        31         0         0         0         0\n3 2020-01-23       262         0         0         0         0\n\n\nHoặc\n\n\n# A tibble: 3 × 3\n  date       country   cases\n  &lt;date&gt;     &lt;chr&gt;     &lt;dbl&gt;\n1 2020-01-20 cases_chn     0\n2 2020-01-20 cases_kor     0\n3 2020-01-20 cases_aus     0",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1168,7 +1168,7 @@
     "section": "Joint table",
     "text": "Joint table\n\n\n\n\n\n\n\n\nLệnh\nleft_join()\nMô tả\nLấy bảng bên trái làm tham chiếu và tìm kiếm các hàng tương ứng của bảng bên phải để nối.\nNếu các hàng không có hàng tương ứng để nối, trả về giá trị NA\nGIF | =====================+  | |\n\n\n\n\ninner_join()\nLấy bảng bên trái làm tham chiếu và tìm kiếm các hàng tương ứng của bảng bên phải để nối.\nCác hàng không có hàng tương ứng để nối sẽ bị xóa\n | |\n\n\nfull_join()\nGiữ lại tất cả các hàng của 2 bảng sau khi nối\nCác hàng của 2 bảng không thể nối sẽ được thay thế bằng các giá trị NA\n | |",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1180,7 +1180,7 @@
     "section": "Xử lý dữ liệu lỗi",
     "text": "Xử lý dữ liệu lỗi\n\nChỉnh sửa giá trị dữ liệu.\nLọc trùng.\nLọc các hàng theo điều kiện.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1192,7 +1192,7 @@
     "section": "Chỉnh sửa giá trị dữ liệu",
     "text": "Chỉnh sửa giá trị dữ liệu\n\nGiá trị bị thiếu.\nDữ liệu TRUE/FALSE được hiển thị khác nhau trong dữ liệu gốc (ví dụ: Đánh dấu X hoặc để trống trong tệp excel).\nTính đồng nhất của dữ liệu.\n\nreplace_na(): thay thế giá trị NA bằng giá trị được cung cấp\nis.na(): dữ liệu trống NA có giá trị TRUE và ngược lại\nifelse(): mã hóa điều kiện đơn giản, nếu có thì không\ncase_when(): mã hóa các giá trị cho các trường hợp nhất định",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1204,7 +1204,7 @@
     "section": "Lọc hàng và cột",
     "text": "Lọc hàng và cột\n\nLoại bỏ giá trị bị thiếu.\nLọc theo hàng.\nLọc theo giá trị.\nLọc trùng.\nleft_joint(), inner_joint(), full_joint(): nối bảng\nfilter(): lọc hàng và cột theo điều kiện\ndistinct(): lọc trùng",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1216,7 +1216,7 @@
     "section": "Tidyverse",
     "text": "Tidyverse",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1228,7 +1228,7 @@
     "section": "Tại sao chọn Tidyverse?",
     "text": "Tại sao chọn Tidyverse?\n\nMọi lệnh trong tidyverse đều có chung một cấu trúc và mẫu nhất quán.\nCode R của bạn có thể sạch hơn và dễ theo dõi hơn so với Based-R.\nBạn chỉ cần cài đặt mọi thứ một lần, thay vì nhiều package khác nhau cho những thứ khác nhau.\n\n\n\n\n\n\n\nWarning\n\n\n\n\nNó chỉ là một tập hợp các R Packages\nBạn không cần phải sử dụng tidyverse khi sử dụng R",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1240,7 +1240,7 @@
     "section": "Hàm tidyverse thường dùng",
     "text": "Hàm tidyverse thường dùng\n\ninstall.packages(\"tidyverse\")\n\nWarning: package 'tidyverse' is in use and will not be installed\n\n\n\ndplyr::select(): để chọn các cột từ df/tibble\ndplyr::mutate(): để thay đổi hoặc tạo cột mới từ df/tibble\ndplyr::group_by() và dplyr::summarise(): để nhóm dữ liệu và tóm tắt nó bằng cách sử dụng một hàm, ví dụ: trung bình, tối đa, tối thiểu, tổng\ntidyr::pivot_longer(): để chuyển đổi một df/tibble từ định dạng rộng sang định dạng dài (ít cột hơn, nhiều hàng hơn)\ntidyr::pivot_wider(): để chuyển đổi một df/tibble từ định dạng dài sang định dạng rộng (ít hàng hơn, nhiều cột hơn)",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1252,7 +1252,7 @@
     "section": "Piping with %>%",
     "text": "Piping with %&gt;%\n\ngrouped_by_gear &lt;- group_by(mtcars, gear)\nmean_mpg_by_gear  &lt;- summarise(grouped_by_gear, mean_mpg = mean(mpg))\nungrouped_data &lt;- ungroup(mean_mpg_by_gear)\n\nggplot(\n  data = ungrouped_data,\n  aes(x = gear, y = mean_mpg)\n) +\n  geom_col()\n\n\n\n\n\n\n\n\n\nĐây có phải là là cách viết tốt không? Chúng ta có thể cải thiện nó hơn nữa không?",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1264,7 +1264,7 @@
     "section": "Piping with %>%",
     "text": "Piping with %&gt;%\n\nggplot(\n  data = ungroup(summarise(group_by(mtcars, gear), mean_mpg = mean(mpg))),\n  aes(x = gear, y = mean_mpg)\n) +\n  geom_col()\n\n\n\n\n\n\n\n\nHoặc\n\nmtcars %&gt;% \n  group_by(gear) %&gt;% \n  summarise(mean_mpg = mean(mpg)) %&gt;% \n  ungroup() %&gt;% \n  ggplot(aes(x = gear, y = mean_mpg)) +\n  geom_col()",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1276,7 +1276,7 @@
     "section": "Piping with %>%",
     "text": "Piping with %&gt;%\n\nMột công cụ mạnh mẽ để thể hiện một chuỗi hành động.\nNó giúp bạn viết mã dễ đọc và dễ hiểu hơn.\nTrong R, bạn có thể chuyển đổi giữa các hàm bằng cách sử dụng toán tử %&gt;% hoặc |&gt;.\nPhím tắt: Cmd+Shift+M or Ctrl+Shift+M.\n\n\n\n\n\n\n\nTip\n\n\n\nR Together will use %&gt;%",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1288,7 +1288,7 @@
     "section": "Functions",
     "text": "Functions\n\nHàm là một chuỗi mã có thể tái sử dụng.\nCó thể tạo hàm bằng cú pháp.\n\n\nfunction_name &lt;- function(){\n\n# function content\n\n}",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1300,7 +1300,7 @@
     "section": "Functions",
     "text": "Functions\nVí dụ: một hàm đơn giản\n\nprint_hello &lt;- function(){\n  print(\"Hello newbies\")\n  print(\"We are SWAPER\")\n}\n\nprint_hello()\n\n[1] \"Hello newbies\"\n[1] \"We are SWAPER\"",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1312,7 +1312,7 @@
     "section": "Functions",
     "text": "Functions\n\nfunction_name &lt;- function(arg1, arg2){\n\n# function content\n  \n# values of argument can be accessed simply calling argument name\n\n}",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1324,7 +1324,7 @@
     "section": "Functions",
     "text": "Functions\n\ncompute_power &lt;- function(base, power){\n\n  base**power\n  \n}\n\n\ncompute_power(5, 2) \n\n\ncompute_power(2, 5)",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1336,7 +1336,7 @@
     "section": "Functions",
     "text": "Functions\n\ncompute_power(5, 2) \n\n[1] 25\n\n\n\ncompute_power(2, 5) \n\n[1] 32",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1348,7 +1348,7 @@
     "section": "Exercise tại lớp",
     "text": "Exercise tại lớp\n\nMở file từ đường dẫn day1/inclass.R.\nImport dữ liệu",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1360,7 +1360,7 @@
     "section": "Exercise tại lớp",
     "text": "Exercise tại lớp\n\ncovid_cases &lt;- readRDS(\"data/covid_cases.rds\")\n\ncase_col &lt;- \"cases_chn\"\n\nbasic_stats &lt;- c(\n  min =  min(covid_cases[[case_col]]),\n  q1 = quantile(covid_cases[[case_col]], 0.25, names=FALSE),\n  median = median(covid_cases[[case_col]]),\n  q3 = quantile(covid_cases[[case_col]], 0.75, names=FALSE),\n  max = max(covid_cases[[case_col]])\n)\n\nbasic_stats\n\n    min      q1  median      q3     max \n    0.0    65.5   128.0   950.5 19461.0",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1372,7 +1372,7 @@
     "section": "Exercise tại lớp",
     "text": "Exercise tại lớp\n\nĐa số các cột đều có cấu trúc cases_{country_code}\nTạo function để tính cho các quốc gia khác.\n\n\n\nCode\ncompute_stats &lt;- function(data, colname){\n  return(\n    c(\n      min = min(data[[colname]]),\n      q1 = quantile(data[[colname]], 0.25, names=FALSE),\n      median = median(data[[colname]]),\n      q3 = quantile(data[[colname]], 0.75, names=FALSE),\n      max = max(data[[colname]])\n    )\n  )\n}",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1384,7 +1384,7 @@
     "section": "Exercise tại lớp",
     "text": "Exercise tại lớp\n\nThay đổi colname = là sẽ làm tương tự cho các quốc gia khác.\n\n\ncompute_stats(covid_cases, colname = \"cases_chn\")\n\n    min      q1  median      q3     max \n    0.0    65.5   128.0   950.5 19461.0",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data management, data cleaning and R  style"
     ]
@@ -1396,7 +1396,7 @@
     "section": "",
     "text": "Day 2\nOverview of Public Health Emergency Operations Centre (PHEOC)\n🚀 Presentation\nWhat is a Public Health Emergency Operations Centre\nThe PHEOC system and its modes of Operations\nCore Functions and Structure\n\n\nDay 3\nPublic Health Emergency Operations Centre at Ho Chi Minh City (PHEOC HCMC)\n🚀 Presentation\nCurrent Status of the City’s Disease Control Steering Committee Operations\nOrganizational Structure of Public Health Emergency Management (PHEM) in Ho Chi Minh City\nIntroduction to Ho Chi Minh City’s PHEOC\n\n\nDay 4\nPHEOC Watch Mode\n🚀 Presentation\nOverview of Watch Level\nCore Activities\nKey Outputs and Products\n\n\nDay 5\nPHEOC Alert Mode\n🚀 Presentation\nOverview of Alert Level\nCore Activities\n\n\nDay 6\nOverview of Rapid Response Team\n🚀 Presentation\nCharacteristics and operations\nComposition\nRoles and responsibilities\n\n\nDay 6\nRapid Response Team Management\n🚀 Presentation\nManagers’ responsibilities\nRRT in non-emergency phase\nRRT in emergency phase\nMonitoring, supervision, and performance evaluation\n\n\nDay 7\nPHEOC Response Mode\n🚀 Presentation\nOverview of Response Level\nIncident Management System (IMS)\n\n\nDay 8\nPHEOC Deactivation and Recovery Mode\n🚀 Presentation\nOverview of Deactivation Level\nOverview of Recovery Level\n\n\n\n\n\n\n Back to top",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "PHEOC team",
       "Public Health Emergency Operations Centre"
     ]
@@ -1422,7 +1422,7 @@
     "section": "",
     "text": "Time\nLesson\nContent\n\n\n\n\nDay 1\nOverview of Global Health Security and Public Health Emergency Management\n🚀 Presentation\nGlobal Health Security 101\nPublic Health Emergency Management 101\nFEMA (USA)\n\n\n\n\n\n\n Back to top",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "PHEOC team",
       "Global Health Security"
     ]
@@ -1469,7 +1469,7 @@
     "section": "",
     "text": "Bài làm\n\n\n\nĐược lưu theo thư mục R-Together/day2/takehome.R\n\n\n\n\n\n\n\n\nPiping\n\n\n\nDự kiến các câu lệnh sẽ chủ yếu sử dụng toán tử %&gt;%, thay vì đặt các lệnh bên trong nhau.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Take home Day 2"
     ]
@@ -1481,7 +1481,7 @@
     "section": "",
     "text": "Bài làm\n\n\n\nĐược lưu theo thư mục R-Together/day2/takehome.R\n\n\n\n\n\n\n\n\nPiping\n\n\n\nDự kiến các câu lệnh sẽ chủ yếu sử dụng toán tử %&gt;%, thay vì đặt các lệnh bên trong nhau.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Take home Day 2"
     ]
@@ -1493,7 +1493,7 @@
     "section": "Dữ liệu",
     "text": "Dữ liệu\nTương tự như bài tập Day 1, chúng ta cũng sẽ sử dụng covid_cases.rds trong R-Together/day1/data/covid_cases.rds cho bài tập này.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Take home Day 2"
     ]
@@ -1505,7 +1505,7 @@
     "section": "Bài tập",
     "text": "Bài tập\n\nNhiệm vụ 1: Nhập dữ liệu\n\nĐọc dữ liệu từ R-Together/day1/data/covid_cases.rds.\nGọi thư viện tidyverse\n\n\n\n\n\n\n\nLưu ý\n\n\n\ntidyverse là một meta-package (chứa nhiều packages khác).\n\n\n\n\nNhiệm vụ 2: Làm sạch và lọc dữ liệu\n\nDữ liệu có tuân theo quy tắc tidy data không?\n\nNếu không, xoay dữ liệu thành một tibble tuân theo tiêu chuẩn tidy data.\n\nHãy sử dụng skimr để kiểm tra toàn diện dữ liệu. Kiểm tra xem có biến nào không hợp lý không?\n\nNếu có thì gán toàn bộ dữ liệu sai vào incorrect_data.\nLoại bỏ những dòng bị sai và gán vào correct_data.\n\nLọc dữ liệu để chúng ta chỉ có tuần 3-12 của năm 2020 và gán thành covid_cases.\n\n\n\n\n\n\n\nChuyển đổi kiểu bảng\n\n\n\n\nNếu dữ liệu của bạn không phải là tidy data:\n\n“Kéo dài” dữ liệu bằng pivot_longer(), tức là ít cột hơn, nhiều hàng hơn.\n“Mở rộng” dữ liệu bằng pivot_wider(), tức là ít hàng hơn, nhiều cột hơn.\n\n\n\n\n\n\n\n\n\n\nXử lý và làm sạch dữ liệu\n\n\n\n\nBiến chính ở đây là số ca bệnh từ mỗi quốc gia. Chúng phải có kiểu số và không được thấp hơn 0. Bạn không thể có số ca bệnh âm.\nBạn có thể xóa hoặc lọc các giá trị không mong muốn bằng cách sử dụng filter().\nlubridate là package tốt nhất để xử lý dữ liệu ngày tháng\n\n\n\n\n\nNhiệm vụ 3: Chuyển đổi dữ liệu\n\nSử dụng covid_cases được tạo từ Nhiệm vụ 2 để thực hiện:\n\nNhóm dữ liệu và tính tổng số ca bệnh theo mỗi quốc gia.\nChọn 5 quốc gia có tổng số ca bệnh cao nhất.\nTrích xuất mã quốc gia và lưu chúng vào một đối tượng mới là top_countries.\n\nSử dụng lần nữa covid_cases từ Nhiệm vụ 2 để thực hiện:\n\nNhóm lại dữ liệu, tính lại tổng số ca bệnh theo từng quốc gia.\nHiệu chỉnh cột country theo các yêu cầu:\n\nChỉ giữ lại tên của các quốc gia trong top 5 (đã tạo ở trên). Các quốc gia khác sẽ được đổi thành \"Others\"\nBiến cột này thành một loại biến factor.\nNhóm dữ liệu một lần nữa, lần này nhóm theo date và country.\nTính tổng số ca bệnh theo ngày theo quốc gia.\nTạo một cột mới có tên là pct_cases (là tỷ lệ phần trăm tổng số ca bệnh theo ngày theo quốc gia).\nXóa các hàng có NA khỏi tibble.\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nCó nhiều cách để thực hiện phần này của nhiệm vụ\n\n\n\n\n\n\n\n\nNhóm dữ liệu và tính tổng\n\n\n\n\nSử dụng group_by() để nhóm dữ liệu, tương tự sử dụng ungroup() để bỏ nhóm.\nThống kê mỗi nhóm thành một hàng duy nhất với summarise()\nCó thể nhóm nhiều biến cùng 1 lúc.\n\n\n\n\n\n\n\n\n\nTruy xuất hàng\n\n\n\n\nSử dụng slice_max() để truy xuất n hàng có giá trị x lớn nhất.\nSử dụng slice_min() để truy xuất n hàng có giá trị x nhỏ nhất.\n\n\n\n\n\n\n\n\n\nKéo dữ liệu\n\n\n\n\nSử dụng pull() để kéo giá trị quan tâm.\n\n\n\n\n\n\n\n\n\nBiến đổi giá trị và trả kiểu dữ liệu về factor\n\n\n\n\nBạn có thể “gộp” hoặc thu thập các cấp yếu tố không thường xuyên với fct_lump_n()\n\n\n\n\n\nNhiệm vụ 4: Trực quan hóa dữ liệu\n\nSử dụng ggplot2 và cố gắng hết sức để tạo ra hình sau:\n\n\n\n\n\n\n\n\nLàm sao để vẽ biểu đồ trên?\n\n\n\n\nggplot2 rất hữu ích.\nSau đây là tất cả các hàm được sử dụng để tạo biểu đồ trên:\n\nggplot()\ngeom_area()\nscale_y_continuous()\nscale_x_date()\nscale_fill_discrete()\nggtitle()\nMỗi lệnh được kết nối với toán tử +",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Take home Day 2"
     ]
@@ -1513,21 +1513,21 @@
   {
     "objectID": "document.html",
     "href": "document.html",
-    "title": "SWAPER",
+    "title": "",
     "section": "",
     "text": "Principles of Epidemiology in Public Health Practice, 2012 (USCDC) Link\nHandbook of Applied Health Economics in Vaccines, 2023 Link\nNational RRT SOPs, 2024 (NIH, Pakistan) Link\nFramework for a Public Health Emergency Operations Centre Link\nInternational Health Regulation (2005) Link\nHandbook for Developing a Public Health Emergency Operations Center (Part A) Link\nHandbook for Developing a Public Health Emergency Operations Center (Part C) Link\nHandbook for Public Health Emergency Operations Center Operations and Management-WHO Regional Office for Africa Link\nEstablishment and Management of Public Health Rapid Response Teams For Diseases Outbreaks Link\nGuidance for after action review Link\nWHO Simulation Exercise Manual Link\nEmergency Exercise Development Link\nCommunicating risk in public health emergencies: a WHO guideline for emergency risk communication policy and practice Link\nWHO community engagement framework for quality, people-centred and resilient health services Link"
   },
   {
     "objectID": "document.html#book",
     "href": "document.html#book",
-    "title": "SWAPER",
+    "title": "",
     "section": "",
     "text": "Principles of Epidemiology in Public Health Practice, 2012 (USCDC) Link\nHandbook of Applied Health Economics in Vaccines, 2023 Link\nNational RRT SOPs, 2024 (NIH, Pakistan) Link\nFramework for a Public Health Emergency Operations Centre Link\nInternational Health Regulation (2005) Link\nHandbook for Developing a Public Health Emergency Operations Center (Part A) Link\nHandbook for Developing a Public Health Emergency Operations Center (Part C) Link\nHandbook for Public Health Emergency Operations Center Operations and Management-WHO Regional Office for Africa Link\nEstablishment and Management of Public Health Rapid Response Teams For Diseases Outbreaks Link\nGuidance for after action review Link\nWHO Simulation Exercise Manual Link\nEmergency Exercise Development Link\nCommunicating risk in public health emergencies: a WHO guideline for emergency risk communication policy and practice Link\nWHO community engagement framework for quality, people-centred and resilient health services Link"
   },
   {
     "objectID": "document.html#e-book",
     "href": "document.html#e-book",
-    "title": "SWAPER",
+    "title": "",
     "section": "E-Book",
     "text": "E-Book\n\nEpidemic R Handbook, 2024 Link\nIntroduction to Data Science, 2019 Link\nggplot2: Elegant Graphics for Data Analysis, 2019 Link\nTelling Stories with Data, 2023 Link\nSpatial Statistics for Data Science: Theory and Practice with R, 2019 Link"
   },
@@ -1538,7 +1538,7 @@
     "section": "",
     "text": "Dữ liệu covid_cases.rds từ R-Together/day1/data/covid_cases.rds sẽ được sử dụng cho bài tập này\n\n\nTừ điển dữ liệu\n\n\n\n\n\n\n\n\nCột\nMô tả\n\n\n\n\ndate\nNgày báo cáo của ca bệnh\n\n\n211 cột với định dạng cases_{country_code}\nSố trường hợp được báo cáo của mỗi quốc gia và quần đảo\n\n\n\nMã quốc gia quan tâm (tức là Mã cho các quốc gia cần thiết cho bài tập)\n\n\n\nCode\nTên Quốc gia\n\n\n\n\nchn\nChina\n\n\nusa\nUnited States of America\n\n\nvnm\nVietnam\n\n\nsgp\nSingapore",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Take home Day 1"
     ]
@@ -1550,7 +1550,7 @@
     "section": "",
     "text": "Dữ liệu covid_cases.rds từ R-Together/day1/data/covid_cases.rds sẽ được sử dụng cho bài tập này\n\n\nTừ điển dữ liệu\n\n\n\n\n\n\n\n\nCột\nMô tả\n\n\n\n\ndate\nNgày báo cáo của ca bệnh\n\n\n211 cột với định dạng cases_{country_code}\nSố trường hợp được báo cáo của mỗi quốc gia và quần đảo\n\n\n\nMã quốc gia quan tâm (tức là Mã cho các quốc gia cần thiết cho bài tập)\n\n\n\nCode\nTên Quốc gia\n\n\n\n\nchn\nChina\n\n\nusa\nUnited States of America\n\n\nvnm\nVietnam\n\n\nsgp\nSingapore",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Take home Day 1"
     ]
@@ -1562,7 +1562,7 @@
     "section": "Chuẩn bị",
     "text": "Chuẩn bị\nTrước khi thực hiện bài tập này, bạn nên hoàn thành checklist sau\n\n\n\n\n\n\nChecklist\n\n\n\nTrên Github Desktop\n\nCloned R-Together repository\nTạo nhánh riêng của bạn trên kho lưu trữ\nChuyển sang nhánh riêng của bạn\n\nTrên RStudio\n\nTạo một R project từ thư mục R-Together\n\n\n\n\n\n\n\n\n\nBài làm\n\n\n\nBạn cần lưu bài làm của mình tại đường dẫn R-Together/day1/takehome.R",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Take home Day 1"
     ]
@@ -1574,7 +1574,7 @@
     "section": "Bài tập",
     "text": "Bài tập\n\nNhiệm vụ 1: Nhập dữ liệu\nĐọc dữ liệu từ file R-Together/day1/data/covid_cases.rds\n\n\nNhiệm vụ 2: Tính toán đơn giản\nTính toán những điều sau:\n\nNgày báo cáo dữ liệu sớm nhất và muộn nhất trong tập dữ liệu và gán chúng cho 2 biến first_report_date, last_report_date\nTạo cột mới case_global cho covid_cases, đại diện cho tổng số trường hợp trên mọi quốc gia mỗi ngày báo cáo.\nTạo cột mới percent_chn trong covid_cases, đại diện cho tỷ lệ phần trăm các trường hợp toàn cầu mà các trường hợp Trung Quốc báo cáo trong ngày\n\n\n\n\n\n\n\nGợi ý: tính tổng của từng hàng\n\n\n\nSử dụng hàm  rowSums()  để tính tổng theo hàng của các cột chứa số ca\nVí dụ:\n\nvd_bang &lt;- data.frame(\n  a = c(1:3), b = c(4:6)\n)\n# hiển thị bảng ví dụ\nvd_bang\n\n  a b\n1 1 4\n2 2 5\n3 3 6\n\n\n\n# Xem kết quả đầu ra của hàm rowSums\nrowSums(vd_bang)\n\n[1] 5 7 9\n\n\n\n\n\n\n\n\n\n\nGợi ý: tạo cột mới/cập nhật giá trị của cột\n\n\n\nĐể tạo hoặc cập nhật một cột, sử dụng cú pháp data[[\"tên_cột\"]] &lt;- giá_trị_cho_cột, trong đó độ dài của giá_trị_cho_cột phải bằng với số hàng của bảng dữ liệu.\nVí dụ:\n\nvd_bang &lt;- data.frame(\n  a = c(1:3), b = c(4:6)\n)\n\n# tạo cột mới có tên là new_col\nvd_bang[[\"new_col\"]] &lt;- c(7,9,11)\nvd_bang\n\n  a b new_col\n1 1 4       7\n2 2 5       9\n3 3 6      11\n\n\n\n\n\n\nNhiệm vụ 3: Tạo một function\nHoàn thành phần sau đây::\n\nTạo một function compute_percent mà function đó\n\nnhận bộ dữ liệu và mã quốc gia (3 ký tự sau cases_ trong tên cột) làm đầu vào.\ntrả về tỷ lệ phần trăm số ca toàn cầu mà số ca của Quốc gia được chỉ định chiếm trên mỗi ngày báo cáo.\n\nSử dụng function đó để tạo 3 cột mới cho bảng covid_cases: percent_vnm, percent_usa, percent_sgp\nIn bảng covid_cases cuối cùng, chỉ chọn các cột sau date, percent_chn, percent_vnm, percent_usa, percent_sgp\n\n\n\n\n\n\n\nGợi ý: nối chuỗi\n\n\n\nSử dụng function paste() để nối nhiều chuỗi lại với nhau\nVí dụ\n\n# nối 2 chuỗi\npaste(\"cases_\", \"chn\", sep = \"\")\n\n[1] \"cases_chn\"\n\n\n\n# nối 3 chuỗi\npaste(\"hello\", \"world,\", \"welcome to R-together\", sep = \" \")\n\n[1] \"hello world, welcome to R-together\"\n\n\n\n\n\n\nNhiệm vụ 3.5 (Tùy chọn): Tạo một hàm từ đoạn mã đã cho\nTạo môt hàm trả về biểu đồ số ca được báo cáo theo thời gian cho một quốc gia, trong đó người dùng có thể\n\nChọn cột số ca cần được vẽ biểu đồ\nThay đổi tên Quốc gia được hiển thị trên tiêu đề của biểu đồ\nThay đổi màu của biểu đồ cột và đường\nThiết lập ngày nhỏ nhất và lớn nhất (giới hạn trục x) cho biểu đồ\n\nGiả sử đoạn mã để vẽ biểu đồ báo cáo số ca của Trung Quốc như sau\n\n# Bỏ dấu # và chạy đoạn mã sau nếu bạn chưa cài đặt tidyverse hoặc ggplot2\n# install.packages(\"tidyverse\")\nlibrary(tidyverse)\ncovid_cases &lt;- read_rds(\"data/covid_cases.rds\") %&gt;% mutate_if(is.Date, ymd) \nlibrary(ggplot2)\nplot_col &lt;- \"cases_chn\"\ncountry &lt;- \"China\"\n\nggplot() +\n  geom_col( # lớp biểu đồ cột\n    aes( # xác định các cột cho trục x, y \n      x = covid_cases$date, # điều này tương đương với covid_cases[[\"date\"]]\n      y = covid_cases[[plot_col]] \n      ), \n    fill = \"cornflowerblue\" # chọn màu cho biểu đồ cột\n  ) +\n  geom_line( # lớp biểu đồ đường\n    aes( # xác định các cột cho trục x, y\n      x = covid_cases$date, \n      y = covid_cases[[plot_col]] \n      ), \n    color = \"red\" # chọn màu cho biểu đồ đường\n  ) +\n  labs(\n    y = \"Cases\",\n    x = \"Date\",\n    title = paste0(\"Reported Covid cases for \", country) # xác định tiêu đề cho biểu đồ\n  )\n\n\n\n\n\n\n\n\n\n\nNhiệm vụ 4: Tạo bảng tóm tắt dữ liệu\nHoàn thành các yêu cầu sau:\n\nSử dụng function skim() từ package skimr để tạo bảng tóm tắt dữ liệu cho các Quốc gia sau: China, Vietnam, USA, Singapore\nMô tả những quan sát đáng chú ý từ từng Quốc gia dựa trên kết quả của skim()\n\n\n\nNhiệm vụ 5: Đánh giá\nHoàn thành các yêu cầu sau:\n\nĐẩy bài của bạn lên GitHub với nội dung commit: \"day 1 take home solution your_name\"\nTạo một issue để bình luận về ít nhất 1 bài làm của 1 người tham gia khác",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Take home Day 1"
     ]
@@ -1586,7 +1586,7 @@
     "section": "",
     "text": "Chào mừng bạn đến với bài tập cuối khóa (Capstone Project)!\nMục tiêu của dự án này là để bạn áp dụng các kỹ năng đã học về xử lý, phân tích và trực quan hóa dữ liệu bằng R. Bạn sẽ sử dụng bộ công cụ tidyverse để làm sạch và chuyển đổi dữ liệu, ggplot2 để tạo ra các biểu đồ ý nghĩa, và tự xây dựng một hàm (function) để tự động hóa một tác vụ phân tích.\nBộ dữ liệu: Chúng ta sẽ làm việc với data life-exp.csv, chứa dữ liệu về tuổi thọ trung bình và các chỉ số khác của các quốc gia trên thế giới từ năm 2000 đến 2015.\nYêu cầu: 1. Sử dụng R. 2. Tạo một file RMarkdown (.rmd) để trình bày toàn bộ bài làm. 3. Phân tích và giải thích kết quả (không bắt buộc) 4. Nộp lại file .rmd và file Word đã được render.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Capstone Project"
     ]
@@ -1598,7 +1598,7 @@
     "section": "",
     "text": "Chào mừng bạn đến với bài tập cuối khóa (Capstone Project)!\nMục tiêu của dự án này là để bạn áp dụng các kỹ năng đã học về xử lý, phân tích và trực quan hóa dữ liệu bằng R. Bạn sẽ sử dụng bộ công cụ tidyverse để làm sạch và chuyển đổi dữ liệu, ggplot2 để tạo ra các biểu đồ ý nghĩa, và tự xây dựng một hàm (function) để tự động hóa một tác vụ phân tích.\nBộ dữ liệu: Chúng ta sẽ làm việc với data life-exp.csv, chứa dữ liệu về tuổi thọ trung bình và các chỉ số khác của các quốc gia trên thế giới từ năm 2000 đến 2015.\nYêu cầu: 1. Sử dụng R. 2. Tạo một file RMarkdown (.rmd) để trình bày toàn bộ bài làm. 3. Phân tích và giải thích kết quả (không bắt buộc) 4. Nộp lại file .rmd và file Word đã được render.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Capstone Project"
     ]
@@ -1610,7 +1610,7 @@
     "section": "Phần 1: Đọc dữ liệu",
     "text": "Phần 1: Đọc dữ liệu\n\nTải các thư viện cần thiết: tidyverse, skimr, lubridate, janitor…\nĐọc dữ liệu trong đường dẫn day1/data/life-exp.csv và gán thành đối tượng df",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Capstone Project"
     ]
@@ -1622,7 +1622,7 @@
     "section": "Phần 2: Khám phá Dữ liệu 🔍",
     "text": "Phần 2: Khám phá Dữ liệu 🔍\n\nDữ liệu có bao nhiêu dòng và bao nhiêu cột?\nDữ liệu gồm những loại biến nào?\nDữ liệu có cột nào có missing không? Nếu có thì gồm những cột nào?\nTên các cột có đúng quy tắc chưa? Nếu chưa thì đổi tên cột theo đúng quy tắc.\nKiểu dữ liệu của mỗi cột có phù hợp chưa? Nếu chưa thì đổi thành kiểu dữ liệu phù hợp với biến.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Capstone Project"
     ]
@@ -1634,7 +1634,7 @@
     "section": "Phần 3: Xử lý và phân tích dữ liệu",
     "text": "Phần 3: Xử lý và phân tích dữ liệu\n\nSử dụng df truy xuất ra những cột Measles, Polio, Diphtheria và gán thành df_diseases. Sau đó in kết quả những dòng đầu tiên.\nSử dụng df truy xuất hàng 2, cột 5.\nSử dụng df truy nhất hàng 2,5 và cột Measles, Polio.\nThay thế những giá trị missing của cột Life Expectancy bằng giá trị trung bình của những giá trị còn lại.\nTìm ra 5 quốc gia có tuổi thọ trung bình cao nhất năm 2015 và gán thành top_5.\nTìm ra 5 quốc gia có tuổi thọ trung bình thấp nhất năm 2015 và gán thành bot_5.\nTạo 1 data frame chứa 2 đối tượng top_5 và bot_5 và gán thành df_top_bot\nTạo biến mới bmi_lv là biến thứ tự gồm các nhóm: dưới 18.5, từ 18.5 đến 23, trên 23.\nSử dụng df nhóm theo country để tính trung bình GDP và gán thành df_gdp_by_country.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Capstone Project"
     ]
@@ -1646,7 +1646,7 @@
     "section": "Phần 4: Tạo bảng thống kê năm 2015",
     "text": "Phần 4: Tạo bảng thống kê năm 2015\n\nCác biến: Status, Life Expectancy, Adult Mortality, GDP, Schooling, BMI.\nPhân nhóm theo Status\nTạo nhãn cho các biến.\nBỏ qua các giá trị missing.\nBMI thống kê theo Median (IQR), các biến định lượng khác thể hiện Mean (Min - Max).\nIn đậm nhãn và thêm caption cho bảng.\nSử dụng kiểm định phù hợp và thể hiện giá trị p với 3 chữ số thập phân.\nThêm cột thống kê tổng.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Capstone Project"
     ]
@@ -1658,7 +1658,7 @@
     "section": "Phần 5: Trực quan hóa",
     "text": "Phần 5: Trực quan hóa\n5.1. Biểu đồ đường thể hiện xu hướng tuổi thọ\n\nTheo các quốc gia: Vietnam, Thailand, Cambodia, Singapore).\nThêm tên biểu đồ, tên trục x, trục y và tên chú thích.\nTùy chỉnh trục x thể hiện từ năm 2000 đến 2015, cách nhau mỗi 3 năm.\n\n5.2. Sử dụng biểu đồ tương ứng để thể hiện mối quan hệ giữa 2 biến GDP và tuổi thọ.\n\nThể hiện màu theo Status.\nThể hiện kích thước theo Population\nTùy chỉnh giá trị trục x theo thang đo log10 với đơn vị $.\nThêm tên biểu đồ, trục x, trục y và tên chú thích.\nTừ biểu đồ trên tạo ra nhiều biểu đồ nhỏ phân nhóm theo Country.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Capstone Project"
     ]
@@ -1670,7 +1670,7 @@
     "section": "Phần 5: Viết function",
     "text": "Phần 5: Viết function\n\nTạo function có tên plot_country với hai tham số đầu vào là country_name và indicator.\ncountry_name là tên của quốc gia bạn muốn phân tích.\nindicator là tên của chỉ số bạn muốn vẽ.\n\nFunction này sẽ vẽ theo các chỉ số và quốc gia mà bạn muốn từ giai đoạn 2000-2015",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Capstone Project"
     ]
@@ -1678,14 +1678,14 @@
   {
     "objectID": "exp2.html",
     "href": "exp2.html",
-    "title": "SWAPER",
+    "title": "",
     "section": "",
     "text": "Date & Time: June 18, 2025 (13:00 Vietnam)\nLocation: Room 3.03 (HCDC - District 8)\nVia: Zoom\nSpeakers: Dr. Michael Lydeamore (Monash University, Melbourne, Australia)\nTopic: Understanding prevalence, and potential for tranmission of healthcare associated infections in Victoria, Australia"
   },
   {
     "objectID": "exp2.html#midsea",
     "href": "exp2.html#midsea",
-    "title": "SWAPER",
+    "title": "",
     "section": "",
     "text": "Date & Time: June 18, 2025 (13:00 Vietnam)\nLocation: Room 3.03 (HCDC - District 8)\nVia: Zoom\nSpeakers: Dr. Michael Lydeamore (Monash University, Melbourne, Australia)\nTopic: Understanding prevalence, and potential for tranmission of healthcare associated infections in Victoria, Australia"
   },
@@ -1696,7 +1696,7 @@
     "section": "",
     "text": "Lesson\nContent\n\n\n\n\nDay 1\nIBS, EBS and tools for supporting EBS\n🚀 Presentation\nIndicator-based surveillance\nEvent-based surveillance\nTools for supporting EBS\n\n\nDay 2\nData structures required for infectious diseases monitoring and integrated monitoring systems\n🚀 Presentation\nData collection requirements in service response\nAdvantages and disadvantages in monitoring system of ID\nIntroduction to integrated monitoring system\n\n\nDay 3\nEvaluation of infectious disease surveillance systems\n🚀 Presentation\nResearch introduction: Assessment of the current status of infectious disease surveillance system and public health events in Ho Chi Minh City in 2024\n\n\nDay 4\nCollect, analyze, and present infectious disease data\n🚀 Presentation\n\n\n\n\n\n\n\n Back to top",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "Modelling team",
       "Quality of surveillance system"
     ]
@@ -1708,7 +1708,7 @@
     "section": "",
     "text": "Lesson\nContent\n\n\n\n\nDay 1\nOverview of R\nR and RStudio\nPopular applications with R\nGit and Github\n\n\nDay 2\nData management, data cleaning and R style\nImporting and exporting data\nData cleaning and Tidyverse\nFunction in R\n\n\nDay 3\nData analysis\nR project, R markdown\nWorking with gtsummary\n\n\nDay 4\nData visualization\nGrammar of graphics with ggplot2\nBasic geometries\nPractice\n\n\nDay 5\nCapstone\nPractice with Rmarkdown\n\n\n\n\n\n\n Back to top",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Agenda"
     ]
@@ -1720,7 +1720,7 @@
     "section": "",
     "text": "Time\nLesson\nContent\n\n\n\n\nDay 1\nOverview of Global Health Security and Public Health Emergency Management\n🚀 Presentation\nGlobal Health Security 101\nPublic Health Emergency Management 101\nFEMA (USA)\n\n\n\n\n\n\n Back to top",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "PHEOC team",
       "The Public Health Emergency Management"
     ]
@@ -1732,7 +1732,7 @@
     "section": "",
     "text": "R là một ngôn ngữ lập trình được phát triển bởi GS. Robert Gentleman và GS. Ross Ihaka tại Đại học Auckland1. Tên gọi R được đặt theo chữ cái đầu của tên 2 tác giả (Robert và Ross).\nĐể tính toán thống kê và trực quan hóa dữ liệu.\nBao gồm phần cơ bản (tích hợp sẵn khi cài đặt R) và phần mở rộng thông qua các gói (packages)\n\n\n\n\n\nNgôn ngữ lập trình là một tập hợp các hướng dẫn để yêu cầu máy tính thực hiện một số tác vụ nhất định.\nNgười dùng giao tiếp, đối thoại với máy tính bằng cách nhập những câu văn (code) giống như chat với máy tính, để máy hiểu và làm đúng những gì con người muốn\n\n\n\n\n\nMiễn phí, liên tục cập nhật\nRất tốt trong xử lý thống kê và vẽ đồ họa\nLưu trữ câu lệnh và thực hiện lại dễ dàng\nNên sử dụng RStudio thay vì R cơ bản\nHoàn toàn có thể tự học từ nguồn internet",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -1744,7 +1744,7 @@
     "section": "",
     "text": "R là một ngôn ngữ lập trình được phát triển bởi GS. Robert Gentleman và GS. Ross Ihaka tại Đại học Auckland1. Tên gọi R được đặt theo chữ cái đầu của tên 2 tác giả (Robert và Ross).\nĐể tính toán thống kê và trực quan hóa dữ liệu.\nBao gồm phần cơ bản (tích hợp sẵn khi cài đặt R) và phần mở rộng thông qua các gói (packages)",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -1756,7 +1756,7 @@
     "section": "",
     "text": "Ngôn ngữ lập trình là một tập hợp các hướng dẫn để yêu cầu máy tính thực hiện một số tác vụ nhất định.\nNgười dùng giao tiếp, đối thoại với máy tính bằng cách nhập những câu văn (code) giống như chat với máy tính, để máy hiểu và làm đúng những gì con người muốn",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -1768,7 +1768,7 @@
     "section": "",
     "text": "Miễn phí, liên tục cập nhật\nRất tốt trong xử lý thống kê và vẽ đồ họa\nLưu trữ câu lệnh và thực hiện lại dễ dàng\nNên sử dụng RStudio thay vì R cơ bản\nHoàn toàn có thể tự học từ nguồn internet",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -1780,7 +1780,7 @@
     "section": "Installation R",
     "text": "Installation R\nTrang web chính thức của R: https://www.r-project.org",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -1792,7 +1792,7 @@
     "section": "Installation R-Studio",
     "text": "Installation R-Studio\n\nTrang web chính thức của R-Studio: https://posit.co/download/rstudio-desktop/\nCần cài đặt R trước khi cài RStudio",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -1804,7 +1804,7 @@
     "section": "Phân tích và trực quan hóa dữ liệu",
     "text": "Phân tích và trực quan hóa dữ liệu\n\nR cung cấp nhiều thư viện mạnh mẽ như ggplot2,dplyr,tidyverseđể xử lý và trực quan hóa dữ liệu.\nThường được sử dụng trong nghiên cứu khoa học, kinh tế, y tế và kinh doanh để phân tích dữ liệu và tạo báo cáo.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -1816,7 +1816,7 @@
     "section": "Thống kê và kiểm định giả thuyết",
     "text": "Thống kê và kiểm định giả thuyết\n\nHỗ trợ các phương pháp thống kê như hồi quy tuyến tính, kiểm định t-test, ANOVA, và các mô hình thống kê khác.\nPhù hợp cho nghiên cứu học thuật và phân tích dữ liệu chuyên sâu.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -1828,7 +1828,7 @@
     "section": "Machine Learning",
     "text": "Machine Learning\n\nCó các thư viện nhưcaret,randomForest,e1071,xgboost giúp xây dựng mô hình dự đoán.\nR thường được dùng để phát triển và đánh giá các mô hình học máy.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -1840,7 +1840,7 @@
     "section": "Big Data Analytics",
     "text": "Big Data Analytics\n\nR có thể tích hợp với Apache Spark thông qua sparklyr, giúp xử lý dữ liệu lớn.\nKết hợp SQL, NoSQL để phân tích dữ liệu quy mô lớn.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -1852,7 +1852,7 @@
     "section": "Khoa học dữ liệu và báo cáo tự động",
     "text": "Khoa học dữ liệu và báo cáo tự động\n\nR hỗ trợ tạo báo cáo động với R Markdown, giúp tự động hóa báo cáo dữ liệu.\nR Shiny cho phép xây dựng ứng dụng web tương tác để trình bày dữ liệu.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -1864,7 +1864,7 @@
     "section": "Y học và sinh học",
     "text": "Y học và sinh học\n\nHỗ trợ nghiên cứu dịch tễ học, mô hình hóa bệnh tật.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -1876,7 +1876,7 @@
     "section": "Git ",
     "text": "Git \nGit là một phần mềm mã nguồn mở, quản lý phiên bản (Version Control System - VCS), mục đích của nó là theo dõi các thay đổi của tệp trong một kho lưu trữ và cung cấp khả năng quay lại phiên bản trước đó (bao gồm các thay đổi trong mã nguồn mở cho các mô hình tính toán, thuật toán theo thời gian).\nGit là một phần mềm hoạt động cục bộ. Bạn không cần GitHub để Git có thể hoạt động. Bạn có thể sử dụng Git độc lập.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -1888,7 +1888,7 @@
     "section": "GitHub",
     "text": "GitHub\nGitHub là một dịch vụ dựa trên đám mây để lưu trữ kho lưu trữ Git, mục đích chính của nó là lưu trữ và/hoặc chia sẻ dự án Git của bạn với các cộng tác viên trên đám mây.\nGiao diện dưới dạng Web-based.\nMiễn phí và công khai.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -1900,7 +1900,7 @@
     "section": "Repository",
     "text": "Repository\nKho lưu trữ (Repository): Chứa một tập hợp các tệp và thư mục, ghi lại lịch sử thay đổi, theo dõi trạng thái và các phiên bản của chúng. Có hai loại:\n\nKho lưu trữ từ xa (Remote repository): Lưu trữ trên máy chủ từ xa, được chia sẻ giữa nhiều thành viên trong nhóm.\nKho lưu trữ cục bộ (Local repository): Lưu trữ trên máy tính cá nhân của người dùng.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -1912,7 +1912,7 @@
     "section": "GitHub Desktop ",
     "text": "GitHub Desktop \nGitHub Desktop là một phần mềm giúp bạn sử dụng Git dễ dàng hơn. Nó là một phần mềm được xây dựng bởi GitHub.\nƯu điểm: - Đơn giản hóa mọi thứ và chỉ cung cấp các chức năng thường được sử dụng của Git.\n-   Giảm khả năng bạn sẽ mắc lỗi khi sử dụng Git.\n\n-   Tích hợp trực tiếp với GitHub, giúp xác thực dễ dàng hơn.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -1924,7 +1924,7 @@
     "section": "Thiết kế Website giới thiệu Khoa, thông tin khóa học",
     "text": "Thiết kế Website giới thiệu Khoa, thông tin khóa học",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -1936,7 +1936,7 @@
     "section": "Trình bày kết quả phân tích, cảnh báo, dự báo dịch",
     "text": "Trình bày kết quả phân tích, cảnh báo, dự báo dịch",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -1948,7 +1948,7 @@
     "section": "Thiết kế Dashboard",
     "text": "Thiết kế Dashboard",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -1960,7 +1960,7 @@
     "section": "R script",
     "text": "R script\n\nCác đoạn hội thoại giữa chúng ta và máy tính có thể được lưu lại bằng file R Script (.r) hoặc R Markdown (.rmd) files.\nGần đây có thêm Quarto (.qmd) mở rộng hơn những gì R Markdown có thể làm.\nVì cách viết Quarto khá giống R Markdown, nên chúng ta sẽ tập trung vào học R Markdown cơ bản.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -1972,7 +1972,7 @@
     "section": "R script",
     "text": "R script\nTạo R Script bằng cách vào menu File &gt; New File &gt; R Script.\nR Script là file chứa các câu lệnh R và những dòng chú thích ngắn gọn về câu lệnh (comments). Có 2 cách để comment:\n\nViết dấu # đầu dòng để xác định dòng này là comment.\nViết dấu # ở cuối dòng lệnh.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -1984,7 +1984,7 @@
     "section": "R script",
     "text": "R script",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -1996,7 +1996,7 @@
     "section": "R Markdown",
     "text": "R Markdown\n\nTạo R Markdown bằng cách vào menu File &gt; New File &gt; R Markdown.\nR Markdown là công cụ để tạo ra tài liệu tự động.\nTrong file R Markdown chứa code R xen kẽ với văn bản mô tả, bảng, biểu đồ… có thể xuất ra nhiều loại định dạng như .docx, .pdf, .html, .pptx.",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -2008,7 +2008,7 @@
     "section": "R Markdown",
     "text": "R Markdown\nYAML header: nằm ở trên cùng trong và ngăn cách với phần còn lại bằng cặp dấu ---. Phần này để mô tả tiêu đề tài liệu, tác giả, ngày tháng, định dạng mong muốn.\nVăn bản: phần diễn giải cho tài liệu, gồm các đề mục và chữ diễn giải viết theo ngôn ngữ\n\nĐề mục được đánh dấu bằng dấu # và các đề mục nhỏ hơn thì tăng thêm số dấu # như ##, ###.\nPhải xuống hàng 2 lần để viết hàng mới trong văn bản.\n\nĐoạn code (code chunks): là nơi để viết code và xuất ra các kết quả mong muốn. Code chunks của R được đặt trong cặp dấu:",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -2020,7 +2020,7 @@
     "section": "R Markdown",
     "text": "R Markdown\n\nĐể tạo code chunk chúng ta nhấn tổ hợp phím tắt Ctrl + Alt + I, hoặc nhấn vào icon này trên thanh công cụ, chọn R: \nVí dụ có file R Markdown sau:",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -2032,7 +2032,7 @@
     "section": "R Markdown",
     "text": "R Markdown\n\nKhi knit file R Markdown trên sẽ tạo ra file báo cáo sau với đầy đủ tiêu đề, đề mục, bảng kết quả, biểu đồ… giống như được tạo ra từ 1 chương trình soạn thảo văn bản như Word.\nĐể knit file R Markdown thì chọn kí hiệu knit trên thanh công cụ:",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -2044,7 +2044,7 @@
     "section": "R Markdown",
     "text": "R Markdown",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -2056,7 +2056,7 @@
     "section": "R Markdown",
     "text": "R Markdown",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -2068,7 +2068,7 @@
     "section": "R Markdown",
     "text": "R Markdown",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -2080,7 +2080,7 @@
     "section": "R Markdown",
     "text": "R Markdown",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Overview of R"
     ]
@@ -2092,7 +2092,7 @@
     "section": "",
     "text": "📎 simulated_covid 📎 cleaned_vacdata",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data analysis"
     ]
@@ -2104,7 +2104,7 @@
     "section": "R project",
     "text": "R project\n\nTạo Project trong R Studio\nR project là một thư mục với file .Rproj . Để thuận tiện cho việc quản lý code và dữ liệu, ta nên tạo R project cho mỗi nghiên cứu/ báo cáo.\nQuá trình tạo R project như sau:\n\nVào menu File &gt; New Project\nBấm New Directory &gt; New Project\nĐiền tên folder cho R Project tại mục Directory name\nBấm Browse và chọn Desktop để lưu R project tại Desktop\nBấm Create Project\n\n\n\nCấu trúc của một Project\nCấu trúc của một R project sẽ có định dạng như sau:\n\n\ndata thư mục chứa dữ liệu cần phân tích\noutput lưu trữ đầu ra mã (cốt truyện, số liệu, v.v.)\nanalysis.R là tệp chứa mã R. Có thể có nhiều file .R trong 1 project.\n\n\n\nR markdown\nFile .Rmd thường được dùng cho báo cáo vì có thể kết hợp các lệnh R, văn bản thường, đồ thị trong 1 file \nGồm 3 phần chính:\n\nPhần YAML header: nằm ở trên cùng trong và ngăn cách với phần còn lại bằng cặp dấu ---. Phần này để mô tả tiêu đề tài liệu, tác giả, ngày tháng, định dạng mong muốn\nPhần văn bản (được viết bằng ngôn ngữ markdown)\nPhần lệnh R (được gọi là chunk). Phần kết quả của câu lệnh R (chunk output) có thể hiển thị dưới dạng string, bảng dữ liệu hoặc đồ thị.\n\n\nTạo R Markdown bằng cách vào menu File &gt; New File &gt; R Markdown...",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data analysis"
     ]
@@ -2116,7 +2116,7 @@
     "section": "Bảng phân tích thống kê",
     "text": "Bảng phân tích thống kê\n\nTải package:  tidyverse, gtsummary\nLoad package:\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlibrary(tidyverse) \nlibrary(gtsummary) \n\n\nChúng ta sẽ sử dụng dữ liệu mô phỏng các ca bệnh Covid 19\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n#linelist &lt;- read_rds(\"https://raw.githubusercontent.com/HCDC-GSCB/swaper/main/data/simulated_covid.rds\") %&gt;% mutate_if(is.Date, ymd) \n\nlinelist &lt;- read_rds(\"data/simulated_covid.rds\") %&gt;% mutate_if(is.Date, ymd)\n\n\nDữ liệu bao gồm 2 đợt bùng phát dịch.\n\ngtsummary\nPackage gtsummary được dùng vẽ bảng thống kê một cách nhanh chóng bằng lệnh tbl_summary()\nVD: sử dụng tbl_summary() \n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist[,-2] %&gt;% tbl_summary()\n\n\n\n\nOutput\n\n\n\n\n\n\nCharacteristic\n\n\nN = 2,7621\n\n\n\n\n\n\nid\n\n\n1,320 (654, 2,017)\n\n\n\n\ncase_type\n\n\n\n\n\n\n\n    confirmed\n\n\n1,325 (48%)\n\n\n\n\n    probable\n\n\n879 (32%)\n\n\n\n\n    suspected\n\n\n558 (20%)\n\n\n\n\nsex\n\n\n\n\n\n\n\n    f\n\n\n1,365 (49%)\n\n\n\n\n    m\n\n\n1,397 (51%)\n\n\n\n\nage\n\n\n15 (8, 22)\n\n\n\n\ndate_onset\n\n\n2023-05-31 (2023-04-28, 2023-08-05)\n\n\n\n\ndate_admission\n\n\n2023-06-12 (NA, 2023-08-16)\n\n\n\n\n    Unknown\n\n\n2,206\n\n\n\n\noutcome\n\n\n\n\n\n\n\n    died\n\n\n220 (8.0%)\n\n\n\n\n    recovered\n\n\n2,542 (92%)\n\n\n\n\ndate_outcome\n\n\n2023-06-29 (2023-05-21, 2023-09-04)\n\n\n\n\n    Unknown\n\n\n2,542\n\n\n\n\ndate_first_contact\n\n\n2023-05-28 (2023-04-25, 2023-08-03)\n\n\n\n\n    Unknown\n\n\n2\n\n\n\n\ndate_last_contact\n\n\n2023-05-30 (2023-04-28, 2023-08-06)\n\n\n\n\n    Unknown\n\n\n2\n\n\n\n\ndistrict\n\n\n\n\n\n\n\n    Binh Chanh\n\n\n126 (4.6%)\n\n\n\n\n    Binh Tan\n\n\n140 (5.1%)\n\n\n\n\n    Binh Thanh\n\n\n161 (5.8%)\n\n\n\n\n    Can Gio\n\n\n123 (4.5%)\n\n\n\n\n    Cu Chi\n\n\n88 (3.2%)\n\n\n\n\n    Go Vap\n\n\n119 (4.3%)\n\n\n\n\n    Hoc Mon\n\n\n99 (3.6%)\n\n\n\n\n    Nha Be\n\n\n84 (3.0%)\n\n\n\n\n    Phu Nhuan\n\n\n167 (6.0%)\n\n\n\n\n    Quan 1\n\n\n120 (4.3%)\n\n\n\n\n    Quan 10\n\n\n161 (5.8%)\n\n\n\n\n    Quan 11\n\n\n159 (5.8%)\n\n\n\n\n    Quan 12\n\n\n129 (4.7%)\n\n\n\n\n    Quan 3\n\n\n115 (4.2%)\n\n\n\n\n    Quan 4\n\n\n81 (2.9%)\n\n\n\n\n    Quan 5\n\n\n130 (4.7%)\n\n\n\n\n    Quan 6\n\n\n154 (5.6%)\n\n\n\n\n    Quan 7\n\n\n46 (1.7%)\n\n\n\n\n    Quan 8\n\n\n68 (2.5%)\n\n\n\n\n    Tan Binh\n\n\n152 (5.5%)\n\n\n\n\n    Tan Phu\n\n\n164 (5.9%)\n\n\n\n\n    Thu Duc\n\n\n176 (6.4%)\n\n\n\n\noutbreak\n\n\n\n\n\n\n\n    1st outbreak\n\n\n1,513 (55%)\n\n\n\n\n    2nd outbreak\n\n\n1,249 (45%)\n\n\n\n\n\n\n1 Median (Q1, Q3); n (%)\n\n\n\n\n\n\n\n\nĐiều chỉnh bảng thống kê\nMột số tham số của tbl_summary hỗ trợ điều chỉnh bảng thống kê\n\n\n\nTên tham số\nCông dụng\n\n\n\n\ninclude\nChọn các biến được hiển thị trên bảng thống kê\n\n\nlabel\nĐổi cách hiển thị tên biến\n\n\nby\nHiển thị thống kê nhóm theo giá trị của 1 biến\n\n\nstatistic\nĐiều chỉnh thống kê được hiển thị\n\n\n\nChọn các biến được thống kê qua tham số include\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist %&gt;%\n  tbl_summary(\n    include = c(age, sex, outcome, date_onset, date_admission, date_first_contact, date_last_contact, outbreak)\n  )\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nN = 2,7621\n\n\n\n\nage\n15 (8, 22)\n\n\nsex\n\n\n\n\n    f\n1,365 (49%)\n\n\n    m\n1,397 (51%)\n\n\noutcome\n\n\n\n\n    died\n220 (8.0%)\n\n\n    recovered\n2,542 (92%)\n\n\ndate_onset\n2023-05-31 (2023-04-28, 2023-08-05)\n\n\ndate_admission\n2023-06-12 (NA, 2023-08-16)\n\n\n    Unknown\n2,206\n\n\ndate_first_contact\n2023-05-28 (2023-04-25, 2023-08-03)\n\n\n    Unknown\n2\n\n\ndate_last_contact\n2023-05-30 (2023-04-28, 2023-08-06)\n\n\n    Unknown\n2\n\n\noutbreak\n\n\n\n\n    1st outbreak\n1,513 (55%)\n\n\n    2nd outbreak\n1,249 (45%)\n\n\n\n1 Median (Q1, Q3); n (%)\n\n\n\n\n\n\n\n\nThay đổi tên biến qua tham số label\nVD: đổi tên được hiển thị cho các biến\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist %&gt;% tbl_summary(\n    include = c(age, sex, outcome, date_onset, date_admission,\n                date_first_contact, date_last_contact, outbreak),\n    # ----- Thay đổi cách hiển thị tên biến ------\n    label = list(\n      age ~ \"Tuổi\",\n      sex ~ \"Giới tính\",\n      outcome ~ \"Kết quả\",\n      date_onset ~ \"Ngày phát bệnh\",\n      date_admission ~ \"Ngày nhập viện\",\n      date_first_contact ~ \"Ngày tiếp xúc đầu tiên\",\n      date_last_contact ~ \"Ngày tiếp xúc cuối cùng\",\n      outbreak ~ \"Đợt dịch\"\n    )\n  )\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nN = 2,7621\n\n\n\n\nTuổi\n15 (8, 22)\n\n\nGiới tính\n\n\n\n\n    f\n1,365 (49%)\n\n\n    m\n1,397 (51%)\n\n\nKết quả\n\n\n\n\n    died\n220 (8.0%)\n\n\n    recovered\n2,542 (92%)\n\n\nNgày phát bệnh\n2023-05-31 (2023-04-28, 2023-08-05)\n\n\nNgày nhập viện\n2023-06-12 (NA, 2023-08-16)\n\n\n    Unknown\n2,206\n\n\nNgày tiếp xúc đầu tiên\n2023-05-28 (2023-04-25, 2023-08-03)\n\n\n    Unknown\n2\n\n\nNgày tiếp xúc cuối cùng\n2023-05-30 (2023-04-28, 2023-08-06)\n\n\n    Unknown\n2\n\n\nĐợt dịch\n\n\n\n\n    1st outbreak\n1,513 (55%)\n\n\n    2nd outbreak\n1,249 (45%)\n\n\n\n1 Median (Q1, Q3); n (%)\n\n\n\n\n\n\n\n\nThống kê theo nhóm qua tham số by\nVD: hiện thống kê cho từng đợt dịch\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist %&gt;% tbl_summary(\n  include = c(age, sex, outcome, date_onset, date_admission,\n                date_first_contact, date_last_contact, outbreak),\n  label = list(\n      age ~ \"Tuổi\",\n      sex ~ \"Giới tính\",\n      outcome ~ \"Kết quả\",\n      date_onset ~ \"Ngày phát bệnh\",\n      date_admission ~ \"Ngày nhập viện\",\n      date_first_contact ~ \"Ngày tiếp xúc đầu tiên\",\n      date_last_contact ~ \"Ngày tiếp xúc cuối cùng\"\n    ),\n  # ----- Hiển thị thống kê cho từng đợt dịch ------\n  by = outbreak)\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\n1st outbreak\nN = 1,5131\n2nd outbreak\nN = 1,2491\n\n\n\n\nTuổi\n13 (6, 20)\n19 (10, 27)\n\n\nGiới tính\n\n\n\n\n\n\n    f\n746 (49%)\n619 (50%)\n\n\n    m\n767 (51%)\n630 (50%)\n\n\nKết quả\n\n\n\n\n\n\n    died\n110 (7.3%)\n110 (8.8%)\n\n\n    recovered\n1,403 (93%)\n1,139 (91%)\n\n\nNgày phát bệnh\n2023-04-30 (2023-04-11, 2023-05-16)\n2023-08-12 (2023-07-16, 2023-08-31)\n\n\nNgày nhập viện\n2023-05-06 (2023-04-15, 2023-05-23)\n2023-08-18 (2023-07-25, 2023-09-05)\n\n\n    Unknown\n1,216\n990\n\n\nNgày tiếp xúc đầu tiên\n2023-04-27 (2023-04-08, 2023-05-13)\n2023-08-09 (2023-07-12, 2023-08-28)\n\n\n    Unknown\n1\n1\n\n\nNgày tiếp xúc cuối cùng\n2023-04-30 (2023-04-11, 2023-05-16)\n2023-08-11 (2023-07-15, 2023-08-31)\n\n\n    Unknown\n1\n1\n\n\n\n1 Median (Q1, Q3); n (%)\n\n\n\n\n\n\n\n\nĐiều chỉnh thống kê được hiển thị qua tham số statistic\nNgười dùng có thể lựa chọn các phép thống kê để áp dụng lên các biến\nVD: format thống kê cho  sex  và outcome\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist %&gt;% tbl_summary(\n  include = c(age, sex, outcome, date_onset, date_admission,\n                date_first_contact, date_last_contact, outbreak),\n  label = list(\n      age ~ \"Tuổi\",\n      sex ~ \"Giới tính\",\n      outcome ~ \"Kết quả\",\n      date_onset ~ \"Ngày phát bệnh\",\n      date_admission ~ \"Ngày nhập viện\",\n      date_first_contact ~ \"Ngày tiếp xúc đầu tiên\",\n      date_last_contact ~ \"Ngày tiếp xúc cuối cùng\"\n    ),\n  by = outbreak,\n  # ----- điều chỉnh thống kê ------\n  statistic = list(\n    sex ~ \"{n} / {N} ({p}%)\",\n    outcome ~ \"{n} / {N} ({p}%)\"\n  ))\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\n1st outbreak\nN = 1,5131\n2nd outbreak\nN = 1,2491\n\n\n\n\nTuổi\n13 (6, 20)\n19 (10, 27)\n\n\nGiới tính\n\n\n\n\n\n\n    f\n746 / 1,513 (49%)\n619 / 1,249 (50%)\n\n\n    m\n767 / 1,513 (51%)\n630 / 1,249 (50%)\n\n\nKết quả\n\n\n\n\n\n\n    died\n110 / 1,513 (7.3%)\n110 / 1,249 (8.8%)\n\n\n    recovered\n1,403 / 1,513 (93%)\n1,139 / 1,249 (91%)\n\n\nNgày phát bệnh\n2023-04-30 (2023-04-11, 2023-05-16)\n2023-08-12 (2023-07-16, 2023-08-31)\n\n\nNgày nhập viện\n2023-05-06 (2023-04-15, 2023-05-23)\n2023-08-18 (2023-07-25, 2023-09-05)\n\n\n    Unknown\n1,216\n990\n\n\nNgày tiếp xúc đầu tiên\n2023-04-27 (2023-04-08, 2023-05-13)\n2023-08-09 (2023-07-12, 2023-08-28)\n\n\n    Unknown\n1\n1\n\n\nNgày tiếp xúc cuối cùng\n2023-04-30 (2023-04-11, 2023-05-16)\n2023-08-11 (2023-07-15, 2023-08-31)\n\n\n    Unknown\n1\n1\n\n\n\n1 Median (Q1, Q3); n / N (%)\n\n\n\n\n\n\n\n\nĐiều chỉnh số chữ số thập phân qua tham số digits\nVD: Hiển thị tuổi với 2 chữ số thập phân\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist %&gt;% tbl_summary(\n  include = c(age, sex, outcome, date_onset, date_admission,\n                date_first_contact, date_last_contact, outbreak),\n  label = list(\n      age ~ \"Tuổi\",\n      sex ~ \"Giới tính\",\n      outcome ~ \"Kết quả\",\n      date_onset ~ \"Ngày phát bệnh\",\n      date_admission ~ \"Ngày nhập viện\",\n      date_first_contact ~ \"Ngày tiếp xúc đầu tiên\",\n      date_last_contact ~ \"Ngày tiếp xúc cuối cùng\"\n    ),\n  by = outbreak,\n  statistic = list(\n    sex ~ \"{n} / {N} ({p}%)\",\n    outcome ~ \"{n} / {N} ({p}%)\",\n    all_continuous() ~ \"{mean} [{min}, {max}]\"\n  ), \n  # ----- hiển thị 2 chữ số thập phân cho tuổi ------\n  digits = age ~ 2)\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\n1st outbreak\nN = 1,5131\n2nd outbreak\nN = 1,2491\n\n\n\n\nTuổi\n12.76 [0.00, 25.00]\n18.76 [3.00, 35.00]\n\n\nGiới tính\n\n\n\n\n\n\n    f\n746 / 1,513 (49%)\n619 / 1,249 (50%)\n\n\n    m\n767 / 1,513 (51%)\n630 / 1,249 (50%)\n\n\nKết quả\n\n\n\n\n\n\n    died\n110 / 1,513 (7.3%)\n110 / 1,249 (8.8%)\n\n\n    recovered\n1,403 / 1,513 (93%)\n1,139 / 1,249 (91%)\n\n\nNgày phát bệnh\n2023-04-26 [2023-01-01, 2023-07-10]\n2023-08-05 [2023-05-01, 2023-10-09]\n\n\nNgày nhập viện\n2023-05-06 [2023-01-06, 2025-03-02]\n2023-08-15 [2023-05-10, 2025-02-03]\n\n\n    Unknown\n1,216\n990\n\n\nNgày tiếp xúc đầu tiên\n2023-04-23 [2022-12-29, 2023-07-03]\n2023-08-03 [2023-05-03, 2023-10-15]\n\n\n    Unknown\n1\n1\n\n\nNgày tiếp xúc cuối cùng\n2023-04-26 [2023-01-04, 2023-07-05]\n2023-08-06 [2023-05-07, 2023-10-17]\n\n\n    Unknown\n1\n1\n\n\n\n1 Mean [Min, Max]; n / N (%)\n\n\n\n\n\n\n\n\nĐiều chỉnh giá trị được hiển thị\nĐể thay đổi tên các nhóm của biến phân loại, ta có thể sử dụng lệnh factor trước khi tạo bảng\nĐể thay đổi cách hiển thị giá trị bị thiếu, ta có thể sử dụng tham số missing_textcủa tbl_summary\nVD:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist %&gt;% \n  mutate(\n    # ------ đổi tên các nhóm trong biến phân loại ----\n    sex = factor(sex, levels = c(\"f\", \"m\"), labels = c(\"nữ\", \"nam\")),\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\")),\n    outbreak = factor(outbreak, \n                      levels = c(\"1st outbreak\", \"2nd outbreak\"), \n                      labels = c(\"Đợt dịch 1\", \"Đợt dịch 2\"))\n  ) %&gt;% \n  tbl_summary(\n    # ----- Đổi label cho các giá trị bị thiếu từ \"Unknown\" sang \"NA\" -----\n    missing_text = \"NA\",    \n    include = c(age, sex, outcome, date_onset, date_admission,\n                  date_first_contact, date_last_contact, outbreak),\n    label = list(\n        age ~ \"Tuổi\",\n        sex ~ \"Giới tính\",\n        outcome ~ \"Kết quả\",\n        date_onset ~ \"Ngày phát bệnh\",\n        date_admission ~ \"Ngày nhập viện\",\n        date_first_contact ~ \"Ngày tiếp xúc đầu tiên\",\n        date_last_contact ~ \"Ngày tiếp xúc cuối cùng\"\n      ),\n    by = outbreak,\n    statistic = list(\n      sex ~ \"{n} / {N} ({p}%)\",\n      outcome ~ \"{n} / {N} ({p}%)\",\n      all_continuous() ~ \"{mean} [{min}, {max}]\"),\n    digits = age ~ 2\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nĐợt dịch 1\nN = 1,5131\nĐợt dịch 2\nN = 1,2491\n\n\n\n\nTuổi\n12.76 [0.00, 25.00]\n18.76 [3.00, 35.00]\n\n\nGiới tính\n\n\n\n\n\n\n    nữ\n746 / 1,513 (49%)\n619 / 1,249 (50%)\n\n\n    nam\n767 / 1,513 (51%)\n630 / 1,249 (50%)\n\n\nKết quả\n\n\n\n\n\n\n    tử vong\n110 / 1,513 (7.3%)\n110 / 1,249 (8.8%)\n\n\n    khỏi bệnh\n1,403 / 1,513 (93%)\n1,139 / 1,249 (91%)\n\n\nNgày phát bệnh\n2023-04-26 [2023-01-01, 2023-07-10]\n2023-08-05 [2023-05-01, 2023-10-09]\n\n\nNgày nhập viện\n2023-05-06 [2023-01-06, 2025-03-02]\n2023-08-15 [2023-05-10, 2025-02-03]\n\n\n    NA\n1,216\n990\n\n\nNgày tiếp xúc đầu tiên\n2023-04-23 [2022-12-29, 2023-07-03]\n2023-08-03 [2023-05-03, 2023-10-15]\n\n\n    NA\n1\n1\n\n\nNgày tiếp xúc cuối cùng\n2023-04-26 [2023-01-04, 2023-07-05]\n2023-08-06 [2023-05-07, 2023-10-17]\n\n\n    NA\n1\n1\n\n\n\n1 Mean [Min, Max]; n / N (%)\n\n\n\n\n\n\n\n\n\n\nKết hợp nhiều bảng thống kê\nLệnh tbl_stack được sử dụng để kết hợp nhiều bảng thống kê có header giống nhau\nVD: Làm bảng tỉ lệ tử vong theo quận trong đợt 1, đợt 2 và cả 2 đợt\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng tỷ lệ tử vong trong cả 2 đợt dịch -----\nboth_outbreak &lt;- linelist %&gt;% \n  mutate(\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  tbl_summary(\n    include = c(outcome, district),\n    label = outcome ~ \"Kết quả\",\n    by = district,\n    statistic = outcome ~ \"{n} / {N} ({p}%)\"\n  ) %&gt;% \n  modify_header(all_stat_cols() ~ \"**{level}**\", label = \"**Quận**\") \n\n# ----- Bảng tỷ lệ tử vong trong đợt 1 -----\ntbl_first_outbreak &lt;- linelist %&gt;%\n  mutate(\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  filter(outbreak == \"1st outbreak\") %&gt;%\n  tbl_summary(\n    include = c(outcome, district),\n    label = outcome ~ \"Kết quả\",\n    by = district,\n    statistic = outcome ~ \"{n} / {N} ({p}%)\"\n  ) %&gt;% \n  modify_header(all_stat_cols() ~ \"**{level}**\", label = \"**Quận**\") \n\n# ----- Bảng tỷ lệ tử vong trong đợt 2 -----\ntbl_second_outbreak &lt;- linelist %&gt;%\n  mutate(\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  filter(outbreak == \"2nd outbreak\") %&gt;%\n  tbl_summary(\n    include = c(outcome, district),\n    label = outcome ~ \"Kết quả\",\n    by = district,\n    statistic = outcome ~ \"{n} / {N} ({p}%)\"\n  ) %&gt;% \n  modify_header(all_stat_cols() ~ \"**{level}**\", label = \"**Quận**\") \n\ntbl_stack(list(tbl_first_outbreak, tbl_second_outbreak, both_outbreak), group_header = c(\"Đợt 1\", \"Đợt 2\", \"Cả 2 đợt\")) %&gt;% \n  # --- optional: code điều chỉnh header cho từng bảng để dễ nhìn hơn ---- \n  as_gt() %&gt;% \n  gt::tab_style(\n    style = gt::cell_text(weight = \"bold\"),\n    locations = gt::cells_row_groups(groups = everything())\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuận\nBinh Chanh1\nBinh Tan1\nBinh Thanh1\nCan Gio1\nCu Chi1\nGo Vap1\nHoc Mon1\nNha Be1\nPhu Nhuan1\nQuan 11\nQuan 101\nQuan 111\nQuan 121\nQuan 31\nQuan 41\nQuan 51\nQuan 61\nQuan 71\nQuan 81\nTan Binh1\nTan Phu1\nThu Duc1\n\n\n\n\nĐợt 1\n\n\nKết quả\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    tử vong\n9 / 115 (7.8%)\n8 / 119 (6.7%)\n6 / 110 (5.5%)\n0 / 23 (0%)\n10 / 85 (12%)\n9 / 111 (8.1%)\n11 / 97 (11%)\n1 / 12 (8.3%)\n10 / 113 (8.8%)\n2 / 26 (7.7%)\n4 / 50 (8.0%)\n3 / 61 (4.9%)\n2 / 123 (1.6%)\n3 / 31 (9.7%)\n1 / 8 (13%)\n0 / 16 (0%)\n5 / 65 (7.7%)\n0 / 8 (0%)\n1 / 5 (20%)\n8 / 113 (7.1%)\n10 / 129 (7.8%)\n7 / 93 (7.5%)\n\n\n    khỏi bệnh\n106 / 115 (92%)\n111 / 119 (93%)\n104 / 110 (95%)\n23 / 23 (100%)\n75 / 85 (88%)\n102 / 111 (92%)\n86 / 97 (89%)\n11 / 12 (92%)\n103 / 113 (91%)\n24 / 26 (92%)\n46 / 50 (92%)\n58 / 61 (95%)\n121 / 123 (98%)\n28 / 31 (90%)\n7 / 8 (88%)\n16 / 16 (100%)\n60 / 65 (92%)\n8 / 8 (100%)\n4 / 5 (80%)\n105 / 113 (93%)\n119 / 129 (92%)\n86 / 93 (92%)\n\n\nĐợt 2\n\n\nKết quả\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    tử vong\n1 / 11 (9.1%)\n1 / 21 (4.8%)\n11 / 51 (22%)\n3 / 100 (3.0%)\n0 / 3 (0%)\n0 / 8 (0%)\n0 / 2 (0%)\n11 / 72 (15%)\n5 / 54 (9.3%)\n10 / 94 (11%)\n4 / 111 (3.6%)\n7 / 98 (7.1%)\n1 / 6 (17%)\n10 / 84 (12%)\n8 / 73 (11%)\n7 / 114 (6.1%)\n11 / 89 (12%)\n2 / 38 (5.3%)\n4 / 63 (6.3%)\n8 / 39 (21%)\n1 / 35 (2.9%)\n5 / 83 (6.0%)\n\n\n    khỏi bệnh\n10 / 11 (91%)\n20 / 21 (95%)\n40 / 51 (78%)\n97 / 100 (97%)\n3 / 3 (100%)\n8 / 8 (100%)\n2 / 2 (100%)\n61 / 72 (85%)\n49 / 54 (91%)\n84 / 94 (89%)\n107 / 111 (96%)\n91 / 98 (93%)\n5 / 6 (83%)\n74 / 84 (88%)\n65 / 73 (89%)\n107 / 114 (94%)\n78 / 89 (88%)\n36 / 38 (95%)\n59 / 63 (94%)\n31 / 39 (79%)\n34 / 35 (97%)\n78 / 83 (94%)\n\n\nCả 2 đợt\n\n\nKết quả\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    tử vong\n10 / 126 (7.9%)\n9 / 140 (6.4%)\n17 / 161 (11%)\n3 / 123 (2.4%)\n10 / 88 (11%)\n9 / 119 (7.6%)\n11 / 99 (11%)\n12 / 84 (14%)\n15 / 167 (9.0%)\n12 / 120 (10%)\n8 / 161 (5.0%)\n10 / 159 (6.3%)\n3 / 129 (2.3%)\n13 / 115 (11%)\n9 / 81 (11%)\n7 / 130 (5.4%)\n16 / 154 (10%)\n2 / 46 (4.3%)\n5 / 68 (7.4%)\n16 / 152 (11%)\n11 / 164 (6.7%)\n12 / 176 (6.8%)\n\n\n    khỏi bệnh\n116 / 126 (92%)\n131 / 140 (94%)\n144 / 161 (89%)\n120 / 123 (98%)\n78 / 88 (89%)\n110 / 119 (92%)\n88 / 99 (89%)\n72 / 84 (86%)\n152 / 167 (91%)\n108 / 120 (90%)\n153 / 161 (95%)\n149 / 159 (94%)\n126 / 129 (98%)\n102 / 115 (89%)\n72 / 81 (89%)\n123 / 130 (95%)\n138 / 154 (90%)\n44 / 46 (96%)\n63 / 68 (93%)\n136 / 152 (89%)\n153 / 164 (93%)\n164 / 176 (93%)\n\n\n\n1 n / N (%)",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data analysis"
     ]
@@ -2128,7 +2128,7 @@
     "section": "Kiểm định thống kê",
     "text": "Kiểm định thống kê\nĐể thêm kết quả cho phép kiểm định thống kê vào bảng phân tích, sử dụng lệnh add_p theo cú pháp add_p(tên_biến ~ \"phép kiểm định\")\nMột số phép kiểm định thông dụng\n\nt.test - Kiểm định t\nchisq.test - Kiểm định Chi bình phương ( )\nfisher.test - Kiểm tra Fisher exact\n\nTổng hợp các phép kiểm định thống kê\n\n\n\n\n\n\n\n\nPhép kiểm\nMô tả\nKết quả\n\n\n\n\nKiểm định T\nSo sánh giá trị trung bình của biến liên tục giữa hai nhóm.\n không có sự khác biệt giữa trung bình của 2 nhóm\np-value &lt; 0.05: có sự khác biệt giữa 2 nhóm\np-value &gt; 0.05: không có sự khác biệt giữa 2 nhóm\n\n\nKiểm định Chi-Square\nKiểm tra biến phân loại giữa 2 nhóm có liên quan hay không\n không có sự liên quan giữa 2 biến\np-value &lt; 0.05: có sự liên quan giữa 2 nhóm\np-value &gt; 0.05: không có sự liên quan giữa 2 nhóm\n\n\nKiểm định Fisher’s Exact\nTương tự như Chi-squared, kiểm tra mối liên hệ giữa hai biến phân loại nhưng cho cỡ mẫu nhỏ\n\n\n\n\n\nKiểm định T\nVD 1: Kiểm tra độ tuổi trung bình giữa 2 đợt dịch\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist %&gt;% \n  mutate(\n    outbreak = factor(outbreak, \n                      levels = c(\"1st outbreak\", \"2nd outbreak\"), \n                      labels = c(\"Đợt 1\", \"Đợt 2\"))\n  ) %&gt;% \n  tbl_summary(\n    include = c(age, outbreak),\n    label = age ~ \"Tuổi\",\n    by = outbreak\n  ) %&gt;% \n  modify_header(label = \"**Đặc điểm**\")  %&gt;% \n  add_p(test = age ~ \"t.test\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nĐặc điểm\nĐợt 1\nN = 1,5131\nĐợt 2\nN = 1,2491\np-value\n\n\n\n\nTuổi\n13 (6, 20)\n19 (10, 27)\n\n\n\n\n\n1 Median (Q1, Q3)\n\n\n\n\n\n\n\n\nVD 2: Kiểm tra độ tuổi trung bình của 2 nhóm khỏi bệnh và tử vong\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho đợt dịch đầu ---- \nfirst_outbreak &lt;- linelist %&gt;% \n  mutate(\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  filter(outbreak == \"1st outbreak\") %&gt;% \n  tbl_summary(\n    include = c(age, outcome),\n    label = age ~ \"Tuổi\",\n    by = outcome\n  ) %&gt;% \n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = age ~ \"t.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho đợt dịch thứ hai ---- \nsecond_outbreak &lt;- linelist %&gt;% \n  filter(outbreak == \"2nd outbreak\") %&gt;% \n  mutate(\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  tbl_summary(\n    include = c(age, outcome),\n    label = age ~ \"Tuổi\",\n    by = outcome\n  ) %&gt;% \n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = age ~ \"t.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho cả hai đợt dịch ---- \nboth_outbreak &lt;- linelist %&gt;% \n  mutate(\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  tbl_summary(\n    include = c(age, outcome),\n    label = age ~ \"Tuổi\",\n    by = outcome\n  ) %&gt;% \n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = age ~ \"t.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\ntbl_stack(list(first_outbreak, second_outbreak, both_outbreak), \n          group_header = c(\"Đợt 1\", \"Đợt 2\", \"Cả 2 đợt\")) %&gt;% \n  # --- optional: code điều chỉnh style header ---- \n  modify_header(label = \"**Đặc điểm**\")  %&gt;% \n  as_gt() %&gt;% \n  gt::tab_style(\n    style = gt::cell_text(weight = \"bold\"),\n    locations = gt::cells_row_groups(groups = everything())\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nĐặc điểm\ntử vong1\nkhỏi bệnh1\np-value\n\n\n\n\nĐợt 1\n\n\nTuổi\n12 (5, 19)\n13 (6, 20)\n\n\n\n\nĐợt 2\n\n\nTuổi\n21 (12, 27)\n19 (10, 27)\n\n\n\n\nCả 2 đợt\n\n\nTuổi\n17 (9, 23)\n15 (8, 22)\n\n\n\n\n\n1 Median (Q1, Q3)\n\n\n\n\n\n\n\n\n\n\nKiểm định Chi bình phương\nVD: Kiểm tra giới tính có ảnh hưởng đến khả năng tử vong hay không\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho đợt dịch đầu ---- \ntbl_first_outbreak &lt;- linelist %&gt;%\n  mutate(\n    sex = factor(sex, levels = c(\"f\", \"m\"), labels = c(\"nữ\", \"nam\")),\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  filter(outbreak == \"1st outbreak\") %&gt;%\n  tbl_summary(\n    include = c(sex, outcome), \n    label = outcome ~ \"Kết quả\",\n    by = sex) %&gt;%\n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = outcome ~ \"chisq.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho đợt dịch thứ 2 ---- \ntbl_second_outbreak &lt;- linelist %&gt;%\n  mutate(\n    sex = factor(sex, levels = c(\"f\", \"m\"), labels = c(\"nữ\", \"nam\")),\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  filter(outbreak == \"2nd outbreak\") %&gt;%\n  tbl_summary(\n    include= c(sex, outcome), label = outcome ~ \"Kết quả\",\n    by = sex) %&gt;%\n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = outcome ~ \"chisq.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho cả 2 đợt dịch ---- \nboth_outbreak &lt;- linelist %&gt;% \n  mutate(\n    sex = factor(sex, levels = c(\"f\", \"m\"), labels = c(\"nữ\", \"nam\")),\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  tbl_summary(\n    include = c(sex, outcome),\n    label = outcome ~ \"Kết quả\",\n    by = c(sex)\n  ) %&gt;% \n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = outcome ~ \"chisq.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\ntbl_stack(list(tbl_first_outbreak, tbl_second_outbreak, both_outbreak), \n          group_header = c(c(\"Đợt 1\", \"Đợt 2\", \"Cả 2 đợt\"))) %&gt;%\n  # --- optional: code điều chỉnh style header ---- \n  modify_header(label = \"**Đặc điểm**\")  %&gt;% \n  as_gt() %&gt;% \n  gt::tab_style(\n    style = gt::cell_text(weight = \"bold\"),\n    locations = gt::cells_row_groups(groups = everything())\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nĐặc điểm\nnữ1\nnam1\np-value\n\n\n\n\nĐợt 1\n\n\nKết quả\n\n\n\n\n\n\n\n\n    tử vong\n56 (7.5%)\n54 (7.0%)\n\n\n\n\n    khỏi bệnh\n690 (92%)\n713 (93%)\n\n\n\n\nĐợt 2\n\n\nKết quả\n\n\n\n\n\n\n\n\n    tử vong\n51 (8.2%)\n59 (9.4%)\n\n\n\n\n    khỏi bệnh\n568 (92%)\n571 (91%)\n\n\n\n\nCả 2 đợt\n\n\nKết quả\n\n\n\n\n\n\n\n\n    tử vong\n107 (7.8%)\n113 (8.1%)\n\n\n\n\n    khỏi bệnh\n1,258 (92%)\n1,284 (92%)\n\n\n\n\n\n1 n (%)\n\n\n\n\n\n\n\n\n\n\nKiểm định Fisher exact\nThử thực hiện kiểm định Fisher trên bộ dữ liệu và so sánh với kiểm định Chi bình phương\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho đợt dịch đầu ---- \ntbl_first_outbreak &lt;- linelist %&gt;%\n  mutate(\n    sex = factor(sex, levels = c(\"f\", \"m\"), labels = c(\"nữ\", \"nam\")),\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  filter(outbreak == \"1st outbreak\") %&gt;%\n  tbl_summary(\n    include = c(sex, outcome), \n    label = outcome ~ \"Kết quả\",\n    by = sex) %&gt;%\n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = outcome ~ \"fisher.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho đợt dịch thứ 2 ---- \ntbl_second_outbreak &lt;- linelist %&gt;%\n  mutate(\n    sex = factor(sex, levels = c(\"f\", \"m\"), labels = c(\"nữ\", \"nam\")),\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  filter(outbreak == \"2nd outbreak\") %&gt;%\n  tbl_summary(\n    include= c(sex, outcome), label = outcome ~ \"Kết quả\",\n    by = sex) %&gt;%\n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = outcome ~ \"fisher.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho cả 2 đợt dịch ---- \nboth_outbreak &lt;- linelist %&gt;% \n  mutate(\n    sex = factor(sex, levels = c(\"f\", \"m\"), labels = c(\"nữ\", \"nam\")),\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  tbl_summary(\n    include = c(sex, outcome),\n    label = outcome ~ \"Kết quả\",\n    by = c(sex)\n  ) %&gt;% \n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = outcome ~ \"fisher.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\ntbl_stack(list(tbl_first_outbreak, tbl_second_outbreak, both_outbreak), \n          group_header = c(c(\"Đợt 1\", \"Đợt 2\", \"Cả 2 đợt\"))) %&gt;%\n  # --- optional: code điều chỉnh style header ---- \n  modify_header(label = \"**Đặc điểm**\")  %&gt;% \n  as_gt() %&gt;% \n  gt::tab_style(\n    style = gt::cell_text(weight = \"bold\"),\n    locations = gt::cells_row_groups(groups = everything())\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nĐặc điểm\nnữ1\nnam1\np-value\n\n\n\n\nĐợt 1\n\n\nKết quả\n\n\n\n\n\n\n\n\n    tử vong\n56 (7.5%)\n54 (7.0%)\n\n\n\n\n    khỏi bệnh\n690 (92%)\n713 (93%)\n\n\n\n\nĐợt 2\n\n\nKết quả\n\n\n\n\n\n\n\n\n    tử vong\n51 (8.2%)\n59 (9.4%)\n\n\n\n\n    khỏi bệnh\n568 (92%)\n571 (91%)\n\n\n\n\nCả 2 đợt\n\n\nKết quả\n\n\n\n\n\n\n\n\n    tử vong\n107 (7.8%)\n113 (8.1%)\n\n\n\n\n    khỏi bệnh\n1,258 (92%)\n1,284 (92%)\n\n\n\n\n\n1 n (%)",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data analysis"
     ]
@@ -2140,7 +2140,7 @@
     "section": "Bài tập",
     "text": "Bài tập\n\nĐọc dữ liệu\nĐọc dữ liệu tiêm chủng sau phần làm sạch\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nTạo và điều chỉnh bảng thống kê\nTạo bảng thống kê cho dữ liệu vaccine theo các yêu cầu sau\n\nHiển thị thống kê cho các biến ngaysinh, ngaytiem, khangnguyen, cho từng nhóm giới tính (gioitinh)\nThay đổi tên các biến được hiển thị như sau: ngaysinh -&gt; Ngày sinh, ngaytiem -&gt; Ngày tiêm, khangnguyen -&gt; Kháng nguyên\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPhân tích\nTạo bảng thống kê số mũi viêm gan b sơ sinh (khangnguyen mang giá trị vgb_truoc_24, vgb_sau_24) theo quận huyện\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTạo bảng tỷ lệ tiêm chủng bằng tbl_summary theo quận/huyện\n\n\n\n\n\n\nGợi ý\n\n\n\n\n\n\nChuyển từ bảng dạng ngang sang dọc bằng pivot_wider\nFormat các biến ngày tiêm thành tình trạng tiêm\nDùng tbl_summary để hiển thị số trẻ được tiêm cho từng mũi",
     "crumbs": [
-      "Home",
+      "🔹 **Members**",
       "R language",
       "Data analysis"
     ]

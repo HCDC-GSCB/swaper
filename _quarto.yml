@@ -6,15 +6,15 @@ resources:
   - scan-media.html
 
 website:
-  title: "SWAPER"
+  title: ""
   favicon: logo.png
+  search: true
   navbar:
+    pinned: true
     left:
-      - text: "Home"
-        icon: house
+      - icon: house
         href: index.qmd
       - text: "News"
-        icon: circle-info
         href: news.qmd
       - text: "Seminars"
         menu: 
@@ -37,7 +37,7 @@ website:
     right:
       - icon: github
         href: https://github.com/HCDC-GSCB/
-      - text: "Chill"
+      - icon: gamepad
         href: game.html
 
   sidebar:
