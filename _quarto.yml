@@ -6,13 +6,14 @@ resources:
   - scan-media.html
 
 website:
-  title: ""
+  title: "SWAPER"
   favicon: logo.png
   search: true
   navbar:
     pinned: true
     left:
-      - icon: house
+      - text: "About"
+        icon: house
         href: index.qmd
       - text: "News"
         href: news.qmd
@@ -28,16 +29,17 @@ website:
             href: training.qmd
           - text: "Documents"
             href: document.qmd
-      - text: "Scan media"
+      - text: "EBS"
         icon: newspaper
         href: scan-media.html
-      - text: "Report"
-        icon: table-layout
+      - text: "IBS"
+        icon: database
         href: report.qmd
     right:
       - icon: github
         href: https://github.com/HCDC-GSCB/
-      - icon: gamepad
+      - text: "Chill"
+        icon: discord
         href: game.html
 
   sidebar:
@@ -66,7 +68,8 @@ website:
             - exercise3.qmd
 
   back-to-top-navigation: true
-  page-footer: "Copyright 2025, SWAPER"
+  page-footer: 
+    right: "© 2025 HCDC - SWAPER"
 
 format:
   html:
