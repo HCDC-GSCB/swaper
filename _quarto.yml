@@ -6,6 +6,12 @@ website:
   title: "SWAPER"
   favicon: logo.png
   search: true
+  announcement: 
+    icon: info-circle
+    dismissable: true
+    content: "Website is under construction"
+    type: primary
+    position: above-navbar
   navbar:
     pinned: true
     left:
@@ -60,7 +66,10 @@ website:
             - training/exercise3.qmd
 
   back-to-top-navigation: true
-  page-footer: 
+  page-footer:
+    left: |
+      📧 contact@hcdc.vn<br>
+      📍 240 Trần Hưng Đạo, Quận 1, TP.HCM
     right: "© 2025 HCDC - SWAPER"
 
 format:
@@ -71,7 +80,7 @@ format:
       light: flatly
       dark: darkly
     toc: true
-    css: custom.css
+    css: custom_v2.css
     includes: 
       after-body: loading.html
 

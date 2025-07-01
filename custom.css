@@ -1,6 +1,6 @@
 /* --- NAVBAR --- */
 .navbar {
-  background-color: #006A71 !important;
+  background-color: #005d88 !important; /* Xanh đậm */
   border-bottom: none;
 }
 
@@ -13,7 +13,7 @@
 .navbar .nav-link:hover,
 .navbar .nav-link:focus,
 .navbar .nav-item.active .nav-link {
-  color: #48A6A7 !important;
+  color: #1a9fcc !important; /* Nhấn sáng khi hover */
   background-color: transparent;
 }
 
@@ -24,14 +24,14 @@
 }
 
 .navbar .dropdown-menu .dropdown-item {
-  color: #9ACBD0 !important;
+  color: #408bbb !important;
   font-weight: 500;
 }
 
 .navbar .dropdown-menu .dropdown-item:hover,
 .navbar .dropdown-menu .dropdown-item:focus {
-  background-color: #f0f0f0 !important;
-  color: #006A71 !important;
+  background-color: #e6f4f8 !important;
+  color: #005d88 !important;
 }
 
 /* GitHub / Discord icon */
@@ -46,7 +46,7 @@
 
 /* --- SIDEBAR --- */
 .sidebar-title {
-  color: #2A2185;
+  color: #2f2ba0;
   font-weight: bold;
 }
 
@@ -56,17 +56,17 @@
 
 .sidebar nav .nav-link:hover {
   background-color: #e9ecef;
-  color: #2A2185;
+  color: #2f2ba0;
 }
 
 /* --- BACK TO TOP --- */
 .quarto-back-to-top {
-  background-color: #2A2185;
+  background-color: #492799;
   color: white;
 }
 
 .quarto-back-to-top:hover {
-  background-color: #1c1b4c;
+  background-color: #2f2ba0;
 }
 
 /* --- FOOTER --- */
@@ -81,13 +81,13 @@
 
 /* --- TITLE BANNER --- */
 div.quarto-title-banner {
-  background-color: #48A7A5 !important;
+  background-color: #408bbb !important;
   color: white !important;
 }
 
 .quarto-title-banner img.logo {
   display: inline-block !important;
-  height: 60px; /* hoặc kích thước mong muốn */
+  height: 60px;
   margin-right: 10px;
 }
 
@@ -96,11 +96,11 @@ div.quarto-title-banner {
   color: white !important;
 }
 
-/* Chỉ đổi màu heading phụ trong banner (không ảnh hưởng title/subtitle chính) */
+/* Chỉ đổi màu heading phụ trong banner */
 .quarto-title-banner h1:not(.title),
 .quarto-title-banner h2,
 .quarto-title-banner h3 {
-  color: #9ACBD0 !important;
+  color: #1a9fcc !important;
 }
 
 /* --- HEADING TRONG TOÀN BỘ TRANG --- */
@@ -110,5 +110,31 @@ main h3,
 main h4,
 main h5,
 main h6 {
-  color: #9ACBD0 !important;
+  color: #1a9fcc !important;
+}
+
+/* Màu chữ bình thường trong TOC */
+nav.toc ul > li > a {
+  color: #005d88; /* màu chữ bình thường */
+  text-decoration: none;
+}
+
+/* Màu chữ khi hover */
+nav.toc ul > li > a:hover {
+  color: #1a9fcc; /* xanh da trời sáng */
+}
+
+/* Màu cho mục đang active */
+nav.toc ul > li > a.active,
+nav.toc ul > li > a:focus {
+  color: #2f2ba0; /* tím xanh nhấn mạnh */
+  font-weight: bold;
+}
+
+nav.toc ul ul > li > a {
+  color: #005d88;
+}
+
+nav.toc ul ul > li > a:hover {
+  color: #408bbb;
 }

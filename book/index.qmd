@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Documents"
 ---
 
 ## Book
@@ -43,5 +43,3 @@ title: ""
 4.  Telling Stories with Data, 2023 [Link](https://tellingstorieswithdata.com/){target="_blank"}
 
 5.  Spatial Statistics for Data Science: Theory and Practice with R, 2019 [Link](https://www.paulamoraga.com/book-spatial/index.html){target="_blank"}
-
-6.  

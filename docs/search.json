@@ -445,7 +445,7 @@
   {
     "objectID": "training/index.html",
     "href": "training/index.html",
-    "title": "SWAPER",
+    "title": "Welcome to training",
     "section": "",
     "text": "Welcome to the SWAPER!\nTo better support new team members in quickly understanding their roles and responsibilities, our department has developed a series of foundational training materials tailored to the specific functions of each team.\nOur department consists of two key teams:\n\nSurveillance and Early Warning Team: Focused on epidemiological surveillance and outbreak forecasting, this team requires a solid understanding of epidemiology as well as proficiency in R programming for data analysis and modeling.\nPreparedness and Emergency Response Team: Responsible for ensuring rapid preparedness and effective response to public health emergencies, this team focuses on planning, coordination, and operational readiness during outbreaks.\n\nThese training modules aim to equip our new colleagues with essential knowledge and practical skills, ensuring a smooth integration into their respective roles while maintaining the high standards of our department’s work.\nThis page provides key documents and reference materials that support the SWAPER Department’s work in areas such as infectious disease modelling, health surveillance, epidemic risk assessment, and the effective coordination of public health emergency operations through established systems and frameworks.\nWe welcome you to explore the content and hope it supports you in building a strong foundation for your professional journey with us.\nLet’s begin this important journey. 🌍💪\n\n\n\n Back to top"
   },
@@ -514,7 +514,7 @@
     "href": "seminars/index.html",
     "title": "Online semniars for infectious diseases",
     "section": "",
-    "text": "Joint UNIversities Pandemic and Epidemiological Research (JUNIPER) seminar Link\nLSHTM Centre for Epidemic Preparedness and Response seminar series Link\nHavard T.H. Chan School of Public Health: Seminars in Epidemiology Link\nHavard T.H. Chan School of Public Health: Center for Communicable Disease Dynamics, ID Epi Spring Seminar Series Link\n\n\n\n\n\nAdvances in Socio-Epidemic Mathematical Modelling UMI-MSE online seminar Link\nLSHTM Centre for data and statistical science for health seminar series Link\nLSHTM Centre for Mathematical Modelling of Infectious Diseases seminar series Link\nThe MIDSEA Network Link\n\n\n\n\nThis session introduces key online learning resources on Public Health Emergency Operations Centres (PHEOC) and Public Health Emergency Management (PHEM). Participants will be guided to relevant self-paced courses provided by trusted institutions such as WHO, CDC, and other global partners. These resources support capacity building for emergency preparedness and response.\n\nReady4Response Tier 2: Systems, structures and skills Link\nThe Public Health Emergency Operations Centre (PHEOC) Link\nKing County Emergency Management Link\nRapid Response Teams Training Programme - WHO Link\n\n\n\n\n\nAbstract Writing (18/6/2025) Link\nQualitative Data Collection During an Outbreak Part I (16/7/2025) Link\nQualitative Data Collection During an Outbreak Part II (20/8/2025) Link\nInformatics & Data Viz Basics for Field Epidemiology (17/9/2025) Link\nSurveillance System Evaluations (15/10/2025) Link\nMatching in Case: Control Studies: Should I Do It? When to Do It and Why (19/11/2025) Link\nUsing an Outline When Writing: How to Clear Your Thoughts Before Putting Pen to Paper (21/1/2026) Link\nFacilitating a Case Study (18/2/2026) Link"
+    "text": "Joint UNIversities Pandemic and Epidemiological Research (JUNIPER) seminar Link\nLSHTM Centre for Epidemic Preparedness and Response seminar series Link\nHavard T.H. Chan School of Public Health: Seminars in Epidemiology Link\nHavard T.H. Chan School of Public Health: Center for Communicable Disease Dynamics, ID Epi Spring Seminar Series Link"
   },
   {
     "objectID": "seminars/index.html#epidemiology",
@@ -527,22 +527,22 @@
     "objectID": "seminars/index.html#modeling",
     "href": "seminars/index.html#modeling",
     "title": "Online semniars for infectious diseases",
-    "section": "",
-    "text": "Advances in Socio-Epidemic Mathematical Modelling UMI-MSE online seminar Link\nLSHTM Centre for data and statistical science for health seminar series Link\nLSHTM Centre for Mathematical Modelling of Infectious Diseases seminar series Link\nThe MIDSEA Network Link"
+    "section": "Modeling",
+    "text": "Modeling\n\nAdvances in Socio-Epidemic Mathematical Modelling UMI-MSE online seminar Link\nLSHTM Centre for data and statistical science for health seminar series Link\nLSHTM Centre for Mathematical Modelling of Infectious Diseases seminar series Link\nThe MIDSEA Network Link"
   },
   {
     "objectID": "seminars/index.html#the-public-health-emergency-operations-centre",
     "href": "seminars/index.html#the-public-health-emergency-operations-centre",
     "title": "Online semniars for infectious diseases",
-    "section": "",
-    "text": "This session introduces key online learning resources on Public Health Emergency Operations Centres (PHEOC) and Public Health Emergency Management (PHEM). Participants will be guided to relevant self-paced courses provided by trusted institutions such as WHO, CDC, and other global partners. These resources support capacity building for emergency preparedness and response.\n\nReady4Response Tier 2: Systems, structures and skills Link\nThe Public Health Emergency Operations Centre (PHEOC) Link\nKing County Emergency Management Link\nRapid Response Teams Training Programme - WHO Link"
+    "section": "The Public Health Emergency Operations Centre",
+    "text": "The Public Health Emergency Operations Centre\nThis session introduces key online learning resources on Public Health Emergency Operations Centres (PHEOC) and Public Health Emergency Management (PHEM). Participants will be guided to relevant self-paced courses provided by trusted institutions such as WHO, CDC, and other global partners. These resources support capacity building for emergency preparedness and response.\n\nReady4Response Tier 2: Systems, structures and skills Link\nThe Public Health Emergency Operations Centre (PHEOC) Link\nKing County Emergency Management Link\nRapid Response Teams Training Programme - WHO Link"
   },
   {
     "objectID": "seminars/index.html#field-epidemiology-training-program",
     "href": "seminars/index.html#field-epidemiology-training-program",
     "title": "Online semniars for infectious diseases",
-    "section": "",
-    "text": "Abstract Writing (18/6/2025) Link\nQualitative Data Collection During an Outbreak Part I (16/7/2025) Link\nQualitative Data Collection During an Outbreak Part II (20/8/2025) Link\nInformatics & Data Viz Basics for Field Epidemiology (17/9/2025) Link\nSurveillance System Evaluations (15/10/2025) Link\nMatching in Case: Control Studies: Should I Do It? When to Do It and Why (19/11/2025) Link\nUsing an Outline When Writing: How to Clear Your Thoughts Before Putting Pen to Paper (21/1/2026) Link\nFacilitating a Case Study (18/2/2026) Link"
+    "section": "Field Epidemiology Training Program",
+    "text": "Field Epidemiology Training Program\n\nAbstract Writing (18/6/2025) Link\nQualitative Data Collection During an Outbreak Part I (16/7/2025) Link\nQualitative Data Collection During an Outbreak Part II (20/8/2025) Link\nInformatics & Data Viz Basics for Field Epidemiology (17/9/2025) Link\nSurveillance System Evaluations (15/10/2025) Link\nMatching in Case: Control Studies: Should I Do It? When to Do It and Why (19/11/2025) Link\nUsing an Outline When Writing: How to Clear Your Thoughts Before Putting Pen to Paper (21/1/2026) Link\nFacilitating a Case Study (18/2/2026) Link"
   },
   {
     "objectID": "news/index.html",
@@ -554,28 +554,28 @@
   {
     "objectID": "book/index.html",
     "href": "book/index.html",
-    "title": "SWAPER",
+    "title": "Documents",
     "section": "",
     "text": "Principles of Epidemiology in Public Health Practice, 2012 (USCDC) Link\nHandbook of Applied Health Economics in Vaccines, 2023 Link\nNational RRT SOPs, 2024 (NIH, Pakistan) Link\nFramework for a Public Health Emergency Operations Centre Link\nInternational Health Regulation (2005) Link\nHandbook for Developing a Public Health Emergency Operations Center (Part A) Link\nHandbook for Developing a Public Health Emergency Operations Center (Part C) Link\nHandbook for Public Health Emergency Operations Center Operations and Management-WHO Regional Office for Africa Link\nEstablishment and Management of Public Health Rapid Response Teams For Diseases Outbreaks Link\nGuidance for after action review Link\nWHO Simulation Exercise Manual Link\nEmergency Exercise Development Link\nCommunicating risk in public health emergencies: a WHO guideline for emergency risk communication policy and practice Link\nWHO community engagement framework for quality, people-centred and resilient health services Link"
   },
   {
     "objectID": "book/index.html#book",
     "href": "book/index.html#book",
-    "title": "SWAPER",
+    "title": "Documents",
     "section": "",
     "text": "Principles of Epidemiology in Public Health Practice, 2012 (USCDC) Link\nHandbook of Applied Health Economics in Vaccines, 2023 Link\nNational RRT SOPs, 2024 (NIH, Pakistan) Link\nFramework for a Public Health Emergency Operations Centre Link\nInternational Health Regulation (2005) Link\nHandbook for Developing a Public Health Emergency Operations Center (Part A) Link\nHandbook for Developing a Public Health Emergency Operations Center (Part C) Link\nHandbook for Public Health Emergency Operations Center Operations and Management-WHO Regional Office for Africa Link\nEstablishment and Management of Public Health Rapid Response Teams For Diseases Outbreaks Link\nGuidance for after action review Link\nWHO Simulation Exercise Manual Link\nEmergency Exercise Development Link\nCommunicating risk in public health emergencies: a WHO guideline for emergency risk communication policy and practice Link\nWHO community engagement framework for quality, people-centred and resilient health services Link"
   },
   {
     "objectID": "book/index.html#e-book",
     "href": "book/index.html#e-book",
-    "title": "SWAPER",
+    "title": "Documents",
     "section": "E-Book",
     "text": "E-Book\n\nEpidemic R Handbook, 2024 Link\nIntroduction to Data Science, 2019 Link\nggplot2: Elegant Graphics for Data Analysis, 2019 Link\nTelling Stories with Data, 2023 Link\nSpatial Statistics for Data Science: Theory and Practice with R, 2019 Link"
   },
   {
     "objectID": "about/index.html",
     "href": "about/index.html",
-    "title": "About us",
+    "title": "SWAPER",
     "section": "",
     "text": "Lan Truong\n            Position: Head of Department of Surveillance, Warning and Preparedness, Emergency Response\n            Major: Master of Public Health\n        \n    \n\n    \n    \n        \n        An Tran\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n    \n        \n        Anh Huynh\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n    \n        \n        Diem Le\n        Major: Doctor of Preventive Medicine\n        Surveillance System, Data analysis and forecasting (Modeling team)\n    \n    \n        \n        Thu Pham\n        Major: Bachelor of Public Health\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n\n    \n    \n        \n        Khang Huynh\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Prepare to respond to emergencies(EOC team)\n    \n    \n        \n        Vy Tran\n        Major: Doctor of Preventive Medicine\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n        \n        Ngoc Dinh\n        Major: Doctor of Preventive Medicine\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n        \n        Le Tran\n        Major: Bachelor of Public Health\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n\n    \n        \n        Tuyen Pham\n        Major: Doctor of Preventive Medicine\n        Surveillance, warning epidemic\n    \n    \n        \n        Quan Truong\n        Major: Doctor of Preventive Medicine\n        Surveillance, warning epidemic\n    \n    \n        \n        Vinh Tran\n        Major: Bachelor of Public Health\n        Surveillance, warning epidemic\n    \n    \n        \n        Nhon Nguyen\n        Major: Bachelor of Public Health\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n\n\n\n\n Back to top"
   },

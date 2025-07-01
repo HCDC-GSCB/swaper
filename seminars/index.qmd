@@ -2,8 +2,6 @@
 title: "Online semniars for infectious diseases"
 ---
 
-# All seminars 
-
 ## Epidemiology
 
 1.  Joint UNIversities Pandemic and Epidemiological Research (JUNIPER) seminar [Link](https://maths.org/juniper/seminars)
