@@ -2,9 +2,6 @@ project:
   type: website
   output-dir: docs
 
-resources:
-  - chill.html
-
 website:
   title: "SWAPER"
   favicon: logo.png
@@ -35,7 +32,7 @@ website:
         href: https://github.com/HCDC-GSCB/
       - text: "Chill"
         icon: discord
-        href: chill.html
+        href: game.html
 
   sidebar:
     - id: training
