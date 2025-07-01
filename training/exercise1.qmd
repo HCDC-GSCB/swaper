@@ -1,0 +1,208 @@
+---
+title: "Take home Day 1"
+sidebar: training
+format: html
+---
+
+## Dataset
+
+Dữ liệu `covid_cases.rds` từ [R-Together/day1/data/covid_cases.rds](https://github.com/HCDC-GSCB/swaper/blob/b81a53616702bbac1b39eb04b9d17f966e6b7460/data/covid_cases.rds) sẽ được sử dụng cho bài tập này
+
+<details>
+
+<summary>Từ điển dữ liệu</summary>
+
+| Cột | Mô tả |
+|------------------------------------|------------------------------------|
+| `date` | Ngày báo cáo của ca bệnh |
+| 211 cột với định dạng `cases_{country_code}` | Số trường hợp được báo cáo của mỗi quốc gia và quần đảo |
+
+Mã quốc gia quan tâm (tức là Mã cho các quốc gia cần thiết cho bài tập)
+
+| Code  | Tên Quốc gia             |
+|-------|--------------------------|
+| `chn` | China                    |
+| `usa` | United States of America |
+| `vnm` | Vietnam                  |
+| `sgp` | Singapore                |
+
+</details>
+
+## Chuẩn bị
+
+Trước khi thực hiện bài tập này, bạn nên hoàn thành checklist sau
+
+::: callout-note
+#### Checklist
+
+Trên Github Desktop
+
+-   Cloned [R-Together repository](https://github.com/HCDC-GSCB/R-Together)
+
+-   Tạo nhánh riêng của bạn trên kho lưu trữ
+
+-   Chuyển sang nhánh riêng của bạn
+
+Trên RStudio
+
+-   Tạo một R project từ thư mục [R-Together](https://github.com/HCDC-GSCB/R-Together)
+:::
+
+::: callout-note
+#### Bài làm
+
+Bạn cần lưu bài làm của mình tại đường dẫn R-Together/day1/takehome.R
+:::
+
+## Bài tập
+
+### Nhiệm vụ 1: Nhập dữ liệu
+
+Đọc dữ liệu từ file `R-Together/day1/data/covid_cases.rds`
+
+### Nhiệm vụ 2: Tính toán đơn giản
+
+Tính toán những điều sau:
+
+-   Ngày báo cáo dữ liệu sớm nhất và muộn nhất trong tập dữ liệu và gán chúng cho 2 biến `first_report_date`, `last_report_date`
+
+-   Tạo cột mới `case_global` cho `covid_cases`, đại diện cho tổng số trường hợp trên mọi quốc gia mỗi ngày báo cáo.
+
+-   Tạo cột mới `percent_chn` trong `covid_cases`, đại diện cho tỷ lệ phần trăm các trường hợp toàn cầu mà các trường hợp Trung Quốc báo cáo trong ngày
+
+::: callout-tip
+#### Gợi ý: tính tổng của từng hàng
+
+Sử dụng hàm  `rowSums()`  để tính tổng theo hàng của các cột chứa số ca
+
+**Ví dụ:**
+
+```{r}
+vd_bang <- data.frame(
+  a = c(1:3), b = c(4:6)
+)
+# hiển thị bảng ví dụ
+vd_bang
+```
+
+```{r}
+# Xem kết quả đầu ra của hàm rowSums
+rowSums(vd_bang)
+```
+:::
+
+::: callout-tip
+#### Gợi ý: tạo cột mới/cập nhật giá trị của cột
+
+Để tạo hoặc cập nhật một cột, sử dụng cú pháp `data[["tên_cột"]] <- giá_trị_cho_cột`, trong đó độ dài của `giá_trị_cho_cột` phải bằng với số hàng của bảng dữ liệu.
+
+**Ví dụ:**
+
+```{r}
+vd_bang <- data.frame(
+  a = c(1:3), b = c(4:6)
+)
+
+# tạo cột mới có tên là new_col
+vd_bang[["new_col"]] <- c(7,9,11)
+vd_bang
+```
+:::
+
+### Nhiệm vụ 3: **Tạo một function**
+
+Hoàn thành phần sau đây::
+
+-   Tạo một function `compute_percent` mà function đó
+
+    -   nhận bộ dữ liệu và [**mã quốc gia**]{.underline} (3 ký tự sau `cases_` trong tên cột) làm đầu vào.
+
+    -   trả về tỷ lệ phần trăm số ca toàn cầu mà số ca của Quốc gia được chỉ định chiếm trên mỗi ngày báo cáo.
+
+-   Sử dụng function đó để tạo 3 cột mới cho bảng `covid_cases`: `percent_vnm`, `percent_usa`, `percent_sgp`
+
+-   In bảng `covid_cases` cuối cùng, chỉ chọn các cột sau `date`, `percent_chn`, `percent_vnm`, `percent_usa`, `percent_sgp`
+
+::: callout-tip
+#### Gợi ý: nối chuỗi
+
+Sử dụng function `paste()` để nối nhiều chuỗi lại với nhau
+
+**Ví dụ**
+
+```{r}
+# nối 2 chuỗi
+paste("cases_", "chn", sep = "")
+```
+
+```{r}
+# nối 3 chuỗi
+paste("hello", "world,", "welcome to R-together", sep = " ")
+```
+:::
+
+### **Nhiệm vụ 3.5 (Tùy chọn): Tạo một hàm từ đoạn mã đã cho**
+
+Tạo môt hàm trả về biểu đồ số ca được báo cáo theo thời gian cho một quốc gia, trong đó người dùng có thể
+
+-   Chọn cột số ca cần được vẽ biểu đồ
+
+-   Thay đổi tên Quốc gia được hiển thị trên tiêu đề của biểu đồ
+
+-   Thay đổi màu của biểu đồ cột và đường
+
+-   Thiết lập ngày **nhỏ nhất** và **lớn nhất** (giới hạn trục x) cho biểu đồ
+
+Giả sử đoạn mã để vẽ biểu đồ báo cáo số ca của Trung Quốc như sau
+
+```{r, include = F}
+library(tidyverse)
+covid_cases <- read_rds("../data/covid_cases.rds") %>% mutate_if(is.Date, ymd) 
+```
+
+```{r}
+# Bỏ dấu # và chạy đoạn mã sau nếu bạn chưa cài đặt tidyverse hoặc ggplot2
+# install.packages("tidyverse")
+library(tidyverse)
+covid_cases <- read_rds("../data/covid_cases.rds") %>% mutate_if(is.Date, ymd) 
+library(ggplot2)
+plot_col <- "cases_chn"
+country <- "China"
+
+ggplot() +
+  geom_col( # lớp biểu đồ cột
+    aes( # xác định các cột cho trục x, y 
+      x = covid_cases$date, # điều này tương đương với covid_cases[["date"]]
+      y = covid_cases[[plot_col]] 
+      ), 
+    fill = "cornflowerblue" # chọn màu cho biểu đồ cột
+  ) +
+  geom_line( # lớp biểu đồ đường
+    aes( # xác định các cột cho trục x, y
+      x = covid_cases$date, 
+      y = covid_cases[[plot_col]] 
+      ), 
+    color = "red" # chọn màu cho biểu đồ đường
+  ) +
+  labs(
+    y = "Cases",
+    x = "Date",
+    title = paste0("Reported Covid cases for ", country) # xác định tiêu đề cho biểu đồ
+  )
+```
+
+### **Nhiệm vụ 4: Tạo bảng tóm tắt dữ liệu**
+
+Hoàn thành các yêu cầu sau:
+
+-   Sử dụng function `skim()` từ package `skimr` để tạo bảng tóm tắt dữ liệu cho các Quốc gia sau: China, Vietnam, USA, Singapore
+
+-   Mô tả những quan sát đáng chú ý từ từng Quốc gia dựa trên kết quả của `skim()`
+
+### **Nhiệm vụ 5: Đánh giá**
+
+Hoàn thành các yêu cầu sau:
+
+-   Đẩy bài của bạn lên GitHub với nội dung commit: `"day 1 take home solution your_name"`
+
+-   Tạo một issue để bình luận về ít nhất **1 bài làm** của 1 người tham gia khác

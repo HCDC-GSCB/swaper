@@ -1,6 +1,6 @@
-/* Set navbar background color and text */
+/* --- NAVBAR --- */
 .navbar {
-  background-color: #2A2185 !important;
+  background-color: #006A71 !important;
   border-bottom: none;
 }
 
@@ -13,32 +13,38 @@
 .navbar .nav-link:hover,
 .navbar .nav-link:focus,
 .navbar .nav-item.active .nav-link {
-  color: #fd0da9 !important; /* Highlight on hover */
+  color: #48A6A7 !important;
   background-color: transparent;
 }
 
-/* Dropdown menu in navbar */
+/* DROPDOWN menu trong navbar */
 .navbar .dropdown-menu {
-  background-color: #2A2185 !important;
+  background-color: #ffffff !important;
   border: none;
 }
 
-.navbar .dropdown-item {
-  color: #ffffff !important;
+.navbar .dropdown-menu .dropdown-item {
+  color: #9ACBD0 !important;
+  font-weight: 500;
 }
 
-.navbar .dropdown-item:hover,
-.navbar .dropdown-item:focus {
-  background-color: #1f1b63 !important;
-  color: #fd0da9 !important;
+.navbar .dropdown-menu .dropdown-item:hover,
+.navbar .dropdown-menu .dropdown-item:focus {
+  background-color: #f0f0f0 !important;
+  color: #006A71 !important;
 }
 
-/* GitHub icon or other right-side icons */
+/* GitHub / Discord icon */
 .navbar .nav-item .bi {
   color: #ffffff !important;
 }
 
-/* Sidebar heading and sections */
+/* Ẩn icon moon/sun */
+.navbar .quarto-toggle-icon {
+  display: none;
+}
+
+/* --- SIDEBAR --- */
 .sidebar-title {
   color: #2A2185;
   font-weight: bold;
@@ -53,7 +59,7 @@
   color: #2A2185;
 }
 
-/* Optional: back-to-top button customization */
+/* --- BACK TO TOP --- */
 .quarto-back-to-top {
   background-color: #2A2185;
   color: white;
@@ -63,7 +69,7 @@
   background-color: #1c1b4c;
 }
 
-/* Footer styling */
+/* --- FOOTER --- */
 .footer {
   background-color: #f8f9fa;
   color: #6c757d;
@@ -73,17 +79,36 @@
   border-top: 1px solid #dee2e6;
 }
 
-/* Ẩn icon mặc định (moon/sun) */
-.navbar .quarto-toggle-icon {
-  display: none;
+/* --- TITLE BANNER --- */
+div.quarto-title-banner {
+  background-color: #48A7A5 !important;
+  color: white !important;
 }
 
-/* Thêm biểu tượng mới bằng Bootstrap Icons */
-.navbar .quarto-toggle::before {
-  content: "\f1ce"; /* Unicode cho circle-half từ Bootstrap Icons */
-  font-family: "bootstrap-icons";
-  font-size: 1.2rem;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 0.25rem;
+.quarto-title-banner img.logo {
+  display: inline-block !important;
+  height: 60px; /* hoặc kích thước mong muốn */
+  margin-right: 10px;
+}
+
+.quarto-title-banner .title,
+.quarto-title-banner .subtitle {
+  color: white !important;
+}
+
+/* Chỉ đổi màu heading phụ trong banner (không ảnh hưởng title/subtitle chính) */
+.quarto-title-banner h1:not(.title),
+.quarto-title-banner h2,
+.quarto-title-banner h3 {
+  color: #9ACBD0 !important;
+}
+
+/* --- HEADING TRONG TOÀN BỘ TRANG --- */
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+  color: #9ACBD0 !important;
 }

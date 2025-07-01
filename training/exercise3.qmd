@@ -1,0 +1,103 @@
+---
+title: "Capstone Project"
+sidebar: training
+format: html
+---
+
+## Giới thiệu 📝
+
+Chào mừng bạn đến với bài tập cuối khóa (Capstone Project)!
+
+Mục tiêu của dự án này là để bạn áp dụng các kỹ năng đã học về xử lý, phân tích và trực quan hóa dữ liệu bằng **R**. Bạn sẽ sử dụng bộ công cụ `tidyverse` để làm sạch và chuyển đổi dữ liệu, `ggplot2` để tạo ra các biểu đồ ý nghĩa, và tự xây dựng một hàm (function) để tự động hóa một tác vụ phân tích.
+
+**Bộ dữ liệu:** Chúng ta sẽ làm việc với data `life-exp.csv`, chứa dữ liệu về tuổi thọ trung bình và các chỉ số khác của các quốc gia trên thế giới từ năm 2000 đến 2015.
+
+**Yêu cầu:** 1. Sử dụng R. 2. Tạo một file RMarkdown (`.rmd`) để trình bày toàn bộ bài làm. 3. Phân tích và giải thích kết quả (không bắt buộc) 4. Nộp lại file `.rmd` và file Word đã được render.
+
+## Phần 1: Đọc dữ liệu
+
+-   Tải các thư viện cần thiết: `tidyverse`, `skimr`, `lubridate`, `janitor`...
+
+-   Đọc dữ liệu trong đường dẫn `day1/data/life-exp.csv` và gán thành đối tượng `df`
+
+## Phần 2: Khám phá Dữ liệu 🔍
+
+-   Dữ liệu có bao nhiêu dòng và bao nhiêu cột?
+
+-   Dữ liệu gồm những loại biến nào?
+
+-   Dữ liệu có cột nào có missing không? Nếu có thì gồm những cột nào?
+
+-   Tên các cột có đúng quy tắc chưa? Nếu chưa thì đổi tên cột theo đúng quy tắc.
+
+-   Kiểu dữ liệu của mỗi cột có phù hợp chưa? Nếu chưa thì đổi thành kiểu dữ liệu phù hợp với biến.
+
+## Phần 3: Xử lý và phân tích dữ liệu
+
+-   Sử dụng `df` truy xuất ra những cột `Measles`, `Polio`, `Diphtheria` và gán thành `df_diseases`. Sau đó in kết quả những dòng đầu tiên.
+
+-   Sử dụng `df` truy xuất hàng 2, cột 5.
+
+-   Sử dụng `df` truy nhất hàng 2,5 và cột `Measles`, `Polio`.
+
+-   Thay thế những giá trị missing của cột `Life Expectancy` bằng giá trị trung bình của những giá trị còn lại.
+
+-   Tìm ra 5 quốc gia có tuổi thọ trung bình cao nhất năm 2015 và gán thành `top_5`.
+
+-   Tìm ra 5 quốc gia có tuổi thọ trung bình thấp nhất năm 2015 và gán thành `bot_5`.
+
+-   Tạo 1 data frame chứa 2 đối tượng `top_5` và `bot_5` và gán thành `df_top_bot`
+
+-   Tạo biến mới `bmi_lv` là biến thứ tự gồm các nhóm: dưới 18.5, từ 18.5 đến 23, trên 23.
+
+-   Sử dụng `df` nhóm theo `country` để tính trung bình GDP và gán thành `df_gdp_by_country`.
+
+## Phần 4: Tạo bảng thống kê năm 2015
+
+-   Các biến: Status, Life Expectancy, Adult Mortality, GDP, Schooling, BMI.
+
+-   Phân nhóm theo Status
+
+-   Tạo nhãn cho các biến.
+
+-   Bỏ qua các giá trị missing.
+
+-   BMI thống kê theo Median (IQR), các biến định lượng khác thể hiện Mean (Min - Max).
+
+-   In đậm nhãn và thêm caption cho bảng.
+
+-   Sử dụng kiểm định phù hợp và thể hiện giá trị p với 3 chữ số thập phân.
+
+-   Thêm cột thống kê tổng.
+
+## Phần 5: Trực quan hóa
+
+5.1. Biểu đồ đường thể hiện xu hướng tuổi thọ
+
+-   Theo các quốc gia: Vietnam, Thailand, Cambodia, Singapore).
+
+-   Thêm tên biểu đồ, tên trục x, trục y và tên chú thích.
+
+-   Tùy chỉnh trục x thể hiện từ năm 2000 đến 2015, cách nhau mỗi 3 năm.
+
+5.2. Sử dụng biểu đồ tương ứng để thể hiện mối quan hệ giữa 2 biến GDP và tuổi thọ.
+
+-   Thể hiện màu theo Status.
+
+-   Thể hiện kích thước theo Population
+
+-   Tùy chỉnh giá trị trục x theo thang đo `log10` với đơn vị `$`.
+
+-   Thêm tên biểu đồ, trục x, trục y và tên chú thích.
+
+-   Từ biểu đồ trên tạo ra nhiều biểu đồ nhỏ phân nhóm theo Country.
+
+## Phần 5: Viết function
+
+-   Tạo function có tên `plot_country` với hai tham số đầu vào là `country_name` và `indicator`.
+
+-   `country_name` là tên của quốc gia bạn muốn phân tích.
+
+-   `indicator` là tên của chỉ số bạn muốn vẽ.
+
+**Function này sẽ vẽ theo các chỉ số và quốc gia mà bạn muốn từ giai đoạn 2000-2015**

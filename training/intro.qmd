@@ -1,0 +1,32 @@
+---
+title: "Agenda"
+sidebar: training
+---
+
++-------------+--------------------------------------------+----------------------------------+
+|             | Lesson                                     | Content                          |
++=============+============================================+==================================+
+| Day 1       | Overview of R                              | R and RStudio                    |
+|             |                                            |                                  |
+|             |                                            | Popular applications with R      |
+|             |                                            |                                  |
+|             |                                            | Git and Github                   |
++-------------+--------------------------------------------+----------------------------------+
+| Day 2       | Data management, data cleaning and R style | Importing and exporting data     |
+|             |                                            |                                  |
+|             |                                            | Data cleaning and Tidyverse      |
+|             |                                            |                                  |
+|             |                                            | Function in R                    |
++-------------+--------------------------------------------+----------------------------------+
+| Day 3       | Data analysis                              | R project, R markdown            |
+|             |                                            |                                  |
+|             |                                            | Working with gtsummary           |
++-------------+--------------------------------------------+----------------------------------+
+| Day 4       | Data visualization                         | Grammar of graphics with ggplot2 |
+|             |                                            |                                  |
+|             |                                            | Basic geometries                 |
+|             |                                            |                                  |
+|             |                                            | Practice                         |
++-------------+--------------------------------------------+----------------------------------+
+| Day 5       | Capstone                                   | Practice with Rmarkdown          |
++-------------+--------------------------------------------+----------------------------------+

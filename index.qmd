@@ -1,223 +1,80 @@
 ---
-format:
-  html:
-    toc: false
-execute:
-  echo: false
-engine: knitr
+title: "SWAPER"
+subtitle: "The Department of Surveillance, Warning, and Preparedness for Epidemic Response 🏡"
+page-layout: full
+title-block-banner: true
+toc-title: "On this page"
+logo: logo.png
+resources:
+  - logo.png
 ---
 
-```{=html}
-<style>
-/* Mở rộng nội dung */
-main {
-    max-width: 100%;
-}
+## Our mission
 
-/* Bố cục logo + thông tin */
-.header-container {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 20px;
-}
-.header-logo {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-.header-info {
-    flex-grow: 1;
-}
+The Department of Surveillance, Warning, Preparedness, and Emergency Response is tasked with protecting public health through a structured and systematic approach. The department's mandate is executed through three primary missions:
 
-/* Bố cục nhóm staff */
-.team-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    max-width: 800px;
-    margin: auto;
-}
+**1.	To Ensure the Quality of the Public Health Monitoring System**
 
-.member {
-    text-align: left;
-    background-color: #e6f7ff;
-    color: #000;
-    padding: 15px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
+This mission focuses on the development and oversight of processes that guarantee the accuracy, completeness, and timeliness of data from all public health surveillance systems. It includes conducting systematic evaluations and rapid surveys to inform and continuously improve monitoring strategies.
 
-.leader {
-    width: 100%;
-    background-color: #f0f8ff;
-    color: #000;
-    padding: 20px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    justify-content: space-between;
-    flex-direction: row-reverse;
-}
+**2.	To Monitor, Detect, and Alert on Unusual Health Events**
 
-@media (prefers-color-scheme: dark) {
-    .member {
-        background-color: #1e1e1e;
-        color: #fff;
-    }
+This mission involves the systematic collection and management of epidemiological data to monitor health trends, forecast outcomes, and assess risks. The objective is to promptly detect unusual events, issue evidence-based alerts, and propose scientifically grounded solutions to mitigate public health threats.
 
-    .leader {
-        background-color: #2b2b2b;
-        color: #fff;
-    }
-}
+**3.	To Prepare for and Respond to Public Health Emergencies** 
 
-/* Hàng 4 người */
-.row1 {
-    width: calc(25% - 20px);
-    min-width: 180px;
-}
+This mission centers on maintaining a high state of operational readiness. It includes managing the Public Health Emergency Operations Center (PHEOC) and the Provincial Rapid Response Teams (RRT), and implementing comprehensive preparedness activities such as planning, training, drills, and resource allocation for effective emergency response.
 
-/* Hàng 4 người */
-.row2 {
-    width: calc(25% - 20px);
-    min-width: 180px;
-}
+## Our work
 
-/* Hàng 4 người */
-.row3 {
-    width: calc(25% - 20px);
-    min-width: 180px;
-}
+To accomplish these missions, the department is organized into two primary divisions with distinct functions:
 
-/* Ảnh đại diện */
-.avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-}
+**Division of Surveillance and Warning**
 
-.leader-info {
-    flex-grow: 1;
-    text-align: left;
-}
+This division is responsible for all data collection, analysis, and risk assessment functions. Its key responsibilities include:
 
-/* Căn trái toàn bộ nội dung của Staff */
-.member h3,
-.member p {
-    text-align: left;
-    width: 100%;
-}
-</style>
+-   Assessing the performance and quality of existing surveillance systems.
 
-<!-- Bố cục logo + thông tin -->
-<div class="header-container">
-    <img src="logo.png" class="header-logo">
-    <div class="header-info">
-        <h2>Department of Surveillance, Warning and Preparedness, Emergency Response 🏡</h2>
-        <p><strong>Established:</strong> June, 2023</p>
-        <p><strong>Affiliation:</strong> Ho Chi Minh Center for Diseases Control</p>
-        <p>The Department of Surveillance, Warning, and Preparedness for Epidemic Response (SWAPER) monitors and forecasts epidemic trends, assesses risks, and issues alerts. It coordinates actions across all administrative levels, enhances the quality of disease surveillance and warning systems, and manages Ho Chi Minh City’s Emergency Operations Centre.</p>
-    </div>
-</div>
-```
+-   Developing and implementing an integrated, digital disease surveillance system, including an early warning mechanism for schools and communities, with a target for completion by 2025.
 
-# 🔹 **Members**
+-   Conducting formal risk assessments for endemic, zoonotic, and emerging/re-emerging infectious diseases.
 
-```{=html}
-<div class="team-container">
-    <!-- Leader -->
-    <div class="leader">
-        <img src="avatar/lantruong.jpg" class="avatar">
-        <div class="leader-info">
-            <h3>Lan Truong</h3>
-            <p><strong>Position:</strong> Head of Department of Surveillance, Warning and Preparedness, Emergency Response</p>
-            <p><strong>Major:</strong> Master of Public Health</p>
-        </div>
-    </div>
+-   Establishing official epidemic warning thresholds for all administrative levels (city and ward).
 
-    <!-- Staff (4 người hàng trên) -->
-    <div class="member row1">
-        <img src="avatar/antran.jpg" class="avatar">
-        <h3>An Tran</h3>
-        <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
-        <p>Data analysis and forecasting, Risk assessment (Modeling team)</p>
-    </div>
-    <div class="member row1">
-        <img src="avatar/anhhuynh.jpg" class="avatar">
-        <h3>Anh Huynh</h3>
-        <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
-        <p>Data analysis and forecasting, Risk assessment (Modeling team)</p>
-    </div>
-    <div class="member row1">
-        <img src="avatar/diemle.jpg" class="avatar">
-        <h3>Diem Le</h3>
-        <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
-        <p>Surveillance System, Data analysis and forecasting (Modeling team)</p>
-    </div>
-    <div class="member row1">
-        <img src="avatar/thupham.jpg" class="avatar">
-        <h3>Thu Pham</h3>
-        <p><strong>Major:</strong> Bachelor of Public Health</p>
-        <p>Data analysis and forecasting, Risk assessment (Modeling team)</p>
-    </div>
+-   Developing and applying mathematical models for the purpose of forecasting disease outbreaks.
 
-    <!-- Staff (4 người hàng dưới) -->
-    <div class="member row2">
-        <img src="avatar/khanghuynh.jpg" class="avatar">
-        <h3>Khang Huynh</h3>
-        <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
-        <p>Data analysis and forecasting, Prepare to respond to emergencies(EOC team)</p>
-    </div>
-    <div class="member row2">
-        <img src="avatar/vytran.jpg" class="avatar">
-        <h3>Vy Tran</h3>
-        <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
-        <p>Prepare to respond to emergencies, RRT (EOC team)</p>
-    </div>
-    <div class="member row2">
-        <img src="avatar/ngocdinh.jpg" class="avatar">
-        <h3>Ngoc Dinh</h3>
-        <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
-        <p>Prepare to respond to emergencies, RRT (EOC team)</p>
-    </div>
-    <div class="member row2">
-        <img src="avatar/chile.png" class="avatar">
-        <h3>Le Tran</h3>
-        <p><strong>Major:</strong> Bachelor of Public Health</p>
-        <p>Prepare to respond to emergencies, RRT (EOC team)</p>
-    </div>
-    
-<!-- Staff (4 người hàng dưới) -->
-    <div class="member row3">
-        <img src="avatar/tuyenpham.png" class="avatar">
-        <h3>Tuyen Pham</h3>
-        <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
-        <p>Surveillance, warning epidemic</p>
-    </div>
-    <div class="member row3">
-        <img src="avatar/quantruong.png" class="avatar">
-        <h3>Quan Truong</h3>
-        <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
-        <p>Surveillance, warning epidemic</p>
-    </div>
-    <div class="member row3">
-        <img src="avatar/vinhtran.jpg" class="avatar">
-        <h3>Vinh Tran</h3>
-        <p><strong>Major:</strong> Bachelor of Public Health</p>
-        <p>Surveillance, warning epidemic</p>
-    </div>
-    <div class="member row3">
-        <img src="avatar/nhonnguyen.png" class="avatar">
-        <h3>Nhon Nguyen</h3>
-        <p><strong>Major:</strong> Bachelor of Public Health</p>
-        <p>Prepare to respond to emergencies, RRT (EOC team)</p>
-    </div>
-</div>
-```
+-   Defining and utilizing key data indicators for the evaluation of outbreak severity and response effectiveness.
+
+**Division of Preparedness and Emergency Response**
+
+This division is responsible for all operational planning, readiness, and response coordination. Its key responsibilities include:
+
+-   Advising on and developing the legal and operational frameworks for the Public Health Emergency Operations Center (PHEOC) and the Rapid Response Teams (RRT).
+
+-   Developing and standardizing operational guidelines and Standard Operating Procedures (SOPs) for the PHEOC and RRTs.
+
+-   Creating and managing the activation system for the Rapid Response Teams.
+
+-   Overseeing the strategic planning, procurement, and maintenance of essential infrastructure, equipment, and supplies for emergency response.
+
+-   Providing technical guidance on the development of the city's long-term Pandemic Response Plan for 2030 and beyond.
+
+## Collaboration
+
+We maintain strong working relationships with leading academic research institutions, non-governmental organizations (NGOs), and other specialized departments within the Ho Chi Minh City Center for Disease Control (HCDC).
+
+These partnerships are vital for conducting cutting-edge research, validating new methodologies, and strengthening the city's overall public health framework. Notable partners include the Oxford University Clinical Research Unit (OUCRU) and FHI 360.
+
+A selection of key research projects undertaken through these collaborations includes:
+
+-   Evaluation of the Reproduction Number (Rt) in Measles Outbreaks in HCMC.
+
+-   Methods for Determining Epidemic Thresholds in Endemic Disease Surveillance: A Scoping Review and Benchmark.
+
+-   Dengue Advanced Readiness Tools (DART).
+
+-   Assessment of the Infectious Disease and Public Health Event Surveillance System in HCMC.
+
+-   A Review of Methodological Approaches to Infectious Disease Risk Assessment.
+
+-   Event-Based Surveillance Using Social Media, Google Search Data, and Online News Media.

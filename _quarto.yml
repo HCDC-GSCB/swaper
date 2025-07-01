@@ -12,29 +12,24 @@ website:
   navbar:
     pinned: true
     left:
-      - text: "About"
-        icon: house
-        href: index.qmd
+      - text: "About us"
+        href: about/index.qmd
       - text: "News"
-        href: news.qmd
+        href: news/index.qmd
       - text: "Seminars"
-        menu: 
-          - text: "All seminars"
-            href: exp1.qmd
-          - text: "Registered"
-            href: exp2.qmd
+        href: seminars/index.qmd
       - text: "Learning"
         menu:
           - text: "Training"
-            href: training.qmd
-          - text: "Documents"
-            href: document.qmd
+            href: training/index.qmd
+          - text: "Book"
+            href: book/index.qmd
       - text: "EBS"
         icon: newspaper
         href: scan-media.html
       - text: "IBS"
         icon: database
-        href: report.qmd
+        href: report/index.qmd
     right:
       - icon: github
         href: https://github.com/HCDC-GSCB/
@@ -49,23 +44,23 @@ website:
       contents:
         - section: "Modelling team"
           contents:
-            - htgs.qmd
-            - threshold.qmd
+            - training/htgs.qmd
+            - training/threshold.qmd
         - section: "PHEOC team"
           contents:
-            - ghs.qmd
-            - phem.qmd
-            - pheoc.qmd
+            - training/ghs.qmd
+            - training/phem.qmd
+            - training/pheoc.qmd
         - section: "R language"
           contents:
-            - intro.qmd
-            - r01.qmd
-            - r02.qmd
-            - r03.qmd
-            - r04.qmd
-            - exercise1.qmd
-            - exercise2.qmd
-            - exercise3.qmd
+            - training/intro.qmd
+            - training/r01.qmd
+            - training/r02.qmd
+            - training/r03.qmd
+            - training/r04.qmd
+            - training/exercise1.qmd
+            - training/exercise2.qmd
+            - training/exercise3.qmd
 
   back-to-top-navigation: true
   page-footer: 
@@ -83,4 +78,4 @@ format:
     includes: 
       after-body: loading.html
 
-editor: visual
+editor: source
