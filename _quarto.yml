@@ -26,7 +26,7 @@ website:
             href: book/index.qmd
       - text: "EBS"
         icon: newspaper
-        href: scan-media.html
+        href: ebs.html
       - text: "IBS"
         icon: database
         href: report/index.qmd
@@ -35,7 +35,7 @@ website:
         href: https://github.com/HCDC-GSCB/
       - text: "Chill"
         icon: discord
-        href: game.html
+        href: chill.html
 
   sidebar:
     - id: training
