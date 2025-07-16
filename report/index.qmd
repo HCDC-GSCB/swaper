@@ -1,9 +1,16 @@
 ---
-title: "Báo cáo tuần ../2025"
+title: "Weekly report"
+listing: 
+  contents: .
+  type: grid
+  sort: "date desc"
+  categories: true
+  sort-ui: true
+  filter-ui: true
+page-layout: full
 ---
 
-## Sởi
-abc
+You can visit our Dashboard on the Shinyapp ![📊](https://hcdc-gscb.github.io/swaper)
 
 ```{=html}
 <script>
@@ -12,7 +19,7 @@ abc
   
   // ----------------------------------------------------
   // THAY ĐỔI MẬT KHẨU CỦA BẠN TẠI ĐÂY
-  const secretPassword = "ananhthu"; 
+  const secretPassword = "121602"; 
   // ----------------------------------------------------
 
   let userInput = prompt("Trang này được bảo vệ bằng mật khẩu. Vui lòng nhập mật khẩu để xem nội dung:");
