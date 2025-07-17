@@ -1,12 +1,3 @@
-/*
-Bảng màu đề xuất:
-- Xanh đậm chuyên nghiệp (Navbar, Footer, Tiêu đề chính): #005d88
-- Xanh sáng nổi bật (Link, Hover, Active): #1a9fcc
-- Xanh trung tính (Banner phụ): #408bbb
-- Tím đậm nhấn mạnh (Button kêu gọi hành động): #2f2ba0
-- Tím nhạt hơn (Tiêu đề phụ, accent): #492799
-*/
-
 /* --- NAVBAR --- */
 .navbar {
   /* Sử dụng màu xanh đậm, chuyên nghiệp làm nền */
@@ -32,7 +23,7 @@ Bảng màu đề xuất:
 .navbar .dropdown-menu {
   background-color: #ffffff !important;
   border: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Thêm bóng đổ cho chuyên nghiệp */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .navbar .dropdown-menu .dropdown-item {
@@ -91,7 +82,6 @@ Bảng màu đề xuất:
 
 /* --- FOOTER --- */
 .page-footer {
-  /* Đây là vùng chứa bên ngoài, có màu nền xanh */
   background-color: #005d88;
   color: #e9ecef;
   padding: 2rem 0;
@@ -100,10 +90,6 @@ Bảng màu đề xuất:
   border-top: none;
 }
 
-/* QUAN TRỌNG: Làm cho vùng nội dung bên trong trở nên trong suốt
-  Vùng này thường có class là "container" hoặc "container-fluid".
-  Hãy kiểm tra file HTML của bạn để chắc chắn.
-*/
 .page-footer .container {
   background-color: transparent !important;
 }
@@ -120,7 +106,6 @@ Bảng màu đề xuất:
 
 /* --- TITLE BANNER --- */
 div.quarto-title-banner {
-  /* Dùng màu xanh trung tính, nhẹ nhàng hơn navbar */
   background-color: #408bbb !important;
   color: white !important;
 }
@@ -154,4 +139,16 @@ main h6 {
   /* Tiêu đề chính trong bài viết dùng màu xanh đậm, uy tín */
   color: #005d88 !important;
   font-weight: 600;
+}
+
+/* Ghi đè màu link trong phần nội dung chính */
+main a {
+  color: #1a9fcc !important;
+  text-decoration: none; 
+}
+
+main a:hover,
+main a:focus {
+  color: #1a9fcc !important;
+  text-decoration: none;
 }

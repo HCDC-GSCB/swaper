@@ -549,42 +549,28 @@
     "href": "report/index.html",
     "title": "Weekly report",
     "section": "",
-    "text": "You can visit our Dashboard on the Shinyapp \n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nWeek 28\n\n\n\nWeekly\n\n\nReport\n\n\n\nWeeky report 28/2025\n\n\n\nSWAPER\n\n\nJul 16, 2025\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "You can visit our Dashboard on the Shinyapp \n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nWeekly report 28/2025\n\n\n\nWeekly\n\n\nReport\n\n\n\nEndemic\n\n\n\nSWAPER\n\n\nJul 16, 2025\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
-    "objectID": "news/index.html",
-    "href": "news/index.html",
-    "title": "What’s news",
+    "objectID": "news/post1.html",
+    "href": "news/post1.html",
+    "title": "Meeting with OUCRU",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nMeeting with OUCRU\n\n\n\nCollaboration\n\n\nPartner Meeting\n\n\n\nSummary of the collaboration meeting between SWAPER and OUCRU to discuss infectious disease surveillance and future joint activities.\n\n\n\nTuyen Pham\n\n\nJul 2, 2025\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "On July 02, 2025, the SWAPER development team held a formal meeting with representatives from the Oxford University Clinical Research Unit (OUCRU) in Ho Chi Minh City. This was one of the initial steps in building a long-term partnership between the two organizations, centered around infectious disease surveillance and applied epidemiological research.\nThe meeting provided an opportunity for both sides to discuss key challenges in early warning systems, explore local data collection needs at the district level, and share perspectives on the use of artificial intelligence in outbreak detection and prediction. OUCRU shared their experience with previous research projects, while SWAPER presented their ongoing efforts to digitize surveillance workflows and develop integrated platforms for real-time monitoring.\nThe atmosphere of the meeting was open and collaborative, fostering mutual understanding and laying the groundwork for future joint initiatives. As of July 2025, the discussions from this meeting have helped shape several shared projects and contributed to a growing network of partners committed to improving public health systems in Vietnam."
   },
   {
-    "objectID": "book/index.html",
-    "href": "book/index.html",
-    "title": "Documents",
+    "objectID": "news/post1.html#meeting-with-oucru",
+    "href": "news/post1.html#meeting-with-oucru",
+    "title": "Meeting with OUCRU",
     "section": "",
-    "text": "Principles of Epidemiology in Public Health Practice, 2012 (USCDC) Link\nHandbook of Applied Health Economics in Vaccines, 2023 Link\nNational RRT SOPs, 2024 (NIH, Pakistan) Link\nFramework for a Public Health Emergency Operations Centre Link\nInternational Health Regulation (2005) Link\nHandbook for Developing a Public Health Emergency Operations Center (Part A) Link\nHandbook for Developing a Public Health Emergency Operations Center (Part C) Link\nHandbook for Public Health Emergency Operations Center Operations and Management-WHO Regional Office for Africa Link\nEstablishment and Management of Public Health Rapid Response Teams For Diseases Outbreaks Link\nGuidance for after action review Link\nWHO Simulation Exercise Manual Link\nEmergency Exercise Development Link\nCommunicating risk in public health emergencies: a WHO guideline for emergency risk communication policy and practice Link\nWHO community engagement framework for quality, people-centred and resilient health services Link"
+    "text": "On July 02, 2025, the SWAPER development team held a formal meeting with representatives from the Oxford University Clinical Research Unit (OUCRU) in Ho Chi Minh City. This was one of the initial steps in building a long-term partnership between the two organizations, centered around infectious disease surveillance and applied epidemiological research.\nThe meeting provided an opportunity for both sides to discuss key challenges in early warning systems, explore local data collection needs at the district level, and share perspectives on the use of artificial intelligence in outbreak detection and prediction. OUCRU shared their experience with previous research projects, while SWAPER presented their ongoing efforts to digitize surveillance workflows and develop integrated platforms for real-time monitoring.\nThe atmosphere of the meeting was open and collaborative, fostering mutual understanding and laying the groundwork for future joint initiatives. As of July 2025, the discussions from this meeting have helped shape several shared projects and contributed to a growing network of partners committed to improving public health systems in Vietnam."
   },
   {
-    "objectID": "book/index.html#book",
-    "href": "book/index.html#book",
-    "title": "Documents",
-    "section": "",
-    "text": "Principles of Epidemiology in Public Health Practice, 2012 (USCDC) Link\nHandbook of Applied Health Economics in Vaccines, 2023 Link\nNational RRT SOPs, 2024 (NIH, Pakistan) Link\nFramework for a Public Health Emergency Operations Centre Link\nInternational Health Regulation (2005) Link\nHandbook for Developing a Public Health Emergency Operations Center (Part A) Link\nHandbook for Developing a Public Health Emergency Operations Center (Part C) Link\nHandbook for Public Health Emergency Operations Center Operations and Management-WHO Regional Office for Africa Link\nEstablishment and Management of Public Health Rapid Response Teams For Diseases Outbreaks Link\nGuidance for after action review Link\nWHO Simulation Exercise Manual Link\nEmergency Exercise Development Link\nCommunicating risk in public health emergencies: a WHO guideline for emergency risk communication policy and practice Link\nWHO community engagement framework for quality, people-centred and resilient health services Link"
-  },
-  {
-    "objectID": "book/index.html#e-book",
-    "href": "book/index.html#e-book",
-    "title": "Documents",
-    "section": "E-Book",
-    "text": "E-Book\n\nEpidemic R Handbook, 2024 Link\nIntroduction to Data Science, 2019 Link\nggplot2: Elegant Graphics for Data Analysis, 2019 Link\nTelling Stories with Data, 2023 Link\nSpatial Statistics for Data Science: Theory and Practice with R, 2019 Link"
-  },
-  {
-    "objectID": "about/index.html",
-    "href": "about/index.html",
-    "title": "About us",
-    "section": "",
-    "text": "Lan Truong\n            Position: Head of Department of Surveillance, Warning and Preparedness, Emergency Response\n            Major: Master of Public Health\n        \n    \n\n    \n    \n        \n        An Tran\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n    \n        \n        Anh Huynh\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n    \n        \n        Diem Le\n        Major: Doctor of Preventive Medicine\n        Surveillance System, Data analysis and forecasting (Modeling team)\n    \n    \n        \n        Thu Pham\n        Major: Bachelor of Public Health\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n\n    \n    \n        \n        Khang Huynh\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Prepare to respond to emergencies(EOC team)\n    \n    \n        \n        Vy Tran\n        Major: Doctor of Preventive Medicine\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n        \n        Ngoc Dinh\n        Major: Doctor of Preventive Medicine\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n        \n        Le Tran\n        Major: Bachelor of Public Health\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n\n    \n        \n        Tuyen Pham\n        Major: Doctor of Preventive Medicine\n        Surveillance, warning epidemic\n    \n    \n        \n        Quan Truong\n        Major: Doctor of Preventive Medicine\n        Surveillance, warning epidemic\n    \n    \n        \n        Vinh Tran\n        Major: Bachelor of Public Health\n        Surveillance, warning epidemic\n    \n    \n        \n        Nhon Nguyen\n        Major: Bachelor of Public Health\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n\n\n\n\n Back to top"
+    "objectID": "news/post1.html#meeting-highlight",
+    "href": "news/post1.html#meeting-highlight",
+    "title": "Meeting with OUCRU",
+    "section": "Meeting Highlight",
+    "text": "Meeting Highlight\n\n\n\nMeeting with OUCRU\n\n\nThis meeting marked a promising beginning for deeper scientific collaboration and set the tone for more frequent technical exchanges and co-designed research activities."
   },
   {
     "objectID": "index.html",
@@ -615,39 +601,60 @@
     "text": "Collaboration\nWe maintain strong working relationships with leading academic research institutions, non-governmental organizations (NGOs), and other specialized departments within the Ho Chi Minh City Center for Disease Control (HCDC).\nThese partnerships are vital for conducting cutting-edge research, validating new methodologies, and strengthening the city’s overall public health framework. Notable partners include the Oxford University Clinical Research Unit (OUCRU) and FHI 360.\nA selection of key research projects undertaken through these collaborations includes:\n\nEvaluation of the Reproduction Number (Rt) in Measles Outbreaks in HCMC.\nMethods for Determining Epidemic Thresholds in Endemic Disease Surveillance: A Scoping Review and Benchmark.\nDengue Advanced Readiness Tools (DART).\nAssessment of the Infectious Disease and Public Health Event Surveillance System in HCMC.\nA Review of Methodological Approaches to Infectious Disease Risk Assessment.\nEvent-Based Surveillance Using Social Media, Google Search Data, and Online News Media."
   },
   {
-    "objectID": "news/post1.html",
-    "href": "news/post1.html",
-    "title": "Meeting with OUCRU",
+    "objectID": "about/index.html",
+    "href": "about/index.html",
+    "title": "About us",
     "section": "",
-    "text": "On July 02, 2025, the SWAPER development team held a formal meeting with representatives from the Oxford University Clinical Research Unit (OUCRU) in Ho Chi Minh City. This was one of the initial steps in building a long-term partnership between the two organizations, centered around infectious disease surveillance and applied epidemiological research.\nThe meeting provided an opportunity for both sides to discuss key challenges in early warning systems, explore local data collection needs at the district level, and share perspectives on the use of artificial intelligence in outbreak detection and prediction. OUCRU shared their experience with previous research projects, while SWAPER presented their ongoing efforts to digitize surveillance workflows and develop integrated platforms for real-time monitoring.\nThe atmosphere of the meeting was open and collaborative, fostering mutual understanding and laying the groundwork for future joint initiatives. As of July 2025, the discussions from this meeting have helped shape several shared projects and contributed to a growing network of partners committed to improving public health systems in Vietnam."
+    "text": "Lan Truong\n            Position: Head of Department of Surveillance, Warning and Preparedness, Emergency Response\n            Major: Master of Public Health\n        \n    \n\n    \n    \n        \n        An Tran\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n    \n        \n        Anh Huynh\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n    \n        \n        Diem Le\n        Major: Doctor of Preventive Medicine\n        Surveillance System, Data analysis and forecasting (Modeling team)\n    \n    \n        \n        Thu Pham\n        Major: Bachelor of Public Health\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n\n    \n    \n        \n        Khang Huynh\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Prepare to respond to emergencies(EOC team)\n    \n    \n        \n        Vy Tran\n        Major: Doctor of Preventive Medicine\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n        \n        Ngoc Dinh\n        Major: Doctor of Preventive Medicine\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n        \n        Le Tran\n        Major: Bachelor of Public Health\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n\n    \n        \n        Tuyen Pham\n        Major: Doctor of Preventive Medicine\n        Surveillance, warning epidemic\n    \n    \n        \n        Quan Truong\n        Major: Doctor of Preventive Medicine\n        Surveillance, warning epidemic\n    \n    \n        \n        Vinh Tran\n        Major: Bachelor of Public Health\n        Surveillance, warning epidemic\n    \n    \n        \n        Nhon Nguyen\n        Major: Bachelor of Public Health\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n\n\n\n\n Back to top"
   },
   {
-    "objectID": "news/post1.html#meeting-with-oucru",
-    "href": "news/post1.html#meeting-with-oucru",
-    "title": "Meeting with OUCRU",
+    "objectID": "book/index.html",
+    "href": "book/index.html",
+    "title": "Documents",
     "section": "",
-    "text": "On July 02, 2025, the SWAPER development team held a formal meeting with representatives from the Oxford University Clinical Research Unit (OUCRU) in Ho Chi Minh City. This was one of the initial steps in building a long-term partnership between the two organizations, centered around infectious disease surveillance and applied epidemiological research.\nThe meeting provided an opportunity for both sides to discuss key challenges in early warning systems, explore local data collection needs at the district level, and share perspectives on the use of artificial intelligence in outbreak detection and prediction. OUCRU shared their experience with previous research projects, while SWAPER presented their ongoing efforts to digitize surveillance workflows and develop integrated platforms for real-time monitoring.\nThe atmosphere of the meeting was open and collaborative, fostering mutual understanding and laying the groundwork for future joint initiatives. As of July 2025, the discussions from this meeting have helped shape several shared projects and contributed to a growing network of partners committed to improving public health systems in Vietnam."
+    "text": "Principles of Epidemiology in Public Health Practice, 2012 (USCDC) Link\nHandbook of Applied Health Economics in Vaccines, 2023 Link\nNational RRT SOPs, 2024 (NIH, Pakistan) Link\nFramework for a Public Health Emergency Operations Centre Link\nInternational Health Regulation (2005) Link\nHandbook for Developing a Public Health Emergency Operations Center (Part A) Link\nHandbook for Developing a Public Health Emergency Operations Center (Part C) Link\nHandbook for Public Health Emergency Operations Center Operations and Management-WHO Regional Office for Africa Link\nEstablishment and Management of Public Health Rapid Response Teams For Diseases Outbreaks Link\nGuidance for after action review Link\nWHO Simulation Exercise Manual Link\nEmergency Exercise Development Link\nCommunicating risk in public health emergencies: a WHO guideline for emergency risk communication policy and practice Link\nWHO community engagement framework for quality, people-centred and resilient health services Link"
   },
   {
-    "objectID": "news/post1.html#meeting-highlight",
-    "href": "news/post1.html#meeting-highlight",
-    "title": "Meeting with OUCRU",
-    "section": "Meeting Highlight",
-    "text": "Meeting Highlight\n\n\n\nMeeting with OUCRU\n\n\nThis meeting marked a promising beginning for deeper scientific collaboration and set the tone for more frequent technical exchanges and co-designed research activities."
+    "objectID": "book/index.html#book",
+    "href": "book/index.html#book",
+    "title": "Documents",
+    "section": "",
+    "text": "Principles of Epidemiology in Public Health Practice, 2012 (USCDC) Link\nHandbook of Applied Health Economics in Vaccines, 2023 Link\nNational RRT SOPs, 2024 (NIH, Pakistan) Link\nFramework for a Public Health Emergency Operations Centre Link\nInternational Health Regulation (2005) Link\nHandbook for Developing a Public Health Emergency Operations Center (Part A) Link\nHandbook for Developing a Public Health Emergency Operations Center (Part C) Link\nHandbook for Public Health Emergency Operations Center Operations and Management-WHO Regional Office for Africa Link\nEstablishment and Management of Public Health Rapid Response Teams For Diseases Outbreaks Link\nGuidance for after action review Link\nWHO Simulation Exercise Manual Link\nEmergency Exercise Development Link\nCommunicating risk in public health emergencies: a WHO guideline for emergency risk communication policy and practice Link\nWHO community engagement framework for quality, people-centred and resilient health services Link"
   },
   {
-    "objectID": "report/weekly28.html#hand-foot-mouth-disease",
-    "href": "report/weekly28.html#hand-foot-mouth-disease",
-    "title": "Week 28",
-    "section": "Hand, foot, mouth disease",
-    "text": "Hand, foot, mouth disease"
+    "objectID": "book/index.html#e-book",
+    "href": "book/index.html#e-book",
+    "title": "Documents",
+    "section": "E-Book",
+    "text": "E-Book\n\nEpidemic R Handbook, 2024 Link\nIntroduction to Data Science, 2019 Link\nggplot2: Elegant Graphics for Data Analysis, 2019 Link\nTelling Stories with Data, 2023 Link\nSpatial Statistics for Data Science: Theory and Practice with R, 2019 Link"
   },
   {
-    "objectID": "report/weekly28.html#measles",
-    "href": "report/weekly28.html#measles",
-    "title": "Week 28",
-    "section": "Measles",
-    "text": "Measles"
+    "objectID": "news/index.html",
+    "href": "news/index.html",
+    "title": "What’s news",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nRECOGNIZING THE OUTSTANDING PRESENTER OF Q2/2025\n\n\n\nOutstanding Presentation award\n\n\n\nCongratulations to Mr. Khang - Winner of the Outstanding Presentation award for Q2/2025 !\n\n\n\nTuyen Pham\n\n\nJul 15, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMeeting with OUCRU\n\n\n\nCollaboration\n\n\nPartner Meeting\n\n\n\nSummary of the collaboration meeting between SWAPER and OUCRU to discuss infectious disease surveillance and future joint activities.\n\n\n\nTuyen Pham\n\n\nJul 2, 2025\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+  },
+  {
+    "objectID": "news/post2.html",
+    "href": "news/post2.html",
+    "title": "RECOGNIZING THE OUTSTANDING PRESENTER OF Q2/2025",
+    "section": "",
+    "text": "At any organization, expertise and the ability to share knowledge effectively play a vital role in building a strong, capable team. At our department, internal workshops are not only a learning opportunity but also a platform for individuals to showcase their strengths, inspire others, and contribute to the collective development of the team.\nFor Quarter 2 of 2025, Mr. Khang has been named the Outstanding Presenter, thanks to his impressive performance during a recent workshop that received overwhelmingly positive feedback from attendees.\n\n\n\nMs. Lan is presenting him with the award\n\n\n🌱 This award is not only a well-deserved recognition for Mr. Khang but also a source of motivation for all of us to continue learning, sharing, and growing together.\nOnce again, congratulations to Mr. Khang! We look forward to more outstanding presentations in the quarters to come."
+  },
+  {
+    "objectID": "news/post2.html#the-outstanding-presentation-award",
+    "href": "news/post2.html#the-outstanding-presentation-award",
+    "title": "RECOGNIZING THE OUTSTANDING PRESENTER OF Q2/2025",
+    "section": "",
+    "text": "At any organization, expertise and the ability to share knowledge effectively play a vital role in building a strong, capable team. At our department, internal workshops are not only a learning opportunity but also a platform for individuals to showcase their strengths, inspire others, and contribute to the collective development of the team.\nFor Quarter 2 of 2025, Mr. Khang has been named the Outstanding Presenter, thanks to his impressive performance during a recent workshop that received overwhelmingly positive feedback from attendees.\n\n\n\nMs. Lan is presenting him with the award\n\n\n🌱 This award is not only a well-deserved recognition for Mr. Khang but also a source of motivation for all of us to continue learning, sharing, and growing together.\nOnce again, congratulations to Mr. Khang! We look forward to more outstanding presentations in the quarters to come."
+  },
+  {
+    "objectID": "report/weekly28.html",
+    "href": "report/weekly28.html",
+    "title": "Weekly report 28/2025",
+    "section": "",
+    "text": "Dengue FeverHand, foot, mouth diseaseMeasles\n\n\n\nTrendsAge group\n\n\n\n\n\n\n\n\nGit là một phần mềm mã nguồn mở, quản lý phiên bản (Version Control System - VCS), mục đích của nó là theo dõi các thay đổi của tệp trong một kho lưu trữ và cung cấp khả năng quay lại phiên bản trước đó (bao gồm các thay đổi trong mã nguồn mở cho các mô hình tính toán, thuật toán theo thời gian).\n\n\n\n\n\n\n\n\nGit là một phần mềm mã nguồn mở, quản lý phiên bản (Version Control System - VCS), mục đích của nó là theo dõi các thay đổi của tệp trong một kho lưu trữ và cung cấp khả năng quay lại phiên bản trước đó (bao gồm các thay đổi trong mã nguồn mở cho các mô hình tính toán, thuật toán theo thời gian).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "training/exercise1.html",
@@ -1812,33 +1819,5 @@
       "R language",
       "Data visualization"
     ]
-  },
-  {
-    "objectID": "report/weekly28.html",
-    "href": "report/weekly28.html",
-    "title": "Weekly report 28/2025",
-    "section": "",
-    "text": "Dengue FeverHand, foot, mouth diseaseMeasles\n\n\n\nTrendsAge group\n\n\n\n\n\n\n\n\nGit là một phần mềm mã nguồn mở, quản lý phiên bản (Version Control System - VCS), mục đích của nó là theo dõi các thay đổi của tệp trong một kho lưu trữ và cung cấp khả năng quay lại phiên bản trước đó (bao gồm các thay đổi trong mã nguồn mở cho các mô hình tính toán, thuật toán theo thời gian).\n\n\n\n\n\n\n\n\nGit là một phần mềm mã nguồn mở, quản lý phiên bản (Version Control System - VCS), mục đích của nó là theo dõi các thay đổi của tệp trong một kho lưu trữ và cung cấp khả năng quay lại phiên bản trước đó (bao gồm các thay đổi trong mã nguồn mở cho các mô hình tính toán, thuật toán theo thời gian).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "report/weekly28.html#dengue-fever",
-    "href": "report/weekly28.html#dengue-fever",
-    "title": "Week 28",
-    "section": "",
-    "text": "Git là một phần mềm mã nguồn mở, quản lý phiên bản (Version Control System - VCS), mục đích của nó là theo dõi các thay đổi của tệp trong một kho lưu trữ và cung cấp khả năng quay lại phiên bản trước đó (bao gồm các thay đổi trong mã nguồn mở cho các mô hình tính toán, thuật toán theo thời gian).\n\n\n\n\n\n\n\n\n\nGit là một phần mềm mã nguồn mở, quản lý phiên bản (Version Control System - VCS), mục đích của nó là theo dõi các thay đổi của tệp trong một kho lưu trữ và cung cấp khả năng quay lại phiên bản trước đó (bao gồm các thay đổi trong mã nguồn mở cho các mô hình tính toán, thuật toán theo thời gian)."
-  },
-  {
-    "objectID": "news/post2.html",
-    "href": "news/post2.html",
-    "title": "RECOGNIZING THE OUTSTANDING PRESENTER OF Q2/2025",
-    "section": "",
-    "text": "At any organization, expertise and the ability to share knowledge effectively play a vital role in building a strong, capable team. At our department, internal workshops are not only a learning opportunity but also a platform for individuals to showcase their strengths, inspire others, and contribute to the collective development of the team.\nFor Quarter 2 of 2025, Mr. Khang has been named the Outstanding Presenter, thanks to his impressive performance during a recent workshop that received overwhelmingly positive feedback from attendees.\n\n\n\nMs. Lan is presenting him with the award\n\n\n🌱 This award is not only a well-deserved recognition for Mr. Khang but also a source of motivation for all of us to continue learning, sharing, and growing together.\nOnce again, congratulations to Mr. Khang! We look forward to more outstanding presentations in the quarters to come."
-  },
-  {
-    "objectID": "news/post2.html#the-outstanding-presentation-award",
-    "href": "news/post2.html#the-outstanding-presentation-award",
-    "title": "RECOGNIZING THE OUTSTANDING PRESENTER OF Q2/2025",
-    "section": "",
-    "text": "At any organization, expertise and the ability to share knowledge effectively play a vital role in building a strong, capable team. At our department, internal workshops are not only a learning opportunity but also a platform for individuals to showcase their strengths, inspire others, and contribute to the collective development of the team.\nFor Quarter 2 of 2025, Mr. Khang has been named the Outstanding Presenter, thanks to his impressive performance during a recent workshop that received overwhelmingly positive feedback from attendees.\n\n\n\nMs. Lan is presenting him with the award\n\n\n🌱 This award is not only a well-deserved recognition for Mr. Khang but also a source of motivation for all of us to continue learning, sharing, and growing together.\nOnce again, congratulations to Mr. Khang! We look forward to more outstanding presentations in the quarters to come."
   }
 ]
