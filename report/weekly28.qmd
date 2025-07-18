@@ -9,6 +9,7 @@ execute:
   echo: false
   warning: false
   message: false
+page-layout: full
 ---
 
 ```{r}
