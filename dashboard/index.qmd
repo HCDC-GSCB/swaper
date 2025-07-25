@@ -1,0 +1,338 @@
+---
+title: "Weekly report 28/2025"
+author: SWAPER
+date: 2025-7-16
+image: ../logo.png
+categories: [Weekly, Report]
+description: "Endemic"
+execute:
+  echo: false
+  warning: false
+  message: false
+page-layout: full
+---
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(surveillance)
+library(plotly)
+```
+
+:::{.panel-tabset}
+## Dengue Fever
+
+```{r}
+dengue <- readRDS("../data/data_dengue.rds")
+```
+
+```{r}
+dengue <- dengue %>%
+  mutate(
+    age_group = case_when(
+      age < 1 ~ "<1",
+      age >= 1 & age < 5 ~ "1–5",
+      age >= 5 & age < 10 ~ "5–10",
+      age >= 10 ~ ">10"
+    ),
+    week_start = floor_date(date_report, "week", week_start = 1),
+    week = isoweek(week_start),
+    year = isoyear(week_start),
+    week = ifelse(week == 53, 52, week)
+  )
+```
+
+:::{.panel-tabset}
+### Trends
+
+```{r}
+weekly_cases <- dengue %>%
+  group_by(year, week) %>%
+  summarise(cases = n(), .groups = "drop")
+
+trends <- weekly_cases %>%
+  filter(year %in% c(2017, 2018, 2020, 2021, 2023)) %>%
+  group_by(week) %>%
+  summarise(
+    cdc = mean(cases) + 2 * sd(cases),
+    .groups = "drop"
+  )
+```
+
+```{r}
+weekly_cases <- weekly_cases %>%
+  left_join(trends, by = "week")
+
+weekly_cases <- weekly_cases %>%
+  filter(!year %in% c(2016, 2019, 2022, 2025))
+```
+
+```{r}
+weekly_cases$yw <- paste0(weekly_cases$year, weekly_cases$week)
+weekly_cases <- weekly_cases %>% 
+  mutate(outbreak = ifelse(cases >= cdc, 1, 0))
+
+stsObj <- with(weekly_cases, sts(observed = cases,
+                       state = outbreak,
+                       start = c(2017, 1), frequency = 52)
+)
+disProgObj <- sts2disProg(stsObj)
+
+## Farrington algorithms
+control <- list(b = 5, w = 1, range = 261:312, reweight = T, verbose = F)
+farrington <- algo.farrington(disProgObj, control = control)
+f_up <- farrington$upperbound 
+
+## CUSUM algorithms
+control <- list(range = 261:312, k = 1.04, h = 2.26)
+cusum <- algo.cusum(disProgObj, control = control)
+cusum_up <- cusum$upperbound
+
+weeks_2024 <- weekly_cases %>%
+  filter(year == 2024) %>%
+  arrange(week) %>%
+  mutate(
+    farrington_ub = f_up,
+    cusum_ub = cusum_up
+  )
+
+weekly_cases <- weekly_cases %>%
+  left_join(
+    weeks_2024 %>% select(year, week, farrington_ub, cusum_ub),
+    by = c("year", "week")
+  )
+
+## Serfling algorithms
+weekly_cases <- weekly_cases %>% 
+  mutate(t = row_number())
+
+train <- filter(weekly_cases, year != 2024)
+
+sm <- lm(cases ~ t + sin(2*pi*t/52) + cos(2*pi*t/52), data = train)
+
+predict <- predict(sm, newdata = weekly_cases, interval = "predict")
+
+weekly_cases$serfling <- predict[,3]
+```
+
+```{r}
+plot_data_long <- weekly_cases %>%
+  filter(year == 2024) %>%
+  select(week, cases, cdc, farrington_ub, cusum_ub, serfling) %>%
+  pivot_longer(
+    cols = c(cdc, farrington_ub, cusum_ub, serfling),
+    names_to = "algorithm", values_to = "threshold"
+  )
+
+algo_labels <- c(
+  "cdc" = "CDC",
+  "farrington_ub" = "Farrington",
+  "cusum_ub" = "CUSUM",
+  "serfling" = "Serfling"
+)
+
+colors <- c(
+  "CDC" = "#e31a1c",
+  "Farrington" = "black",
+  "CUSUM" = "#ff7f00",
+  "Serfling" = "darkgreen"
+)
+
+plot_data_long <- plot_data_long %>%
+  mutate(algorithm_label = recode(algorithm, !!!algo_labels))
+
+algos <- unique(plot_data_long$algorithm_label)
+
+y_max <- plot_data_long %>%
+  summarise(max_y = max(c(cases, threshold), na.rm = TRUE)) %>%
+  pull(max_y)
+
+y_max <- ceiling(y_max / 50) * 50
+
+# plotly
+p <- plot_ly()
+
+# --- Add cột cases có viền đen ---
+p <- p %>% add_bars(
+  data = filter(plot_data_long, algorithm_label == "CDC"),
+  x = ~week, y = ~cases, name = "Cases",
+  marker = list(color = '#1696d2', line = list(color = "black", width = 1)),
+  hoverinfo = 'text'
+)
+
+# --- Add từng line của ngưỡng theo thuật toán ---
+for (algo in algos) {
+  p <- p %>% add_lines(
+    data = filter(plot_data_long, algorithm_label == algo),
+    x = ~week, y = ~threshold,
+    name = algo,
+    line = list(color = colors[[algo]], width = 2),
+    visible = ifelse(algo == "CDC", TRUE, FALSE)
+  )
+}
+
+# Layout
+p <- p %>% layout(
+  xaxis = list(
+    title = list(
+    text = "<b>Report Weeks<b>",
+    font = list(size = 13, family = "Arial", color = "black", bold = TRUE)
+  ),
+    tickmode = "array",
+    tickvals = seq(1, 52, by = 4),
+    ticktext = seq(1, 52, by = 4),
+    tickfont = list(size = 11, color = "black"),
+    gridcolor = "#d3d3d3",
+    zeroline = TRUE,          
+    zerolinecolor = "black",
+    zerolinewidth = 1
+  ),
+  yaxis = list(
+    title = list(
+    text = "<b>Number of Cases<b>",
+    font = list(size = 13, family = "Arial", color = "black", bold = TRUE)
+    ),
+    tickfont = list(size = 11, color = "black"),
+    gridcolor = "#d3d3d3",
+    zeroline = TRUE,
+    zerolinecolor = "black",
+    zerolinewidth = 1,
+    range = c(0, y_max) 
+  ),
+  legend = list(
+    orientation = "h",
+    x = 0.5,
+    y = -0.2,
+    xanchor = "center",
+    title = list(text = "")
+  ),
+  plot_bgcolor = "#ffffff",
+  paper_bgcolor = "#ffffff",
+  updatemenus = list(
+    list(
+      type = "dropdown",
+      x = 1.15, y = 1,
+      buttons = lapply(algos, function(algo) {
+        list(
+          method = "update",
+          label = algo,
+          args = list(
+            list(visible = c(TRUE, algos == algo)),
+            list(title = paste("Trends 2024 -", algo))
+          )
+        )
+      })
+    )
+  )
+)
+
+p
+```
+
+Git là một phần mềm mã nguồn mở, quản lý phiên bản (Version Control System - VCS), mục đích của nó là theo dõi các thay đổi của tệp trong một kho lưu trữ và cung cấp khả năng quay lại phiên bản trước đó (bao gồm các thay đổi trong mã nguồn mở cho các mô hình tính toán, thuật toán theo thời gian).
+
+### Age group
+
+```{r}
+# Chuẩn bị dữ liệu
+age_levels <- c("<1", "1–5", "5–10", ">10")
+age_colors <- c("<1" = "#c6dbef", "1–5" = "#6baed6", "5–10" = "#3182bd", ">10" = "#08519c")
+
+# Tạo dữ liệu
+age_weekly <- dengue %>%
+  filter(year == 2024) %>% 
+  mutate(age_group = factor(age_group, levels = age_levels)) %>%
+  group_by(week, age_group) %>%
+  summarise(cases = n(), .groups = "drop") %>%
+  complete(week = 1:52, age_group, fill = list(cases = 0))
+
+age_weekly_pct <- age_weekly %>%
+  group_by(week) %>%
+  mutate(pct = cases / sum(cases) * 100) %>%
+  ungroup()
+
+# Tạo plot
+p_age <- plot_ly()
+
+# Thêm các trace số lượng
+for (age in age_levels) {
+  df <- filter(age_weekly, age_group == age)
+  p_age <- add_trace(
+    p_age,
+    type = "bar",
+    x = df$week,
+    y = df$cases,
+    name = age,
+    marker = list(color = age_colors[age]),
+    visible = TRUE
+  )
+}
+
+# Thêm các trace phần trăm
+for (age in age_levels) {
+  df <- filter(age_weekly_pct, age_group == age)
+  p_age <- add_trace(
+    p_age,
+    type = "bar",
+    x = df$week,
+    y = df$pct,
+    name = age,
+    marker = list(color = age_colors[age]),
+    visible = FALSE
+  )
+}
+
+# Nút chọn chế độ
+p_age <- layout(p_age,
+  barmode = "stack",
+  xaxis = list(title = 
+                 list(text = "<b>Report Weeks<b>",
+                      font = list(size = 13,
+                                  family = "Arial", 
+                                  color = "black",
+                                  bold = TRUE)),
+               zeroline = TRUE,
+               zerolinecolor = "black",
+               zerolinewidth = 1),
+  yaxis = list(title = 
+                 list(text = "<b>Number of Cases<b>",
+                      font = list(size = 13,
+                                  family = "Arial", 
+                                  color = "black",
+                                  bold = TRUE))),
+  updatemenus = list(
+    list(
+      x = 1.15, y = 1,
+      buttons = list(
+        list(method = "restyle",
+             args = list("visible", c(rep(TRUE, 4), rep(FALSE, 4))),
+             label = "Number of Cases"),
+        list(method = "restyle",
+             args = list("visible", c(rep(FALSE, 4), rep(TRUE, 4))),
+             label = "Percentage")
+      ),
+      direction = "down",
+      showactive = TRUE
+    )
+  ),
+  legend = list(
+    text = "Age group",
+    orientation = "h",
+    x = 0.5,
+    y = -0.2,
+    xanchor = "center",
+    title = list(text = "")
+  ),
+  margin = list(r = 120)
+)
+
+p_age
+```
+
+Git là một phần mềm mã nguồn mở, quản lý phiên bản (Version Control System - VCS), mục đích của nó là theo dõi các thay đổi của tệp trong một kho lưu trữ và cung cấp khả năng quay lại phiên bản trước đó (bao gồm các thay đổi trong mã nguồn mở cho các mô hình tính toán, thuật toán theo thời gian).
+:::
+
+## Hand, foot, mouth disease
+
+## Measles
+:::

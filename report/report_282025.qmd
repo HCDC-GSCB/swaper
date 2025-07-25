@@ -7,7 +7,7 @@ categories: [Weekly, Report]
 
 ```{=html}
 <iframe src="pdfs/report_282025.pdf" width="100%" height="800px" style="border:1px solid #ccc;">
-  Vui lòng tải về bên dưới.
+  Xem báo cáo trực tuyến
 </iframe>
 ```
 
@@ -16,6 +16,5 @@ categories: [Weekly, Report]
 ```{=html}
 <ul>
   <li><a href="pdfs/report_282025.pdf" class="btn btn-primary" download>📄 PDF</a></li>
-  <li><a href="docx/report_282025.docx" class="btn btn-secondary" download>📝 Word</a></li>
 </ul>
 ```

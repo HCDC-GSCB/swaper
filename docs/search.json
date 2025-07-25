@@ -601,13 +601,6 @@
     "text": "Collaboration\nWe maintain strong working relationships with leading academic research institutions, non-governmental organizations (NGOs), and other specialized departments within the Ho Chi Minh City Center for Disease Control (HCDC).\nThese partnerships are vital for conducting cutting-edge research, validating new methodologies, and strengthening the city’s overall public health framework. Notable partners include the Oxford University Clinical Research Unit (OUCRU) and FHI 360.\nA selection of key research projects undertaken through these collaborations includes:\n\nEvaluation of the Reproduction Number (Rt) in Measles Outbreaks in HCMC.\nMethods for Determining Epidemic Thresholds in Endemic Disease Surveillance: A Scoping Review and Benchmark.\nDengue Advanced Readiness Tools (DART).\nAssessment of the Infectious Disease and Public Health Event Surveillance System in HCMC.\nA Review of Methodological Approaches to Infectious Disease Risk Assessment.\nEvent-Based Surveillance Using Social Media, Google Search Data, and Online News Media."
   },
   {
-    "objectID": "about/index.html",
-    "href": "about/index.html",
-    "title": "About us",
-    "section": "",
-    "text": "Lan Truong\n            Position: Head of Department of Surveillance, Warning and Preparedness, Emergency Response\n            Major: Master of Public Health\n        \n    \n\n    \n    \n        \n        An Tran\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n    \n        \n        Anh Huynh\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n    \n        \n        Diem Le\n        Major: Doctor of Preventive Medicine\n        Surveillance System, Data analysis and forecasting (Modeling team)\n    \n    \n        \n        Thu Pham\n        Major: Bachelor of Public Health\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n\n    \n    \n        \n        Khang Huynh\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Prepare to respond to emergencies(EOC team)\n    \n    \n        \n        Vy Tran\n        Major: Doctor of Preventive Medicine\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n        \n        Ngoc Dinh\n        Major: Doctor of Preventive Medicine\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n        \n        Le Tran\n        Major: Bachelor of Public Health\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n\n    \n        \n        Tuyen Pham\n        Major: Doctor of Preventive Medicine\n        Surveillance, warning epidemic\n    \n    \n        \n        Quan Truong\n        Major: Doctor of Preventive Medicine\n        Surveillance, warning epidemic\n    \n    \n        \n        Vinh Tran\n        Major: Bachelor of Public Health\n        Surveillance, warning epidemic\n    \n    \n        \n        Nhon Nguyen\n        Major: Bachelor of Public Health\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n\n\n\n\n Back to top"
-  },
-  {
     "objectID": "book/index.html",
     "href": "book/index.html",
     "title": "Documents",
@@ -627,6 +620,20 @@
     "title": "Documents",
     "section": "E-Book",
     "text": "E-Book\n\nEpidemic R Handbook, 2024 Link\nIntroduction to Data Science, 2019 Link\nggplot2: Elegant Graphics for Data Analysis, 2019 Link\nTelling Stories with Data, 2023 Link\nSpatial Statistics for Data Science: Theory and Practice with R, 2019 Link"
+  },
+  {
+    "objectID": "about/index.html",
+    "href": "about/index.html",
+    "title": "About us",
+    "section": "",
+    "text": "Lan Truong\n            Position: Head of Department of Surveillance, Warning and Preparedness, Emergency Response\n            Major: Master of Public Health\n        \n    \n\n    \n    \n        \n        An Tran\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n    \n        \n        Anh Huynh\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n    \n        \n        Diem Le\n        Major: Doctor of Preventive Medicine\n        Surveillance System, Data analysis and forecasting (Modeling team)\n    \n    \n        \n        Thu Pham\n        Major: Bachelor of Public Health\n        Data analysis and forecasting, Risk assessment (Modeling team)\n    \n\n    \n    \n        \n        Khang Huynh\n        Major: Doctor of Preventive Medicine\n        Data analysis and forecasting, Prepare to respond to emergencies(EOC team)\n    \n    \n        \n        Vy Tran\n        Major: Doctor of Preventive Medicine\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n        \n        Ngoc Dinh\n        Major: Doctor of Preventive Medicine\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n        \n        Le Tran\n        Major: Bachelor of Public Health\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n    \n\n    \n        \n        Tuyen Pham\n        Major: Doctor of Preventive Medicine\n        Surveillance, warning epidemic\n    \n    \n        \n        Quan Truong\n        Major: Doctor of Preventive Medicine\n        Surveillance, warning epidemic\n    \n    \n        \n        Vinh Tran\n        Major: Bachelor of Public Health\n        Surveillance, warning epidemic\n    \n    \n        \n        Nhon Nguyen\n        Major: Bachelor of Public Health\n        Prepare to respond to emergencies, RRT (EOC team)\n    \n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "dashboard/index.html",
+    "href": "dashboard/index.html",
+    "title": "Weekly report 28/2025",
+    "section": "",
+    "text": "Dengue FeverHand, foot, mouth diseaseMeasles\n\n\n\nTrendsAge group\n\n\n\n\n\n\n\n\nGit là một phần mềm mã nguồn mở, quản lý phiên bản (Version Control System - VCS), mục đích của nó là theo dõi các thay đổi của tệp trong một kho lưu trữ và cung cấp khả năng quay lại phiên bản trước đó (bao gồm các thay đổi trong mã nguồn mở cho các mô hình tính toán, thuật toán theo thời gian).\n\n\n\n\n\n\n\n\nGit là một phần mềm mã nguồn mở, quản lý phiên bản (Version Control System - VCS), mục đích của nó là theo dõi các thay đổi của tệp trong một kho lưu trữ và cung cấp khả năng quay lại phiên bản trước đó (bao gồm các thay đổi trong mã nguồn mở cho các mô hình tính toán, thuật toán theo thời gian).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "news/index.html",
@@ -654,14 +661,14 @@
     "href": "report/report_282025.html",
     "title": "Báo cáo tuần 28/2025",
     "section": "",
-    "text": "Vui lòng tải về bên dưới."
+    "text": "Xem báo cáo trực tuyến"
   },
   {
     "objectID": "report/report_282025.html#tải-báo-cáo",
     "href": "report/report_282025.html#tải-báo-cáo",
     "title": "Báo cáo tuần 28/2025",
     "section": "📥 Tải báo cáo:",
-    "text": "📥 Tải báo cáo:\n\n  📄 PDF\n  📝 Word"
+    "text": "📥 Tải báo cáo:\n\n  📄 PDF"
   },
   {
     "objectID": "training/exercise1.html",
