@@ -30,7 +30,7 @@ website:
       - text: "EBS"
         icon: newspaper
         href: ebs.html
-      - text: "IBS"
+      - text: "Report"
         icon: database
         href: report/index.qmd
     right:
