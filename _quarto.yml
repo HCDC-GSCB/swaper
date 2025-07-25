@@ -2,6 +2,10 @@ project:
   type: website
   output-dir: docs
 
+resources:
+  - pdfs
+  - docx
+
 website:
   title: "SWAPER"
   favicon: logo.png
