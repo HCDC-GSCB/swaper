@@ -5,16 +5,17 @@ format: html
 categories: [Weekly, Report]
 ---
 
-## 📄 Báo cáo trực tiếp:
-
 ```{=html}
-<iframe src="../pdfs/report_282025.pdf" width="100%" height="800px" style="border:1px solid #ccc;">
+<iframe src="pdfs/report_282025.pdf" width="100%" height="800px" style="border:1px solid #ccc;">
   Vui lòng tải về bên dưới.
 </iframe>
 ```
 
 ## 📥 Tải báo cáo:
 
-- [📄 PDF](../pdfs/report_282025.pdf){.btn .btn-primary download}
-- [📝 Word](../docs/report_282025.docx){.btn .btn-secondary download}
-
+```{=html}
+<ul>
+  <li><a href="pdfs/report_282025.pdf" class="btn btn-primary" download>📄 PDF</a></li>
+  <li><a href="docx/report_282025.docx" class="btn btn-secondary" download>📝 Word</a></li>
+</ul>
+```
