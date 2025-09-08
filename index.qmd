@@ -1,27 +1,22 @@
 ---
-title: "SWAPER"
-subtitle: "The Department of Surveillance, Warning, and Preparedness for Epidemic Response 🏡"
 page-layout: full
-title-block-banner: true
 toc-title: "On this page"
-logo: logo.png
-resources:
-  - logo.png
+title-block-banner: picture/rmd-chunk
 ---
 
 ## Our mission
 
 The Department of Surveillance, Warning, Preparedness, and Emergency Response is tasked with protecting public health through a structured and systematic approach. The department's mandate is executed through three primary missions:
 
-**1.	To Ensure the Quality of the Public Health Monitoring System**
+**1. To Ensure the Quality of the Public Health Monitoring System**
 
 This mission focuses on the development and oversight of processes that guarantee the accuracy, completeness, and timeliness of data from all public health surveillance systems. It includes conducting systematic evaluations and rapid surveys to inform and continuously improve monitoring strategies.
 
-**2.	To Monitor, Detect, and Alert on Unusual Health Events**
+**2. To Monitor, Detect, and Alert on Unusual Health Events**
 
 This mission involves the systematic collection and management of epidemiological data to monitor health trends, forecast outcomes, and assess risks. The objective is to promptly detect unusual events, issue evidence-based alerts, and propose scientifically grounded solutions to mitigate public health threats.
 
-**3.	To Prepare for and Respond to Public Health Emergencies** 
+**3. To Prepare for and Respond to Public Health Emergencies**
 
 This mission centers on maintaining a high state of operational readiness. It includes managing the Public Health Emergency Operations Center (PHEOC) and the Provincial Rapid Response Teams (RRT), and implementing comprehensive preparedness activities such as planning, training, drills, and resource allocation for effective emergency response.
 

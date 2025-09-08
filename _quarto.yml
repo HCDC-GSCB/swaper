@@ -7,13 +7,13 @@ resources:
 
 website:
   title: "SWAPER"
-  favicon: logo.png
+  favicon: favicon.png
   search: true
   announcement: 
     icon: info-circle
     dismissable: true
     content: "Website is under construction"
-    type: primary
+    type: warning
     position: above-navbar
   navbar:
     pinned: true
@@ -76,6 +76,8 @@ website:
 
   back-to-top-navigation: true
   page-footer:
+    border: true
+    background: "#005d88"
     left: |
       📧 Email to: khoagscb@hcdc.gov.vn<br>
       📍 Address: 366A Au Duong Lan Street, Chanh Hung Ward, HCMC
