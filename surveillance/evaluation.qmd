@@ -1,0 +1,8 @@
+---
+title: "Untitled"
+author: Diem Le, Anh Huynh
+date: 2025-7-02
+categories: [EWAR]
+---
+
+1. Evaluation of infectious disease surveillance systems [📑 Read here](../documents/ss_03.pdf){target="_blank"} 

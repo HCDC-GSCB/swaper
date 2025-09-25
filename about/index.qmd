@@ -1,5 +1,5 @@
 ---
-title: "About us"
+title: "Welcome to the SWAPER 🌍"
 page-layout: full
 format:
   html:
@@ -8,6 +8,14 @@ execute:
   echo: false
 engine: knitr
 ---
+
+Our department consists of two key teams:
+
+-   **Modeling Team:** Focused on epidemiological surveillance and outbreak forecasting, this team requires a solid understanding of epidemiology as well as proficiency in R programming for data analysis and modeling.
+
+-   **EOC Team:** Responsible for ensuring rapid preparedness and effective response to public health emergencies, this team focuses on planning, coordination, and operational readiness during outbreaks.
+
+We welcome you to connect for more projects. 💪
 
 ```{=html}
 <style>
@@ -136,25 +144,25 @@ main {
         <img src="../avatar/antran.jpg" class="avatar">
         <h3>An Tran</h3>
         <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
-        <p>Data analysis and forecasting, Risk assessment (Modeling team)</p>
+        <p>Modeling team</p>
     </div>
     <div class="member row1">
         <img src="../avatar/anhhuynh.jpg" class="avatar">
         <h3>Anh Huynh</h3>
         <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
-        <p>Data analysis and forecasting, Risk assessment (Modeling team)</p>
+        <p>Modeling team</p>
     </div>
     <div class="member row1">
         <img src="../avatar/diemle.jpg" class="avatar">
         <h3>Diem Le</h3>
         <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
-        <p>Surveillance System, Data analysis and forecasting (Modeling team)</p>
+        <p>Modeling team</p>
     </div>
     <div class="member row1">
         <img src="../avatar/thupham.jpg" class="avatar">
         <h3>Thu Pham</h3>
         <p><strong>Major:</strong> Bachelor of Public Health</p>
-        <p>Data analysis and forecasting, Risk assessment (Modeling team)</p>
+        <p>Modeling team</p>
     </div>
 
     <!-- Staff (4 người hàng dưới) -->
@@ -162,25 +170,25 @@ main {
         <img src="../avatar/khanghuynh.jpg" class="avatar">
         <h3>Khang Huynh</h3>
         <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
-        <p>Data analysis and forecasting, Prepare to respond to emergencies(EOC team)</p>
+        <p>EOC team</p>
     </div>
     <div class="member row2">
         <img src="../avatar/vytran.jpg" class="avatar">
         <h3>Vy Tran</h3>
         <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
-        <p>Prepare to respond to emergencies, RRT (EOC team)</p>
+        <p>EOC team</p>
     </div>
     <div class="member row2">
         <img src="../avatar/ngocdinh.jpg" class="avatar">
         <h3>Ngoc Dinh</h3>
         <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
-        <p>Prepare to respond to emergencies, RRT (EOC team)</p>
+        <p>EOC team</p>
     </div>
     <div class="member row2">
         <img src="../avatar/chile.png" class="avatar">
         <h3>Le Tran</h3>
         <p><strong>Major:</strong> Bachelor of Public Health</p>
-        <p>Prepare to respond to emergencies, RRT (EOC team)</p>
+        <p>EOC team</p>
     </div>
     
 <!-- Staff (4 người hàng dưới) -->
@@ -188,25 +196,25 @@ main {
         <img src="../avatar/tuyenpham.png" class="avatar">
         <h3>Tuyen Pham</h3>
         <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
-        <p>Surveillance, warning epidemic</p>
+        <p>EOC team</p>
     </div>
     <div class="member row3">
         <img src="../avatar/quantruong.png" class="avatar">
         <h3>Quan Truong</h3>
         <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
-        <p>Surveillance, warning epidemic</p>
+        <p>Modeling team</p>
     </div>
     <div class="member row3">
         <img src="../avatar/vinhtran.jpg" class="avatar">
         <h3>Vinh Tran</h3>
         <p><strong>Major:</strong> Bachelor of Public Health</p>
-        <p>Surveillance, warning epidemic</p>
+        <p>Modeling team</p>
     </div>
     <div class="member row3">
         <img src="../avatar/nhonnguyen.png" class="avatar">
         <h3>Nhon Nguyen</h3>
         <p><strong>Major:</strong> Bachelor of Public Health</p>
-        <p>Prepare to respond to emergencies, RRT (EOC team)</p>
+        <p>EOC team</p>
     </div>
 </div>
 ```

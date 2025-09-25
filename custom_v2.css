@@ -1,8 +1,5 @@
-/* ===================== */
-/* --- NAVBAR --- */
-/* ===================== */
 .navbar { 
-  background-color: #00a99d !important; /* Nền xanh đậm */
+  background-color: #005d88 !important; /* Nền xanh đậm */
   border-bottom: none; 
 } 
 
@@ -15,9 +12,9 @@
 .navbar .nav-link:hover, 
 .navbar .nav-link:focus, 
 .navbar .nav-item.active .nav-link { 
-  color: #33cfc3 !important;   /* Teal sáng hơn để đồng bộ */
+  color: #1a9fcc !important; /* Xanh sáng hover/active */
   background-color: transparent; 
-}
+} 
 
 /* Dropdown menu */
 .navbar .dropdown-menu { 
@@ -34,7 +31,7 @@
 .navbar .dropdown-menu .dropdown-item:hover, 
 .navbar .dropdown-menu .dropdown-item:focus { 
   background-color: #f1f1f1 !important; 
-  color: #33cfc3 !important; 
+  color: #1a9fcc !important; 
 } 
 
 /* GitHub / Discord icon */
@@ -51,7 +48,7 @@
 /* --- SIDEBAR --- */
 /* ===================== */
 .sidebar-title { 
-  color: #00a99d; /* tím điểm nhấn */
+  color: #492799; /* tím điểm nhấn */
   font-weight: bold; 
 } 
 
@@ -62,27 +59,27 @@
 .sidebar nav .nav-link:hover, 
 .sidebar nav .nav-link.active { 
   background-color: #eef8fc; 
-  color: #00a99d; 
-  border-left: 3px solid #00a99d; 
+  color: #1a9fcc; 
+  border-left: 3px solid #1a9fcc; 
 } 
 
 /* ===================== */
 /* --- BACK TO TOP --- */
 /* ===================== */
 .quarto-back-to-top { 
-  background-color: #00a99d; 
+  background-color: #2f2ba0; 
   color: white; 
 } 
 
 .quarto-back-to-top:hover { 
-  background-color: #00a99d; 
+  background-color: #492799; 
 } 
 
 /* ===================== */
 /* --- FOOTER --- */
 /* ===================== */
 .page-footer {
-  background-color: #00a99d; /* Nền xanh đậm */
+  background-color: #005d88; /* Nền xanh đậm */
   color: #ffffff;
   padding: 2rem 0;
   text-align: center;
@@ -102,7 +99,7 @@
 
 /* Link trong footer khi hover */
 .page-footer a:hover {
-  color: #00a99d;
+  color: #1a9fcc;
 }
 
 /* ===================== */
@@ -114,19 +111,19 @@ main h3,
 main h4, 
 main h5, 
 main h6 { 
-  color: #00a99d !important; 
+  color: #005d88 !important; 
   font-weight: 600; 
 } 
 
 /* Link trong nội dung */
 main a { 
-  color: #00a99d !important; 
+  color: #1a9fcc !important; 
   text-decoration: none;  
 } 
 
 main a:hover, 
 main a:focus { 
-  color: #00a99d !important; 
+  color: #1a9fcc !important; 
   text-decoration: none; 
 } 
 
@@ -139,7 +136,7 @@ main a:focus {
 .sidebar .toc .nav-link,
 .page-toc .toc .nav-link,
 .sidebar a.toc-link {
-  color: #00a99d !important;
+  color: #333333 !important;
   border-left: 3px solid transparent !important;
   padding-left: 0.75rem !important;
 }
@@ -151,9 +148,9 @@ main a:focus {
 .sidebar a.toc-link:hover,
 .sidebar nav .nav-link:focus,
 .sidebar .toc .nav-link:focus {
-  color: #00a99d !important;
+  color: #005d88 !important;
   background-color: rgba(0, 93, 136, 0.06) !important;
-  border-left: 3px solid #00a99d !important;
+  border-left: 3px solid #005d88 !important;
 }
 
 /* Active */
@@ -161,17 +158,17 @@ main a:focus {
 .sidebar .toc .nav-link.active,
 .page-toc .toc .nav-link.active,
 .sidebar a.toc-link.active {
-  color: #00a99d !important;
+  color: #005d88 !important;
   background-color: rgba(0, 93, 136, 0.08) !important;
-  border-left: 3px solid #00a99d !important;
+  border-left: 3px solid #005d88 !important;
 }
 
 /* Nếu theme dùng nav-item wrapper */
 .sidebar .nav-item > .nav-link:hover,
 .sidebar .nav-item > .nav-link.active {
-  color: #00a99d !important;
+  color: #005d88 !important;
   background-color: rgba(0, 93, 136, 0.06) !important;
-  border-left: 3px solid #00a99d !important;
+  border-left: 3px solid #005d88 !important;
 }
 
 /* Override pseudo-element highlight */
@@ -180,5 +177,3 @@ main a:focus {
   background-color: transparent !important;
   width: 0 !important;
 }
-
-

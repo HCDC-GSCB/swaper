@@ -1,0 +1,13 @@
+---
+title: "R with us"
+listing: 
+  contents: .
+  type: grid
+  sort: "date desc"
+  categories: true
+  sort-ui: true
+  filter-ui: true
+page-layout: full
+---
+
+

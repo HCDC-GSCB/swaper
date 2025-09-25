@@ -26,8 +26,14 @@ website:
         href: seminars/index.qmd
       - text: "Learning"
         menu:
-          - text: "Training"
-            href: training/index.qmd
+          - text: "Public Health Emergency Operations Centre"
+            href: pheoc/index.qmd
+          - text: "Surveillance System"
+            href: surveillance/index.qmd
+          - text: "Modeling"
+            href: modeling/index.qmd
+          - text: "R"
+            href: r/index.qmd
           - text: "Book"
             href: book/index.qmd
       - text: "EBS"
@@ -48,31 +54,6 @@ website:
       - text: "Chill"
         icon: discord
         href: game.html
-
-  sidebar:
-    - id: training
-      title: "Training"
-      style: "docked"
-      contents:
-        - section: "Modelling team"
-          contents:
-            - training/htgs.qmd
-            - training/threshold.qmd
-        - section: "PHEOC team"
-          contents:
-            - training/ghs.qmd
-            - training/phem.qmd
-            - training/pheoc.qmd
-        - section: "R language"
-          contents:
-            - training/intro.qmd
-            - training/r01.qmd
-            - training/r02.qmd
-            - training/r03.qmd
-            - training/r04.qmd
-            - training/exercise1.qmd
-            - training/exercise2.qmd
-            - training/exercise3.qmd
 
   back-to-top-navigation: true
   page-footer:
