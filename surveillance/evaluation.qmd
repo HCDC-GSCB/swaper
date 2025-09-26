@@ -1,8 +1,9 @@
 ---
-title: "Untitled"
+title: "Research: Evaluation of infectious disease surveillance systems"
 author: Diem Le, Anh Huynh
 date: 2025-7-02
+image: picture/ewar.png
 categories: [EWAR]
 ---
 
-1. Evaluation of infectious disease surveillance systems [📑 Read here](../documents/ss_03.pdf){target="_blank"} 
+1. Evaluation of infectious disease surveillance systems at Ho Chi Minh City [📑 Read here](../documents/ss_03.pdf){target="_blank"} 

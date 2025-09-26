@@ -2,6 +2,7 @@
 title: "Global Health Security"
 author: Khang Huynh, Vy Tran
 date: 2025-7-02
+image: picture/who.jpeg
 categories: [EOC, PHEOC]
 ---
 

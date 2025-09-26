@@ -2,6 +2,7 @@
 title: "Early Warning And Response"
 author: Diem Le, Anh Huynh
 date: 2025-7-02
+image: picture/ewar.png
 categories: [EWAR]
 ---
 
