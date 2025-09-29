@@ -4,6 +4,9 @@ project:
 
 resources:
   - documents/**
+  - ebs.html
+  - game.html
+  - riskmap.html
 
 website:
   title: "SWAPER"
