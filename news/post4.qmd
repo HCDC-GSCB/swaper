@@ -1,0 +1,18 @@
+---
+title: "Workshop on Collaboration with OUCRU for Rt Research in Dengue"
+author: Tuyen Pham
+date: 2025-12-05
+image: picture/L3.jpg
+categories: [Workshop, Learning]
+description: ""
+---
+
+The Department of Surveillance, Warning, Preparedness, and Emergency Response recently held a workshop to present the research concept on the time-varying reproduction number (Rt) in Dengue with representatives from OUCRU.
+
+During the session, the department introduced its proposed study on estimating Rt and its potential application in disease surveillance. Both sides discussed initial steps for collaboration, including research design, data sharing, and strengthening analytical capacity in epidemiology.
+
+![Quan Truong getting ready for the presentation.](picture/L3.jpg)
+
+::: {.callout-note appearance="minimal"}
+[Access the full lecture notes and slides at here {{< fa book-open >}} ](../documents/workshop/L3_RtDengue.pdf)
+:::

@@ -47,16 +47,33 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    max-width: 800px;
+    max-width: 1000px; /* Tăng nhẹ max-width để hàng 4 người thoáng hơn */
     margin: auto;
+}
+
+/* --- CẤU HÌNH CHO THẺ THÀNH VIÊN & LEADER --- */
+
+.member, .leader {
+    background-color: #b5d8ea;
+    color: #000 !important; /* Force màu chữ đen */
+    border-radius: 10px;
+    text-decoration: none; /* Bỏ gạch chân của link */
+    
+    /* Hiệu ứng chuyển động mượt mà */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
+    cursor: pointer; /* Con trỏ chuột thành hình bàn tay */
+}
+
+/* --- HIỆU ỨNG HOVER (NHẢY LÊN) --- */
+.member:hover, .leader:hover {
+    transform: translateY(-10px); /* Nhảy lên 10px */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* Đổ bóng tạo chiều sâu */
+    background-color: #c4e6e1; /* Đổi màu nền nhẹ khi hover cho đẹp */
 }
 
 .member {
     text-align: left;
-    background-color: #d8eeeb;
-    color: #000;
     padding: 15px;
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -64,10 +81,7 @@ main {
 
 .leader {
     width: 100%;
-    background-color: #d8eeeb;
-    color: #000;
     padding: 20px;
-    border-radius: 10px;
     display: flex;
     align-items: center;
     gap: 20px;
@@ -75,32 +89,20 @@ main {
     flex-direction: row-reverse;
 }
 
+/* Dark mode */
 @media (prefers-color-scheme: dark) {
-    .member {
+    .member, .leader {
         background-color: #1e1e1e;
-        color: #fff;
+        color: #fff !important;
     }
 
-    .leader {
-        background-color: #2b2b2b;
-        color: #fff;
+    .member:hover, .leader:hover {
+        background-color: #333333; /* Màu hover chế độ tối */
     }
 }
 
-/* Hàng 4 người */
-.row1 {
-    width: calc(25% - 20px);
-    min-width: 180px;
-}
-
-/* Hàng 4 người */
-.row2 {
-    width: calc(25% - 20px);
-    min-width: 180px;
-}
-
-/* Hàng 4 người */
-.row3 {
+/* Hàng 4 người - Logic cũ của bạn */
+.row1, .row2, .row3 {
     width: calc(25% - 20px);
     min-width: 180px;
 }
@@ -118,11 +120,22 @@ main {
     text-align: left;
 }
 
-/* Căn trái toàn bộ nội dung của Staff */
 .member h3,
 .member p {
     text-align: left;
     width: 100%;
+    margin: 5px 0; /* Thêm chút margin cho thoáng chữ */
+}
+
+/* Responsive cho Mobile: Khi màn hình nhỏ tự về 1 cột hoặc 2 cột */
+@media (max-width: 600px) {
+    .row1, .row2, .row3 {
+        width: 100%; /* Trên điện thoại cho về 1 cột cho dễ nhìn */
+    }
+    .leader {
+        flex-direction: column;
+        text-align: center;
+    }
 }
 </style>
 ```
@@ -130,91 +143,100 @@ main {
 ```{=html}
 <div class="team-container">
     <!-- Leader -->
-    <div class="leader">
+    <a href="https://hcdc-gscb.github.io/swaper/" target="_blank" class="leader">
         <img src="../avatar/lantruong.jpg" class="avatar">
         <div class="leader-info">
             <h3>Lan Truong</h3>
             <p><strong>Position:</strong> Head of Department of Surveillance, Warning and Preparedness, Emergency Response</p>
             <p><strong>Major:</strong> Master of Public Health</p>
         </div>
-    </div>
+    </a>
 
     <!-- Staff (4 người hàng trên) -->
-    <div class="member row1">
+    <a href="https://orcid.org/0009-0001-2555-3512" class="member row1">
         <img src="../avatar/antran.jpg" class="avatar">
         <h3>An Tran</h3>
         <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
         <p>Modeling team</p>
-    </div>
-    <div class="member row1">
+    </a>
+    
+    <a href="https://orcid.org/0009-0004-5555-3638" class="member row1">
         <img src="../avatar/anhhuynh.jpg" class="avatar">
         <h3>Anh Huynh</h3>
         <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
         <p>Modeling team</p>
-    </div>
-    <div class="member row1">
+    </a>
+
+    <a href="https://hcdc-gscb.github.io/swaper/" class="member row1">
         <img src="../avatar/diemle.jpg" class="avatar">
         <h3>Diem Le</h3>
         <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
         <p>Modeling team</p>
-    </div>
-    <div class="member row1">
+    </a>
+
+    <a href="https://hcdc-gscb.github.io/swaper/" class="member row1">
         <img src="../avatar/thupham.jpg" class="avatar">
         <h3>Thu Pham</h3>
         <p><strong>Major:</strong> Bachelor of Public Health</p>
         <p>Modeling team</p>
-    </div>
+    </a>
 
-    <!-- Staff (4 người hàng dưới) -->
-    <div class="member row2">
+    <!-- Staff (4 người hàng giữa) -->
+    <a href="#https://hcdc-gscb.github.io/swaper/" class="member row2">
         <img src="../avatar/khanghuynh.jpg" class="avatar">
         <h3>Khang Huynh</h3>
         <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
         <p>EOC team</p>
-    </div>
-    <div class="member row2">
+    </a>
+
+    <a href="https://hcdc-gscb.github.io/swaper/" class="member row2">
         <img src="../avatar/vytran.jpg" class="avatar">
         <h3>Vy Tran</h3>
         <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
         <p>EOC team</p>
-    </div>
-    <div class="member row2">
+    </a>
+
+    <a href="https://hcdc-gscb.github.io/swaper/" class="member row2">
         <img src="../avatar/ngocdinh.jpg" class="avatar">
         <h3>Ngoc Dinh</h3>
         <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
         <p>EOC team</p>
-    </div>
-    <div class="member row2">
+    </a>
+
+    <a href="https://hcdc-gscb.github.io/swaper/" class="member row2">
         <img src="../avatar/chile.png" class="avatar">
         <h3>Le Tran</h3>
         <p><strong>Major:</strong> Bachelor of Public Health</p>
         <p>EOC team</p>
-    </div>
+    </a>
     
-<!-- Staff (4 người hàng dưới) -->
-    <div class="member row3">
+    <!-- Staff (4 người hàng dưới) -->
+    <a href="https://hcdc-gscb.github.io/swaper/" class="member row3">
         <img src="../avatar/tuyenpham.png" class="avatar">
         <h3>Tuyen Pham</h3>
         <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
         <p>EOC team</p>
-    </div>
-    <div class="member row3">
+    </a>
+
+    <a href="https://hcdc-gscb.github.io/swaper/" class="member row3">
         <img src="../avatar/quantruong.png" class="avatar">
         <h3>Quan Truong</h3>
         <p><strong>Major:</strong> Doctor of Preventive Medicine</p>
         <p>Modeling team</p>
-    </div>
-    <div class="member row3">
+    </a>
+
+    <a href="https://hcdc-gscb.github.io/swaper/" class="member row3">
         <img src="../avatar/vinhtran.jpg" class="avatar">
         <h3>Vinh Tran</h3>
         <p><strong>Major:</strong> Bachelor of Public Health</p>
         <p>Modeling team</p>
-    </div>
-    <div class="member row3">
+    </a>
+
+    <a href="https://hcdc-gscb.github.io/swaper/" class="member row3">
         <img src="../avatar/nhonnguyen.png" class="avatar">
         <h3>Nhon Nguyen</h3>
         <p><strong>Major:</strong> Bachelor of Public Health</p>
         <p>EOC team</p>
-    </div>
+    </a>
 </div>
 ```

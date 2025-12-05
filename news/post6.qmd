@@ -1,0 +1,23 @@
+---
+title: "Workshop Introducing the RRT Management Tool"
+author: Tuyen Pham
+date: 2025-12-05
+image: picture/L5.jpg
+categories: [Workshop, Learning]
+description: ""
+---
+
+On 26 November 2025, the Department of … organized a workshop to introduce the Rapid Response Team (RRT) Management Tool, designed to support data management and coordination activities during public health emergencies.
+
+![Team members getting ready for the presentation.](picture/L5.jpg)
+
+The workshop focused on two main components:
+-   An overview of activities that the tool can support across the three phases: preparedness, response, and post-response.
+
+-   A feature demonstration, showcasing how the tool operates and the practical workflow for users.
+
+-   The session helped participants gain a clearer understanding of the tool’s potential applications and provided direction for establishing and deploying the RRT in the near future.
+
+::: {.callout-note appearance="minimal"}
+[Access the full lecture notes and slides at here {{< fa book-open >}} ](../documents/worksL5_ManagementRRT.pdf.pdf)
+:::

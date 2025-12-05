@@ -32,11 +32,13 @@ website:
           - text: "Public Health Emergency Operations Centre"
             href: pheoc/index.qmd
           - text: "Surveillance System"
-            href: surveillance/index.qmd
-          - text: "Modeling"
-            href: modeling/index.qmd
-          - text: "R"
+            href: surveillance_system/index.qmd
+          - text: "Warning and Forecasting"
+            href: warning_forecasting/index.qmd
+          - text: "R language"
             href: r/index.qmd
+          - text: "Workshop"
+            href: workshop/index.qmd
           - text: "Book"
             href: book/index.qmd
       - text: "EBS"

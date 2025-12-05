@@ -6,4 +6,4 @@ image: picture/phem.png
 categories: [EOC, PHEM]
 ---
 
-1. Overview of Global Health Security and Public Health Emergency Management [📑 Read here](../documents/phem_01.pdf){target="_blank"}
+1. Overview of Global Health Security and Public Health Emergency Management [📑 Read here](../documents/pheoc/phem_01.pdf){target="_blank"}

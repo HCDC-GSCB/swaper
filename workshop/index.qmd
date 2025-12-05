@@ -1,0 +1,33 @@
+---
+title: "Workshop Materials"
+format: html
+---
+
+Welcome to SWAPER's Workshop repository. The latest lectures will be updated here.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+library(dplyr)
+library(DT)
+library(readxl)
+
+data <- read_excel("data_workshop.xlsx", sheet = 1)
+
+data_processed <- data %>%
+  mutate(
+    Date = format(as.Date(Dates), "%Y-%m-%d"), 
+    Access = paste0('<a href="../documents/workshop/', Filename, '" target="_blank" class="btn btn-sm btn-outline-primary">Link</a>')
+  ) %>%
+  select(Date, Title, Authors, Expertise, Access)
+
+datatable(data_processed, 
+          escape = FALSE, 
+          rownames = FALSE,
+          options = list(
+            pageLength = 10,
+            autoWidth = TRUE,
+            language = list(search = "Search here:")
+          ))
+```

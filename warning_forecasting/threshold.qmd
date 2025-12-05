@@ -1,0 +1,13 @@
+---
+title: "Overview of Modeling"
+author: An Tran
+date: 2025-7-02
+image: picture/threshold.png
+categories: [Outbreak, Threshold]
+---
+
+1. Threshold and methods for determining threshold in IBS [📑 Read here](../documents/warning_forecasting/threshold_01.pdf){target="_blank"}
+
+2. Transmission in infectious diseases and the reproduction number [📑 Read here](../documents/warning_forecasting/threshold_02.pdf){target="_blank"}
+
+3. Mathematical models and applications in infectious disease forecasting [📑 Read here](../documents/warning_forecasting/threshold_03.pdf){target="_blank"}
