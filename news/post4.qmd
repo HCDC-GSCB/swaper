@@ -14,5 +14,5 @@ During the session, the department introduced its proposed study on estimating R
 ![Quan Truong getting ready for the presentation.](picture/L3.jpg)
 
 ::: {.callout-note appearance="minimal"}
-[Access the full lecture notes and slides at here {{< fa book-open >}} ](../documents/workshop/L3_RtDengue.pdf)
+{{< fa book-open >}}[Access the full lecture notes and slides at here](../documents/workshop/L3_RtDengue.pdf)
 :::

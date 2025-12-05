@@ -18,5 +18,5 @@ Participants engaged in active discussions on the applicability of each method i
 The workshop concluded with a shared direction to strengthen the use of transmission-assessment methods in routine surveillance, contributing to improved forecasting capacity and more effective disease control.
 
 ::: {.callout-note appearance="minimal"}
-[Access the full lecture notes and slides at here {{< fa book-open >}} ](../documents/worksL7_TSI.pdf.pdf)
+{{< fa book-open >}}[Access the full lecture notes and slides at here](../documents/workshop/L7_TSI.pdf) {{< fa book-open >}} 
 :::

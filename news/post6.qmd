@@ -19,5 +19,5 @@ The workshop focused on two main components:
 -   The session helped participants gain a clearer understanding of the tool’s potential applications and provided direction for establishing and deploying the RRT in the near future.
 
 ::: {.callout-note appearance="minimal"}
-[Access the full lecture notes and slides at here {{< fa book-open >}} ](../documents/worksL5_ManagementRRT.pdf.pdf)
+{{< fa book-open >}}[Access the full lecture notes and slides at here](../documents/workshop/L5_ManagementRRT.pdf)
 :::

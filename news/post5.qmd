@@ -20,5 +20,5 @@ The workshop provided an overview of Risk Map’s potential applications in anal
 ![Team members getting ready for the presentation.](picture/L4.jpg)
 
 ::: {.callout-note appearance="minimal"}
-[Access the full lecture notes and slides at here {{< fa book-open >}} ](../documents/worksL4_SpatialAnalysis.pdf.pdf)
+{{< fa book-open >}}[Access the full lecture notes and slides at here](../documents/workshop/L4_SpatialAnalysis.pdf)
 :::

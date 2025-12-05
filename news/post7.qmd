@@ -16,5 +16,5 @@ During the session, members were introduced to how EIOS collects, aggregates, an
 This workshop enhanced the team’s skills in utilizing open-source intelligence, contributing to more effective public health surveillance and timely response to emerging risks.
 
 ::: {.callout-note appearance="minimal"}
-[Access the full lecture notes and slides at here {{< fa book-open >}} ](../documents/worksL6_EIOS.pdf.pdf)
+{{< fa book-open >}}[Access the full lecture notes and slides at here](../documents/workshop/L6_EIOS.pdf)
 :::
