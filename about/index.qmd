@@ -174,7 +174,7 @@ main {
         <p>Modeling team</p>
     </a>
 
-    <a href="https://hcdc-gscb.github.io/swaper/" class="member row1">
+    <a href="https://www.facebook.com/drduytan" class="member row1">
         <img src="../avatar/thupham.jpg" class="avatar">
         <h3>Thu Pham</h3>
         <p><strong>Major:</strong> Bachelor of Public Health</p>
