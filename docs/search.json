@@ -60,7 +60,7 @@
     "href": "report/index.html",
     "title": "Weekly report",
     "section": "",
-    "text": "You can visit our Dashboard on the Shinyapp \n\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nBáo cáo tuần 30/2025\n\n\n\nWeekly\n\nReport\n\n\n\n\n\n\n\n\n\n\nJul 30, 2025\n\n\n\n\n\n\nNo matching items\n Back to top"
+    "text": "You can visit our Dashboard on the Shinyapp \n\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nBáo cáo tuần 50/2025\n\n\n\nWeekly\n\nReport\n\n\n\n\n\n\n\n\n\n\nDec 19, 2025\n\n\n\n\n\n\nNo matching items\n Back to top"
   },
   {
     "objectID": "r/r03.html",
@@ -1022,18 +1022,18 @@
     "text": "Bản đồ\n\nTrước khi bạn muốn tạo bản đồ, bạn phải có shapefile (định dạng là .shp).\nTrong ggplot2, bạn có thể sử dụng hàm geom_map để tạo bản đồ.\nBạn có thể xem thêm thông tin trong Cheatsheet.\n\n\n\n\n\n\n\nTip\n\n\n\nNếu sử dụng `ggplot2, chúng ta cần sử dụng tidyverse."
   },
   {
-    "objectID": "report/report_w30y25.html",
-    "href": "report/report_w30y25.html",
-    "title": "Báo cáo tuần 30/2025",
-    "section": "",
-    "text": "Xem báo cáo trực tuyến"
+    "objectID": "report/Report_W50.html#tình-hình-bệnh-sốt-xuất-huyết",
+    "href": "report/Report_W50.html#tình-hình-bệnh-sốt-xuất-huyết",
+    "title": "Báo cáo tuần 50/2025",
+    "section": "1. Tình hình bệnh sốt xuất huyết",
+    "text": "1. Tình hình bệnh sốt xuất huyết\n\n1.1. Giám sát và cảnh báo\n\n\n\n\n\nHình 1. Diễn tiến sốt xuất huyết toàn Thành phố đến tuần 50/2025\n\n\n\n\n\nTrong tuần 50, toàn Thành phố ghi nhận 2.211 ca mắc mới bệnh sốt xuất huyết, số ca mắc mới giảm 7,1% so với tuần trước và giảm 6,4% so với trung bình 4 tuần trước.\nSố ca mắc mới tuần 50 vượt ngưỡng Farrington 10,7%, ghi nhận tuần thứ 4 liên tiếp vượt ngưỡng này. Tuy nhiên, so với ngưỡng Mean+2SD, số ca mắc hiện vẫn thấp hơn 19,4%.\n\n\n\n\n\n\n\nTrong tuần 50, giám sát ở cấp phường, xã ghi nhận 52 phường/xã vượt ngưỡng cảnh báo Farrington và CUSUM, trong đó 03 phường/xã vượt ngưỡng có số ca/100.000 dân cao nhất là phường Tây Thạnh, phường Tây Nam, xã An Nhơn Tây.\n\n\n1.2. Đánh giá mức độ lây truyền\n\n\n\nHình 2. Mức độ lây truyền - Sốt xuất huyết\n\n\n\n\n1.3. Đánh giá mức độ nặng\n\n\n\nHình 3. Mức độ nặng - Sốt xuất huyết"
   },
   {
-    "objectID": "report/report_w30y25.html#tải-báo-cáo",
-    "href": "report/report_w30y25.html#tải-báo-cáo",
-    "title": "Báo cáo tuần 30/2025",
-    "section": "📥 Tải báo cáo:",
-    "text": "📥 Tải báo cáo:\n\n  📄 PDF"
+    "objectID": "report/Report_W50.html#tình-hình-bệnh-tay-chân-miệng",
+    "href": "report/Report_W50.html#tình-hình-bệnh-tay-chân-miệng",
+    "title": "Báo cáo tuần 50/2025",
+    "section": "2. Tình hình bệnh tay chân miệng",
+    "text": "2. Tình hình bệnh tay chân miệng\n\n2.1. Giám sát và cảnh báo\n\n\n\n\n\nHình 4. Diễn tiến tay chân miệng toàn Thành phố đến tuần 50/2025\n\n\n\n\n\nTrong tuần 50, toàn Thành phố ghi nhận có 1.298 ca mắc mới, tăng 2,0% so với tuần 49 và giảm 6,8% so với trung bình 4 tuần trước.\nSố ca mắc tuần 50 tiếp tục vượt ngưỡng Farrington duy trì 8 tuần liên tục từ tuần 43 đến tuần 50. Đồng thời, ghi nhận số ca gần chạm ngưỡng Mean+2SD (thấp hơn khoảng 2,0%).\n\n\n\n\n\n\n\nTrong tuần 50, giám sát ở cấp phường, xã ghi nhận 50 phường/xã vượt ngưỡng cảnh báo Farrington và CUSUM, trong đó 03 phường/xã vượt ngưỡng có số ca/100.000 dân cao nhất là xã Đất Đỏ, xã An Nhơn Tây, xã Hồ Tràm.\n\n\n2.2. Đánh giá mức độ lây truyền\n\n\n\nHình 5. Mức độ lây truyền - Tay chân miệng\n\n\n\n\n2.3. Đánh giá mức độ nặng\n\n\n\nHình 6. Mức độ nặng - Tay chân miệng"
   },
   {
     "objectID": "surveillance_system/evaluation.html",
