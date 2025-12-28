@@ -77,7 +77,7 @@ format:
       light: flatly
       dark: darkly
     toc: true
-    css: custom_v2.css
+    css: custom.css
     includes: 
       after-body: loading.html
 
