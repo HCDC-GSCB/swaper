@@ -14,7 +14,7 @@ This is a setting area.
 
 # Dengue fever 
 
-## Column {.tabset}
+## {.tabset}
 
 ### Characteristics
 
@@ -31,7 +31,12 @@ This is a setting area.
 sxh_interactive
 ```
 
-::: {.card} Ghi chú: Hiển thị bảng dữ liệu hoặc ghi chú tại đây. Nội dung này sẽ chiếm 40% bề ngang bên phải. :::
+::: {.card} 
+```{r}
+#| echo: false
+card_sxh
+```
+:::
 
 ::::
 
@@ -41,7 +46,7 @@ sxh_interactive
 
 # Hand-Foot-Mouth Disease
 
-## Column {.tabset}
+## {.tabset}
 
 ### Characteristics
 
@@ -51,23 +56,21 @@ sxh_interactive
 
 ### Threshold
 
-:::: {layout="[60, 40]" height="70%"}
-
-::: {.card}
+:::: {layout="[60, 40]"}
 
 ```{r}
 #| title: "Cảnh báo cấp Thành phố"
 tcm_interactive
 ```
 
-:::
-
-::: {.card} Phân tích: Đây là cột 2 (40%). Hiển thị các chỉ số cảnh báo hoặc text. 
+::: {.card} 
+```{r}
+#| echo: false
+card_tcm
+```
 :::
 
 ::::
-
-::: {.card height="30%"} Thông tin bổ sung (Row 2): Hiển thị bảng dữ liệu hoặc ghi chú bên dưới biểu đồ. :::
 
 ### Risk Assessment
 

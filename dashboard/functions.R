@@ -5,6 +5,7 @@ library(googlesheets4)
 library(googledrive)
 library(patchwork)
 library(plotly)
+library(gt)
 
 ## Load data GG Drive
 load_data <- function(url, sheet) {
@@ -203,4 +204,73 @@ plot_algo_plotly <- function(df_cases, res_far, res_cusum, seasonal_df, year_tar
   )
   
   return(fig)
+}
+
+## Create cards information
+create_info_card <- function(current_cases, current_week, 
+                             val_seasonal, val_cusum, val_farrington, val_cdc) {
+  
+  # 1. Hàm con để tạo định dạng html cho mũi tên và màu sắc
+  format_diff <- function(curr, thr) {
+    if (is.na(thr) || thr == 0) return("-")
+    
+    diff_val <- curr - thr
+    pct <- (diff_val / thr) * 100
+    
+    # Định dạng: Mũi tên lên (đỏ), xuống (xanh)
+    if (diff_val > 0) {
+      symbol <- "&#9650;" # Mũi tên lên
+      color <- "#d62728"  # Màu đỏ
+      sign_txt <- "+"
+    } else {
+      symbol <- "&#9660;" # Mũi tên xuống
+      color <- "darkgreen"  # Màu xanh dương
+      sign_txt <- ""
+    }
+    
+    # Trả về chuỗi HTML
+    sprintf("<span style='color:%s; font-weight:bold'>%s %s%.1f%%</span>", 
+            color, symbol, sign_txt, pct)
+  }
+  
+  # 2. Tạo Data Frame dữ liệu hiển thị
+  df_card <- data.frame(
+    Chi_so = c(
+      paste0("Số ca tuần ", current_week), # Dòng 1
+      "So với Ngưỡng mùa",                 # Dòng 2
+      "So với Ngưỡng CUSUM",               # Dòng 3
+      "So với Ngưỡng Farrington",          # Dòng 4
+      "So với Ngưỡng CDC"                  # Dòng 5
+    ),
+    Gia_tri = c(
+      paste0("<b>", format(current_cases, big.mark=","), "</b>"), # In đậm số ca
+      format_diff(current_cases, val_seasonal),
+      format_diff(current_cases, val_cusum),
+      format_diff(current_cases, val_farrington),
+      format_diff(current_cases, val_cdc)
+    )
+  )
+  
+  # 3. Vẽ bảng bằng gt
+  tbl <- df_card %>%
+    gt() %>%
+    # Ẩn tiêu đề cột
+    tab_options(column_labels.hidden = TRUE) %>% 
+    # Căn chỉnh text
+    cols_align(align = "left", columns = 1) %>%
+    cols_align(align = "right", columns = 2) %>%
+    # Xử lý HTML cho cột Giá trị
+    fmt_markdown(columns = Gia_tri) %>% 
+    # Thêm style cho bảng đẹp hơn (viền mỏng, font chữ)
+    tab_style(
+      style = list(cell_text(size = "large")),
+      locations = cells_body(rows = 1) # Dòng đầu tiên to hơn
+    ) %>%
+    opt_table_lines(extent = "none") %>% # Bỏ bớt kẻ bảng cho giống Card
+    tab_style(
+      style = cell_borders(sides = "bottom", color = "lightgrey", weight = px(1)),
+      locations = cells_body()
+    )
+  
+  return(tbl)
 }
