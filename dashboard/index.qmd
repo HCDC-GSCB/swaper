@@ -1,77 +1,173 @@
 ---
 title: ""
-format: dashboard
+format: 
+  dashboard:
+    scrolling: true
+    theme: custom.scss
 ---
 
 ```{r}
+#| context: setup
+library(shiny)
+library(plotly)
+library(crosstalk)
+library(bslib)
+library(bsicons)
+library(summarywidget)
+library(plotly)
 source("functions.R")
 source("sources_threshold.R")
+source("sources_characteristics.R")
 ```
-
-# {.sidebar}
-
-This is a setting area.
 
 # Dengue fever 
 
+## {.sidebar}
+
+```{r}
+out_dengue$filter_ui
+```
+
 ## {.tabset}
 
 ### Characteristics
 
-::: {.card} Nội dung Row 1 của Characteristics :::
+::: {layout-ncol=4}
 
-::: {.card} Nội dung Row 2 của Characteristics :::
+```{r}
+out_dengue$vbox_total
+```
+
+```{r}
+out_dengue$vbox_inp
+```
+
+```{r}
+out_dengue$vbox_outp
+```
+
+```{r}
+out_dengue$vbox_death
+```
+
+:::
+
+::: {layout-ncol=2}
+
+```{r}
+out_dengue$p_age
+```
+
+```{r}
+out_dengue$p_sex
+```
+
+:::
+
+::: {layout-ncol=2}
+
+```{r}
+out_dengue$p_type
+```
+
+```{r}
+out_dengue$p_sev
+```
+
+:::
 
 ### Threshold
 
-:::: {layout="[60, 40]"}
+::: {layout-ncol=2}
 
 ```{r}
-#| title: "Cảnh báo cấp Thành phố"
 sxh_interactive
 ```
 
-::: {.card} 
 ```{r}
-#| echo: false
 card_sxh
 ```
-:::
 
-::::
+:::
 
 ### Risk Assessment
 
-::: {.card} Nội dung đánh giá nguy cơ. :::
+::: {.card} 
+Nội dung đánh giá nguy cơ. 
+:::
 
-# Hand-Foot-Mouth Disease
+# Hand-Foot-Mouth Disease 
+
+## {.sidebar}
+
+```{r}
+out_hfmd$filter_ui
+```
 
 ## {.tabset}
 
 ### Characteristics
 
-::: {.card} Nội dung Row 1 của Characteristics :::
+::: {layout-ncol=4}
 
-::: {.card} Nội dung Row 2 của Characteristics :::
+```{r}
+out_hfmd$vbox_total
+```
+
+```{r}
+out_hfmd$vbox_inp
+```
+
+```{r}
+out_hfmd$vbox_outp
+```
+
+```{r}
+out_hfmd$vbox_death
+```
+
+:::
+
+::: {layout-ncol=2}
+
+```{r}
+out_hfmd$p_age
+```
+
+```{r}
+out_hfmd$p_sex
+```
+
+:::
+
+::: {layout-ncol=2}
+
+```{r}
+out_hfmd$p_type
+```
+
+```{r}
+out_hfmd$p_sev
+```
+
+:::
 
 ### Threshold
 
-:::: {layout="[60, 40]"}
+::: {layout-ncol=2}
 
 ```{r}
-#| title: "Cảnh báo cấp Thành phố"
 tcm_interactive
 ```
 
-::: {.card} 
 ```{r}
-#| echo: false
 card_tcm
 ```
-:::
 
-::::
+:::
 
 ### Risk Assessment
 
-::: {.card} Nội dung đánh giá nguy cơ. :::
+::: {.card} 
+Nội dung đánh giá nguy cơ.
+:::

@@ -10,8 +10,6 @@ listing:
 page-layout: full
 ---
 
-You can visit our Dashboard on the Shinyapp ![📊](https://hcdc-gscb.github.io/swaper)
-
 ```{=html}
 <script>
 // Hàm này sẽ được gọi ngay khi trang web tải xong

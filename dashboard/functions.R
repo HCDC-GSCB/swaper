@@ -200,7 +200,9 @@ plot_algo_plotly <- function(df_cases, res_far, res_cusum, seasonal_df, year_tar
     ),
     
     updatemenus = updatemenus,
-    legend = list(orientation = "h", x = 0.5, y = -0.1, xanchor = "center")
+    legend = list(orientation = "h", x = 0.5, y = -0.1, 
+                  xanchor = "center",
+                  yanchor = "bottom")
   )
   
   return(fig)
@@ -210,63 +212,54 @@ plot_algo_plotly <- function(df_cases, res_far, res_cusum, seasonal_df, year_tar
 create_info_card <- function(current_cases, current_week, 
                              val_seasonal, val_cusum, val_farrington, val_cdc) {
   
-  # 1. Hàm con để tạo định dạng html cho mũi tên và màu sắc
   format_diff <- function(curr, thr) {
     if (is.na(thr) || thr == 0) return("-")
     
     diff_val <- curr - thr
     pct <- (diff_val / thr) * 100
     
-    # Định dạng: Mũi tên lên (đỏ), xuống (xanh)
     if (diff_val > 0) {
-      symbol <- "&#9650;" # Mũi tên lên
-      color <- "#d62728"  # Màu đỏ
+      symbol <- "&#9650;" 
+      color <- "#d62728"  
       sign_txt <- "+"
     } else {
-      symbol <- "&#9660;" # Mũi tên xuống
-      color <- "darkgreen"  # Màu xanh dương
+      symbol <- "&#9660;" 
+      color <- "darkgreen"  
       sign_txt <- ""
     }
     
-    # Trả về chuỗi HTML
     sprintf("<span style='color:%s; font-weight:bold'>%s %s%.1f%%</span>", 
             color, symbol, sign_txt, pct)
   }
   
-  # 2. Tạo Data Frame dữ liệu hiển thị
   df_card <- data.frame(
     Chi_so = c(
-      paste0("Số ca tuần ", current_week), # Dòng 1
-      "So với Ngưỡng mùa",                 # Dòng 2
-      "So với Ngưỡng CUSUM",               # Dòng 3
-      "So với Ngưỡng Farrington",          # Dòng 4
-      "So với Ngưỡng CDC"                  # Dòng 5
+      paste0("Số ca tuần ", current_week), 
+      "So với Ngưỡng mùa",                 
+      "So với Ngưỡng CUSUM",               
+      "So với Ngưỡng Farrington",          
+      "So với Ngưỡng CDC"                 
     ),
     Gia_tri = c(
-      paste0("<b>", format(current_cases, big.mark=","), "</b>"), # In đậm số ca
+      paste0("<b>", format(current_cases, big.mark=","), "</b>"),
       format_diff(current_cases, val_seasonal),
       format_diff(current_cases, val_cusum),
       format_diff(current_cases, val_farrington),
       format_diff(current_cases, val_cdc)
     )
   )
-  
-  # 3. Vẽ bảng bằng gt
+
   tbl <- df_card %>%
     gt() %>%
-    # Ẩn tiêu đề cột
     tab_options(column_labels.hidden = TRUE) %>% 
-    # Căn chỉnh text
     cols_align(align = "left", columns = 1) %>%
     cols_align(align = "right", columns = 2) %>%
-    # Xử lý HTML cho cột Giá trị
     fmt_markdown(columns = Gia_tri) %>% 
-    # Thêm style cho bảng đẹp hơn (viền mỏng, font chữ)
     tab_style(
       style = list(cell_text(size = "large")),
-      locations = cells_body(rows = 1) # Dòng đầu tiên to hơn
+      locations = cells_body(rows = 1) 
     ) %>%
-    opt_table_lines(extent = "none") %>% # Bỏ bớt kẻ bảng cho giống Card
+    opt_table_lines(extent = "none") %>% 
     tab_style(
       style = cell_borders(sides = "bottom", color = "lightgrey", weight = px(1)),
       locations = cells_body()
@@ -274,3 +267,170 @@ create_info_card <- function(current_cases, current_week,
   
   return(tbl)
 }
+
+#### ------------------------- ###
+
+## Layout for plotly at characteristics tabset
+common_layout <- list(
+  legend = list(
+    orientation = "h",   # Nằm ngang
+    yanchor = "bottom",  # Neo ở đáy của legend
+    y = 1.02,            # Đẩy lên trên biểu đồ một chút
+    xanchor = "center",  # Canh giữa
+    x = 0.5              # Vị trí giữa trục x
+  ),
+  xaxis = list(
+    title = "Tuần",
+    showline = TRUE,     # Hiện đường kẻ trục
+    mirror = TRUE,       # Hiện khung bao quanh (tùy chọn, nhìn sẽ gọn hơn)
+    linecolor = "black"  # Màu đường kẻ
+  ),
+  yaxis_count = list(    # Cấu hình cho trục Y đếm số ca
+    title = "Số ca",
+    showline = TRUE,
+    mirror = TRUE,
+    linecolor = "black"
+  ),
+  yaxis_pct = list(      # Cấu hình cho trục Y phần trăm
+    title = "Tỷ lệ % số ca",
+    showline = TRUE,
+    mirror = TRUE,
+    linecolor = "black",
+    ticksuffix = "%"
+  ),
+  bargap = 0.2           # Tạo khoảng trống giữa các cột (20%)
+)
+
+create_disease_dashboard <- function(df_line_list, disease_name, w_cur, common_layout) {
+  
+  df_agg <- df_line_list %>% 
+    filter(ChanDoanChinhName  == disease_name) %>%
+    group_by(
+      week,
+      NoiOHienTai_SauKhiSapNhap_WardId,          
+      age_group,            
+      GioiTinh,            
+      HinhThucDieuTriName,  
+      PhanDoBenhName        
+    ) %>% 
+    summarise(
+      SoCa = n(),           
+      .groups = "drop"
+    )
+
+  d_data_processed <- df_agg %>% 
+    mutate(
+      flag_case_cur = if_else(week == w_cur, SoCa, 0),
+      flag_inp_cur  = if_else(week == w_cur & HinhThucDieuTriName == "Điều trị nội trú", SoCa, 0),
+      flag_outp_cur = if_else(week == w_cur & HinhThucDieuTriName == "Điều trị ngoại trú", SoCa, 0),
+      flag_death_cum = if_else(HinhThucDieuTriName == "Tử vong" & week <= w_cur, SoCa, 0)
+    )
+
+  group_name <- paste0("filter_group_", gsub(" ", "", disease_name))
+  
+  sd_obj <- SharedData$new(d_data_processed, group = group_name)
+  
+  filter_phuong <- filter_select(
+    id = paste0("select_phuong_", gsub(" ", "", disease_name)), 
+    label = "Chọn Phường/Xã:", 
+    sharedData = sd_obj, 
+    group = ~NoiOHienTai_SauKhiSapNhap_WardId
+  )
+  
+  wdg_total <- summarywidget(sd_obj, statistic = 'sum', column = 'flag_case_cur', digits = 0)
+  wdg_inp   <- summarywidget(sd_obj, statistic = 'sum', column = 'flag_inp_cur', digits = 0)
+  wdg_outp  <- summarywidget(sd_obj, statistic = 'sum', column = 'flag_outp_cur', digits = 0)
+  wdg_death <- summarywidget(sd_obj, statistic = 'sum', column = 'flag_death_cum', digits = 0)
+  
+  vbox_total <- value_box(
+    title = paste0("Số ca tuần ", w_cur),
+    value = wdg_total, 
+    showcase = bs_icon("virus"),
+    theme = "primary",
+    showcase_layout = "left center"
+  )
+  
+  vbox_inp <- value_box(
+    title = paste0("Nội trú tuần ", w_cur),
+    value = wdg_inp, 
+    showcase = bs_icon("hospital-fill"),
+    theme = "info",
+    showcase_layout = "left center"
+  )
+  
+  vbox_outp <- value_box(
+    title = paste0("Ngoại trú tuần ", w_cur),
+    value = wdg_outp,
+    showcase = bs_icon("person-walking"),
+    theme = "warning",
+    showcase_layout = "left center"
+  )
+  
+  vbox_death <- value_box(
+    title = "Tử vong tích lũy", 
+    value = wdg_death, 
+    showcase = bs_icon("person-x-fill"),
+    theme = "danger",
+    showcase_layout = "left center"
+  )
+
+  p_age <- plot_ly(sd_obj, x = ~week, y = ~SoCa, color = ~age_group, colors = "Paired") %>% 
+    add_bars(marker = list(line = list(color = "black", width = 1))) %>% 
+    layout(
+      barmode = "stack",
+      xaxis = common_layout$xaxis,
+      yaxis = common_layout$yaxis_count,
+      legend = common_layout$legend,
+      bargap = common_layout$bargap
+    )
+  
+  p_sex <- plot_ly(sd_obj, x = ~week, y = ~SoCa, color = ~GioiTinh, colors = "Set2") %>% 
+    add_bars(marker = list(line = list(color = "white", width = 1))) %>% 
+    layout(
+      barmode = "stack",
+      barnorm = "percent",
+      xaxis = common_layout$xaxis,
+      yaxis = common_layout$yaxis_pct,
+      legend = common_layout$legend,
+      bargap = common_layout$bargap
+    )
+  
+  sd_type_filtered <- sd_obj$data() %>% 
+    filter(HinhThucDieuTriName %in% c("Điều trị nội trú", "Điều trị ngoại trú"))
+  
+  p_type <- plot_ly(sd_type_filtered, x = ~week, y = ~SoCa, color = ~HinhThucDieuTriName, colors = "Set1") %>% 
+    add_bars(marker = list(line = list(color = "white", width = 1))) %>% 
+    layout(
+      barmode = "stack",
+      barnorm = "percent",
+      title = list(text = ""),
+      xaxis = common_layout$xaxis,
+      yaxis = common_layout$yaxis_pct,
+      legend = common_layout$legend,
+      bargap = common_layout$bargap
+    )
+  
+  p_sev <- plot_ly(sd_obj, x = ~week, y = ~SoCa, color = ~PhanDoBenhName, colors = "YlOrRd") %>% 
+    add_bars(marker = list(line = list(color = "white", width = 1))) %>% 
+    layout(
+      barmode = "stack",
+      xaxis = common_layout$xaxis,
+      yaxis = common_layout$yaxis_count,
+      legend = common_layout$legend,
+      bargap = common_layout$bargap
+    )
+  
+  list(
+    sd = sd_obj,
+    filter_ui = filter_phuong, 
+    vbox_total = vbox_total,
+    vbox_inp = vbox_inp,
+    vbox_outp = vbox_outp,
+    vbox_death = vbox_death,
+    p_age = p_age,
+    p_sex = p_sex,
+    p_type = p_type,
+    p_sev = p_sev
+  )
+}
+
