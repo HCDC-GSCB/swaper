@@ -47,6 +47,31 @@ tcm_interactive <- plot_algo_plotly(
   year_target = 2025
 )
 
+##############################
+######### Phường/Xã ##########
+##############################
+px_sxh <- load_data("https://docs.google.com/spreadsheets/d/1Qg5zNehb86sRHaDWRdVrQPz_s9R0g0GbEV9lOajSBkw/edit?usp=sharing",
+                    sheet = "all_time")
+
+ward_sxh <- px_sxh %>%
+  group_by(ward) %>%
+  group_split() %>%
+  set_names(unique(px_sxh$ward)) %>%
+  map(process_ward)
+
+plot_sxh_wards <- create_ward_chart(ward_sxh)
+
+px_tcm <- load_data("https://docs.google.com/spreadsheets/d/1H8E1Ou7HplqMPS09-ctHmtHM-1e18tUPFO0FTDguons/edit?usp=sharing",
+                    sheet = "all_time")
+
+ward_tcm <- px_tcm %>%
+  group_by(ward) %>%
+  group_split() %>%
+  set_names(unique(px_tcm$ward)) %>%
+  map(process_ward)
+
+plot_tcm_wards <- create_ward_chart(ward_tcm)
+
 cur_w <- 52
 # Information Card for Dengue Fever (Right of trends)
 sxh_thr2025 <- sxh_thr %>%
@@ -151,9 +176,9 @@ df_tcm <- tibble(
   )
 )
 
-table_sxh <- create_beautiful_table(df_sxh, paste0("Tóm tắt tuần ", cur_w), header_color = "#0056b3")
+table_sxh <- create_beautiful_table(df_sxh, "Tình hình Sốt xuất huyết", header_color = "#0056b3")
 
-table_tcm <- create_beautiful_table(df_tcm, paste0("Tóm tắt tuần ", cur_w), header_color = "#d35400")
+table_tcm <- create_beautiful_table(df_tcm, "Tình hình Tay chân miệng", header_color = "#d35400")
 
 #############################
 ######## Phường/Xã ##########
@@ -163,10 +188,8 @@ table_tcm <- create_beautiful_table(df_tcm, paste0("Tóm tắt tuần ", cur_w),
 df_sxh_clean <- readRDS("data/df_sxh_clean.rds") #Update mỗi tuần
 df_tcm_clean <- readRDS("data/df_tcm_clean.rds") #Update mỗi tuần
 
-px_sxh <- render_epitable(df_sxh_clean, cur_w, "#0056b3",
-                          "Cảnh báo 3 tuần liên tiếp")
-px_tcm <- render_epitable(df_tcm_clean, cur_w, "#d35400",
-                          "Cảnh báo 3 tuần liên tiếp")
+px_sxh <- render_epitable(df_sxh_clean, cur_w, "#0056b3")
+px_tcm <- render_epitable(df_tcm_clean, cur_w, "#d35400")
 
 ##### Map 
 df_kv <- load_data("https://docs.google.com/spreadsheets/d/1RipF4OKVerlJlNOVA4dLxZtsU4tdPB_VuToqp-Dd1KM/edit?usp=sharing",

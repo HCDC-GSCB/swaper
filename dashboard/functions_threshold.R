@@ -10,6 +10,7 @@ library(gt)
 library(DT)
 library(htmltools)
 library(rmapshaper)
+library(purrr)
 
 ## Load data GG Drive
 load_data <- function(url, sheet) {
@@ -83,7 +84,7 @@ run_algo <- function(df, ref_years, method = c("farrington", "cusum"),
   return(list(df = df, result = res))
 }
 
-## Plotly
+## Plotly for City
 plot_algo_plotly <- function(df_cases, res_far, res_cusum, seasonal_df, year_target) {
   
   plot_data <- df_cases %>%
@@ -108,19 +109,19 @@ plot_algo_plotly <- function(df_cases, res_far, res_cusum, seasonal_df, year_tar
     line = list(color = 'black', width = 1.5), visible = TRUE,
     hovertemplate = "Ngưỡng mùa: %{y:.1f}<extra></extra>"
   )
-
+  
   fig <- fig %>% add_lines(
     y = ~thr_cusum, name = "CUSUM", 
     line = list(color = 'orange', dash = 'dash'), visible = FALSE,
     hovertemplate = "CUSUM: %{y:.1f}<extra></extra>"
   )
-
+  
   fig <- fig %>% add_lines(
     y = ~thr_farrington, name = "Farrington", 
     line = list(color = 'red', dash = 'dash'), visible = FALSE,
     hovertemplate = "Farrington: %{y:.1f}<extra></extra>"
   )
-
+  
   fig <- fig %>% add_lines(
     y = ~thr_cdc, name = "CDC", 
     line = list(color = 'darkblue', dash = 'dot'), visible = FALSE,
@@ -143,7 +144,7 @@ plot_algo_plotly <- function(df_cases, res_far, res_cusum, seasonal_df, year_tar
             list(visible = list(TRUE, TRUE, FALSE, FALSE, FALSE))
           )
         ),
-
+        
         list(
           label = "FARRINGTON",
           method = "update",
@@ -151,7 +152,7 @@ plot_algo_plotly <- function(df_cases, res_far, res_cusum, seasonal_df, year_tar
             list(visible = list(TRUE, TRUE, FALSE, TRUE, FALSE))
           )
         ),
-
+        
         list(
           label = "CUSUM",
           method = "update",
@@ -159,7 +160,7 @@ plot_algo_plotly <- function(df_cases, res_far, res_cusum, seasonal_df, year_tar
             list(visible = list(TRUE, TRUE, TRUE, FALSE, FALSE))
           )
         ),
-
+        
         list(
           label = "CDC",
           method = "update",
@@ -167,7 +168,7 @@ plot_algo_plotly <- function(df_cases, res_far, res_cusum, seasonal_df, year_tar
             list(visible = list(TRUE, TRUE, FALSE, FALSE, TRUE))
           )
         ),
-
+        
         list(
           label = "All",
           method = "update",
@@ -204,9 +205,131 @@ plot_algo_plotly <- function(df_cases, res_far, res_cusum, seasonal_df, year_tar
     ),
     
     updatemenus = updatemenus,
-    legend = list(orientation = "h", x = 0.5, y = -0.3, 
+    legend = list(orientation = "h", x = 0.5, y = -0.1, 
                   xanchor = "center",
                   yanchor = "bottom")
+  )
+  
+  return(fig)
+}
+
+## Process Wards
+process_ward <- function(df) {
+  tryCatch({
+    list(
+      out_f = run_algo(df, 
+                       ref_years = c(2016, 2017, 2018, 2020, 2023, 2025), 
+                       method = "farrington"),
+      out_c = run_algo(df, 
+                       ref_years = c(2016, 2017, 2018, 2020, 2023, 2025), 
+                       method = "cusum"),
+      seasonal = remake(df, c(2016, 2017, 2018, 2020, 2023))
+    )
+  }, error = function(e) NULL)
+}
+
+## Plotly for Wards
+create_ward_chart <- function(ward_data) {
+  
+  df_all <- map_dfr(names(ward_data), function(w_name) {
+    res <- ward_data[[w_name]]
+    if (is.null(res)) return(NULL)
+    
+    d <- res$out_f$df %>% filter(year == 2025)
+    if (nrow(d) == 0) return(NULL)
+    
+    n_rows <- nrow(d)
+    val_far <- as.numeric(res$out_f$result$upperbound)[1:n_rows]
+    val_cusum <- as.numeric(res$out_c$result$upperbound)[1:n_rows]
+    
+    d %>% 
+      mutate(
+        ward_name = w_name,
+        thr_far = round(val_far, 1),
+        thr_cusum = round(val_cusum, 1)
+      ) %>%
+      select(ward_name, week, cases, thr_far, thr_cusum)
+  })
+  
+  all_wards <- unique(df_all$ward_name)
+  first_ward <- all_wards[1]
+  
+  button_list <- lapply(all_wards, function(w) {
+    list(
+      method = "restyle",
+      args = list("transforms[0].value", w),
+      label = w
+    )
+  })
+  
+  fig <- plot_ly(
+    data = df_all, 
+    x = ~week, 
+    y = ~cases, 
+    type = 'bar',
+    name = "Ca bệnh",
+    marker = list(color = '#1f77b4'),
+    hovertemplate = "<b>%{customdata}</b><br>Tuần: %{x}<br>Số ca: %{y}<extra></extra>",
+    customdata = ~ward_name,
+    transforms = list(
+      list(
+        type = 'filter',
+        target = ~ward_name,
+        operation = '=',
+        value = first_ward
+      )
+    )
+  )
+  
+  fig <- fig %>% add_trace(
+    y = ~thr_cusum,
+    type = 'scatter',
+    mode = 'lines',
+    name = "CUSUM",
+    line = list(color = 'orange', dash = 'dash'),
+    marker = NULL,
+    hovertemplate = "CUSUM: %{y}<extra></extra>",
+    transforms = list(
+      list(
+        type = 'filter',
+        target = ~ward_name,
+        operation = '=',
+        value = first_ward
+      )
+    )
+  )
+  
+  fig <- fig %>% add_trace(
+    y = ~thr_far,
+    type = 'scatter',
+    mode = 'lines',
+    name = "Farrington",
+    line = list(color = 'red', dash = 'dash'),
+    marker = NULL,
+    hovertemplate = "Farrington: %{y}<extra></extra>",
+    transforms = list(
+      list(
+        type = 'filter',
+        target = ~ward_name,
+        operation = '=',
+        value = first_ward
+      )
+    )
+  )
+  
+  fig <- fig %>% layout(
+    hovermode = "x unified",
+    xaxis = list(title = "Tuần", showgrid = FALSE),
+    yaxis = list(title = "Số ca", showgrid = TRUE, gridcolor = "#E5E5E5"),
+    legend = list(orientation = "h", x = 0.5, y = -0.15, xanchor = "center"),
+    updatemenus = list(
+      list(
+        type = "dropdown",
+        active = 0,
+        x = 0, y = 1.15,
+        buttons = button_list
+      )
+    )
   )
   
   return(fig)
@@ -281,7 +404,7 @@ format_badge <- function(level) {
 create_beautiful_table <- function(data, title, header_color = "#0073e6") {
   datatable(
     data,
-    colnames = c("", "Số ca"), 
+    colnames = c("Nội dung", "Tuần 51"), 
     escape = FALSE, 
     caption = htmltools::tags$caption(
       style = paste0("caption-side: top; text-align: center; color: ", header_color, "; font-weight: bold; font-size: 150%;"),
@@ -326,7 +449,7 @@ create_beautiful_table <- function(data, title, header_color = "#0073e6") {
 #################################
 ########## Phường/Xã ############
 #################################
-render_epitable <- function(data, cur_w, header_color = "#0056b3", table_caption = NULL) {
+render_epitable <- function(data, cur_w, header_color = "#0056b3") {
   
   df_processed <- data %>%
     arrange(Phuong, Tuan) %>%
@@ -384,17 +507,13 @@ render_epitable <- function(data, cur_w, header_color = "#0056b3", table_caption
     colnames = c("Phường/Xã", "Số ca", "Số ca/100k dân", "So với tuần trước", "So với 4 tuần trước", "Cảnh báo Farrington", "Cảnh báo CUSUM"),
     escape = FALSE,
     rownames = FALSE,
-    fillContainer = FALSE,
-    height = "auto",
-    caption = if(!is.null(table_caption)) htmltools::tags$caption(
-      style = 'caption-side: top; text-align: left; font-style: italic; font-size: 0.9em; color: #555;', 
-      table_caption
-    ) else NULL,
+    fillContainer = FALSE,  
+    height = "auto",        
     options = list(
-      paging = TRUE,        
-      pageLength = 10,
+      paging = TRUE,       
+      pageLength = 10,     
       autoWidth = TRUE,
-      dom = 'frtip',
+      dom = 'frtip',       
       order = list(),
       language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Vietnamese.json'),
       columnDefs = list(
@@ -405,7 +524,7 @@ render_epitable <- function(data, cur_w, header_color = "#0056b3", table_caption
       initComplete = JS(
         paste0("function(settings, json) {$(this.api().table().header()).css({'background-color': '", header_color, "', 'color': '#fff'});}")
       )
-    ) 
+    )
   ) %>%
     formatStyle('Phuong', fontWeight = 'bold')
 }
