@@ -151,9 +151,9 @@ df_tcm <- tibble(
   )
 )
 
-table_sxh <- create_beautiful_table(df_sxh, "Tình hình Sốt xuất huyết", header_color = "#0056b3")
+table_sxh <- create_beautiful_table(df_sxh, paste0("Tóm tắt tuần ", cur_w), header_color = "#0056b3")
 
-table_tcm <- create_beautiful_table(df_tcm, "Tình hình Tay chân miệng", header_color = "#d35400")
+table_tcm <- create_beautiful_table(df_tcm, paste0("Tóm tắt tuần ", cur_w), header_color = "#d35400")
 
 #############################
 ######## Phường/Xã ##########
@@ -163,8 +163,10 @@ table_tcm <- create_beautiful_table(df_tcm, "Tình hình Tay chân miệng", hea
 df_sxh_clean <- readRDS("data/df_sxh_clean.rds") #Update mỗi tuần
 df_tcm_clean <- readRDS("data/df_tcm_clean.rds") #Update mỗi tuần
 
-px_sxh <- render_epitable(df_sxh_clean, cur_w, "#0056b3")
-px_tcm <- render_epitable(df_tcm_clean, cur_w, "#d35400")
+px_sxh <- render_epitable(df_sxh_clean, cur_w, "#0056b3",
+                          "Cảnh báo 3 tuần liên tiếp")
+px_tcm <- render_epitable(df_tcm_clean, cur_w, "#d35400",
+                          "Cảnh báo 3 tuần liên tiếp")
 
 ##### Map 
 df_kv <- load_data("https://docs.google.com/spreadsheets/d/1RipF4OKVerlJlNOVA4dLxZtsU4tdPB_VuToqp-Dd1KM/edit?usp=sharing",

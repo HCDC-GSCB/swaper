@@ -21,7 +21,7 @@ df <- df %>%
          ),
          age_group = factor(age_group, levels = c("<1 tuổi", "1-5 tuổi", "6-10 tuổi", "11-15 tuổi", ">15 tuổi")))
 
-cur_w <- 51
+cur_w <- 52
 
 ## Dengue
 metrics_sxh <- calculate_metrics(df, cur_w, "Sốt xuất huyết Dengue")

@@ -46,10 +46,13 @@ sxh3
 sxh4
 ```
 
-#### Row {height=500px}
+#### Row {height=600px}
 
 ```{r}
 #| width: 70%
+#| title: "Xu hướng dịch sốt xuất huyết"
+#| fig-cap: "Các năm lịch sử: 2016,2017,2018,2020,2023"
+#| fig-cap-location: top
 sxh_interactive
 ```
 
@@ -63,12 +66,14 @@ table_sxh
 #### Row {height=500px}
 
 ```{r}
-#| width: 75%
+#| width: 65%
+#| title: "Diễn tiến sốt xuất huyết tại 168 Phường/Xã"
 px_sxh
 ```
 
 ```{r}
-#| width: 75%
+#| width: 35%
+#| title: "Số ca sốt xuất huyết tại 168 Phường/Xã"
 map_sxh
 ```
 
@@ -100,10 +105,13 @@ tcm3
 tcm4
 ```
 
-#### Row {height=500px}
+#### Row {height=600px}
 
 ```{r}
 #| width: 70%
+#| title: "Xu hướng dịch tay chân miệng"
+#| fig-cap: "Các năm lịch sử: 2017,2019,2020,2022,2024"
+#| fig-cap-location: top
 tcm_interactive
 ```
 
@@ -114,13 +122,17 @@ table_tcm
 
 ### Phường/Xã 
 
+#### Row {height=500px}
+
 ```{r}
-#| width: 75%
+#| width: 65%
+#| title: "Diễn tiến sốt xuất huyết tại 168 Phường/Xã"
 px_tcm
 ```
 
 ```{r}
-#| width: 75%
+#| width: 35%
+#| title: "Số ca sốt xuất huyết tại 168 Phường/Xã"
 map_tcm
 ```
 

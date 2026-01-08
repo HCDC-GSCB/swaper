@@ -204,7 +204,7 @@ plot_algo_plotly <- function(df_cases, res_far, res_cusum, seasonal_df, year_tar
     ),
     
     updatemenus = updatemenus,
-    legend = list(orientation = "h", x = 0.5, y = -0.1, 
+    legend = list(orientation = "h", x = 0.5, y = -0.3, 
                   xanchor = "center",
                   yanchor = "bottom")
   )
@@ -281,7 +281,7 @@ format_badge <- function(level) {
 create_beautiful_table <- function(data, title, header_color = "#0073e6") {
   datatable(
     data,
-    colnames = c("Nội dung", "Tuần 51"), 
+    colnames = c("", "Số ca"), 
     escape = FALSE, 
     caption = htmltools::tags$caption(
       style = paste0("caption-side: top; text-align: center; color: ", header_color, "; font-weight: bold; font-size: 150%;"),
@@ -326,7 +326,7 @@ create_beautiful_table <- function(data, title, header_color = "#0073e6") {
 #################################
 ########## Phường/Xã ############
 #################################
-render_epitable <- function(data, cur_w, header_color = "#0056b3") {
+render_epitable <- function(data, cur_w, header_color = "#0056b3", table_caption = NULL) {
   
   df_processed <- data %>%
     arrange(Phuong, Tuan) %>%
@@ -384,13 +384,17 @@ render_epitable <- function(data, cur_w, header_color = "#0056b3") {
     colnames = c("Phường/Xã", "Số ca", "Số ca/100k dân", "So với tuần trước", "So với 4 tuần trước", "Cảnh báo Farrington", "Cảnh báo CUSUM"),
     escape = FALSE,
     rownames = FALSE,
-    fillContainer = FALSE,  
-    height = "auto",        
+    fillContainer = FALSE,
+    height = "auto",
+    caption = if(!is.null(table_caption)) htmltools::tags$caption(
+      style = 'caption-side: top; text-align: left; font-style: italic; font-size: 0.9em; color: #555;', 
+      table_caption
+    ) else NULL,
     options = list(
-      paging = TRUE,       
-      pageLength = 10,     
+      paging = TRUE,        
+      pageLength = 10,
       autoWidth = TRUE,
-      dom = 'frtip',       
+      dom = 'frtip',
       order = list(),
       language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Vietnamese.json'),
       columnDefs = list(
@@ -401,7 +405,7 @@ render_epitable <- function(data, cur_w, header_color = "#0056b3") {
       initComplete = JS(
         paste0("function(settings, json) {$(this.api().table().header()).css({'background-color': '", header_color, "', 'color': '#fff'});}")
       )
-    )
+    ) 
   ) %>%
     formatStyle('Phuong', fontWeight = 'bold')
 }
