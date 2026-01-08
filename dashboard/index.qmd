@@ -3,171 +3,124 @@ title: ""
 format: 
   dashboard:
     scrolling: true
+    orientation: columns
     theme: custom.scss
 ---
 
 ```{r}
 #| context: setup
-library(shiny)
 library(plotly)
-library(crosstalk)
 library(bslib)
 library(bsicons)
 library(summarywidget)
 library(plotly)
-source("functions.R")
 source("sources_threshold.R")
 source("sources_characteristics.R")
 ```
 
 # Dengue fever 
 
-## {.sidebar}
-
-```{r}
-out_dengue$filter_ui
-```
-
 ## {.tabset}
 
-### Characteristics
+### Thành phố 
 
-::: {layout-ncol=4}
+#### Row {height=150px}
 
 ```{r}
-out_dengue$vbox_total
+#| width: 25%
+sxh1
 ```
 
 ```{r}
-out_dengue$vbox_inp
+#| width: 25%
+sxh2
 ```
 
 ```{r}
-out_dengue$vbox_outp
+#| width: 25%
+sxh3
 ```
 
 ```{r}
-out_dengue$vbox_death
+#| width: 25%
+sxh4
 ```
 
-:::
-
-::: {layout-ncol=2}
+#### Row {height=500px}
 
 ```{r}
-out_dengue$p_age
-```
-
-```{r}
-out_dengue$p_sex
-```
-
-:::
-
-::: {layout-ncol=2}
-
-```{r}
-out_dengue$p_type
-```
-
-```{r}
-out_dengue$p_sev
-```
-
-:::
-
-### Threshold
-
-::: {layout-ncol=2}
-
-```{r}
+#| width: 70%
 sxh_interactive
 ```
 
 ```{r}
-card_sxh
+#| width: 30%
+table_sxh
 ```
 
-:::
+### Phường/Xã 
 
-### Risk Assessment
+#### Row {height=500px}
 
-::: {.card} 
-Nội dung đánh giá nguy cơ. 
-:::
+```{r}
+#| width: 75%
+px_sxh
+```
+
+```{r}
+#| width: 75%
+map_sxh
+```
 
 # Hand-Foot-Mouth Disease 
 
-## {.sidebar}
-
-```{r}
-out_hfmd$filter_ui
-```
-
 ## {.tabset}
 
-### Characteristics
+### Thành phố 
 
-::: {layout-ncol=4}
+#### Row {height=150px}
 
 ```{r}
-out_hfmd$vbox_total
+#| width: 25%
+tcm1
 ```
 
 ```{r}
-out_hfmd$vbox_inp
+#| width: 25%
+tcm2
 ```
 
 ```{r}
-out_hfmd$vbox_outp
+#| width: 25%
+tcm3
 ```
 
 ```{r}
-out_hfmd$vbox_death
+#| width: 25%
+tcm4
 ```
 
-:::
-
-::: {layout-ncol=2}
+#### Row {height=500px}
 
 ```{r}
-out_hfmd$p_age
-```
-
-```{r}
-out_hfmd$p_sex
-```
-
-:::
-
-::: {layout-ncol=2}
-
-```{r}
-out_hfmd$p_type
-```
-
-```{r}
-out_hfmd$p_sev
-```
-
-:::
-
-### Threshold
-
-::: {layout-ncol=2}
-
-```{r}
+#| width: 70%
 tcm_interactive
 ```
 
 ```{r}
-card_tcm
+#| width: 30%
+table_tcm
 ```
 
-:::
+### Phường/Xã 
 
-### Risk Assessment
+```{r}
+#| width: 75%
+px_tcm
+```
 
-::: {.card} 
-Nội dung đánh giá nguy cơ.
-:::
+```{r}
+#| width: 75%
+map_tcm
+```
+
