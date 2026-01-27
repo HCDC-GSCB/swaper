@@ -1,142 +1,413 @@
 ---
 title: ""
+logo: ../logo.png
 format: 
   dashboard:
+    css: dashboard.css
+    orientation: rows
     scrolling: true
-    orientation: columns
-    theme: custom.scss
+navbar: false
 ---
 
-```{r}
-#| context: setup
-#| include: false
-#| message: false
-#| warning: false
-library(plotly)
-library(bslib)
-library(bsicons)
-library(summarywidget)
-library(plotly)
-suppressWarnings({
-  source("sources_threshold.R")
-  source("sources_characteristics.R")
+```{ojs}
+//| output: false
+//| echo: false
+
+// 1. CẤU HÌNH PASSWORD (SHA-256)
+correct_hash = "befa1b3fe9a01ff98a34e69034e5768bd52b0a0159e8abc92cdbbefe69f3e67a" 
+
+// 2. BIẾN CHỨA DỮ LIỆU (Sẽ được điền sau khi giải mã)
+mutable data_sxh = []
+mutable data_tcm = []
+
+// 3. GIAO DIỆN & LOGIC GIẢI MÃ
+{
+  if (!document.getElementById('login-overlay')) {
+    const overlay = document.createElement('div');
+    overlay.id = 'login-overlay';
+    overlay.innerHTML = `
+      <div class="login-box">
+        <h3 style="margin-top:0; color:#4e79a7;">🔒 DỮ LIỆU BẢO MẬT</h3>
+        <p style="color:#666; font-size:0.9rem;">Nhập mật khẩu để truy cập</p>
+        <input type="password" id="pass-input" class="login-input" placeholder="Mật khẩu..." autofocus>
+        <button id="btn-login" class="login-btn">GIẢI MÃ & TRUY CẬP</button>
+        <div id="status-msg" style="margin-top:10px; font-size:0.9rem; color:#666;"></div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+    document.body.style.overflow = "hidden";
+
+    const btn = document.getElementById("btn-login");
+    const input = document.getElementById("pass-input");
+    const msg = document.getElementById("status-msg");
+
+    // --- HÀM GIẢI MÃ XOR ---
+    async function decryptData(url, password) {
+      // 1. Tải file .dat về
+      const response = await fetch(url);
+      if (!response.ok) throw new Error("Không tìm thấy file dữ liệu!");
+      const encryptedBuf = await response.arrayBuffer();
+      
+      // 2. Tạo key từ password
+      const keyBuf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(password));
+      const keyBytes = new Uint8Array(keyBuf);
+      const dataBytes = new Uint8Array(encryptedBuf);
+      
+      // 3. Giải mã XOR
+      for (let i = 0; i < dataBytes.length; i++) {
+        dataBytes[i] = dataBytes[i] ^ keyBytes[i % keyBytes.length];
+      }
+      
+      // 4. Parse JSON
+      const jsonStr = new TextDecoder().decode(dataBytes);
+      return JSON.parse(jsonStr);
+    }
+
+    // --- HÀM XỬ LÝ CHÍNH ---
+    async function handleLogin() {
+      const pass = input.value;
+      msg.textContent = "⏳ Đang tải và giải mã dữ liệu...";
+      msg.style.color = "blue";
+      
+      try {
+        // Kiểm tra Hash trước cho nhanh
+        const passBuf = new TextEncoder().encode(pass);
+        const hashBuf = await crypto.subtle.digest('SHA-256', passBuf);
+        const hashHex = Array.from(new Uint8Array(hashBuf)).map(b => b.toString(16).padStart(2, '0')).join('');
+        
+        if (hashHex !== correct_hash) {
+           throw new Error("Mật khẩu không đúng!");
+        }
+
+        // Bắt đầu tải và giải mã 2 file
+        const [sxh, tcm] = await Promise.all([
+          decryptData("sxh.dat", pass), // Tự động tìm trong cùng thư mục
+          decryptData("tcm.dat", pass)
+        ]);
+
+        // Đẩy dữ liệu ra ngoài cho các biểu đồ dùng
+        // Vì R lưu dạng 'columns' cho nhẹ, OJS cần chuyển lại
+        // (Lưu ý: Nếu dùng arquero hoặc các thư viện khác thì tùy chỉnh, 
+        // ở đây giả sử dữ liệu R xuất ra chuẩn JSON array object thì OK, 
+        // nếu R xuất 'columns' thì cần hàm transpose đơn giản hoặc dùng Arquero.from())
+        
+        // Cập nhật biến mutable
+        mutable data_sxh = sxh;
+        mutable data_tcm = tcm;
+
+        // Mở khóa màn hình
+        overlay.style.opacity = "0";
+        setTimeout(() => overlay.remove(), 500);
+        document.body.style.overflow = "auto";
+        
+      } catch (e) {
+        msg.textContent = "❌ " + e.message;
+        msg.style.color = "red";
+        input.style.border = "2px solid red";
+      }
+    }
+
+    btn.onclick = handleLogin;
+    input.onkeypress = (e) => { if(e.key === "Enter") handleLogin(); }
+  }
+}
+```
+
+```{ojs}
+//| output: false
+
+// 1. IMPORT THƯ VIỆN
+import { aq, op } from '@uwdata/arquero'
+import {html} from "htl"
+// Load Highcharts từ CDN
+Highcharts = await require("https://code.highcharts.com/highcharts.js")
+// Load module Export (để có nút tải ảnh góc phải)
+await require("https://code.highcharts.com/modules/exporting.js")(Highcharts)
+await require("https://code.highcharts.com/modules/export-data.js")(Highcharts)
+await require("https://code.highcharts.com/modules/accessibility.js")(Highcharts)
+```
+
+```{ojs}
+//| output: false
+// 3. DANH SÁCH LỌC
+years = [...new Set([...data_sxh.map(d => d.Year), ...data_tcm.map(d => d.Year)])].sort().reverse()
+all_wards = [...new Set([...data_sxh.map(d => d.NoiOHienTai_SauKhiSapNhap_WardId), ...data_tcm.map(d => d.NoiOHienTai_SauKhiSapNhap_WardId)])].sort()
+wards = ["Toàn Thành phố", ...all_wards]
+```
+
+```{ojs}
+//| output: false
+// 4. BIẾN CẬP NHẬT
+sys_max_yr = d3.max(data_sxh, d => d.Year) || new Date().getFullYear()
+sys_max_wk = d3.max(data_sxh.filter(d => d.Year == sys_max_yr), d => d.Week) || 0
+latest_str = `Tuần ${sys_max_wk} / ${sys_max_yr}`
+```
+
+# {.sidebar}
+
+**Bộ lọc dữ liệu**
+
+**Cập nhật đến ${latest_str}**
+
+```{ojs}
+viewof selected_year = Inputs.select(years, {
+  label: "Năm báo cáo:", 
+  unique: true, 
+  format: d => d.toString()
+})
+
+viewof selected_disease = Inputs.radio(
+  ["Sốt xuất huyết", "Tay chân miệng"], 
+  {label: "Loại bệnh:", value: "Sốt xuất huyết"}
+)
+
+viewof selected_ward = Inputs.select(
+  wards, 
+  {label: "Địa bàn:", value: "Toàn Thành phố"}
+)
+```
+
+**Ghi chú:** Số liệu **Ca nặng** được tính dựa trên phân độ lâm sàng của từng bệnh.
+
+[**Developed by SWAPER**](../index.html)
+
+```{ojs}
+//| output: false
+// =============================================================================
+// 5. XỬ LÝ DỮ LIỆU & TÍNH TOÁN KPI
+// =============================================================================
+
+current_data = selected_disease === "Sốt xuất huyết" ? data_sxh : data_tcm
+plot_color = selected_disease === "Sốt xuất huyết" ? "#4e79a7" : "#59a14f"
+
+// --- TÍNH KPI ---
+kpi_week_data = current_data.filter(d => {
+  const ward_match = (selected_ward === "Toàn Thành phố") || (d.NoiOHienTai_SauKhiSapNhap_WardId === selected_ward);
+  return ward_match && d.Year === sys_max_yr && d.Week === sys_max_wk;
+})
+
+kpi_year_data = current_data.filter(d => {
+  const ward_match = (selected_ward === "Toàn Thành phố") || (d.NoiOHienTai_SauKhiSapNhap_WardId === selected_ward);
+  return ward_match && d.Year === sys_max_yr;
+})
+
+// Số liệu
+num_cases = d3.sum(kpi_week_data, d => d.SoCa)
+num_in = d3.sum(kpi_week_data.filter(d => d.NhomDieuTri == "Nội trú"), d => d.SoCa)
+num_severe = d3.sum(kpi_week_data.filter(d => {
+  let name = (d.PhanDoBenhName || "").toLowerCase();
+  return selected_disease === "Sốt xuất huyết" ? (name.includes("nặng") || name.includes("cảnh báo")) : (name.includes("2b") || name.includes("độ 3") || name.includes("độ 4"));
+}), d => d.SoCa)
+num_dead = d3.sum(kpi_year_data.filter(d => d.KetQua == "Tử vong"), d => d.SoCa)
+
+// --- HÀM TẠO HTML CHO KPI (FIX LỖI UNDEFINED) ---
+// Hàm này trả về HTML string, nhúng trực tiếp vào ValueBox
+// --- HÀM TẠO HTML CHO KPI (PHIÊN BẢN ÉP CỨNG SIZE CHỮ) ---
+function kpiContent(title, value) {
+  return html`
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center;">
+      <div style="font-size: 1rem; font-weight: 400; opacity: 0.9; margin-bottom: 5px; color: #fff;">
+        ${title}
+      </div>
+      
+      <div style="font-size: 4rem; font-weight: 900; line-height: 1; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">
+        ${value}
+      </div>
+    </div>
+  `
+}
+```
+
+```{ojs}
+//| output: false
+// =============================================================================
+// 6. CHUẨN BỊ DATA CHO HIGHCHARTS (ĐÃ FIX LỖI TÍNH TỔNG)
+// =============================================================================
+
+// Lọc dữ liệu thô theo Năm và Phường đã chọn
+chart_raw_data = current_data.filter(d => {
+  const ward_match = (selected_ward === "Toàn Thành phố") || (d.NoiOHienTai_SauKhiSapNhap_WardId === selected_ward);
+  return ward_match && String(d.Year) === String(selected_year);
+})
+
+// Config
+age_order = ["<1 tuổi", "1-5 tuổi", "6-10 tuổi", "11-15 tuổi", ">15 tuổi"]
+
+// --- HÀM CHUYỂN ĐỔI DATA (FIX LỖI SUM) ---
+function prepareHighchartsData(data, categoryCol, customOrder = null) {
+  const weeks = Array.from({length: 53}, (_, i) => i + 1);
+  
+  // Lấy danh sách các nhóm (category)
+  let categories = [...new Set(data.map(d => d[categoryCol]))];
+  
+  // Sắp xếp nhóm
+  if (customOrder) {
+    categories = customOrder.filter(c => categories.includes(c)); 
+  } else {
+    categories.sort();
+  }
+  
+  // Duyệt qua từng nhóm để tạo series
+  return categories.map(cat => {
+    const catData = weeks.map(wk => {
+      // Thay vì dùng .find() (chỉ lấy 1 dòng), ta phải lọc tất cả các dòng
+      // thuộc Tuần đó và Nhóm đó, sau đó tính tổng cột SoCa.
+      const matchingRows = data.filter(d => d.Week === wk && d[categoryCol] === cat);
+      return d3.sum(matchingRows, d => d.SoCa);
+    });
+    
+    return { name: cat, data: catData };
+  });
+}
+
+// Tạo Series
+series_age = prepareHighchartsData(chart_raw_data, "NhomTuoi", age_order)
+series_gender = prepareHighchartsData(chart_raw_data, "GioiTinh")
+series_treat = prepareHighchartsData(chart_raw_data, "NhomDieuTri")
+series_level = prepareHighchartsData(chart_raw_data, "PhanDoBenhName")
+
+// Series Tổng
+series_total = [{
+  name: "Tổng số ca",
+  data: Array.from({length: 53}, (_, i) => {
+    const wk = i + 1;
+    return d3.sum(chart_raw_data.filter(d => d.Week === wk), d => d.SoCa);
+  }),
+  color: plot_color
+}]
+
+age_colors = [
+    new Highcharts.Color(plot_color).brighten(-0.2).get(),
+    new Highcharts.Color(plot_color).get(),                
+    new Highcharts.Color(plot_color).brighten(0.1).get(), 
+    new Highcharts.Color(plot_color).brighten(0.2).get(), 
+    new Highcharts.Color(plot_color).brighten(0.3).get()   
+]
+```
+
+```{ojs}
+//| output: false
+
+// 7. HÀM VẼ HIGHCHARTS (AN TOÀN)
+
+
+function createHighchart(id, options) {
+  // Chỉ tạo 1 div trống để Highcharts vẽ vào
+  // Quarto sẽ tự động bao div này trong 1 cái card có title xanh
+  const container = html`<div id="${id}" style="width:100%; height:100%;"></div>`;
+  
+  const defaultOptions = {
+    chart: { 
+      type: 'column', 
+      style: { fontFamily: 'Arial, sans-serif' },
+      backgroundColor: 'transparent', // Để nền trong suốt tiệp với nền Card
+      height: 400 
+    },
+    title: { text: null }, // Tắt title nội bộ của Highcharts
+    xAxis: { 
+      categories: Array.from({length: 53}, (_, i) => i + 1),
+      title: { text: 'Tuần', style: { fontWeight: 'bold' } },
+      crosshair: true
+    },
+    yAxis: { 
+      min: 0, 
+      title: { text: 'Số ca', style: { fontWeight: 'bold' } }
+    },
+    credits: { enabled: false },
+    exporting: { enabled: true }
+  };
+  
+  const finalOptions = { ...defaultOptions, ...options };
+  
+  // Vẽ biểu đồ sau khi render
+  requestAnimationFrame(() => {
+    if (Highcharts && document.getElementById(id)) {
+        Highcharts.chart(document.getElementById(id), finalOptions);
+    }
+  });
+  
+  return container;
+} 
+```
+
+# Tổng quan
+
+## Row 1 {height=300px}
+
+:::{.valuebox icon="virus" color="#004d99"}
+${kpiContent("Số ca mắc", num_cases)}
+:::
+
+:::{.valuebox icon="hospital" color="#00da09"}
+${kpiContent("Số ca nội trú", num_in)}
+:::
+
+:::{.valuebox icon="exclamation-triangle-fill" color="#ff6b1a"}
+${kpiContent("Số ca nặng", num_severe)}
+:::
+
+:::{.valuebox icon="heart-pulse-fill" color="#ff0c0c"}
+${kpiContent("Tử vong tích lũy (Năm 2026)", num_dead)}
+:::
+
+## Row 2 {height=550px}
+
+```{ojs}
+//| title: "Diễn tiến số ca mắc theo tuần"
+// Chart 1: Diễn tiến tổng
+createHighchart("chart-total", {
+  series: series_total,
+  legend: { enabled: false }, // Ẩn chú thích vì chỉ có 1 màu
+  plotOptions: { column: { stacking: null } }
 })
 ```
 
-# Dengue fever 
+## Row 3 {height=550px}
 
-## {.tabset}
-
-### Thành phố 
-
-#### Row {height=150px}
-
-```{r}
-#| width: 25%
-sxh1
+```{ojs}
+//| title: "Phân bố nhóm tuổi theo tuần"
+// Chart 2: Nhóm tuổi
+createHighchart("chart-age", {
+  series: series_age,
+  plotOptions: { column: { stacking: 'normal' } },
+  colors: age_colors
+})
 ```
 
-```{r}
-#| width: 25%
-sxh2
+```{ojs}
+//| title: "Phân bố giới tính theo tuần"
+// Chart 3: Giới tính
+createHighchart("chart-gender", {
+  series: series_gender,
+  plotOptions: { column: { stacking: 'normal' } },
+  colors: ['#4e79a7', '#f28e2b']
+})
 ```
 
-```{r}
-#| width: 25%
-sxh3
+## Row 4 {height=550px}
+
+```{ojs}
+//| title: "Phân tình trạng điều trị theo tuần"
+// Chart 4: Điều trị
+createHighchart("chart-treat",{
+  series: series_treat,
+  plotOptions: { column: { stacking: 'normal' } },
+  colors: ['#76b7b2', '#e15759', '#59a14f']
+})
 ```
 
-```{r}
-#| width: 25%
-sxh4
+```{ojs}
+//| title: "Phân bố độ nặng theo tuần"
+// Chart 5: Phân độ
+createHighchart("chart-level",{
+  series: series_level,
+  plotOptions: { column: { stacking: 'normal' } },
+  colors: ['#a50026', '#d73027', '#f46d43', '#fdae61', '#fee08b'].reverse()
+})
 ```
 
-#### Row {height=500px}
+# Ngưỡng dịch
 
-```{r}
-#| width: 70%
-sxh_interactive
-```
+# Đánh giá nguy cơ
 
-```{r}
-#| width: 30%
-table_sxh
-```
-
-### Phường/Xã 
-
-#### Row {height=500px}
-
-```{r}
-#| width: 75%
-px_sxh
-```
-
-```{r}
-#| width: 75%
-map_sxh
-```
-
-#### Row {height=500px}
-
-```{r}
-plot_sxh_wards
-```
-
-# Hand-Foot-Mouth Disease 
-
-## {.tabset}
-
-### Thành phố 
-
-#### Row {height=150px}
-
-```{r}
-#| width: 25%
-tcm1
-```
-
-```{r}
-#| width: 25%
-tcm2
-```
-
-```{r}
-#| width: 25%
-tcm3
-```
-
-```{r}
-#| width: 25%
-tcm4
-```
-
-#### Row {height=500px}
-
-```{r}
-#| width: 70%
-tcm_interactive
-```
-
-```{r}
-#| width: 30%
-table_tcm
-```
-
-### Phường/Xã 
-
-```{r}
-#| width: 75%
-px_tcm
-```
-
-```{r}
-#| width: 75%
-map_tcm
-```
-
-#### Row {height=500px}
-
-```{r}
-plot_tcm_wards
-```
+# Bản đồ

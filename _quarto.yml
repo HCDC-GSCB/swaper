@@ -1,12 +1,14 @@
 project:
   type: website
   output-dir: docs
+  pre-render: dashboard/backend.R
 
 resources:
   - documents/**
   - ebs.html
   - game.html
   - riskmap.html
+  - "dashboard/*.dat"
 
 website:
   title: "SWAPER"
@@ -44,21 +46,20 @@ website:
       - text: "EBS"
         icon: newspaper
         href: ebs.html
-      - text: "Report"
+      - text: "IBS"
         icon: database
-        href: report/index.qmd
+        href: dashboard/index.qmd
     right:
       - text: "Tools"
         menu:
           - text: "Risk map (Demo)"
+            icon: map
             href: riskmap.html
-          - text: "Dashboard (Demo)"
-            href: dashboard/index.qmd
+          - text: "Chill"
+            icon: discord
+            href: game.html
       - icon: github
-        href: https://github.com/HCDC-GSCB/
-      - text: "Chill"
-        icon: discord
-        href: game.html
+        href: https://github.com/HCDC-GSCB/swaper/
 
   back-to-top-navigation: true
   page-footer:

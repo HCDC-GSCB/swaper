@@ -1,0 +1,243 @@
+/* custom.css */
+
+/* --- 0. HIỆU ỨNG CHUYỂN ĐỘNG CHUNG (Smooth) --- */
+/* Thêm transition cho tất cả các thẻ card để chuyển động mượt mà */
+.card, .value-box, .login-btn, .login-input {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* --- 1. MÀN HÌNH KHÓA (LOGIN OVERLAY) --- */
+#login-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.98); 
+    z-index: 99999; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px); 
+}
+
+body.locked {
+    overflow: hidden !important;
+}
+
+.login-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    width: 320px;
+    /* Thêm animation nhẹ khi hiện ra */
+    animation: fadeInDown 0.5s ease-out;
+}
+
+/* Keyframe cho hộp login trượt xuống */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.login-input {
+    width: 100%;
+    padding: 10px;
+    margin: 15px 0;
+    border: 2px solid #eee;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+}
+
+.login-input:focus {
+    border-color: #4e79a7;
+    box-shadow: 0 0 0 3px rgba(78, 121, 167, 0.2); /* Hiệu ứng focus xịn hơn */
+}
+
+/* --- BUTTON LOGIN (HOVER EFFECT) --- */
+.login-btn {
+    background: #4e79a7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+.login-btn:hover {
+    background: #3a5b7d;
+    transform: translateY(-2px); /* Nút bay lên nhẹ */
+    box-shadow: 0 5px 15px rgba(58, 91, 125, 0.4); /* Đổ bóng */
+}
+
+.login-btn:active {
+    transform: translateY(0); /* Khi bấm thì lún xuống */
+}
+
+.error-msg {
+    color: #e15759;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    display: none; 
+} 
+
+.quarto-dashboard .navbar { 
+    background-color: #005d88 !important; 
+    border-top: 2px solid black;            
+}
+
+.quarto-dashboard .navbar-text { 
+    color: #ffffff !important; 
+}
+
+.quarto-dashboard .navbar-nav .nav-link {
+    color: #ffffff !important;
+}
+
+/* --- 2. CẤU HÌNH ICON VALUE BOX (HOVER ANIMATION) --- */
+
+/* Trạng thái bình thường */
+.quarto-dashboard .value-box .bi, 
+.quarto-dashboard .value-box i {
+    position: absolute !important;
+    right: -15px !important;
+    bottom: -15px !important;
+    font-size: 8rem !important;     
+    opacity: 0.15 !important;       
+    transform: rotate(-15deg) !important;
+    z-index: 0 !important;
+    color: white !important;
+    /* Thêm transition riêng cho icon để nó xoay mượt */
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+/* --- HIỆU ỨNG: KHI RÊ CHUỘT VÀO VALUE BOX --- */
+.quarto-dashboard .value-box:hover .bi, 
+.quarto-dashboard .value-box:hover i {
+    transform: rotate(0deg) scale(1.1) !important; /* Xoay thẳng lại và phóng to */
+    opacity: 0.3 !important; /* Sáng lên một chút */
+    right: -5px !important; /* Dịch vào trong xíu */
+}
+
+/* --- 3. CẤU HÌNH CARD (HOVER LIFT) --- */
+.card, .card-body {
+    overflow: hidden !important; 
+    position: relative !important;
+}
+
+/* Khi rê chuột vào bất kỳ Card nào (Biểu đồ hoặc KPI) */
+.card:hover {
+    transform: translateY(-5px); /* Bay lên 5px */
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15); /* Bóng đổ đậm hơn */
+    z-index: 10; /* Đè lên các phần tử khác nếu cần */
+    border-color: #b3e5fc; /* Viền sáng lên màu xanh */
+}
+
+/* --- 4. STYLE CHO TITLE BIỂU ĐỒ (Card Header) --- */
+.card-header {
+    background-color: #e1f5fe !important; 
+    color: #0277bd !important;            
+    
+    /* --- SỬA Ở ĐÂY --- */
+    /* 1. Đặt font chuẩn hệ thống để không bị lỗi hiển thị tiếng Việt */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    
+    /* 2. Giảm độ đậm xuống 700 (Bold chuẩn) thay vì 800 (Extra Bold) */
+    font-weight: 700 !important;          
+    
+    /* 3. Tắt các biến thể lạ nếu có (như small-caps) */
+    font-variant: normal !important;
+    font-style: normal !important;
+    
+    /* Các thuộc tính cũ giữ nguyên */
+    font-size: 1.1rem !important;
+    text-transform: uppercase;
+    border-bottom: 2px solid #b3e5fc !important;
+}
+
+/* --- 5. KHUNG CHỨA TEXT --- */
+.value-box-area {
+    position: relative;
+    z-index: 2; 
+    width: 100%;
+}
+
+.quarto-dashboard .sidebar {
+    background-color: #d6f2ff !important; /* Màu nền xanh nhạt mày yêu cầu */
+    border-right: 2px solid #ffffff;      /* Viền trắng ngăn cách với nội dung chính */
+    color: #005d88;                       /* Chữ màu xanh đậm cho dễ đọc và hợp tông */
+    padding: 15px !important;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.05); /* Đổ bóng nhẹ bên phải cho có chiều sâu */
+}
+
+/* Sửa lại màu tiêu đề sidebar một chút cho nó đậm đà hơn trên nền xanh */
+.quarto-dashboard .sidebar strong, 
+.quarto-dashboard .sidebar h2, 
+.quarto-dashboard .sidebar h3 {
+    color: #003c58 !important; /* Xanh đậm hơn nữa để tách biệt tiêu đề */
+}
+
+/* 6.5. Dòng chữ Developed by... */
+.quarto-dashboard .sidebar em {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #888;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+.quarto-dashboard .sidebar em:hover {
+    color: #005d88;
+    font-weight: bold;
+}
+
+/* 7.2. KPI SỐ NHẢY: Rê vào thẻ, con số phóng to nhẹ */
+/* Target vào class .kpi-value mà mày đã tạo trong index.qmd */
+.quarto-dashboard .value-box:hover .kpi-value {
+    transform: scale(1.1); /* Phóng to 10% */
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* Phát sáng nhẹ */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Hiệu ứng nảy (bouncy) */
+}
+
+/* 7.3. CARD HEADER INTERACTION: Rê vào biểu đồ, tiêu đề "thở" */
+.card:hover .card-header {
+    background-color: #b3e5fc !important; /* Màu nền sáng hơn một chút */
+    padding-left: 25px !important; /* Chữ tiêu đề trượt nhẹ sang phải */
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+/* 7.4. SCROLLBAR XỊN (Thay thế thanh cuộn mặc định xấu xí) */
+/* Chỉ hoạt động trên Chrome/Edge/Safari - Firefox dùng chuẩn khác */
+::-webkit-scrollbar {
+    width: 10px; /* Chiều ngang thanh dọc */
+    height: 10px; /* Chiều cao thanh ngang */
+}
+
+/* Rãnh trượt */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 5px;
+}
+
+/* Cục trượt (Thumb) */
+::-webkit-scrollbar-thumb {
+    background: #bdc3c7; /* Màu xám nhạt */
+    border-radius: 5px;
+    border: 2px solid #f1f1f1; /* Tạo khoảng hở cho đẹp */
+}
+
+/* Khi rê chuột vào thanh cuộn */
+::-webkit-scrollbar-thumb:hover {
+    background: #4e79a7; /* Đổi sang màu xanh thương hiệu */
+}
