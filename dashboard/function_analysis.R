@@ -16,11 +16,11 @@ load_data_direct <- function(filename_on_server) {
   message("🚀 Đang kéo dữ liệu trực tiếp từ: ", full_url)
   
   tryCatch({
-    response <- GET(
+    response <- httr::GET(
       url = full_url,
-      authenticate(my_user, my_app_pass),
-      config(ssl_verifypeer = 0),
-      timeout(600)
+      httr::authenticate(my_user, my_app_pass),
+      httr::config(ssl_verifypeer = 0),
+      httr::timeout(600)
     )
     
     if (status_code(response) == 200) {

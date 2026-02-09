@@ -1,6 +1,5 @@
 ---
-title: ""
-logo: ../logo.png
+title: "Dashboard"
 format: 
   dashboard:
     css: dashboard.css
@@ -19,6 +18,7 @@ correct_hash = "befa1b3fe9a01ff98a34e69034e5768bd52b0a0159e8abc92cdbbefe69f3e67a
 // 2. BIẾN CHỨA DỮ LIỆU (Sẽ được điền sau khi giải mã)
 mutable data_sxh = []
 mutable data_tcm = []
+mutable data_threshold = [] // <--- BIẾN MỚI CHỨA NGƯỠNG DỊCH
 
 // 3. GIAO DIỆN & LOGIC GIẢI MÃ
 {
@@ -43,22 +43,18 @@ mutable data_tcm = []
 
     // --- HÀM GIẢI MÃ XOR ---
     async function decryptData(url, password) {
-      // 1. Tải file .dat về
       const response = await fetch(url);
-      if (!response.ok) throw new Error("Không tìm thấy file dữ liệu!");
+      if (!response.ok) throw new Error("Không tìm thấy file dữ liệu: " + url);
       const encryptedBuf = await response.arrayBuffer();
       
-      // 2. Tạo key từ password
       const keyBuf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(password));
       const keyBytes = new Uint8Array(keyBuf);
       const dataBytes = new Uint8Array(encryptedBuf);
-      
-      // 3. Giải mã XOR
+
       for (let i = 0; i < dataBytes.length; i++) {
         dataBytes[i] = dataBytes[i] ^ keyBytes[i % keyBytes.length];
       }
       
-      // 4. Parse JSON
       const jsonStr = new TextDecoder().decode(dataBytes);
       return JSON.parse(jsonStr);
     }
@@ -68,9 +64,9 @@ mutable data_tcm = []
       const pass = input.value;
       msg.textContent = "⏳ Đang tải và giải mã dữ liệu...";
       msg.style.color = "blue";
-      
+
       try {
-        // Kiểm tra Hash trước cho nhanh
+        // Kiểm tra Hash
         const passBuf = new TextEncoder().encode(pass);
         const hashBuf = await crypto.subtle.digest('SHA-256', passBuf);
         const hashHex = Array.from(new Uint8Array(hashBuf)).map(b => b.toString(16).padStart(2, '0')).join('');
@@ -79,21 +75,17 @@ mutable data_tcm = []
            throw new Error("Mật khẩu không đúng!");
         }
 
-        // Bắt đầu tải và giải mã 2 file
-        const [sxh, tcm] = await Promise.all([
-          decryptData("sxh.dat", pass), // Tự động tìm trong cùng thư mục
-          decryptData("tcm.dat", pass)
+        // Bắt đầu tải và giải mã 3 file (SXH, TCM, THRESHOLD)
+        const [sxh, tcm, thr] = await Promise.all([
+          decryptData("sxh.dat", pass), 
+          decryptData("tcm.dat", pass),
+          decryptData("threshold.dat", pass) // <--- LOAD FILE NGƯỠNG
         ]);
-
-        // Đẩy dữ liệu ra ngoài cho các biểu đồ dùng
-        // Vì R lưu dạng 'columns' cho nhẹ, OJS cần chuyển lại
-        // (Lưu ý: Nếu dùng arquero hoặc các thư viện khác thì tùy chỉnh, 
-        // ở đây giả sử dữ liệu R xuất ra chuẩn JSON array object thì OK, 
-        // nếu R xuất 'columns' thì cần hàm transpose đơn giản hoặc dùng Arquero.from())
         
         // Cập nhật biến mutable
         mutable data_sxh = sxh;
         mutable data_tcm = tcm;
+        mutable data_threshold = thr; // <--- CẬP NHẬT BIẾN
 
         // Mở khóa màn hình
         overlay.style.opacity = "0";
@@ -129,18 +121,155 @@ await require("https://code.highcharts.com/modules/accessibility.js")(Highcharts
 
 ```{ojs}
 //| output: false
-// 3. DANH SÁCH LỌC
+
+// =============================================================================
+// 3. GLOBAL VARIABLES & HELPERS (Tất cả logic tính toán nằm ở đây)
+// =============================================================================
+
+// Danh sách Năm và Phường (Tự động cập nhật)
 years = [...new Set([...data_sxh.map(d => d.Year), ...data_tcm.map(d => d.Year)])].sort().reverse()
 all_wards = [...new Set([...data_sxh.map(d => d.NoiOHienTai_SauKhiSapNhap_WardId), ...data_tcm.map(d => d.NoiOHienTai_SauKhiSapNhap_WardId)])].sort()
 wards = ["Toàn Thành phố", ...all_wards]
+
+// Thông tin hệ thống (Tuần/Năm mới nhất)
+sys_max_yr = d3.max(data_sxh, d => d.Year) || new Date().getFullYear()
+sys_max_wk = d3.max(data_sxh.filter(d => d.Year == sys_max_yr), d => d.Week) || 0
+latest_str = `Tuần ${sys_max_wk} / ${sys_max_yr}`
+
+// Config màu sắc & Thứ tự
+current_data = selected_disease === "Sốt xuất huyết" ? data_sxh : data_tcm
+plot_color = selected_disease === "Sốt xuất huyết" ? "#4e79a7" : "#59a14f"
+age_order = ["<1 tuổi", "1-5 tuổi", "6-10 tuổi", "11-15 tuổi", ">15 tuổi"]
+
+// Hàm tạo HTML cho KPI
+function kpiContent(title, value) {
+  return html`
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center;">
+      <div style="font-size: 1rem; font-weight: 400; opacity: 0.9; margin-bottom: 5px; color: #fff;">
+        ${title}
+      </div>
+      <div style="font-size: 4rem; font-weight: 900; line-height: 1; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">
+        ${value}
+      </div>
+    </div>
+  `
+}
+
+// Hàm chuẩn bị data Highcharts (Generic)
+function prepareHighchartsData(data, categoryCol, customOrder = null) {
+  const weeks = Array.from({length: 53}, (_, i) => i + 1);
+  let categories = [...new Set(data.map(d => d[categoryCol]))];
+
+  if (customOrder) {
+    categories = customOrder.filter(c => categories.includes(c));
+  } else {
+    categories.sort();
+  }
+  
+  return categories.map(cat => {
+    const catData = weeks.map(wk => {
+      const matchingRows = data.filter(d => d.Week === wk && d[categoryCol] === cat);
+      return d3.sum(matchingRows, d => d.SoCa);
+    });
+    return { name: cat, data: catData };
+  });
+}
+
+// --- HÀM VẼ HIGHCHART (ĐÃ SỬA LỖI TRẮNG BIỂU ĐỒ) ---
+createHighchart = function(id, options) {
+  // Tạo container nhưng không cần ID để tìm lại
+  const container = html`<div style="width:100%; height:100%;"></div>`;
+  
+  const defaultOptions = {
+    chart: { 
+      type: 'column', 
+      style: { fontFamily: 'Arial, sans-serif' },
+      backgroundColor: 'transparent', 
+      height: 400 
+    },
+    title: { text: null },
+    xAxis: { 
+      categories: Array.from({length: 53}, (_, i) => i + 1),
+      title: { text: 'Tuần', style: { fontWeight: 'bold' } },
+      crosshair: true
+    },
+    yAxis: { 
+      min: 0, 
+      title: { text: 'Số ca', style: { fontWeight: 'bold' } }
+    },
+    credits: { enabled: false },
+    exporting: { enabled: true }
+  };
+  const finalOptions = { ...defaultOptions, ...options };
+  
+  // Vẽ trực tiếp vào container (Không dùng getElementById nữa)
+  requestAnimationFrame(() => {
+    if (Highcharts) {
+        Highcharts.chart(container, finalOptions);
+    }
+  });
+  return container;
+}
 ```
 
 ```{ojs}
 //| output: false
-// 4. BIẾN CẬP NHẬT
-sys_max_yr = d3.max(data_sxh, d => d.Year) || new Date().getFullYear()
-sys_max_wk = d3.max(data_sxh.filter(d => d.Year == sys_max_yr), d => d.Week) || 0
-latest_str = `Tuần ${sys_max_wk} / ${sys_max_yr}`
+
+// =============================================================================
+// 4. DATA PROCESSING (Lọc & Tính toán)
+// =============================================================================
+
+// 4.1. Lọc dữ liệu thô (Dựa trên Sidebar)
+chart_raw_data = current_data.filter(d => {
+  const ward_match = (selected_ward === "Toàn Thành phố") || (d.NoiOHienTai_SauKhiSapNhap_WardId === selected_ward);
+  return ward_match && String(d.Year) === String(selected_year);
+})
+
+// 4.2. Tính KPI Data
+kpi_week_data = current_data.filter(d => {
+  const ward_match = (selected_ward === "Toàn Thành phố") || (d.NoiOHienTai_SauKhiSapNhap_WardId === selected_ward);
+  return ward_match && d.Year === sys_max_yr && d.Week === sys_max_wk;
+})
+
+kpi_year_data = current_data.filter(d => {
+  const ward_match = (selected_ward === "Toàn Thành phố") || (d.NoiOHienTai_SauKhiSapNhap_WardId === selected_ward);
+  return ward_match && d.Year === sys_max_yr;
+})
+
+// 4.3. Giá trị KPI hiển thị
+num_cases = d3.sum(kpi_week_data, d => d.SoCa)
+num_in = d3.sum(kpi_week_data.filter(d => d.NhomDieuTri == "Nội trú"), d => d.SoCa)
+num_severe = d3.sum(kpi_week_data.filter(d => {
+  let name = (d.PhanDoBenhName || "").toLowerCase();
+  return selected_disease === "Sốt xuất huyết" ? (name.includes("nặng") || name.includes("cảnh báo")) : 
+  (name.includes("2b") || name.includes("độ 3") || name.includes("độ 4"));
+}), d => d.SoCa)
+num_dead = d3.sum(kpi_year_data.filter(d => d.KetQua == "Tử vong"), d => d.SoCa)
+
+// 4.4. Tính Series cho các biểu đồ
+// Series Tổng (Cho Chart 1)
+series_total = [{
+  name: 'Số ca mắc',
+  data: Array.from({length: 53}, (_, i) => i + 1).map(wk => {
+      return d3.sum(chart_raw_data.filter(d => d.Week === wk), d => d.SoCa);
+  }),
+  color: plot_color 
+}]
+
+// Series Nhóm tuổi, Giới tính, v.v.
+series_age = prepareHighchartsData(chart_raw_data, "NhomTuoi", age_order)
+series_gender = prepareHighchartsData(chart_raw_data, "GioiTinh")
+series_treat = prepareHighchartsData(chart_raw_data, "NhomDieuTri")
+series_level = prepareHighchartsData(chart_raw_data, "PhanDoBenhName")
+
+// Màu cho biểu đồ tuổi
+age_colors = [
+    new Highcharts.Color(plot_color).brighten(-0.2).get(),
+    new Highcharts.Color(plot_color).get(),                
+    new Highcharts.Color(plot_color).brighten(0.1).get(), 
+    new Highcharts.Color(plot_color).brighten(0.2).get(), 
+    new Highcharts.Color(plot_color).brighten(0.3).get()   
+]
 ```
 
 # {.sidebar}
@@ -169,166 +298,9 @@ viewof selected_ward = Inputs.select(
 
 **Ghi chú:** Số liệu **Ca nặng** được tính dựa trên phân độ lâm sàng của từng bệnh.
 
-[**Developed by SWAPER**](../index.html)
+***Developed by SWAPER***
 
-```{ojs}
-//| output: false
-// =============================================================================
-// 5. XỬ LÝ DỮ LIỆU & TÍNH TOÁN KPI
-// =============================================================================
-
-current_data = selected_disease === "Sốt xuất huyết" ? data_sxh : data_tcm
-plot_color = selected_disease === "Sốt xuất huyết" ? "#4e79a7" : "#59a14f"
-
-// --- TÍNH KPI ---
-kpi_week_data = current_data.filter(d => {
-  const ward_match = (selected_ward === "Toàn Thành phố") || (d.NoiOHienTai_SauKhiSapNhap_WardId === selected_ward);
-  return ward_match && d.Year === sys_max_yr && d.Week === sys_max_wk;
-})
-
-kpi_year_data = current_data.filter(d => {
-  const ward_match = (selected_ward === "Toàn Thành phố") || (d.NoiOHienTai_SauKhiSapNhap_WardId === selected_ward);
-  return ward_match && d.Year === sys_max_yr;
-})
-
-// Số liệu
-num_cases = d3.sum(kpi_week_data, d => d.SoCa)
-num_in = d3.sum(kpi_week_data.filter(d => d.NhomDieuTri == "Nội trú"), d => d.SoCa)
-num_severe = d3.sum(kpi_week_data.filter(d => {
-  let name = (d.PhanDoBenhName || "").toLowerCase();
-  return selected_disease === "Sốt xuất huyết" ? (name.includes("nặng") || name.includes("cảnh báo")) : (name.includes("2b") || name.includes("độ 3") || name.includes("độ 4"));
-}), d => d.SoCa)
-num_dead = d3.sum(kpi_year_data.filter(d => d.KetQua == "Tử vong"), d => d.SoCa)
-
-// --- HÀM TẠO HTML CHO KPI (FIX LỖI UNDEFINED) ---
-// Hàm này trả về HTML string, nhúng trực tiếp vào ValueBox
-// --- HÀM TẠO HTML CHO KPI (PHIÊN BẢN ÉP CỨNG SIZE CHỮ) ---
-function kpiContent(title, value) {
-  return html`
-    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center;">
-      <div style="font-size: 1rem; font-weight: 400; opacity: 0.9; margin-bottom: 5px; color: #fff;">
-        ${title}
-      </div>
-      
-      <div style="font-size: 4rem; font-weight: 900; line-height: 1; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">
-        ${value}
-      </div>
-    </div>
-  `
-}
-```
-
-```{ojs}
-//| output: false
-// =============================================================================
-// 6. CHUẨN BỊ DATA CHO HIGHCHARTS (ĐÃ FIX LỖI TÍNH TỔNG)
-// =============================================================================
-
-// Lọc dữ liệu thô theo Năm và Phường đã chọn
-chart_raw_data = current_data.filter(d => {
-  const ward_match = (selected_ward === "Toàn Thành phố") || (d.NoiOHienTai_SauKhiSapNhap_WardId === selected_ward);
-  return ward_match && String(d.Year) === String(selected_year);
-})
-
-// Config
-age_order = ["<1 tuổi", "1-5 tuổi", "6-10 tuổi", "11-15 tuổi", ">15 tuổi"]
-
-// --- HÀM CHUYỂN ĐỔI DATA (FIX LỖI SUM) ---
-function prepareHighchartsData(data, categoryCol, customOrder = null) {
-  const weeks = Array.from({length: 53}, (_, i) => i + 1);
-  
-  // Lấy danh sách các nhóm (category)
-  let categories = [...new Set(data.map(d => d[categoryCol]))];
-  
-  // Sắp xếp nhóm
-  if (customOrder) {
-    categories = customOrder.filter(c => categories.includes(c)); 
-  } else {
-    categories.sort();
-  }
-  
-  // Duyệt qua từng nhóm để tạo series
-  return categories.map(cat => {
-    const catData = weeks.map(wk => {
-      // Thay vì dùng .find() (chỉ lấy 1 dòng), ta phải lọc tất cả các dòng
-      // thuộc Tuần đó và Nhóm đó, sau đó tính tổng cột SoCa.
-      const matchingRows = data.filter(d => d.Week === wk && d[categoryCol] === cat);
-      return d3.sum(matchingRows, d => d.SoCa);
-    });
-    
-    return { name: cat, data: catData };
-  });
-}
-
-// Tạo Series
-series_age = prepareHighchartsData(chart_raw_data, "NhomTuoi", age_order)
-series_gender = prepareHighchartsData(chart_raw_data, "GioiTinh")
-series_treat = prepareHighchartsData(chart_raw_data, "NhomDieuTri")
-series_level = prepareHighchartsData(chart_raw_data, "PhanDoBenhName")
-
-// Series Tổng
-series_total = [{
-  name: "Tổng số ca",
-  data: Array.from({length: 53}, (_, i) => {
-    const wk = i + 1;
-    return d3.sum(chart_raw_data.filter(d => d.Week === wk), d => d.SoCa);
-  }),
-  color: plot_color
-}]
-
-age_colors = [
-    new Highcharts.Color(plot_color).brighten(-0.2).get(),
-    new Highcharts.Color(plot_color).get(),                
-    new Highcharts.Color(plot_color).brighten(0.1).get(), 
-    new Highcharts.Color(plot_color).brighten(0.2).get(), 
-    new Highcharts.Color(plot_color).brighten(0.3).get()   
-]
-```
-
-```{ojs}
-//| output: false
-
-// 7. HÀM VẼ HIGHCHARTS (AN TOÀN)
-
-
-function createHighchart(id, options) {
-  // Chỉ tạo 1 div trống để Highcharts vẽ vào
-  // Quarto sẽ tự động bao div này trong 1 cái card có title xanh
-  const container = html`<div id="${id}" style="width:100%; height:100%;"></div>`;
-  
-  const defaultOptions = {
-    chart: { 
-      type: 'column', 
-      style: { fontFamily: 'Arial, sans-serif' },
-      backgroundColor: 'transparent', // Để nền trong suốt tiệp với nền Card
-      height: 400 
-    },
-    title: { text: null }, // Tắt title nội bộ của Highcharts
-    xAxis: { 
-      categories: Array.from({length: 53}, (_, i) => i + 1),
-      title: { text: 'Tuần', style: { fontWeight: 'bold' } },
-      crosshair: true
-    },
-    yAxis: { 
-      min: 0, 
-      title: { text: 'Số ca', style: { fontWeight: 'bold' } }
-    },
-    credits: { enabled: false },
-    exporting: { enabled: true }
-  };
-  
-  const finalOptions = { ...defaultOptions, ...options };
-  
-  // Vẽ biểu đồ sau khi render
-  requestAnimationFrame(() => {
-    if (Highcharts && document.getElementById(id)) {
-        Highcharts.chart(document.getElementById(id), finalOptions);
-    }
-  });
-  
-  return container;
-} 
-```
+[![](../logo.png)](../index.html)
 
 # Tổng quan
 
@@ -354,7 +326,7 @@ ${kpiContent("Tử vong tích lũy (Năm 2026)", num_dead)}
 
 ```{ojs}
 //| title: "Diễn tiến số ca mắc theo tuần"
-// Chart 1: Diễn tiến tổng
+// Chart 1: Diễn tiến tổng (KHÔI PHỤC LẠI NHƯ CŨ)
 createHighchart("chart-total", {
   series: series_total,
   legend: { enabled: false }, // Ẩn chú thích vì chỉ có 1 màu
@@ -407,6 +379,190 @@ createHighchart("chart-level",{
 ```
 
 # Ngưỡng dịch
+
+## Row 1
+
+```{ojs}
+//| output: false
+
+// 1. TẠO BIẾN TOÀN CỤC
+chart_thr = data_threshold.filter(d => {
+    const ward_col = d["NoiOHienTai_SauKhiSapNhap_WardId"] || d["WardId"]; 
+    const ward_ok = (selected_ward === "Toàn Thành phố") || (ward_col === selected_ward);
+    const disease_ok = d.Disease === selected_disease;
+    const year_ok = String(d.Year) === String(selected_year);
+    return ward_ok && disease_ok && year_ok;
+})
+// Inputs.table(chart_thr) // Bỏ comment nếu muốn soi dữ liệu
+```
+
+```{ojs}
+//| title: "Giám sát cảnh báo sớm theo ngưỡng dịch"
+{
+  // --- A. CẤU HÌNH MÀU SẮC ---
+  const col_cdc = '#2ca02c'; // Xanh lá
+  const col_far = '#d62728'; // Đỏ
+  const col_cus = '#ff7f0e'; // Cam
+  const col_sea = '#000000'; // Đen
+
+  const ref_map = {
+    "Sốt xuất huyết": "2016, 2017, 2020, 2023, 2024",
+    "Tay chân miệng": "2017, 2019, 2020, 2022, 2024"
+  };
+  const history_str = ref_map[selected_disease] || "";
+
+  // --- B. TÌM TUẦN MỚI NHẤT CÓ DỮ LIỆU NGƯỠNG ---
+  const available_weeks = chart_thr.map(d => Number(d.Week));
+  const max_thr_wk = available_weeks.length > 0 ? Math.max(...available_weeks) : 53;
+
+  // --- C. HÀM ĐỌC DỮ LIỆU THÔNG MINH ---
+  const getSmartVal = (dataList, wk, algoName) => {
+    if (wk > max_thr_wk) return null;
+    const rows = dataList.filter(d => Number(d.Week) === wk);
+    if (!rows.length) return null;
+    const row = rows[0];
+
+    // Check ưu tiên 1: Cấu trúc Wide (Chuẩn)
+    if (row[algoName] !== undefined) return row[algoName];
+    if (row[algoName.toLowerCase()] !== undefined) return row[algoName.toLowerCase()];
+    // Check ưu tiên 2: Cấu trúc Long (Cũ)
+    const matchRow = rows.find(r => r.Type === algoName);
+    if (matchRow) return matchRow.Threshold;
+    return null;
+  };
+
+  // --- D. CHUẨN BỊ DATA VẼ ---
+  const weeks = Array.from({length: 53}, (_, i) => i + 1);
+
+  // 1. Data Số ca mắc (Cột)
+  const chart_cases = current_data.filter(d => {
+    const ward_col = d["NoiOHienTai_SauKhiSapNhap_WardId"] || d["WardId"]; 
+    const ward_match = (selected_ward === "Toàn Thành phố") || (ward_col === selected_ward);
+    return ward_match && String(d.Year) === String(selected_year);
+  });
+
+  const series_cases = weeks.map(wk => {
+    if (wk > max_thr_wk) return null; // Cắt dữ liệu tương lai
+    const cases_in_week = chart_cases.filter(d => Number(d.Week) === wk);
+    return d3.sum(cases_in_week, d => d.SoCa);
+  });
+
+  // 2. Data Ngưỡng (Đường) - Vẫn tính đủ để so sánh
+  const line_far = weeks.map(wk => getSmartVal(chart_thr, wk, 'Farrington'));
+  const line_cus = weeks.map(wk => getSmartVal(chart_thr, wk, 'Cusum')); 
+  const line_cdc = weeks.map(wk => getSmartVal(chart_thr, wk, 'CDC')); 
+  const line_sea = weeks.map(wk => getSmartVal(chart_thr, wk, 'Seasonal'));
+
+  // --- E. TÍNH TOÁN VỊ TRÍ CẢNH BÁO ---
+  const getPosPoint = (wk_idx, threshold_val, positionType) => {
+      const actual = series_cases[wk_idx];
+      if (actual === null || threshold_val === null) return null;
+      if (actual <= threshold_val) return null; // Không vượt -> Không vẽ
+
+      let y_pos;
+      if (positionType === 1) y_pos = 1;                    // CUSUM: Đáy
+      else if (positionType === 2) y_pos = actual / 2;      // Farrington: Giữa
+      else if (positionType === 3) y_pos = actual;          // CDC: Đỉnh
+
+      return {
+          y: y_pos,
+          actualValue: actual,
+          thresholdValue: threshold_val
+      };
+  }
+
+  const warn_cus_data = weeks.map((wk, i) => getPosPoint(i, line_cus[i], 1)); 
+  const warn_far_data = weeks.map((wk, i) => getPosPoint(i, line_far[i], 2)); 
+  const warn_cdc_data = weeks.map((wk, i) => getPosPoint(i, line_cdc[i], 3)); 
+
+
+  // --- F. VẼ HIGHCHARTS ---
+  return createHighchart("chart-threshold-final", {
+    chart: { type: 'column' },
+    title: { text: null },
+    subtitle: { 
+        text: `Historical years: ${history_str}`,
+        align: 'right',
+        style: { color: '#666', fontStyle: 'italic' }
+    },
+    xAxis: { 
+        categories: weeks, 
+        title: { 
+            text: 'Tuần',
+            style: { fontWeight: 'bold', color: '#000' } // IN ĐẬM TRỤC X
+        } 
+    },
+    yAxis: { 
+        title: { 
+            text: 'Số ca', 
+            style: { fontWeight: 'bold', color: '#000' } // IN ĐẬM TRỤC Y
+        }, 
+        min: 0 
+    },
+    tooltip: { 
+        shared: true,
+        pointFormatter: function() {
+            if (this.series.type === 'scatter') {
+                return `<span style="color:${this.color}">\u25B2</span> <b>${this.series.name}</b><br/>(Ngưỡng: ${Highcharts.numberFormat(this.thresholdValue, 1)})<br/>`;
+            } else {
+                return `<span style="color:${this.color}">\u25CF</span> ${this.series.name}: <b>${Highcharts.numberFormat(this.y, 0)}</b><br/>`;
+            }
+        }
+    },
+    plotOptions: {
+        series: { marker: { enabled: false }, zIndex: 2 },
+        scatter: { 
+            marker: { symbol: 'triangle', radius: 6, enabled: true }, // Mặc định tam giác hướng lên
+            zIndex: 10,
+            tooltip: { headerFormat: '' } 
+        }
+    },
+    series: [
+      // 1. CỘT SỐ CA MẮC
+      {
+        name: 'Số ca mắc', type: 'column', data: series_cases,
+        color: plot_color, zIndex: 1
+      },
+      
+      // 2. CÁC ĐƯỜNG NGƯỠNG
+      // Seasonal
+      {
+        name: 'Seasonal', type: 'spline', data: line_sea,
+        color: col_sea, lineWidth: 1.5, dashStyle: 'ShortDash', zIndex: 3
+      },
+      // Farrington
+      {
+        name: 'Farrington', type: 'spline', data: line_far,
+        color: col_far, lineWidth: 2, dashStyle: 'Solid', zIndex: 5
+      },
+      // Mean+2SD
+      {
+        name: 'Mean+2SD', type: 'spline', data: line_cdc,
+        color: col_cdc, lineWidth: 2, dashStyle: 'Solid', zIndex: 6
+      },
+      // LƯU Ý: Không thêm series đường CUSUM vào đây theo yêu cầu "không cho hiện"
+
+      // 3. CÁC ĐIỂM CẢNH BÁO (TAM GIÁC) - THÊM showInLegend: false
+      {
+        name: 'Vượt CUSUM', type: 'scatter', data: warn_cus_data,
+        color: col_cus, 
+        showInLegend: false, // ẨN KHỎI CHÚ THÍCH
+        marker: { symbol: 'triangle' } // Tam giác hướng lên bình thường
+      },
+      {
+        name: 'Vượt Farrington', type: 'scatter', data: warn_far_data,
+        color: col_far,
+        showInLegend: false // ẨN KHỎI CHÚ THÍCH
+      },
+      {
+        name: 'Vượt Mean+2SD', type: 'scatter', data: warn_cdc_data,
+        color: col_cdc,
+        showInLegend: false // ẨN KHỎI CHÚ THÍCH
+      }
+    ]
+  });
+}
+```
 
 # Đánh giá nguy cơ
 
