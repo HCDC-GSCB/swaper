@@ -20,7 +20,7 @@ source(paste0(base_path, "function_threshold.R"))
 ##########################
 
 ## Load data
-raw_df <- load_data_direct("data/tuan05.rds")
+raw_df <- load_data_direct("data/tuan06.rds")
 
 ## Clean data
 sxh <- clean_data(raw_df, "Sốt xuất huyết Dengue")
