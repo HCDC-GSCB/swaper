@@ -2,13 +2,14 @@ project:
   type: website
   output-dir: docs
   # pre-render: dashboard/backend.R
-
+  
 resources:
   - documents/**
   - ebs.html
   - game.html
   - riskmap.html
   - "dashboard/*.dat"
+  - "dashboard/hcm_map.json"
 
 website:
   title: "SWAPER"

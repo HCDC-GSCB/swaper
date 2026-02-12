@@ -78,6 +78,11 @@ clean_data <- function(raw_df, diagnosis) {
     
     filter(!is.na(NhomDieuTri)) %>%
     
+    mutate(
+      NoiOHienTai_SauKhiSapNhap_WardId = stringr::str_trim(NoiOHienTai_SauKhiSapNhap_WardId), # Xóa khoảng trắng thừa 2 đầu
+      NoiOHienTai_SauKhiSapNhap_WardId = stringr::str_squish(NoiOHienTai_SauKhiSapNhap_WardId) # Xóa khoảng trắng kép ở giữa (nếu có)
+    ) |> 
+    
     select(Year, Week, ThangTuoi, NhomTuoi, GioiTinh, NhomDieuTri, PhanDoBenhName, 
            NoiOHienTai_SauKhiSapNhap_WardId, KetQua)
   

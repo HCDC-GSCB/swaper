@@ -109,6 +109,7 @@ mutable data_threshold = [] // <--- BIẾN MỚI CHỨA NGƯỠNG DỊCH
 //| output: false
 
 // 1. IMPORT THƯ VIỆN
+d3 = require("d3")
 import { aq, op } from '@uwdata/arquero'
 import {html} from "htl"
 // Load Highcharts từ CDN
@@ -117,6 +118,9 @@ Highcharts = await require("https://code.highcharts.com/highcharts.js")
 await require("https://code.highcharts.com/modules/exporting.js")(Highcharts)
 await require("https://code.highcharts.com/modules/export-data.js")(Highcharts)
 await require("https://code.highcharts.com/modules/accessibility.js")(Highcharts)
+// 2. NẠP MODULE BẢN ĐỒ (BẮT BUỘC PHẢI CÓ DÒNG NÀY)
+mapModule = await require("https://code.highcharts.com/maps/modules/map.js")
+mapModule(Highcharts) // Kích hoạt module map cho Highcharts
 ```
 
 ```{ojs}
@@ -398,6 +402,7 @@ chart_thr = data_threshold.filter(d => {
 
 ```{ojs}
 //| title: "Giám sát cảnh báo sớm theo ngưỡng dịch"
+
 {
   // --- A. CẤU HÌNH MÀU SẮC ---
   const col_cdc = '#2ca02c'; // Xanh lá
@@ -564,6 +569,271 @@ chart_thr = data_threshold.filter(d => {
 }
 ```
 
+## Row 2
+
+```{ojs}
+//| output: false
+// 1. TÍNH TOÁN DỮ LIỆU BẢNG (Logic xử lý)
+ranking_data = {
+  // Kiểm tra dữ liệu đầu vào
+  if (!data_threshold || data_threshold.length === 0) return [];
+
+  // A. Lọc dữ liệu theo Bệnh & Năm
+  const base_data = data_threshold.filter(d => 
+    d.Year === sys_max_yr && 
+    d.Disease === selected_disease &&
+    d.NoiOHienTai_SauKhiSapNhap_WardId !== "Toàn Thành phố"
+  );
+
+  // B. Xử lý từng phường
+  let processed_wards = [...new Set(base_data.map(d => d.NoiOHienTai_SauKhiSapNhap_WardId))].map(w_name => {
+    const w_data = base_data.filter(d => d.NoiOHienTai_SauKhiSapNhap_WardId === w_name);
+    
+    const curr_row = w_data.find(d => d.Week === sys_max_wk);
+    const cases_curr = curr_row ? (curr_row.cases || 0) : 0;
+    const pop = curr_row ? (curr_row.danso || 0) : 0;
+    const kv = curr_row ? (curr_row.KV || "Khác") : "Khác";
+    
+    // Cảnh báo
+    const is_far = curr_row && curr_row.Farrington && cases_curr > curr_row.Farrington;
+    const is_cus = curr_row && curr_row.Cusum && cases_curr > curr_row.Cusum;
+    
+    // Điểm số
+    let warning_score = 0;
+    if (is_far && is_cus) warning_score = 3;
+    else if (is_far) warning_score = 2;
+    else if (is_cus) warning_score = 1;
+
+    // Chỉ số phụ
+    const rate = pop > 0 ? (cases_curr / pop * 100000).toFixed(1) : "-";
+    const prev_row = w_data.find(d => d.Week === sys_max_wk - 1);
+    const cases_prev = prev_row ? (prev_row.cases || 0) : 0;
+    let diff_prev = cases_prev > 0 ? ((cases_curr - cases_prev)/cases_prev*100) : (cases_curr > 0 ? 100 : 0);
+    
+    const prev_4w = w_data.filter(d => d.Week >= sys_max_wk - 4 && d.Week < sys_max_wk);
+    const avg_4w = d3.mean(prev_4w, d => d.cases || 0) || 0;
+    let diff_4w = avg_4w > 0 ? ((cases_curr - avg_4w)/avg_4w*100) : (cases_curr > 0 ? 100 : 0);
+
+    return {
+      name: w_name,
+      KV: kv,
+      cases: cases_curr,
+      rate: rate,
+      diff_prev_str: (diff_prev > 0 && cases_prev > 0 ? "+" : "") + diff_prev.toFixed(1) + "%",
+      diff_4w_str: (diff_4w > 0 && avg_4w > 0 ? "+" : "") + diff_4w.toFixed(1) + "%",
+      far_flag: is_far,
+      cus_flag: is_cus,
+      score: warning_score
+    };
+  });
+
+  // C. Tính điểm Khu vực
+  const kv_priority = d3.rollup(processed_wards, v => d3.sum(v, d => d.score), d => d.KV);
+
+  // D. Lọc theo Sidebar
+  let display_data = [];
+  if (selected_ward === "Toàn Thành phố") {
+    display_data = processed_wards;
+  } else {
+    const target_kv = processed_wards.find(d => d.name === selected_ward)?.KV;
+    display_data = processed_wards.filter(d => d.KV === target_kv);
+  }
+
+  // E. Sắp xếp
+  display_data.sort((a, b) => {
+    const scoreA = kv_priority.get(a.KV) || 0;
+    const scoreB = kv_priority.get(b.KV) || 0;
+    if (scoreB !== scoreA) return scoreB - scoreA;
+    if (b.score !== a.score) return b.score - a.score;
+    return b.cases - a.cases;
+  });
+
+  return display_data;
+}
+```
+
+```{ojs}
+{
+  // 1. INPUT SEARCH
+  const searchInput = Inputs.search(ranking_data, {
+    label: "🔍 Tìm nhanh:", 
+    columns: ["name", "KV"],
+    placeholder: "Nhập tên phường..."
+  });
+
+  // 2. RENDER VÒNG LẶP
+  for await (const rows of Generators.input(searchInput)) {
+    yield html`
+      
+      <div style="margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;">
+        <h4 style="margin: 0; color: #3278c3; font-weight: bold;">
+          Bảng kết quả cảnh báo các phường/xã (Tuần ${sys_max_wk})
+        </h4>
+      </div>
+
+      <div style="margin-bottom: 10px;">
+        ${searchInput}
+      </div>
+
+      <div style="overflow-x: auto; max-height: 600px; border: 1px solid #eee; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th style="text-align: left; width: 15%;">Khu vực</th>
+              <th style="text-align: left; width: 25%;">Phường/Xã</th>
+              <th style="text-align: center;">Số ca</th>
+              <th style="text-align: center;">Số ca/100k dân</th>
+              <th style="text-align: center;">So với tuần trước</th>
+              <th style="text-align: center;">So với TB 4 tuần trước</th>
+              <th style="text-align: center;">Cảnh báo</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rows.map(row => {
+              // Badge
+              let warn_badges = [];
+              if (row.far_flag) warn_badges.push(`<span class="badge-pill bg-danger-subtle">Farrington</span>`);
+              if (row.cus_flag) warn_badges.push(`<span class="badge-pill bg-primary-subtle">Cusum</span>`);
+              if (warn_badges.length === 0) warn_badges.push(`<span style="color: #adb5bd;">-</span>`);
+
+              // Màu %
+              const col_prev = row.diff_prev_str.includes("+") ? "color: #d63384;" : (row.diff_prev_str.includes("-") ? "color: #20c997;" : "color: #adb5bd;");
+              const col_4w = row.diff_4w_str.includes("+") ? "color: #d63384;" : (row.diff_4w_str.includes("-") ? "color: #20c997;" : "color: #adb5bd;");
+              
+              // Màu nền cảnh báo
+              const bg_style = row.score === 3 ? "background-color: #fff0f0;" : (row.score > 0 ? "background-color: #fffbf0;" : "background-color: white;");
+
+              return html`
+                <tr style="${bg_style}">
+                  <td style="text-align: left;">${row.KV}</td>
+                  <td style="text-align: left; font-weight: 600;">${row.name}</td>
+                  <td style="text-align: center; font-size: 1rem;">${row.cases}</td>
+                  <td style="text-align: center;">${row.rate}</td>
+                  <td style="text-align: center; ${col_prev}">${row.diff_prev_str}</td>
+                  <td style="text-align: center; ${col_4w}">${row.diff_4w_str}</td>
+                  <td style="text-align: center;">${html`${warn_badges.join(" ")}`}</td> 
+                </tr>
+              `;
+            })}
+            ${rows.length === 0 ? html`<tr><td colspan="7" style="text-align:center; padding: 30px; color: #999;">🔍 Không tìm thấy kết quả phù hợp</td></tr>` : ""}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+}
+```
+
 # Đánh giá nguy cơ
 
 # Bản đồ
+
+```{ojs}
+//| title: "Bản đồ phân bố dịch tễ"
+
+{
+  // 1. TẢI FILE GEOJSON BẢN ĐỒ
+  const topology = await d3.json("hcm_map.json");
+
+  // 2. TẠO NÚT CHUYỂN ĐỔI
+  const map_metric_input = Inputs.radio(
+    ["Số ca mắc", "Tỷ lệ/100k dân"], 
+    {label: "Hiển thị theo:", value: "Số ca mắc"}
+  );
+  
+  // 3. HÀM VẼ BẢN ĐỒ (Giống createHighchart)
+  function createMapChart(container, options) {
+    requestAnimationFrame(() => {
+        Highcharts.mapChart(container, options);
+    });
+    return container;
+  }
+
+  // 4. VÒNG LẶP RENDER
+  const metricGenerator = Generators.input(map_metric_input);
+  
+  for await (const metricType of metricGenerator) {
+    
+    // A. Chuẩn bị dữ liệu
+    const map_data_source = data_threshold.filter(d => 
+      d.Year === sys_max_yr && 
+      d.Disease === selected_disease &&
+      d.NoiOHienTai_SauKhiSapNhap_WardId !== "Toàn Thành phố"
+    );
+
+    const data_series = map_data_source.map(d => {
+      const cases = d.cases || 0; 
+      const pop = d.danso || 1;
+      const rate = (cases / pop * 100000); 
+      const value = metricType === "Số ca mắc" ? cases : Number(rate.toFixed(1));
+      
+      return {
+        "hc-key": d.NoiOHienTai_SauKhiSapNhap_WardId, 
+        value: value,
+        name: d.NoiOHienTai_SauKhiSapNhap_WardId,
+        danso: pop
+      };
+    });
+
+    // B. Tạo Container
+    const chartContainer = html`<div style="height: 600px; width: 100%;"></div>`;
+
+    // C. Gọi hàm vẽ (Có cấu hình allAreas: true)
+    createMapChart(chartContainer, {
+        chart: { map: topology },
+        title: { text: null },
+        credits: { enabled: false },
+        
+        // Màu sắc Heatmap
+        colorAxis: {
+          min: 0,
+          stops: [
+            [0, '#EFEFFF'],       // Trắng xanh
+            [0.1, '#4e79a7'],     // Xanh
+            [0.5, '#f28e2b'],     // Cam
+            [1, '#e15759']        // Đỏ
+          ]
+        },
+
+        mapNavigation: {
+          enabled: true,
+          buttonOptions: { verticalAlign: 'bottom' }
+        },
+
+        series: [{
+          data: data_series,
+          name: metricType,
+          joinBy: ['name', 'hc-key'], // Khớp cột 'name' trong Map với 'hc-key' trong Data
+          
+          // --- QUAN TRỌNG: ÉP HIỂN THỊ CẢ VÙNG KHÔNG CÓ DỮ LIỆU ---
+          allAreas: true, 
+          nullColor: '#e0e0e0', // Các vùng không khớp tên sẽ có màu xám nhạt (dễ debug)
+          borderColor: '#ffffff',
+          borderWidth: 0.5,
+          
+          tooltip: {
+            pointFormat: `
+              <b>{point.name}</b><br>
+              ${metricType}: <b>{point.value}</b><br>
+              Dân số: {point.danso}
+            `
+          },
+          
+          dataLabels: {
+             enabled: false,
+             format: '{point.name}'
+          },
+          
+          states: { hover: { color: '#59a14f' } }
+        }]
+    });
+
+    // D. Trả về HTML (Hiển thị nút + Bản đồ)
+    yield html`
+      <div style="margin-bottom: 10px;">${map_metric_input}</div>
+      ${chartContainer}
+    `;
+  }
+}
+```
+

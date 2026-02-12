@@ -90,6 +90,11 @@ calculate_all_thresholds <- function(df, ref_years, target_year) {
   result_df <- result_df %>%
     left_join(stats_ref, by = c("Week" = "week"))
   
+  target_cases_df <- df_target %>% select(week, cases)
+  
+  result_df <- result_df %>%
+    left_join(target_cases_df, by = c("Week" = "week"))
+  
   # Cắt bỏ dữ liệu tương lai (để biểu đồ ngắt quãng)
   result_df$Seasonal[result_df$Week > max_week_current] <- NA
   result_df$CDC[result_df$Week > max_week_current] <- NA
