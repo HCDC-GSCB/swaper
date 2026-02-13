@@ -108,19 +108,27 @@ mutable data_threshold = [] // <--- BIẾN MỚI CHỨA NGƯỠNG DỊCH
 ```{ojs}
 //| output: false
 
-// 1. IMPORT THƯ VIỆN
+// 1. THƯ VIỆN CƠ BẢN
 d3 = require("d3")
 import { aq, op } from '@uwdata/arquero'
 import {html} from "htl"
-// Load Highcharts từ CDN
-Highcharts = await require("https://code.highcharts.com/highcharts.js")
-// Load module Export (để có nút tải ảnh góc phải)
-await require("https://code.highcharts.com/modules/exporting.js")(Highcharts)
-await require("https://code.highcharts.com/modules/export-data.js")(Highcharts)
-await require("https://code.highcharts.com/modules/accessibility.js")(Highcharts)
-// 2. NẠP MODULE BẢN ĐỒ (BẮT BUỘC PHẢI CÓ DÒNG NÀY)
-mapModule = await require("https://code.highcharts.com/maps/modules/map.js")
-mapModule(Highcharts) // Kích hoạt module map cho Highcharts
+
+Highcharts = {
+  // Thay highcharts.js bằng highmaps.js (Bao gồm cả Chart thường + Map)
+  const hc = await require("https://code.highcharts.com/maps/highmaps.js");
+
+  // Tải các module phụ (Export, Data...)
+  const exporting = await require("https://code.highcharts.com/modules/exporting.js");
+  const exportData = await require("https://code.highcharts.com/modules/export-data.js");
+  const access = await require("https://code.highcharts.com/modules/accessibility.js");
+
+  // NHÚNG MODULE VÀO CORE
+  if (typeof exporting === "function") exporting(hc);
+  if (typeof exportData === "function") exportData(hc);
+  if (typeof access === "function") access(hc);
+
+  return hc;
+}
 ```
 
 ```{ojs}
@@ -142,7 +150,7 @@ latest_str = `Tuần ${sys_max_wk} / ${sys_max_yr}`
 
 // Config màu sắc & Thứ tự
 current_data = selected_disease === "Sốt xuất huyết" ? data_sxh : data_tcm
-plot_color = selected_disease === "Sốt xuất huyết" ? "#4e79a7" : "#59a14f"
+plot_color = selected_disease === "Sốt xuất huyết" ? "#4e79a7" : "#6e7ba8"
 age_order = ["<1 tuổi", "1-5 tuổi", "6-10 tuổi", "11-15 tuổi", ">15 tuổi"]
 
 // Hàm tạo HTML cho KPI
@@ -245,7 +253,7 @@ num_cases = d3.sum(kpi_week_data, d => d.SoCa)
 num_in = d3.sum(kpi_week_data.filter(d => d.NhomDieuTri == "Nội trú"), d => d.SoCa)
 num_severe = d3.sum(kpi_week_data.filter(d => {
   let name = (d.PhanDoBenhName || "").toLowerCase();
-  return selected_disease === "Sốt xuất huyết" ? (name.includes("nặng") || name.includes("cảnh báo")) : 
+  return selected_disease === "Sốt xuất huyết" ? (name.includes("nặng")) : 
   (name.includes("2b") || name.includes("độ 3") || name.includes("độ 4"));
 }), d => d.SoCa)
 num_dead = d3.sum(kpi_year_data.filter(d => d.KetQua == "Tử vong"), d => d.SoCa)
@@ -728,112 +736,285 @@ ranking_data = {
 
 # Bản đồ
 
+## Row 1
+
 ```{ojs}
-//| title: "Bản đồ phân bố dịch tễ"
+//| output: false
+// 0. KHỞI TẠO BIẾN TRẠNG THÁI (Lưu phường đang chọn)
+mutable selected_map_ward_id = null;
+```
 
+### Column {width=30%}
+
+```{ojs}
+//| echo: false
+// 1. INPUT CONTROL PANEL (Phần trên)
+
+// Tạo danh sách KV từ data
+kv_list = ["Tất cả", ...new Set(data_threshold.map(d => d.KV).filter(d => d))].sort()
+
+// Tạo index thời gian
+time_options = years.flatMap(y => Array.from({length: 53}, (_, i) => i + 1).map(w => ({
+  label: `Tuần ${w}/${y}`,
+  value: y * 100 + w
+}))).sort((a, b) => b.value - a.value)
+
+viewof map_controls = Inputs.form({
+  metric: Inputs.radio(["Số ca thô", "Số ca trên 100k dân"], {label: "Chỉ số hiển thị:", value: "Số ca thô"}),
+  mode: Inputs.radio(["Tuần hiện tại"], {label: "Chế độ xem:", value: "Tuần hiện tại"}),
+  kv: Inputs.select(kv_list, {label: "Chọn Khu vực:", value: "Tất cả"}),
+})
+```
+
+```{ojs}
+//| echo: false
+// 2. BIỂU ĐỒ LINE CHART (Phần dưới - Đã sửa lỗi cắt đuôi dữ liệu tương lai)
 {
-  // 1. TẢI FILE GEOJSON BẢN ĐỒ
-  const topology = await d3.json("hcm_map.json");
-
-  // 2. TẠO NÚT CHUYỂN ĐỔI
-  const map_metric_input = Inputs.radio(
-    ["Số ca mắc", "Tỷ lệ/100k dân"], 
-    {label: "Hiển thị theo:", value: "Số ca mắc"}
-  );
-  
-  // 3. HÀM VẼ BẢN ĐỒ (Giống createHighchart)
-  function createMapChart(container, options) {
-    requestAnimationFrame(() => {
-        Highcharts.mapChart(container, options);
-    });
-    return container;
+  // A. Kiểm tra xem đã chọn phường chưa
+  if (selected_map_ward_id === null) {
+    return html`
+      <div style="height: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #999; border: 1px dashed #ccc; border-radius: 5px; margin-top: 10px;">
+        <div style="font-size: 3rem; opacity: 0.3;">👆</div>
+        <div style="margin-top: 10px;">Chọn một phường trên bản đồ<br>để xem biểu đồ chi tiết</div>
+      </div>
+    `;
   }
 
-  // 4. VÒNG LẶP RENDER
-  const metricGenerator = Generators.input(map_metric_input);
+  // B. Xử lý dữ liệu cho phường đã chọn
+  const ward_trend_data = data_threshold.filter(d => 
+    d.NoiOHienTai_SauKhiSapNhap_WardId === selected_map_ward_id &&
+    d.Year === sys_max_yr && 
+    d.Disease === selected_disease
+  ).sort((a, b) => a.Week - b.Week); 
+
+  const ward_name = ward_trend_data.length > 0 ? ward_trend_data[0].NoiOHienTai_SauKhiSapNhap_WardId : selected_map_ward_id;
+
+  // C. Map dữ liệu (LOGIC MỚI: Cắt dữ liệu tương lai)
+  const weeks = Array.from({length: 53}, (_, i) => i + 1);
   
-  for await (const metricType of metricGenerator) {
+  const series_data = weeks.map(wk => {
+    // --- ĐOẠN QUAN TRỌNG NHẤT ---
+    // Nếu tuần đang xét lớn hơn tuần báo cáo mới nhất -> Trả về null để ngắt dòng
+    if (wk > sys_max_wk) return null; 
+    // -----------------------------
+
+    const row = ward_trend_data.find(d => d.Week === wk);
     
-    // A. Chuẩn bị dữ liệu
-    const map_data_source = data_threshold.filter(d => 
-      d.Year === sys_max_yr && 
-      d.Disease === selected_disease &&
-      d.NoiOHienTai_SauKhiSapNhap_WardId !== "Toàn Thành phố"
-    );
+    // Nếu tuần trong quá khứ mà không có dữ liệu -> coi là 0 ca
+    if (!row) return 0;
+    
+    // Tính toán tùy theo Metric
+    if (map_controls.metric === "Số ca thô") {
+        return row.cases || 0;
+    } else {
+        const pop = row.danso || 0;
+        return pop > 0 ? ((row.cases || 0) / pop * 100000) : 0;
+    }
+  });
 
-    const data_series = map_data_source.map(d => {
-      const cases = d.cases || 0; 
-      const pop = d.danso || 1;
-      const rate = (cases / pop * 100000); 
-      const value = metricType === "Số ca mắc" ? cases : Number(rate.toFixed(1));
-      
-      return {
-        "hc-key": d.NoiOHienTai_SauKhiSapNhap_WardId, 
-        value: value,
-        name: d.NoiOHienTai_SauKhiSapNhap_WardId,
-        danso: pop
-      };
+  // D. Vẽ biểu đồ
+  const chart_container = html`<div style="height: 300px; width: 100%;"></div>`;
+  
+  if (Highcharts) {
+    Highcharts.chart(chart_container, {
+      chart: { type: 'line', style: { fontFamily: 'Arial' } },
+      title: { 
+          text: ward_name, 
+          style: { fontSize: '16px', fontWeight: 'bold', color: '#003366' }
+      },
+      subtitle: { text: map_controls.metric + " - Năm " + sys_max_yr },
+      xAxis: { 
+          categories: weeks, 
+          title: { text: 'Tuần' },
+          tickInterval: 5,
+          // Giữ trục X luôn full 53 tuần dù dữ liệu bị ngắt
+          max: 52 
+      },
+      yAxis: { title: { text: null }, min: 0 },
+      legend: { enabled: false },
+      tooltip: { shared: true, valueDecimals: 1 },
+      credits: { enabled: false },
+      plotOptions: {
+        series: {
+            connectNulls: false // Đảm bảo không nối điểm cuối với null (mặc định là false rồi nhưng khai báo cho chắc)
+        }
+      },
+      series: [{
+          name: map_controls.metric,
+          data: series_data,
+          color: '#d62728', 
+          lineWidth: 2,
+          marker: { enabled: false, states: { hover: { enabled: true } } }
+      }]
     });
+  }
+  
+  return chart_container;
+}
+```
 
-    // B. Tạo Container
-    const chartContainer = html`<div style="height: 600px; width: 100%;"></div>`;
+```{ojs}
+//| output: false
 
-    // C. Gọi hàm vẽ (Có cấu hình allAreas: true)
-    createMapChart(chartContainer, {
-        chart: { map: topology },
-        title: { text: null },
-        credits: { enabled: false },
-        
-        // Màu sắc Heatmap
-        colorAxis: {
-          min: 0,
-          stops: [
-            [0, '#EFEFFF'],       // Trắng xanh
-            [0.1, '#4e79a7'],     // Xanh
-            [0.5, '#f28e2b'],     // Cam
-            [1, '#e15759']        // Đỏ
-          ]
+// 3. XỬ LÝ SỐ LIỆU BẢN ĐỒ (Giữ nguyên logic cũ của bạn)
+hcm_geo = FileAttachment("hcm_map.json").json()
+
+map_processed = {
+  // A. Xác định khoảng thời gian lọc
+  let start_idx, end_idx;
+  if (map_controls.mode === "Tuần hiện tại") {
+    const current_val = sys_max_yr * 100 + sys_max_wk;
+    start_idx = current_val; end_idx = current_val;
+  } else {
+    // Logic dự phòng nếu bạn muốn mở lại range slider sau này
+    end_idx = sys_max_yr * 100 + sys_max_wk;    
+    start_idx = sys_max_yr * 100 + 1;    
+  }
+
+  // B. Lọc dữ liệu
+  const filtered = data_threshold.filter(d => {
+    const time_val = d.Year * 100 + Number(d.Week);
+    const time_ok = time_val >= start_idx && time_val <= end_idx;
+    const disease_ok = d.Disease === selected_disease;
+    const not_total = d.NoiOHienTai_SauKhiSapNhap_WardId !== "Toàn Thành phố"; 
+    return time_ok && disease_ok && not_total;
+  });
+
+  // C. Group & Aggregate
+  const ward_kv_map = new Map(data_threshold.map(d => [d.NoiOHienTai_SauKhiSapNhap_WardId, d.KV]));
+  const agg_data = d3.rollup(filtered, 
+    v => {
+      const total_cases = d3.sum(v, d => d.cases || 0);
+      const pop = d3.mean(v, d => d.danso || 0); 
+      const rate = pop > 0 ? (total_cases / pop * 100000) : 0;
+      return { cases: total_cases, rate: rate };
+    },
+    d => d.NoiOHienTai_SauKhiSapNhap_WardId
+  );
+
+  // D. Map Array
+  const data_array = Array.from(agg_data, ([name, val]) => {
+    const kv = ward_kv_map.get(name) || "Khác";
+    const is_visible = (map_controls.kv === "Tất cả") || (kv === map_controls.kv);
+    const final_val = is_visible ? (map_controls.metric === "Số ca thô" ? val.cases : Number(val.rate.toFixed(1))) : null;
+
+    return {
+      "hc-key": name, 
+      value: final_val,
+      custom_kv: kv,
+      custom_cases: val.cases,
+      custom_rate: val.rate.toFixed(1)
+    };
+  });
+
+  // E. Max Value
+  const values = data_array.map(d => d.value).filter(v => v !== null && v !== undefined);
+  const max_val = values.length > 0 ? Math.max(...values) : 10;
+
+  return { data: data_array, maxVal: max_val };
+}
+```
+
+### Column {width=70%}
+
+```{ojs}
+//| title: "Bản đồ phân bố dịch bệnh"
+//| echo: false
+
+// 4. VẼ BẢN ĐỒ (Đã thêm sự kiện Click)
+{
+  const container = html`<div style="height: 650px; width: 100%;"></div>`;
+
+  if (Highcharts && typeof Highcharts.mapChart === "function") {
+      
+      Highcharts.mapChart(container, { 
+        chart: {
+            map: hcm_geo,
+            mapView: {
+                center: [106.702, 10.775],
+                zoom: 10 
+            },
         },
-
+        title: { 
+            text: map_controls.mode === "Tuần hiện tại" 
+                ? `${map_controls.metric} tuần ${sys_max_wk}/${sys_max_yr}` 
+                : `Tích lũy ${map_controls.metric} (${map_controls.kv})`,
+            align: "center",
+            style: { color: 'black' }
+        },
         mapNavigation: {
-          enabled: true,
-          buttonOptions: { verticalAlign: 'bottom' }
+            enabled: true,
+            buttonOptions: { verticalAlign: 'bottom' }
+        },
+        colorAxis: {
+            min: 0,
+            max: map_processed.maxVal,
+            stops: [
+                [0, '#EFEFFF'],      
+                [0.05, '#c6dbef'],
+                [0.5, '#4292c6'],    
+                [1, '#08306b']       
+            ]
+        },
+        
+        // --- CẤU HÌNH TƯƠNG TÁC (QUAN TRỌNG) ---
+        plotOptions: {
+            series: {
+                cursor: 'pointer', // Đổi con trỏ chuột thành hình bàn tay
+                point: {
+                    events: {
+                        click: function () {
+                            // CẬP NHẬT BIẾN MUTABLE KHI CLICK
+                            // 'this' ở đây là point được click
+                            // 'hc-key' là ID của phường (khớp với NoiOHienTai...)
+                            mutable selected_map_ward_id = this['hc-key'];
+                        }
+                    }
+                }
+            }
         },
 
         series: [{
-          data: data_series,
-          name: metricType,
-          joinBy: ['name', 'hc-key'], // Khớp cột 'name' trong Map với 'hc-key' trong Data
-          
-          // --- QUAN TRỌNG: ÉP HIỂN THỊ CẢ VÙNG KHÔNG CÓ DỮ LIỆU ---
-          allAreas: true, 
-          nullColor: '#e0e0e0', // Các vùng không khớp tên sẽ có màu xám nhạt (dễ debug)
-          borderColor: '#ffffff',
-          borderWidth: 0.5,
-          
-          tooltip: {
-            pointFormat: `
-              <b>{point.name}</b><br>
-              ${metricType}: <b>{point.value}</b><br>
-              Dân số: {point.danso}
-            `
-          },
-          
-          dataLabels: {
-             enabled: false,
-             format: '{point.name}'
-          },
-          
-          states: { hover: { color: '#59a14f' } }
+            data: map_processed.data,
+            joinBy: ['NoiOHienTai_SauKhiSapNhap_WardId', 'hc-key'], 
+            name: map_controls.metric,
+            
+            // Cho phép chọn point (để giữ màu highlight khi click)
+            allowPointSelect: true, 
+            states: {
+                hover: { color: '#fb8072' },
+                select: { color: '#FF0000', borderColor: 'black', dashStyle: 'dot' } // Màu khi được chọn
+            },
+            
+            nullColor: 'rgba(200, 200, 200, 0.3)',
+            borderColor: '#d1d1d1',
+            borderWidth: 0.5,
+            
+            dataLabels: { enabled: false }, // Tắt Label như yêu cầu
+            
+            tooltip: {
+                headerFormat: '',
+                pointFormatter: function() {
+                    if (this.value === null) return `<b>${this.properties.tenXa}</b><br/>(Không thuộc vùng chọn)`;
+                    return `<b>${this.properties.tenXa}</b> (${this.custom_kv})<br/>
+                            ----------------<br/>
+                            Số ca thô: <b>${this.custom_cases}</b><br/>
+                            Số ca trên 100k dân: <b>${this.custom_rate}</b><br/>
+                            <i>(Nhấn để xem biểu đồ)</i>`;
+                }
+            }
         }]
-    });
-
-    // D. Trả về HTML (Hiển thị nút + Bản đồ)
-    yield html`
-      <div style="margin-bottom: 10px;">${map_metric_input}</div>
-      ${chartContainer}
-    `;
+      });
+  } else {
+    return html`<div style="color:red; padding:20px;">
+      ⚠️ Đang tải thư viện bản đồ... Vui lòng nhấn F5 nếu không thấy gì.
+    </div>`;
   }
+  
+  return container;
 }
 ```
+
+
+
 

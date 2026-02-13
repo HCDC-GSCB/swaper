@@ -27,40 +27,64 @@ get_fixed_ref_years <- function(disease_name) {
   }
 }
 
-# 2. HÀM TÍNH TOÁN CORE (Đã bỏ map_df, dùng bind_rows thuần)
 calculate_all_thresholds <- function(df, ref_years, target_year) {
   
-  # --- A. CHUẨN BỊ DỮ LIỆU ---
-  
-  # Lấy dữ liệu 5 năm Ref và 1 năm Target
+  # --- 1. KIỂM TRA DỮ LIỆU ĐẦU VÀO ---
+  # Lấy dữ liệu tham chiếu và mục tiêu
   df_ref <- df %>% filter(year %in% ref_years)
   df_target <- df %>% filter(year == target_year)
   
-  # Tìm tuần lớn nhất hiện có của năm Target (để ngắt biểu đồ sau này)
-  max_week_current <- max(df_target$week, na.rm = TRUE)
+  # [FIX LỖI QUAN TRỌNG]
+  # Nếu không có dòng dữ liệu nào cho năm mục tiêu -> BỎ QUA LUÔN
+  if (nrow(df_target) == 0) return(NULL)
   
+  # Nếu có dòng nhưng toàn NA -> max trả về -Inf -> BỎ QUA LUÔN
+  max_week_current <- suppressWarnings(max(df_target$week, na.rm = TRUE))
+  if (is.infinite(max_week_current)) return(NULL)
+  
+  # --- 2. CHUẨN BỊ DỮ LIỆU ---
   df_final_input <- bind_rows(df_ref, df_target) %>%
     arrange(year, week)
   
   observed_cases <- df_final_input$cases
   
+  # Nếu dữ liệu quá ngắn (ví dụ chỉ có vài tuần) -> Không đủ chạy thuật toán -> Bỏ qua
+  if (length(observed_cases) < 52) return(NULL)
+  
+  # --- 3. CẤU HÌNH THUẬT TOÁN ---
   stsObj <- sts(observed = observed_cases, start = c(2020, 1), frequency = 52)
   disProgObj <- sts2disProg(stsObj)
   
-  control_range <- 261:(260 + max_week_current)
+  # Xác định vùng dự báo (Control Range)
+  start_idx <- 261 # Bắt đầu từ năm thứ 6 (sau 5 năm ref)
+  end_idx <- 260 + max_week_current
   
-  # 1. Farrington
-  ctrl_far <- list(range = control_range, b = 5, w = 1, reweight = TRUE, verbose = FALSE)
-  res_far <- algo.farrington(disProgObj, control = ctrl_far)
+  # [FIX LỖI VECTOR] Kiểm tra index có hợp lệ không
+  if (start_idx > length(disProgObj$observed)) return(NULL)
+  end_idx <- min(end_idx, length(disProgObj$observed)) # Cắt nếu vượt quá
+  
+  control_range <- start_idx:end_idx
+  
+  # --- 4. CHẠY THUẬT TOÁN (BỌC TRYCATCH ĐỂ KHÔNG SẬP) ---
+  
+  # Farrington
+  res_far <- tryCatch({
+    algo.farrington(disProgObj, control = list(range = control_range, b = 5, w = 1, reweight = TRUE, verbose = FALSE))
+  }, error = function(e) return(NULL))
+  
+  if (is.null(res_far)) return(NULL) # Nếu lỗi thì dừng
   far_vals <- res_far$upperbound
   
-  # 2. CUSUM
-  ctrl_cus <- list(range = control_range, k = 1.04, h = 2.26, trans = "rossi")
-  res_cus <- algo.cusum(disProgObj, control = ctrl_cus)
+  # Cusum
+  res_cus <- tryCatch({
+    algo.cusum(disProgObj, control = list(range = control_range, k = 1.04, h = 2.26, trans = "rossi"))
+  }, error = function(e) return(NULL))
+  
+  if (is.null(res_cus)) return(NULL)
   cus_vals <- res_cus$upperbound
   
+  # --- 5. TÍNH SEASONAL & CDC ---
   grand_median <- median(df_ref$cases, na.rm = TRUE)
-  
   stats_ref <- df_ref %>%
     group_by(week) %>%
     summarise(
@@ -69,12 +93,10 @@ calculate_all_thresholds <- function(df, ref_years, target_year) {
       sd_val = sd(cases, na.rm = TRUE),
       .groups = "drop"
     ) %>%
-    mutate(CDC = mean_val + 2 * sd_val) %>%
-    mutate(CDC = pmax(0, CDC)) %>%
+    mutate(CDC = pmax(0, mean_val + 2 * sd_val)) %>%
     select(week, Seasonal, CDC)
   
-  # --- E. TỔNG HỢP KẾT QUẢ ---
-  # Tạo khung kết quả cho năm Target
+  # --- 6. TỔNG HỢP KẾT QUẢ ---
   result_df <- data.frame(
     Year = target_year, 
     Week = 1:52,
@@ -82,42 +104,52 @@ calculate_all_thresholds <- function(df, ref_years, target_year) {
     Cusum = NA
   )
   
-  # Điền giá trị thuật toán vào các tuần đã tính (1 -> max_week)
-  result_df$Farrington[1:max_week_current] <- far_vals
-  result_df$Cusum[1:max_week_current] <- cus_vals
+  # Điền giá trị
+  n_cal <- length(far_vals)
+  if (n_cal > 0) {
+    result_df$Farrington[1:n_cal] <- far_vals
+    result_df$Cusum[1:n_cal] <- cus_vals
+  }
   
-  # Ghép Seasonal và CDC
+  # Ghép các chỉ số
   result_df <- result_df %>%
     left_join(stats_ref, by = c("Week" = "week"))
   
-  target_cases_df <- df_target %>% select(week, cases)
+  # Ghép số ca thực tế (để vẽ biểu đồ)
+  if ("cases" %in% names(df_target)) {
+    result_df <- result_df %>%
+      left_join(df_target %>% select(week, cases), by = c("Week" = "week"))
+  }
   
-  result_df <- result_df %>%
-    left_join(target_cases_df, by = c("Week" = "week"))
-  
-  # Cắt bỏ dữ liệu tương lai (để biểu đồ ngắt quãng)
+  # Clean data tương lai (các tuần chưa tới)
   result_df$Seasonal[result_df$Week > max_week_current] <- NA
   result_df$CDC[result_df$Week > max_week_current] <- NA
   
   return(result_df)
 }
 
-# 3. HÀM WRAPPER (Giữ nguyên)
-process_unit_multi_years <- function(df, unit_name, disease_name, target_years_list) {
+process_unit_multi_years <- function(df_unit, unit_name, disease_name, target_years) {
+  # Hàm wrapper để chạy nhiều năm
+  all_years_res <- list()
   
-  fixed_refs <- get_fixed_ref_years(disease_name)
-  
-  final_res <- list()
-  
-  for (yr in target_years_list) {
-    res <- calculate_all_thresholds(df, fixed_refs, target_year = yr)
+  for (yr in target_years) {
+    # Định nghĩa năm tham chiếu (5 năm trước đó)
+    fixed_refs <- (yr - 5):(yr - 1)
+    
+    # Gọi hàm tính toán
+    res <- calculate_all_thresholds(df_unit, fixed_refs, target_year = yr)
     
     if (!is.null(res)) {
-      res$WardId <- unit_name
       res$Disease <- disease_name
-      final_res[[as.character(yr)]] <- res
+      res$WardId <- unit_name
+      all_years_res[[as.character(yr)]] <- res
     }
   }
   
-  return(bind_rows(final_res))
+  # Gộp kết quả
+  if (length(all_years_res) > 0) {
+    return(bind_rows(all_years_res))
+  } else {
+    return(NULL)
+  }
 }

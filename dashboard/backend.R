@@ -84,10 +84,7 @@ df_tcm_wards <- px_tcm %>%
 message("--- Đang đóng gói dữ liệu ---")
 
 final_threshold_df <- bind_rows(df_sxh_city, df_sxh_wards, df_tcm_city, df_tcm_wards) %>%
-  rename(NoiOHienTai_SauKhiSapNhap_WardId = WardId)
-
-final_threshold_df <- final_threshold_df %>%
-  mutate(NoiOHienTai_SauKhiSapNhap_WardId = str_trim(NoiOHienTai_SauKhiSapNhap_WardId))
+  mutate(NoiOHienTai_SauKhiSapNhap_WardId = str_trim(WardId))
 
 pop_data <- load_data("https://docs.google.com/spreadsheets/d/1ZlfExROncZcCpm8LzGlaw8wim9T_0eNNhpAsyB836kA/edit?usp=sharing", sheet = "Sheet1")
 
@@ -109,9 +106,6 @@ if(nrow(na_check) > 0) {
 
 # ==============================================================================
 
-print(paste("Tổng số dòng dữ liệu ngưỡng:", nrow(final_threshold_df)))
-print(head(final_threshold_df))
-
 output_path <- "dashboard/threshold.dat" 
 encrypt_data(final_threshold_df, output_path, "Swaper@234")
 
@@ -123,55 +117,41 @@ message("✅ HOÀN TẤT! Hãy kiểm tra file tại: ", output_path)
 ##########################
 
 # ==============================================================================
-# 🛠️ BƯỚC XỬ LÝ BẢN ĐỒ (MAP PROCESSING)
+#  XỬ LÝ BẢN ĐỒ (MAP PROCESSING)
 # ==============================================================================
 library(sf)
 library(rmapshaper) 
 library(geojsonio)  
 library(stringr)
+library(stringi)
 
-message("--- Đang xử lý Bản đồ ---")
+# Xử lý final_threshold_df
+final_threshold_df <- final_threshold_df %>%
+  filter(NoiOHienTai_SauKhiSapNhap_WardId != "Toàn Thành phố") %>%
+  mutate(
+    NoiOHienTai_SauKhiSapNhap_WardId = clean_vn_text(NoiOHienTai_SauKhiSapNhap_WardId)
+  )
+
+data_names <- unique(final_threshold_df$NoiOHienTai_SauKhiSapNhap_WardId)
 
 # 1. Đọc Shapefile
 shp_path <- "dashboard/TPHCM_XA_2025_JUL_AP" 
-hcm_map <- st_read(shp_path, quiet = TRUE) |> 
-  st_transform(crs = 4326)
+hcm_map <- st_read(shp_path, quiet = TRUE) 
 
 # 2. Xử lý tên Phường/Xã (SẠCH SẼ)
 hcm_map_clean <- hcm_map %>%
-  mutate(
-    # Bước 1: Lấy tên gốc và chuẩn hóa form chữ (Viết hoa chữ cái đầu)
-    name = str_to_title(tenXa),
-    name = str_trim(name)
-  ) %>%
-  mutate(
-    # Bước 2: SỬA LỖI "PHƯỜNG PHƯỜNG", "PHƯỜNG XÃ"
-    # Logic: Nếu tên chưa có tiền tố thì thêm, nếu có rồi thì sửa lại cho đúng
-    name = case_when(
-      # Trường hợp đặc biệt (Sửa tay các xã hay bị lỗi font hoặc tên lạ)
-      str_detect(name, "Thanh An") ~ "Xã Thạnh An",
-      str_detect(name, "Long Hoa") ~ "Xã Long Hòa",
-      
-      # Nếu bắt đầu bằng "Phường Phường" -> Thay bằng "Phường"
-      str_detect(name, "^Phường Phường") ~ str_replace(name, "^Phường Phường", "Phường"),
-      
-      # Nếu bắt đầu bằng "Phường Xã" -> Thay bằng "Xã" (Do code cũ cộng nhầm)
-      str_detect(name, "^Phường Xã") ~ str_replace(name, "^Phường Xã", "Xã"),
-      
-      # Nếu bắt đầu bằng "Phường Thị Trấn" -> Thay bằng "Thị trấn"
-      str_detect(name, "^Phường Thị Trấn") ~ str_replace(name, "^Phường Thị Trấn", "Thị trấn"),
-      
-      # Nếu tên gốc CHƯA CÓ chữ Phường/Xã/Thị trấn ở đầu -> Mặc định thêm "Phường"
-      !str_detect(name, "^(Phường|Xã|Thị Trấn)") ~ paste("Phường", name),
-      
-      # Các trường hợp còn lại (đã đúng) -> Giữ nguyên
-      TRUE ~ name
-    )
-  )
+  mutate(tenXa = clean_vn_text(tenXa)) |> 
+  mutate(NoiOHienTai_SauKhiSapNhap_WardId = case_match(tenXa,
+                                "Phường Thới An" ~ "Phường Thới An",
+                                "Phường Tân Thuận" ~ "Phường Tân Thuận",
+                                "Xã Long Hòa" ~ "Xã Long Hoà",              
+                                "Xã Phước Hòa" ~ "Xã Phước Hoà", 
+                                "Phường Tân Thới Hiệp" ~ "Phường Tân Thới Hiệp",
+                                "Phường Đông Hưng Thuận" ~ "Phường Đông Hưng Thuận",
+                                .default = tenXa
+  ))
 
-# Kiểm tra lại lần cuối xem còn bị lỗi không
-message("Kiểm tra thử vài tên sau khi fix:")
-print(head(unique(hcm_map_clean$name), 10))
+map_names <- unique(hcm_map_clean$NoiOHienTai_SauKhiSapNhap_WardId)
 
 hcm_simple <- ms_simplify(hcm_map_clean, keep = 0.05, keep_shapes = TRUE)
 
