@@ -5,22 +5,21 @@
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Scrollbar Xịn (Chrome/Edge/Safari) */
+/* Scrollbar Xịn (Chrome/Edge/Safari) - Đồng bộ màu #1a9fcc */
 ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 8px; /* Thu gọn lại xíu cho tinh tế */
+    height: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-    border-radius: 5px;
+    background: #f8f9fa; 
+    border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb {
-    background: #bdc3c7; /* Xám nhạt */
-    border-radius: 5px;
-    border: 2px solid #f1f1f1;
+    background: #bdc3c7; 
+    border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #4e79a7; /* Xanh thương hiệu khi hover */
+    background: #1a9fcc; /* Xanh sáng accent */
 }
 
 /* ==========================================================================
@@ -37,9 +36,10 @@
 body.locked { overflow: hidden !important; }
 
 .login-box {
-    background: white; padding: 2rem; border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center;
-    border: 1px solid #e0e0e0; width: 320px;
+    background: white; padding: 2.5rem 2rem; border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 93, 136, 0.15); /* Đổi bóng đổ sang tone xanh */
+    text-align: center;
+    border: 1px solid rgba(0, 93, 136, 0.1); width: 340px;
     animation: fadeInDown 0.5s ease-out;
 }
 
@@ -49,24 +49,30 @@ body.locked { overflow: hidden !important; }
 }
 
 .login-input {
-    width: 100%; padding: 10px; margin: 15px 0;
-    border: 2px solid #eee; border-radius: 6px; font-size: 16px; outline: none;
+    width: 100%; padding: 12px; margin: 15px 0;
+    border: 2px solid #e9ecef; border-radius: 6px; font-size: 15px; outline: none;
+    color: #333333;
 }
 .login-input:focus {
-    border-color: #4e79a7; box-shadow: 0 0 0 3px rgba(78, 121, 167, 0.2);
+    border-color: #1a9fcc; 
+    box-shadow: 0 0 0 3px rgba(26, 159, 204, 0.2);
 }
 
 .login-btn {
-    background: #4e79a7; color: white; border: none; padding: 10px 20px;
+    background: #005d88; /* Xanh đậm chủ đạo */
+    color: white; border: none; padding: 12px 20px;
     border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; font-size: 16px;
+    margin-top: 10px;
 }
 .login-btn:hover {
-    background: #3a5b7d; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(58, 91, 125, 0.4);
+    background: #1a9fcc; /* Xanh sáng */
+    transform: translateY(-2px); 
+    box-shadow: 0 5px 15px rgba(26, 159, 204, 0.4);
 }
 .login-btn:active { transform: translateY(0); }
 
 .error-msg {
-    color: #e15759; font-size: 0.9rem; margin-top: 10px; display: none; 
+    color: #dc3545; font-size: 0.9rem; margin-top: 10px; display: none; font-weight: 500;
 }
 
 /* ==========================================================================
@@ -74,7 +80,8 @@ body.locked { overflow: hidden !important; }
    ========================================================================== */
 .quarto-dashboard .navbar { 
     background-color: #005d88 !important; 
-    border-top: 2px solid black;            
+    border-bottom: none !important; /* Xóa viền đen để ăn nhập với custom.css */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 .quarto-dashboard .navbar-text, 
 .quarto-dashboard .navbar-nav .nav-link { 
@@ -82,77 +89,85 @@ body.locked { overflow: hidden !important; }
 }
 
 /* ==========================================================================
-   4. SIDEBAR & BỘ LỌC (Đã cập nhật màu sắc theo yêu cầu)
+   4. SIDEBAR & BỘ LỌC
    ========================================================================== */
 .quarto-dashboard .sidebar {
-    background-color: #d6f2ff !important; /* Nền xanh nhạt */
-    border-right: 2px solid #ffffff;
-    color: #005d88;
-    padding: 15px !important;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+    background-color: #bcd4e6 !important; /* Đổi nền sang trắng xanh siêu nhạt cho sạch sẽ */
+    border-right: 2px solid #black !important;
+    padding: 20px 15px !important;
 }
 
 /* Làm to chữ đậm (**text**) trong sidebar */
 .quarto-dashboard-sidebar strong {
-    font-size: 1.1rem; 
-    font-weight: 800;  
-    color: #003c58; /* Xanh đậm đen */
+    font-size: 1.05rem; 
+    font-weight: 700;  
+    color: #005d88; /* Xanh chủ đạo */
+    display: block; margin-bottom: 10px;
 }
 
-/* Tiêu đề bộ lọc (Ví dụ: Năm báo cáo:) */
+/* Tiêu đề bộ lọc */
 .quarto-dashboard-sidebar form > label {
-    color: #004d99 !important; /* Xanh đậm SWAPER */
-    font-weight: 800 !important;
-    font-size: 1rem !important;
-    margin-bottom: 5px;
+    color: #005d88 !important; 
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    margin-bottom: 6px;
 }
 
 /* Ô chọn Dropdown */
 .quarto-dashboard-sidebar select {
-    color: #333333 !important;   /* Chữ đen rõ */
-    font-weight: 600 !important;
+    color: #333333 !important;   
+    font-weight: 500 !important;
     border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 6px;
+}
+.quarto-dashboard-sidebar select:focus {
+    border-color: #1a9fcc; outline: none; box-shadow: 0 0 0 2px rgba(26, 159, 204, 0.2);
 }
 
 /* Các lựa chọn Radio/Checkbox */
 .quarto-dashboard-sidebar form div label {
-    color: #495057 !important;   /* Xám đậm */
+    color: #495057 !important;   
     font-weight: 500 !important;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     cursor: pointer;
+    transition: color 0.2s;
 }
 .quarto-dashboard-sidebar form div label:hover {
-    color: #004d99 !important;
+    color: #1a9fcc !important;
 }
 
 /* Dòng chữ Developed by... */
 .quarto-dashboard .sidebar em {
-    display: block; margin-top: 30px; text-align: center;
-    font-size: 0.85rem; color: #888; padding: 10px; transition: color 0.3s;
+    display: block; margin-top: 40px; text-align: center;
+    font-size: 0.8rem; color: #6c757d; padding: 10px; transition: color 0.3s;
 }
-.quarto-dashboard .sidebar em:hover { color: #005d88; font-weight: bold; }
+.quarto-dashboard .sidebar em:hover { color: #005d88; font-weight: 600; }
 
 /* ==========================================================================
    5. VALUE BOX (KPI)
    ========================================================================== */
-/* Icon nền mờ xoay */
+.quarto-dashboard .value-box {
+    border-radius: 8px; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
 .quarto-dashboard .value-box .bi, 
 .quarto-dashboard .value-box i {
-    position: absolute !important; right: -15px !important; bottom: -15px !important;
-    font-size: 8rem !important; opacity: 0.15 !important;       
-    transform: rotate(-15deg) !important; z-index: 0 !important; color: white !important;
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    position: absolute !important; right: -10px !important; bottom: -15px !important;
+    font-size: 7rem !important; opacity: 0.15 !important;       
+    transform: rotate(-10deg) !important; z-index: 0 !important; color: white !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
 }
 
 .quarto-dashboard .value-box:hover .bi, 
 .quarto-dashboard .value-box:hover i {
-    transform: rotate(0deg) scale(1.1) !important; opacity: 0.3 !important; right: -5px !important;
+    transform: rotate(0deg) scale(1.1) !important; opacity: 0.25 !important; right: -5px !important;
 }
 
-/* Số nhảy KPI phóng to khi hover */
 .quarto-dashboard .value-box:hover .kpi-value {
-    transform: scale(1.1); text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: scale(1.05); /* Giảm độ phóng to số để bớt chóng mặt */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
 }
 
 .value-box-area { position: relative; z-index: 2; width: 100%; }
@@ -160,85 +175,109 @@ body.locked { overflow: hidden !important; }
 /* ==========================================================================
    6. CARD & BIỂU ĐỒ
    ========================================================================== */
+.card { 
+    border-radius: 8px; border: 1px solid #e9ecef;
+}
 .card, .card-body { overflow: hidden !important; position: relative !important; }
 
 .card:hover {
-    transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-    z-index: 10; border-color: #b3e5fc;
+    transform: translateY(-4px); 
+    box-shadow: 0 12px 24px rgba(0, 93, 136, 0.08); /* Bóng đổ tiệp màu web */
+    z-index: 10; border-color: rgba(26, 159, 204, 0.4);
 }
 
 /* Card Header (Tiêu đề biểu đồ) */
 .card-header {
-    background-color: #e1f5fe !important; color: #0277bd !important;            
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
-    font-weight: 700 !important; font-size: 1.1rem !important;
-    text-transform: uppercase; border-bottom: 2px solid #b3e5fc !important;
+    background-color: transparent !important; /* Xóa nền xanh cũ, nhìn hiện đại hơn */
+    color: #005d88 !important;            
+    font-family: inherit !important;
+    font-weight: 700 !important; font-size: 1rem !important;
+    text-transform: uppercase; 
+    border-bottom: 2px solid rgba(26, 159, 204, 0.2) !important;
+    padding-left: 15px !important;
     transition: all 0.3s ease;
 }
 
 .card:hover .card-header {
-    background-color: #b3e5fc !important; padding-left: 25px !important;
+    border-bottom: 2px solid #1a9fcc !important;
+    color: #1a9fcc !important;
 }
 
 /* ==========================================================================
    7. THANH TÌM KIẾM (Search Input)
    ========================================================================== */
 form label {
-    font-weight: 600 !important; color: #4e79a7 !important;
-    font-size: 0.95rem !important; margin-right: 10px !important;
-    display: inline-flex; align-items: center;
+    font-weight: 600 !important; color: #005d88 !important;
 }
 
 form input[type="search"] {
-    border: 1px solid #ced4da !important; border-radius: 50px !important;
+    border: 1px solid #ced4da !important; border-radius: 20px !important;
     padding: 6px 15px !important; width: 250px !important;
-    font-size: 0.9rem !important; transition: all 0.3s ease-in-out;
-    background-color: #f8f9fa; outline: none !important;
+    font-size: 0.9rem !important; transition: all 0.3s ease;
+    background-color: #ffffff;
 }
 
 form input[type="search"]:focus {
-    background-color: #fff; border-color: #4e79a7 !important;
-    box-shadow: 0 0 0 3px rgba(78, 121, 167, 0.2) !important;
+    border-color: #1a9fcc !important;
+    box-shadow: 0 0 0 3px rgba(26, 159, 204, 0.2) !important;
 }
 
 /* ==========================================================================
-   8. BẢNG KẾT QUẢ (Clean Table Style)
+   8. BẢNG KẾT QUẢ DỊCH TỄ (Epi Table Style)
    ========================================================================== */
 .clean-table {
     width: 100%; border-collapse: collapse;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-size: 0.9rem; color: #212529; /* Đen chuẩn */
+    font-family: inherit; font-size: 0.9rem; color: #333333; 
 }
 
 .clean-table thead th {
-    position: sticky; top: 0; background-color: #f8f9fa;
-    color: #212529; /* Chữ tiêu đề đen */
-    font-weight: 700; font-size: 0.75rem;
-    padding: 10px 8px; border-bottom: 2px solid #dee2e6; z-index: 2;
-    text-transform: uppercase; /* In hoa tiêu đề */
+    position: sticky; top: 0; 
+    background-color: #f8fbfa; /* Match với sidebar */
+    color: #005d88; /* Chữ tiêu đề theo màu chủ đạo */
+    font-weight: 700; font-size: 0.8rem;
+    padding: 12px 10px; border-bottom: 2px solid #1a9fcc; z-index: 2;
+    text-transform: uppercase; 
 }
 
 .clean-table tbody tr {
-    border-bottom: 1px solid #f1f3f5; transition: background-color 0.2s;
+    border-bottom: 1px solid #e9ecef; transition: background-color 0.15s ease;
 }
 
+/* Hover dòng trong bảng: Sang tông xanh nhạt của custom.css, dễ đối chiếu dữ liệu */
 .clean-table tbody tr:hover {
-    filter: brightness(0.95); /* Hover tối nhẹ để dễ dò dòng */
+    background-color: rgba(0, 93, 136, 0.05); 
 }
 
-.clean-table td {
-    padding: 8px; vertical-align: middle;
-}
+.clean-table td { padding: 10px; vertical-align: middle; }
 
 /* ==========================================================================
-   9. BADGE (Nhãn cảnh báo)
+   9. BADGE (Nhãn cảnh báo nguy cơ)
    ========================================================================== */
 .badge-pill {
-    display: inline-block; padding: 0.25em 0.6em;
-    font-size: 0.75em; font-weight: 600; line-height: 1;
+    display: inline-block; padding: 0.35em 0.75em;
+    font-size: 0.75em; font-weight: 700; line-height: 1;
     text-align: center; white-space: nowrap; vertical-align: baseline;
-    border-radius: 10rem;
+    border-radius: 10rem; letter-spacing: 0.3px;
 }
 
-.bg-danger-subtle { background-color: #ffe6e6; color: #cc0000; }
-.bg-primary-subtle { background-color: #e6f2ff; color: #0066cc; }
+/* Mức Thấp / Bình thường */
+.bg-primary-subtle { background-color: #eef8fc; color: #005d88; border: 1px solid rgba(0, 93, 136, 0.2); }
+
+/* Mức Trung bình (Thêm mới cho đủ hệ thống cảnh báo) */
+.bg-warning-subtle { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+
+/* Mức Cao / Ổ dịch */
+.bg-danger-subtle { 
+    background-color: #f8d7da; color: #721c24; 
+    border: 1px solid #f5c6cb;
+}
+
+/* Hiệu ứng nhấp nháy (pulse) chớp đỏ nhẹ cho các ổ dịch hoặc ca bệnh nguy kịch */
+.badge-outbreak {
+    animation: alertPulse 2s infinite;
+}
+@keyframes alertPulse {
+    0% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.4); }
+    70% { box-shadow: 0 0 0 6px rgba(220, 53, 69, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
+}

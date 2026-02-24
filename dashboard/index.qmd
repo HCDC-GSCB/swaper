@@ -5,6 +5,12 @@ format:
     css: dashboard.css
     orientation: rows
     scrolling: true
+    include-in-header: 
+      - text: |
+          <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+          <script src="https://code.highcharts.com/modules/exporting.js"></script>
+          <script src="https://code.highcharts.com/modules/export-data.js"></script>
+          <script src="https://code.highcharts.com/modules/accessibility.js)"></script>
 navbar: false
 ---
 
@@ -18,7 +24,9 @@ correct_hash = "befa1b3fe9a01ff98a34e69034e5768bd52b0a0159e8abc92cdbbefe69f3e67a
 // 2. BIẾN CHỨA DỮ LIỆU (Sẽ được điền sau khi giải mã)
 mutable data_sxh = []
 mutable data_tcm = []
-mutable data_threshold = [] // <--- BIẾN MỚI CHỨA NGƯỠNG DỊCH
+mutable data_threshold = [] 
+mutable data_transmission = []
+mutable data_severity = []
 
 // 3. GIAO DIỆN & LOGIC GIẢI MÃ
 {
@@ -75,17 +83,21 @@ mutable data_threshold = [] // <--- BIẾN MỚI CHỨA NGƯỠNG DỊCH
            throw new Error("Mật khẩu không đúng!");
         }
 
-        // Bắt đầu tải và giải mã 3 file (SXH, TCM, THRESHOLD)
-        const [sxh, tcm, thr] = await Promise.all([
+        // Giải mã 5 file
+        const [sxh, tcm, thr, trans, sev] = await Promise.all([
           decryptData("sxh.dat", pass), 
           decryptData("tcm.dat", pass),
-          decryptData("threshold.dat", pass) // <--- LOAD FILE NGƯỠNG
+          decryptData("threshold.dat", pass),
+          decryptData("transmission.dat", pass), 
+          decryptData("severity.dat", pass)      
         ]);
-        
+
         // Cập nhật biến mutable
         mutable data_sxh = sxh;
         mutable data_tcm = tcm;
-        mutable data_threshold = thr; // <--- CẬP NHẬT BIẾN
+        mutable data_threshold = thr;
+        mutable data_transmission = trans; 
+        mutable data_severity = sev;       
 
         // Mở khóa màn hình
         overlay.style.opacity = "0";
@@ -107,28 +119,17 @@ mutable data_threshold = [] // <--- BIẾN MỚI CHỨA NGƯỠNG DỊCH
 
 ```{ojs}
 //| output: false
-
-// 1. THƯ VIỆN CƠ BẢN
 d3 = require("d3")
 import { aq, op } from '@uwdata/arquero'
 import {html} from "htl"
 
-Highcharts = {
-  // Thay highcharts.js bằng highmaps.js (Bao gồm cả Chart thường + Map)
-  const hc = await require("https://code.highcharts.com/maps/highmaps.js");
+Highcharts = window.Highcharts
 
-  // Tải các module phụ (Export, Data...)
-  const exporting = await require("https://code.highcharts.com/modules/exporting.js");
-  const exportData = await require("https://code.highcharts.com/modules/export-data.js");
-  const access = await require("https://code.highcharts.com/modules/accessibility.js");
-
-  // NHÚNG MODULE VÀO CORE
-  if (typeof exporting === "function") exporting(hc);
-  if (typeof exportData === "function") exportData(hc);
-  if (typeof access === "function") access(hc);
-
-  return hc;
-}
+Highcharts.setOptions({
+    lang: {
+        numericSymbols: null // Tắt hẳn việc tự động thêm k, M, G...
+    }
+});
 ```
 
 ```{ojs}
@@ -153,18 +154,30 @@ current_data = selected_disease === "Sốt xuất huyết" ? data_sxh : data_tcm
 plot_color = selected_disease === "Sốt xuất huyết" ? "#4e79a7" : "#6e7ba8"
 age_order = ["<1 tuổi", "1-5 tuổi", "6-10 tuổi", "11-15 tuổi", ">15 tuổi"]
 
-// Hàm tạo HTML cho KPI
-function kpiContent(title, value) {
-  return html`
-    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center;">
-      <div style="font-size: 1rem; font-weight: 400; opacity: 0.9; margin-bottom: 5px; color: #fff;">
-        ${title}
-      </div>
-      <div style="font-size: 4rem; font-weight: 900; line-height: 1; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">
-        ${value}
-      </div>
+// Viết lại hàm kpiContent để tính toán và hiển thị trend tăng/giảm
+function kpiContent(title, current, previous = null) {
+  let trendHtml = "";
+  
+  if (previous !== null) {
+    let diff = current - previous;
+    if (diff > 0) {
+      // Tăng: Mũi tên đỏ (Dịch bệnh tăng là xấu)
+      trendHtml = `<div style="font-size: 0.95rem; color: #ff5252; margin-top: 5px; font-weight: 600;">▲ Tăng ${diff} ca</div>`;
+    } else if (diff < 0) {
+      // Giảm: Mũi tên xanh lá (Dịch bệnh giảm là tốt)
+      trendHtml = `<div style="font-size: 0.95rem; color: #2ca02c; margin-top: 5px; font-weight: 600;">▼ Giảm ${Math.abs(diff)} ca</div>`;
+    } else {
+      trendHtml = `<div style="font-size: 0.95rem; color: #888888; margin-top: 5px; font-weight: 500;">▬ Không đổi</div>`;
+    }
+  }
+
+  return `
+    <div style="position: relative; z-index: 10;">
+      <h2 style="margin: 0; font-size: 2.5rem; font-weight: 800;">${current}</h2>
+      <p style="margin: 0; font-size: 1.1rem; text-transform: uppercase; font-weight: 600;">${title}</p>
+      ${trendHtml}
     </div>
-  `
+  `;
 }
 
 // Hàm chuẩn bị data Highcharts (Generic)
@@ -197,11 +210,11 @@ createHighchart = function(id, options) {
       type: 'column', 
       style: { fontFamily: 'Arial, sans-serif' },
       backgroundColor: 'transparent', 
-      height: 400 
+      height: 360 
     },
     title: { text: null },
     xAxis: { 
-      categories: Array.from({length: 53}, (_, i) => i + 1),
+      categories: Array.from({length: 52}, (_, i) => i + 1),
       title: { text: 'Tuần', style: { fontWeight: 'bold' } },
       crosshair: true
     },
@@ -258,11 +271,36 @@ num_severe = d3.sum(kpi_week_data.filter(d => {
 }), d => d.SoCa)
 num_dead = d3.sum(kpi_year_data.filter(d => d.KetQua == "Tử vong"), d => d.SoCa)
 
-// 4.4. Tính Series cho các biểu đồ
+// 4.5. XÁC ĐỊNH TUẦN BÁO CÁO & TUẦN TRƯỚC ĐÓ
+// (Giả sử mày đang gán tuần hiện tại vào biến current_week)
+// Nếu tuần hiện tại là 1, lùi về tuần 52 năm trước. Nếu không thì trừ 1.
+prev_week = current_week === 1 ? 52 : current_week - 1;
+prev_year = current_week === 1 ? selected_year - 1 : selected_year;
+
+data_prev = chart_raw_data.filter(d => 
+    d.Year === prev_year && 
+    d.Week === prev_week && 
+    d.Disease === selected_disease
+);
+
+// Tính tổng số ca mắc tuần trước
+num_cases_prev = d3.sum(data_prev, d => d.SoCa);
+
+// Tính tổng ca nội trú tuần trước
+num_in_prev = d3.sum(data_prev.filter(d => d.NhomDieuTri === "Nội trú"), d => d.SoCa);
+
+// Tính tổng ca nặng tuần trước (Gộp điều kiện cho cả SXH và TCM)
+num_severe_prev = d3.sum(data_prev.filter(d => {
+   let name = (d.PhanDoBenhName || "").toLowerCase();
+  return selected_disease === "Sốt xuất huyết" ? (name.includes("nặng")) : 
+  (name.includes("2b") || name.includes("độ 3") || name.includes("độ 4"));
+}), d => d.SoCa);
+
+// 4.6. Tính Series cho các biểu đồ
 // Series Tổng (Cho Chart 1)
 series_total = [{
   name: 'Số ca mắc',
-  data: Array.from({length: 53}, (_, i) => i + 1).map(wk => {
+  data: Array.from({length: 52}, (_, i) => i + 1).map(wk => {
       return d3.sum(chart_raw_data.filter(d => d.Week === wk), d => d.SoCa);
   }),
   color: plot_color 
@@ -291,21 +329,29 @@ age_colors = [
 **Cập nhật đến ${latest_str}**
 
 ```{ojs}
-viewof selected_year = Inputs.select(years, {
-  label: "Năm báo cáo:", 
-  unique: true, 
-  format: d => d.toString()
-})
+viewof selected_year = {
+  let input = Inputs.select(years, {
+    label: "Năm báo cáo:", 
+    unique: true, 
+    format: d => d.toString()
+  });
+  input.id = "wrap-nam";
+  return input;
+}
 
 viewof selected_disease = Inputs.radio(
   ["Sốt xuất huyết", "Tay chân miệng"], 
   {label: "Loại bệnh:", value: "Sốt xuất huyết"}
 )
 
-viewof selected_ward = Inputs.select(
-  wards, 
-  {label: "Địa bàn:", value: "Toàn Thành phố"}
-)
+viewof selected_ward = {
+  let input = Inputs.select(
+    wards, 
+    {label: "Địa bàn:", value: "Toàn Thành phố"}
+  );
+  input.id = "wrap-diaban"; 
+  return input;
+}
 ```
 
 **Ghi chú:** Số liệu **Ca nặng** được tính dựa trên phân độ lâm sàng của từng bệnh.
@@ -314,36 +360,145 @@ viewof selected_ward = Inputs.select(
 
 [![](../logo.png)](../index.html)
 
+```{=html}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Hàm xử lý logic ẩn/hiện
+  function updateSidebarVisibility() {
+    // Tìm tab đang được chọn (active)
+    let activeTab = document.querySelector('a[data-bs-toggle="tab"].active');
+    if (!activeTab) return;
+    
+    // Lấy tên của tab
+    let tabName = activeTab.innerText.trim();
+    
+    // Tìm các bộ lọc dựa vào ID mình đã bọc ở Bước 1
+    let wrapNam = document.getElementById('wrap-nam');
+    let wrapDiaBan = document.getElementById('wrap-diaban');
+
+    // Bắt đầu chia trường hợp
+    if (tabName === 'Đánh giá nguy cơ') {
+      // Tab này: Cần Năm, KHÔNG cần Địa bàn
+      if(wrapNam) wrapNam.style.display = 'block';
+      if(wrapDiaBan) wrapDiaBan.style.display = 'none';
+    } 
+    else if (tabName === 'Bản đồ') {
+      // Tab này: KHÔNG cần Năm, KHÔNG cần Địa bàn (Chỉ giữ lại Bệnh)
+      if(wrapNam) wrapNam.style.display = 'none';
+      if(wrapDiaBan) wrapDiaBan.style.display = 'none';
+    } 
+    else {
+      // Các tab khác (nếu có): Cho hiện lại đầy đủ
+      if(wrapNam) wrapNam.style.display = 'block';
+      if(wrapDiaBan) wrapDiaBan.style.display = 'block';
+    }
+  }
+
+  setTimeout(updateSidebarVisibility, 300);
+
+  let tabs = document.querySelectorAll('a[data-bs-toggle="tab"]');
+  tabs.forEach(tab => {
+    tab.addEventListener('shown.bs.tab', updateSidebarVisibility);
+  });
+});
+</script>
+```
+
 # Tổng quan
 
 ## Row 1 {height=300px}
 
-:::{.valuebox icon="virus" color="#004d99"}
-${kpiContent("Số ca mắc", num_cases)}
+:::{.valuebox icon="virus" color="#87cefa"}
+${kpiContent("Số ca mắc", num_cases, num_cases_prev)}
 :::
 
-:::{.valuebox icon="hospital" color="#00da09"}
-${kpiContent("Số ca nội trú", num_in)}
+:::{.valuebox icon="hospital" color="#76ff7a"}
+${kpiContent("Số ca nội trú", num_in, num_in_prev)}
 :::
 
-:::{.valuebox icon="exclamation-triangle-fill" color="#ff6b1a"}
-${kpiContent("Số ca nặng", num_severe)}
+:::{.valuebox icon="exclamation-triangle-fill" color="#ffae42"}
+${kpiContent("Số ca nặng", num_severe, num_severe_prev)}
 :::
 
-:::{.valuebox icon="heart-pulse-fill" color="#ff0c0c"}
+:::{.valuebox icon="heart-pulse-fill" color="#ff5349"}
 ${kpiContent("Tử vong tích lũy (Năm 2026)", num_dead)}
 :::
 
 ## Row 2 {height=550px}
 
 ```{ojs}
+//| output: false
+
+// Lọc data lũy kế từ đầu năm 2026 đến nay cho bệnh đang chọn
+data_2026 = chart_raw_data.filter(d => d.Year === 2026 && d.Disease === selected_disease);
+
+// Tính toán các chỉ số
+total_2026 = data_2026.length;
+avg_age = total_2026 > 0 ? d3.mean(data_2026, d => d.Age).toFixed(1) : 0;
+
+male_cnt = data_2026.filter(d => d.Sex === "Nam").length;
+female_cnt = data_2026.filter(d => d.Sex === "Nữ").length;
+// Tỷ lệ Nam/Nữ (nếu không có nữ thì để N/A)
+sex_ratio = female_cnt > 0 ? (male_cnt / female_cnt).toFixed(2) : "N/A";
+
+inpatient_cnt = data_2026.filter(d => d.NhomDieuTri === "Nội trú").length;
+inpatient_rate = total_2026 > 0 ? ((inpatient_cnt / total_2026) * 100).toFixed(1) : 0;
+
+// Tính ca nặng (Sốt xuất huyết / Tay chân miệng tùy điều kiện logic của data mày)
+severe_cnt = data_2026.filter(d => d.PhanDo === "Nặng" || d.PhanDo === "Độ 3" || d.PhanDo === "Độ 4").length;
+severe_rate = total_2026 > 0 ? ((severe_cnt / total_2026) * 100).toFixed(1) : 0;
+```
+
+### Column 1 {width=75%}
+
+```{ojs}
 //| title: "Diễn tiến số ca mắc theo tuần"
-// Chart 1: Diễn tiến tổng (KHÔI PHỤC LẠI NHƯ CŨ)
+// Chart 1: Diễn tiến tổng 
 createHighchart("chart-total", {
   series: series_total,
   legend: { enabled: false }, // Ẩn chú thích vì chỉ có 1 màu
   plotOptions: { column: { stacking: null } }
 })
+```
+
+### Column 2 {width=25%}
+
+```{ojs}
+//| title: "📊 Tóm tắt đặc điểm dịch tễ học"
+html`
+<div class="card-body" style="padding: 0;">
+  <table class="clean-table" style="font-size: 0.95rem; width: 100%;">
+    <tbody>
+      <tr>
+        <td style="padding: 10px;"><b>Tổng ca mắc</b></td>
+        <td style="text-align: right; padding: 10px; color: #1a9fcc; font-weight: bold; font-size: 1.1rem;">
+          ${total_2026}
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 10px;"><b>Tuổi trung bình</b></td>
+        <td style="text-align: right; padding: 10px;">${avg_age} tuổi</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px;"><b>Tỷ lệ Nam/Nữ</b></td>
+        <td style="text-align: right; padding: 10px;">${sex_ratio}</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px;"><b>Tỷ lệ Nhập viện</b></td>
+        <td style="text-align: right; padding: 10px; color: #d35400; font-weight: bold;">
+          ${inpatient_rate}%
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 10px;"><b>Tỷ lệ Ca nặng</b></td>
+        <td style="text-align: right; padding: 10px; color: #cc0000; font-weight: bold;">
+          ${severe_rate}%
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`
 ```
 
 ## Row 3 {height=550px}
@@ -392,8 +547,6 @@ createHighchart("chart-level",{
 
 # Ngưỡng dịch
 
-## Row 1
-
 ```{ojs}
 //| output: false
 
@@ -407,6 +560,8 @@ chart_thr = data_threshold.filter(d => {
 })
 // Inputs.table(chart_thr) // Bỏ comment nếu muốn soi dữ liệu
 ```
+
+## Row 1 {height = 550px}
 
 ```{ojs}
 //| title: "Giám sát cảnh báo sớm theo ngưỡng dịch"
@@ -426,7 +581,7 @@ chart_thr = data_threshold.filter(d => {
 
   // --- B. TÌM TUẦN MỚI NHẤT CÓ DỮ LIỆU NGƯỠNG ---
   const available_weeks = chart_thr.map(d => Number(d.Week));
-  const max_thr_wk = available_weeks.length > 0 ? Math.max(...available_weeks) : 53;
+  const max_thr_wk = available_weeks.length > 0 ? Math.max(...available_weeks) : 52;
 
   // --- C. HÀM ĐỌC DỮ LIỆU THÔNG MINH ---
   const getSmartVal = (dataList, wk, algoName) => {
@@ -445,7 +600,7 @@ chart_thr = data_threshold.filter(d => {
   };
 
   // --- D. CHUẨN BỊ DATA VẼ ---
-  const weeks = Array.from({length: 53}, (_, i) => i + 1);
+  const weeks = Array.from({length: 52}, (_, i) => i + 1);
 
   // 1. Data Số ca mắc (Cột)
   const chart_cases = current_data.filter(d => {
@@ -734,6 +889,132 @@ ranking_data = {
 
 # Đánh giá nguy cơ
 
+## Row 1
+
+```{ojs}
+//| output: false
+
+thr_trans = data_transmission.find(d => d.Disease === selected_disease) || {};
+
+// Cột số ca mắc biểu đồ lây truyền
+series_trans_cases = series_total[0].data;
+
+thr_sev = data_severity.filter(d => d.Disease === selected_disease);
+
+// Map các đường ngưỡng theo 52 tuần
+line_sev_low = Array.from({length: 52}, (_, i) => {
+   let r = thr_sev.find(d => Number(d.Week) === i + 1); return r ? r.Limit_Low : null;
+});
+line_sev_mod = Array.from({length: 52}, (_, i) => {
+   let r = thr_sev.find(d => Number(d.Week) === i + 1); return r ? r.Limit_Mod : null;
+});
+line_sev_high = Array.from({length: 52}, (_, i) => {
+   let r = thr_sev.find(d => Number(d.Week) === i + 1); return r ? r.Limit_High : null;
+});
+
+// Tự động tính số ca Nội trú & ÉP MÀU THEO NGƯỠNG cho từng tuần
+series_inpatient_colored = Array.from({length: 52}, (_, i) => {
+   let wk = i + 1;
+   let rows = chart_raw_data.filter(d => d.Week === wk && d.NhomDieuTri === "Nội trú");
+   let val = d3.sum(rows, d => d.SoCa);
+   
+   let l_low = line_sev_low[i] || 0;
+   let l_mod = line_sev_mod[i] || 0;
+   let l_high = line_sev_high[i] || 0;
+   
+   // TRẢ LẠI MÀU ĐẬM (HEX) CHO CÁC CỘT
+   let bar_col = '#ffc107'; // Vàng (Thấp) mặc định
+   if (l_low > 0) { 
+       if (val >= l_high) bar_col = '#800080';      // Tím (Rất cao)
+       else if (val >= l_mod) bar_col = '#ff5252';  // Đỏ (Cao)
+       else if (val >= l_low) bar_col = '#fd7e14';  // Cam (Vừa)
+   }
+   
+   return { y: val, color: bar_col };
+});
+```
+
+```{ojs}
+//| title: "Đánh giá mức độ lây truyền"
+
+createHighchart("chart-transmission", {
+  xAxis: { 
+    categories: Array.from({length: 52}, (_, i) => i + 1), 
+    title: { text: 'Tuần' , style: { fontWeight: 'bold', color: '#000000' } } 
+  },
+  yAxis: { 
+    title: { text: 'Số ca mắc' , style: {fontWeight: 'bold', color: '#000000'} }, 
+    min: 0,
+    // VẼ VÙNG MÀU BACKGROUND (PLOT BANDS) - Dùng HEX 8 số (đuôi 26 ~ 15% opacity)
+    plotBands: [
+      { from: 0, to: thr_trans.Seasonal, color: '#2ca02c26' },        // Xanh lá mờ
+      { from: thr_trans.Seasonal, to: thr_trans.Moderate, color: '#ffc10726' }, // Vàng mờ
+      { from: thr_trans.Moderate, to: thr_trans.High, color: '#d3540026' },     // Cam cháy mờ (MỚI)
+      { from: thr_trans.High, to: thr_trans.Extra, color: '#cc000026' },        // Đỏ cờ mờ (MỚI)
+      { from: thr_trans.Extra, to: 999999, color: '#80008026' }                 // Tím mờ
+    ]
+  },
+  tooltip: { shared: true },
+  series: [
+    // Thêm showInLegend: false để ẩn chú thích cột này, chỉ giữ lại area
+    { name: 'Số ca mắc', type: 'column', data: series_trans_cases, color: plot_color, zIndex: 10, showInLegend: false },
+    
+    // Đổi RGBA sang HEX 8 số (đuôi 99 ~ 60% opacity)
+    { name: 'Dưới ngưỡng', type: 'area', color: '#2ca02c99', data: [], marker: {enabled: false} },
+    { name: 'Thấp', type: 'area', color: '#ffc10799', data: [], marker: {enabled: false} },
+    { name: 'Vừa', type: 'area', color: '#d3540099', data: [], marker: {enabled: false} }, // Cam cháy (MỚI)
+    { name: 'Cao', type: 'area', color: '#cc000099', data: [], marker: {enabled: false} },  // Đỏ cờ (MỚI)
+    { name: 'Rất cao', type: 'area', color: '#80008099', data: [], marker: {enabled: false} },
+
+    // Các đường ranh giới (Giữ nguyên mã HEX đậm để phân cách)
+    { name: 'Seasonal', type: 'line', data: Array(52).fill(thr_trans.Seasonal), color: '#ffc107', zIndex: 2, marker: {enabled: false}, showInLegend: false },
+    { name: 'Moderate', type: 'line', data: Array(52).fill(thr_trans.Moderate), color: '#d35400', zIndex: 3, marker: {enabled: false}, showInLegend: false }, // Cam cháy (MỚI)
+    { name: 'High', type: 'line', data: Array(52).fill(thr_trans.High), color: '#cc0000', zIndex: 4, marker: {enabled: false}, showInLegend: false },  // Đỏ cờ (MỚI)
+    { name: 'Extreme', type: 'line', data: Array(52).fill(thr_trans.Extra), color: '#800080', zIndex: 5, marker: {enabled: false}, showInLegend: false }
+  ]
+})
+```
+
+```{ojs}
+//| title: "Đánh giá mức độ nặng"
+
+createHighchart("chart-severity", {
+  xAxis: { 
+    categories: Array.from({length: 52}, (_, i) => i + 1), 
+    title: { text: 'Tuần', style: {fontWeight: 'bold', color: '#000000'} } 
+  },
+  yAxis: { 
+    title: { text: 'Số ca nội trú' , style: {fontWeight: 'bold', color: '#000000'} }, 
+    min: 0 
+  },
+  tooltip: { shared: true },
+  
+  plotOptions: {
+    column: {
+      grouping: false, 
+      borderWidth: 1,         
+      borderColor: '#000000'  // Sửa lỗi #black thành HEX đen chuẩn
+    }
+  },
+
+  series: [
+    // Data thật với màu đậm
+    { name: 'Số ca nội trú', type: 'column', data: series_inpatient_colored, showInLegend: false, zIndex: 1 },
+    
+    // TRẢ LẠI MÀU ĐẬM CHO 4 CHÚ THÍCH CỘT (Đã đồng bộ đỏ thành #ff5252)
+    { name: 'Thấp', type: 'column', color: '#ffc107', data: [] },
+    { name: 'Vừa', type: 'column', color: '#fd7e14', data: [] },
+    { name: 'Cao', type: 'column', color: '#ff5252', data: [] },
+    { name: 'Rất cao', type: 'column', color: '#800080', data: [] },
+
+    // LÀM MỜ CÁC ĐƯỜNG NGƯỠNG XUỐNG CÒN 50% (Dùng HEX 8 số, đuôi 80 ~ 50% opacity)
+    { name: 'Mean', type: 'spline', data: line_sev_low, color: '#fd7e1480', dashStyle: 'Dash', zIndex: 2, marker: {enabled: false}, showInLegend: false },
+    { name: 'Mean+SD', type: 'spline', data: line_sev_mod, color: '#ff525280', dashStyle: 'Dash', zIndex: 3, marker: {enabled: false}, showInLegend: false },
+    { name: 'Mean+3SD', type: 'spline', data: line_sev_high, color: '#80008080', dashStyle: 'Dash', zIndex: 4, marker: {enabled: false}, showInLegend: false }
+  ]
+})
+```
+
 # Bản đồ
 
 ## Row 1
@@ -754,7 +1035,7 @@ mutable selected_map_ward_id = null;
 kv_list = ["Tất cả", ...new Set(data_threshold.map(d => d.KV).filter(d => d))].sort()
 
 // Tạo index thời gian
-time_options = years.flatMap(y => Array.from({length: 53}, (_, i) => i + 1).map(w => ({
+time_options = years.flatMap(y => Array.from({length: 52}, (_, i) => i + 1).map(w => ({
   label: `Tuần ${w}/${y}`,
   value: y * 100 + w
 }))).sort((a, b) => b.value - a.value)
@@ -790,7 +1071,7 @@ viewof map_controls = Inputs.form({
   const ward_name = ward_trend_data.length > 0 ? ward_trend_data[0].NoiOHienTai_SauKhiSapNhap_WardId : selected_map_ward_id;
 
   // C. Map dữ liệu (LOGIC MỚI: Cắt dữ liệu tương lai)
-  const weeks = Array.from({length: 53}, (_, i) => i + 1);
+  const weeks = Array.from({length: 52}, (_, i) => i + 1);
   
   const series_data = weeks.map(wk => {
     // --- ĐOẠN QUAN TRỌNG NHẤT ---

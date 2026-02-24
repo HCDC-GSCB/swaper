@@ -3,6 +3,7 @@ library(tidyverse)
 library(jsonlite)
 library(httr)
 library(lubridate)
+library(digest)
 
 # Function App Password (Chạy tự động)
 load_data_direct <- function(filename_on_server) {

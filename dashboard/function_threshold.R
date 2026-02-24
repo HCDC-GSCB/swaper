@@ -129,14 +129,13 @@ calculate_all_thresholds <- function(df, ref_years, target_year) {
 }
 
 process_unit_multi_years <- function(df_unit, unit_name, disease_name, target_years) {
-  # Hàm wrapper để chạy nhiều năm
+ 
   all_years_res <- list()
+
+  fixed_refs <- get_fixed_ref_years(disease_name)
   
   for (yr in target_years) {
-    # Định nghĩa năm tham chiếu (5 năm trước đó)
-    fixed_refs <- (yr - 5):(yr - 1)
-    
-    # Gọi hàm tính toán
+
     res <- calculate_all_thresholds(df_unit, fixed_refs, target_year = yr)
     
     if (!is.null(res)) {
@@ -146,7 +145,6 @@ process_unit_multi_years <- function(df_unit, unit_name, disease_name, target_ye
     }
   }
   
-  # Gộp kết quả
   if (length(all_years_res) > 0) {
     return(bind_rows(all_years_res))
   } else {

@@ -1,3 +1,34 @@
+/* ==========================================================================
+   IMPORT FONT CHUẨN TIẾNG VIỆT (Ném lên dòng 1 của file CSS)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ==========================================================================
+   ÉP FONT CHO TOÀN BỘ WEBSITE VÀ SIDEBAR
+   ========================================================================== */
+body, 
+.quarto-dashboard,
+.quarto-dashboard-sidebar, 
+.sidebar,
+.card, 
+.clean-table,
+.value-box,
+h1, h2, h3, h4, h5, h6,
+input, select, button, label {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/* Sửa lỗi nhấp nhô cụ thể cho các thẻ trong Sidebar */
+.quarto-dashboard-sidebar * {
+    font-family: inherit !important;
+}
+
+/* Tinh chỉnh lại khoảng cách chữ (letter-spacing) cho Inter để dễ đọc số liệu hơn */
+.quarto-dashboard-sidebar form > label,
+.quarto-dashboard-sidebar strong {
+    letter-spacing: -0.01em;
+}
+
 .navbar { 
   background-color: #005d88 !important; /* Nền xanh đậm */
   border-bottom: none; 

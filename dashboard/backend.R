@@ -15,6 +15,7 @@ if (dir.exists("dashboard")) {
 # Load hàm (phải chỉ đúng đường dẫn)
 source(paste0(base_path, "function_analysis.R"))
 source(paste0(base_path, "function_threshold.R"))
+source(paste0(base_path, "function_pisa.R"))
 
 ##########################
 ##### OVERALL DATA #####
@@ -113,7 +114,7 @@ message("✅ HOÀN TẤT! Hãy kiểm tra file tại: ", output_path)
 
 
 ##########################
-##### MAP DATA #####
+######## MAP DATA ########
 ##########################
 
 # ==============================================================================
@@ -160,3 +161,28 @@ geojson_write(hcm_simple, file = "dashboard/hcm_map.json")
 
 message("✅ Đã xuất file bản đồ: dashboard/hcm_map.json")
 
+##########################
+######## PISA DATA ########
+##########################
+
+sxh_cases <- load_data("https://docs.google.com/spreadsheets/d/13_o7NAlfBjckO6PspzITbWhlkWbfp4eKkqYCa7Dvvgg/edit?usp=sharing", sheet = "ca")
+sxh_transmission <- calc_transmission(sxh_cases, "Sốt xuất huyết")
+sxh_inp <- load_data("https://docs.google.com/spreadsheets/d/13_o7NAlfBjckO6PspzITbWhlkWbfp4eKkqYCa7Dvvgg/edit?usp=sharing", sheet = "noi")
+sxh_severity <- calc_severity(sxh_inp, "Sốt xuất huyết", as.character(2026))
+
+tcm_cases <- load_data("https://docs.google.com/spreadsheets/d/1jSAuGFUkcHBL5iie999qn7ClW2dTYB3AOSOaRwOBCGY/edit?usp=sharing", sheet = "ca")
+tcm_transmission <- calc_transmission(tcm_cases, "Tay chân miệng")
+tcm_inpt <- load_data("https://docs.google.com/spreadsheets/d/1jSAuGFUkcHBL5iie999qn7ClW2dTYB3AOSOaRwOBCGY/edit?usp=sharing", sheet = "noi")
+tcm_severity <- calc_severity(tcm_inpt, "Tay chân miệng", as.character(2026))
+
+df_transmission <- bind_rows(
+  as_tibble(sxh_transmission) %>% mutate(Disease = "Sốt xuất huyết"),
+  as_tibble(tcm_transmission) %>% mutate(Disease = "Tay chân miệng")
+)
+encrypt_data(df_transmission, paste0(base_path, "transmission.dat"), "Swaper@234")
+
+df_severity <- bind_rows(
+  sxh_severity %>% select(Week, Limit_Low, Limit_Mod, Limit_High) %>% mutate(Disease = "Sốt xuất huyết"),
+  tcm_severity %>% select(Week, Limit_Low, Limit_Mod, Limit_High) %>% mutate(Disease = "Tay chân miệng")
+)
+encrypt_data(df_severity, paste0(base_path, "severity.dat"), "Swaper@234")
