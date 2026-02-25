@@ -147,30 +147,61 @@ body.locked { overflow: hidden !important; }
 /* ==========================================================================
    5. VALUE BOX (KPI)
    ========================================================================== */
-.quarto-dashboard .value-box {
-    border-radius: 8px; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+.quarto-dashboard .value-box, .bslib-value-box {
+    border-radius: 12px !important; /* Bo góc mềm mại hơn */
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08) !important; /* Bóng đổ nhẹ tạo chiều sâu */
+    overflow: hidden; /* Để icon không bị lòi ra ngoài */
 }
 
+/* ẨN HOÀN TOÀN ĐƯỜNG KẺ NGANG VÔ DUYÊN */
+.quarto-dashboard .value-box hr, 
+.bslib-value-box hr {
+    display: none !important;
+}
+
+/* Đảm bảo nội dung Value Box không bị lỗi */
+.value-box-area, .bslib-value-box {
+    border: none !important;
+    outline: none !important;
+}
+
+/* Con số chính (KPI Value) - Cho to và đậm hơn nữa */
+.value-box .kpi-value, .value-box h2 {
+    font-size: 2.8rem !important; /* Tăng từ 2.5 lên 2.8 */
+    font-weight: 900 !important;  /* Siêu đậm */
+    margin-bottom: 5px !important;
+    line-height: 1 !important;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.2); /* Hiệu ứng nổi nhẹ */
+}
+
+/* Tiêu đề (Title) */
+.value-box p {
+    font-size: 1rem !important;
+    opacity: 0.85 !important; /* Mờ đi 1 xíu để nhường spotlight cho con số */
+    font-weight: 600 !important;
+    margin-bottom: 10px !important;
+}
+
+/* Icon nền mờ phía sau */
 .quarto-dashboard .value-box .bi, 
 .quarto-dashboard .value-box i {
-    position: absolute !important; right: -10px !important; bottom: -15px !important;
-    font-size: 7rem !important; opacity: 0.15 !important;       
-    transform: rotate(-10deg) !important; z-index: 0 !important; color: white !important;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    position: absolute !important; right: -15px !important; bottom: -20px !important;
+    font-size: 8rem !important; 
+    opacity: 0.12 !important; /* Mờ hơn xíu nữa cho tinh tế */
+    transform: rotate(-15deg) !important; z-index: 0 !important; color: #000000 !important;
+    transition: all 0.4s ease-out !important;
 }
 
+/* Hiệu ứng khi rê chuột vào */
+.quarto-dashboard .value-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+}
 .quarto-dashboard .value-box:hover .bi, 
 .quarto-dashboard .value-box:hover i {
-    transform: rotate(0deg) scale(1.1) !important; opacity: 0.25 !important; right: -5px !important;
+    transform: rotate(0deg) scale(1.1) !important; opacity: 0.2 !important; right: -5px !important;
 }
-
-.quarto-dashboard .value-box:hover .kpi-value {
-    transform: scale(1.05); /* Giảm độ phóng to số để bớt chóng mặt */
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
-    transition: all 0.3s ease;
-}
-
-.value-box-area { position: relative; z-index: 2; width: 100%; }
 
 /* ==========================================================================
    6. CARD & BIỂU ĐỒ

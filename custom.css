@@ -208,3 +208,54 @@ main a:focus {
   background-color: transparent !important;
   width: 0 !important;
 }
+
+/* ==========================================================================
+   FIX MÀU ICON NAVBAR CHUYÊN NGHIỆP (PHÂN BIỆT MAIN NAVBAR & DROPDOWN)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. NHÓM NGOÀI NAVBAR CHÍNH (EBS, IBS, Github...)
+   Vì nền Navbar luôn là Xanh Đậm (#005d88) nên Icon phải là màu TRẮNG/SÁNG.
+-------------------------------------------------------------------------- */
+.navbar-nav > .nav-item > .nav-link > i,
+.navbar-nav > .nav-item > .nav-link > .bi,
+.navbar > .container-fluid .navbar-brand > i {
+    color: rgba(255, 255, 255, 0.85) !important; /* Trắng mờ nhẹ cho sang */
+    transition: all 0.3s ease;
+}
+
+/* Hover ngoài Navbar chính: Sáng hẳn lên */
+.navbar-nav > .nav-item > .nav-link:hover > i,
+.navbar-nav > .nav-item > .nav-link:hover > .bi {
+    color: #ffffff !important; 
+    transform: scale(1.1); /* Phóng to nhẹ icon khi di chuột */
+}
+
+/* --------------------------------------------------------------------------
+   2. NHÓM TRONG DROPDOWN MENU (Tools -> SaTScan, Risk map, Chill)
+   Phải thay đổi linh hoạt theo chế độ Sáng / Tối của người dùng.
+-------------------------------------------------------------------------- */
+
+/* A. Chế độ LIGHT (Sáng) - Nền menu màu Trắng -> Icon màu Xanh Đậm HCDC */
+body.quarto-light .dropdown-menu .dropdown-item > i,
+body.quarto-light .dropdown-menu .dropdown-item > .bi {
+    color: #005d88 !important; 
+    transition: color 0.2s;
+}
+/* Hover chế độ Light */
+body.quarto-light .dropdown-menu .dropdown-item:hover > i,
+body.quarto-light .dropdown-menu .dropdown-item:hover > .bi {
+    color: #1a9fcc !important; /* Xanh accent sáng */
+}
+
+/* B. Chế độ DARK (Tối) - Nền menu màu Đen/Xám -> Icon màu Trắng */
+body.quarto-dark .dropdown-menu .dropdown-item > i,
+body.quarto-dark .dropdown-menu .dropdown-item > .bi {
+    color: #e0e0e0 !important; 
+    transition: color 0.2s;
+}
+/* Hover chế độ Dark */
+body.quarto-dark .dropdown-menu .dropdown-item:hover > i,
+body.quarto-dark .dropdown-menu .dropdown-item:hover > .bi {
+    color: #ffffff !important; 
+}

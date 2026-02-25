@@ -8,6 +8,7 @@ resources:
   - ebs.html
   - game.html
   - riskmap.html
+  - satscan_dengue.html
   - "dashboard/*.dat"
   - "dashboard/hcm_map.json"
 
@@ -53,6 +54,9 @@ website:
     right:
       - text: "Tools"
         menu:
+          - text: "SaTScan (Demo)"
+            icon: crosshair2
+            href: satscan_dengue.html
           - text: "Risk map (Demo)"
             icon: map
             href: riskmap.html

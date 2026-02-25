@@ -1,5 +1,5 @@
 ---
-title: "Dashboard"
+title: ""
 format: 
   dashboard:
     css: dashboard.css
@@ -156,26 +156,35 @@ age_order = ["<1 tuổi", "1-5 tuổi", "6-10 tuổi", "11-15 tuổi", ">15 tu�
 
 // Viết lại hàm kpiContent để tính toán và hiển thị trend tăng/giảm
 function kpiContent(title, current, previous = null) {
-  let trendHtml = "";
-  
+  let trendElement = "";
+
   if (previous !== null) {
-    let diff = current - previous;
-    if (diff > 0) {
-      // Tăng: Mũi tên đỏ (Dịch bệnh tăng là xấu)
-      trendHtml = `<div style="font-size: 0.95rem; color: #ff5252; margin-top: 5px; font-weight: 600;">▲ Tăng ${diff} ca</div>`;
-    } else if (diff < 0) {
-      // Giảm: Mũi tên xanh lá (Dịch bệnh giảm là tốt)
-      trendHtml = `<div style="font-size: 0.95rem; color: #2ca02c; margin-top: 5px; font-weight: 600;">▼ Giảm ${Math.abs(diff)} ca</div>`;
+    let pillStyle = "display: inline-block; background: rgba(255,255,255,0.95); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; margin-top: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);";
+    
+    if (previous === 0) {
+      trendElement = current > 0 
+        ? html`<div style="${pillStyle} color: #d32f2f;">▲ Tăng 100%</div>`
+        : html`<div style="${pillStyle} color: #555555;">▬ Không đổi</div>`;
     } else {
-      trendHtml = `<div style="font-size: 0.95rem; color: #888888; margin-top: 5px; font-weight: 500;">▬ Không đổi</div>`;
+      let pct_diff = ((current - previous) / previous) * 100;
+      
+      if (pct_diff > 0) {
+        trendElement = html`<div style="${pillStyle} color: #d32f2f;">▲ Tăng ${pct_diff.toFixed(1)}%</div>`;
+      } else if (pct_diff < 0) {
+        trendElement = html`<div style="${pillStyle} color: #2e7d32;">▼ Giảm ${Math.abs(pct_diff).toFixed(1)}%</div>`;
+      } else {
+        trendElement = html`<div style="${pillStyle} color: #555555;">▬ 0%</div>`;
+      }
     }
+  } else {
+    trendElement = html`<div></div>`; 
   }
 
-  return `
+  return html`
     <div style="position: relative; z-index: 10;">
-      <h2 style="margin: 0; font-size: 2.5rem; font-weight: 800;">${current}</h2>
-      <p style="margin: 0; font-size: 1.1rem; text-transform: uppercase; font-weight: 600;">${title}</p>
-      ${trendHtml}
+      <h2 style="margin: 0; font-size: 2.8rem; font-weight: 900; color: #ffffff !important; text-shadow: 1px 1px 3px rgba(0,0,0,0.2);">${current}</h2>
+      <p style="margin: 0; font-size: 1.05rem; text-transform: uppercase; font-weight: 700; color: #ffffff !important; opacity: 0.95;">${title}</p>
+      ${trendElement}
     </div>
   `;
 }
@@ -210,17 +219,17 @@ createHighchart = function(id, options) {
       type: 'column', 
       style: { fontFamily: 'Arial, sans-serif' },
       backgroundColor: 'transparent', 
-      height: 360 
+      height: 450 
     },
     title: { text: null },
     xAxis: { 
       categories: Array.from({length: 52}, (_, i) => i + 1),
-      title: { text: 'Tuần', style: { fontWeight: 'bold' } },
+      title: { text: 'Tuần', style: { fontWeight: 'bold', color: '#000000' } },
       crosshair: true
     },
     yAxis: { 
       min: 0, 
-      title: { text: 'Số ca', style: { fontWeight: 'bold' } }
+      title: { text: 'Số ca', style: { fontWeight: 'bold', color: '#000000' } }
     },
     credits: { enabled: false },
     exporting: { enabled: true }
@@ -244,59 +253,66 @@ createHighchart = function(id, options) {
 // 4. DATA PROCESSING (Lọc & Tính toán)
 // =============================================================================
 
-// 4.1. Lọc dữ liệu thô (Dựa trên Sidebar)
+// 4.1. Lọc dữ liệu thô cho BIỂU ĐỒ (Thay đổi theo Năm, Bệnh, Địa bàn)
 chart_raw_data = current_data.filter(d => {
   const ward_match = (selected_ward === "Toàn Thành phố") || (d.NoiOHienTai_SauKhiSapNhap_WardId === selected_ward);
   return ward_match && String(d.Year) === String(selected_year);
 })
 
-// 4.2. Tính KPI Data
-kpi_week_data = current_data.filter(d => {
-  const ward_match = (selected_ward === "Toàn Thành phố") || (d.NoiOHienTai_SauKhiSapNhap_WardId === selected_ward);
-  return ward_match && d.Year === sys_max_yr && d.Week === sys_max_wk;
-})
+// =========================================================================
+// 4.2. TÍNH TOÁN VALUE BOX (LUÔN CỐ ĐỊNH Ở HIỆN TẠI, BẤT CHẤP LỌC NĂM)
+// =========================================================================
+// Tìm Năm và Tuần mới nhất của dữ liệu hiện có
+kpi_sys_yr = d3.max(current_data, d => d.Year) || new Date().getFullYear();
+kpi_sys_wk = d3.max(current_data.filter(d => d.Year === kpi_sys_yr), d => d.Week) || 0;
 
-kpi_year_data = current_data.filter(d => {
-  const ward_match = (selected_ward === "Toàn Thành phố") || (d.NoiOHienTai_SauKhiSapNhap_WardId === selected_ward);
-  return ward_match && d.Year === sys_max_yr;
-})
+kpi_prev_wk = kpi_sys_wk === 1 ? 52 : kpi_sys_wk - 1;
+kpi_prev_yr = kpi_sys_wk === 1 ? kpi_sys_yr - 1 : kpi_sys_yr;
 
-// 4.3. Giá trị KPI hiển thị
-num_cases = d3.sum(kpi_week_data, d => d.SoCa)
-num_in = d3.sum(kpi_week_data.filter(d => d.NhomDieuTri == "Nội trú"), d => d.SoCa)
-num_severe = d3.sum(kpi_week_data.filter(d => {
+// Lọc data KPI: Tuần hiện tại
+data_kpi_current = current_data.filter(d => {
+  const ward_match = (selected_ward === "Toàn Thành phố") || (d.NoiOHienTai_SauKhiSapNhap_WardId === selected_ward);
+  return ward_match && d.Year === kpi_sys_yr && d.Week === kpi_sys_wk;
+});
+
+// Lọc data KPI: Tuần trước
+data_kpi_prev = current_data.filter(d => {
+  const ward_match = (selected_ward === "Toàn Thành phố") || (d.NoiOHienTai_SauKhiSapNhap_WardId === selected_ward);
+  return ward_match && d.Year === kpi_prev_yr && d.Week === kpi_prev_wk;
+});
+
+// Lọc data KPI: Tích lũy Tử vong (Từ tuần 1 đến tuần hiện tại của năm mới nhất)
+data_kpi_year = current_data.filter(d => {
+  const ward_match = (selected_ward === "Toàn Thành phố") || (d.NoiOHienTai_SauKhiSapNhap_WardId === selected_ward);
+  return ward_match && d.Year === kpi_sys_yr && d.Week <= kpi_sys_wk;
+});
+
+// --- TÍNH TOÁN GIÁ TRỊ VALUE BOX ---
+num_cases = d3.sum(data_kpi_current, d => d.SoCa) || 0;
+num_in = d3.sum(data_kpi_current.filter(d => d.NhomDieuTri === "Nội trú"), d => d.SoCa) || 0;
+num_severe = d3.sum(data_kpi_current.filter(d => {
   let name = (d.PhanDoBenhName || "").toLowerCase();
   return selected_disease === "Sốt xuất huyết" ? (name.includes("nặng")) : 
-  (name.includes("2b") || name.includes("độ 3") || name.includes("độ 4"));
-}), d => d.SoCa)
-num_dead = d3.sum(kpi_year_data.filter(d => d.KetQua == "Tử vong"), d => d.SoCa)
+         (name.includes("2b") || name.includes("độ 3") || name.includes("độ 4"));
+}), d => d.SoCa) || 0;
 
-// 4.5. XÁC ĐỊNH TUẦN BÁO CÁO & TUẦN TRƯỚC ĐÓ
-// (Giả sử mày đang gán tuần hiện tại vào biến current_week)
-// Nếu tuần hiện tại là 1, lùi về tuần 52 năm trước. Nếu không thì trừ 1.
-prev_week = current_week === 1 ? 52 : current_week - 1;
-prev_year = current_week === 1 ? selected_year - 1 : selected_year;
+num_dead = d3.sum(data_kpi_year.filter(d => d.KetQua === "Tử vong"), d => d.SoCa) || 0;
 
-data_prev = chart_raw_data.filter(d => 
-    d.Year === prev_year && 
-    d.Week === prev_week && 
-    d.Disease === selected_disease
-);
-
-// Tính tổng số ca mắc tuần trước
-num_cases_prev = d3.sum(data_prev, d => d.SoCa);
-
-// Tính tổng ca nội trú tuần trước
-num_in_prev = d3.sum(data_prev.filter(d => d.NhomDieuTri === "Nội trú"), d => d.SoCa);
-
-// Tính tổng ca nặng tuần trước (Gộp điều kiện cho cả SXH và TCM)
-num_severe_prev = d3.sum(data_prev.filter(d => {
-   let name = (d.PhanDoBenhName || "").toLowerCase();
+// Tính giá trị tuần trước
+num_cases_prev = d3.sum(data_kpi_prev, d => d.SoCa) || 0;
+num_in_prev = d3.sum(data_kpi_prev.filter(d => d.NhomDieuTri === "Nội trú"), d => d.SoCa) || 0;
+num_severe_prev = d3.sum(data_kpi_prev.filter(d => {
+  let name = (d.PhanDoBenhName || "").toLowerCase();
   return selected_disease === "Sốt xuất huyết" ? (name.includes("nặng")) : 
-  (name.includes("2b") || name.includes("độ 3") || name.includes("độ 4"));
-}), d => d.SoCa);
+         (name.includes("2b") || name.includes("độ 3") || name.includes("độ 4"));
+}), d => d.SoCa) || 0;
 
-// 4.6. Tính Series cho các biểu đồ
+// Tự động tạo tiêu đề hộp Tử vong theo năm hiện tại
+title_dead_box = `Tử vong tích lũy (Năm ${kpi_sys_yr})`;
+
+// =========================================================================
+// 4.3. TÍNH SERIES CHO CÁC BIỂU ĐỒ (DÙNG chart_raw_data)
+// =========================================================================
 // Series Tổng (Cho Chart 1)
 series_total = [{
   name: 'Số ca mắc',
@@ -363,42 +379,75 @@ viewof selected_ward = {
 ```{=html}
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  // Hàm xử lý logic ẩn/hiện
+  
   function updateSidebarVisibility() {
-    // Tìm tab đang được chọn (active)
-    let activeTab = document.querySelector('a[data-bs-toggle="tab"].active');
+    let activeTab = document.querySelector('.navbar-nav .nav-link.active');
     if (!activeTab) return;
     
-    // Lấy tên của tab
-    let tabName = activeTab.innerText.trim();
-    
-    // Tìm các bộ lọc dựa vào ID mình đã bọc ở Bước 1
+    let tabName = activeTab.textContent.trim();
     let wrapNam = document.getElementById('wrap-nam');
     let wrapDiaBan = document.getElementById('wrap-diaban');
 
-    // Bắt đầu chia trường hợp
+    if (!wrapNam || !wrapDiaBan) return;
+
+    // --- HÀM RESET BỘ LỌC CHUẨN (KHÔNG BỊ LỖI TRẮNG) ---
+    function resetFilters() {
+      // 1. Reset Địa bàn về dòng đầu tiên ("Toàn Thành phố")
+      let selectDiaBan = wrapDiaBan.querySelector('select');
+      if (selectDiaBan && selectDiaBan.selectedIndex !== 0) {
+        selectDiaBan.selectedIndex = 0; // Ép chọn dòng đầu tiên
+        selectDiaBan.dispatchEvent(new Event('input', { bubbles: true }));
+        selectDiaBan.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+      
+      // 2. Reset Năm về dòng đầu tiên (Năm mới nhất)
+      let selectNam = wrapNam.querySelector('select');
+      if (selectNam && selectNam.selectedIndex !== 0) {
+        selectNam.selectedIndex = 0; // Ép chọn dòng đầu tiên
+        selectNam.dispatchEvent(new Event('input', { bubbles: true }));
+        selectNam.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    }
+
+    // --- GỌI RESET MỖI KHI CHUYỂN TAB ---
+    // (Bất kể chuyển đi đâu, cứ sang nhà mới là dọn dẹp sạch sẽ bộ lọc)
+    resetFilters();
+
+    // --- SAU ĐÓ MỚI ẨN/HIỆN SIDEBAR THEO TỪNG TAB ---
     if (tabName === 'Đánh giá nguy cơ') {
-      // Tab này: Cần Năm, KHÔNG cần Địa bàn
-      if(wrapNam) wrapNam.style.display = 'block';
-      if(wrapDiaBan) wrapDiaBan.style.display = 'none';
+      wrapNam.style.display = '';
+      wrapDiaBan.style.display = 'none';
     } 
+    else if (tabName === 'Ngưỡng dịch') {
+      wrapNam.style.display = 'none';
+      wrapDiaBan.style.display = '';
+    }
     else if (tabName === 'Bản đồ') {
-      // Tab này: KHÔNG cần Năm, KHÔNG cần Địa bàn (Chỉ giữ lại Bệnh)
-      if(wrapNam) wrapNam.style.display = 'none';
-      if(wrapDiaBan) wrapDiaBan.style.display = 'none';
+      wrapNam.style.display = 'none';
+      wrapDiaBan.style.display = 'none';
     } 
     else {
-      // Các tab khác (nếu có): Cho hiện lại đầy đủ
-      if(wrapNam) wrapNam.style.display = 'block';
-      if(wrapDiaBan) wrapDiaBan.style.display = 'block';
+      wrapNam.style.display = '';
+      wrapDiaBan.style.display = '';
     }
   }
 
-  setTimeout(updateSidebarVisibility, 300);
+  // Canh me web tải xong lần đầu
+  let initCheck = setInterval(() => {
+    let wrapNam = document.getElementById('wrap-nam');
+    if (wrapNam) {
+       updateSidebarVisibility(); 
+       clearInterval(initCheck);  
+    }
+  }, 500);
 
-  let tabs = document.querySelectorAll('a[data-bs-toggle="tab"]');
-  tabs.forEach(tab => {
-    tab.addEventListener('shown.bs.tab', updateSidebarVisibility);
+  // Lắng nghe sự kiện click chuyển Tab
+  let navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+       // Đợi 150ms để Quarto hoàn thành việc đổi tab rồi mới chạy reset
+       setTimeout(updateSidebarVisibility, 150);
+    });
   });
 });
 </script>
@@ -408,45 +457,49 @@ document.addEventListener("DOMContentLoaded", function() {
 
 ## Row 1 {height=300px}
 
-:::{.valuebox icon="virus" color="#87cefa"}
+:::{.valuebox icon="virus" color="#4F94CD"}
 ${kpiContent("Số ca mắc", num_cases, num_cases_prev)}
 :::
 
-:::{.valuebox icon="hospital" color="#76ff7a"}
+:::{.valuebox icon="hospital" color="#4DB6AC"}
 ${kpiContent("Số ca nội trú", num_in, num_in_prev)}
 :::
 
-:::{.valuebox icon="exclamation-triangle-fill" color="#ffae42"}
+:::{.valuebox icon="exclamation-triangle-fill" color="#FFB74D"}
 ${kpiContent("Số ca nặng", num_severe, num_severe_prev)}
 :::
 
-:::{.valuebox icon="heart-pulse-fill" color="#ff5349"}
-${kpiContent("Tử vong tích lũy (Năm 2026)", num_dead)}
+:::{.valuebox icon="heart-pulse-fill" color="#E57373"}
+${kpiContent(title_dead_box, num_dead)}
 :::
 
 ## Row 2 {height=550px}
 
 ```{ojs}
 //| output: false
+total_cases_year = d3.sum(chart_raw_data, d => d.SoCa) || 0;
 
-// Lọc data lũy kế từ đầu năm 2026 đến nay cho bệnh đang chọn
-data_2026 = chart_raw_data.filter(d => d.Year === 2026 && d.Disease === selected_disease);
+// TÍNH PHẦN TRĂM CHO TỪNG NHÓM TUỔI (Dựa theo thứ tự age_order đã khai báo)
+age_distribution = age_order.map(grp => {
+  let count = d3.sum(chart_raw_data.filter(d => d.NhomTuoi === grp), d => d.SoCa) || 0;
+  let pct = total_cases_year > 0 ? ((count / total_cases_year) * 100).toFixed(1) : 0;
+  return { group: grp, pct: pct };
+});
 
-// Tính toán các chỉ số
-total_2026 = data_2026.length;
-avg_age = total_2026 > 0 ? d3.mean(data_2026, d => d.Age).toFixed(1) : 0;
-
-male_cnt = data_2026.filter(d => d.Sex === "Nam").length;
-female_cnt = data_2026.filter(d => d.Sex === "Nữ").length;
-// Tỷ lệ Nam/Nữ (nếu không có nữ thì để N/A)
+male_cnt = d3.sum(chart_raw_data.filter(d => d.Sex === "Nam" || d.GioiTinh === "Nam"), d => d.SoCa) || 0;
+female_cnt = d3.sum(chart_raw_data.filter(d => d.Sex === "Nữ" || d.GioiTinh === "Nữ"), d => d.SoCa) || 0;
 sex_ratio = female_cnt > 0 ? (male_cnt / female_cnt).toFixed(2) : "N/A";
 
-inpatient_cnt = data_2026.filter(d => d.NhomDieuTri === "Nội trú").length;
-inpatient_rate = total_2026 > 0 ? ((inpatient_cnt / total_2026) * 100).toFixed(1) : 0;
+inpatient_cnt = d3.sum(chart_raw_data.filter(d => d.NhomDieuTri === "Nội trú"), d => d.SoCa) || 0;
+inpatient_rate = total_cases_year > 0 ? ((inpatient_cnt / total_cases_year) * 100).toFixed(1) : 0;
 
-// Tính ca nặng (Sốt xuất huyết / Tay chân miệng tùy điều kiện logic của data mày)
-severe_cnt = data_2026.filter(d => d.PhanDo === "Nặng" || d.PhanDo === "Độ 3" || d.PhanDo === "Độ 4").length;
-severe_rate = total_2026 > 0 ? ((severe_cnt / total_2026) * 100).toFixed(1) : 0;
+severe_cnt = d3.sum(chart_raw_data.filter(d => {
+  let name = (d.PhanDoBenhName || "").toLowerCase();
+  return selected_disease === "Sốt xuất huyết" ? (name.includes("nặng")) : 
+         (name.includes("2b") || name.includes("độ 3") || name.includes("độ 4"));
+}), d => d.SoCa) || 0;
+
+severe_rate = total_cases_year > 0 ? ((severe_cnt / total_cases_year) * 100).toFixed(1) : 0;
 ```
 
 ### Column 1 {width=75%}
@@ -472,13 +525,21 @@ html`
       <tr>
         <td style="padding: 10px;"><b>Tổng ca mắc</b></td>
         <td style="text-align: right; padding: 10px; color: #1a9fcc; font-weight: bold; font-size: 1.1rem;">
-          ${total_2026}
+          ${total_cases_year}
         </td>
       </tr>
+      
       <tr>
-        <td style="padding: 10px;"><b>Tuổi trung bình</b></td>
-        <td style="text-align: right; padding: 10px;">${avg_age} tuổi</td>
+        <td colspan="2" style="padding: 10px 10px 5px 10px;"><b>Cơ cấu nhóm tuổi:</b></td>
       </tr>
+      
+      ${age_distribution.map(d => html`
+        <tr>
+          <td style="padding: 3px 10px 3px 25px; color: #666; font-size: 0.85rem;">↳ ${d.group}</td>
+          <td style="text-align: right; padding: 3px 10px; color: #666; font-size: 0.85rem;">${d.pct}%</td>
+        </tr>
+      `)}
+
       <tr>
         <td style="padding: 10px;"><b>Tỷ lệ Nam/Nữ</b></td>
         <td style="text-align: right; padding: 10px;">${sex_ratio}</td>
@@ -545,23 +606,24 @@ createHighchart("chart-level",{
 })
 ```
 
-# Ngưỡng dịch
+# Ngưỡng dịch 
 
 ```{ojs}
 //| output: false
 
-// 1. TẠO BIẾN TOÀN CỤC
 chart_thr = data_threshold.filter(d => {
     const ward_col = d["NoiOHienTai_SauKhiSapNhap_WardId"] || d["WardId"]; 
     const ward_ok = (selected_ward === "Toàn Thành phố") || (ward_col === selected_ward);
     const disease_ok = d.Disease === selected_disease;
-    const year_ok = String(d.Year) === String(selected_year);
+    // KHÓA CHẾT VÀO NĂM MỚI NHẤT, KHÔNG CHO NHẢY THEO SIDEBAR
+    const year_ok = d.Year === sys_max_yr; 
     return ward_ok && disease_ok && year_ok;
 })
-// Inputs.table(chart_thr) // Bỏ comment nếu muốn soi dữ liệu
 ```
 
-## Row 1 {height = 550px}
+## Row 1 {height=550px}
+
+### Column 1 {width=75%}
 
 ```{ojs}
 //| title: "Giám sát cảnh báo sớm theo ngưỡng dịch"
@@ -606,7 +668,8 @@ chart_thr = data_threshold.filter(d => {
   const chart_cases = current_data.filter(d => {
     const ward_col = d["NoiOHienTai_SauKhiSapNhap_WardId"] || d["WardId"]; 
     const ward_match = (selected_ward === "Toàn Thành phố") || (ward_col === selected_ward);
-    return ward_match && String(d.Year) === String(selected_year);
+    // KHÓA CHẾT VÀO NĂM MỚI NHẤT TƯƠNG TỰ
+    return ward_match && d.Year === sys_max_yr; 
   });
 
   const series_cases = weeks.map(wk => {
@@ -730,6 +793,101 @@ chart_thr = data_threshold.filter(d => {
     ]
   });
 }
+```
+
+### Column2 {width=25%}
+
+```{ojs}
+//| title: "💡 THÔNG TIN CẢNH BÁO"
+html`
+<div class="card-body" style="padding: 10px;">
+  ${selected_ward === "Toàn Thành phố" 
+    ? 
+    // GIAO DIỆN 1: TỔNG QUAN TOÀN THÀNH PHỐ
+    (function() {
+      // Đếm số phường báo động từ ranking_data (đã tính ở Row 2)
+      let red_alert = ranking_data.filter(d => d.score === 3).length; // Vượt cả Farrington & Cusum
+      let yellow_alert = ranking_data.filter(d => d.score === 1 || d.score === 2).length; // Vượt 1 trong 2
+      let safe_wards = ranking_data.length - red_alert - yellow_alert;
+
+      return `
+        <div style="text-align: center; margin-bottom: 20px;">
+          <h4 style="color: #005d88; font-weight: bold; font-size: 1.1rem; margin-bottom: 5px;">TOÀN THÀNH PHỐ</h4>
+          <span style="font-size: 0.85rem; color: #666;">Tuần ${sys_max_wk} / ${sys_max_yr}</span>
+        </div>
+        
+        <div style="background: #fff0f0; border-left: 4px solid #dc3545; padding: 12px; margin-bottom: 10px; border-radius: 4px;">
+          <div style="font-size: 0.85rem; color: #dc3545; font-weight: 600;">🔴 BÁO ĐỘNG (Vượt 2 ngưỡng)</div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: #dc3545;">${red_alert} <span style="font-size: 0.9rem; font-weight: normal;">phường/xã</span></div>
+        </div>
+
+        <div style="background: #fffbf0; border-left: 4px solid #ffc107; padding: 12px; margin-bottom: 10px; border-radius: 4px;">
+          <div style="font-size: 0.85rem; color: #d39e00; font-weight: 600;">🟡 CẢNH BÁO (Vượt 1 ngưỡng)</div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: #d39e00;">${yellow_alert} <span style="font-size: 0.9rem; font-weight: normal;">phường/xã</span></div>
+        </div>
+
+        <div style="background: #f0fdf4; border-left: 4px solid #28a745; padding: 12px; border-radius: 4px;">
+          <div style="font-size: 0.85rem; color: #28a745; font-weight: 600;">🟢 TRONG NGƯỠNG AN TOÀN</div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: #28a745;">${safe_wards} <span style="font-size: 0.9rem; font-weight: normal;">phường/xã</span></div>
+        </div>
+      `;
+    })() 
+    : 
+    // GIAO DIỆN 2: THÔNG TIN CHI TIẾT 1 PHƯỜNG
+    (function() {
+      // Tìm thông tin phường đang chọn trong dữ liệu tuần mới nhất
+      let ward_info = chart_thr.find(d => d.Week === sys_max_wk && d.NoiOHienTai_SauKhiSapNhap_WardId === selected_ward);
+      
+      if (!ward_info) return `<div style="padding: 20px; color: #999; text-align: center;">Không có dữ liệu tuần này</div>`;
+
+      let current_cases = ward_info.cases || 0;
+      let limit_cusum = ward_info.Cusum ? ward_info.Cusum.toFixed(1) : "N/A";
+      let limit_far = ward_info.Farrington ? ward_info.Farrington.toFixed(1) : "N/A";
+      
+      let status_color = "#28a745"; // Mặc định xanh
+      let status_text = "An toàn";
+      if (current_cases > ward_info.Farrington && current_cases > ward_info.Cusum) {
+          status_color = "#dc3545"; status_text = "Báo động";
+      } else if (current_cases > ward_info.Farrington || current_cases > ward_info.Cusum) {
+          status_color = "#ffc107"; status_text = "Cảnh báo";
+      }
+
+      return `
+        <div style="text-align: center; margin-bottom: 20px; border-bottom: 1px dashed #ccc; padding-bottom: 15px;">
+          <h4 style="color: #005d88; font-weight: bold; font-size: 1.2rem; margin-bottom: 5px;">${selected_ward}</h4>
+          <span class="badge-pill" style="background-color: ${status_color}; color: white; padding: 4px 10px;">Trạng thái: ${status_text}</span>
+        </div>
+
+        <table style="width: 100%; font-size: 0.95rem;">
+          <tr style="border-bottom: 1px solid #eee;">
+            <td style="padding: 10px 0; color: #666;">Khu vực:</td>
+            <td style="text-align: right; font-weight: 600;">${ward_info.KV || "Khác"}</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #eee;">
+            <td style="padding: 10px 0; color: #666;">Dân số:</td>
+            <td style="text-align: right; font-weight: 600;">${(ward_info.danso || 0).toLocaleString()}</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #eee;">
+            <td style="padding: 10px 0; color: #666;">Ca mắc tuần ${sys_max_wk}:</td>
+            <td style="text-align: right; font-weight: bold; color: #005d88; font-size: 1.1rem;">${current_cases}</td>
+          </tr>
+          <tr>
+            <td colspan="2" style="padding: 15px 0 5px 0; font-size: 0.85rem; color: #999; text-transform: uppercase;">Ngưỡng cảnh báo ${sys_max_wk}</td>
+          </tr>
+          <tr>
+            <td style="padding: 5px 0; color: #666;">Ngưỡng Cusum:</td>
+            <td style="text-align: right; font-weight: bold; color: ${current_cases > ward_info.Cusum ? '#dc3545' : '#333'};">${limit_cusum}</td>
+          </tr>
+          <tr>
+            <td style="padding: 5px 0; color: #666;">Ngưỡng Farrington:</td>
+            <td style="text-align: right; font-weight: bold; color: ${current_cases > ward_info.Farrington ? '#dc3545' : '#333'};">${limit_far}</td>
+          </tr>
+        </table>
+      `;
+    })()
+  }
+</div>
+`
 ```
 
 ## Row 2
