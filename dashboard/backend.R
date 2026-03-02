@@ -22,7 +22,7 @@ source(paste0(base_path, "function_pisa.R"))
 ##########################
 
 ## Load data
-raw_df <- load_data_direct("data/tuan06.rds")
+raw_df <- load_data_direct("data/tuan8.rds")
 
 # Loại tuần mới nhất của năm mới nhất
 remove_latest_week <- function(df) {
@@ -107,9 +107,7 @@ if(nrow(na_check) > 0) {
 
 # ==============================================================================
 
-output_path <- "dashboard/threshold.dat" 
-encrypt_data(final_threshold_df, output_path, "Swaper@234")
-
+encrypt_data(final_threshold_df, paste0(base_path, "threshold.dat"), "Swaper@234")
 message("✅ HOÀN TẤT! Hãy kiểm tra file tại: ", output_path)
 
 
@@ -120,46 +118,46 @@ message("✅ HOÀN TẤT! Hãy kiểm tra file tại: ", output_path)
 # ==============================================================================
 #  XỬ LÝ BẢN ĐỒ (MAP PROCESSING)
 # ==============================================================================
-library(sf)
-library(rmapshaper) 
-library(geojsonio)  
-library(stringr)
-library(stringi)
-
-# Xử lý final_threshold_df
-final_threshold_df <- final_threshold_df %>%
-  filter(NoiOHienTai_SauKhiSapNhap_WardId != "Toàn Thành phố") %>%
-  mutate(
-    NoiOHienTai_SauKhiSapNhap_WardId = clean_vn_text(NoiOHienTai_SauKhiSapNhap_WardId)
-  )
-
-data_names <- unique(final_threshold_df$NoiOHienTai_SauKhiSapNhap_WardId)
-
-# 1. Đọc Shapefile
-shp_path <- "dashboard/TPHCM_XA_2025_JUL_AP" 
-hcm_map <- st_read(shp_path, quiet = TRUE) 
-
-# 2. Xử lý tên Phường/Xã (SẠCH SẼ)
-hcm_map_clean <- hcm_map %>%
-  mutate(tenXa = clean_vn_text(tenXa)) |> 
-  mutate(NoiOHienTai_SauKhiSapNhap_WardId = case_match(tenXa,
-                                "Phường Thới An" ~ "Phường Thới An",
-                                "Phường Tân Thuận" ~ "Phường Tân Thuận",
-                                "Xã Long Hòa" ~ "Xã Long Hoà",              
-                                "Xã Phước Hòa" ~ "Xã Phước Hoà", 
-                                "Phường Tân Thới Hiệp" ~ "Phường Tân Thới Hiệp",
-                                "Phường Đông Hưng Thuận" ~ "Phường Đông Hưng Thuận",
-                                .default = tenXa
-  ))
-
-map_names <- unique(hcm_map_clean$NoiOHienTai_SauKhiSapNhap_WardId)
-
-hcm_simple <- ms_simplify(hcm_map_clean, keep = 0.05, keep_shapes = TRUE)
-
-# 4. Xuất ra file GeoJSON
-geojson_write(hcm_simple, file = "dashboard/hcm_map.json")
-
-message("✅ Đã xuất file bản đồ: dashboard/hcm_map.json")
+# library(sf)
+# library(rmapshaper) 
+# library(geojsonio)  
+# library(stringr)
+# library(stringi)
+# 
+# # Xử lý final_threshold_df
+# final_threshold_df <- final_threshold_df %>%
+#   filter(NoiOHienTai_SauKhiSapNhap_WardId != "Toàn Thành phố") %>%
+#   mutate(
+#     NoiOHienTai_SauKhiSapNhap_WardId = clean_vn_text(NoiOHienTai_SauKhiSapNhap_WardId)
+#   )
+# 
+# data_names <- unique(final_threshold_df$NoiOHienTai_SauKhiSapNhap_WardId)
+# 
+# # 1. Đọc Shapefile
+# shp_path <- "dashboard/TPHCM_XA_2025_JUL_AP" 
+# hcm_map <- st_read(shp_path, quiet = TRUE) 
+# 
+# # 2. Xử lý tên Phường/Xã (SẠCH SẼ)
+# hcm_map_clean <- hcm_map %>%
+#   mutate(tenXa = clean_vn_text(tenXa)) |> 
+#   mutate(NoiOHienTai_SauKhiSapNhap_WardId = case_match(tenXa,
+#                                 "Phường Thới An" ~ "Phường Thới An",
+#                                 "Phường Tân Thuận" ~ "Phường Tân Thuận",
+#                                 "Xã Long Hòa" ~ "Xã Long Hoà",              
+#                                 "Xã Phước Hòa" ~ "Xã Phước Hoà", 
+#                                 "Phường Tân Thới Hiệp" ~ "Phường Tân Thới Hiệp",
+#                                 "Phường Đông Hưng Thuận" ~ "Phường Đông Hưng Thuận",
+#                                 .default = tenXa
+#   ))
+# 
+# map_names <- unique(hcm_map_clean$NoiOHienTai_SauKhiSapNhap_WardId)
+# 
+# hcm_simple <- ms_simplify(hcm_map_clean, keep = 0.05, keep_shapes = TRUE)
+# 
+# # 4. Xuất ra file GeoJSON
+# geojson_write(hcm_simple, file = "dashboard/hcm_map.json")
+# 
+# message("✅ Đã xuất file bản đồ: dashboard/hcm_map.json")
 
 ##########################
 ######## PISA DATA ########

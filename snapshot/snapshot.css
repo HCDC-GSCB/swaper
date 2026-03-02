@@ -1,0 +1,105 @@
+/* =========================================================
+   SNAPSHOT.CSS - PUBLIC HEALTH DASHBOARD STYLESHEET
+   Style: Tối giản, Chuyên nghiệp, Đáng tin cậy (Clinical/Medical)
+========================================================= */
+
+/* 1. Nhúng font chữ Inter chuyên dùng cho Data Dashboard */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f4f7f6; /* Nền xám xanh cực nhạt, dịu mắt chuẩn y tế */
+    color: #333333;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 2. HIỆU ỨNG HOVER CHO NÚT "CHI TIẾT →" */
+/* Bắt chính xác các thẻ <a> nằm trong thẻ <h4> */
+h4 a {
+    position: relative;
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: transparent;
+}
+
+/* Mũi tên trượt nhẹ sang phải khi hover */
+h4 a:hover {
+    transform: translateX(4px);
+    text-decoration: none !important;
+}
+
+/* Hover riêng cho link của Sốt xuất huyết (Màu Cam/Đỏ) */
+h4 a[style*="#d35400"]:hover {
+    background-color: rgba(211, 84, 0, 0.08); /* Nền cam rất nhạt */
+    color: #a84300 !important; /* Đậm chữ lên chút */
+}
+
+/* Hover riêng cho link của Tay chân miệng (Màu Xanh lá) */
+h4 a[style*="#27ae60"]:hover {
+    background-color: rgba(39, 174, 96, 0.08); /* Nền xanh rất nhạt */
+    color: #1e8449 !important;
+}
+
+
+/* 3. HIỆU ỨNG NỔI (ELEVATION) CHO CÁC THẺ TRẮNG KHI LIA CHUỘT */
+/* Bắt các div có background màu trắng để tạo hiệu ứng card */
+div[style*="background: white"] {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    will-change: transform, box-shadow;
+}
+
+div[style*="background: white"]:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06) !important; /* Đổ bóng to và mềm hơn */
+    transform: translateY(-2px); /* Nhấc nhẹ card lên 2px */
+}
+
+
+/* 4. CUSTOM THANH CUỘN (SCROLLBAR) CHO DANH SÁCH PHƯỜNG/XÃ */
+/* Dành cho trình duyệt Chrome/Edge/Safari */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d1d5db; /* Xám nhạt thanh lịch */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af; /* Đậm hơn khi hover vào thanh cuộn */
+}
+
+/* Dành cho Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #d1d5db transparent;
+}
+
+
+/* 5. TINH CHỈNH TYPOGRAPHY BỔ SUNG */
+/* Làm cho các nhãn phân mức nguy cơ rõ ràng hơn */
+strong {
+    letter-spacing: -0.3px;
+}
+
+h1, h2, h4, h5 {
+    letter-spacing: -0.5px; /* Ép chữ tiêu đề khít lại cho cứng cáp */
+}
+
+/* Hiệu ứng mượt mà cho thanh màu tiến độ của Phường/Xã (chạy ra lúc load trang) */
+div[style*="height: 100%; border-radius: 4px;"] {
+    animation: growBar 1s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
+    transform-origin: left center;
+}
+
+@keyframes growBar {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}

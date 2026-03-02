@@ -45,12 +45,17 @@ website:
             href: workshop/index.qmd
           - text: "Book"
             href: book/index.qmd
-      - text: "EBS"
-        icon: newspaper
-        href: ebs.html
-      - text: "IBS"
-        icon: database
-        href: dashboard/index.qmd
+      - text: "Epidemic Channel"
+        icon: card-text
+        href: snapshot/index.qmd
+      - text: "Dashboard"
+        menu:
+          - text: "IBS"
+            icon: database
+            href: dashboard/index.qmd
+          - text: "EBS"
+            icon: newspaper
+            href: ebs.html
     right:
       - text: "Tools"
         menu:
