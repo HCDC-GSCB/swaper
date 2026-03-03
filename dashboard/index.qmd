@@ -1,5 +1,5 @@
 ---
-title: ""
+pagetitle: "Dashboard IBS"
 format: 
   dashboard:
     css: dashboard.css
@@ -8,6 +8,7 @@ format:
     include-in-header: 
       - text: |
           <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+          <script src="https://code.highcharts.com/modules/heatmap.js"></script>
           <script src="https://code.highcharts.com/modules/exporting.js"></script>
           <script src="https://code.highcharts.com/modules/export-data.js"></script>
           <script src="https://code.highcharts.com/modules/accessibility.js)"></script>
@@ -802,13 +803,13 @@ chart_thr = data_threshold.filter(d => {
 html`
 <div class="card-body" style="padding: 10px;">
   ${selected_ward === "Toàn Thành phố" 
-    ? 
+    ?
     // GIAO DIỆN 1: TỔNG QUAN TOÀN THÀNH PHỐ
     (function() {
-      // Đếm số phường báo động từ ranking_data (đã tính ở Row 2)
-      let red_alert = ranking_data.filter(d => d.score === 3).length; // Vượt cả Farrington & Cusum
-      let yellow_alert = ranking_data.filter(d => d.score === 1 || d.score === 2).length; // Vượt 1 trong 2
-      let safe_wards = ranking_data.length - red_alert - yellow_alert;
+      let red_alert = ranking_data.filter(d => d.score === 3).length; // Báo động (3 ngưỡng)
+      let orange_alert = ranking_data.filter(d => d.score === 2).length; // Cảnh báo (2 ngưỡng)
+      let yellow_alert = ranking_data.filter(d => d.score === 1).length; // Lưu ý (1 ngưỡng)
+      let safe_wards = ranking_data.filter(d => d.score === 0).length; // An toàn
 
       return `
         <div style="text-align: center; margin-bottom: 20px;">
@@ -816,71 +817,86 @@ html`
           <span style="font-size: 0.85rem; color: #666;">Tuần ${sys_max_wk} / ${sys_max_yr}</span>
         </div>
         
-        <div style="background: #fff0f0; border-left: 4px solid #dc3545; padding: 12px; margin-bottom: 10px; border-radius: 4px;">
-          <div style="font-size: 0.85rem; color: #dc3545; font-weight: 600;">🔴 BÁO ĐỘNG (Vượt 2 ngưỡng)</div>
-          <div style="font-size: 1.8rem; font-weight: 800; color: #dc3545;">${red_alert} <span style="font-size: 0.9rem; font-weight: normal;">phường/xã</span></div>
+        <div style="background: #fff0f0; border-left: 4px solid #dc3545; padding: 10px; margin-bottom: 8px; border-radius: 4px;">
+          <div style="font-size: 0.8rem; color: #dc3545; font-weight: 600;">🔴 BÁO ĐỘNG (Trên ngưỡng mùa & 3 ngưỡng dịch)</div>
+          <div style="font-size: 1.5rem; font-weight: 800; color: #dc3545;">${red_alert} <span style="font-size: 0.85rem; font-weight: normal;">phường/xã</span></div>
         </div>
 
-        <div style="background: #fffbf0; border-left: 4px solid #ffc107; padding: 12px; margin-bottom: 10px; border-radius: 4px;">
-          <div style="font-size: 0.85rem; color: #d39e00; font-weight: 600;">🟡 CẢNH BÁO (Vượt 1 ngưỡng)</div>
-          <div style="font-size: 1.8rem; font-weight: 800; color: #d39e00;">${yellow_alert} <span style="font-size: 0.9rem; font-weight: normal;">phường/xã</span></div>
+        <div style="background: #fff5e6; border-left: 4px solid #fd7e14; padding: 10px; margin-bottom: 8px; border-radius: 4px;">
+          <div style="font-size: 0.8rem; color: #d35400; font-weight: 600;">🟠 CẢNH BÁO (Trên ngưỡng mùa & 2 ngưỡng dịch)</div>
+          <div style="font-size: 1.5rem; font-weight: 800; color: #d35400;">${orange_alert} <span style="font-size: 0.85rem; font-weight: normal;">phường/xã</span></div>
         </div>
 
-        <div style="background: #f0fdf4; border-left: 4px solid #28a745; padding: 12px; border-radius: 4px;">
-          <div style="font-size: 0.85rem; color: #28a745; font-weight: 600;">🟢 TRONG NGƯỠNG AN TOÀN</div>
-          <div style="font-size: 1.8rem; font-weight: 800; color: #28a745;">${safe_wards} <span style="font-size: 0.9rem; font-weight: normal;">phường/xã</span></div>
+        <div style="background: #fffbf0; border-left: 4px solid #ffc107; padding: 10px; margin-bottom: 8px; border-radius: 4px;">
+          <div style="font-size: 0.8rem; color: #b8860b; font-weight: 600;">🟡 LƯU Ý (Trên ngưỡng mùa & 1 ngưỡng dịch)</div>
+          <div style="font-size: 1.5rem; font-weight: 800; color: #b8860b;">${yellow_alert} <span style="font-size: 0.85rem; font-weight: normal;">phường/xã</span></div>
+        </div>
+
+        <div style="background: #f0fdf4; border-left: 4px solid #28a745; padding: 10px; border-radius: 4px;">
+          <div style="font-size: 0.8rem; color: #28a745; font-weight: 600;">🟢 BÌNH THƯỜNG (Dưới ngưỡng mùa)</div>
+          <div style="font-size: 1.5rem; font-weight: 800; color: #28a745;">${safe_wards} <span style="font-size: 0.85rem; font-weight: normal;">phường/xã</span></div>
         </div>
       `;
     })() 
     : 
     // GIAO DIỆN 2: THÔNG TIN CHI TIẾT 1 PHƯỜNG
     (function() {
-      // Tìm thông tin phường đang chọn trong dữ liệu tuần mới nhất
       let ward_info = chart_thr.find(d => d.Week === sys_max_wk && d.NoiOHienTai_SauKhiSapNhap_WardId === selected_ward);
-      
       if (!ward_info) return `<div style="padding: 20px; color: #999; text-align: center;">Không có dữ liệu tuần này</div>`;
 
       let current_cases = ward_info.cases || 0;
+      let limit_sea = ward_info.Seasonal ? ward_info.Seasonal.toFixed(1) : "N/A";
       let limit_cusum = ward_info.Cusum ? ward_info.Cusum.toFixed(1) : "N/A";
       let limit_far = ward_info.Farrington ? ward_info.Farrington.toFixed(1) : "N/A";
+      let limit_cdc = ward_info.CDC ? ward_info.CDC.toFixed(1) : "N/A";
       
-      let status_color = "#28a745"; // Mặc định xanh
-      let status_text = "An toàn";
-      if (current_cases > ward_info.Farrington && current_cases > ward_info.Cusum) {
-          status_color = "#dc3545"; status_text = "Báo động";
-      } else if (current_cases > ward_info.Farrington || current_cases > ward_info.Cusum) {
-          status_color = "#ffc107"; status_text = "Cảnh báo";
+      let is_over_sea = current_cases > ward_info.Seasonal;
+      let over_count = [
+        current_cases > ward_info.Farrington, 
+        current_cases > ward_info.Cusum, 
+        current_cases > ward_info.CDC
+      ].filter(Boolean).length;
+
+      let status_color = "#28a745"; let status_text = "Bình thường";
+      if (is_over_sea) {
+          if (over_count === 3) { status_color = "#dc3545"; status_text = "Báo động"; }
+          else if (over_count === 2) { status_color = "#fd7e14"; status_text = "Cảnh báo"; }
+          else if (over_count === 1) { status_color = "#ffc107"; status_text = "Lưu ý"; }
       }
 
       return `
-        <div style="text-align: center; margin-bottom: 20px; border-bottom: 1px dashed #ccc; padding-bottom: 15px;">
+        <div style="text-align: center; margin-bottom: 15px; border-bottom: 1px dashed #ccc; padding-bottom: 15px;">
           <h4 style="color: #005d88; font-weight: bold; font-size: 1.2rem; margin-bottom: 5px;">${selected_ward}</h4>
           <span class="badge-pill" style="background-color: ${status_color}; color: white; padding: 4px 10px;">Trạng thái: ${status_text}</span>
         </div>
 
         <table style="width: 100%; font-size: 0.95rem;">
           <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 10px 0; color: #666;">Khu vực:</td>
+            <td style="padding: 8px 0; color: #666;">Khu vực:</td>
             <td style="text-align: right; font-weight: 600;">${ward_info.KV || "Khác"}</td>
           </tr>
           <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 10px 0; color: #666;">Dân số:</td>
-            <td style="text-align: right; font-weight: 600;">${(ward_info.danso || 0).toLocaleString()}</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #eee;">
-            <td style="padding: 10px 0; color: #666;">Ca mắc tuần ${sys_max_wk}:</td>
+            <td style="padding: 8px 0; color: #666;">Ca mắc tuần ${sys_max_wk}:</td>
             <td style="text-align: right; font-weight: bold; color: #005d88; font-size: 1.1rem;">${current_cases}</td>
           </tr>
           <tr>
-            <td colspan="2" style="padding: 15px 0 5px 0; font-size: 0.85rem; color: #999; text-transform: uppercase;">Ngưỡng cảnh báo ${sys_max_wk}</td>
+            <td colspan="2" style="padding: 12px 0 5px 0; font-size: 0.85rem; color: #999; text-transform: uppercase;">Ngưỡng tuần ${sys_max_wk}</td>
           </tr>
           <tr>
-            <td style="padding: 5px 0; color: #666;">Ngưỡng Cusum:</td>
+            <td style="padding: 4px 0; color: #666;">Ngưỡng mùa:</td>
+            <td style="text-align: right; font-weight: bold; color: ${current_cases > ward_info.Seasonal ? '#dc3545' : '#333'};">${limit_sea}</td>
+          </tr>
+          <tr>
+            <td style="padding: 4px 0; color: #666;">Ngưỡng Cusum:</td>
             <td style="text-align: right; font-weight: bold; color: ${current_cases > ward_info.Cusum ? '#dc3545' : '#333'};">${limit_cusum}</td>
           </tr>
           <tr>
-            <td style="padding: 5px 0; color: #666;">Ngưỡng Farrington:</td>
+            <td style="padding: 4px 0; color: #666;">Ngưỡng Farrington:</td>
             <td style="text-align: right; font-weight: bold; color: ${current_cases > ward_info.Farrington ? '#dc3545' : '#333'};">${limit_far}</td>
+          </tr>
+          <tr>
+            <td style="padding: 4px 0; color: #666;">Ngưỡng Mean+2SD:</td>
+            <td style="text-align: right; font-weight: bold; color: ${current_cases > ward_info.CDC ? '#dc3545' : '#333'};">${limit_cdc}</td>
           </tr>
         </table>
       `;
@@ -894,38 +910,41 @@ html`
 
 ```{ojs}
 //| output: false
-// 1. TÍNH TOÁN DỮ LIỆU BẢNG (Logic xử lý)
+// 1. TÍNH TOÁN DỮ LIỆU BẢNG (Logic xử lý MỚI)
 ranking_data = {
-  // Kiểm tra dữ liệu đầu vào
   if (!data_threshold || data_threshold.length === 0) return [];
 
-  // A. Lọc dữ liệu theo Bệnh & Năm
   const base_data = data_threshold.filter(d => 
     d.Year === sys_max_yr && 
     d.Disease === selected_disease &&
     d.NoiOHienTai_SauKhiSapNhap_WardId !== "Toàn Thành phố"
   );
 
-  // B. Xử lý từng phường
   let processed_wards = [...new Set(base_data.map(d => d.NoiOHienTai_SauKhiSapNhap_WardId))].map(w_name => {
     const w_data = base_data.filter(d => d.NoiOHienTai_SauKhiSapNhap_WardId === w_name);
-    
     const curr_row = w_data.find(d => d.Week === sys_max_wk);
+    
     const cases_curr = curr_row ? (curr_row.cases || 0) : 0;
     const pop = curr_row ? (curr_row.danso || 0) : 0;
     const kv = curr_row ? (curr_row.KV || "Khác") : "Khác";
     
-    // Cảnh báo
+    // Đánh giá các ngưỡng
+    const is_over_sea = curr_row && curr_row.Seasonal && cases_curr > curr_row.Seasonal;
     const is_far = curr_row && curr_row.Farrington && cases_curr > curr_row.Farrington;
     const is_cus = curr_row && curr_row.Cusum && cases_curr > curr_row.Cusum;
+    const is_cdc = curr_row && curr_row.CDC && cases_curr > curr_row.CDC; // Mean+2SD
     
-    // Điểm số
-    let warning_score = 0;
-    if (is_far && is_cus) warning_score = 3;
-    else if (is_far) warning_score = 2;
-    else if (is_cus) warning_score = 1;
+    // Đếm số ngưỡng dịch bị vượt (Cusum, Farrington, CDC)
+    const over_thresholds_count = [is_far, is_cus, is_cdc].filter(Boolean).length;
+    
+    // Logic Phân loại 4 Mức
+    let warning_score = 0; // Mặc định: An toàn
+    if (is_over_sea) {
+      if (over_thresholds_count === 3) warning_score = 3;      // Báo động: > Mùa & vượt 3 ngưỡng dịch
+      else if (over_thresholds_count === 2) warning_score = 2; // Cảnh báo: > Mùa & vượt 2 ngưỡng dịch
+      else if (over_thresholds_count === 1) warning_score = 1; // Lưu ý: > Mùa & vượt 1 ngưỡng dịch
+    }
 
-    // Chỉ số phụ
     const rate = pop > 0 ? (cases_curr / pop * 100000).toFixed(1) : "-";
     const prev_row = w_data.find(d => d.Week === sys_max_wk - 1);
     const cases_prev = prev_row ? (prev_row.cases || 0) : 0;
@@ -942,16 +961,16 @@ ranking_data = {
       rate: rate,
       diff_prev_str: (diff_prev > 0 && cases_prev > 0 ? "+" : "") + diff_prev.toFixed(1) + "%",
       diff_4w_str: (diff_4w > 0 && avg_4w > 0 ? "+" : "") + diff_4w.toFixed(1) + "%",
+      sea_flag: is_over_sea,
       far_flag: is_far,
       cus_flag: is_cus,
+      cdc_flag: is_cdc,
       score: warning_score
     };
   });
 
-  // C. Tính điểm Khu vực
   const kv_priority = d3.rollup(processed_wards, v => d3.sum(v, d => d.score), d => d.KV);
 
-  // D. Lọc theo Sidebar
   let display_data = [];
   if (selected_ward === "Toàn Thành phố") {
     display_data = processed_wards;
@@ -960,7 +979,6 @@ ranking_data = {
     display_data = processed_wards.filter(d => d.KV === target_kv);
   }
 
-  // E. Sắp xếp
   display_data.sort((a, b) => {
     const scoreA = kv_priority.get(a.KV) || 0;
     const scoreB = kv_priority.get(b.KV) || 0;
@@ -1011,18 +1029,22 @@ ranking_data = {
           </thead>
           <tbody>
             ${rows.map(row => {
-              // Badge
+              // Gắn Badge các ngưỡng bị vượt
               let warn_badges = [];
-              if (row.far_flag) warn_badges.push(`<span class="badge-pill bg-danger-subtle">Farrington</span>`);
-              if (row.cus_flag) warn_badges.push(`<span class="badge-pill bg-primary-subtle">Cusum</span>`);
+              if (row.far_flag) warn_badges.push(`<span class="badge-pill bg-danger-subtle" style="font-size:0.75rem; margin-right:2px;">Farrington</span>`);
+              if (row.cus_flag) warn_badges.push(`<span class="badge-pill bg-primary-subtle" style="font-size:0.75rem; margin-right:2px;">Cusum</span>`);
+              if (row.cdc_flag) warn_badges.push(`<span class="badge-pill bg-warning-subtle" style="font-size:0.75rem;">Mean+2SD</span>`);
               if (warn_badges.length === 0) warn_badges.push(`<span style="color: #adb5bd;">-</span>`);
 
               // Màu %
               const col_prev = row.diff_prev_str.includes("+") ? "color: #d63384;" : (row.diff_prev_str.includes("-") ? "color: #20c997;" : "color: #adb5bd;");
               const col_4w = row.diff_4w_str.includes("+") ? "color: #d63384;" : (row.diff_4w_str.includes("-") ? "color: #20c997;" : "color: #adb5bd;");
               
-              // Màu nền cảnh báo
-              const bg_style = row.score === 3 ? "background-color: #fff0f0;" : (row.score > 0 ? "background-color: #fffbf0;" : "background-color: white;");
+              // Màu nền cảnh báo 4 mức
+              let bg_style = "background-color: white;";
+              if (row.score === 3) bg_style = "background-color: #fff0f0;";      // Báo động (Đỏ nhạt)
+              else if (row.score === 2) bg_style = "background-color: #fff5e6;"; // Cảnh báo (Cam nhạt)
+              else if (row.score === 1) bg_style = "background-color: #fffbf0;"; // Lưu ý (Vàng nhạt)
 
               return html`
                 <tr style="${bg_style}">
@@ -1032,7 +1054,7 @@ ranking_data = {
                   <td style="text-align: center;">${row.rate}</td>
                   <td style="text-align: center; ${col_prev}">${row.diff_prev_str}</td>
                   <td style="text-align: center; ${col_4w}">${row.diff_4w_str}</td>
-                  <td style="text-align: center;">${html`${warn_badges.join(" ")}`}</td> 
+                  <td style="text-align: center; line-height: 1.8;">${html`${warn_badges.join(" ")}`}</td> 
                 </tr>
               `;
             })}
@@ -1200,7 +1222,7 @@ time_options = years.flatMap(y => Array.from({length: 52}, (_, i) => i + 1).map(
 
 viewof map_controls = Inputs.form({
   metric: Inputs.radio(["Số ca thô", "Số ca trên 100k dân"], {label: "Chỉ số hiển thị:", value: "Số ca thô"}),
-  mode: Inputs.radio(["Tuần hiện tại"], {label: "Chế độ xem:", value: "Tuần hiện tại"}),
+  mode: Inputs.radio(["Tuần hiện tại", "Theo thời gian"], {label: "Chế độ xem:", value: "Tuần hiện tại"}),
   kv: Inputs.select(kv_list, {label: "Chọn Khu vực:", value: "Tất cả"}),
 })
 ```
@@ -1360,100 +1382,168 @@ map_processed = {
 //| title: "Bản đồ phân bố dịch bệnh"
 //| echo: false
 
-// 4. VẼ BẢN ĐỒ (Đã thêm sự kiện Click)
+// 4. VẼ BẢN ĐỒ HOẶC HEATMAP TÙY VÀO CHẾ ĐỘ XEM
 {
   const container = html`<div style="height: 650px; width: 100%;"></div>`;
-
+  
   if (Highcharts && typeof Highcharts.mapChart === "function") {
       
-      Highcharts.mapChart(container, { 
-        chart: {
-            map: hcm_geo,
-            mapView: {
-                center: [106.702, 10.775],
-                zoom: 10 
+      // ==========================================
+      // TRƯỜNG HỢP 1: VẼ BẢN ĐỒ (Tuần hiện tại)
+      // ==========================================
+      if (map_controls.mode === "Tuần hiện tại") {
+          Highcharts.mapChart(container, { 
+            chart: { map: hcm_geo, mapView: { center: [106.702, 10.775], zoom: 10 } },
+            title: { 
+                text: `${map_controls.metric} tuần ${sys_max_wk}/${sys_max_yr} (${map_controls.kv})`,
+                style: { color: 'black', fontWeight: 'bold' }
             },
-        },
-        title: { 
-            text: map_controls.mode === "Tuần hiện tại" 
-                ? `${map_controls.metric} tuần ${sys_max_wk}/${sys_max_yr}` 
-                : `Tích lũy ${map_controls.metric} (${map_controls.kv})`,
-            align: "center",
-            style: { color: 'black' }
-        },
-        mapNavigation: {
-            enabled: true,
-            buttonOptions: { verticalAlign: 'bottom' }
-        },
-        colorAxis: {
-            min: 0,
-            max: map_processed.maxVal,
-            stops: [
-                [0, '#EFEFFF'],      
-                [0.05, '#c6dbef'],
-                [0.5, '#4292c6'],    
-                [1, '#08306b']       
-            ]
-        },
-        
-        // --- CẤU HÌNH TƯƠNG TÁC (QUAN TRỌNG) ---
-        plotOptions: {
-            series: {
-                cursor: 'pointer', // Đổi con trỏ chuột thành hình bàn tay
-                point: {
-                    events: {
-                        click: function () {
-                            // CẬP NHẬT BIẾN MUTABLE KHI CLICK
-                            // 'this' ở đây là point được click
-                            // 'hc-key' là ID của phường (khớp với NoiOHienTai...)
-                            mutable selected_map_ward_id = this['hc-key'];
-                        }
+            mapNavigation: { enabled: true, buttonOptions: { verticalAlign: 'bottom' } },
+            colorAxis: {
+                min: 0, max: map_processed.maxVal,
+                stops: [ [0, '#EFEFFF'], [0.05, '#c6dbef'], [0.5, '#4292c6'], [1, '#08306b'] ]
+            },
+            plotOptions: {
+                series: {
+                    cursor: 'pointer',
+                    point: { events: { click: function () { mutable selected_map_ward_id = this['hc-key']; } } }
+                }
+            },
+            series: [{
+                data: map_processed.data,
+                joinBy: ['NoiOHienTai_SauKhiSapNhap_WardId', 'hc-key'], 
+                name: map_controls.metric,
+                allowPointSelect: true, 
+                states: { hover: { color: '#fb8072' }, select: { color: '#FF0000', borderColor: 'black', dashStyle: 'dot' } },
+                nullColor: 'rgba(200, 200, 200, 0.3)', borderColor: '#d1d1d1', borderWidth: 0.5,
+                dataLabels: { enabled: false },
+                tooltip: {
+                    headerFormat: '',
+                    pointFormatter: function() {
+                        if (this.value === null) return `<b>${this.properties.tenXa}</b><br/>(Không thuộc vùng chọn)`;
+                        return `<b>${this.properties.tenXa}</b> (${this.custom_kv})<br/>
+                                ----------------<br/>
+                                Số ca thô: <b>${this.custom_cases}</b><br/>
+                                Tỷ lệ/100k dân: <b>${this.custom_rate}</b><br/>
+                                <i>(Nhấn để xem biểu đồ)</i>`;
                     }
                 }
-            }
-        },
+            }]
+          });
+      } 
+      
+      // ==========================================
+      // TRƯỜNG HỢP 2: VẼ HEATMAP (Theo thời gian)
+      // ==========================================
+      else if (map_controls.mode === "Theo thời gian") {
+          
+          // 1. Xử lý Data cho Heatmap
+          const filtered_hm = data_threshold.filter(d => {
+            const disease_ok = d.Disease === selected_disease;
+            const year_ok = d.Year === sys_max_yr; 
+            const not_total = d.NoiOHienTai_SauKhiSapNhap_WardId !== "Toàn Thành phố";
+            const kv_ok = map_controls.kv === "Tất cả" || d.KV === map_controls.kv;
+            return disease_ok && year_ok && not_total && kv_ok;
+          });
 
-        series: [{
-            data: map_processed.data,
-            joinBy: ['NoiOHienTai_SauKhiSapNhap_WardId', 'hc-key'], 
-            name: map_controls.metric,
-            
-            // Cho phép chọn point (để giữ màu highlight khi click)
-            allowPointSelect: true, 
-            states: {
-                hover: { color: '#fb8072' },
-                select: { color: '#FF0000', borderColor: 'black', dashStyle: 'dot' } // Màu khi được chọn
-            },
-            
-            nullColor: 'rgba(200, 200, 200, 0.3)',
-            borderColor: '#d1d1d1',
-            borderWidth: 0.5,
-            
-            dataLabels: { enabled: false }, // Tắt Label như yêu cầu
-            
-            tooltip: {
-                headerFormat: '',
-                pointFormatter: function() {
-                    if (this.value === null) return `<b>${this.properties.tenXa}</b><br/>(Không thuộc vùng chọn)`;
-                    return `<b>${this.properties.tenXa}</b> (${this.custom_kv})<br/>
-                            ----------------<br/>
-                            Số ca thô: <b>${this.custom_cases}</b><br/>
-                            Số ca trên 100k dân: <b>${this.custom_rate}</b><br/>
-                            <i>(Nhấn để xem biểu đồ)</i>`;
+          const weeks_hm = Array.from({length: sys_max_wk}, (_, i) => i + 1); // Chỉ lấy tới tuần hiện tại
+          const wards_hm = [...new Set(filtered_hm.map(d => d.NoiOHienTai_SauKhiSapNhap_WardId))].sort();
+
+          let hm_data = [];
+          wards_hm.forEach((ward, yIdx) => {
+             weeks_hm.forEach((wk, xIdx) => {
+                const row = filtered_hm.find(d => d.NoiOHienTai_SauKhiSapNhap_WardId === ward && Number(d.Week) === wk);
+                let val = 0;
+                if (row) {
+                   val = map_controls.metric === "Số ca thô" ? (row.cases || 0) : (row.danso > 0 ? ((row.cases || 0) / row.danso * 100000) : 0);
+                   if (map_controls.metric !== "Số ca thô") val = Number(val.toFixed(1));
                 }
-            }
-        }]
-      });
+                hm_data.push([xIdx, yIdx, val]); // [Cột X, Hàng Y, Giá trị]
+             });
+          });
+
+          const hm_max_val = hm_data.length > 0 ? Math.max(...hm_data.map(d => d[2])) : 10;
+
+          // 2. Vẽ Heatmap
+          Highcharts.chart(container, {
+            chart: { type: 'heatmap', marginTop: 40, marginBottom: 60, plotBorderWidth: 1 },
+            title: { 
+                text: `Phân bố ${map_controls.metric.toLowerCase()} theo thời gian (${map_controls.kv})`,
+                style: { color: 'black', fontWeight: 'bold' }
+            },
+            xAxis: { 
+                categories: weeks_hm.map(w => 'T' + w),
+                title: { text: 'Tuần' }
+            },
+            yAxis: { 
+                categories: wards_hm,
+                title: null,
+                reversed: true, // Xếp A-Z từ trên xuống
+                labels: { style: { fontSize: '10px' } }
+            },
+            colorAxis: {
+                min: 0, max: hm_max_val,
+                stops: [ [0, '#EFEFFF'], [0.1, '#c6dbef'], [0.5, '#4292c6'], [1, '#08306b'] ]
+            },
+            legend: {
+                align: 'right', layout: 'vertical', margin: 0, verticalAlign: 'top', y: 25, symbolHeight: 350
+            },
+            tooltip: {
+                formatter: function () {
+                    return `<b>${this.series.yAxis.categories[this.point.y]}</b><br/>
+                            Tuần ${this.series.xAxis.categories[this.point.x].replace('T', '')}: <b>${this.point.value}</b>`;
+                }
+            },
+            series: [{
+                name: map_controls.metric,
+                borderWidth: 0.5,
+                borderColor: '#e8e8e8',
+                data: hm_data,
+                dataLabels: { enabled: false }
+            }]
+          });
+      }
+      
   } else {
-    return html`<div style="color:red; padding:20px;">
-      ⚠️ Đang tải thư viện bản đồ... Vui lòng nhấn F5 nếu không thấy gì.
-    </div>`;
+    return html`<div style="color:red; padding:20px;">⚠️ Đang tải thư viện bản đồ... Vui lòng nhấn F5 nếu không thấy gì.</div>`;
   }
   
   return container;
 }
 ```
 
+## Row 2 {height = 700px}
+
+```{ojs}
+//| title: "Phân tích cụm không gian ổ dịch (SaTScan)"
+//| echo: false
+
+html`
+<div style="width: 100%; height: 100%; padding: 5px;">
+  ${selected_disease === "Sốt xuất huyết" 
+    ? 
+    // 1. HIỂN THỊ IFRAME NẾU CHỌN SỐT XUẤT HUYẾT
+    `<iframe 
+        src="satscan_dengue.html" 
+        width="100%" 
+        height="650px" 
+        style="border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);"
+     </iframe>`
+    : 
+    // 2. HIỂN THỊ THÔNG BÁO NẾU CHỌN TAY CHÂN MIỆNG (Hoặc bệnh khác)
+    `<div style="height: 650px; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #f8f9fa; border: 2px dashed #dee2e6; border-radius: 8px;">
+        <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#adb5bd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 15px;">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+          <line x1="12" y1="9" x2="12" y2="13"></line>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+        <h4 style="color: #6c757d; font-weight: 600; margin: 0;">Chưa có dữ liệu SaTScan</h4>
+        <p style="color: #adb5bd; margin-top: 5px;">Phân tích cụm không gian hiện tại chỉ khả dụng cho bệnh Sốt xuất huyết.</p>
+     </div>`
+  }
+</div>
+`
+```
 
 
 
