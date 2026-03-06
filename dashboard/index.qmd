@@ -7,11 +7,11 @@ format:
     scrolling: true
     include-in-header: 
       - text: |
-          <script src="https://code.highcharts.com/maps/highmaps.js"></script>
-          <script src="https://code.highcharts.com/modules/heatmap.js"></script>
-          <script src="https://code.highcharts.com/modules/exporting.js"></script>
-          <script src="https://code.highcharts.com/modules/export-data.js"></script>
-          <script src="https://code.highcharts.com/modules/accessibility.js)"></script>
+          <script src="highmaps.js"></script>
+          <script src="heatmap.js"></script>
+          <script src="exporting.js"></script>
+          <script src="export-data.js"></script>
+          <script src="accessibility.js"></script>
 navbar: false
 ---
 
@@ -126,15 +126,14 @@ import {html} from "htl"
 
 Highcharts = window.Highcharts
 
-Highcharts.setOptions({
-    lang: {
-        numericSymbols: null // Tắt hẳn việc tự động thêm k, M, G...
-    }
+Highcharts?.setOptions({
+    lang: { numericSymbols: null }
 });
 ```
 
 ```{ojs}
 //| output: false
+//| echo: false
 
 // =============================================================================
 // 3. GLOBAL VARIABLES & HELPERS (Tất cả logic tính toán nằm ở đây)
@@ -237,7 +236,6 @@ createHighchart = function(id, options) {
   };
   const finalOptions = { ...defaultOptions, ...options };
   
-  // Vẽ trực tiếp vào container (Không dùng getElementById nữa)
   requestAnimationFrame(() => {
     if (Highcharts) {
         Highcharts.chart(container, finalOptions);

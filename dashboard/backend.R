@@ -22,7 +22,7 @@ source(paste0(base_path, "function_pisa.R"))
 ##########################
 
 ## Load data
-raw_df <- load_data_direct("data/tuan8.rds")
+raw_df <- load_data_direct("data/tuan9.rds")
 
 # Loại tuần mới nhất của năm mới nhất
 remove_latest_week <- function(df) {
@@ -108,8 +108,6 @@ if(nrow(na_check) > 0) {
 # ==============================================================================
 
 encrypt_data(final_threshold_df, paste0(base_path, "threshold.dat"), "Swaper@234")
-message("✅ HOÀN TẤT! Hãy kiểm tra file tại: ", output_path)
-
 
 ##########################
 ######## MAP DATA ########
