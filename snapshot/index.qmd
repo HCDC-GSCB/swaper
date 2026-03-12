@@ -404,7 +404,7 @@ function generateSummaryTable(disease_name, raw_data, threshold_data) {
       .tbl-collapse-${unique_id}[open] .text-hide { display: inline-block; }
     </style>
 
-    <details class="tbl-collapse-${unique_id}" style="background: white; border-radius: 8px; border: 1px solid #e0e0e0; margin-bottom: 20px; font-size: 0.95rem; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+    <details open class="tbl-collapse-${unique_id}" style="background: white; border-radius: 8px; border: 1px solid #e0e0e0; margin-bottom: 20px; font-size: 0.95rem; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
       
       <summary style="padding: 10px 15px; cursor: pointer; outline: none; text-align: left;">
          

@@ -22,7 +22,7 @@ source(paste0(base_path, "function_pisa.R"))
 ##########################
 
 ## Load data
-raw_df <- load_data_direct("data/tuan9.rds")
+raw_df <- load_data_direct("data/clean_data.rds")
 
 # Loại tuần mới nhất của năm mới nhất
 remove_latest_week <- function(df) {
