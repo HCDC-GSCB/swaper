@@ -4,6 +4,7 @@ graphics.off()
 library(jsonlite)
 library(digest)
 library(stringr)
+library(readxl)
 
 wd <- getwd()
 if (dir.exists("dashboard")) {
@@ -182,3 +183,16 @@ df_severity <- bind_rows(
   tcm_severity %>% select(Week, Limit_Low, Limit_Mod, Limit_High) %>% mutate(Disease = "Tay chân miệng")
 )
 encrypt_data(df_severity, paste0(base_path, "severity.dat"), "Swaper@234")
+
+##########################
+######## PRED DATA #######
+##########################
+message("--- Đang đóng gói dữ liệu dự báo ---")
+# Đọc file excel (nhớ điều chỉnh đường dẫn nếu cần)
+df_pred <- read_excel("data/data_pred.xlsx")
+
+# Mã hoá file
+encrypt_data(df_pred, paste0(base_path, "pred.dat"), "Swaper@234")
+message("✅ Hoàn tất file pred.dat")
+
+

@@ -90,7 +90,8 @@ mutable data_severity = []
           decryptData("tcm.dat", pass),
           decryptData("threshold.dat", pass),
           decryptData("transmission.dat", pass), 
-          decryptData("severity.dat", pass)      
+          decryptData("severity.dat", pass),
+          decryptData("pred.dat", pass)
         ]);
 
         // Cập nhật biến mutable
@@ -98,7 +99,8 @@ mutable data_severity = []
         mutable data_tcm = tcm;
         mutable data_threshold = thr;
         mutable data_transmission = trans; 
-        mutable data_severity = sev;       
+        mutable data_severity = sev;
+        mutable data_pred = pred;
 
         // Mở khóa màn hình
         overlay.style.opacity = "0";
@@ -354,10 +356,14 @@ viewof selected_year = {
   return input;
 }
 
-viewof selected_disease = Inputs.radio(
-  ["Sốt xuất huyết", "Tay chân miệng"], 
-  {label: "Loại bệnh:", value: "Sốt xuất huyết"}
-)
+viewof selected_disease = {
+  let input = Inputs.radio(
+    ["Sốt xuất huyết", "Tay chân miệng"], 
+    {label: "Loại bệnh:", value: "Sốt xuất huyết"}
+  );
+  input.id = "wrap-benh";
+  return input;
+}
 
 viewof selected_ward = {
   let input = Inputs.select(
@@ -386,6 +392,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let tabName = activeTab.textContent.trim();
     let wrapNam = document.getElementById('wrap-nam');
     let wrapDiaBan = document.getElementById('wrap-diaban');
+    let wrapBenh = document.getElementById('wrap-benh');
 
     if (!wrapNam || !wrapDiaBan) return;
 
@@ -413,23 +420,31 @@ document.addEventListener("DOMContentLoaded", function() {
     resetFilters();
 
     // --- SAU ĐÓ MỚI ẨN/HIỆN SIDEBAR THEO TỪNG TAB ---
-    if (tabName === 'Đánh giá nguy cơ') {
-      wrapNam.style.display = '';
-      wrapDiaBan.style.display = 'none';
+    if (tabName === 'Đánh giá nguy cơ') { // [cite: 72]
+      wrapNam.style.display = ''; // [cite: 72]
+      wrapDiaBan.style.display = 'none'; // [cite: 73]
+      if(wrapBenh) wrapBenh.style.display = '';
     } 
-    else if (tabName === 'Ngưỡng dịch') {
-      wrapNam.style.display = 'none';
-      wrapDiaBan.style.display = '';
+    else if (tabName === 'Ngưỡng dịch') { // [cite: 73]
+      wrapNam.style.display = 'none'; // [cite: 73]
+      wrapDiaBan.style.display = ''; // [cite: 74]
+      if(wrapBenh) wrapBenh.style.display = '';
     }
-    else if (tabName === 'Bản đồ') {
-      wrapNam.style.display = 'none';
-      wrapDiaBan.style.display = 'none';
+    else if (tabName === 'Bản đồ') { // [cite: 74]
+      wrapNam.style.display = 'none'; // [cite: 74]
+      wrapDiaBan.style.display = 'none'; // [cite: 75]
+      if(wrapBenh) wrapBenh.style.display = '';
     } 
-    else {
-      wrapNam.style.display = '';
-      wrapDiaBan.style.display = '';
+    else if (tabName === 'Dự báo') { // Thêm logic cho tab Dự báo
+      wrapNam.style.display = 'none'; 
+      wrapDiaBan.style.display = 'none'; 
+      if(wrapBenh) wrapBenh.style.display = 'none'; // Ẩn hoàn toàn bộ lọc
     }
-  }
+    else { // [cite: 75]
+      wrapNam.style.display = ''; // [cite: 75]
+      wrapDiaBan.style.display = ''; // [cite: 76]
+      if(wrapBenh) wrapBenh.style.display = '';
+    }
 
   // Canh me web tải xong lần đầu
   let initCheck = setInterval(() => {
@@ -1543,5 +1558,141 @@ html`
 `
 ```
 
+# Mô hình dự báo
 
+
+```{ojs}
+//| output: false
+// 1. TẠO NÚT CHỌN MÔ HÌNH DỰ BÁO
+viewof selected_model = Inputs.radio(
+  ["Mô hình LSTM", "Mô hình RF"], 
+  {label: "Chọn mô hình dự báo:", value: "Mô hình LSTM"}
+)
+```
+
+```{ojs}
+//| output: false
+// 2. XỬ LÝ DỮ LIỆU ĐỂ NỐI ĐƯỜNG
+// Lấy dữ liệu thực tế: SXH, năm 2026, Toàn thành phố
+sxh_2026 = data_sxh.filter(d => 
+  d.Year === 2026 && 
+  (d.NoiOHienTai_SauKhiSapNhap_WardId === "Toàn Thành phố" || d.WardId === "Toàn Thành phố")
+)
+
+// Tìm tuần hiện tại (tuần mới nhất có số liệu của năm 2026)
+max_wk_2026 = d3.max(sxh_2026, d => d.Week) || 0
+
+data_pred_chart = {
+  const weeks_52 = Array.from({length: 52}, (_, i) => i + 1);
+
+  return weeks_52.map(wk => {
+    // Tìm số ca thực tế
+    const actual_rows = sxh_2026.filter(d => d.Week === wk);
+    const actual_cases = d3.sum(actual_rows, d => d.SoCa) || null;
+
+    // Tìm số ca dự báo
+    const pred_row = data_pred.find(d => Number(d.Week) === wk);
+    const lstm_val = pred_row ? pred_row.Pred_LSTM : null;
+    const rf_val = pred_row ? pred_row.Pred_RF : null;
+
+    // Tính APE (%) - Chỉ tính từ tuần 1 đến tuần hiện tại
+    const calcAPE = (actual, pred) => {
+      if (wk > max_wk_2026 || actual === null || pred === null || actual === 0) return null;
+      return Math.abs((actual - pred) / actual) * 100;
+    };
+
+    return {
+      week: wk,
+      actual: wk <= max_wk_2026 ? actual_cases : null, // Ngắt đường thực tế ở tuần hiện tại
+      lstm: lstm_val,
+      rf: rf_val,
+      ape_lstm: calcAPE(actual_cases, lstm_val),
+      ape_rf: calcAPE(actual_cases, rf_val)
+    };
+  });
+}
+
+// Tách series để vẽ Highcharts
+series_actual = data_pred_chart.map(d => d.actual)
+
+// Tạo đường dự báo nối tiếp
+series_pred_connected = data_pred_chart.map(d => {
+  if (d.week < max_wk_2026) return null; // Quá khứ thì để null
+  if (d.week === max_wk_2026) return d.actual; // Chốt nối liền 2 đường tại tuần hiện tại
+  
+  // Các tuần tương lai
+  const pred_val = selected_model === "Mô hình LSTM" ? d.lstm : d.rf;
+  return pred_val ? Number(pred_val.toFixed(1)) : null;
+})
+
+series_ape_lstm = data_pred_chart.map(d => d.ape_lstm ? Number(d.ape_lstm.toFixed(2)) : null)
+series_ape_rf = data_pred_chart.map(d => d.ape_rf ? Number(d.ape_rf.toFixed(2)) : null)
+
+// Đổi màu tùy theo mô hình được chọn
+pred_color = selected_model === "Mô hình LSTM" ? '#f28e2b' : '#e15759'
+```
+
+## Row 1 {height=500px}
+
+```{ojs}
+//| title: "Dự báo số ca Sốt xuất huyết (Năm 2026)"
+createHighchart("chart-forecast-cases", {
+  chart: { type: 'spline' },
+  xAxis: { 
+    categories: Array.from({length: 52}, (_, i) => i + 1), 
+    title: { text: 'Tuần', style: { fontWeight: 'bold', color: '#000000' } },
+    crosshair: true
+  },
+  yAxis: { 
+    title: { text: 'Số ca', style: { fontWeight: 'bold', color: '#000000' } }, 
+    min: 0 
+  },
+  tooltip: { shared: true },
+  series: [
+    { 
+      name: 'Thực tế', 
+      data: series_actual, 
+      color: '#4e79a7', 
+      lineWidth: 3, 
+      zIndex: 2,
+      marker: { enabled: true, radius: 4 }
+    },
+    { 
+      name: 'Dự báo (' + selected_model + ')', 
+      data: series_pred_connected, 
+      color: pred_color, 
+      lineWidth: 3, 
+      dashStyle: 'ShortDash', // Để nét đứt cho đường dự báo
+      zIndex: 1,
+      marker: { enabled: true, radius: 4 }
+    }
+  ]
+})
+```
+
+## Row 2 {height=500px}
+
+```{ojs}
+//| title: "Sai số phần trăm tuyệt đối (APE) theo tuần"
+createHighchart("chart-forecast-ape", {
+  chart: { type: 'line' },
+  xAxis: { 
+    categories: Array.from({length: 52}, (_, i) => i + 1), 
+    title: { text: 'Tuần', style: { fontWeight: 'bold', color: '#000000' } }
+  },
+  yAxis: { 
+    title: { text: 'APE (%)', style: { fontWeight: 'bold', color: '#000000' } }, 
+    min: 0,
+    labels: { format: '{value}%' }
+  },
+  tooltip: { 
+    shared: true,
+    valueSuffix: ' %'
+  },
+  series: [
+    { name: 'LSTM', data: series_ape_lstm, color: '#f28e2b', marker: { symbol: 'circle' } },
+    { name: 'RF', data: series_ape_rf, color: '#e15759', marker: { symbol: 'triangle' } }
+  ]
+})
+```
 
