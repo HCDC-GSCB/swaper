@@ -90,8 +90,7 @@ mutable data_severity = []
           decryptData("tcm.dat", pass),
           decryptData("threshold.dat", pass),
           decryptData("transmission.dat", pass), 
-          decryptData("severity.dat", pass),
-          decryptData("pred.dat", pass)
+          decryptData("severity.dat", pass)
         ]);
 
         // Cập nhật biến mutable
@@ -100,7 +99,6 @@ mutable data_severity = []
         mutable data_threshold = thr;
         mutable data_transmission = trans; 
         mutable data_severity = sev;
-        mutable data_pred = pred;
 
         // Mở khóa màn hình
         overlay.style.opacity = "0";
@@ -769,40 +767,36 @@ chart_thr = data_threshold.filter(d => {
         color: plot_color, zIndex: 1
       },
       
-      // 2. CÁC ĐƯỜNG NGƯỠNG
-      // Seasonal
+      // 2. CÁC ĐƯỜNG NGƯỠNG (Khai báo thêm thuộc tính "id" để làm gốc link)
       {
         name: 'Seasonal', type: 'spline', data: line_sea,
         color: col_sea, lineWidth: 1.5, dashStyle: 'ShortDash', zIndex: 3
       },
-      // Farrington
       {
-        name: 'Farrington', type: 'spline', data: line_far,
+        name: 'Farrington', id: 'far_line', type: 'spline', data: line_far,
         color: col_far, lineWidth: 2, dashStyle: 'Solid', zIndex: 5
       },
-      // Mean+2SD
       {
-        name: 'Mean+2SD', type: 'spline', data: line_cdc,
+        name: 'Mean+2SD', id: 'cdc_line', type: 'spline', data: line_cdc,
         color: col_cdc, lineWidth: 2, dashStyle: 'Solid', zIndex: 6
       },
-      // LƯU Ý: Không thêm series đường CUSUM vào đây theo yêu cầu "không cho hiện"
+      // Thêm lại đường CUSUM để hiển thị giá trị trong Hover Tooltip và làm gốc cho Legend
+      {
+        name: 'Cusum', id: 'cus_line', type: 'spline', data: line_cus,
+        color: col_cus, lineWidth: 2, dashStyle: 'Solid', zIndex: 7
+      },
 
-      // 3. CÁC ĐIỂM CẢNH BÁO (TAM GIÁC) - THÊM showInLegend: false
       {
-        name: 'Vượt CUSUM', type: 'scatter', data: warn_cus_data,
-        color: col_cus, 
-        showInLegend: false, // ẨN KHỎI CHÚ THÍCH
-        marker: { symbol: 'triangle' } // Tam giác hướng lên bình thường
+        name: 'Vượt Farrington', linkedTo: 'far_line', type: 'scatter', data: warn_far_data,
+        color: col_far
       },
       {
-        name: 'Vượt Farrington', type: 'scatter', data: warn_far_data,
-        color: col_far,
-        showInLegend: false // ẨN KHỎI CHÚ THÍCH
+        name: 'Vượt Mean+2SD', linkedTo: 'cdc_line', type: 'scatter', data: warn_cdc_data,
+        color: col_cdc
       },
       {
-        name: 'Vượt Mean+2SD', type: 'scatter', data: warn_cdc_data,
-        color: col_cdc,
-        showInLegend: false // ẨN KHỎI CHÚ THÍCH
+        name: 'Vượt CUSUM', linkedTo: 'cus_line', type: 'scatter', data: warn_cus_data,
+        color: col_cus, marker: { symbol: 'triangle' } 
       }
     ]
   });
@@ -1218,14 +1212,19 @@ createHighchart("chart-severity", {
 mutable selected_map_ward_id = null;
 ```
 
-### Column {width=30%}
+### Column {width=40%}
+
+#### Row {height=30%}
 
 ```{ojs}
 //| echo: false
 // 1. INPUT CONTROL PANEL (Phần trên)
 
-// Tạo danh sách KV từ data
-kv_list = ["Tất cả", ...new Set(data_threshold.map(d => d.KV).filter(d => d))].sort()
+// Lọc lấy danh sách các khu vực thực tế (xếp A-Z)
+raw_kv = [...new Set(data_threshold.map(d => d.KV).filter(d => d))].sort()
+
+// Tạo danh sách KV đầy đủ
+kv_list = ["Toàn Thành phố", ...raw_kv]
 
 // Tạo index thời gian
 time_options = years.flatMap(y => Array.from({length: 52}, (_, i) => i + 1).map(w => ({
@@ -1233,17 +1232,26 @@ time_options = years.flatMap(y => Array.from({length: 52}, (_, i) => i + 1).map(
   value: y * 100 + w
 }))).sort((a, b) => b.value - a.value)
 
+// Gộp chung lại thành 1 Form đơn giản (Không dùng Event Listener nữa)
 viewof map_controls = Inputs.form({
+  chart_type: Inputs.radio(["Bản đồ", "Heatmap"], {label: "Loại biểu đồ:", value: "Bản đồ"}),
   metric: Inputs.radio(["Số ca thô", "Số ca trên 100k dân"], {label: "Chỉ số hiển thị:", value: "Số ca thô"}),
-  mode: Inputs.radio(["Tuần hiện tại", "Theo thời gian"], {label: "Chế độ xem:", value: "Tuần hiện tại"}),
-  kv: Inputs.select(kv_list, {label: "Chọn Khu vực:", value: "Tất cả"}),
+  mode: Inputs.radio(["Tuần hiện tại", "Tích lũy"], {label: "Chế độ xem:", value: "Tuần hiện tại"}),
+  kv: Inputs.select(kv_list, {label: "Chọn Khu vực:", value: "Toàn Thành phố"})
 })
 ```
+
+#### Row {height=70%}
 
 ```{ojs}
 //| echo: false
 // 2. BIỂU ĐỒ LINE CHART (Phần dưới - Đã sửa lỗi cắt đuôi dữ liệu tương lai)
 {
+  // ẨN BIỂU ĐỒ LINE KHI CHỌN HEATMAP
+  if (map_controls.chart_type === "Heatmap") {
+     return html`<div style="height: 300px; display: flex; align-items: center; justify-content: center; color: #adb5bd; border: 1px dashed #ccc; border-radius: 5px; margin-top: 10px; font-style: italic;">(Biểu đồ xu hướng không hiển thị ở chế độ Heatmap)</div>`;
+  }
+
   // A. Kiểm tra xem đã chọn phường chưa
   if (selected_map_ward_id === null) {
     return html`
@@ -1263,26 +1271,27 @@ viewof map_controls = Inputs.form({
 
   const ward_name = ward_trend_data.length > 0 ? ward_trend_data[0].NoiOHienTai_SauKhiSapNhap_WardId : selected_map_ward_id;
 
-  // C. Map dữ liệu (LOGIC MỚI: Cắt dữ liệu tương lai)
+  // C. Map dữ liệu (CỘNG DỒN NẾU CHỌN TÍCH LŨY)
   const weeks = Array.from({length: 52}, (_, i) => i + 1);
+  let cum_sum = 0; // Biến giữ giá trị cộng dồn
   
   const series_data = weeks.map(wk => {
-    // --- ĐOẠN QUAN TRỌNG NHẤT ---
-    // Nếu tuần đang xét lớn hơn tuần báo cáo mới nhất -> Trả về null để ngắt dòng
-    if (wk > sys_max_wk) return null; 
-    // -----------------------------
+    if (wk > sys_max_wk) return null; // Cắt dữ liệu tương lai
 
     const row = ward_trend_data.find(d => d.Week === wk);
+    let cases_wk = row ? (row.cases || 0) : 0;
+    let pop_wk = row ? (row.danso || 0) : 0;
     
-    // Nếu tuần trong quá khứ mà không có dữ liệu -> coi là 0 ca
-    if (!row) return 0;
+    cum_sum += cases_wk; // Tính tổng cộng dồn qua từng tuần
+
+    // Quyết định lấy số ca tuần hiện tại hay tích lũy
+    let display_cases = map_controls.mode === "Tích lũy" ? cum_sum : cases_wk;
     
-    // Tính toán tùy theo Metric
+    // Tính toán tùy theo Metric (Thô hay Tỷ lệ)
     if (map_controls.metric === "Số ca thô") {
-        return row.cases || 0;
+        return display_cases;
     } else {
-        const pop = row.danso || 0;
-        return pop > 0 ? ((row.cases || 0) / pop * 100000) : 0;
+        return pop_wk > 0 ? ((display_cases / pop_wk) * 100000) : 0;
     }
   });
 
@@ -1296,12 +1305,11 @@ viewof map_controls = Inputs.form({
           text: ward_name, 
           style: { fontSize: '16px', fontWeight: 'bold', color: '#003366' }
       },
-      subtitle: { text: map_controls.metric + " - Năm " + sys_max_yr },
+      subtitle: { text: map_controls.metric + " - " + map_controls.mode + " (Năm " + sys_max_yr + ")" },
       xAxis: { 
           categories: weeks, 
           title: { text: 'Tuần' },
           tickInterval: 5,
-          // Giữ trục X luôn full 53 tuần dù dữ liệu bị ngắt
           max: 52 
       },
       yAxis: { title: { text: null }, min: 0 },
@@ -1309,9 +1317,7 @@ viewof map_controls = Inputs.form({
       tooltip: { shared: true, valueDecimals: 1 },
       credits: { enabled: false },
       plotOptions: {
-        series: {
-            connectNulls: false // Đảm bảo không nối điểm cuối với null (mặc định là false rồi nhưng khai báo cho chắc)
-        }
+        series: { connectNulls: false }
       },
       series: [{
           name: map_controls.metric,
@@ -1329,20 +1335,20 @@ viewof map_controls = Inputs.form({
 
 ```{ojs}
 //| output: false
+//| echo: false
 
-// 3. XỬ LÝ SỐ LIỆU BẢN ĐỒ (Giữ nguyên logic cũ của bạn)
+// 3. XỬ LÝ SỐ LIỆU BẢN ĐỒ
 hcm_geo = FileAttachment("hcm_map.json").json()
 
 map_processed = {
-  // A. Xác định khoảng thời gian lọc
+  // A. Xác định khoảng thời gian lọc dựa theo mode
   let start_idx, end_idx;
   if (map_controls.mode === "Tuần hiện tại") {
     const current_val = sys_max_yr * 100 + sys_max_wk;
     start_idx = current_val; end_idx = current_val;
-  } else {
-    // Logic dự phòng nếu bạn muốn mở lại range slider sau này
-    end_idx = sys_max_yr * 100 + sys_max_wk;    
-    start_idx = sys_max_yr * 100 + 1;    
+  } else if (map_controls.mode === "Tích lũy") {
+    start_idx = sys_max_yr * 100 + 1;           // Bắt đầu từ Tuần 1
+    end_idx = sys_max_yr * 100 + sys_max_wk;    // Đến tuần mới nhất
   }
 
   // B. Lọc dữ liệu
@@ -1369,7 +1375,7 @@ map_processed = {
   // D. Map Array
   const data_array = Array.from(agg_data, ([name, val]) => {
     const kv = ward_kv_map.get(name) || "Khác";
-    const is_visible = (map_controls.kv === "Tất cả") || (kv === map_controls.kv);
+    const is_visible = (map_controls.kv === "Toàn Thành phố") || (kv === map_controls.kv);
     const final_val = is_visible ? (map_controls.metric === "Số ca thô" ? val.cases : Number(val.rate.toFixed(1))) : null;
 
     return {
@@ -1389,7 +1395,7 @@ map_processed = {
 }
 ```
 
-### Column {width=70%}
+### Column {width=60%}
 
 ```{ojs}
 //| title: "Bản đồ phân bố dịch bệnh"
@@ -1402,13 +1408,18 @@ map_processed = {
   if (Highcharts && typeof Highcharts.mapChart === "function") {
       
       // ==========================================
-      // TRƯỜNG HỢP 1: VẼ BẢN ĐỒ (Tuần hiện tại)
+      // TRƯỜNG HỢP 1: VẼ BẢN ĐỒ 
       // ==========================================
-      if (map_controls.mode === "Tuần hiện tại") {
+      if (map_controls.chart_type === "Bản đồ") {
+          
+          let title_text = map_controls.mode === "Tích lũy" 
+                ? `${map_controls.metric} tích lũy đến tuần ${sys_max_wk}/${sys_max_yr} (${map_controls.kv})`
+                : `${map_controls.metric} tuần ${sys_max_wk}/${sys_max_yr} (${map_controls.kv})`;
+
           Highcharts.mapChart(container, { 
             chart: { map: hcm_geo, mapView: { center: [106.702, 10.775], zoom: 10 } },
             title: { 
-                text: `${map_controls.metric} tuần ${sys_max_wk}/${sys_max_yr} (${map_controls.kv})`,
+                text: title_text,
                 style: { color: 'black', fontWeight: 'bold' }
             },
             mapNavigation: { enabled: true, buttonOptions: { verticalAlign: 'bottom' } },
@@ -1438,7 +1449,7 @@ map_processed = {
                                 ----------------<br/>
                                 Số ca thô: <b>${this.custom_cases}</b><br/>
                                 Tỷ lệ/100k dân: <b>${this.custom_rate}</b><br/>
-                                <i>(Nhấn để xem biểu đồ)</i>`;
+                                <i>(Nhấn để xem biểu đồ xu hướng)</i>`;
                     }
                 }
             }]
@@ -1448,40 +1459,65 @@ map_processed = {
       // ==========================================
       // TRƯỜNG HỢP 2: VẼ HEATMAP (Theo thời gian)
       // ==========================================
-      else if (map_controls.mode === "Theo thời gian") {
+      else if (map_controls.chart_type === "Heatmap") {
           
-          // 1. Xử lý Data cho Heatmap
+          // >>> BẮT LỖI Ở ĐÂY: HIỆN THÔNG BÁO NẾU CHƯA CHỌN KHU VỰC <<<
+          if (map_controls.kv === "Toàn Thành phố") {
+            return html`
+              <div style="height: 650px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #999; border: 2px dashed #ccc; border-radius: 8px; background-color: #f9f9f9;">
+                <div style="font-size: 4rem; opacity: 0.4; margin-bottom: 15px;">🗺️</div>
+                <div style="font-size: 1.2rem; font-weight: 600; color: #555;">Vui lòng chọn một Khu vực cụ thể</div>
+                <div style="margin-top: 5px; color: #888;">(Biểu đồ Heatmap không hỗ trợ hiển thị Toàn Thành phố cùng lúc)</div>
+              </div>
+            `;
+          }
+
+          // Đoạn dưới là vẽ Heatmap bình thường
           const filtered_hm = data_threshold.filter(d => {
             const disease_ok = d.Disease === selected_disease;
             const year_ok = d.Year === sys_max_yr; 
             const not_total = d.NoiOHienTai_SauKhiSapNhap_WardId !== "Toàn Thành phố";
-            const kv_ok = map_controls.kv === "Tất cả" || d.KV === map_controls.kv;
+            const kv_ok = map_controls.kv === "Toàn Thành phố" || d.KV === map_controls.kv;
             return disease_ok && year_ok && not_total && kv_ok;
           });
 
-          const weeks_hm = Array.from({length: sys_max_wk}, (_, i) => i + 1); // Chỉ lấy tới tuần hiện tại
+          const weeks_hm = Array.from({length: sys_max_wk}, (_, i) => i + 1);
           const wards_hm = [...new Set(filtered_hm.map(d => d.NoiOHienTai_SauKhiSapNhap_WardId))].sort();
 
           let hm_data = [];
           wards_hm.forEach((ward, yIdx) => {
+             let cum_sum_hm = 0; 
+             
              weeks_hm.forEach((wk, xIdx) => {
                 const row = filtered_hm.find(d => d.NoiOHienTai_SauKhiSapNhap_WardId === ward && Number(d.Week) === wk);
+                let cases_wk = row ? (row.cases || 0) : 0;
+                let pop_wk = row ? (row.danso || 0) : 0;
                 let val = 0;
-                if (row) {
-                   val = map_controls.metric === "Số ca thô" ? (row.cases || 0) : (row.danso > 0 ? ((row.cases || 0) / row.danso * 100000) : 0);
-                   if (map_controls.metric !== "Số ca thô") val = Number(val.toFixed(1));
+
+                cum_sum_hm += cases_wk;
+                let display_cases = map_controls.mode === "Tích lũy" ? cum_sum_hm : cases_wk;
+
+                if (map_controls.metric === "Số ca thô") {
+                    val = display_cases;
+                } else {
+                    val = pop_wk > 0 ? (display_cases / pop_wk * 100000) : 0;
                 }
-                hm_data.push([xIdx, yIdx, val]); // [Cột X, Hàng Y, Giá trị]
+                
+                if (map_controls.metric !== "Số ca thô") val = Number(val.toFixed(1));
+                hm_data.push([xIdx, yIdx, val]); 
              });
           });
 
           const hm_max_val = hm_data.length > 0 ? Math.max(...hm_data.map(d => d[2])) : 10;
 
-          // 2. Vẽ Heatmap
+          let hm_title_text = map_controls.mode === "Tích lũy"
+                ? `Phân bố ${map_controls.metric.toLowerCase()} tích lũy theo thời gian (${map_controls.kv})`
+                : `Phân bố ${map_controls.metric.toLowerCase()} theo thời gian (${map_controls.kv})`;
+
           Highcharts.chart(container, {
             chart: { type: 'heatmap', marginTop: 40, marginBottom: 60, plotBorderWidth: 1 },
             title: { 
-                text: `Phân bố ${map_controls.metric.toLowerCase()} theo thời gian (${map_controls.kv})`,
+                text: hm_title_text,
                 style: { color: 'black', fontWeight: 'bold' }
             },
             xAxis: { 
@@ -1491,7 +1527,7 @@ map_processed = {
             yAxis: { 
                 categories: wards_hm,
                 title: null,
-                reversed: true, // Xếp A-Z từ trên xuống
+                reversed: true,
                 labels: { style: { fontSize: '10px' } }
             },
             colorAxis: {
@@ -1556,143 +1592,5 @@ html`
   }
 </div>
 `
-```
-
-# Mô hình dự báo
-
-
-```{ojs}
-//| output: false
-// 1. TẠO NÚT CHỌN MÔ HÌNH DỰ BÁO
-viewof selected_model = Inputs.radio(
-  ["Mô hình LSTM", "Mô hình RF"], 
-  {label: "Chọn mô hình dự báo:", value: "Mô hình LSTM"}
-)
-```
-
-```{ojs}
-//| output: false
-// 2. XỬ LÝ DỮ LIỆU ĐỂ NỐI ĐƯỜNG
-// Lấy dữ liệu thực tế: SXH, năm 2026, Toàn thành phố
-sxh_2026 = data_sxh.filter(d => 
-  d.Year === 2026 && 
-  (d.NoiOHienTai_SauKhiSapNhap_WardId === "Toàn Thành phố" || d.WardId === "Toàn Thành phố")
-)
-
-// Tìm tuần hiện tại (tuần mới nhất có số liệu của năm 2026)
-max_wk_2026 = d3.max(sxh_2026, d => d.Week) || 0
-
-data_pred_chart = {
-  const weeks_52 = Array.from({length: 52}, (_, i) => i + 1);
-
-  return weeks_52.map(wk => {
-    // Tìm số ca thực tế
-    const actual_rows = sxh_2026.filter(d => d.Week === wk);
-    const actual_cases = d3.sum(actual_rows, d => d.SoCa) || null;
-
-    // Tìm số ca dự báo
-    const pred_row = data_pred.find(d => Number(d.Week) === wk);
-    const lstm_val = pred_row ? pred_row.Pred_LSTM : null;
-    const rf_val = pred_row ? pred_row.Pred_RF : null;
-
-    // Tính APE (%) - Chỉ tính từ tuần 1 đến tuần hiện tại
-    const calcAPE = (actual, pred) => {
-      if (wk > max_wk_2026 || actual === null || pred === null || actual === 0) return null;
-      return Math.abs((actual - pred) / actual) * 100;
-    };
-
-    return {
-      week: wk,
-      actual: wk <= max_wk_2026 ? actual_cases : null, // Ngắt đường thực tế ở tuần hiện tại
-      lstm: lstm_val,
-      rf: rf_val,
-      ape_lstm: calcAPE(actual_cases, lstm_val),
-      ape_rf: calcAPE(actual_cases, rf_val)
-    };
-  });
-}
-
-// Tách series để vẽ Highcharts
-series_actual = data_pred_chart.map(d => d.actual)
-
-// Tạo đường dự báo nối tiếp
-series_pred_connected = data_pred_chart.map(d => {
-  if (d.week < max_wk_2026) return null; // Quá khứ thì để null
-  if (d.week === max_wk_2026) return d.actual; // Chốt nối liền 2 đường tại tuần hiện tại
-  
-  // Các tuần tương lai
-  const pred_val = selected_model === "Mô hình LSTM" ? d.lstm : d.rf;
-  return pred_val ? Number(pred_val.toFixed(1)) : null;
-})
-
-series_ape_lstm = data_pred_chart.map(d => d.ape_lstm ? Number(d.ape_lstm.toFixed(2)) : null)
-series_ape_rf = data_pred_chart.map(d => d.ape_rf ? Number(d.ape_rf.toFixed(2)) : null)
-
-// Đổi màu tùy theo mô hình được chọn
-pred_color = selected_model === "Mô hình LSTM" ? '#f28e2b' : '#e15759'
-```
-
-## Row 1 {height=500px}
-
-```{ojs}
-//| title: "Dự báo số ca Sốt xuất huyết (Năm 2026)"
-createHighchart("chart-forecast-cases", {
-  chart: { type: 'spline' },
-  xAxis: { 
-    categories: Array.from({length: 52}, (_, i) => i + 1), 
-    title: { text: 'Tuần', style: { fontWeight: 'bold', color: '#000000' } },
-    crosshair: true
-  },
-  yAxis: { 
-    title: { text: 'Số ca', style: { fontWeight: 'bold', color: '#000000' } }, 
-    min: 0 
-  },
-  tooltip: { shared: true },
-  series: [
-    { 
-      name: 'Thực tế', 
-      data: series_actual, 
-      color: '#4e79a7', 
-      lineWidth: 3, 
-      zIndex: 2,
-      marker: { enabled: true, radius: 4 }
-    },
-    { 
-      name: 'Dự báo (' + selected_model + ')', 
-      data: series_pred_connected, 
-      color: pred_color, 
-      lineWidth: 3, 
-      dashStyle: 'ShortDash', // Để nét đứt cho đường dự báo
-      zIndex: 1,
-      marker: { enabled: true, radius: 4 }
-    }
-  ]
-})
-```
-
-## Row 2 {height=500px}
-
-```{ojs}
-//| title: "Sai số phần trăm tuyệt đối (APE) theo tuần"
-createHighchart("chart-forecast-ape", {
-  chart: { type: 'line' },
-  xAxis: { 
-    categories: Array.from({length: 52}, (_, i) => i + 1), 
-    title: { text: 'Tuần', style: { fontWeight: 'bold', color: '#000000' } }
-  },
-  yAxis: { 
-    title: { text: 'APE (%)', style: { fontWeight: 'bold', color: '#000000' } }, 
-    min: 0,
-    labels: { format: '{value}%' }
-  },
-  tooltip: { 
-    shared: true,
-    valueSuffix: ' %'
-  },
-  series: [
-    { name: 'LSTM', data: series_ape_lstm, color: '#f28e2b', marker: { symbol: 'circle' } },
-    { name: 'RF', data: series_ape_rf, color: '#e15759', marker: { symbol: 'triangle' } }
-  ]
-})
 ```
 

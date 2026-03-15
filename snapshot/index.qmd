@@ -57,23 +57,29 @@ getSmartVal = (dataList, wk, algoName) => {
 };
 
 function countThresholds(disease, ward, yr, wk) {
+  // 1. TÍNH SỐ CA THỰC TẾ TỪ CƠ SỞ DỮ LIỆU (KHÔNG LẤY TỪ GOOGLE SHEETS)
+  let raw_data = disease === "Sốt xuất huyết" ? data_sxh : data_tcm;
+  let cases = d3.sum(raw_data.filter(d => 
+      d.Year === yr && 
+      d.Week === wk && 
+      (ward === "Toàn Thành phố" || d.NoiOHienTai_SauKhiSapNhap_WardId === ward)
+  ), d => d.SoCa) || 0;
+
+  // 2. LẤY CÁC NGƯỠNG DỊCH
   let w_data = data_threshold.filter(d => d.Disease === disease && d.NoiOHienTai_SauKhiSapNhap_WardId === ward && d.Year === yr);
-  let row = w_data.find(d => d.Week === wk);
-  if (!row) return 0;
+  let sea = getSmartVal(w_data, wk, 'Seasonal') ?? 99999;
+  let far = getSmartVal(w_data, wk, 'Farrington') ?? 99999;
+  let cus = getSmartVal(w_data, wk, 'Cusum') ?? 99999;
+  let cdc = getSmartVal(w_data, wk, 'CDC') ?? 99999; 
   
-  let cases = row.cases || 0;
-  let sea = getSmartVal(w_data, wk, 'Seasonal') || 99999;
-  let far = getSmartVal(w_data, wk, 'Farrington') || 99999;
-  let cus = getSmartVal(w_data, wk, 'Cusum') || 99999;
-  let cdc = getSmartVal(w_data, wk, 'CDC') || 99999; // Mean+2SD
-  
+  // 3. CHẤM ĐIỂM CẢNH BÁO
   let score = 0; // Mặc định: An toàn
   if (cases > sea) {
     let over_count = 0;
     if (cases > far) over_count++;
     if (cases > cus) over_count++;
     if (cases > cdc) over_count++;
-    
+
     if (over_count === 3) score = 3;      // Báo động
     else if (over_count === 2) score = 2; // Cảnh báo
     else if (over_count === 1) score = 1; // Lưu ý
@@ -484,6 +490,13 @@ count_sxh_canhbao = hotspots_sxh.filter(d => d.type === 2).length;
 count_tcm_baodong = hotspots_tcm.filter(d => d.type === 3).length;
 count_tcm_canhbao = hotspots_tcm.filter(d => d.type === 2).length;
 
+// Lấy danh sách tên phường/xã (được nối bằng dấu phẩy)
+names_sxh_baodong = hotspots_sxh.filter(d => d.type === 3).map(d => d.name).join(", ");
+names_sxh_canhbao = hotspots_sxh.filter(d => d.type === 2).map(d => d.name).join(", ");
+
+names_tcm_baodong = hotspots_tcm.filter(d => d.type === 3).map(d => d.name).join(", ");
+names_tcm_canhbao = hotspots_tcm.filter(d => d.type === 2).map(d => d.name).join(", ");
+
 html`
 <div style="max-width: 1500px; margin: 0 auto; padding: 10px 20px;">
   
@@ -512,7 +525,22 @@ html`
     </h4>
     <ul style="margin: 0; padding-left: 20px; color: #333; font-size: 1.05rem; line-height: 1.7;">
       <li style="margin-bottom: 12px;">
-        Tuần qua ghi nhận <b>${kpi_sxh.current}</b> ca mắc mới <i>Sốt xuất huyết</i> (có <b>${count_sxh_baodong}</b> phường/xã <b style="color: #dc3545;">báo động</b> và <b>${count_sxh_canhbao}</b> phường/xã <b style="color: #fd7e14;">cảnh báo</b>) và <b>${kpi_tcm.current}</b> ca mắc mới <i>Tay chân miệng</i> (có <b>${count_tcm_baodong}</b> phường/xã <b style="color: #dc3545;">báo động</b> và <b>${count_tcm_canhbao}</b> phường/xã <b style="color: #fd7e14;">cảnh báo</b>).
+        Tuần qua ghi nhận <b>${kpi_sxh.current}</b> ca mắc mới <i>Sốt xuất huyết</i> và <b>${kpi_tcm.current}</b> ca mắc mới <i>Tay chân miệng</i>.
+      </li>
+      <li style="margin-bottom: 12px;">
+        Các phường/xã cảnh báo liên tiếp 3 tuần:
+        <ul style="list-style-type: none; padding-left: 20px; margin-top: 5px; margin-bottom: 0;">
+          <li style="margin-bottom: 5px;">
+            <span>Sốt xuất huyết:</span> 
+            mức <b style="color: #dc3545;">báo động</b> ${count_sxh_baodong > 0 ? `(${names_sxh_baodong})` : ''}, 
+            mức <b style="color: #fd7e14;">cảnh báo</b> ${count_sxh_canhbao > 0 ? `(${names_sxh_canhbao})` : ''}.
+          </li>
+          <li>
+            <span>Tay chân miệng:</span> 
+            mức <b style="color: #dc3545;">báo động</b> ${count_tcm_baodong > 0 ? `(${names_tcm_baodong})` : ''}, 
+            mức <b style="color: #fd7e14;">cảnh báo</b> ${count_tcm_canhbao > 0 ? `(${names_tcm_canhbao})` : ''}.
+          </li>
+        </ul>
       </li>
       <li style="margin-bottom: 12px;">
         Phân tích SaTScan không ghi nhận cụm ca bệnh có liên quan về không gian.
