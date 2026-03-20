@@ -28,6 +28,7 @@ mutable data_tcm = []
 mutable data_threshold = [] 
 mutable data_transmission = []
 mutable data_severity = []
+mutable data_pred = []
 
 // 3. GIAO DIỆN & LOGIC GIẢI MÃ
 {
@@ -85,12 +86,13 @@ mutable data_severity = []
         }
 
         // Giải mã 5 file
-        const [sxh, tcm, thr, trans, sev] = await Promise.all([
+        const [sxh, tcm, thr, trans, sev, pred] = await Promise.all([
           decryptData("sxh.dat", pass), 
           decryptData("tcm.dat", pass),
           decryptData("threshold.dat", pass),
           decryptData("transmission.dat", pass), 
-          decryptData("severity.dat", pass)
+          decryptData("severity.dat", pass),
+          decryptData("pred.dat", pass)
         ]);
 
         // Cập nhật biến mutable
@@ -99,6 +101,7 @@ mutable data_severity = []
         mutable data_threshold = thr;
         mutable data_transmission = trans; 
         mutable data_severity = sev;
+        mutable data_pred = pred;
 
         // Mở khóa màn hình
         overlay.style.opacity = "0";
@@ -346,8 +349,8 @@ age_colors = [
 ```{ojs}
 viewof selected_year = {
   let input = Inputs.select(years, {
-    label: "Năm báo cáo:", 
-    unique: true, 
+    label: "Năm báo cáo:",
+    unique: true,
     format: d => d.toString()
   });
   input.id = "wrap-nam";
@@ -356,7 +359,7 @@ viewof selected_year = {
 
 viewof selected_disease = {
   let input = Inputs.radio(
-    ["Sốt xuất huyết", "Tay chân miệng"], 
+    ["Sốt xuất huyết", "Tay chân miệng"],
     {label: "Loại bệnh:", value: "Sốt xuất huyết"}
   );
   input.id = "wrap-benh";
@@ -365,10 +368,10 @@ viewof selected_disease = {
 
 viewof selected_ward = {
   let input = Inputs.select(
-    wards, 
+    wards,
     {label: "Địa bàn:", value: "Toàn Thành phố"}
   );
-  input.id = "wrap-diaban"; 
+  input.id = "wrap-diaban";
   return input;
 }
 ```
@@ -387,6 +390,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let activeTab = document.querySelector('.navbar-nav .nav-link.active');
     if (!activeTab) return;
     
+    // Lấy tên Tab hiện tại
     let tabName = activeTab.textContent.trim();
     let wrapNam = document.getElementById('wrap-nam');
     let wrapDiaBan = document.getElementById('wrap-diaban');
@@ -394,57 +398,56 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (!wrapNam || !wrapDiaBan) return;
 
-    // --- HÀM RESET BỘ LỌC CHUẨN (KHÔNG BỊ LỖI TRẮNG) ---
+    // --- HÀM RESET BỘ LỌC (Tự động đưa về Toàn Thành phố) ---
     function resetFilters() {
-      // 1. Reset Địa bàn về dòng đầu tiên ("Toàn Thành phố")
       let selectDiaBan = wrapDiaBan.querySelector('select');
       if (selectDiaBan && selectDiaBan.selectedIndex !== 0) {
-        selectDiaBan.selectedIndex = 0; // Ép chọn dòng đầu tiên
+        selectDiaBan.selectedIndex = 0; 
         selectDiaBan.dispatchEvent(new Event('input', { bubbles: true }));
         selectDiaBan.dispatchEvent(new Event('change', { bubbles: true }));
       }
-      
-      // 2. Reset Năm về dòng đầu tiên (Năm mới nhất)
       let selectNam = wrapNam.querySelector('select');
       if (selectNam && selectNam.selectedIndex !== 0) {
-        selectNam.selectedIndex = 0; // Ép chọn dòng đầu tiên
+        selectNam.selectedIndex = 0;
         selectNam.dispatchEvent(new Event('input', { bubbles: true }));
         selectNam.dispatchEvent(new Event('change', { bubbles: true }));
       }
     }
 
-    // --- GỌI RESET MỖI KHI CHUYỂN TAB ---
-    // (Bất kể chuyển đi đâu, cứ sang nhà mới là dọn dẹp sạch sẽ bộ lọc)
+    // Tự động reset mỗi khi click đổi tab
     resetFilters();
 
-    // --- SAU ĐÓ MỚI ẨN/HIỆN SIDEBAR THEO TỪNG TAB ---
-    if (tabName === 'Đánh giá nguy cơ') { // [cite: 72]
-      wrapNam.style.display = ''; // [cite: 72]
-      wrapDiaBan.style.display = 'none'; // [cite: 73]
+    // --- BẬT/TẮT BỘ LỌC TÙY THEO TAB (Dùng includes bắt lỗi cực chuẩn) ---
+    if (tabName.includes('Đánh giá nguy cơ')) {
+      wrapNam.style.display = '';
+      wrapDiaBan.style.display = 'none';
       if(wrapBenh) wrapBenh.style.display = '';
     } 
-    else if (tabName === 'Ngưỡng dịch') { // [cite: 73]
-      wrapNam.style.display = 'none'; // [cite: 73]
-      wrapDiaBan.style.display = ''; // [cite: 74]
+    else if (tabName.includes('Ngưỡng dịch')) {
+      wrapNam.style.display = 'none';
+      wrapDiaBan.style.display = '';
       if(wrapBenh) wrapBenh.style.display = '';
     }
-    else if (tabName === 'Bản đồ') { // [cite: 74]
-      wrapNam.style.display = 'none'; // [cite: 74]
-      wrapDiaBan.style.display = 'none'; // [cite: 75]
+    else if (tabName.includes('Bản đồ')) {
+      wrapNam.style.display = 'none';
+      wrapDiaBan.style.display = 'none';
       if(wrapBenh) wrapBenh.style.display = '';
     } 
-    else if (tabName === 'Dự báo') { // Thêm logic cho tab Dự báo
-      wrapNam.style.display = 'none'; 
+    else if (tabName.includes('Dự báo')) { 
+      // CHỈ HIỆN MỖI BỆNH, ẨN BIỆT TÍCH NĂM VÀ ĐỊA BÀN
+      wrapNam.style.display = 'none';
       wrapDiaBan.style.display = 'none'; 
-      if(wrapBenh) wrapBenh.style.display = 'none'; // Ẩn hoàn toàn bộ lọc
-    }
-    else { // [cite: 75]
-      wrapNam.style.display = ''; // [cite: 75]
-      wrapDiaBan.style.display = ''; // [cite: 76]
       if(wrapBenh) wrapBenh.style.display = '';
     }
+    else { 
+      // Các tab còn lại (như Tổng quan) thì hiện Full
+      wrapNam.style.display = '';
+      wrapDiaBan.style.display = '';
+      if(wrapBenh) wrapBenh.style.display = '';
+    }
+  }
 
-  // Canh me web tải xong lần đầu
+  // Canh me lúc web vừa tải xong lần đầu để chạy
   let initCheck = setInterval(() => {
     let wrapNam = document.getElementById('wrap-nam');
     if (wrapNam) {
@@ -453,11 +456,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }, 500);
 
-  // Lắng nghe sự kiện click chuyển Tab
+  // Lắng nghe lúc mày click chuyển Tab
   let navLinks = document.querySelectorAll('.navbar-nav .nav-link');
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
-       // Đợi 150ms để Quarto hoàn thành việc đổi tab rồi mới chạy reset
        setTimeout(updateSidebarVisibility, 150);
     });
   });
@@ -1592,5 +1594,146 @@ html`
   }
 </div>
 `
+```
+
+# Dự báo
+
+```{ojs}
+//| output: false
+
+// ==========================================
+// XỬ LÝ DỮ LIỆU DỰ BÁO (CHUẨN THEO BỘ LỌC)
+// ==========================================
+pred_weeks = Array.from({length: 52}, (_, i) => i + 1);
+
+// 1. Số ca thực tế: Lấy chuẩn từ chart_raw_data
+actual_cases = pred_weeks.map(wk => {
+    let rows = chart_raw_data.filter(d => Number(d.Week) === wk);
+    let sum = d3.sum(rows, d => Number(d.SoCa) || 0);
+    
+    let limit_wk = (Number(selected_year) === sys_max_yr) ? sys_max_wk : 52;
+    return wk <= limit_wk ? sum : null;
+});
+
+last_actual_wk = (Number(selected_year) === sys_max_yr) ? sys_max_wk : 52;
+
+// 2. Lọc dữ liệu file dự báo cho năm đang chọn
+pred_data_yr = data_pred.filter(d => Number(d.Year) === Number(selected_year));
+
+// 3. Đường dự báo LSTM
+series_pred_lstm = pred_weeks.map(wk => {
+    if (last_actual_wk > 0 && wk === last_actual_wk) return actual_cases[last_actual_wk - 1];
+    
+    if (wk > last_actual_wk) {
+        let row = pred_data_yr.find(d => Number(d.Week) === wk);
+        return row ? Number(row.Pred_LSTM || row.pred_lstm) : null;
+    }
+    return null;
+});
+
+// 4. Đường dự báo SARIMA (Đã sửa từ RF)
+series_pred_sarima = pred_weeks.map(wk => {
+    if (last_actual_wk > 0 && wk === last_actual_wk) return actual_cases[last_actual_wk - 1];
+    
+    if (wk > last_actual_wk) {
+        let row = pred_data_yr.find(d => Number(d.Week) === wk);
+        return row ? Number(row.Pred_SARIMA || row.pred_sarima) : null;
+    }
+    return null;
+});
+
+// 5. Sai số APE LSTM
+series_ape_lstm = pred_weeks.map(wk => {
+    if (wk > last_actual_wk) return null;
+    let actual = actual_cases[wk - 1];
+    let row = pred_data_yr.find(d => Number(d.Week) === wk);
+    let pred = row ? Number(row.Pred_LSTM || row.pred_lstm) : null;
+    
+    if (actual > 0 && pred != null) {
+        return Number((Math.abs(actual - pred) / actual * 100).toFixed(2));
+    }
+    return null;
+});
+
+// 6. Sai số APE SARIMA (Đã sửa từ RF)
+series_ape_sarima = pred_weeks.map(wk => {
+    if (wk > last_actual_wk) return null;
+    let actual = actual_cases[wk - 1];
+    let row = pred_data_yr.find(d => Number(d.Week) === wk);
+    let pred = row ? Number(row.Pred_SARIMA || row.pred_sarima) : null;
+    
+    if (actual > 0 && pred != null) {
+        return Number((Math.abs(actual - pred) / actual * 100).toFixed(2));
+    }
+    return null;
+});
+```
+
+## Row 1
+
+```{ojs}
+//| title: "Dự báo xu hướng số ca mắc"
+{
+  if (selected_disease === "Tay chân miệng") {
+    return html`
+      <div style="height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #f8f9fa; border: 2px dashed #dee2e6; border-radius: 8px;">
+        <div style="font-size: 3rem; opacity: 0.5; margin-bottom: 15px;">🚧</div>
+        <h4 style="color: #6c757d; font-weight: 600; margin: 0;">Đang xây dựng mô hình dự báo cho tay chân miệng</h4>
+      </div>
+    `;
+  } else {
+    return createHighchart("chart-forecast", {
+      chart: { type: 'spline' },
+      xAxis: { 
+        categories: pred_weeks, 
+        title: { text: 'Tuần', style: { fontWeight: 'bold' } },
+        plotBands: [{ 
+            from: last_actual_wk - 1, to: 52, 
+            color: 'rgba(68, 170, 213, 0.1)', 
+            label: { text: 'Vùng dự báo', align: 'center', style: { color: '#606060' } } 
+        }]
+      },
+      yAxis: { title: { text: 'Số ca mắc', style: { fontWeight: 'bold' } }, min: 0 },
+      tooltip: { shared: true },
+      plotOptions: {
+        spline: { marker: { enabled: false } }
+      },
+      series: [
+        { name: 'Thực tế', data: actual_cases, color: plot_color, lineWidth: 3, zIndex: 3 },
+        { name: 'Dự báo LSTM', data: series_pred_lstm, color: '#f28e2b', dashStyle: 'ShortDash', lineWidth: 2, zIndex: 2 },
+        { name: 'Dự báo SARIMA', data: series_pred_sarima, color: '#e15759', dashStyle: 'ShortDash', lineWidth: 2, zIndex: 1 }
+      ]
+    });
+  }
+}
+```
+
+## Row 2
+
+```{ojs}
+//| title: "Đánh giá sai số mô hình (APE %)"
+{
+  if (selected_disease === "Tay chân miệng") {
+    return html`
+      <div style="height: 350px; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #f8f9fa; border: 2px dashed #dee2e6; border-radius: 8px;">
+        <h4 style="color: #6c757d; font-weight: 600; margin: 0;">Chưa có dữ liệu sai số</h4>
+      </div>
+    `;
+  } else {
+    return createHighchart("chart-ape", {
+      chart: { type: 'line' },
+      xAxis: { categories: pred_weeks, title: { text: 'Tuần', style: { fontWeight: 'bold' } } },
+      yAxis: { title: { text: 'Sai số tuyệt đối phần trăm (APE %)', style: { fontWeight: 'bold' } }, min: 0 },
+      tooltip: { shared: true, valueSuffix: ' %' },
+      plotOptions: {
+        line: { marker: { enabled: true, radius: 4 } }
+      },
+      series: [
+        { name: 'Sai số LSTM', data: series_ape_lstm, color: '#f28e2b' },
+        { name: 'Sai số SARIMA', data: series_ape_sarima, color: '#e15759' }
+      ]
+    });
+  }
+}
 ```
 
