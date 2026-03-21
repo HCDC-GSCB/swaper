@@ -196,3 +196,67 @@ encrypt_data(df_pred, paste0(base_path, "pred.dat"), "Swaper@234")
 message("✅ Hoàn tất file pred.dat")
 
 
+# ==============================================================================
+# TỰ ĐỘNG TẠO BÁO CÁO TUẦN MỚI NHẤT & RENDER 
+# ==============================================================================
+message("--- Đang tự động kiểm tra và tạo báo cáo Snapshot tuần mới ---")
+library(dplyr)
+library(stringr)
+
+# 1. Tìm tuần mới nhất trong dữ liệu
+curr_yr <- max(agg_sxh$Year, na.rm = TRUE)
+curr_wk <- max(agg_sxh$Week[agg_sxh$Year == curr_yr], na.rm = TRUE)
+
+posts_dir <- paste0(base_path, "../snapshot/posts/")
+if (!dir.exists(posts_dir)) dir.create(posts_dir, recursive = TRUE)
+post_filename <- sprintf("%s%d_W%02d.qmd", posts_dir, curr_yr, curr_wk)
+
+# 2. CHỈ TẠO NẾU BÀI VIẾT TUẦN NÀY CHƯA CÓ
+if (!file.exists(post_filename)) {
+  
+  tpl_path <- paste0(base_path, "../snapshot/template.qmd")
+  tpl_lines <- readLines(tpl_path, warn = FALSE)
+  start_idx <- which(tpl_lines == "---")[2] 
+  tpl_lines_clean <- tpl_lines[(start_idx + 1):length(tpl_lines)]
+  
+  # Tự động chèn CSS ẩn tiêu đề mặc định vào đầu nội dung
+  hide_title_css <- "<style>\n  #title-block-header, .quarto-title-block { display: none !important; }\n</style>\n"
+  tpl_lines_clean <- c(hide_title_css, tpl_lines_clean)
+  
+  # Cấy số tuần vào template
+  current_tpl <- str_replace_all(tpl_lines_clean, "\\{\\{TARGET_YEAR\\}\\}", as.character(curr_yr))
+  current_tpl <- str_replace_all(current_tpl, "\\{\\{TARGET_WEEK\\}\\}", as.character(curr_wk))
+  
+  dummy_date <- as.Date(paste(curr_yr, curr_wk, 5, sep="-"), "%Y-%W-%u") 
+  if (is.na(dummy_date)) dummy_date <- Sys.Date()
+  
+  # Header YAML full đồ chơi y chang Bước 3
+  yaml_header <- c(
+    "---",
+    sprintf("title: 'Bản tin nhanh - Tuần %02d/%d'", curr_wk, curr_yr),
+    sprintf("description: 'Cập nhật tình hình SXH và TCM tuần %02d năm %d'", curr_wk, curr_yr),
+    sprintf("date: '%s'", dummy_date),
+    "image: /favicon.png",
+    "format:",
+    "  html:",
+    "    css: ../snapshot.css",
+    "    page-layout: custom",
+    "    include-in-header: ",
+    "      - text: |",
+    "          <script src=\"../highcharts.js\"></script>",
+    "          <script src=\"../highcharts-more.js\"></script>",
+    "          <script src=\"https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js\"></script>", # <--- CHÈN DÒNG NÀY VÀO
+    "---"
+  )
+  
+  writeLines(c(yaml_header, current_tpl), post_filename)
+  message(sprintf("✅ Đã tạo thành công bài viết mới: %d_W%02d.qmd", curr_yr, curr_wk))
+  
+} else {
+  message(sprintf("⏭️ Bài viết tuần %02d/%d đã tồn tại. Bỏ qua bước tạo file.", curr_wk, curr_yr))
+}
+
+
+
+
+

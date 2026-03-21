@@ -1,0 +1,677 @@
+---
+title: 'Bản tin nhanh - Tuần 04/2026'
+description: 'Cập nhật tình hình SXH và TCM tuần 04 năm 2026'
+date: '2026-01-30'
+image: /favicon.png
+format:
+  html:
+    css: ../snapshot.css
+    page-layout: custom
+    include-in-header: 
+      - text: |
+          <script src="../highcharts.js"></script>
+          <script src="../highcharts-more.js"></script>
+---
+
+```{=html}
+<style>
+  #title-block-header, .quarto-title-block { display: none !important; }
+  
+  .btn-pdf {
+  padding: 10px 20px; background: linear-gradient(135deg, #005d88 0%, #003f5c 100%);
+  color: white !important; border: none; border-radius: 8px; cursor: pointer;
+  font-weight: bold; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); box-shadow: 0 4px 6px rgba(0, 93, 136, 0.2);
+}
+.btn-pdf:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0, 93, 136, 0.4); }
+</style>
+```
+
+
+```{ojs}
+//| output: false
+//| echo: false
+
+// 👉 NHỚ ĐIỀN MẬT KHẨU THẬT VÀO ĐÂY
+secret_pass = "Swaper@234" 
+
+async function fetchAndDecrypt(filename) {
+  try {
+    const res = await fetch("../../dashboard/" + filename);
+    if (!res.ok) return []; 
+    const encryptedBuf = await res.arrayBuffer(); // Đã sửa lỗi rsev_gauge ở đây
+    const keyBuf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(secret_pass));
+    const keyBytes = new Uint8Array(keyBuf);
+    const dataBytes = new Uint8Array(encryptedBuf);
+    for (let i = 0; i < dataBytes.length; i++) dataBytes[i] = dataBytes[i] ^ keyBytes[i % keyBytes.length];
+    return JSON.parse(new TextDecoder().decode(dataBytes));
+  } catch(e) { return []; }
+}
+
+data_sxh = fetchAndDecrypt("sxh.dat")
+data_tcm = fetchAndDecrypt("tcm.dat")
+data_threshold = fetchAndDecrypt("threshold.dat")
+data_transmission = fetchAndDecrypt("transmission.dat")
+data_severity = fetchAndDecrypt("severity.dat")
+```
+
+```{ojs}
+//| output: false
+//| echo: false
+
+d3 = require("d3")
+
+sys_max_yr = 2026;
+sys_max_wk = 4;
+
+getSmartVal = (dataList, wk, algoName) => {
+  const rows = dataList.filter(d => Number(d.Week) === wk);
+  if (!rows.length) return null;
+  const row = rows[0];
+  if (row[algoName] !== undefined) return row[algoName];
+  if (row[algoName.toLowerCase()] !== undefined) return row[algoName.toLowerCase()];
+  const matchRow = rows.find(r => r.Type === algoName);
+  return matchRow ? matchRow.Threshold : null;
+};
+
+function countThresholds(disease, ward, yr, wk) {
+  // 1. TÍNH SỐ CA THỰC TẾ TỪ CƠ SỞ DỮ LIỆU (KHÔNG LẤY TỪ GOOGLE SHEETS)
+  let raw_data = disease === "Sốt xuất huyết" ? data_sxh : data_tcm;
+  let cases = d3.sum(raw_data.filter(d => 
+      d.Year === yr && 
+      d.Week === wk && 
+      (ward === "Toàn Thành phố" || d.NoiOHienTai_SauKhiSapNhap_WardId === ward)
+  ), d => d.SoCa) || 0;
+
+  // 2. LẤY CÁC NGƯỠNG DỊCH
+  let w_data = data_threshold.filter(d => d.Disease === disease && d.NoiOHienTai_SauKhiSapNhap_WardId === ward && d.Year === yr);
+  let sea = getSmartVal(w_data, wk, 'Seasonal') ?? 99999;
+  let far = getSmartVal(w_data, wk, 'Farrington') ?? 99999;
+  let cus = getSmartVal(w_data, wk, 'Cusum') ?? 99999;
+  let cdc = getSmartVal(w_data, wk, 'CDC') ?? 99999; 
+  
+  // 3. CHẤM ĐIỂM CẢNH BÁO
+  let score = 0; // Mặc định: An toàn
+  if (cases > sea) {
+    let over_count = 0;
+    if (cases > far) over_count++;
+    if (cases > cus) over_count++;
+    if (cases > cdc) over_count++;
+
+    if (over_count === 3) score = 3;      // Báo động
+    else if (over_count === 2) score = 2; // Cảnh báo
+    else if (over_count === 1) score = 1; // Lưu ý
+  }
+  return score;
+}
+
+function getDetailedHotspots(disease) {
+  if(data_threshold.length === 0) return [];
+  let wards = [...new Set(data_threshold.filter(d => d.Disease === disease && d.NoiOHienTai_SauKhiSapNhap_WardId !== "Toàn Thành phố").map(d => d.NoiOHienTai_SauKhiSapNhap_WardId))];
+  let results = [];
+
+  for(let w of wards) {
+     let s0 = countThresholds(disease, w, sys_max_yr, sys_max_wk);
+     let s1 = countThresholds(disease, w, sys_max_yr, sys_max_wk - 1);
+     let s2 = countThresholds(disease, w, sys_max_yr, sys_max_wk - 2);
+     
+     // Chỉ xét điểm nóng nếu 3 tuần liên tiếp đều từ CẢNH BÁO (score >= 2) trở lên
+     if (s0 >= 2 && s1 >= 2 && s2 >= 2) {
+         let w_data = data_threshold.filter(d => d.Disease === disease && d.NoiOHienTai_SauKhiSapNhap_WardId === w && d.Year === sys_max_yr);
+         let row = w_data.find(d => d.Week === sys_max_wk);
+         let cases = row ? (row.cases || 0) : 0;
+         
+         // Nếu 3 tuần liên tiếp đều BÁO ĐỘNG (score === 3)
+         if (s0 === 3 && s1 === 3 && s2 === 3) {
+             results.push({ name: w.replace("Phường ", "P.").replace("Xã ", "X."), type: 3, cases: cases, color: '#dc3545' }); // Đỏ danger
+         } else {
+             results.push({ name: w.replace("Phường ", "P.").replace("Xã ", "X."), type: 2, cases: cases, color: '#fd7e14' }); // Cam warning
+         }
+     }
+  }
+  results.sort((a, b) => {
+     if (b.type !== a.type) return b.type - a.type;
+     return b.cases - a.cases;
+  });
+  return results;
+}
+
+function getCityKPI(raw_data, disease) {
+  if(raw_data.length === 0) return { current: 0, trend: "---", status: {t: "KHÔNG CÓ DỮ LIỆU", c: "#999"} };
+  let current = d3.sum(raw_data.filter(d => d.Year === sys_max_yr && d.Week === sys_max_wk), d => d.SoCa) || 0;
+  let prev = d3.sum(raw_data.filter(d => d.Year === sys_max_yr && d.Week === sys_max_wk - 1), d => d.SoCa) || 0;
+  
+  let pct = prev > 0 ? ((current - prev) / prev * 100).toFixed(1) : 0;
+  let trend = current >= prev ? `▲ tăng ${pct}%` : `▼ giảm ${Math.abs(pct)}%`;
+  
+  let score = countThresholds(disease, "Toàn Thành phố", sys_max_yr, sys_max_wk);
+  let status = score === 0 ? {t: "Bình thường", c: "#28a745"} :
+               score === 1 ? {t: "Lưu ý", c: "#ffc107"} :
+               score === 2 ? {t: "Cảnh báo", c: "#fd7e14"} : 
+                             {t: "Báo động", c: "#dc3545"};
+                             
+  return { current, trend, status };
+}
+
+kpi_sxh = getCityKPI(data_sxh, "Sốt xuất huyết");
+hotspots_sxh = getDetailedHotspots("Sốt xuất huyết");
+
+kpi_tcm = getCityKPI(data_tcm, "Tay chân miệng");
+hotspots_tcm = getDetailedHotspots("Tay chân miệng");
+```
+
+```{ojs}
+//| echo: false
+
+// ================= GAUGE SỐT XUẤT HUYẾT =================
+trans_gauge_sxh = {
+  let val = kpi_sxh.current;
+  let thr = data_transmission.find(d => d.Disease === "Sốt xuất huyết") || {Seasonal: 100, Moderate: 200, High: 300, Extra: 400};
+  
+  let level = 1; let levelText = "Rất thấp";
+  if (val > thr.Extra) { level = 5; levelText = "Rất cao"; }
+  else if (val > thr.High) { level = 4; levelText = "Cao"; }
+  else if (val > thr.Moderate) { level = 3; levelText = "Vừa"; }
+  else if (val > thr.Seasonal) { level = 2; levelText = "Thấp"; }
+  
+  // Tính toán góc kim di chuyển mượt mà dựa trên số ca bệnh thực tế (val)
+  let rotAngle = -90;
+  let max_val = thr.Extra * 1.5; // Giới hạn kịch kim cho mức "Rất cao"
+  
+  if (val <= thr.Seasonal) {
+    rotAngle = -90 + (val / thr.Seasonal) * 36;
+  } else if (val <= thr.Moderate) {
+    rotAngle = -54 + ((val - thr.Seasonal) / (thr.Moderate - thr.Seasonal)) * 36;
+  } else if (val <= thr.High) {
+    rotAngle = -18 + ((val - thr.Moderate) / (thr.High - thr.Moderate)) * 36;
+  } else if (val <= thr.Extra) {
+    rotAngle = 18 + ((val - thr.High) / (thr.Extra - thr.High)) * 36;
+  } else {
+    let over = val > max_val ? max_val : val; // Neo kim ở góc +90 nếu vượt kịch kim
+    rotAngle = 54 + ((over - thr.Extra) / (max_val - thr.Extra)) * 36;
+  }
+
+  return html`
+    <div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      <div style="font-size: 14px; font-weight: bold; color: #005d88; margin-bottom: 5px;">Mức độ lây truyền</div>
+      <svg viewBox="0 0 300 160" width="100%" height="auto" style="max-width: 250px;">
+        <defs><path id="curve_tsxh" d="M 35 140 A 115 115 0 0 1 265 140" fill="none" stroke="none" /></defs>
+        <circle cx="150" cy="140" r="85" fill="none" stroke="#D5EDB9" stroke-width="35" stroke-dasharray="52 483" transform="rotate(180 150 140)" />
+        <circle cx="150" cy="140" r="85" fill="none" stroke="#FCE8A5" stroke-width="35" stroke-dasharray="52 483" transform="rotate(216 150 140)" />
+        <circle cx="150" cy="140" r="85" fill="none" stroke="#FFC296" stroke-width="35" stroke-dasharray="52 483" transform="rotate(252 150 140)" />
+        <circle cx="150" cy="140" r="85" fill="none" stroke="#E97777" stroke-width="35" stroke-dasharray="52 483" transform="rotate(288 150 140)" />
+        <circle cx="150" cy="140" r="85" fill="none" stroke="#C4BDF3" stroke-width="35" stroke-dasharray="52 483" transform="rotate(324 150 140)" />
+        <text font-size="12" font-weight="600" fill="#444" text-anchor="middle">
+          <textPath href="#curve_tsxh" startOffset="10%">Rất thấp</textPath><textPath href="#curve_tsxh" startOffset="30%">Thấp</textPath>
+          <textPath href="#curve_tsxh" startOffset="50%">Vừa</textPath><textPath href="#curve_tsxh" startOffset="70%">Cao</textPath><textPath href="#curve_tsxh" startOffset="90%">Rất cao</textPath>
+        </text>
+        <g transform="rotate(${rotAngle} 150 140)" style="transition: transform 1s ease-out;">
+          <path d="M 146 140 L 150 65 L 154 140 Z" fill="#444" /><circle cx="150" cy="140" r="8" fill="#444" />
+        </g>
+      </svg>
+      <div style="text-align: center; line-height: 1.4; margin-top: -5px;">
+        <span style="font-size: 0.95rem; color: #000000;">Toàn Thành phố: <strong>${levelText}</strong></span>
+      </div>
+    </div>`;
+}
+
+sev_gauge_sxh = {
+  let val = d3.sum(data_sxh.filter(d => d.Year === sys_max_yr && d.Week === sys_max_wk && d.NhomDieuTri === "Nội trú"), d => d.SoCa) || 0;
+  let current_thr = data_severity.find(d => d.Disease === "Sốt xuất huyết" && Number(d.Week) === sys_max_wk) || {Limit_Low: 0, Limit_Mod: 0, Limit_High: 0};
+  let level = 1; let levelText = "Thấp"; 
+  if (current_thr.Limit_Low > 0) {
+     if (val >= current_thr.Limit_High) { level = 4; levelText = "Rất cao"; }
+     else if (val >= current_thr.Limit_Mod) { level = 3; levelText = "Cao"; }
+     else if (val >= current_thr.Limit_Low) { level = 2; levelText = "Vừa"; }
+  }
+  let rotAngle = ((level - 1) * 45 + 22.5) - 90;
+
+  return html`
+    <div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      <div style="font-size: 14px; font-weight: bold; color: #005d88; margin-bottom: 5px;">Mức độ nặng</div>
+      <svg viewBox="0 0 300 160" width="100%" height="auto" style="max-width: 250px;">
+        <defs><path id="curve_ssxh" d="M 35 140 A 115 115 0 0 1 265 140" fill="none" stroke="none" /></defs>
+        <circle cx="150" cy="140" r="85" fill="none" stroke="#FCE8A5" stroke-width="35" stroke-dasharray="65 470" transform="rotate(180 150 140)" />
+        <circle cx="150" cy="140" r="85" fill="none" stroke="#FFC296" stroke-width="35" stroke-dasharray="65 470" transform="rotate(225 150 140)" />
+        <circle cx="150" cy="140" r="85" fill="none" stroke="#E97777" stroke-width="35" stroke-dasharray="65 470" transform="rotate(270 150 140)" />
+        <circle cx="150" cy="140" r="85" fill="none" stroke="#C4BDF3" stroke-width="35" stroke-dasharray="65 470" transform="rotate(315 150 140)" />
+        <text font-size="12" font-weight="600" fill="#444" text-anchor="middle">
+          <textPath href="#curve_ssxh" startOffset="12.5%">Thấp</textPath><textPath href="#curve_ssxh" startOffset="37.5%">Vừa</textPath>
+          <textPath href="#curve_ssxh" startOffset="62.5%">Cao</textPath><textPath href="#curve_ssxh" startOffset="87.5%">Rất cao</textPath>
+        </text>
+        <g transform="rotate(${rotAngle} 150 140)" style="transition: transform 1s ease-out;">
+          <path d="M 146 140 L 150 65 L 154 140 Z" fill="#444" /><circle cx="150" cy="140" r="8" fill="#444" />
+        </g>
+      </svg>
+      <div style="text-align: center; line-height: 1.4; margin-top: -5px;">
+        <span style="font-size: 0.95rem; color: #000000;">Toàn Thành phố: <strong>${levelText}</strong></span>
+      </div>
+    </div>`;
+}
+
+// ================= GAUGE TAY CHÂN MIỆNG =================
+trans_gauge_tcm = {
+  let val = kpi_tcm.current;
+  let thr = data_transmission.find(d => d.Disease === "Tay chân miệng") || {Seasonal: 100, Moderate: 200, High: 300, Extra: 400};
+  
+  let level = 1; let levelText = "Rất thấp";
+  if (val > thr.Extra) { level = 5; levelText = "Rất cao"; }
+  else if (val > thr.High) { level = 4; levelText = "Cao"; }
+  else if (val > thr.Moderate) { level = 3; levelText = "Vừa"; }
+  else if (val > thr.Seasonal) { level = 2; levelText = "Thấp"; }
+  
+  // Tính toán góc kim di chuyển mượt mà dựa trên số ca bệnh thực tế (val)
+  let rotAngle = -90;
+  let max_val = thr.Extra * 1.5; // Giới hạn kịch kim cho mức "Rất cao"
+
+  if (val <= thr.Seasonal) {
+    rotAngle = -90 + (val / thr.Seasonal) * 36;
+  } else if (val <= thr.Moderate) {
+    rotAngle = -54 + ((val - thr.Seasonal) / (thr.Moderate - thr.Seasonal)) * 36;
+  } else if (val <= thr.High) {
+    rotAngle = -18 + ((val - thr.Moderate) / (thr.High - thr.Moderate)) * 36;
+  } else if (val <= thr.Extra) {
+    rotAngle = 18 + ((val - thr.High) / (thr.Extra - thr.High)) * 36;
+  } else {
+    let over = val > max_val ? max_val : val; // Neo kim ở góc +90 nếu vượt kịch kim
+    rotAngle = 54 + ((over - thr.Extra) / (max_val - thr.Extra)) * 36;
+  }
+
+  return html`
+    <div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      <div style="font-size: 14px; font-weight: bold; color: #005d88; margin-bottom: 5px;">Mức độ lây truyền</div>
+      <svg viewBox="0 0 300 160" width="100%" height="auto" style="max-width: 250px;">
+        <defs><path id="curve_ttcm" d="M 35 140 A 115 115 0 0 1 265 140" fill="none" stroke="none" /></defs>
+        <circle cx="150" cy="140" r="85" fill="none" stroke="#D5EDB9" stroke-width="35" stroke-dasharray="52 483" transform="rotate(180 150 140)" />
+        <circle cx="150" cy="140" r="85" fill="none" stroke="#FCE8A5" stroke-width="35" stroke-dasharray="52 483" transform="rotate(216 150 140)" />
+        <circle cx="150" cy="140" r="85" fill="none" stroke="#FFC296" stroke-width="35" stroke-dasharray="52 483" transform="rotate(252 150 140)" />
+        <circle cx="150" cy="140" r="85" fill="none" stroke="#E97777" stroke-width="35" stroke-dasharray="52 483" transform="rotate(288 150 140)" />
+        <circle cx="150" cy="140" r="85" fill="none" stroke="#C4BDF3" stroke-width="35" stroke-dasharray="52 483" transform="rotate(324 150 140)" />
+        <text font-size="12" font-weight="600" fill="#444" text-anchor="middle">
+          <textPath href="#curve_ttcm" startOffset="10%">Rất thấp</textPath><textPath href="#curve_ttcm" startOffset="30%">Thấp</textPath>
+          <textPath href="#curve_ttcm" startOffset="50%">Vừa</textPath><textPath href="#curve_ttcm" startOffset="70%">Cao</textPath><textPath href="#curve_ttcm" startOffset="90%">Rất cao</textPath>
+        </text>
+        <g transform="rotate(${rotAngle} 150 140)" style="transition: transform 1s ease-out;">
+          <path d="M 146 140 L 150 65 L 154 140 Z" fill="#444" /><circle cx="150" cy="140" r="8" fill="#444" />
+        </g>
+      </svg>
+      <div style="text-align: center; line-height: 1.4; margin-top: -5px;">
+        <span style="font-size: 0.95rem; color: #000000;">Toàn Thành phố: <strong>${levelText}</strong></span>
+      </div>
+    </div>`;
+}
+
+sev_gauge_tcm = {
+  let val = d3.sum(data_tcm.filter(d => d.Year === sys_max_yr && d.Week === sys_max_wk && d.NhomDieuTri === "Nội trú"), d => d.SoCa) || 0;
+  let current_thr = data_severity.find(d => d.Disease === "Tay chân miệng" && Number(d.Week) === sys_max_wk) || {Limit_Low: 0, Limit_Mod: 0, Limit_High: 0};
+  let level = 1; let levelText = "Thấp"; 
+  if (current_thr.Limit_Low > 0) {
+     if (val >= current_thr.Limit_High) { level = 4; levelText = "Rất cao"; }
+     else if (val >= current_thr.Limit_Mod) { level = 3; levelText = "Cao"; }
+     else if (val >= current_thr.Limit_Low) { level = 2; levelText = "Vừa"; }
+  }
+  let rotAngle = ((level - 1) * 45 + 22.5) - 90;
+
+  return html`
+    <div style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      <div style="font-size: 14px; font-weight: bold; color: #005d88; margin-bottom: 5px;">Mức độ nặng</div>
+      <svg viewBox="0 0 300 160" width="100%" height="auto" style="max-width: 250px;">
+        <defs><path id="curve_stcm" d="M 35 140 A 115 115 0 0 1 265 140" fill="none" stroke="none" /></defs>
+        <circle cx="150" cy="140" r="85" fill="none" stroke="#FCE8A5" stroke-width="35" stroke-dasharray="65 470" transform="rotate(180 150 140)" />
+        <circle cx="150" cy="140" r="85" fill="none" stroke="#FFC296" stroke-width="35" stroke-dasharray="65 470" transform="rotate(225 150 140)" />
+        <circle cx="150" cy="140" r="85" fill="none" stroke="#E97777" stroke-width="35" stroke-dasharray="65 470" transform="rotate(270 150 140)" />
+        <circle cx="150" cy="140" r="85" fill="none" stroke="#C4BDF3" stroke-width="35" stroke-dasharray="65 470" transform="rotate(315 150 140)" />
+        <text font-size="12" font-weight="600" fill="#444" text-anchor="middle">
+          <textPath href="#curve_stcm" startOffset="12.5%">Thấp</textPath><textPath href="#curve_stcm" startOffset="37.5%">Vừa</textPath>
+          <textPath href="#curve_stcm" startOffset="62.5%">Cao</textPath><textPath href="#curve_stcm" startOffset="87.5%">Rất cao</textPath>
+        </text>
+        <g transform="rotate(${rotAngle} 150 140)" style="transition: transform 1s ease-out;">
+          <path d="M 146 140 L 150 65 L 154 140 Z" fill="#444" /><circle cx="150" cy="140" r="8" fill="#444" />
+        </g>
+      </svg>
+      <div style="text-align: center; line-height: 1.4; margin-top: -5px;">
+        <span style="font-size: 0.95rem; color: #000000;">Toàn Thành phố: <strong>${levelText}</strong></span>
+      </div>
+    </div>`;
+}
+```
+
+```{ojs}
+//| echo: false
+
+// 👉 4. HÀM TẠO BẢNG TÓM TẮT DỊCH BỆNH
+function generateSummaryTable(disease_name, raw_data, threshold_data) {
+  if (raw_data.length === 0) return "";
+  
+  // Màu sắc và ID theo từng bệnh
+  let theme_color = disease_name === "Sốt xuất huyết" ? "#d35400" : "#27ae60";
+  let unique_id = disease_name === "Sốt xuất huyết" ? "sxh" : "tcm";
+
+  // Dữ liệu toàn thành phố từ raw_data (tính số ca hiện tại)
+  let city_data = raw_data.filter(d => d.NoiOHienTai_SauKhiSapNhap_WardId === "Toàn Thành phố" || d.NoiOHienTai_SauKhiSapNhap_WardId === undefined);
+  if (city_data.length === 0) city_data = raw_data;
+
+  // 1. Số ca cộng dồn hiện tại (từ raw_data)
+  let cum_curr = d3.sum(city_data.filter(d => d.Year === sys_max_yr && d.Week <= sys_max_wk), d => d.SoCa) || 0;
+  
+  // 2. Số ca cộng dồn CÙNG KỲ NĂM TRƯỚC (Lấy từ threshold_data)
+  let thr_city_prev = threshold_data.filter(d => 
+     d.Disease === disease_name && 
+     d.NoiOHienTai_SauKhiSapNhap_WardId === "Toàn Thành phố" && 
+     d.Year === sys_max_yr - 1 && 
+     d.Week <= sys_max_wk
+  );
+  let cum_prev = d3.sum(thr_city_prev, d => d.cases) || 0;
+  let diff_cum = cum_prev > 0 ? ((cum_curr - cum_prev) / cum_prev) * 100 : (cum_curr > 0 ? 100 : 0);
+
+  // 3. Số ca tuần hiện tại (raw_data)
+  let wk_curr = d3.sum(city_data.filter(d => d.Year === sys_max_yr && d.Week === sys_max_wk), d => d.SoCa) || 0;
+  
+  // 4. Số ca tuần trước (raw_data)
+  let prev_yr = sys_max_wk === 1 ? sys_max_yr - 1 : sys_max_yr;
+  let prev_wk = sys_max_wk === 1 ? 52 : sys_max_wk - 1;
+  let wk_prev = d3.sum(city_data.filter(d => d.Year === prev_yr && d.Week === prev_wk), d => d.SoCa) || 0;
+  let diff_wk = wk_prev > 0 ? ((wk_curr - wk_prev) / wk_prev) * 100 : (wk_curr > 0 ? 100 : 0);
+
+  // 5. Trung bình 4 tuần trước (raw_data)
+  let wk_list = [];
+  for(let i=1; i<=4; i++) {
+     let w = sys_max_wk - i;
+     let y = sys_max_yr;
+     if (w < 1) { w = 52 + w; y = y - 1; }
+     wk_list.push(y * 100 + w);
+  }
+  let wk_4w_data = city_data.filter(d => wk_list.includes(d.Year * 100 + d.Week));
+  let avg_4w = (d3.sum(wk_4w_data, d => d.SoCa) / 4) || 0;
+  let diff_4w = avg_4w > 0 ? ((wk_curr - avg_4w) / avg_4w) * 100 : (wk_curr > 0 ? 100 : 0);
+
+  // 6. Dữ liệu ngưỡng cảnh báo dịch (Dùng getSmartVal)
+  let w_data_thr = threshold_data.filter(d => 
+     d.Disease === disease_name && 
+     d.NoiOHienTai_SauKhiSapNhap_WardId === "Toàn Thành phố" && 
+     d.Year === sys_max_yr
+  );
+
+  let sea = getSmartVal(w_data_thr, sys_max_wk, 'Seasonal');
+  let far = getSmartVal(w_data_thr, sys_max_wk, 'Farrington');
+  let cus = getSmartVal(w_data_thr, sys_max_wk, 'Cusum');
+  let cdc = getSmartVal(w_data_thr, sys_max_wk, 'CDC');
+
+  let diff_sea = sea ? ((wk_curr - sea) / sea) * 100 : 0;
+  let diff_far = far ? ((wk_curr - far) / far) * 100 : 0;
+  let diff_cdc = cdc ? ((wk_curr - cdc) / cdc) * 100 : 0;
+
+  // Hàm render mũi tên phần trăm
+  function renderDiff(diff) {
+    if (diff > 0) return `<span style="color: #dc3545; font-weight: bold;">▲ ${diff.toFixed(1)}%</span>`;
+    if (diff < 0) return `<span style="color: #28a745; font-weight: bold;">▼ ${Math.abs(diff).toFixed(1)}%</span>`;
+    return `<span style="color: #6c757d; font-weight: bold;">▬ 0%</span>`;
+  }
+
+  // Logic riêng cho CUSUM (Vượt thì +, không vượt thì -)
+  let cusum_html = (cus !== null && wk_curr > cus) 
+      ? `<span style="color: #dc3545; font-weight: bold; font-size: 1.1rem;">+</span>` 
+      : `<span style="color: #28a745; font-weight: bold; font-size: 1.2rem;">-</span>`;
+
+  return `
+    <style>
+      /* Ẩn mũi tên mặc định của trình duyệt */
+      .tbl-collapse-${unique_id} summary { list-style: none; }
+      .tbl-collapse-${unique_id} summary::-webkit-details-marker { display: none; }
+      
+      /* Mặc định chưa mở: Hiện chữ Bảng số liệu, ẩn chữ Thu gọn */
+      .tbl-collapse-${unique_id} .text-show { display: inline-block; }
+      .tbl-collapse-${unique_id} .text-hide { display: none; }
+      
+      /* Khi mở bảng ra: Ẩn chữ Bảng số liệu, hiện chữ Thu gọn */
+      .tbl-collapse-${unique_id}[open] .text-show { display: none; }
+      .tbl-collapse-${unique_id}[open] .text-hide { display: inline-block; }
+    </style>
+
+    <details open class="tbl-collapse-${unique_id}" style="background: white; border-radius: 8px; border: 1px solid #e0e0e0; margin-bottom: 20px; font-size: 0.95rem; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+      
+      <summary style="padding: 10px 15px; cursor: pointer; outline: none; text-align: left;">
+         
+         <span class="text-show" style="font-weight: 600; color: ${theme_color}; font-size: 0.9rem; transition: all 0.2s ease;"
+               onmouseover="this.style.textDecoration='underline'; this.style.opacity='0.7'"
+               onmouseout="this.style.textDecoration='none'; this.style.opacity='1'">
+            + Bảng số liệu
+         </span>
+         
+         <span class="text-hide" style="font-weight: 500; color: #999; font-size: 0.85rem; transition: all 0.2s ease;"
+               onmouseover="this.style.textDecoration='underline'; this.style.color='${theme_color}'"
+               onmouseout="this.style.textDecoration='none'; this.style.color='#999'">
+            Thu gọn ⏶
+         </span>
+         
+      </summary>
+      
+      <div style="padding: 0 10px 10px 10px; margin-top: -5px;">
+        <table style="width: 100%; border-collapse: collapse;">
+          <tbody>
+            <tr style="border-bottom: 1px solid #eee;">
+              <td style="padding: 6px; font-weight: bold; color: #333;">Số ca cộng dồn đến tuần ${sys_max_wk}/${sys_max_yr}</td>
+              <td style="text-align: right; padding: 6px; font-weight: bold; color: #005d88;">${cum_curr}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 6px 6px 6px 20px; color: #555;">- So với cùng kỳ năm trước</td>
+              <td style="text-align: right; padding: 6px;">${renderDiff(diff_cum)}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+              <td style="padding: 6px; font-weight: bold; color: #333;">Số ca trong tuần ${sys_max_wk}</td>
+              <td style="text-align: right; padding: 6px; font-weight: bold; color: #005d88;">${wk_curr}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+              <td style="padding: 6px 6px 6px 20px; color: #555;">- So với tuần trước</td>
+              <td style="text-align: right; padding: 6px;">${renderDiff(diff_wk)}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 6px 6px 6px 20px; color: #555;">- So với TB 4 tuần trước</td>
+              <td style="text-align: right; padding: 6px;">${renderDiff(diff_4w)}</td>
+            </tr>
+            <tr>
+              <td colspan="2" style="padding: 6px; font-weight: bold; color: #333;">So với ngưỡng cảnh báo dịch</td>
+            </tr>
+            <tr style="border-bottom: 1px dashed #eee;">
+              <td style="padding: 6px 6px 6px 20px; color: #555;">- So với ngưỡng mùa</td>
+              <td style="text-align: right; padding: 6px;">${renderDiff(diff_sea)}</td>
+            </tr>
+            <tr style="border-bottom: 1px dashed #eee;">
+              <td style="padding: 6px 6px 6px 20px; color: #555;">- Vượt ngưỡng CUSUM</td>
+              <td style="text-align: right; padding: 6px;">${cusum_html}</td>
+            </tr>
+            <tr style="border-bottom: 1px dashed #eee;">
+              <td style="padding: 6px 6px 6px 20px; color: #555;">- So với ngưỡng Farrington</td>
+              <td style="text-align: right; padding: 6px;">${renderDiff(diff_far)}</td>
+            </tr>
+            <tr>
+              <td style="padding: 6px 6px 6px 20px; color: #555;">- So với ngưỡng Mean+2SD</td>
+              <td style="text-align: right; padding: 6px;">${renderDiff(diff_cdc)}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  `;
+}
+```
+
+```{ojs}
+//| echo: false
+
+// 👉 5. GIAO DIỆN HIỂN THỊ CHÍNH
+
+// Tự động đếm số lượng phường/xã vượt 3 ngưỡng liên tiếp 3 tuần (type === 3)
+count_sxh_baodong = hotspots_sxh.filter(d => d.type === 3).length;
+count_sxh_canhbao = hotspots_sxh.filter(d => d.type === 2).length;
+
+count_tcm_baodong = hotspots_tcm.filter(d => d.type === 3).length;
+count_tcm_canhbao = hotspots_tcm.filter(d => d.type === 2).length;
+
+// Lấy danh sách tên phường/xã (được nối bằng dấu phẩy)
+names_sxh_baodong = hotspots_sxh.filter(d => d.type === 3).map(d => d.name).join(", ");
+names_sxh_canhbao = hotspots_sxh.filter(d => d.type === 2).map(d => d.name).join(", ");
+
+names_tcm_baodong = hotspots_tcm.filter(d => d.type === 3).map(d => d.name).join(", ");
+names_tcm_canhbao = hotspots_tcm.filter(d => d.type === 2).map(d => d.name).join(", ");
+
+html`
+<div style="max-width: 1500px; margin: 0 auto; padding: 10px 20px;">
+  
+  <div style="margin-bottom: 30px; border-bottom: 2px solid #eaeaea; padding-bottom: 20px;">
+    <h1 style="color: #005d88; font-weight: 900; margin-top:0; margin-bottom: 20px; font-size: 2.2rem; letter-spacing: -0.5px;">
+      THÔNG TIN NHANH TÌNH HÌNH DỊCH BỆNH
+    </h1>
+    
+    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+      
+      <div style="display: flex; align-items: center; gap: 15px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="#0088a8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          <path d="M12 16.5l-3.2-3.2a2.4 2.4 0 0 1 3.4-3.4L12 10.1l.8-.8a2.4 2.4 0 0 1 3.4 3.4L12 16.5z"></path>
+        </svg>
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 5px;">
+          <span style="color: #6c757d; font-size: 0.85rem; font-weight: 500;">Dành cho mọi người</span>
+          <span style="color: #000000; font-size: 1.1rem; font-weight: 800; letter-spacing: -0.5px;">Cập nhật mới nhất: Tuần ${sys_max_wk} / ${sys_max_yr}</span>
+          <span style="color: #555; font-size: 0.8rem; font-weight: 500; font-style: italic;">🕒 Trang tin được cập nhật vào thứ 6 hàng tuần.</span>
+        </div>
+      </div>
+      
+      <div style="color: #6c757d; font-size: 0.85rem; font-style: italic; white-space: nowrap; margin-bottom: 2px;">
+        Published by: Surveillance, Warning and Preparedness, Emergency Response to Epidemic
+      </div>
+      
+    </div>
+  </div>
+
+  ${data_sxh.length === 0 ? '<div style="background:#f8d7da; color:#721c24; padding:15px; border-radius:8px; text-align:center; font-weight:bold; margin-bottom:20px; border: 1px solid #f5c6cb;">⚠️ KHÔNG THỂ TẢI DỮ LIỆU: Vui lòng kiểm tra Mật khẩu!</div>' : ''}
+
+  <div style="background-color: #ffffff; padding: 25px 30px; border-radius: 10px; margin-bottom: 30px; border: 2px solid #007c91; border-left: 8px solid #007c91; box-shadow: 0 8px 16px rgba(0, 124, 145, 0.12);">
+    <h4 style="color: #007c91; margin-top: 0; margin-bottom: 15px; font-size: 1.1rem; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; display: flex; align-items: center; gap: 8px;">
+      <span style="font-size: 1.3rem;">📋</span> THÔNG TIN NỔI BẬT
+    </h4>
+    <ul style="margin: 0; padding-left: 20px; color: #333; font-size: 1.05rem; line-height: 1.7;">
+      <li style="margin-bottom: 12px;">
+        Tuần qua ghi nhận <b>${kpi_sxh.current}</b> ca mắc mới <i>Sốt xuất huyết</i> và <b>${kpi_tcm.current}</b> ca mắc mới <i>Tay chân miệng</i>.
+      </li>
+      <li style="margin-bottom: 12px;">
+        Các phường/xã cảnh báo liên tiếp 3 tuần:
+        <ul style="list-style-type: none; padding-left: 20px; margin-top: 5px; margin-bottom: 0;">
+          <li style="margin-bottom: 5px;">
+            <span>Sốt xuất huyết:</span> 
+            mức <b style="color: #dc3545;">báo động</b> ${count_sxh_baodong > 0 ? `(${names_sxh_baodong})` : ''}, 
+            mức <b style="color: #fd7e14;">cảnh báo</b> ${count_sxh_canhbao > 0 ? `(${names_sxh_canhbao})` : ''}.
+          </li>
+          <li>
+            <span>Tay chân miệng:</span> 
+            mức <b style="color: #dc3545;">báo động</b> ${count_tcm_baodong > 0 ? `(${names_tcm_baodong})` : ''}, 
+            mức <b style="color: #fd7e14;">cảnh báo</b> ${count_tcm_canhbao > 0 ? `(${names_tcm_canhbao})` : ''}.
+          </li>
+        </ul>
+      </li>
+      <li style="margin-bottom: 12px;">
+        Phân tích SaTScan không ghi nhận cụm ca bệnh có liên quan về không gian.
+      </li>
+      <li style="margin-bottom: 12px;">
+        Không ghi nhận ca nặng tăng bất thường, không ghi nhận ca tử vong.
+      </li>
+      <li style="margin-bottom: 12px;">
+        Không ghi nhận sự khác biệt về nhóm tuổi.
+      </li>
+      <li style="margin-bottom: 0;">
+        Không ghi nhận bất thường trên hệ thống Giám sát dựa vào sự kiện (EBS).
+      </li>
+    </ul>
+  </div>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 25px; margin-bottom: 25px;">
+    
+    <div style="flex: 1; min-width: 500px; background: #fff5f0; padding: 25px; border-radius: 15px; border: 1px solid #ffe2d6; display: flex; flex-direction: column;">
+      <h2 style="color: #d35400; border-left: 6px solid #d35400; padding-left: 12px; margin-top: 0; margin-bottom: 25px;">🦟 SỐT XUẤT HUYẾT</h2>
+      <h4 style="margin: 0 0 15px 0; color: #005d88; display: flex; justify-content: space-between; align-items: center;">
+        <span>📊 Giám sát chỉ số (IBS)</span>
+        <a href="../../dashboard/index.html" style="font-size:0.85rem; color:#d35400; text-decoration:none;">Xem chi tiết →</a>
+      </h4>
+      <div style="margin-bottom: 20px;">
+        <div style="font-weight: bold; color: #555; margin-bottom: 8px; font-size: 1rem;">Mức độ cảnh báo toàn Thành phố:</div>
+        <div style="background-color: ${kpi_sxh.status.c}; color: ${kpi_sxh.status.c === '#ffc107' ? '#333' : '#fff'}; text-align: center; padding: 14px; border-radius: 8px; font-weight: 800; font-size: 1.3rem; letter-spacing: 0.5px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+          ${kpi_sxh.status.t}
+        </div>
+      </div>
+
+      ${generateSummaryTable("Sốt xuất huyết", data_sxh, data_threshold)}
+
+      <div style="display: flex; gap: 15px;">
+        <div style="flex: 1; background: white; border-radius: 10px; padding: 15px 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">${trans_gauge_sxh}</div>
+        <div style="flex: 1; background: white; border-radius: 10px; padding: 15px 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">${sev_gauge_sxh}</div>
+      </div>
+    </div>
+
+    <div style="flex: 1; min-width: 500px; background: #f0fbf4; padding: 25px; border-radius: 15px; border: 1px solid #dcf2e3; display: flex; flex-direction: column;">
+      <h2 style="color: #27ae60; border-left: 6px solid #27ae60; padding-left: 12px; margin-top: 0; margin-bottom: 25px;">🤒 TAY CHÂN MIỆNG</h2>
+      <h4 style="margin: 0 0 15px 0; color: #005d88; display: flex; justify-content: space-between; align-items: center;">
+        <span>📊 Giám sát chỉ số (IBS)</span>
+        <a href="../dashboard/index.html" style="font-size:0.85rem; color:#27ae60; text-decoration:none;">Xem chi tiết →</a>
+      </h4>
+      <div style="margin-bottom: 20px;">
+        <div style="font-weight: bold; color: #555; margin-bottom: 8px; font-size: 1rem;">Mức độ cảnh báo toàn Thành phố:</div>
+        <div style="background-color: ${kpi_tcm.status.c}; color: ${kpi_tcm.status.c === '#ffc107' ? '#333' : '#fff'}; text-align: center; padding: 14px; border-radius: 8px; font-weight: 800; font-size: 1.3rem; letter-spacing: 0.5px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+          ${kpi_tcm.status.t}
+        </div>
+      </div>
+
+      ${generateSummaryTable("Tay chân miệng", data_tcm, data_threshold)}
+
+      <div style="display: flex; gap: 15px;">
+        <div style="flex: 1; background: white; border-radius: 10px; padding: 15px 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">${trans_gauge_tcm}</div>
+        <div style="flex: 1; background: white; border-radius: 10px; padding: 15px 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">${sev_gauge_tcm}</div>
+      </div>
+    </div>
+
+  </div> 
+
+  <div style="width: 100%; margin-top: -10px; margin-bottom: 25px;">
+    <details style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+      <summary style="padding: 10px 15px; cursor: pointer; font-size: 0.9rem; font-weight: 600; color: #005d88; outline: none;">
+          Xem thêm: IBS là gì và tại sao lại quan trọng?
+      </summary>
+      <div style="padding: 15px; border-top: 1px solid #e2e8f0; font-size: 0.9rem; color: #000000; line-height: 1.8; background-color: #f8fafc; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;">
+        <div style="margin-bottom: 12px;">
+          <b>IBS (Indicator-based Surveillance)</b> là việc thu thập liên tục, có hệ thống số liệu ca từ các cơ sở y tế.
+        </div>
+        <div>
+          <b>Tại sao quan trọng?</b> Giúp đối chiếu số ca bệnh thực tế với các ngưỡng dịch (Farrington, CUSUM, Mean+2SD). Bên cạnh đó, đánh giá mức độ lây truyền, mức độ nặng (theo WHO) có thể hỗ trợ HCDC phát hiện sớm sự bất thường của dịch, chuẩn bị kịp thời các kịch bản ứng phó.
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div style="background: #fdfbf7; padding: 25px; border-radius: 15px; border: 1px solid #e9ecef;">
+    <h4 style="margin: 0 0 15px 0; color:#005d88; font-size:1.2rem; display:flex; justify-content:space-between; align-items:center;">
+      <span>🌐 Giám sát dựa vào sự kiện (EBS)</span>
+      <a href="../../ebs.html" style="font-size:0.9rem; color:#005d88; text-decoration:none; font-weight:600;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+        Xem chi tiết →
+      </a>
+    </h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+        <div style="flex: 1; min-width: 300px; background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #1a9fcc; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+          <h5 style="margin: 0 0 12px 0; color: #333;"><b>🔍 Xu hướng tìm kiếm Google Trends</b></h5>
+          <p style="margin: 0; font-size: 1rem; line-height: 1.7;">
+            - Ghi nhận mức độ quan tâm trên Google về <i>Sốt xuất huyết</i>, <i>Tay chân miệng</i> lần lượt là 76 (tăng 68,9%) và 45 (tăng 32,3%) so với tuần trước.<br>
+            - <i>"Sốt xuất huyết có dấu hiệu cảnh báo"</i> và <i>"Vaccine tay chân miệng"</i> là các từ khóa tăng đột biến so với tuần trước.<br>
+          </p>
+        </div>
+  
+        <div style="flex: 1; min-width: 300px; background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #f28e2b; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+          <h5 style="margin: 0 0 12px 0; color: #333;"><span style="text-shadow: 0 0 5px #ffc107;">💡</span><b>Tin tức & Sự kiện</b></h5>
+          <p style="margin: 0; font-size: 1rem; line-height: 1.7;">
+              Chưa ghi nhận thông tin bất thường liên quan đến dịch bệnh.<br>
+          </p>
+        </div>
+    </div>
+  </div>
+
+</div> 
+`
+```
+

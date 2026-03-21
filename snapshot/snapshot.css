@@ -103,3 +103,121 @@ div[style*="height: 100%; border-radius: 4px;"] {
     from { transform: scaleX(0); }
     to { transform: scaleX(1); }
 }
+
+/* Tùy chỉnh tổng thể Thẻ (Card) */
+.quarto-grid-item .card {
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  transition: all 0.3s ease-in-out; /* Tạo độ mượt cho mọi hiệu ứng */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+  overflow: hidden; /* Giữ phần ảnh không bị tràn ra ngoài góc bo */
+}
+
+/* Hiệu ứng Rê chuột (Hover) vào Card */
+.quarto-grid-item .card:hover {
+  transform: translateY(-8px); /* Nhấc thẻ lên 8px */
+  box-shadow: 0 15px 25px rgba(0, 93, 136, 0.15); /* Bóng đổ màu xanh HCDC */
+  border-color: #005d88; /* Đổi màu viền sang xanh */
+}
+
+/* Tùy chỉnh Tiêu đề */
+.quarto-grid-item .card-title {
+  color: #005d88;
+  font-weight: 800;
+  font-size: 1.25rem;
+  transition: color 0.3s ease;
+}
+
+/* Khi hover vào Card, đổi màu Tiêu đề sang Cam */
+.quarto-grid-item .card:hover .card-title {
+  color: #d35400; 
+}
+
+/* Tùy chỉnh hiển thị phần Logo (Image) */
+.quarto-grid-item .card-img-top {
+  padding: 25px; /* Ép logo nhỏ lại một chút, tạo khoảng thở */
+  object-fit: contain; 
+  background-color: #f8fbfd; /* Nền xanh/xám cực nhạt cho khối chứa logo */
+  border-bottom: 1px solid #edf2f7;
+}
+
+/* Tùy chỉnh phần Ngày tháng (Date) */
+.quarto-grid-item .listing-date {
+  font-weight: 600;
+  color: #64748b;
+}
+
+/* 2. Giữ màu nền nguyên bản, chỉ bo góc và chuẩn bị cho hiệu ứng Hover */
+.quarto-grid-item .card {
+  border-radius: 12px !important;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  overflow: hidden;
+}
+
+/* 3. Hiệu ứng Hover: Thẻ nảy lên 8px, đổ bóng mềm mại */
+.quarto-grid-item .card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+  border-color: #005d88 !important; /* Viền thẻ sáng lên màu xanh HCDC */
+}
+
+/* 4. Hình ảnh Logo: Hiệu ứng phóng to mượt mà */
+.quarto-grid-item .card-img-top {
+  padding: 25px !important;
+  transition: transform 0.5s ease !important;
+  object-fit: contain !important;
+}
+
+.quarto-grid-item .card:hover .card-img-top {
+  transform: scale(1.08) !important; /* Zoom logo lên 8% */
+}
+
+/* 5. Hiệu ứng đổi màu chữ Tiêu đề khi lia chuột vào thẻ */
+.quarto-grid-item .card-title {
+  font-weight: 800 !important;
+  transition: color 0.3s ease !important;
+}
+
+.quarto-grid-item .card:hover .card-title {
+  color: #005d88 !important; /* Đổi màu chữ sang xanh HCDC cho nổi bật */
+}
+
+/* ==============================================================
+   HIỆU ỨNG HOVER CHO DANH SÁCH BÀI VIẾT (TRANG INDEX)
+   ============================================================== */
+
+/* Bo góc và tạo độ mượt chuyển động */
+div.quarto-grid-item.card, 
+.quarto-grid-item .card {
+  border-radius: 12px !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  border: 1px solid #dee2e6 !important;
+}
+
+/* KHI RÊ CHUỘT: Nhấc thẻ lên 8px, đổ bóng màu xanh HCDC */
+div.quarto-grid-item.card:hover, 
+.quarto-grid-item .card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 15px 30px rgba(0, 93, 136, 0.15) !important;
+  border-color: #005d88 !important; /* Đổi viền sang xanh */
+  cursor: pointer !important;
+}
+
+/* Hiệu ứng Zoom hình ảnh mượt mà */
+div.quarto-grid-item.card .card-img-top,
+.quarto-grid-item .card .card-img-top {
+  transition: transform 0.5s ease !important;
+}
+
+/* Phóng to hình ảnh khi hover vào thẻ */
+div.quarto-grid-item.card:hover .card-img-top,
+.quarto-grid-item .card:hover .card-img-top {
+  transform: scale(1.08) !important; 
+}
+
+/* Đổi màu tiêu đề sang xanh HCDC khi hover */
+div.quarto-grid-item.card:hover .card-title,
+.quarto-grid-item .card:hover .card-title {
+  color: #005d88 !important; 
+}
