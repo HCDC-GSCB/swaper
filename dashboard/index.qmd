@@ -1602,69 +1602,64 @@ html`
 //| output: false
 
 // ==========================================
-// XỬ LÝ DỮ LIỆU DỰ BÁO (CHUẨN THEO BỘ LỌC)
+// XỬ LÝ DỮ LIỆU TỪ 3 NGUỒN: SXH, PRED, THRESHOLD
 // ==========================================
 pred_weeks = Array.from({length: 52}, (_, i) => i + 1);
 
-// 1. Số ca thực tế: Lấy chuẩn từ chart_raw_data
+// 1. Số ca thực tế (từ sxh.dat)
 actual_cases = pred_weeks.map(wk => {
     let rows = chart_raw_data.filter(d => Number(d.Week) === wk);
     let sum = d3.sum(rows, d => Number(d.SoCa) || 0);
-    
     let limit_wk = (Number(selected_year) === sys_max_yr) ? sys_max_wk : 52;
     return wk <= limit_wk ? sum : null;
 });
 
 last_actual_wk = (Number(selected_year) === sys_max_yr) ? sys_max_wk : 52;
 
-// 2. Lọc dữ liệu file dự báo cho năm đang chọn
+// 2. Dữ liệu dự báo (từ pred.dat)
 pred_data_yr = data_pred.filter(d => Number(d.Year) === Number(selected_year));
 
-// 3. Đường dự báo LSTM
+// 3. Dự báo LSTM
 series_pred_lstm = pred_weeks.map(wk => {
-    if (last_actual_wk > 0 && wk === last_actual_wk) return actual_cases[last_actual_wk - 1];
-    
-    if (wk > last_actual_wk) {
-        let row = pred_data_yr.find(d => Number(d.Week) === wk);
-        return row ? Number(row.Pred_LSTM || row.pred_lstm) : null;
-    }
-    return null;
+    let row = pred_data_yr.find(d => Number(d.Week) === wk);
+    return (row && row.Pred_LSTM != null) ? Number(row.Pred_LSTM) : null;
 });
 
-// 4. Đường dự báo SARIMA (Đã sửa từ RF)
+// 4. Dự báo SARIMA 
 series_pred_sarima = pred_weeks.map(wk => {
-    if (last_actual_wk > 0 && wk === last_actual_wk) return actual_cases[last_actual_wk - 1];
-    
-    if (wk > last_actual_wk) {
-        let row = pred_data_yr.find(d => Number(d.Week) === wk);
-        return row ? Number(row.Pred_SARIMA || row.pred_sarima) : null;
-    }
-    return null;
+    let row = pred_data_yr.find(d => Number(d.Week) === wk);
+    return (row && row.Pred_SARIMA != null) ? Number(row.Pred_SARIMA) : null;
 });
 
-// 5. Sai số APE LSTM
+// 5. Đường Ngưỡng (Từ threshold.dat - LẤY ĐÚNG CỘT "CDC")
+series_threshold = pred_weeks.map(wk => {
+    if (typeof data_threshold !== 'undefined') {
+        let row = data_threshold.find(d => Number(d.Week) === wk);
+        if (row && row.CDC != null && row.CDC !== "") {
+            // Xử lý an toàn nhỡ R xuất dấu phẩy thập phân
+            let val = String(row.CDC).replace(',', '.');
+            let num = Number(val);
+            return isNaN(num) ? null : num;
+        }
+    }
+    return null; 
+});
+
+// 6. Sai số APE LSTM
 series_ape_lstm = pred_weeks.map(wk => {
     if (wk > last_actual_wk) return null;
     let actual = actual_cases[wk - 1];
-    let row = pred_data_yr.find(d => Number(d.Week) === wk);
-    let pred = row ? Number(row.Pred_LSTM || row.pred_lstm) : null;
-    
-    if (actual > 0 && pred != null) {
-        return Number((Math.abs(actual - pred) / actual * 100).toFixed(2));
-    }
+    let pred = series_pred_lstm[wk - 1];
+    if (actual > 0 && pred !== null) return Number((Math.abs(actual - pred) / actual * 100).toFixed(2));
     return null;
 });
 
-// 6. Sai số APE SARIMA (Đã sửa từ RF)
+// 7. Sai số APE SARIMA
 series_ape_sarima = pred_weeks.map(wk => {
     if (wk > last_actual_wk) return null;
     let actual = actual_cases[wk - 1];
-    let row = pred_data_yr.find(d => Number(d.Week) === wk);
-    let pred = row ? Number(row.Pred_SARIMA || row.pred_sarima) : null;
-    
-    if (actual > 0 && pred != null) {
-        return Number((Math.abs(actual - pred) / actual * 100).toFixed(2));
-    }
+    let pred = series_pred_sarima[wk - 1];
+    if (actual > 0 && pred !== null) return Number((Math.abs(actual - pred) / actual * 100).toFixed(2));
     return null;
 });
 ```
@@ -1672,40 +1667,63 @@ series_ape_sarima = pred_weeks.map(wk => {
 ## Row 1
 
 ```{ojs}
-//| title: "Dự báo xu hướng số ca mắc"
-{
-  if (selected_disease === "Tay chân miệng") {
-    return html`
-      <div style="height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #f8f9fa; border: 2px dashed #dee2e6; border-radius: 8px;">
-        <div style="font-size: 3rem; opacity: 0.5; margin-bottom: 15px;">🚧</div>
-        <h4 style="color: #6c757d; font-weight: 600; margin: 0;">Đang xây dựng mô hình dự báo cho tay chân miệng</h4>
-      </div>
-    `;
-  } else {
-    return createHighchart("chart-forecast", {
-      chart: { type: 'spline' },
-      xAxis: { 
-        categories: pred_weeks, 
-        title: { text: 'Tuần', style: { fontWeight: 'bold' } },
-        plotBands: [{ 
-            from: last_actual_wk - 1, to: 52, 
-            color: 'rgba(68, 170, 213, 0.1)', 
-            label: { text: 'Vùng dự báo', align: 'center', style: { color: '#606060' } } 
-        }]
-      },
-      yAxis: { title: { text: 'Số ca mắc', style: { fontWeight: 'bold' } }, min: 0 },
-      tooltip: { shared: true },
-      plotOptions: {
-        spline: { marker: { enabled: false } }
-      },
-      series: [
-        { name: 'Thực tế', data: actual_cases, color: plot_color, lineWidth: 3, zIndex: 3 },
-        { name: 'Dự báo LSTM', data: series_pred_lstm, color: '#f28e2b', dashStyle: 'ShortDash', lineWidth: 2, zIndex: 2 },
-        { name: 'Dự báo SARIMA', data: series_pred_sarima, color: '#e15759', dashStyle: 'ShortDash', lineWidth: 2, zIndex: 1 }
-      ]
-    });
-  }
-}
+//| title: "Biểu đồ dự báo diễn tiến dịch bệnh"
+
+chart_pred_main = createHighchart("chart-pred-main", {
+  chart: { type: 'line' },
+  title: { 
+    text: 'So sánh Dự báo và Thực tế năm ' + selected_year, 
+    style: { fontWeight: '900', color: '#005d88' } 
+  },
+  xAxis: { 
+    categories: pred_weeks.map(w => 'Tuần ' + w), 
+    title: { text: 'Tuần giám sát', style: { fontWeight: 'bold' } },
+    crosshair: true
+  },
+  yAxis: { 
+    title: { text: 'Số ca mắc', style: { fontWeight: 'bold' } },
+    min: 0
+  },
+  tooltip: { 
+    shared: true, 
+    valueSuffix: ' ca' 
+  },
+  plotOptions: {
+    line: { 
+      marker: { enabled: false },
+      lineWidth: 2.5,
+      connectNulls: false // Ép ngắt đường khi hết 12/24 tuần
+    }
+  },
+  series: [
+    { 
+      name: 'Số ca thực tế', 
+      data: actual_cases,     
+      color: '#000000',       // Đen
+      zIndex: 5
+    },
+    { 
+      name: 'Ngưỡng dịch (CDC)', 
+      data: series_threshold, 
+      color: '#d32f2f',       // Đỏ
+      dashStyle: 'LongDashDot', 
+      lineWidth: 2,
+      zIndex: 4
+    },
+    { 
+      name: 'Dự báo LSTM', 
+      data: series_pred_lstm, 
+      color: '#1976d2',       // XANH DƯƠNG
+      dashStyle: 'ShortDash'  
+    },
+    { 
+      name: 'Dự báo SARIMA', 
+      data: series_pred_sarima, 
+      color: '#388e3c',       // XANH LÁ
+      dashStyle: 'ShortDash'  
+    }
+  ]
+});
 ```
 
 ## Row 2
@@ -1722,15 +1740,32 @@ series_ape_sarima = pred_weeks.map(wk => {
   } else {
     return createHighchart("chart-ape", {
       chart: { type: 'line' },
-      xAxis: { categories: pred_weeks, title: { text: 'Tuần', style: { fontWeight: 'bold' } } },
-      yAxis: { title: { text: 'Sai số tuyệt đối phần trăm (APE %)', style: { fontWeight: 'bold' } }, min: 0 },
+      xAxis: { 
+        categories: pred_weeks, 
+        title: { text: 'Tuần', style: { fontWeight: 'bold' } } 
+      },
+      yAxis: { 
+        title: { text: 'Sai số tuyệt đối phần trăm (APE %)', style: { fontWeight: 'bold' } }, 
+        min: 0 
+      },
       tooltip: { shared: true, valueSuffix: ' %' },
       plotOptions: {
-        line: { marker: { enabled: true, radius: 4 } }
+        line: { 
+          marker: { enabled: true, radius: 4 },
+          connectNulls: false
+        }
       },
       series: [
-        { name: 'Sai số LSTM', data: series_ape_lstm, color: '#f28e2b' },
-        { name: 'Sai số SARIMA', data: series_ape_sarima, color: '#e15759' }
+        { 
+          name: 'Sai số LSTM', 
+          data: series_ape_lstm, 
+          color: '#1976d2'    // XANH DƯƠNG (Khớp với Row 1)
+        },
+        { 
+          name: 'Sai số SARIMA', 
+          data: series_ape_sarima, 
+          color: '#388e3c'    // XANH LÁ (Khớp với Row 1)
+        }
       ]
     });
   }
