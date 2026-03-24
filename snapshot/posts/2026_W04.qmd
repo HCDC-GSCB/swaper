@@ -2,7 +2,8 @@
 title: 'Bản tin nhanh - Tuần 04/2026'
 description: 'Cập nhật tình hình SXH và TCM tuần 04 năm 2026'
 date: '2026-01-30'
-image: /favicon.png
+image: /logo.png
+author: Surveillance, Warning and Preparedness, Emergency Response to Epidemic
 format:
   html:
     css: ../snapshot.css

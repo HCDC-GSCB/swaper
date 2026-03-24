@@ -3,10 +3,10 @@ title: "Bản tin hàng tuần (Epidemic Channel)"
 listing:
   contents: posts
   sort: "date desc"
-  type: grid
+  type: table
   filter-ui: true  
   sort-ui: true   
-  fields: [image, date, title, description]
+  fields: [image, date, title, author]
 page-layout: full
 css: snapshot.css
 ---

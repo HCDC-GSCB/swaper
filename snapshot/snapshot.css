@@ -1,223 +1,43 @@
-/* =========================================================
-   SNAPSHOT.CSS - PUBLIC HEALTH DASHBOARD STYLESHEET
-   Style: Tối giản, Chuyên nghiệp, Đáng tin cậy (Clinical/Medical)
-========================================================= */
-
-/* 1. Nhúng font chữ Inter chuyên dùng cho Data Dashboard */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
-body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #f4f7f6; /* Nền xám xanh cực nhạt, dịu mắt chuẩn y tế */
-    color: #333333;
-    -webkit-font-smoothing: antialiased;
+/* ==============================================================
+   1. XỬ LÝ TIÊU ĐỀ CỘT (HEADER): Ép đen toàn bộ kể cả link Sort
+   ============================================================== */
+table.quarto-listing-table thead th,
+table.quarto-listing-table thead th a,
+table.quarto-listing-table thead th a.sort {
+    background-color: #f8fbfd !important;
+    color: #000000 !important; /* Ép chữ đen thui tuyệt đối */
+    font-weight: 800 !important;
+    text-decoration: none !important; /* Bỏ gạch chân nếu có của thẻ link */
+    padding: 16px !important;
+    border-bottom: 2px solid #edf2f7 !important;
+    text-transform: uppercase !important;
+    font-size: 0.85rem !important;
 }
 
-/* 2. HIỆU ỨNG HOVER CHO NÚT "CHI TIẾT →" */
-/* Bắt chính xác các thẻ <a> nằm trong thẻ <h4> */
-h4 a {
-    position: relative;
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 20px;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    background-color: transparent;
+/* KHI HOVER VÀO TIÊU ĐỀ CỘT: Cho nó nhạt đi xíu để biết là nút bấm được */
+table.quarto-listing-table thead th a:hover {
+    color: #475569 !important; 
 }
 
-/* Mũi tên trượt nhẹ sang phải khi hover */
-h4 a:hover {
-    transform: translateX(4px);
-    text-decoration: none !important;
-}
-
-/* Hover riêng cho link của Sốt xuất huyết (Màu Cam/Đỏ) */
-h4 a[style*="#d35400"]:hover {
-    background-color: rgba(211, 84, 0, 0.08); /* Nền cam rất nhạt */
-    color: #a84300 !important; /* Đậm chữ lên chút */
-}
-
-/* Hover riêng cho link của Tay chân miệng (Màu Xanh lá) */
-h4 a[style*="#27ae60"]:hover {
-    background-color: rgba(39, 174, 96, 0.08); /* Nền xanh rất nhạt */
-    color: #1e8449 !important;
-}
-
-
-/* 3. HIỆU ỨNG NỔI (ELEVATION) CHO CÁC THẺ TRẮNG KHI LIA CHUỘT */
-/* Bắt các div có background màu trắng để tạo hiệu ứng card */
-div[style*="background: white"] {
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    will-change: transform, box-shadow;
-}
-
-div[style*="background: white"]:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06) !important; /* Đổ bóng to và mềm hơn */
-    transform: translateY(-2px); /* Nhấc nhẹ card lên 2px */
-}
-
-
-/* 4. CUSTOM THANH CUỘN (SCROLLBAR) CHO DANH SÁCH PHƯỜNG/XÃ */
-/* Dành cho trình duyệt Chrome/Edge/Safari */
-::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-}
-
-::-webkit-scrollbar-track {
-    background: transparent; 
-}
-
-::-webkit-scrollbar-thumb {
-    background: #d1d5db; /* Xám nhạt thanh lịch */
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #9ca3af; /* Đậm hơn khi hover vào thanh cuộn */
-}
-
-/* Dành cho Firefox */
-* {
-    scrollbar-width: thin;
-    scrollbar-color: #d1d5db transparent;
-}
-
-
-/* 5. TINH CHỈNH TYPOGRAPHY BỔ SUNG */
-/* Làm cho các nhãn phân mức nguy cơ rõ ràng hơn */
-strong {
-    letter-spacing: -0.3px;
-}
-
-h1, h2, h4, h5 {
-    letter-spacing: -0.5px; /* Ép chữ tiêu đề khít lại cho cứng cáp */
-}
-
-/* Hiệu ứng mượt mà cho thanh màu tiến độ của Phường/Xã (chạy ra lúc load trang) */
-div[style*="height: 100%; border-radius: 4px;"] {
-    animation: growBar 1s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
-    transform-origin: left center;
-}
-
-@keyframes growBar {
-    from { transform: scaleX(0); }
-    to { transform: scaleX(1); }
-}
-
-/* Tùy chỉnh tổng thể Thẻ (Card) */
-.quarto-grid-item .card {
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  background-color: #ffffff;
-  transition: all 0.3s ease-in-out; /* Tạo độ mượt cho mọi hiệu ứng */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
-  overflow: hidden; /* Giữ phần ảnh không bị tràn ra ngoài góc bo */
-}
-
-/* Hiệu ứng Rê chuột (Hover) vào Card */
-.quarto-grid-item .card:hover {
-  transform: translateY(-8px); /* Nhấc thẻ lên 8px */
-  box-shadow: 0 15px 25px rgba(0, 93, 136, 0.15); /* Bóng đổ màu xanh HCDC */
-  border-color: #005d88; /* Đổi màu viền sang xanh */
-}
-
-/* Tùy chỉnh Tiêu đề */
-.quarto-grid-item .card-title {
-  color: #005d88;
-  font-weight: 800;
-  font-size: 1.25rem;
-  transition: color 0.3s ease;
-}
-
-/* Khi hover vào Card, đổi màu Tiêu đề sang Cam */
-.quarto-grid-item .card:hover .card-title {
-  color: #d35400; 
-}
-
-/* Tùy chỉnh hiển thị phần Logo (Image) */
-.quarto-grid-item .card-img-top {
-  padding: 25px; /* Ép logo nhỏ lại một chút, tạo khoảng thở */
-  object-fit: contain; 
-  background-color: #f8fbfd; /* Nền xanh/xám cực nhạt cho khối chứa logo */
-  border-bottom: 1px solid #edf2f7;
-}
-
-/* Tùy chỉnh phần Ngày tháng (Date) */
-.quarto-grid-item .listing-date {
-  font-weight: 600;
-  color: #64748b;
-}
-
-/* 2. Giữ màu nền nguyên bản, chỉ bo góc và chuẩn bị cho hiệu ứng Hover */
-.quarto-grid-item .card {
-  border-radius: 12px !important;
-  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
-  overflow: hidden;
-}
-
-/* 3. Hiệu ứng Hover: Thẻ nảy lên 8px, đổ bóng mềm mại */
-.quarto-grid-item .card:hover {
-  transform: translateY(-8px) !important;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
-  border-color: #005d88 !important; /* Viền thẻ sáng lên màu xanh HCDC */
-}
-
-/* 4. Hình ảnh Logo: Hiệu ứng phóng to mượt mà */
-.quarto-grid-item .card-img-top {
-  padding: 25px !important;
-  transition: transform 0.5s ease !important;
-  object-fit: contain !important;
-}
-
-.quarto-grid-item .card:hover .card-img-top {
-  transform: scale(1.08) !important; /* Zoom logo lên 8% */
-}
-
-/* 5. Hiệu ứng đổi màu chữ Tiêu đề khi lia chuột vào thẻ */
-.quarto-grid-item .card-title {
-  font-weight: 800 !important;
-  transition: color 0.3s ease !important;
-}
-
-.quarto-grid-item .card:hover .card-title {
-  color: #005d88 !important; /* Đổi màu chữ sang xanh HCDC cho nổi bật */
-}
 
 /* ==============================================================
-   HIỆU ỨNG HOVER CHO DANH SÁCH BÀI VIẾT (TRANG INDEX)
+   2. XỬ LÝ NỘI DUNG CỘT TITLE (CÁC DÒNG): Mặc định đen, Hover xanh
    ============================================================== */
-
-/* Bo góc và tạo độ mượt chuyển động */
-div.quarto-grid-item.card, 
-.quarto-grid-item .card {
-  border-radius: 12px !important;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
-  border: 1px solid #dee2e6 !important;
+/* Trạng thái mặc định: Chữ đen/xám đậm */
+table.quarto-listing-table tbody td.listing-title a,
+table.quarto-listing-table tbody td .title {
+    color: #408cfe !important; /* Màu đen/xám đậm nhìn cho sang */
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease-in-out !important;
+    display: inline-block !important;
 }
 
-/* KHI RÊ CHUỘT: Nhấc thẻ lên 8px, đổ bóng màu xanh HCDC */
-div.quarto-grid-item.card:hover, 
-.quarto-grid-item .card:hover {
-  transform: translateY(-8px) !important;
-  box-shadow: 0 15px 30px rgba(0, 93, 136, 0.15) !important;
-  border-color: #005d88 !important; /* Đổi viền sang xanh */
-  cursor: pointer !important;
-}
-
-/* Hiệu ứng Zoom hình ảnh mượt mà */
-div.quarto-grid-item.card .card-img-top,
-.quarto-grid-item .card .card-img-top {
-  transition: transform 0.5s ease !important;
-}
-
-/* Phóng to hình ảnh khi hover vào thẻ */
-div.quarto-grid-item.card:hover .card-img-top,
-.quarto-grid-item .card:hover .card-img-top {
-  transform: scale(1.08) !important; 
-}
-
-/* Đổi màu tiêu đề sang xanh HCDC khi hover */
-div.quarto-grid-item.card:hover .card-title,
-.quarto-grid-item .card:hover .card-title {
-  color: #005d88 !important; 
+/* Trạng thái Hover: Rực màu xanh dương và có gạch chân */
+table.quarto-listing-table tbody td.listing-title a:hover,
+table.quarto-listing-table tbody td .title:hover {
+    color: #0d6dfe !important; /* Xanh dương sáng kiểu Hyperlink */
+    text-decoration: underline !important; 
+    text-underline-offset: 4px !important; 
+    cursor: pointer !important; 
 }

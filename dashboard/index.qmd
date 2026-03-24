@@ -1573,23 +1573,32 @@ html`
 <div style="width: 100%; height: 100%; padding: 5px;">
   ${selected_disease === "Sốt xuất huyết" 
     ? 
-    // 1. HIỂN THỊ IFRAME NẾU CHỌN SỐT XUẤT HUYẾT
+    // 1. NẾU LÀ SỐT XUẤT HUYẾT
     `<iframe 
         src="satscan_dengue.html" 
         width="100%" 
         height="650px" 
         style="border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);"
-     </iframe>`
+     ></iframe>`
+    : selected_disease === "Tay chân miệng" 
+    ?
+    // 2. NẾU LÀ TAY CHÂN MIỆNG
+    `<iframe 
+        src="satscan_hfmd.html" 
+        width="100%" 
+        height="650px" 
+        style="border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);"
+     ></iframe>`
     : 
-    // 2. HIỂN THỊ THÔNG BÁO NẾU CHỌN TAY CHÂN MIỆNG (Hoặc bệnh khác)
+    // 3. NẾU LÀ BỆNH KHÁC CHƯA CÓ FILE (VD: sau này mày làm thêm Sởi thì nó sẽ nhảy vào đây)
     `<div style="height: 650px; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #f8f9fa; border: 2px dashed #dee2e6; border-radius: 8px;">
-        <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#adb5bd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 15px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#adb5bd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 15px;">
           <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
           <line x1="12" y1="9" x2="12" y2="13"></line>
           <line x1="12" y1="17" x2="12.01" y2="17"></line>
         </svg>
         <h4 style="color: #6c757d; font-weight: 600; margin: 0;">Chưa có dữ liệu SaTScan</h4>
-        <p style="color: #adb5bd; margin-top: 5px;">Phân tích cụm không gian hiện tại chỉ khả dụng cho bệnh Sốt xuất huyết.</p>
+        <p style="color: #adb5bd; margin-top: 5px;">Phân tích cụm không gian hiện tại chỉ khả dụng cho Sốt xuất huyết và Tay chân miệng.</p>
      </div>`
   }
 </div>

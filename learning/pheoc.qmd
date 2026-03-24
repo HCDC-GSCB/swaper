@@ -1,0 +1,54 @@
+---
+title: "Public Health Emergency Operations Centre"
+description: "Tổng hợp các bài hướng dẫn về PHEOC và RRT"
+image: picture/pheoc.png
+---
+
+Welcome to SWAPER's PHEOC repository. The latest lectures will be updated here.
+
+```{=html}
+<style>
+.my-hover-link {
+  color: #0d6efd; /* Màu xanh nước biển chuẩn của link */
+  text-decoration: none; /* Bình thường ẩn gạch chân đi cho đẹp */
+  font-weight: bold; /* In đậm một tí cho nổi bật */
+}
+.my-hover-link:hover {
+  color: #0a58ca; /* Màu xanh đậm lên khi rê chuột vào */
+  text-decoration: underline; /* Hiện gạch chân khi rê chuột */
+}
+</style>
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(readxl)
+library(tidyverse)
+library(DT)
+
+df <- read_excel("pheoc.xlsx")
+
+df <- df %>%
+  mutate(
+    Dates = format(as.Date(Dates), "%Y-%m-%d"),
+    Links = ifelse(is.na(Links), "", 
+                   paste0('<a href="', Links, '" target="_blank" class="my-hover-link">Link</a>'))
+  )
+```
+
+```{r}
+#| echo: false
+
+datatable(df, 
+          escape = FALSE,   # Bắt buộc phải là FALSE để hiển thị được nút bấm HTML
+          rownames = FALSE, # Ẩn cột số thứ tự bên trái
+          options = list(
+            pageLength = 10, # Số dòng hiển thị mỗi trang
+            autoWidth = TRUE,
+            dom = 'fltip',   # Layout các công cụ (Filter, Length, Table, Info, Pagination)
+            language = list(search = "Search here:")
+          ))
+```

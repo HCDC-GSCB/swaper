@@ -33,16 +33,8 @@ website:
         href: seminars/index.qmd
       - text: "Learning"
         menu:
-          - text: "Public Health Emergency Operations Centre"
-            href: pheoc/index.qmd
-          - text: "Surveillance System"
-            href: surveillance_system/index.qmd
-          - text: "Warning and Forecasting"
-            href: warning_forecasting/index.qmd
-          - text: "R language"
-            href: r/index.qmd
-          - text: "Workshop"
-            href: workshop/index.qmd
+          - text: "E-Learning"
+            href: learning/index.qmd
           - text: "Book"
             href: book/index.qmd
       - text: "Epidemic Channel"

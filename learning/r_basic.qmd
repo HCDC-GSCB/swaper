@@ -1,0 +1,12 @@
+---
+title: "R Basic"
+description: "Tổng hợp các bài hướng dẫn cơ bản về R cho phân tích dữ liệu"
+image: picture/icon-cat.png
+listing: 
+  contents: r
+  type: default
+  sort: "date desc"
+  categories: true
+---
+
+
