@@ -107,6 +107,21 @@ aggregate_data <- function(df_clean) {
   return(df_agg)
 }
 
+agg_2026_city <- function(df_clean) {
+  df_clean %>%
+    filter(Year == 2026) %>%
+    group_by(Year, Week) %>%
+    summarise(Cases = n(), .groups = "drop") 
+}
+
+agg_2026_ward <- function(df_clean) {
+  df_clean %>%
+    filter(Year == 2026) %>%
+    group_by(Year, Week, NoiOHienTai_SauKhiSapNhap_WardId) %>%
+    summarise(Cases = n(), .groups = "drop") %>%
+    rename(ward = NoiOHienTai_SauKhiSapNhap_WardId) # Đổi tên cột cho khớp với map_dfr bên dưới
+}
+
 ## Encrypt data
 encrypt_data <- function(data_df, filename, password) {
   
