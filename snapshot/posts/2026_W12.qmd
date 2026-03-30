@@ -1,13 +1,17 @@
 ---
-pagetitle: "Epidemic Channel"
+title: "Bản tin nhanh - Tuần 12/2026"
+description: 'Cập nhật tình hình SXH và TCM tuần 12 năm 2026'
+date: "2026-03-30"
+image: /logo.png
+author: Surveillance, Warning and Preparedness, Emergency Response to Epidemic
 format: 
   html:
-    css: snapshot.css
+    css: ../snapshot.css
     page-layout: custom
     include-in-header: 
       - text: |
-          <script ../src="highcharts.js"></script>
-          <script src="highcharts-more.js"></script>
+          <script src="../highcharts.js"></script>
+          <script src="../highcharts-more.js"></script>
 ---
 
 ```{=html}
@@ -58,8 +62,8 @@ data_severity = fetchAndDecrypt("severity.dat")
 
 d3 = require("d3")
 
-sys_max_yr = {{TARGET_YEAR}};
-sys_max_wk = {{TARGET_WEEK}};
+sys_max_yr = 2026;
+sys_max_wk = 12;
 
 getSmartVal = (dataList, wk, algoName) => {
   const rows = dataList.filter(d => Number(d.Week) === wk);

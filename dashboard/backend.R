@@ -196,3 +196,61 @@ encrypt_data(df_pred, paste0(base_path, "pred.dat"), "Swaper@234")
 message("✅ Hoàn tất file pred.dat")
 
 
+##########################
+##### AUTO RENDER QMD ####
+##########################
+message("--- Đang xử lý tự động tạo file báo cáo tuần ---")
+
+# 1. Xác định đường dẫn thư mục snapshot
+snap_path <- ifelse(dir.exists("snapshot"), "snapshot/", "../snapshot/")
+template_file <- paste0(snap_path, "template.qmd")
+posts_dir <- paste0(snap_path, "posts/")
+
+# Tạo thư mục posts nếu chưa có
+if (!dir.exists(posts_dir)) {
+  dir.create(posts_dir, recursive = TRUE)
+}
+
+# 2. Lấy Year và Week mới nhất từ dữ liệu đã clean (sxh)
+# Vì bạn đã chạy remove_latest_week() ở trên, nên đây chính là "tuần hiện tại" (tuần hoàn thiện dữ liệu mới nhất)
+target_year <- max(sxh$Year, na.rm = TRUE)
+target_week <- max(sxh$Week[sxh$Year == target_year], na.rm = TRUE)
+
+# 3. Tạo định dạng tên file: ví dụ "tuan_32_2026.qmd"
+out_file <- sprintf("%s%04d_W%02d.qmd", posts_dir, target_week, target_year)
+
+# 4. Kiểm tra và tạo file báo cáo mới
+if (!file.exists(out_file)) {
+  if (file.exists(template_file)) {
+    # Đọc nội dung file template
+    tpl <- readLines(template_file, warn = FALSE)
+    
+    # Thay thế các thẻ bằng giá trị thực
+    tpl <- gsub("\\{\\{TARGET_YEAR\\}\\}", target_year, tpl)
+    tpl <- gsub("\\{\\{TARGET_WEEK\\}\\}", target_week, tpl)
+    
+    # Bơm thêm YAML title, date, author để file index.qmd có thể listing và sắp xếp được
+    yaml_insert <- c(
+      sprintf('title: "Bản tin nhanh - Tuần %02d/%04d"', target_week, target_year),
+      sprintf('date: "%s"', Sys.Date()),
+      'author: "Surveillance, Warning and Preparedness, Emergency Response to Epidemic"'
+    )
+    
+    # Chèn vào ngay dưới dòng --- đầu tiên
+    first_dash <- which(tpl == "---")[1]
+    if (!is.na(first_dash)) {
+      tpl <- append(tpl, yaml_insert, after = first_dash)
+    }
+    
+    # Lưu ra file mới
+    writeLines(tpl, out_file)
+    message("✅ Đã tạo thành công báo cáo tuần mới: ", out_file)
+  } else {
+    warning("⚠️ Không tìm thấy file template.qmd tại: ", template_file)
+  }
+} else {
+  message(sprintf("✅ Báo cáo Tuần %02d/%04d đã tồn tại, không ghi đè.", target_week, target_year))
+}
+
+
+
