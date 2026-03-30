@@ -11,6 +11,7 @@ resources:
   - "dashboard/*.dat"
   - "dashboard/hcm_map.json"
   - "dashboard/satscan_dengue.html"
+  - "dashboard/satscan_hfmd.html"
 
 website:
   title: "SWAPER"
