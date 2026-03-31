@@ -1695,10 +1695,6 @@ series_ape_rf = pred_weeks.map(wk => {
 
 chart_pred_main = createHighchart("chart-pred-main", {
   chart: { type: 'line' },
-  title: { 
-    text: 'So sánh Dự báo và Thực tế năm ' + selected_year, 
-    style: { fontWeight: '900', color: '#005d88' } 
-  },
   xAxis: { 
     categories: pred_weeks.map(w => 'Tuần ' + w), 
     title: { text: 'Tuần giám sát', style: { fontWeight: 'bold' } },
