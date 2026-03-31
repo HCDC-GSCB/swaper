@@ -1617,59 +1617,74 @@ pred_weeks = Array.from({length: 52}, (_, i) => i + 1);
 
 // 1. Số ca thực tế (từ sxh.dat)
 actual_cases = pred_weeks.map(wk => {
-    let rows = chart_raw_data.filter(d => Number(d.Week) === wk);
-    let sum = d3.sum(rows, d => Number(d.SoCa) || 0);
-    let limit_wk = (Number(selected_year) === sys_max_yr) ? sys_max_wk : 52;
-    return wk <= limit_wk ? sum : null;
+  let rows = chart_raw_data.filter(d => Number(d.Week) === wk);
+  let sum = d3.sum(rows, d => Number(d.SoCa) || 0);
+  let limit_wk = (Number(selected_year) === sys_max_yr) ? sys_max_wk : 52;
+  return wk <= limit_wk ? sum : null;
 });
 
 last_actual_wk = (Number(selected_year) === sys_max_yr) ? sys_max_wk : 52;
 
-// 2. Dữ liệu dự báo (từ pred.dat)
+// 2. Dữ liệu dự báo (từ pred.dat) - ĐÃ XÓA LỖI [cite...]
 pred_data_yr = data_pred.filter(d => Number(d.Year) === Number(selected_year));
 
 // 3. Dự báo LSTM
 series_pred_lstm = pred_weeks.map(wk => {
-    let row = pred_data_yr.find(d => Number(d.Week) === wk);
-    return (row && row.Pred_LSTM != null) ? Number(row.Pred_LSTM) : null;
+  let row = pred_data_yr.find(d => Number(d.Week) === wk);
+  return (row && row.Pred_LSTM != null) ? Number(row.Pred_LSTM) : null;
 });
 
 // 4. Dự báo SARIMA 
 series_pred_sarima = pred_weeks.map(wk => {
-    let row = pred_data_yr.find(d => Number(d.Week) === wk);
-    return (row && row.Pred_SARIMA != null) ? Number(row.Pred_SARIMA) : null;
+  let row = pred_data_yr.find(d => Number(d.Week) === wk);
+  return (row && row.Pred_SARIMA != null) ? Number(row.Pred_SARIMA) : null;
+});
+
+// THÊM MỚI: Dự báo Random Forest (RF)
+series_pred_rf = pred_weeks.map(wk => {
+  let row = pred_data_yr.find(d => Number(d.Week) === wk);
+  // Nếu data trống (ví dụ tuần 1-12), nó sẽ trả về null
+  return (row && row.Pred_RF != null) ? Number(row.Pred_RF) : null;
 });
 
 // 5. Đường Ngưỡng (Từ threshold.dat - LẤY ĐÚNG CỘT "CDC")
 series_threshold = pred_weeks.map(wk => {
-    if (typeof data_threshold !== 'undefined') {
-        let row = data_threshold.find(d => Number(d.Week) === wk);
-        if (row && row.CDC != null && row.CDC !== "") {
-            // Xử lý an toàn nhỡ R xuất dấu phẩy thập phân
-            let val = String(row.CDC).replace(',', '.');
-            let num = Number(val);
-            return isNaN(num) ? null : num;
-        }
+  if (typeof data_threshold !== 'undefined') {
+    let row = data_threshold.find(d => Number(d.Week) === wk);
+    if (row && row.CDC != null && row.CDC !== "") {
+      let val = String(row.CDC).replace(',', '.');
+      let num = Number(val);
+      return isNaN(num) ? null : num;
     }
-    return null; 
+  }
+  return null; 
 });
 
 // 6. Sai số APE LSTM
 series_ape_lstm = pred_weeks.map(wk => {
-    if (wk > last_actual_wk) return null;
-    let actual = actual_cases[wk - 1];
-    let pred = series_pred_lstm[wk - 1];
-    if (actual > 0 && pred !== null) return Number((Math.abs(actual - pred) / actual * 100).toFixed(2));
-    return null;
+  if (wk > last_actual_wk) return null;
+  let actual = actual_cases[wk - 1];
+  let pred = series_pred_lstm[wk - 1];
+  if (actual > 0 && pred !== null) return Number((Math.abs(actual - pred) / actual * 100).toFixed(2));
+  return null;
 });
 
 // 7. Sai số APE SARIMA
 series_ape_sarima = pred_weeks.map(wk => {
-    if (wk > last_actual_wk) return null;
-    let actual = actual_cases[wk - 1];
-    let pred = series_pred_sarima[wk - 1];
-    if (actual > 0 && pred !== null) return Number((Math.abs(actual - pred) / actual * 100).toFixed(2));
-    return null;
+  if (wk > last_actual_wk) return null;
+  let actual = actual_cases[wk - 1];
+  let pred = series_pred_sarima[wk - 1];
+  if (actual > 0 && pred !== null) return Number((Math.abs(actual - pred) / actual * 100).toFixed(2));
+  return null;
+});
+
+// THÊM MỚI: Sai số APE RF
+series_ape_rf = pred_weeks.map(wk => {
+  if (wk > last_actual_wk) return null;
+  let actual = actual_cases[wk - 1];
+  let pred = series_pred_rf[wk - 1];
+  if (actual > 0 && pred !== null) return Number((Math.abs(actual - pred) / actual * 100).toFixed(2));
+  return null;
 });
 ```
 
@@ -1701,20 +1716,20 @@ chart_pred_main = createHighchart("chart-pred-main", {
     line: { 
       marker: { enabled: false },
       lineWidth: 2.5,
-      connectNulls: false // Ép ngắt đường khi hết 12/24 tuần
+      connectNulls: false 
     }
   },
   series: [
     { 
       name: 'Số ca thực tế', 
       data: actual_cases,     
-      color: '#000000',       // Đen
+      color: '#000000',       
       zIndex: 5
     },
     { 
-      name: 'Ngưỡng dịch (CDC)', 
+      name: 'Mean+2SD',       // ĐÃ ĐỔI TÊN TỪ "Ngưỡng dịch (CDC)"
       data: series_threshold, 
-      color: '#d32f2f',       // Đỏ
+      color: '#d32f2f',       
       dashStyle: 'LongDashDot', 
       lineWidth: 2,
       zIndex: 4
@@ -1722,13 +1737,19 @@ chart_pred_main = createHighchart("chart-pred-main", {
     { 
       name: 'Dự báo LSTM', 
       data: series_pred_lstm, 
-      color: '#1976d2',       // XANH DƯƠNG
+      color: '#1976d2',       
       dashStyle: 'ShortDash'  
     },
     { 
       name: 'Dự báo SARIMA', 
       data: series_pred_sarima, 
-      color: '#388e3c',       // XANH LÁ
+      color: '#388e3c',       
+      dashStyle: 'ShortDash'  
+    },
+    { 
+      name: 'Dự báo RF', 
+      data: series_pred_rf, 
+      color: '#f57c00',       
       dashStyle: 'ShortDash'  
     }
   ]
@@ -1768,16 +1789,23 @@ chart_pred_main = createHighchart("chart-pred-main", {
         { 
           name: 'Sai số LSTM', 
           data: series_ape_lstm, 
-          color: '#1976d2'    // XANH DƯƠNG (Khớp với Row 1)
+          color: '#1976d2'    
         },
         { 
           name: 'Sai số SARIMA', 
           data: series_ape_sarima, 
-          color: '#388e3c'    // XANH LÁ (Khớp với Row 1)
+          color: '#388e3c'   
+        },
+        { 
+          name: 'Sai số RF', 
+          data: series_ape_rf, 
+          color: '#f57c00'   
         }
       ]
-    });
+    })
   }
 }
 ```
+
+
 
