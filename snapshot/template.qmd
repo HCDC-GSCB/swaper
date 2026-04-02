@@ -1,5 +1,6 @@
 ---
 pagetitle: "Epidemic Channel"
+image: /logo.png
 format: 
   html:
     css: snapshot.css

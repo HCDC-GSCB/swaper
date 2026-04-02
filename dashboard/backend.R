@@ -217,7 +217,7 @@ target_year <- max(sxh$Year, na.rm = TRUE)
 target_week <- max(sxh$Week[sxh$Year == target_year], na.rm = TRUE)
 
 # 3. Tạo định dạng tên file: ví dụ "tuan_32_2026.qmd"
-out_file <- sprintf("%s%04d_W%02d.qmd", posts_dir, target_week, target_year)
+out_file <- sprintf("%s%04d_W%02d.qmd", posts_dir, target_year, target_week)
 
 # 4. Kiểm tra và tạo file báo cáo mới
 if (!file.exists(out_file)) {
