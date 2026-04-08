@@ -81,6 +81,7 @@ format:
       light: flatly
       dark: darkly
     toc: true
+    embed-resources: false
     css: custom.css
     includes: 
       after-body: loading.html
