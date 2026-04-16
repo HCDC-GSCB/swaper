@@ -1743,15 +1743,18 @@ html`
      ></iframe>`
     : selected_disease === "Tay chân miệng" 
     ?
-    // 2. NẾU LÀ TAY CHÂN MIỆNG
-    `<iframe 
-        src="satscan_hfmd.html" 
-        width="100%" 
-        height="650px" 
-        style="border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);"
-     ></iframe>`
+    // 2. NẾU LÀ TAY CHÂN MIỆNG (Hiển thị thông báo bảo trì/cập nhật)
+    `<div style="height: 650px; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #f8f9fa; border: 2px dashed #dee2e6; border-radius: 8px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#adb5bd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 15px;">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <h4 style="color: #6c757d; font-weight: 600; margin: 0;">Tính năng đang cập nhật</h4>
+        <p style="color: #adb5bd; margin-top: 5px; font-size: 1.05rem;">SaTScan chưa khả dụng cho bệnh tay chân miệng, sẽ cập nhật trong thời gian tới.</p>
+     </div>`
     : 
-    // 3. NẾU LÀ BỆNH KHÁC CHƯA CÓ FILE (VD: sau này mày làm thêm Sởi thì nó sẽ nhảy vào đây)
+    // 3. NẾU LÀ BỆNH KHÁC (VD: Sởi)
     `<div style="height: 650px; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #f8f9fa; border: 2px dashed #dee2e6; border-radius: 8px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#adb5bd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 15px;">
           <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
@@ -1759,7 +1762,7 @@ html`
           <line x1="12" y1="17" x2="12.01" y2="17"></line>
         </svg>
         <h4 style="color: #6c757d; font-weight: 600; margin: 0;">Chưa có dữ liệu SaTScan</h4>
-        <p style="color: #adb5bd; margin-top: 5px;">Phân tích cụm không gian hiện tại chỉ khả dụng cho Sốt xuất huyết và Tay chân miệng.</p>
+        <p style="color: #adb5bd; margin-top: 5px;">Phân tích cụm không gian hiện tại chỉ khả dụng cho Sốt xuất huyết.</p>
      </div>`
   }
 </div>
@@ -1776,9 +1779,10 @@ html`
 // ==========================================
 pred_weeks = Array.from({length: 52}, (_, i) => i + 1);
 
-// 1. Số ca thực tế (từ sxh.dat)
+// 1. Số ca thực tế (từ sxh.dat) - Đã thêm lọc "KV1"
 actual_cases = pred_weeks.map(wk => {
-  let rows = chart_raw_data.filter(d => Number(d.Week) === wk);
+  // Bổ sung điều kiện d.khuvuc === "KV1"
+  let rows = chart_raw_data.filter(d => Number(d.Week) === wk && d.area === "KV1");
   let sum = d3.sum(rows, d => Number(d.SoCa) || 0);
   let limit_wk = (Number(selected_year) === sys_max_yr) ? sys_max_wk : 52;
   return wk <= limit_wk ? sum : null;
@@ -1786,7 +1790,7 @@ actual_cases = pred_weeks.map(wk => {
 
 last_actual_wk = (Number(selected_year) === sys_max_yr) ? sys_max_wk : 52;
 
-// 2. Dữ liệu dự báo (từ pred.dat) - ĐÃ XÓA LỖI [cite...]
+// 2. Dữ liệu dự báo (từ pred.dat) 
 pred_data_yr = data_pred.filter(d => Number(d.Year) === Number(selected_year));
 
 // 3. Dự báo LSTM

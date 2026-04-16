@@ -500,6 +500,7 @@ function generateSummaryTable(disease_name, raw_data, threshold_data) {
 
 ```{ojs}
 //| echo: false
+//| output: false
 
 // 👉 5. GIAO DIỆN HIỂN THỊ CHÍNH
 
@@ -516,7 +517,10 @@ names_sxh_canhbao = hotspots_sxh.filter(d => d.type === 2).map(d => d.name).join
 
 names_tcm_baodong = hotspots_tcm.filter(d => d.type === 3).map(d => d.name).join(", ");
 names_tcm_canhbao = hotspots_tcm.filter(d => d.type === 2).map(d => d.name).join(", ");
+```
 
+```{ojs}
+//| echo: false
 html`
 <div style="max-width: 1500px; margin: 0 auto; padding: 10px 20px;">
   

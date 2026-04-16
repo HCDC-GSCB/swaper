@@ -513,7 +513,10 @@ names_sxh_canhbao = hotspots_sxh.filter(d => d.type === 2).map(d => d.name).join
 
 names_tcm_baodong = hotspots_tcm.filter(d => d.type === 3).map(d => d.name).join(", ");
 names_tcm_canhbao = hotspots_tcm.filter(d => d.type === 2).map(d => d.name).join(", ");
+```
 
+```{ojs}
+//| echo: false
 html`
 <div style="max-width: 1500px; margin: 0 auto; padding: 10px 20px;">
   
@@ -576,9 +579,6 @@ html`
       </li>
       <li style="margin-bottom: 12px;">
         Không ghi nhận sự khác biệt về nhóm tuổi.
-      </li>
-      <li style="margin-bottom: 0;">
-        Không ghi nhận bất thường trên hệ thống Giám sát dựa vào sự kiện (EBS).
       </li>
     </ul>
   </div>
@@ -644,32 +644,8 @@ html`
       </div>
     </details>
   </div>
-
-  <div style="background: #fdfbf7; padding: 25px; border-radius: 15px; border: 1px solid #e9ecef;">
-    <h4 style="margin: 0 0 15px 0; color:#005d88; font-size:1.2rem; display:flex; justify-content:space-between; align-items:center;">
-      <span>🌐 Giám sát dựa vào sự kiện (EBS)</span>
-      <a href="../../ebs.html" style="font-size:0.9rem; color:#005d88; text-decoration:none; font-weight:600;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
-        Xem chi tiết →
-      </a>
-    </h4>
-    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-        <div style="flex: 1; min-width: 300px; background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #1a9fcc; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
-          <h5 style="margin: 0 0 12px 0; color: #333;"><b>🔍 Xu hướng tìm kiếm Google Trends</b></h5>
-          <p style="margin: 0; font-size: 1rem; line-height: 1.7;">
-            - Ghi nhận mức độ quan tâm trên Google về <i>Sốt xuất huyết</i>, <i>Tay chân miệng</i> lần lượt là 76 (tăng 68,9%) và 45 (tăng 32,3%) so với tuần trước.<br>
-            - <i>"Sốt xuất huyết có dấu hiệu cảnh báo"</i> và <i>"Vaccine tay chân miệng"</i> là các từ khóa tăng đột biến so với tuần trước.<br>
-          </p>
-        </div>
-  
-        <div style="flex: 1; min-width: 300px; background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #f28e2b; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
-          <h5 style="margin: 0 0 12px 0; color: #333;"><span style="text-shadow: 0 0 5px #ffc107;">💡</span><b>Tin tức & Sự kiện</b></h5>
-          <p style="margin: 0; font-size: 1rem; line-height: 1.7;">
-              Chưa ghi nhận thông tin bất thường liên quan đến dịch bệnh.<br>
-          </p>
-        </div>
     </div>
   </div>
-
 </div> 
 `
 ```

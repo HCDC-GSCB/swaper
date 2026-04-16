@@ -84,7 +84,7 @@ clean_data <- function(raw_df, diagnosis) {
     ) |> 
     
     select(Year, Week, ThangTuoi, NhomTuoi, GioiTinh, NhomDieuTri, PhanDoBenhName, 
-           NoiOHienTai_SauKhiSapNhap_WardId, KetQua)
+           NoiOHienTai_SauKhiSapNhap_WardId, KetQua, area)
   
   message("✅ Xử lý hoàn tất. Số dòng sạch: ", nrow(clean_df))
   return(clean_df)
@@ -101,7 +101,8 @@ aggregate_data <- function(df_clean) {
       NhomDieuTri, 
       PhanDoBenhName,
       NoiOHienTai_SauKhiSapNhap_WardId,
-      KetQua
+      KetQua,
+      area
     ) %>%
     summarise(SoCa = n(), .groups = "drop")
   return(df_agg)
