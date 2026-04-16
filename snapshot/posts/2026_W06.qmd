@@ -579,9 +579,6 @@ html`
       <li style="margin-bottom: 12px;">
         Không ghi nhận sự khác biệt về nhóm tuổi.
       </li>
-      <li style="margin-bottom: 0;">
-        Không ghi nhận bất thường trên hệ thống Giám sát dựa vào sự kiện (EBS).
-      </li>
     </ul>
   </div>
 
