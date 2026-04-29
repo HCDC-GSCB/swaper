@@ -253,4 +253,121 @@ if (!file.exists(out_file)) {
 }
 
 
+################################################################################
+##### AI DATA CONTEXT GENERATION (BẢN HOÀN THIỆN) #############################
+################################################################################
+message("--- Đang chuẩn bị Context cho AI (Bao gồm % tăng giảm & Tích lũy) ---")
+
+library(dplyr)
+library(tidyr)
+
+# 1. Xác định thời gian báo cáo
+sys_year <- max(agg_sxh$Year, na.rm = TRUE)
+sys_week <- max(agg_sxh$Week[agg_sxh$Year == sys_year], na.rm = TRUE)
+
+# 2. Hàm xử lý dữ liệu chi tiết cho từng bệnh
+tao_text_context <- function(disease_name, df_thresh, df_trans, df_severe, df_raw_agg) {
+  
+  # A. Tính số ca TÍCH LŨY từ đầu năm đến tuần hiện tại
+  df_cum <- df_thresh %>%
+    filter(Year == sys_year, Week <= sys_week, Disease == disease_name) %>%
+    group_by(NoiOHienTai_SauKhiSapNhap_WardId) %>%
+    summarise(cum_cases = sum(cases, na.rm = TRUE), .groups = "drop")
+  
+  # B. Lọc dữ liệu tuần hiện tại và tuần trước để tính %
+  df_curr <- df_thresh %>% filter(Year == sys_year, Week == sys_week, Disease == disease_name)
+  
+  prev_w <- if(sys_week == 1) 52 else sys_week - 1
+  prev_y <- if(sys_week == 1) sys_year - 1 else sys_year
+  
+  df_prev <- df_thresh %>% 
+    filter(Year == prev_y, Week == prev_w, Disease == disease_name) %>%
+    select(NoiOHienTai_SauKhiSapNhap_WardId, cases_prev = cases)
+  
+  # C. Hợp nhất dữ liệu và tính toán chỉ số
+  df_final <- df_curr %>%
+    left_join(df_prev, by = "NoiOHienTai_SauKhiSapNhap_WardId") %>%
+    left_join(df_cum, by = "NoiOHienTai_SauKhiSapNhap_WardId") %>%
+    mutate(
+      cases = replace_na(cases, 0),
+      cases_prev = replace_na(cases_prev, 0),
+      cum_cases = replace_na(cum_cases, 0),
+      
+      # Tính % tăng/giảm
+      diff_pct = if_else(cases_prev == 0, if_else(cases > 0, 100, 0), (cases - cases_prev)/cases_prev * 100),
+      txt_trend = case_when(
+        diff_pct > 0 ~ sprintf("tăng %.1f%%", diff_pct),
+        diff_pct < 0 ~ sprintf("giảm %.1f%%", abs(diff_pct)),
+        TRUE ~ "không đổi"
+      ),
+      
+      # Xác định trạng thái cảnh báo theo ngưỡng
+      Alert_Level = case_when(
+        cases > CDC & cases > Farrington ~ "Báo động (Mức 3)",
+        cases > CDC | cases > Farrington ~ "Cảnh báo (Mức 2)",
+        cases > Cusum ~ "Lưu ý (Mức 1)",
+        TRUE ~ "Bình thường (Mức 0)"
+      ),
+      
+      # Câu văn mô tả cho từng đơn vị
+      summary_line = sprintf(
+        "  + %s: %d ca (%s so với %d ca tuần trước). Tích lũy: %d ca. Ngưỡng [Mùa: %s, Cusum: %s, Farrington: %s, Mean+2SD: %s]. Trạng thái: %s.",
+        NoiOHienTai_SauKhiSapNhap_WardId, cases, txt_trend, cases_prev, cum_cases, 
+        Seasonal, Cusum, Farrington, CDC, Alert_Level
+      )
+    )
+  
+  # D. Đánh giá nguy cơ PISA (Toàn Thành phố)
+  city_val <- df_final %>% filter(NoiOHienTai_SauKhiSapNhap_WardId == "Toàn Thành phố")
+  city_cases <- city_val$cases
+  # Đếm số ca nội trú từ dữ liệu thô
+  city_inpatient <- sum(df_raw_agg$SoCa[df_raw_agg$Year == sys_year & df_raw_agg$Week == sys_week & df_raw_agg$NhomDieuTri == "Nội trú"], na.rm = TRUE)
+  
+  pisa_t <- df_trans %>% filter(Disease == disease_name)
+  pisa_s <- df_severe %>% filter(Disease == disease_name, Week == sys_week)
+  
+  # Logic phán mức độ Lây truyền
+  lvl_trans <- "Rất thấp"
+  if(city_cases >= pisa_t$Extra[1]) lvl_trans <- "Rất cao" else
+    if(city_cases >= pisa_t$High[1]) lvl_trans <- "Cao" else
+      if(city_cases >= pisa_t$Moderate[1]) lvl_trans <- "Vừa" else
+        if(city_cases >= pisa_t$Seasonal[1]) lvl_trans <- "Thấp"
+  
+  # Logic phán mức độ Nặng
+  lvl_sev <- "Thấp"
+  if(city_inpatient >= pisa_s$Limit_High[1]) lvl_sev <- "Rất cao" else
+    if(city_inpatient >= pisa_s$Limit_Mod[1]) lvl_sev <- "Cao" else
+      if(city_inpatient >= pisa_s$Limit_Low[1]) lvl_sev <- "Vừa"
+  
+  text_pisa <- sprintf(
+    "  + Đánh giá nguy cơ PISA (Toàn Thành phố):\n    - Mức độ lây truyền: Đang ở mức %s (Số ca: %d. Các ngưỡng: Mùa %s, Vừa %s, Cao %s, Rất cao %s).\n    - Mức độ nặng: Đang ở mức %s (Số ca nội trú: %d. Các ngưỡng: Thấp %s, Vừa %s, Cao %s).",
+    lvl_trans, city_cases, pisa_t$Seasonal[1], pisa_t$Moderate[1], pisa_t$High[1], pisa_t$Extra[1],
+    lvl_sev, city_inpatient, pisa_s$Limit_Low[1], pisa_s$Limit_Mod[1], pisa_s$Limit_High[1]
+  )
+  
+  # E. Tổng hợp kết quả
+  ward_details <- df_final %>% filter(NoiOHienTai_SauKhiSapNhap_WardId != "Toàn Thành phố") %>% pull(summary_line) %>% paste(collapse = "\n")
+  
+  return(paste0(
+    "--- DỮ LIỆU BỆNH ", toupper(disease_name), " ---\n",
+    city_val$summary_line, "\n",
+    text_pisa, "\n",
+    "CHI TIẾT CÁC PHƯỜNG/XÃ:\n", ward_details, "\n"
+  ))
+}
+
+# Chạy hàm cho cả 2 bệnh
+text_sxh <- tao_text_context("Sốt xuất huyết", final_threshold_df, df_transmission, df_severity, agg_sxh)
+text_tcm <- tao_text_context("Tay chân miệng", final_threshold_df, df_transmission, df_severity, agg_tcm)
+
+# Ghi file context
+full_context <- paste0(
+  "Hệ thống: Trợ lý dịch tễ SWAPER HCDC.\n",
+  "Dữ liệu cập nhật: Tuần ", sys_week, " năm ", sys_year, ".\n",
+  "Hướng dẫn: Luôn ưu tiên trả lời mức độ nguy cơ/trạng thái trước khi đưa số liệu thô. Nếu hỏi về Phường X, hãy tìm trong danh sách phường/xã.\n\n",
+  text_sxh, "\n", text_tcm
+)
+
+writeLines(full_context, paste0(base_path, "ai_context.txt"))
+message("✅ Đã xuất file ai_context.txt phục vụ chatbot.")
 
