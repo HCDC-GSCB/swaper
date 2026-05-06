@@ -636,7 +636,7 @@ html`
       </summary>
       <div style="padding: 15px; border-top: 1px solid #e2e8f0; font-size: 0.9rem; color: #000000; line-height: 1.8; background-color: #f8fafc; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;">
         <div style="margin-bottom: 12px;">
-          <b>IBS (Indicator-based Surveillance)</b> là việc thu thập liên tục, có hệ thống số liệu ca từ các cơ sở y tế.
+          <b>IBS (Indicator-based Surveillance)</b> là việc thu thập, giám sát, phân tích và diễn giải một cách có hệ thống các dữ liệu sức khỏe có cấu trúc (các chỉ số), được tạo ra từ các cơ sở y tế hoặc các nguồn xác định khác. Việc báo cáo dựa trên các tiêu chuẩn về định nghĩa ca bệnh đối với các bệnh hoặc tình trạng ưu tiên được lựa chọn. (WHO, 2023)
         </div>
         <div>
           <b>Tại sao quan trọng?</b> Giúp đối chiếu số ca bệnh thực tế với các ngưỡng dịch (Farrington, CUSUM, Mean+2SD). Bên cạnh đó, đánh giá mức độ lây truyền, mức độ nặng (theo WHO) có thể hỗ trợ HCDC phát hiện sớm sự bất thường của dịch, chuẩn bị kịp thời các kịch bản ứng phó.
