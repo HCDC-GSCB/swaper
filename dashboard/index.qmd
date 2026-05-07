@@ -455,7 +455,7 @@ chat_widget = {
     chatBox.scrollTop = chatBox.scrollHeight;
 
     try {
-      const res = await fetch("http://136.113.48.225:8000/api/chat", {
+      const res = await fetch("http://34.16.65.61:8000/api/chat", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({message: text})
