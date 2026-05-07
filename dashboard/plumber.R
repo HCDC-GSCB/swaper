@@ -3,7 +3,7 @@ library(jsonlite)
 library(httr2)
 
 # API KEY GEMINI CỦA SẾP (Gắn trực tiếp vào đây)
-GEMINI_API_KEY <- "AQ.Ab8RN6IJEXoX7YRPfXXHwF0aCFMt6NDF4ptDYufLbkMX3gxFCg"
+GEMINI_API_KEY <- Sys.getenv("GEMINI_API_KEY")
 
 #* @filter cors
 function(res) {
