@@ -455,7 +455,7 @@ chat_widget = {
     chatBox.scrollTop = chatBox.scrollHeight;
 
     try {
-      const res = await fetch("http://34.16.65.61:8000/api/chat", {
+      const res = await fetch("https://hcdc-swaper.duckdns.org/api/chat", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({message: text})
