@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Dashboard IBS – SWAPER</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -24,9 +21,8 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -37,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -68,28 +64,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../favicon.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-76a56c61a22ab62334c3fcdcb0b3d7cb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1550dab025a6351300a929cea83fbf5a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-76a56c61a22ab62334c3fcdcb0b3d7cb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script src="../site_libs/quarto-dashboard/quarto-dashboard.js"></script>
 <script src="../site_libs/quarto-dashboard/stickythead.js"></script>
-
-
-
+<script src="../site_libs/quarto-dashboard/datatables.min.js" kdttablesentinel="true"></script>
+<script src="../site_libs/quarto-dashboard/pdfmake.min.js" kdttablesentinel="true"></script>
+<script src="../site_libs/quarto-dashboard/vfs_fonts.js" kdttablesentinel="true"></script>
 <script src="../site_libs/quarto-dashboard/web-components.js" type="module"></script>
 <script src="../site_libs/quarto-dashboard/components.js"></script>
-
+<link href="../site_libs/quarto-dashboard/datatables.min.css" rel="stylesheet" kdttablesentinel="true">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -129,169 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="dashboard.css">
 </head>
 
-<body class="quarto-dashboard dashboard-sidebar fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
-    const toggleBodyColorMode = (bsSheetEl) => {
-      const mode = bsSheetEl.getAttribute("data-mode");
-      const bodyEl = window.document.querySelector("body");
-      if (mode === "dark") {
-        bodyEl.classList.add("quarto-dark");
-        bodyEl.classList.remove("quarto-light");
-      } else {
-        bodyEl.classList.add("quarto-light");
-        bodyEl.classList.remove("quarto-dark");
-      }
-    }
-    const toggleBodyColorPrimary = () => {
-      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
-      if (bsSheetEl) {
-        toggleBodyColorMode(bsSheetEl);
-      }
-    }
-    const setColorSchemeToggle = (alternate) => {
-      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-      for (let i=0; i < toggles.length; i++) {
-        const toggle = toggles[i];
-        if (toggle) {
-          if (alternate) {
-            toggle.classList.add("alternate");
-          } else {
-            toggle.classList.remove("alternate");
-          }
-        }
-      }
-    };
-    const toggleColorMode = (alternate) => {
-      // Switch the stylesheets
-      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
-      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-      manageTransitions('#quarto-margin-sidebar .nav-link', false);
-      if (alternate) {
-        // note: dark is layered on light, we don't disable primary!
-        enableStylesheet(alternateStylesheets);
-        for (const sheetNode of alternateStylesheets) {
-          if (sheetNode.id === "quarto-bootstrap") {
-            toggleBodyColorMode(sheetNode);
-          }
-        }
-      } else {
-        disableStylesheet(alternateStylesheets);
-        enableStylesheet(primaryStylesheets)
-        toggleBodyColorPrimary();
-      }
-      manageTransitions('#quarto-margin-sidebar .nav-link', true);
-      // Switch the toggles
-      setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
-      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-        manageTransitions("body", false);
-        window.scrollTo(0, 1);
-        setTimeout(() => {
-          window.scrollTo(0, 0);
-          manageTransitions("body", true);
-        }, 40);
-      }
-    }
-    const disableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        stylesheet.rel = 'disabled-stylesheet';
-      }
-    }
-    const enableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
-          stylesheet.rel = 'stylesheet';
-        }
-      }
-    }
-    const manageTransitions = (selector, allowTransitions) => {
-      const els = window.document.querySelectorAll(selector);
-      for (let i=0; i < els.length; i++) {
-        const el = els[i];
-        if (allowTransitions) {
-          el.classList.remove('notransition');
-        } else {
-          el.classList.add('notransition');
-        }
-      }
-    }
-    const isFileUrl = () => {
-      return window.location.protocol === 'file:';
-    }
-    const hasAlternateSentinel = () => {
-      let styleSentinel = getColorSchemeSentinel();
-      if (styleSentinel !== null) {
-        return styleSentinel === "alternate";
-      } else {
-        return false;
-      }
-    }
-    const setStyleSentinel = (alternate) => {
-      const value = alternate ? "alternate" : "default";
-      if (!isFileUrl()) {
-        window.localStorage.setItem("quarto-color-scheme", value);
-      } else {
-        localAlternateSentinel = value;
-      }
-    }
-    const getColorSchemeSentinel = () => {
-      if (!isFileUrl()) {
-        const storageValue = window.localStorage.getItem("quarto-color-scheme");
-        return storageValue != null ? storageValue : localAlternateSentinel;
-      } else {
-        return localAlternateSentinel;
-      }
-    }
-    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-      let newTheme = '';
-      if(authorPrefersDark) {
-        newTheme = isAlternate ? baseTheme : alternateTheme;
-      } else {
-        newTheme = isAlternate ? alternateTheme : baseTheme;
-      }
-      const changeGiscusTheme = () => {
-        // From: https://github.com/giscus/giscus/issues/336
-        const sendMessage = (message) => {
-          const iframe = document.querySelector('iframe.giscus-frame');
-          if (!iframe) return;
-          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-        }
-        sendMessage({
-          setConfig: {
-            theme: newTheme
-          }
-        });
-      }
-      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-      if (isGiscussLoaded) {
-        changeGiscusTheme();
-      }
-    };
-    const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
-      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
-      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
-    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-    // Dark / light mode switch
-    window.quartoToggleColorScheme = () => {
-      // Read the current dark / light value
-      let toAlternate = !hasAlternateSentinel();
-      toggleColorMode(toAlternate);
-      setStyleSentinel(toAlternate);
-      toggleGiscusIfUsed(toAlternate, darkModeDefault);
-      window.dispatchEvent(new Event('resize'));
-    };
-    // Switch to dark mode if need be
-    if (hasAlternateSentinel()) {
-      toggleColorMode(true);
-    } else {
-      toggleColorMode(false);
-    }
-  </script>
+<body class="quarto-dashboard dashboard-sidebar fullcontent">
 
 
 <div id="quarto-search-results"></div>
@@ -315,9 +146,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
 <!-- main -->
 
-
 <div class="cell hidden bslib-grid-item html-fill-item">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="23" data-source-offset="-37"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 22;"><span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>correct_hash <span class="op">=</span> <span class="st">"befa1b3fe9a01ff98a34e69034e5768bd52b0a0159e8abc92cdbbefe69f3e67a"</span> </span>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="23" data-source-offset="-37"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 22;"><span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>correct_hash <span class="op">=</span> <span class="st">"befa1b3fe9a01ff98a34e69034e5768bd52b0a0159e8abc92cdbbefe69f3e67a"</span> </span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">// 2. BIẾN CHỨA DỮ LIỆU (Sẽ được điền sau khi giải mã)</span></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>mutable data_sxh <span class="op">=</span> []</span>
@@ -415,7 +245,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>    btn<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> handleLogin<span class="op">;</span></span>
 <span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>    input<span class="op">.</span><span class="at">onkeypress</span> <span class="op">=</span> (e) <span class="kw">=&gt;</span> { <span class="cf">if</span>(e<span class="op">.</span><span class="at">key</span> <span class="op">===</span> <span class="st">"Enter"</span>) <span class="fu">handleLogin</span>()<span class="op">;</span> }</span>
 <span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display hidden">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -474,7 +304,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell hidden bslib-grid-item html-fill-item">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="126" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 125;"><span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>d3 <span class="op">=</span> <span class="pp">require</span>(<span class="st">"d3"</span>)</span>
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="126" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 125;"><span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>d3 <span class="op">=</span> <span class="pp">require</span>(<span class="st">"d3"</span>)</span>
 <span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { aq<span class="op">,</span> op } <span class="im">from</span> <span class="st">'@uwdata/arquero'</span></span>
 <span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> {html} <span class="im">from</span> <span class="st">"htl"</span></span>
 <span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a></span>
@@ -482,7 +312,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>Highcharts<span class="op">?.</span><span class="fu">setOptions</span>({</span>
 <span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>    <span class="dt">lang</span><span class="op">:</span> { <span class="dt">numericSymbols</span><span class="op">:</span> <span class="kw">null</span> }</span>
-<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display hidden">
 <div>
 <div id="ojs-cell-2-1" data-nodetype="declaration">
@@ -520,7 +350,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell hidden bslib-grid-item html-fill-item">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="146" data-source-offset="-284"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 145;"><span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a>years <span class="op">=</span> [<span class="op">...</span><span class="kw">new</span> <span class="bu">Set</span>([<span class="op">...</span>data_sxh<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">Year</span>)<span class="op">,</span> <span class="op">...</span>data_tcm<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">Year</span>)])]<span class="op">.</span><span class="fu">sort</span>()<span class="op">.</span><span class="fu">reverse</span>()</span>
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="146" data-source-offset="-284"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 145;"><span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a>years <span class="op">=</span> [<span class="op">...</span><span class="kw">new</span> <span class="bu">Set</span>([<span class="op">...</span>data_sxh<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">Year</span>)<span class="op">,</span> <span class="op">...</span>data_tcm<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">Year</span>)])]<span class="op">.</span><span class="fu">sort</span>()<span class="op">.</span><span class="fu">reverse</span>()</span>
 <span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a>all_wards <span class="op">=</span> [<span class="op">...</span><span class="kw">new</span> <span class="bu">Set</span>([<span class="op">...</span>data_sxh<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">NoiOHienTai_SauKhiSapNhap_WardId</span>)<span class="op">,</span> <span class="op">...</span>data_tcm<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">NoiOHienTai_SauKhiSapNhap_WardId</span>)])]<span class="op">.</span><span class="fu">sort</span>()</span>
 <span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a>wards <span class="op">=</span> [<span class="st">"Toàn Thành phố"</span><span class="op">,</span> <span class="op">...</span>all_wards]</span>
 <span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a></span>
@@ -622,7 +452,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-245"><a href="#cb3-245" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb3-246"><a href="#cb3-246" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
 <span id="cb3-247"><a href="#cb3-247" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> container<span class="op">;</span></span>
-<span id="cb3-248"><a href="#cb3-248" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-248"><a href="#cb3-248" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display hidden">
 <div>
 <div id="ojs-cell-3-1" data-nodetype="declaration">
@@ -709,7 +539,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell hidden bslib-grid-item html-fill-item">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="259" data-source-offset="-281"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 258;"><span id="cb4-259"><a href="#cb4-259" aria-hidden="true" tabindex="-1"></a>chart_raw_data <span class="op">=</span> current_data<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> {</span>
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="259" data-source-offset="-281"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 258;"><span id="cb4-259"><a href="#cb4-259" aria-hidden="true" tabindex="-1"></a>chart_raw_data <span class="op">=</span> current_data<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> {</span>
 <span id="cb4-260"><a href="#cb4-260" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> ward_match <span class="op">=</span> (selected_ward <span class="op">===</span> <span class="st">"Toàn Thành phố"</span>) <span class="op">||</span> (d<span class="op">.</span><span class="at">NoiOHienTai_SauKhiSapNhap_WardId</span> <span class="op">===</span> selected_ward)<span class="op">;</span></span>
 <span id="cb4-261"><a href="#cb4-261" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> ward_match <span class="op">&amp;&amp;</span> <span class="bu">String</span>(d<span class="op">.</span><span class="at">Year</span>) <span class="op">===</span> <span class="bu">String</span>(selected_year)<span class="op">;</span></span>
 <span id="cb4-262"><a href="#cb4-262" aria-hidden="true" tabindex="-1"></a>})</span>
@@ -790,7 +620,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-337"><a href="#cb4-337" aria-hidden="true" tabindex="-1"></a>    <span class="kw">new</span> Highcharts<span class="op">.</span><span class="fu">Color</span>(plot_color)<span class="op">.</span><span class="fu">brighten</span>(<span class="fl">0.1</span>)<span class="op">.</span><span class="fu">get</span>()<span class="op">,</span> </span>
 <span id="cb4-338"><a href="#cb4-338" aria-hidden="true" tabindex="-1"></a>    <span class="kw">new</span> Highcharts<span class="op">.</span><span class="fu">Color</span>(plot_color)<span class="op">.</span><span class="fu">brighten</span>(<span class="fl">0.2</span>)<span class="op">.</span><span class="fu">get</span>()<span class="op">,</span> </span>
 <span id="cb4-339"><a href="#cb4-339" aria-hidden="true" tabindex="-1"></a>    <span class="kw">new</span> Highcharts<span class="op">.</span><span class="fu">Color</span>(plot_color)<span class="op">.</span><span class="fu">brighten</span>(<span class="fl">0.3</span>)<span class="op">.</span><span class="fu">get</span>()   </span>
-<span id="cb4-340"><a href="#cb4-340" aria-hidden="true" tabindex="-1"></a>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-340"><a href="#cb4-340" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display hidden">
 <div>
 <div id="ojs-cell-4-1" data-nodetype="declaration">
@@ -1022,7 +852,7 @@ grid-auto-rows: minmax(0, 1fr);">
 <div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 75fr) minmax(3em, 25fr);
 grid-auto-rows: minmax(0, 1fr);">
 <div class="cell hidden html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb7" data-startfrom="629" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 628;"><span id="cb7-629"><a href="#cb7-629" aria-hidden="true" tabindex="-1"></a>total_cases_year <span class="op">=</span> d3<span class="op">.</span><span class="fu">sum</span>(chart_raw_data<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">SoCa</span>) <span class="op">||</span> <span class="dv">0</span><span class="op">;</span></span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb7" data-startfrom="629" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 628;"><span id="cb7-629"><a href="#cb7-629" aria-hidden="true" tabindex="-1"></a>total_cases_year <span class="op">=</span> d3<span class="op">.</span><span class="fu">sum</span>(chart_raw_data<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">SoCa</span>) <span class="op">||</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb7-630"><a href="#cb7-630" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-631"><a href="#cb7-631" aria-hidden="true" tabindex="-1"></a><span class="co">// TÍNH PHẦN TRĂM CHO TỪNG NHÓM TUỔI (Dựa theo thứ tự age_order đã khai báo)</span></span>
 <span id="cb7-632"><a href="#cb7-632" aria-hidden="true" tabindex="-1"></a>age_distribution <span class="op">=</span> age_order<span class="op">.</span><span class="fu">map</span>(grp <span class="kw">=&gt;</span> {</span>
@@ -1044,7 +874,7 @@ grid-auto-rows: minmax(0, 1fr);">
 <span id="cb7-648"><a href="#cb7-648" aria-hidden="true" tabindex="-1"></a>         (name<span class="op">.</span><span class="fu">includes</span>(<span class="st">"2b"</span>) <span class="op">||</span> name<span class="op">.</span><span class="fu">includes</span>(<span class="st">"độ 3"</span>) <span class="op">||</span> name<span class="op">.</span><span class="fu">includes</span>(<span class="st">"độ 4"</span>))<span class="op">;</span></span>
 <span id="cb7-649"><a href="#cb7-649" aria-hidden="true" tabindex="-1"></a>})<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">SoCa</span>) <span class="op">||</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb7-650"><a href="#cb7-650" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-651"><a href="#cb7-651" aria-hidden="true" tabindex="-1"></a>severe_rate <span class="op">=</span> total_cases_year <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">?</span> ((severe_cnt <span class="op">/</span> total_cases_year) <span class="op">*</span> <span class="dv">100</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>) <span class="op">:</span> <span class="dv">0</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-651"><a href="#cb7-651" aria-hidden="true" tabindex="-1"></a>severe_rate <span class="op">=</span> total_cases_year <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">?</span> ((severe_cnt <span class="op">/</span> total_cases_year) <span class="op">*</span> <span class="dv">100</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>) <span class="op">:</span> <span class="dv">0</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display hidden html-fill-item html-fill-container">
 <div class="html-fill-item html-fill-container">
 <div id="ojs-cell-7-1" data-nodetype="declaration" class="html-fill-item html-fill-container">
@@ -1110,16 +940,14 @@ grid-auto-rows: minmax(0, 1fr);">
 </div>
 </div><div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
 <div class="card cell html-fill-item html-fill-container bslib-card" data-title="Diễn tiến số ca mắc theo tuần" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-Diễn tiến số ca mắc theo tuần
-</span></div></div>
+<div class="card-header"><div class="card-title html-fill-item html-fill-container">Diễn tiến số ca mắc theo tuần</div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb8" data-startfrom="657" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 656;"><span id="cb8-657"><a href="#cb8-657" aria-hidden="true" tabindex="-1"></a><span class="co">// Chart 1: Diễn tiến tổng </span></span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb8" data-startfrom="657" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 656;"><span id="cb8-657"><a href="#cb8-657" aria-hidden="true" tabindex="-1"></a><span class="co">// Chart 1: Diễn tiến tổng </span></span>
 <span id="cb8-658"><a href="#cb8-658" aria-hidden="true" tabindex="-1"></a><span class="fu">createHighchart</span>(<span class="st">"chart-total"</span><span class="op">,</span> {</span>
 <span id="cb8-659"><a href="#cb8-659" aria-hidden="true" tabindex="-1"></a>  <span class="dt">series</span><span class="op">:</span> series_total<span class="op">,</span></span>
 <span id="cb8-660"><a href="#cb8-660" aria-hidden="true" tabindex="-1"></a>  <span class="dt">legend</span><span class="op">:</span> { <span class="dt">enabled</span><span class="op">:</span> <span class="kw">false</span> }<span class="op">,</span> <span class="co">// Ẩn chú thích vì chỉ có 1 màu</span></span>
 <span id="cb8-661"><a href="#cb8-661" aria-hidden="true" tabindex="-1"></a>  <span class="dt">plotOptions</span><span class="op">:</span> { <span class="dt">column</span><span class="op">:</span> { <span class="dt">stacking</span><span class="op">:</span> <span class="kw">null</span> } }</span>
-<span id="cb8-662"><a href="#cb8-662" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-662"><a href="#cb8-662" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-8" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -1134,11 +962,9 @@ Diễn tiến số ca mắc theo tuần
 </bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
 </div><div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
 <div class="card cell html-fill-item html-fill-container bslib-card" data-title="📊 Tóm tắt đặc điểm dịch tễ học" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-📊 Tóm tắt đặc điểm dịch tễ học
-</span></div></div>
+<div class="card-header"><div class="card-title html-fill-item html-fill-container">📊 Tóm tắt đặc điểm dịch tễ học</div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb9" data-startfrom="669" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 668;"><span id="cb9-669"><a href="#cb9-669" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`</span></span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb9" data-startfrom="669" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 668;"><span id="cb9-669"><a href="#cb9-669" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`</span></span>
 <span id="cb9-670"><a href="#cb9-670" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;div class="card-body" style="padding: 0;"&gt;</span></span>
 <span id="cb9-671"><a href="#cb9-671" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;table class="clean-table" style="font-size: 0.95rem; width: 100%;"&gt;</span></span>
 <span id="cb9-672"><a href="#cb9-672" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;tbody&gt;</span></span>
@@ -1179,7 +1005,7 @@ Diễn tiến số ca mắc theo tuần
 <span id="cb9-707"><a href="#cb9-707" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/tbody&gt;</span></span>
 <span id="cb9-708"><a href="#cb9-708" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;/table&gt;</span></span>
 <span id="cb9-709"><a href="#cb9-709" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/div&gt;</span></span>
-<span id="cb9-710"><a href="#cb9-710" aria-hidden="true" tabindex="-1"></a><span class="vs">`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-710"><a href="#cb9-710" aria-hidden="true" tabindex="-1"></a><span class="vs">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-9" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -1197,16 +1023,14 @@ Diễn tiến số ca mắc theo tuần
 <div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
 grid-auto-rows: minmax(0, 1fr);">
 <div class="card cell html-fill-item html-fill-container bslib-card" data-title="Phân bố nhóm tuổi theo tuần" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-Phân bố nhóm tuổi theo tuần
-</span></div></div>
+<div class="card-header"><div class="card-title html-fill-item html-fill-container">Phân bố nhóm tuổi theo tuần</div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb10" data-startfrom="717" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 716;"><span id="cb10-717"><a href="#cb10-717" aria-hidden="true" tabindex="-1"></a><span class="co">// Chart 2: Nhóm tuổi</span></span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb10" data-startfrom="717" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 716;"><span id="cb10-717"><a href="#cb10-717" aria-hidden="true" tabindex="-1"></a><span class="co">// Chart 2: Nhóm tuổi</span></span>
 <span id="cb10-718"><a href="#cb10-718" aria-hidden="true" tabindex="-1"></a><span class="fu">createHighchart</span>(<span class="st">"chart-age"</span><span class="op">,</span> {</span>
 <span id="cb10-719"><a href="#cb10-719" aria-hidden="true" tabindex="-1"></a>  <span class="dt">series</span><span class="op">:</span> series_age<span class="op">,</span></span>
 <span id="cb10-720"><a href="#cb10-720" aria-hidden="true" tabindex="-1"></a>  <span class="dt">plotOptions</span><span class="op">:</span> { <span class="dt">column</span><span class="op">:</span> { <span class="dt">stacking</span><span class="op">:</span> <span class="st">'normal'</span> } }<span class="op">,</span></span>
 <span id="cb10-721"><a href="#cb10-721" aria-hidden="true" tabindex="-1"></a>  <span class="dt">colors</span><span class="op">:</span> age_colors</span>
-<span id="cb10-722"><a href="#cb10-722" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-722"><a href="#cb10-722" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-10" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -1219,16 +1043,14 @@ Phân bố nhóm tuổi theo tuần
         <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
     </span>
 </bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card cell html-fill-item html-fill-container bslib-card" data-title="Phân bố giới tính theo tuần" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-Phân bố giới tính theo tuần
-</span></div></div>
+<div class="card-header"><div class="card-title html-fill-item html-fill-container">Phân bố giới tính theo tuần</div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb11" data-startfrom="727" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 726;"><span id="cb11-727"><a href="#cb11-727" aria-hidden="true" tabindex="-1"></a><span class="co">// Chart 3: Giới tính</span></span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb11" data-startfrom="727" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 726;"><span id="cb11-727"><a href="#cb11-727" aria-hidden="true" tabindex="-1"></a><span class="co">// Chart 3: Giới tính</span></span>
 <span id="cb11-728"><a href="#cb11-728" aria-hidden="true" tabindex="-1"></a><span class="fu">createHighchart</span>(<span class="st">"chart-gender"</span><span class="op">,</span> {</span>
 <span id="cb11-729"><a href="#cb11-729" aria-hidden="true" tabindex="-1"></a>  <span class="dt">series</span><span class="op">:</span> series_gender<span class="op">,</span></span>
 <span id="cb11-730"><a href="#cb11-730" aria-hidden="true" tabindex="-1"></a>  <span class="dt">plotOptions</span><span class="op">:</span> { <span class="dt">column</span><span class="op">:</span> { <span class="dt">stacking</span><span class="op">:</span> <span class="st">'normal'</span> } }<span class="op">,</span></span>
 <span id="cb11-731"><a href="#cb11-731" aria-hidden="true" tabindex="-1"></a>  <span class="dt">colors</span><span class="op">:</span> [<span class="st">'#4e79a7'</span><span class="op">,</span> <span class="st">'#f28e2b'</span>]</span>
-<span id="cb11-732"><a href="#cb11-732" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-732"><a href="#cb11-732" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-11" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -1245,16 +1067,14 @@ Phân bố giới tính theo tuần
 <div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
 grid-auto-rows: minmax(0, 1fr);">
 <div class="card cell html-fill-item html-fill-container bslib-card" data-title="Phân tình trạng điều trị theo tuần" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-Phân tình trạng điều trị theo tuần
-</span></div></div>
+<div class="card-header"><div class="card-title html-fill-item html-fill-container">Phân tình trạng điều trị theo tuần</div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb12" data-startfrom="739" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 738;"><span id="cb12-739"><a href="#cb12-739" aria-hidden="true" tabindex="-1"></a><span class="co">// Chart 4: Điều trị</span></span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb12" data-startfrom="739" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 738;"><span id="cb12-739"><a href="#cb12-739" aria-hidden="true" tabindex="-1"></a><span class="co">// Chart 4: Điều trị</span></span>
 <span id="cb12-740"><a href="#cb12-740" aria-hidden="true" tabindex="-1"></a><span class="fu">createHighchart</span>(<span class="st">"chart-treat"</span><span class="op">,</span>{</span>
 <span id="cb12-741"><a href="#cb12-741" aria-hidden="true" tabindex="-1"></a>  <span class="dt">series</span><span class="op">:</span> series_treat<span class="op">,</span></span>
 <span id="cb12-742"><a href="#cb12-742" aria-hidden="true" tabindex="-1"></a>  <span class="dt">plotOptions</span><span class="op">:</span> { <span class="dt">column</span><span class="op">:</span> { <span class="dt">stacking</span><span class="op">:</span> <span class="st">'normal'</span> } }<span class="op">,</span></span>
 <span id="cb12-743"><a href="#cb12-743" aria-hidden="true" tabindex="-1"></a>  <span class="dt">colors</span><span class="op">:</span> [<span class="st">'#76b7b2'</span><span class="op">,</span> <span class="st">'#e15759'</span><span class="op">,</span> <span class="st">'#59a14f'</span>]</span>
-<span id="cb12-744"><a href="#cb12-744" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-744"><a href="#cb12-744" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-12" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -1267,16 +1087,14 @@ Phân tình trạng điều trị theo tuần
         <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
     </span>
 </bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card cell html-fill-item html-fill-container bslib-card" data-title="Phân bố độ nặng theo tuần" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-Phân bố độ nặng theo tuần
-</span></div></div>
+<div class="card-header"><div class="card-title html-fill-item html-fill-container">Phân bố độ nặng theo tuần</div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb13" data-startfrom="749" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 748;"><span id="cb13-749"><a href="#cb13-749" aria-hidden="true" tabindex="-1"></a><span class="co">// Chart 5: Phân độ</span></span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb13" data-startfrom="749" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 748;"><span id="cb13-749"><a href="#cb13-749" aria-hidden="true" tabindex="-1"></a><span class="co">// Chart 5: Phân độ</span></span>
 <span id="cb13-750"><a href="#cb13-750" aria-hidden="true" tabindex="-1"></a><span class="fu">createHighchart</span>(<span class="st">"chart-level"</span><span class="op">,</span>{</span>
 <span id="cb13-751"><a href="#cb13-751" aria-hidden="true" tabindex="-1"></a>  <span class="dt">series</span><span class="op">:</span> series_level<span class="op">,</span></span>
 <span id="cb13-752"><a href="#cb13-752" aria-hidden="true" tabindex="-1"></a>  <span class="dt">plotOptions</span><span class="op">:</span> { <span class="dt">column</span><span class="op">:</span> { <span class="dt">stacking</span><span class="op">:</span> <span class="st">'normal'</span> } }<span class="op">,</span></span>
 <span id="cb13-753"><a href="#cb13-753" aria-hidden="true" tabindex="-1"></a>  <span class="dt">colors</span><span class="op">:</span> [<span class="st">'#a50026'</span><span class="op">,</span> <span class="st">'#d73027'</span><span class="op">,</span> <span class="st">'#f46d43'</span><span class="op">,</span> <span class="st">'#fdae61'</span><span class="op">,</span> <span class="st">'#fee08b'</span>]<span class="op">.</span><span class="fu">reverse</span>()</span>
-<span id="cb13-754"><a href="#cb13-754" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb13-754"><a href="#cb13-754" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-13" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -1294,7 +1112,7 @@ Phân bố độ nặng theo tuần
 </div><div id="ngưỡng-dịch" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-ngưỡng-dịch">
 <div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: 200px 550px minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
 <div class="cell hidden html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb14" data-startfrom="763" data-source-offset="-2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 762;"><span id="cb14-763"><a href="#cb14-763" aria-hidden="true" tabindex="-1"></a>chart_thr <span class="op">=</span> data_threshold<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> {</span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb14" data-startfrom="763" data-source-offset="-2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 762;"><span id="cb14-763"><a href="#cb14-763" aria-hidden="true" tabindex="-1"></a>chart_thr <span class="op">=</span> data_threshold<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> {</span>
 <span id="cb14-764"><a href="#cb14-764" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> ward_col <span class="op">=</span> d[<span class="st">"NoiOHienTai_SauKhiSapNhap_WardId"</span>] <span class="op">||</span> d[<span class="st">"WardId"</span>]<span class="op">;</span> </span>
 <span id="cb14-765"><a href="#cb14-765" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> ward_ok <span class="op">=</span> (selected_ward <span class="op">===</span> <span class="st">"Toàn Thành phố"</span>) <span class="op">||</span> (ward_col <span class="op">===</span> selected_ward)<span class="op">;</span></span>
 <span id="cb14-766"><a href="#cb14-766" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> disease_ok <span class="op">=</span> d<span class="op">.</span><span class="at">Disease</span> <span class="op">===</span> selected_disease<span class="op">;</span></span>
@@ -1407,7 +1225,7 @@ Phân bố độ nặng theo tuần
 <span id="cb14-873"><a href="#cb14-873" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
 <span id="cb14-874"><a href="#cb14-874" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-875"><a href="#cb14-875" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> display_data<span class="op">;</span></span>
-<span id="cb14-876"><a href="#cb14-876" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb14-876"><a href="#cb14-876" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display hidden html-fill-item html-fill-container">
 <div class="html-fill-item html-fill-container">
 <div id="ojs-cell-14-1" data-nodetype="declaration" class="html-fill-item html-fill-container">
@@ -1426,11 +1244,9 @@ Phân bố độ nặng theo tuần
 <div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
 grid-auto-rows: minmax(0, 1fr);">
 <div class="card cell html-fill-item html-fill-container bslib-card" data-title="Mức độ cảnh báo" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-Mức độ cảnh báo
-</span></div></div>
+<div class="card-header"><div class="card-title html-fill-item html-fill-container">Mức độ cảnh báo</div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb15" data-startfrom="882" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 881;"><span id="cb15-882"><a href="#cb15-882" aria-hidden="true" tabindex="-1"></a>{</span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb15" data-startfrom="882" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 881;"><span id="cb15-882"><a href="#cb15-882" aria-hidden="true" tabindex="-1"></a>{</span>
 <span id="cb15-883"><a href="#cb15-883" aria-hidden="true" tabindex="-1"></a>  <span class="co">// 1. CHUẨN BỊ DỮ LIỆU</span></span>
 <span id="cb15-884"><a href="#cb15-884" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> red_alert <span class="op">=</span> ranking_data<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">score</span> <span class="op">===</span> <span class="dv">3</span>)<span class="op">;</span></span>
 <span id="cb15-885"><a href="#cb15-885" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> orange_alert <span class="op">=</span> ranking_data<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">score</span> <span class="op">===</span> <span class="dv">2</span>)<span class="op">;</span></span>
@@ -1581,7 +1397,7 @@ Mức độ cảnh báo
 <span id="cb15-1030"><a href="#cb15-1030" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(btn0) btn0<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="fu">showOverlayModal</span>(<span class="st">'BÌNH THƯỜNG'</span><span class="op">,</span> <span class="st">'#28a745'</span><span class="op">,</span> safe_wards)<span class="op">;</span></span>
 <span id="cb15-1031"><a href="#cb15-1031" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-1032"><a href="#cb15-1032" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> wrapper<span class="op">;</span></span>
-<span id="cb15-1033"><a href="#cb15-1033" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb15-1033"><a href="#cb15-1033" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-15" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -1599,11 +1415,9 @@ Mức độ cảnh báo
 grid-auto-rows: minmax(0, 1fr);">
 <div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
 <div class="card cell html-fill-item html-fill-container bslib-card" data-title="Giám sát cảnh báo sớm theo ngưỡng dịch" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-Giám sát cảnh báo sớm theo ngưỡng dịch
-</span></div></div>
+<div class="card-header"><div class="card-title html-fill-item html-fill-container">Giám sát cảnh báo sớm theo ngưỡng dịch</div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb16" data-startfrom="1042" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1041;"><span id="cb16-1042"><a href="#cb16-1042" aria-hidden="true" tabindex="-1"></a>{</span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb16" data-startfrom="1042" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1041;"><span id="cb16-1042"><a href="#cb16-1042" aria-hidden="true" tabindex="-1"></a>{</span>
 <span id="cb16-1043"><a href="#cb16-1043" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- A. CẤU HÌNH MÀU SẮC ---</span></span>
 <span id="cb16-1044"><a href="#cb16-1044" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> col_cdc <span class="op">=</span> <span class="st">'#2ca02c'</span><span class="op">;</span> <span class="co">// Xanh lá</span></span>
 <span id="cb16-1045"><a href="#cb16-1045" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> col_far <span class="op">=</span> <span class="st">'#d62728'</span><span class="op">;</span> <span class="co">// Đỏ</span></span>
@@ -1744,7 +1558,7 @@ Giám sát cảnh báo sớm theo ngưỡng dịch
 <span id="cb16-1180"><a href="#cb16-1180" aria-hidden="true" tabindex="-1"></a>      }</span>
 <span id="cb16-1181"><a href="#cb16-1181" aria-hidden="true" tabindex="-1"></a>    ]</span>
 <span id="cb16-1182"><a href="#cb16-1182" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb16-1183"><a href="#cb16-1183" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb16-1183"><a href="#cb16-1183" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-16" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -1759,11 +1573,9 @@ Giám sát cảnh báo sớm theo ngưỡng dịch
 </bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
 </div><div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
 <div class="card cell html-fill-item html-fill-container bslib-card" data-title="💡 THÔNG TIN CẢNH BÁO" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-💡 THÔNG TIN CẢNH BÁO
-</span></div></div>
+<div class="card-header"><div class="card-title html-fill-item html-fill-container">💡 THÔNG TIN CẢNH BÁO</div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb17" data-startfrom="1191" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1190;"><span id="cb17-1191"><a href="#cb17-1191" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`</span></span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb17" data-startfrom="1191" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1190;"><span id="cb17-1191"><a href="#cb17-1191" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`</span></span>
 <span id="cb17-1192"><a href="#cb17-1192" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;div class="card-body info-card-container" style="padding: 10px;"&gt;</span></span>
 <span id="cb17-1193"><a href="#cb17-1193" aria-hidden="true" tabindex="-1"></a><span class="vs">  </span><span class="sc">${</span>(<span class="kw">function</span>(){</span>
 <span id="cb17-1194"><a href="#cb17-1194" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> ward_info <span class="op">=</span> data_threshold<span class="op">.</span><span class="fu">find</span>(d <span class="kw">=&gt;</span> </span>
@@ -1868,7 +1680,7 @@ Giám sát cảnh báo sớm theo ngưỡng dịch
 <span id="cb17-1293"><a href="#cb17-1293" aria-hidden="true" tabindex="-1"></a><span class="vs">    `</span><span class="op">;</span></span>
 <span id="cb17-1294"><a href="#cb17-1294" aria-hidden="true" tabindex="-1"></a>  })()<span class="sc">}</span></span>
 <span id="cb17-1295"><a href="#cb17-1295" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/div&gt;</span></span>
-<span id="cb17-1296"><a href="#cb17-1296" aria-hidden="true" tabindex="-1"></a><span class="vs">`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb17-1296"><a href="#cb17-1296" aria-hidden="true" tabindex="-1"></a><span class="vs">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-17" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -1887,7 +1699,7 @@ Giám sát cảnh báo sớm theo ngưỡng dịch
 grid-auto-rows: minmax(0, 1fr);">
 <div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb18" data-startfrom="1302" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1301;"><span id="cb18-1302"><a href="#cb18-1302" aria-hidden="true" tabindex="-1"></a>{</span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb18" data-startfrom="1302" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1301;"><span id="cb18-1302"><a href="#cb18-1302" aria-hidden="true" tabindex="-1"></a>{</span>
 <span id="cb18-1303"><a href="#cb18-1303" aria-hidden="true" tabindex="-1"></a>  <span class="co">// 1. INPUT SEARCH</span></span>
 <span id="cb18-1304"><a href="#cb18-1304" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> searchInput <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">search</span>(ranking_data<span class="op">,</span> {</span>
 <span id="cb18-1305"><a href="#cb18-1305" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"🔍 Tìm nhanh:"</span><span class="op">,</span> </span>
@@ -1956,7 +1768,7 @@ grid-auto-rows: minmax(0, 1fr);">
 <span id="cb18-1368"><a href="#cb18-1368" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/div&gt;</span></span>
 <span id="cb18-1369"><a href="#cb18-1369" aria-hidden="true" tabindex="-1"></a><span class="vs">    `</span><span class="op">;</span></span>
 <span id="cb18-1370"><a href="#cb18-1370" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb18-1371"><a href="#cb18-1371" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-1371"><a href="#cb18-1371" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-18" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -1976,7 +1788,7 @@ grid-auto-rows: minmax(0, 1fr);">
 <div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
 grid-auto-rows: minmax(0, 1fr);">
 <div class="cell hidden html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb19" data-startfrom="1382" data-source-offset="-2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1381;"><span id="cb19-1382"><a href="#cb19-1382" aria-hidden="true" tabindex="-1"></a>thr_trans <span class="op">=</span> data_transmission<span class="op">.</span><span class="fu">find</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">Disease</span> <span class="op">===</span> selected_disease) <span class="op">||</span> {}<span class="op">;</span></span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb19" data-startfrom="1382" data-source-offset="-2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1381;"><span id="cb19-1382"><a href="#cb19-1382" aria-hidden="true" tabindex="-1"></a>thr_trans <span class="op">=</span> data_transmission<span class="op">.</span><span class="fu">find</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">Disease</span> <span class="op">===</span> selected_disease) <span class="op">||</span> {}<span class="op">;</span></span>
 <span id="cb19-1383"><a href="#cb19-1383" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-1384"><a href="#cb19-1384" aria-hidden="true" tabindex="-1"></a><span class="co">// Cột số ca mắc biểu đồ lây truyền</span></span>
 <span id="cb19-1385"><a href="#cb19-1385" aria-hidden="true" tabindex="-1"></a>series_trans_cases <span class="op">=</span> series_total[<span class="dv">0</span>]<span class="op">.</span><span class="at">data</span><span class="op">;</span></span>
@@ -2013,7 +1825,7 @@ grid-auto-rows: minmax(0, 1fr);">
 <span id="cb19-1416"><a href="#cb19-1416" aria-hidden="true" tabindex="-1"></a>   }</span>
 <span id="cb19-1417"><a href="#cb19-1417" aria-hidden="true" tabindex="-1"></a>   </span>
 <span id="cb19-1418"><a href="#cb19-1418" aria-hidden="true" tabindex="-1"></a>   <span class="cf">return</span> { <span class="dt">y</span><span class="op">:</span> val<span class="op">,</span> <span class="dt">color</span><span class="op">:</span> bar_col }<span class="op">;</span></span>
-<span id="cb19-1419"><a href="#cb19-1419" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb19-1419"><a href="#cb19-1419" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display hidden html-fill-item html-fill-container">
 <div class="html-fill-item html-fill-container">
 <div id="ojs-cell-19-1" data-nodetype="declaration" class="html-fill-item html-fill-container">
@@ -2064,11 +1876,9 @@ grid-auto-rows: minmax(0, 1fr);">
 </div>
 </div>
 </div><div class="card cell html-fill-item html-fill-container bslib-card" data-title="Đánh giá mức độ lây truyền" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-Đánh giá mức độ lây truyền
-</span></div></div>
+<div class="card-header"><div class="card-title html-fill-item html-fill-container">Đánh giá mức độ lây truyền</div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb20" data-startfrom="1423" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1422;"><span id="cb20-1423"><a href="#cb20-1423" aria-hidden="true" tabindex="-1"></a><span class="fu">createHighchart</span>(<span class="st">"chart-transmission"</span><span class="op">,</span> {</span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb20" data-startfrom="1423" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1422;"><span id="cb20-1423"><a href="#cb20-1423" aria-hidden="true" tabindex="-1"></a><span class="fu">createHighchart</span>(<span class="st">"chart-transmission"</span><span class="op">,</span> {</span>
 <span id="cb20-1424"><a href="#cb20-1424" aria-hidden="true" tabindex="-1"></a>  <span class="dt">xAxis</span><span class="op">:</span> { </span>
 <span id="cb20-1425"><a href="#cb20-1425" aria-hidden="true" tabindex="-1"></a>    <span class="dt">categories</span><span class="op">:</span> <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>({<span class="dt">length</span><span class="op">:</span> <span class="dv">52</span>}<span class="op">,</span> (_<span class="op">,</span> i) <span class="kw">=&gt;</span> i <span class="op">+</span> <span class="dv">1</span>)<span class="op">,</span> </span>
 <span id="cb20-1426"><a href="#cb20-1426" aria-hidden="true" tabindex="-1"></a>    <span class="dt">title</span><span class="op">:</span> { <span class="dt">text</span><span class="op">:</span> <span class="st">'Tuần'</span> <span class="op">,</span> <span class="dt">style</span><span class="op">:</span> { <span class="dt">fontWeight</span><span class="op">:</span> <span class="st">'bold'</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">'#000000'</span> } } </span>
@@ -2103,7 +1913,7 @@ grid-auto-rows: minmax(0, 1fr);">
 <span id="cb20-1455"><a href="#cb20-1455" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">name</span><span class="op">:</span> <span class="st">'High'</span><span class="op">,</span> <span class="dt">type</span><span class="op">:</span> <span class="st">'line'</span><span class="op">,</span> <span class="dt">data</span><span class="op">:</span> <span class="bu">Array</span>(<span class="dv">52</span>)<span class="op">.</span><span class="fu">fill</span>(thr_trans<span class="op">.</span><span class="at">High</span>)<span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">'#cc0000'</span><span class="op">,</span> <span class="dt">zIndex</span><span class="op">:</span> <span class="dv">4</span><span class="op">,</span> <span class="dt">marker</span><span class="op">:</span> {<span class="dt">enabled</span><span class="op">:</span> <span class="kw">false</span>}<span class="op">,</span> <span class="dt">showInLegend</span><span class="op">:</span> <span class="kw">false</span> }<span class="op">,</span>  <span class="co">// Đỏ cờ (MỚI)</span></span>
 <span id="cb20-1456"><a href="#cb20-1456" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">name</span><span class="op">:</span> <span class="st">'Extreme'</span><span class="op">,</span> <span class="dt">type</span><span class="op">:</span> <span class="st">'line'</span><span class="op">,</span> <span class="dt">data</span><span class="op">:</span> <span class="bu">Array</span>(<span class="dv">52</span>)<span class="op">.</span><span class="fu">fill</span>(thr_trans<span class="op">.</span><span class="at">Extra</span>)<span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">'#800080'</span><span class="op">,</span> <span class="dt">zIndex</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">marker</span><span class="op">:</span> {<span class="dt">enabled</span><span class="op">:</span> <span class="kw">false</span>}<span class="op">,</span> <span class="dt">showInLegend</span><span class="op">:</span> <span class="kw">false</span> }</span>
 <span id="cb20-1457"><a href="#cb20-1457" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb20-1458"><a href="#cb20-1458" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb20-1458"><a href="#cb20-1458" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-20" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -2116,11 +1926,9 @@ grid-auto-rows: minmax(0, 1fr);">
         <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
     </span>
 </bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card cell html-fill-item html-fill-container bslib-card" data-title="Đánh giá mức độ nặng" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-Đánh giá mức độ nặng
-</span></div></div>
+<div class="card-header"><div class="card-title html-fill-item html-fill-container">Đánh giá mức độ nặng</div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb21" data-startfrom="1464" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1463;"><span id="cb21-1464"><a href="#cb21-1464" aria-hidden="true" tabindex="-1"></a><span class="fu">createHighchart</span>(<span class="st">"chart-severity"</span><span class="op">,</span> {</span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb21" data-startfrom="1464" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1463;"><span id="cb21-1464"><a href="#cb21-1464" aria-hidden="true" tabindex="-1"></a><span class="fu">createHighchart</span>(<span class="st">"chart-severity"</span><span class="op">,</span> {</span>
 <span id="cb21-1465"><a href="#cb21-1465" aria-hidden="true" tabindex="-1"></a>  <span class="dt">xAxis</span><span class="op">:</span> { </span>
 <span id="cb21-1466"><a href="#cb21-1466" aria-hidden="true" tabindex="-1"></a>    <span class="dt">categories</span><span class="op">:</span> <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>({<span class="dt">length</span><span class="op">:</span> <span class="dv">52</span>}<span class="op">,</span> (_<span class="op">,</span> i) <span class="kw">=&gt;</span> i <span class="op">+</span> <span class="dv">1</span>)<span class="op">,</span> </span>
 <span id="cb21-1467"><a href="#cb21-1467" aria-hidden="true" tabindex="-1"></a>    <span class="dt">title</span><span class="op">:</span> { <span class="dt">text</span><span class="op">:</span> <span class="st">'Tuần'</span><span class="op">,</span> <span class="dt">style</span><span class="op">:</span> {<span class="dt">fontWeight</span><span class="op">:</span> <span class="st">'bold'</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">'#000000'</span>} } </span>
@@ -2154,7 +1962,7 @@ grid-auto-rows: minmax(0, 1fr);">
 <span id="cb21-1495"><a href="#cb21-1495" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">name</span><span class="op">:</span> <span class="st">'Mean+SD'</span><span class="op">,</span> <span class="dt">type</span><span class="op">:</span> <span class="st">'spline'</span><span class="op">,</span> <span class="dt">data</span><span class="op">:</span> line_sev_mod<span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">'#ff525280'</span><span class="op">,</span> <span class="dt">dashStyle</span><span class="op">:</span> <span class="st">'Dash'</span><span class="op">,</span> <span class="dt">zIndex</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span> <span class="dt">marker</span><span class="op">:</span> {<span class="dt">enabled</span><span class="op">:</span> <span class="kw">false</span>}<span class="op">,</span> <span class="dt">showInLegend</span><span class="op">:</span> <span class="kw">false</span> }<span class="op">,</span></span>
 <span id="cb21-1496"><a href="#cb21-1496" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">name</span><span class="op">:</span> <span class="st">'Mean+3SD'</span><span class="op">,</span> <span class="dt">type</span><span class="op">:</span> <span class="st">'spline'</span><span class="op">,</span> <span class="dt">data</span><span class="op">:</span> line_sev_high<span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">'#80008080'</span><span class="op">,</span> <span class="dt">dashStyle</span><span class="op">:</span> <span class="st">'Dash'</span><span class="op">,</span> <span class="dt">zIndex</span><span class="op">:</span> <span class="dv">4</span><span class="op">,</span> <span class="dt">marker</span><span class="op">:</span> {<span class="dt">enabled</span><span class="op">:</span> <span class="kw">false</span>}<span class="op">,</span> <span class="dt">showInLegend</span><span class="op">:</span> <span class="kw">false</span> }</span>
 <span id="cb21-1497"><a href="#cb21-1497" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb21-1498"><a href="#cb21-1498" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb21-1498"><a href="#cb21-1498" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-21" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -2174,8 +1982,8 @@ grid-auto-rows: minmax(0, 1fr);">
 <div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 40fr) minmax(3em, 60fr);
 grid-auto-rows: minmax(0, 1fr);">
 <div class="cell hidden html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb22" data-startfrom="1508" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1507;"><span id="cb22-1508"><a href="#cb22-1508" aria-hidden="true" tabindex="-1"></a><span class="co">// 0. KHỞI TẠO BIẾN TRẠNG THÁI (Lưu phường đang chọn)</span></span>
-<span id="cb22-1509"><a href="#cb22-1509" aria-hidden="true" tabindex="-1"></a>mutable selected_map_ward_id <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb22" data-startfrom="1508" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1507;"><span id="cb22-1508"><a href="#cb22-1508" aria-hidden="true" tabindex="-1"></a><span class="co">// 0. KHỞI TẠO BIẾN TRẠNG THÁI (Lưu phường đang chọn)</span></span>
+<span id="cb22-1509"><a href="#cb22-1509" aria-hidden="true" tabindex="-1"></a>mutable selected_map_ward_id <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display hidden html-fill-item html-fill-container">
 <div id="ojs-cell-22" data-nodetype="declaration" class="html-fill-item html-fill-container">
 
@@ -2186,7 +1994,7 @@ grid-auto-rows: minmax(0, 1fr);">
 grid-auto-rows: minmax(0, 1fr);">
 <div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb23" data-startfrom="1522" data-source-offset="-93"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1521;"><span id="cb23-1522"><a href="#cb23-1522" aria-hidden="true" tabindex="-1"></a>raw_kv <span class="op">=</span> [<span class="op">...</span><span class="kw">new</span> <span class="bu">Set</span>(data_threshold<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">KV</span>)<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> d))]<span class="op">.</span><span class="fu">sort</span>()</span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb23" data-startfrom="1522" data-source-offset="-93"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1521;"><span id="cb23-1522"><a href="#cb23-1522" aria-hidden="true" tabindex="-1"></a>raw_kv <span class="op">=</span> [<span class="op">...</span><span class="kw">new</span> <span class="bu">Set</span>(data_threshold<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">KV</span>)<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> d))]<span class="op">.</span><span class="fu">sort</span>()</span>
 <span id="cb23-1523"><a href="#cb23-1523" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-1524"><a href="#cb23-1524" aria-hidden="true" tabindex="-1"></a><span class="co">// Tạo danh sách KV đầy đủ</span></span>
 <span id="cb23-1525"><a href="#cb23-1525" aria-hidden="true" tabindex="-1"></a>kv_list <span class="op">=</span> [<span class="st">"Toàn Thành phố"</span><span class="op">,</span> <span class="op">...</span>raw_kv]</span>
@@ -2203,7 +2011,7 @@ grid-auto-rows: minmax(0, 1fr);">
 <span id="cb23-1536"><a href="#cb23-1536" aria-hidden="true" tabindex="-1"></a>  <span class="dt">metric</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">radio</span>([<span class="st">"Số ca thô"</span><span class="op">,</span> <span class="st">"Số ca trên 100k dân"</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Chỉ số hiển thị:"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"Số ca thô"</span>})<span class="op">,</span></span>
 <span id="cb23-1537"><a href="#cb23-1537" aria-hidden="true" tabindex="-1"></a>  <span class="dt">mode</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">radio</span>([<span class="st">"Tuần hiện tại"</span><span class="op">,</span> <span class="st">"Tích lũy"</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Chế độ xem:"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"Tuần hiện tại"</span>})<span class="op">,</span></span>
 <span id="cb23-1538"><a href="#cb23-1538" aria-hidden="true" tabindex="-1"></a>  <span class="dt">kv</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">select</span>(kv_list<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Chọn Khu vực:"</span><span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="st">"Toàn Thành phố"</span>})</span>
-<span id="cb23-1539"><a href="#cb23-1539" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb23-1539"><a href="#cb23-1539" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div class="html-fill-item html-fill-container">
 <div id="ojs-cell-23-1" data-nodetype="declaration" class="html-fill-item html-fill-container">
@@ -2244,7 +2052,7 @@ grid-auto-rows: minmax(0, 1fr);">
 grid-auto-rows: minmax(0, 1fr);">
 <div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb24" data-startfrom="1545" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1544;"><span id="cb24-1545"><a href="#cb24-1545" aria-hidden="true" tabindex="-1"></a><span class="co">// 2. BIỂU ĐỒ LINE CHART (Phần dưới - Đã sửa lỗi cắt đuôi dữ liệu tương lai)</span></span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb24" data-startfrom="1545" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1544;"><span id="cb24-1545"><a href="#cb24-1545" aria-hidden="true" tabindex="-1"></a><span class="co">// 2. BIỂU ĐỒ LINE CHART (Phần dưới - Đã sửa lỗi cắt đuôi dữ liệu tương lai)</span></span>
 <span id="cb24-1546"><a href="#cb24-1546" aria-hidden="true" tabindex="-1"></a>{</span>
 <span id="cb24-1547"><a href="#cb24-1547" aria-hidden="true" tabindex="-1"></a>  <span class="co">// ẨN BIỂU ĐỒ LINE KHI CHỌN HEATMAP</span></span>
 <span id="cb24-1548"><a href="#cb24-1548" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (map_controls<span class="op">.</span><span class="at">chart_type</span> <span class="op">===</span> <span class="st">"Heatmap"</span>) {</span>
@@ -2329,7 +2137,7 @@ grid-auto-rows: minmax(0, 1fr);">
 <span id="cb24-1627"><a href="#cb24-1627" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb24-1628"><a href="#cb24-1628" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb24-1629"><a href="#cb24-1629" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> chart_container<span class="op">;</span></span>
-<span id="cb24-1630"><a href="#cb24-1630" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb24-1630"><a href="#cb24-1630" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-24" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -2342,7 +2150,7 @@ grid-auto-rows: minmax(0, 1fr);">
         <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
     </span>
 </bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="cell hidden html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb25" data-startfrom="1639" data-source-offset="-30"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1638;"><span id="cb25-1639"><a href="#cb25-1639" aria-hidden="true" tabindex="-1"></a>hcm_geo <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"hcm_map.json"</span>)<span class="op">.</span><span class="fu">json</span>()</span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb25" data-startfrom="1639" data-source-offset="-30"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1638;"><span id="cb25-1639"><a href="#cb25-1639" aria-hidden="true" tabindex="-1"></a>hcm_geo <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"hcm_map.json"</span>)<span class="op">.</span><span class="fu">json</span>()</span>
 <span id="cb25-1640"><a href="#cb25-1640" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-1641"><a href="#cb25-1641" aria-hidden="true" tabindex="-1"></a>map_processed <span class="op">=</span> {</span>
 <span id="cb25-1642"><a href="#cb25-1642" aria-hidden="true" tabindex="-1"></a>  <span class="co">// A. Xác định khoảng thời gian lọc dựa theo mode</span></span>
@@ -2396,7 +2204,7 @@ grid-auto-rows: minmax(0, 1fr);">
 <span id="cb25-1690"><a href="#cb25-1690" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> max_val <span class="op">=</span> values<span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">?</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>(<span class="op">...</span>values) <span class="op">:</span> <span class="dv">10</span><span class="op">;</span></span>
 <span id="cb25-1691"><a href="#cb25-1691" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-1692"><a href="#cb25-1692" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> { <span class="dt">data</span><span class="op">:</span> data_array<span class="op">,</span> <span class="dt">maxVal</span><span class="op">:</span> max_val }<span class="op">;</span></span>
-<span id="cb25-1693"><a href="#cb25-1693" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb25-1693"><a href="#cb25-1693" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display hidden html-fill-item html-fill-container">
 <div class="html-fill-item html-fill-container">
 <div id="ojs-cell-25-1" data-nodetype="declaration" class="html-fill-item html-fill-container">
@@ -2415,11 +2223,9 @@ grid-auto-rows: minmax(0, 1fr);">
 </div>
 </div><div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
 <div class="card cell html-fill-item html-fill-container bslib-card" data-title="Bản đồ phân bố dịch bệnh" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-Bản đồ phân bố dịch bệnh
-</span></div></div>
+<div class="card-header"><div class="card-title html-fill-item html-fill-container">Bản đồ phân bố dịch bệnh</div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb26" data-startfrom="1700" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1699;"><span id="cb26-1700"><a href="#cb26-1700" aria-hidden="true" tabindex="-1"></a><span class="co">// 4. VẼ BẢN ĐỒ HOẶC HEATMAP TÙY VÀO CHẾ ĐỘ XEM</span></span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb26" data-startfrom="1700" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1699;"><span id="cb26-1700"><a href="#cb26-1700" aria-hidden="true" tabindex="-1"></a><span class="co">// 4. VẼ BẢN ĐỒ HOẶC HEATMAP TÙY VÀO CHẾ ĐỘ XEM</span></span>
 <span id="cb26-1701"><a href="#cb26-1701" aria-hidden="true" tabindex="-1"></a>{</span>
 <span id="cb26-1702"><a href="#cb26-1702" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> container <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div style="height: 650px; width: 100%;"&gt;&lt;/div&gt;`</span><span class="op">;</span></span>
 <span id="cb26-1703"><a href="#cb26-1703" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -2576,7 +2382,7 @@ Bản đồ phân bố dịch bệnh
 <span id="cb26-1854"><a href="#cb26-1854" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb26-1855"><a href="#cb26-1855" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb26-1856"><a href="#cb26-1856" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> container<span class="op">;</span></span>
-<span id="cb26-1857"><a href="#cb26-1857" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb26-1857"><a href="#cb26-1857" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-26" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -2594,11 +2400,9 @@ Bản đồ phân bố dịch bệnh
 <div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
 grid-auto-rows: minmax(0, 1fr);">
 <div class="card cell html-fill-item html-fill-container bslib-card" data-title="Phân tích cụm không gian ổ dịch (SaTScan)" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-Phân tích cụm không gian ổ dịch (SaTScan)
-</span></div></div>
+<div class="card-header"><div class="card-title html-fill-item html-fill-container">Phân tích cụm không gian ổ dịch (SaTScan)</div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb27" data-startfrom="1866" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1865;"><span id="cb27-1866"><a href="#cb27-1866" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`</span></span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb27" data-startfrom="1866" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1865;"><span id="cb27-1866"><a href="#cb27-1866" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`</span></span>
 <span id="cb27-1867"><a href="#cb27-1867" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;div style="width: 100%; height: 100%; padding: 5px;"&gt;</span></span>
 <span id="cb27-1868"><a href="#cb27-1868" aria-hidden="true" tabindex="-1"></a><span class="vs">  </span><span class="sc">${</span>selected_disease <span class="op">===</span> <span class="st">"Sốt xuất huyết"</span> </span>
 <span id="cb27-1869"><a href="#cb27-1869" aria-hidden="true" tabindex="-1"></a>    <span class="op">?</span> </span>
@@ -2634,7 +2438,7 @@ Phân tích cụm không gian ổ dịch (SaTScan)
 <span id="cb27-1899"><a href="#cb27-1899" aria-hidden="true" tabindex="-1"></a><span class="vs">     &lt;/div&gt;`</span></span>
 <span id="cb27-1900"><a href="#cb27-1900" aria-hidden="true" tabindex="-1"></a>  <span class="sc">}</span></span>
 <span id="cb27-1901"><a href="#cb27-1901" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/div&gt;</span></span>
-<span id="cb27-1902"><a href="#cb27-1902" aria-hidden="true" tabindex="-1"></a><span class="vs">`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb27-1902"><a href="#cb27-1902" aria-hidden="true" tabindex="-1"></a><span class="vs">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-27" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -2652,7 +2456,7 @@ Phân tích cụm không gian ổ dịch (SaTScan)
 </div><div id="dự-báo" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-dự-báo">
 <div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
 <div class="cell hidden html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb28" data-startfrom="1915" data-source-offset="-147"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1914;"><span id="cb28-1915"><a href="#cb28-1915" aria-hidden="true" tabindex="-1"></a>pred_weeks <span class="op">=</span> <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>({<span class="dt">length</span><span class="op">:</span> <span class="dv">52</span>}<span class="op">,</span> (_<span class="op">,</span> i) <span class="kw">=&gt;</span> i <span class="op">+</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb28" data-startfrom="1915" data-source-offset="-147"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1914;"><span id="cb28-1915"><a href="#cb28-1915" aria-hidden="true" tabindex="-1"></a>pred_weeks <span class="op">=</span> <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>({<span class="dt">length</span><span class="op">:</span> <span class="dv">52</span>}<span class="op">,</span> (_<span class="op">,</span> i) <span class="kw">=&gt;</span> i <span class="op">+</span> <span class="dv">1</span>)<span class="op">;</span></span>
 <span id="cb28-1916"><a href="#cb28-1916" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-1917"><a href="#cb28-1917" aria-hidden="true" tabindex="-1"></a><span class="co">// 1. Số ca thực tế (từ sxh.dat) - Đã thêm lọc "KV1"</span></span>
 <span id="cb28-1918"><a href="#cb28-1918" aria-hidden="true" tabindex="-1"></a>actual_cases <span class="op">=</span> pred_weeks<span class="op">.</span><span class="fu">map</span>(wk <span class="kw">=&gt;</span> {</span>
@@ -2725,7 +2529,7 @@ Phân tích cụm không gian ổ dịch (SaTScan)
 <span id="cb28-1985"><a href="#cb28-1985" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> pred <span class="op">=</span> series_pred_rf[wk <span class="op">-</span> <span class="dv">1</span>]<span class="op">;</span></span>
 <span id="cb28-1986"><a href="#cb28-1986" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (actual <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> pred <span class="op">!==</span> <span class="kw">null</span>) <span class="cf">return</span> <span class="bu">Number</span>((<span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(actual <span class="op">-</span> pred) <span class="op">/</span> actual <span class="op">*</span> <span class="dv">100</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">2</span>))<span class="op">;</span></span>
 <span id="cb28-1987"><a href="#cb28-1987" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb28-1988"><a href="#cb28-1988" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb28-1988"><a href="#cb28-1988" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display hidden html-fill-item html-fill-container">
 <div class="html-fill-item html-fill-container">
 <div id="ojs-cell-28-1" data-nodetype="declaration" class="html-fill-item html-fill-container">
@@ -2807,11 +2611,9 @@ Phân tích cụm không gian ổ dịch (SaTScan)
 <div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
 grid-auto-rows: minmax(0, 1fr);">
 <div class="card cell html-fill-item html-fill-container bslib-card" data-title="Biểu đồ dự báo diễn tiến dịch bệnh" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-Biểu đồ dự báo diễn tiến dịch bệnh
-</span></div></div>
+<div class="card-header"><div class="card-title html-fill-item html-fill-container">Biểu đồ dự báo diễn tiến dịch bệnh</div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb29" data-startfrom="1994" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1993;"><span id="cb29-1994"><a href="#cb29-1994" aria-hidden="true" tabindex="-1"></a>chart_pred_main <span class="op">=</span> <span class="fu">createHighchart</span>(<span class="st">"chart-pred-main"</span><span class="op">,</span> {</span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb29" data-startfrom="1994" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1993;"><span id="cb29-1994"><a href="#cb29-1994" aria-hidden="true" tabindex="-1"></a>chart_pred_main <span class="op">=</span> <span class="fu">createHighchart</span>(<span class="st">"chart-pred-main"</span><span class="op">,</span> {</span>
 <span id="cb29-1995"><a href="#cb29-1995" aria-hidden="true" tabindex="-1"></a>  <span class="dt">chart</span><span class="op">:</span> { <span class="dt">type</span><span class="op">:</span> <span class="st">'line'</span> }<span class="op">,</span></span>
 <span id="cb29-1996"><a href="#cb29-1996" aria-hidden="true" tabindex="-1"></a>  <span class="dt">xAxis</span><span class="op">:</span> { </span>
 <span id="cb29-1997"><a href="#cb29-1997" aria-hidden="true" tabindex="-1"></a>    <span class="dt">categories</span><span class="op">:</span> pred_weeks<span class="op">.</span><span class="fu">map</span>(w <span class="kw">=&gt;</span> <span class="st">'Tuần '</span> <span class="op">+</span> w)<span class="op">,</span> </span>
@@ -2867,7 +2669,7 @@ Biểu đồ dự báo diễn tiến dịch bệnh
 <span id="cb29-2047"><a href="#cb29-2047" aria-hidden="true" tabindex="-1"></a>      <span class="dt">dashStyle</span><span class="op">:</span> <span class="st">'ShortDash'</span>  </span>
 <span id="cb29-2048"><a href="#cb29-2048" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb29-2049"><a href="#cb29-2049" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb29-2050"><a href="#cb29-2050" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb29-2050"><a href="#cb29-2050" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-29" data-nodetype="declaration" class="html-fill-item html-fill-container">
 
@@ -2884,11 +2686,9 @@ Biểu đồ dự báo diễn tiến dịch bệnh
 <div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
 grid-auto-rows: minmax(0, 1fr);">
 <div class="card cell html-fill-item html-fill-container bslib-card" data-title="Đánh giá sai số mô hình (APE %)" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-header"><div class="card-title html-fill-item html-fill-container"><span style="display: inline">
-Đánh giá sai số mô hình (APE %)
-</span></div></div>
+<div class="card-header"><div class="card-title html-fill-item html-fill-container">Đánh giá sai số mô hình (APE %)</div></div>
 <div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb30" data-startfrom="2058" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 2057;"><span id="cb30-2058"><a href="#cb30-2058" aria-hidden="true" tabindex="-1"></a>{</span>
+<div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb30" data-startfrom="2058" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 2057;"><span id="cb30-2058"><a href="#cb30-2058" aria-hidden="true" tabindex="-1"></a>{</span>
 <span id="cb30-2059"><a href="#cb30-2059" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (selected_disease <span class="op">===</span> <span class="st">"Tay chân miệng"</span>) {</span>
 <span id="cb30-2060"><a href="#cb30-2060" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">html</span><span class="vs">`</span></span>
 <span id="cb30-2061"><a href="#cb30-2061" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div style="height: 350px; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #f8f9fa; border: 2px dashed #dee2e6; border-radius: 8px;"&gt;</span></span>
@@ -2932,7 +2732,7 @@ grid-auto-rows: minmax(0, 1fr);">
 <span id="cb30-2099"><a href="#cb30-2099" aria-hidden="true" tabindex="-1"></a>      ]</span>
 <span id="cb30-2100"><a href="#cb30-2100" aria-hidden="true" tabindex="-1"></a>    })</span>
 <span id="cb30-2101"><a href="#cb30-2101" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb30-2102"><a href="#cb30-2102" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb30-2102"><a href="#cb30-2102" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display html-fill-item html-fill-container">
 <div id="ojs-cell-30" data-nodetype="expression" class="html-fill-item html-fill-container">
 
@@ -2954,7 +2754,7 @@ grid-auto-rows: minmax(0, 1fr);">
 </div></div><aside id="bslib-sidebar-1" class="sidebar html-fill-container html-fill-item"><div class="html-fill-container html-fill-item">
 <p><strong>Bộ lọc dữ liệu</strong></p>
 <p><strong>Cập nhật đến <span><span id="ojs-element-id-1"></span></span></strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb5" data-startfrom="350" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 349;"><span id="cb5-350"><a href="#cb5-350" aria-hidden="true" tabindex="-1"></a>viewof selected_year <span class="op">=</span> {</span>
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="350" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 349;"><span id="cb5-350"><a href="#cb5-350" aria-hidden="true" tabindex="-1"></a>viewof selected_year <span class="op">=</span> {</span>
 <span id="cb5-351"><a href="#cb5-351" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> input <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(years<span class="op">,</span> {</span>
 <span id="cb5-352"><a href="#cb5-352" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Năm báo cáo:"</span><span class="op">,</span></span>
 <span id="cb5-353"><a href="#cb5-353" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unique</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
@@ -2980,7 +2780,7 @@ grid-auto-rows: minmax(0, 1fr);">
 <span id="cb5-373"><a href="#cb5-373" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span>
 <span id="cb5-374"><a href="#cb5-374" aria-hidden="true" tabindex="-1"></a>  input<span class="op">.</span><span class="at">id</span> <span class="op">=</span> <span class="st">"wrap-diaban"</span><span class="op">;</span></span>
 <span id="cb5-375"><a href="#cb5-375" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> input<span class="op">;</span></span>
-<span id="cb5-376"><a href="#cb5-376" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-376"><a href="#cb5-376" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-5-1" data-nodetype="declaration">
@@ -3005,7 +2805,7 @@ grid-auto-rows: minmax(0, 1fr);">
 <p><strong>Ghi chú:</strong> Số liệu <strong>Ca nặng</strong> được tính dựa trên phân độ lâm sàng của từng bệnh.</p>
 <p><strong><em>Developed by SWAPER</em></strong></p>
 <p><a href="../index.html"><img src="../logo.png" class="img-fluid"></a></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb6" data-startfrom="386" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 385;"><span id="cb6-386"><a href="#cb6-386" aria-hidden="true" tabindex="-1"></a>chat_widget <span class="op">=</span> {</span>
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="386" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 385;"><span id="cb6-386"><a href="#cb6-386" aria-hidden="true" tabindex="-1"></a>chat_widget <span class="op">=</span> {</span>
 <span id="cb6-387"><a href="#cb6-387" aria-hidden="true" tabindex="-1"></a>  <span class="co">// 1. Dọn dẹp cửa sổ cũ (chống trùng lặp khi Quarto render lại)</span></span>
 <span id="cb6-388"><a href="#cb6-388" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> oldWin <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">'swaper-chat-window'</span>)<span class="op">;</span></span>
 <span id="cb6-389"><a href="#cb6-389" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (oldWin) oldWin<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
@@ -3134,7 +2934,7 @@ grid-auto-rows: minmax(0, 1fr);">
 <span id="cb6-512"><a href="#cb6-512" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
 <span id="cb6-513"><a href="#cb6-513" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-514"><a href="#cb6-514" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> container<span class="op">;</span></span>
-<span id="cb6-515"><a href="#cb6-515" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-515"><a href="#cb6-515" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-6" data-nodetype="declaration">
 
@@ -3251,256 +3051,383 @@ window._ojs.selfContained = false;
 window._ojs.runtime.interpretFromScriptTags();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    // Ensure there is a toggle, if there isn't float one in the top right
-    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-      const i = window.document.createElement("i");
-      i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
     }
-    setColorSchemeToggle(hasAlternateSentinel())
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
         }
       }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
       return false;
     }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
     }
-    const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
         }
       }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
     }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
     }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
       } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
         }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
       }
     }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
           }
         } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
+          // See if we can fetch this
+          fetch(url.split('#')[0])
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
+            const note = htmlDoc.getElementById(id);
             if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
+              const html = processXRef(id, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -3508,161 +3435,185 @@ window._ojs.runtime.interpretFromScriptTags();
             instance.show();
           });
         }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
       } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
             }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
         });
       }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
     }
-  });
-  </script>
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
