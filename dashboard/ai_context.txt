@@ -3,9 +3,9 @@ Dữ liệu cập nhật: Tuần 20 năm 2026.
 Hướng dẫn: Luôn ưu tiên trả lời mức độ nguy cơ/trạng thái trước khi đưa số liệu thô. Nếu hỏi về Phường X, hãy tìm trong danh sách phường/xã.
 
 --- DỮ LIỆU BỆNH SỐT XUẤT HUYẾT ---
-  + Toàn Thành phố: 0 ca (giảm 100.0% so với 491 ca tuần trước). Tích lũy: 16453 ca. Ngưỡng [Mùa: 532.5, Cusum: 0, Farrington: NA, Mean+2SD: 527.350188260213]. Trạng thái: Bình thường (Mức 0).
+  + Toàn Thành phố: 418 ca (giảm 14.9% so với 491 ca tuần trước). Tích lũy: 16871 ca. Ngưỡng [Mùa: 532.5, Cusum: 0, Farrington: 419.465036028694, Mean+2SD: 527.350188260213]. Trạng thái: Lưu ý (Mức 1).
   + Đánh giá nguy cơ PISA (Toàn Thành phố):
-    - Mức độ lây truyền: Đang ở mức Rất thấp (Số ca: 0. Các ngưỡng: Mùa 532.5, Vừa 1351.4611247325, Cao 1613.20538831816, Rất cao 1751.08852717132).
+    - Mức độ lây truyền: Đang ở mức Rất thấp (Số ca: 418. Các ngưỡng: Mùa 532.5, Vừa 1351.4611247325, Cao 1613.20538831816, Rất cao 1751.08852717132).
     - Mức độ nặng: Đang ở mức Vừa (Số ca nội trú: 237. Các ngưỡng: Thấp 203.6, Vừa 343.304330641537, Cao 622.712991924612).
 CHI TIẾT CÁC PHƯỜNG/XÃ:
   + Phường An Hội Tây: 9 ca (tăng 80.0% so với 5 ca tuần trước). Tích lũy: 184 ca. Ngưỡng [Mùa: 3.5, Cusum: 0, Farrington: 4.60804014827923, Mean+2SD: 5.37770876399966]. Trạng thái: Báo động (Mức 3).
@@ -178,9 +178,9 @@ CHI TIẾT CÁC PHƯỜNG/XÃ:
   + Đặc khu Côn Đảo: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 1 ca. Ngưỡng [Mùa: 0, Cusum: 3.32937841407262, Farrington: 0, Mean+2SD: 1.09442719099992]. Trạng thái: Bình thường (Mức 0).
 
 --- DỮ LIỆU BỆNH TAY CHÂN MIỆNG ---
-  + Toàn Thành phố: 0 ca (giảm 100.0% so với 851 ca tuần trước). Tích lũy: 15936 ca. Ngưỡng [Mùa: 434.5, Cusum: 0, Farrington: NA, Mean+2SD: 1291.42994866947]. Trạng thái: Bình thường (Mức 0).
+  + Toàn Thành phố: 1058 ca (tăng 21.2% so với 873 ca tuần trước). Tích lũy: 17016 ca. Ngưỡng [Mùa: 434.5, Cusum: 0, Farrington: 1304.8271821494, Mean+2SD: 1291.42994866947]. Trạng thái: Lưu ý (Mức 1).
   + Đánh giá nguy cơ PISA (Toàn Thành phố):
-    - Mức độ lây truyền: Đang ở mức Rất thấp (Số ca: 0. Các ngưỡng: Mùa 434.5, Vừa 1904.39256257606, Cao 2594.55043066133, Rất cao 2958.11573617053).
+    - Mức độ lây truyền: Đang ở mức Thấp (Số ca: 1058. Các ngưỡng: Mùa 434.5, Vừa 1904.39256257606, Cao 2594.55043066133, Rất cao 2958.11573617053).
     - Mức độ nặng: Đang ở mức Rất cao (Số ca nội trú: 212. Các ngưỡng: Thấp 45.8, Vừa 87.3956728518725, Cao 170.587018555617).
 CHI TIẾT CÁC PHƯỜNG/XÃ:
   + Phường An Hội Tây: 4 ca (giảm 78.9% so với 19 ca tuần trước). Tích lũy: 192 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 13.6606375751642, Mean+2SD: 16.8627804912002]. Trạng thái: Lưu ý (Mức 1).

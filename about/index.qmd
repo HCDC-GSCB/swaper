@@ -18,131 +18,7 @@ Our department consists of two key teams:
 We welcome you to connect for more projects. 💪
 
 ```{=html}
-<style>
-/* Mở rộng nội dung */
-main {
-    max-width: 100%;
-}
-
-/* Bố cục logo + thông tin */
-.header-container {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 20px;
-}
-.header-logo {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-.header-info {
-    flex-grow: 1;
-}
-
-/* Bố cục nhóm staff */
-.team-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    max-width: 1000px; /* Tăng nhẹ max-width để hàng 4 người thoáng hơn */
-    margin: auto;
-}
-
-/* --- CẤU HÌNH CHO THẺ THÀNH VIÊN & LEADER --- */
-
-.member, .leader {
-    background-color: #b5d8ea;
-    color: #000 !important; /* Force màu chữ đen */
-    border-radius: 10px;
-    text-decoration: none; /* Bỏ gạch chân của link */
-    
-    /* Hiệu ứng chuyển động mượt mà */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
-    cursor: pointer; /* Con trỏ chuột thành hình bàn tay */
-}
-
-/* --- HIỆU ỨNG HOVER (NHẢY LÊN) --- */
-.member:hover, .leader:hover {
-    transform: translateY(-10px); /* Nhảy lên 10px */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* Đổ bóng tạo chiều sâu */
-    background-color: #c4e6e1; /* Đổi màu nền nhẹ khi hover cho đẹp */
-}
-
-.member {
-    text-align: left;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.leader {
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    justify-content: space-between;
-    flex-direction: row-reverse;
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-    .member, .leader {
-        background-color: #1e1e1e;
-        color: #fff !important;
-    }
-
-    .member:hover, .leader:hover {
-        background-color: #333333; /* Màu hover chế độ tối */
-    }
-}
-
-/* Hàng 4 người - Logic cũ của bạn */
-.row1, .row2, .row3 {
-    width: calc(25% - 20px);
-    min-width: 180px;
-}
-
-/* Ảnh đại diện */
-.avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.leader-info {
-    flex-grow: 1;
-    text-align: left;
-}
-
-.member h3,
-.member p {
-    text-align: left;
-    width: 100%;
-    margin: 5px 0; /* Thêm chút margin cho thoáng chữ */
-}
-
-/* Responsive cho Mobile: Khi màn hình nhỏ tự về 1 cột hoặc 2 cột */
-@media (max-width: 600px) {
-    .row1, .row2, .row3 {
-        width: 100%; /* Trên điện thoại cho về 1 cột cho dễ nhìn */
-    }
-    .leader {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-</style>
-```
-
-```{=html}
 <div class="team-container">
-    <!-- Leader -->
     <a href="https://hcdc-gscb.github.io/swaper/" target="_blank" class="leader">
         <img src="../avatar/lantruong.jpg" class="avatar">
         <div class="leader-info">
@@ -152,7 +28,6 @@ main {
         </div>
     </a>
 
-    <!-- Staff (4 người hàng trên) -->
     <a href="https://orcid.org/0009-0001-2555-3512" class="member row1">
         <img src="../avatar/antran.jpg" class="avatar">
         <h3>An Tran</h3>
@@ -181,7 +56,6 @@ main {
         <p>Modeling team</p>
     </a>
 
-    <!-- Staff (4 người hàng giữa) -->
     <a href="#https://hcdc-gscb.github.io/swaper/" class="member row2">
         <img src="../avatar/khanghuynh.jpg" class="avatar">
         <h3>Khang Huynh</h3>
@@ -210,7 +84,6 @@ main {
         <p>EOC team</p>
     </a>
     
-    <!-- Staff (4 người hàng dưới) -->
     <a href="https://hcdc-gscb.github.io/swaper/" class="member row3">
         <img src="../avatar/tuyenpham.png" class="avatar">
         <h3>Tuyen Pham</h3>
@@ -226,13 +99,6 @@ main {
     </a>
 
     <a href="https://hcdc-gscb.github.io/swaper/" class="member row3">
-        <img src="../avatar/vinhtran.jpg" class="avatar">
-        <h3>Vinh Tran</h3>
-        <p><strong>Major:</strong> Bachelor of Public Health</p>
-        <p>Modeling team</p>
-    </a>
-
-    <a href="https://hcdc-gscb.github.io/swaper/" class="member row3">
         <img src="../avatar/nhonnguyen.png" class="avatar">
         <h3>Nhon Nguyen</h3>
         <p><strong>Major:</strong> Bachelor of Public Health</p>
@@ -240,3 +106,4 @@ main {
     </a>
 </div>
 ```
+

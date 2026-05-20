@@ -80,8 +80,7 @@ format:
       dark: darkly
     toc: true
     embed-resources: false
-    css: custom.css
-    includes: 
-      after-body: loading.html
+    css: custom_v2.css
+    include-before-body: loading.html
 
 editor: source
