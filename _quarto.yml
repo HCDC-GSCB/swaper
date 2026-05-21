@@ -64,12 +64,17 @@ website:
 
   back-to-top-navigation: true
   page-footer:
-    border: true
-    background: "#005d88"
+    border: false
     left: |
-      📧 Email to: khoagscb@hcdc.gov.vn<br>
-      📍 Address: 366A Au Duong Lan Street, Chanh Hung Ward, HCMC
-    right: "© 2025 HCDC - SWAPER"
+      <div class="footer-info">
+        <span class="footer-item"><i class="bi bi-envelope-at-fill"></i> khoagscb@hcdc.gov.vn</span>
+        <span class="footer-item"><i class="bi bi-geo-alt-fill"></i> 366A Au Duong Lan Street, Chanh Hung Ward, HCMC</span>
+      </div>
+    right: |
+      <div class="footer-copyright">
+        <strong>SWAPER</strong> © 2025<br>
+        Ho Chi Minh City Center for Disease Control
+      </div>
 
 format:
   html:

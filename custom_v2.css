@@ -93,12 +93,35 @@ a:hover, a:focus { color: var(--accent-pink) !important; }
 .sidebar nav .nav-link:hover, .sidebar .toc .nav-link:hover, .sidebar nav .nav-link.active, .sidebar .toc .nav-link.active { color: var(--accent-pink) !important; background-color: var(--sidebar-hover-bg) !important; border-left: 3px solid var(--accent-pink) !important; }
 .sidebar .toc .nav-link::before, .sidebar nav .nav-link::before { background-color: transparent !important; width: 0 !important; }
 
-/* Back to Top & Footer */
-.quarto-back-to-top { background-color: var(--accent-pink); color: white; border-radius: 50%; box-shadow: var(--shadow-sm); }
-.quarto-back-to-top:hover { background-color: var(--primary-blue); transform: scale(1.1); }
-.page-footer { background-color: var(--footer-bg); color: #94a3b8; padding: 2rem 0; border-top: 1px solid var(--card-border); text-align: center; font-size: 0.9rem; }
-.page-footer a { color: var(--primary-blue); }
-.page-footer a:hover { color: var(--accent-pink); }
+/* ==========================================================================
+   ÉP MÀU CHÂN TRANG (FOOTER) CHUẨN THEO QUARTO CLASS
+   ========================================================================== */
+.nav-footer {
+    background: var(--nav-bg) !important; /* Dải gradient y hệt Navbar */
+    border-top: none !important; 
+    padding: 2rem 0 !important;
+}
+
+/* Ép màu chữ trắng mờ cho toàn bộ các cột trái/phải/giữa trong footer */
+.nav-footer .nav-footer-left,
+.nav-footer .nav-footer-right,
+.nav-footer .nav-footer-center,
+.nav-footer p {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Ép màu trắng tinh cho các link (Email, Github...) */
+.nav-footer a {
+    color: #ffffff !important; 
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+/* Hiệu ứng hover sáng màu hồng lên */
+.nav-footer a:hover {
+    color: var(--nav-hover) !important; 
+}
 
 /* ==========================================================================
    4. TÁCH CSS CHO TRANG ABOUT CỦA SWAPER (Team Cards)
@@ -300,3 +323,57 @@ main, .quarto-container { animation: fadeInPage 0.6s cubic-bezier(0.25, 1, 0.5, 
     .hero-container { height: 400px; justify-content: center; padding-left: 0; margin-bottom: 30px !important; }
     .hero-content { max-width: 240px; }
 }
+
+/* ==========================================================================
+   TINH CHỈNH BỐ CỤC NỘI DUNG FOOTER (ICONS & TEXT)
+   ========================================================================== */
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.footer-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+/* Đổi màu icon sang hồng nhạt để bắt tone với dải gradient */
+.footer-item i {
+    font-size: 1.15rem;
+    color: var(--nav-hover) !important; 
+}
+
+.footer-copyright {
+    text-align: right;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer-copyright strong {
+    color: #ffffff;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+/* Hiển thị trên điện thoại: Tự động dồn ra giữa cho đẹp */
+@media (max-width: 768px) {
+    .nav-footer {
+        flex-direction: column !important;
+        gap: 20px;
+    }
+    .footer-info {
+        align-items: center;
+        text-align: center;
+    }
+    .footer-copyright {
+        text-align: center;
+        margin-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        padding-top: 15px;
+    }
+}
+
