@@ -79,7 +79,7 @@ px_tcm <- load_data("https://docs.google.com/spreadsheets/d/1H8E1Ou7HplqMPS09-ct
 
 df_tcm_wards <- px_tcm %>%
   group_split(ward) %>%
-  map_dfr(function(d) {
+  map_dfr(function(d  ) {
     process_unit_multi_years(d, unique(d$ward), "Tay chân miệng", target_years)
   })
 

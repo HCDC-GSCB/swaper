@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Dashboard IBS – SWAPER</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -70,18 +67,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6b423f165eeea3787de40cb4f8e821c3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-e8964db687007ca8dd88d9d9ce58e3ef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-6b423f165eeea3787de40cb4f8e821c3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ffa9a6279353761231ec249df0a7fdd3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-24772959a0e306aba8d7698078628ce7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-ffa9a6279353761231ec249df0a7fdd3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-dashboard/quarto-dashboard.js"></script>
 <script src="../site_libs/quarto-dashboard/stickythead.js"></script>
 
@@ -307,7 +305,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </button>    
 
 
-<div id="dashboard-collapse" class="navbar-collapse collapse"><ul class="navbar-nav navbar-nav-scroll me-auto" role="tablist"><li class="nav-item" role="presentation"><a id="tab-tổng-quan" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#tổng-quan" data-scrolling="true" href="#tổng-quan" aria-controls="tổng-quan" aria-selected="true"><span class="nav-link-text">Tổng quan</span></a></li><li class="nav-item" role="presentation"><a id="tab-ngưỡng-dịch" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#ngưỡng-dịch" data-scrolling="true" href="#ngưỡng-dịch" aria-controls="ngưỡng-dịch" aria-selected="false"><span class="nav-link-text">Ngưỡng dịch</span></a></li><li class="nav-item" role="presentation"><a id="tab-đánh-giá-nguy-cơ" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#đánh-giá-nguy-cơ" data-scrolling="true" href="#đánh-giá-nguy-cơ" aria-controls="đánh-giá-nguy-cơ" aria-selected="false"><span class="nav-link-text">Đánh giá nguy cơ</span></a></li><li class="nav-item" role="presentation"><a id="tab-bản-đồ" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#bản-đồ" data-scrolling="true" href="#bản-đồ" aria-controls="bản-đồ" aria-selected="false"><span class="nav-link-text">Bản đồ</span></a></li><li class="nav-item" role="presentation"><a id="tab-dự-báo" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#dự-báo" data-scrolling="true" href="#dự-báo" aria-controls="dự-báo" aria-selected="false"><span class="nav-link-text">Dự báo</span></a></li></ul></div></div></nav>
+    <div class="navbar-brand-container">
+
+
+      <div class="navbar-title">
+        
+        
+        
+      </div>
+    </div>
+<div id="dashboard-collapse" class="navbar-collapse collapse"><ul class="navbar-nav navbar-nav-scroll me-auto" role="tablist"><li class="nav-item" role="presentation"><a id="tab-tổng-quan" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#tổng-quan" data-scrolling="true" href="#tổng-quan" aria-controls="tổng-quan" aria-selected="true"><span class="nav-link-text">Tổng quan</span></a></li><li class="nav-item" role="presentation"><a id="tab-ngưỡng-dịch" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#ngưỡng-dịch" data-scrolling="true" href="#ngưỡng-dịch" aria-controls="ngưỡng-dịch" aria-selected="false"><span class="nav-link-text">Ngưỡng dịch</span></a></li><li class="nav-item" role="presentation"><a id="tab-đánh-giá-nguy-cơ" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#đánh-giá-nguy-cơ" data-scrolling="true" href="#đánh-giá-nguy-cơ" aria-controls="đánh-giá-nguy-cơ" aria-selected="false"><span class="nav-link-text">Đánh giá nguy cơ</span></a></li><li class="nav-item" role="presentation"><a id="tab-bản-đồ" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#bản-đồ" data-scrolling="true" href="#bản-đồ" aria-controls="bản-đồ" aria-selected="false"><span class="nav-link-text">Bản đồ</span></a></li><li class="nav-item" role="presentation"><a id="tab-dự-báo" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#dự-báo" data-scrolling="true" href="#dự-báo" aria-controls="dự-báo" aria-selected="false"><span class="nav-link-text">Dự báo</span></a></li></ul></div></div>
+</nav>
 </header></header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-layout-custom quarto-dashboard-content bslib-gap-spacing html-fill-container dashboard-scrolling quarto-dashboard-pages dashboard-sidebar-container">
