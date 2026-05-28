@@ -1993,63 +1993,68 @@ series_ape_rf = pred_weeks.map(wk => {
 ```{ojs}
 //| title: "Biểu đồ dự báo diễn tiến dịch bệnh"
 
-chart_pred_main = createHighchart("chart-pred-main", {
-  chart: { type: 'line' },
-  xAxis: { 
-    categories: pred_weeks.map(w => 'Tuần ' + w), 
-    title: { text: 'Tuần giám sát', style: { fontWeight: 'bold' } },
-    crosshair: true
-  },
-  yAxis: { 
-    title: { text: 'Số ca mắc', style: { fontWeight: 'bold' } },
-    min: 0
-  },
-  tooltip: { 
-    shared: true, 
-    valueSuffix: ' ca' 
-  },
-  plotOptions: {
-    line: { 
-      marker: { enabled: false },
-      lineWidth: 2.5,
-      connectNulls: false 
-    }
-  },
-  series: [
-    { 
-      name: 'Số ca thực tế', 
-      data: actual_cases,     
-      color: '#000000',       
-      zIndex: 5
-    },
-    { 
-      name: 'Mean+2SD',       // ĐÃ ĐỔI TÊN TỪ "Ngưỡng dịch (CDC)"
-      data: series_threshold, 
-      color: '#d32f2f',       
-      dashStyle: 'LongDashDot', 
-      lineWidth: 2,
-      zIndex: 4
-    },
-    { 
-      name: 'Dự báo LSTM', 
-      data: series_pred_lstm, 
-      color: '#1976d2',       
-      dashStyle: 'ShortDash'  
-    },
-    { 
-      name: 'Dự báo SARIMA', 
-      data: series_pred_sarima, 
-      color: '#388e3c',       
-      dashStyle: 'ShortDash'  
-    },
-    { 
-      name: 'Dự báo RF', 
-      data: series_pred_rf, 
-      color: '#f57c00',       
-      dashStyle: 'ShortDash'  
-    }
-  ]
-});
+chart_pred_main = {
+  if (selected_disease === "Tay chân miệng") {
+    // 1. TRƯỜNG HỢP TAY CHÂN MIỆNG: Hiển thị bảng chưa có dữ liệu
+    return html`
+      <div style="height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: var(--dash-card-bg, #f8f9fa); border: 2px dashed var(--dash-card-border, #dee2e6); border-radius: 8px; padding: 20px;">
+        <h4 style="color: var(--text-muted, #6c757d); font-weight: 600; margin: 0; margin-bottom: 8px;">Chưa có dữ liệu dự báo</h4>
+        <span style="color: var(--text-muted, #adb5bd); font-size: 0.95rem; text-align: center;">Mô hình dự báo Tay chân miệng đang được phát triển.</span>
+      </div>
+    `;
+  } else {
+    // 2. TRƯỜNG HỢP SỐT XUẤT HUYẾT: Vẽ biểu đồ kèm hiệu ứng Toast thông báo
+    const chartNode = createHighchart("chart-pred-main", {
+      chart: { type: 'line' },
+      xAxis: { 
+        categories: pred_weeks.map(w => 'Tuần ' + w), 
+        title: { text: 'Tuần giám sát', style: { fontWeight: 'bold' } },
+        crosshair: true
+      },
+      yAxis: { 
+        title: { text: 'Số ca mắc', style: { fontWeight: 'bold' } },
+        min: 0
+      },
+      tooltip: { shared: true, valueSuffix: ' ca' },
+      plotOptions: {
+        line: { marker: { enabled: false }, lineWidth: 2.5, connectNulls: false }
+      },
+      series: [
+        { name: 'Số ca thực tế', data: actual_cases, color: '#000000', zIndex: 5 },
+        { name: 'Mean+2SD', data: series_threshold, color: '#d32f2f', dashStyle: 'LongDashDot', lineWidth: 2, zIndex: 4 },
+        { name: 'Dự báo LSTM', data: series_pred_lstm, color: '#1976d2', dashStyle: 'ShortDash' },
+        { name: 'Dự báo SARIMA', data: series_pred_sarima, color: '#388e3c', dashStyle: 'ShortDash' },
+        { name: 'Dự báo RF', data: series_pred_rf, color: '#f57c00', dashStyle: 'ShortDash' }
+      ]
+    });
+
+    // Tạo khung (wrapper) bọc bên ngoài biểu đồ để nhét Toast vào
+    const wrapper = document.createElement("div");
+    wrapper.style.position = "relative";
+    wrapper.style.width = "100%";
+    wrapper.style.height = "100%";
+    wrapper.appendChild(chartNode);
+
+    // Tạo thẻ Toast thông báo tự ẩn bằng Keyframes (Tắt sau 7s)
+    const toast = document.createElement("div");
+    toast.innerHTML = `
+      <style>
+        @keyframes toastSlideOut {
+          0% { opacity: 0; transform: translateX(20px); }
+          10% { opacity: 1; transform: translateX(0); }
+          85% { opacity: 1; transform: translateX(0); }
+          100% { opacity: 0; transform: translateY(-15px); visibility: hidden; }
+        }
+      </style>
+      <div style="position: absolute; top: 15px; right: 25px; background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(244, 114, 182, 0.3); border-left: 4px solid var(--accent-pink, #f472b6); color: var(--text-main, #f8fafc); padding: 10px 15px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; box-shadow: 0 4px 20px rgba(0,0,0,0.5); z-index: 100; animation: toastSlideOut 7s ease-in-out forwards; pointer-events: none; backdrop-filter: blur(8px);">
+        💡 <b>Lưu ý:</b> Mô hình được xây cho TPHCM cũ, đang được phát triển thêm.
+      </div>
+    `;
+    wrapper.appendChild(toast);
+
+    return wrapper;
+  }
+}
 ```
 
 ## Row 2
