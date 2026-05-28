@@ -876,7 +876,7 @@ ranking_data = {
 }
 ```
 
-## Row 1 {height=200px}
+## Row 1 {height=250px}
 
 ```{ojs}
 //| title: "Mức độ cảnh báo"

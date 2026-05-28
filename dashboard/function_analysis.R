@@ -67,7 +67,7 @@ clean_data <- function(raw_df, diagnosis) {
         TRUE ~ ">15 tuổi"
       ),
       # NhomTuoi = factor(NhomTuoi, levels = c("<1 tuổi", "1-5 tuổi", "6-10 tuổi", "11-15 tuổi", ">15 tuổi")),
-      KetQua = ifelse(HinhThucDieuTriName == "Tử vong", "Tử vong", "Sống"),
+      KetQua = ifelse(HinhThucDieuTriName == "Tử vong" | HinhThucDieuTriName == "Nặng xin về", "Tử vong", "Sống"),
       NhomDieuTri = case_when(
         HinhThucDieuTriName == "Điều trị ngoại trú" ~ "Ngoại trú",
         TRUE ~ "Nội trú"
