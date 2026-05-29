@@ -1,0 +1,600 @@
+/* ==========================================================================
+   1. HỆ THỐNG BIẾN MÀU CHO DASHBOARD (DARK THEME + NEON GRADIENT)
+   ========================================================================== */
+:root {
+    --dash-bg: #020617; /* Đen sâu thẳm làm nền tổng */
+    --dash-card-bg: #0f172a; /* Xanh đen cho các khối Card/Table */
+    --dash-card-border: #1e293b; 
+    
+    --text-main: #f8fafc; /* Trắng sáng */
+    --text-muted: #94a3b8; /* Xám mờ */
+    
+    --primary-blue: #38bdf8; /* Xanh neon */
+    --accent-pink: #f472b6; /* Hồng neon */
+    
+    /* Dải màu Gradient chủ đạo mix Xanh Đen - Tím - Hồng (Khớp với trang chủ) */
+    --gradient-nav: linear-gradient(135deg, #0f172a 0%, #4c1d95 50%, #831843 100%);
+    --gradient-sidebar: linear-gradient(180deg, #4c1d95 0%, #0f172a 100%);
+}
+
+/* ==========================================================================
+   2. CẤU HÌNH CHUNG & HIỆU ỨNG (ANIMATIONS)
+   ========================================================================== */
+/* Ép nền tối tận gốc cho Quarto và bslib */
+body, 
+.quarto-dashboard, 
+.bslib-page-dashboard, 
+.quarto-dashboard-main, 
+.quarto-container {
+    background-color: var(--dash-bg) !important;
+    color: var(--text-main) !important;
+}
+
+.card, .value-box, .login-btn, .login-input {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Scrollbar Xịn - Tone tối có highlight Hồng */
+::-webkit-scrollbar {
+    width: 8px; 
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--dash-bg); 
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+    background: #334155; 
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-pink); 
+}
+
+/* ==========================================================================
+   3. MÀN HÌNH KHÓA (LOGIN OVERLAY) - Glassmorphism Tối
+   ========================================================================== */
+#login-overlay {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: rgba(2, 6, 23, 0.85); 
+    z-index: 99999; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
+}
+
+body.locked { 
+    overflow: hidden !important; 
+}
+
+.login-box {
+    background: rgba(15, 23, 42, 0.7); 
+    padding: 2.5rem 2rem; 
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); 
+    text-align: center;
+    border: 1px solid rgba(244, 114, 182, 0.2); 
+    width: 340px;
+    animation: fadeInDown 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.login-input {
+    width: 100%; 
+    padding: 12px; 
+    margin: 15px 0;
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid var(--dash-card-border); 
+    border-radius: 8px; 
+    font-size: 15px; 
+    outline: none;
+    color: var(--text-main);
+}
+
+.login-input::placeholder { 
+    color: var(--text-muted); 
+}
+
+.login-input:focus {
+    border-color: var(--primary-blue); 
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.login-btn {
+    background: var(--gradient-nav); 
+    color: white; 
+    border: none; 
+    padding: 12px 20px;
+    border-radius: 8px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    width: 100%; 
+    font-size: 16px;
+    margin-top: 10px; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+}
+
+.login-btn:hover {
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 20px rgba(244, 114, 182, 0.4); 
+}
+
+.login-btn:active { 
+    transform: translateY(0); 
+}
+
+.error-msg { 
+    color: #ef4444; 
+    font-size: 0.9rem; 
+    margin-top: 10px; 
+    display: none; 
+    font-weight: 500; 
+}
+
+/* ==========================================================================
+   4. NAVBAR & CHÂN TRANG
+   ========================================================================== */
+.quarto-dashboard .navbar { 
+    background: var(--gradient-nav) !important; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.quarto-dashboard .navbar-text, 
+.quarto-dashboard .navbar-nav .nav-link { 
+    color: #ffffff !important; 
+}
+
+.nav-footer {
+    background-color: var(--dash-bg) !important;
+    border-top: 1px solid var(--dash-card-border) !important;
+    color: var(--text-muted) !important;
+}
+
+.nav-footer a { 
+    color: var(--primary-blue) !important; 
+}
+
+/* ==========================================================================
+   5. SIDEBAR & BỘ LỌC
+   ========================================================================== */
+.quarto-dashboard .sidebar {
+    background: var(--gradient-sidebar) !important; 
+    border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+    padding: 20px 15px !important;
+}
+
+.quarto-dashboard-sidebar strong {
+    font-size: 1.1rem; 
+    font-weight: 700; 
+    color: var(--primary-blue); 
+    display: block; 
+    margin-bottom: 15px; 
+    text-transform: uppercase;
+    letter-spacing: 1px; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    padding-bottom: 5px;
+}
+
+.quarto-dashboard-sidebar form > label {
+    color: var(--text-main) !important; 
+    font-weight: 600 !important; 
+    font-size: 0.95rem !important; 
+    margin-bottom: 6px;
+}
+
+/* Ô Dropdown */
+.quarto-dashboard-sidebar select {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    color: var(--text-main) !important;   
+    font-weight: 500 !important; 
+    border: 1px solid var(--dash-card-border);
+    border-radius: 6px; 
+    padding: 8px;
+}
+
+.quarto-dashboard-sidebar select:focus {
+    border-color: var(--accent-pink); 
+    outline: none; 
+    box-shadow: 0 0 8px rgba(244, 114, 182, 0.4);
+}
+
+.quarto-dashboard-sidebar select option { 
+    background-color: var(--dash-card-bg); 
+    color: var(--text-main); 
+}
+
+/* Radio/Checkbox */
+.quarto-dashboard-sidebar form div label {
+    color: var(--text-muted) !important; 
+    font-weight: 500 !important; 
+    font-size: 0.9rem; 
+    cursor: pointer; 
+    transition: color 0.2s;
+}
+
+.quarto-dashboard-sidebar form div label:hover { 
+    color: var(--primary-blue) !important; 
+}
+
+/* Dòng chữ Developed by... */
+.quarto-dashboard .sidebar em {
+    display: block; 
+    margin-top: 40px; 
+    text-align: center;
+    font-size: 0.8rem; 
+    color: rgba(255, 255, 255, 0.4); 
+    padding: 10px; 
+    transition: color 0.3s;
+}
+.quarto-dashboard .sidebar em:hover { 
+    color: var(--accent-pink); 
+    font-weight: 600; 
+}
+
+/* ==========================================================================
+   6. VALUE BOX (KPI)
+   ========================================================================== */
+.quarto-dashboard .value-box, 
+.bslib-value-box {
+    background: var(--dash-card-bg) !important;
+    border-radius: 12px !important; 
+    border: 1px solid var(--dash-card-border) !important;
+    border-top: 3px solid var(--accent-pink) !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important; 
+    overflow: hidden; 
+}
+
+.quarto-dashboard .value-box hr, 
+.bslib-value-box hr { 
+    display: none !important; 
+}
+
+.value-box-area, 
+.bslib-value-box { 
+    border: none !important; 
+    outline: none !important; 
+}
+
+/* Con số chính (KPI Value) - Gradient chìm */
+.value-box .kpi-value, 
+.value-box h2 {
+    font-size: 2.8rem !important; 
+    font-weight: 900 !important; 
+    margin-bottom: 5px !important; 
+    line-height: 1 !important;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-pink));
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(244, 114, 182, 0.2);
+}
+
+.value-box p { 
+    font-size: 1rem !important; 
+    color: var(--text-muted) !important; 
+    font-weight: 600 !important; 
+    margin-bottom: 10px !important; 
+}
+
+/* Icon nền mờ phía sau */
+.quarto-dashboard .value-box .bi, 
+.quarto-dashboard .value-box i {
+    position: absolute !important; 
+    right: -15px !important; 
+    bottom: -20px !important;
+    font-size: 8rem !important; 
+    opacity: 0.05 !important; 
+    transform: rotate(-15deg) !important; 
+    z-index: 0 !important; 
+    color: var(--text-main) !important;
+    transition: all 0.4s ease-out !important;
+}
+
+.quarto-dashboard .value-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(244, 114, 182, 0.15) !important;
+    border-color: var(--accent-pink) !important;
+}
+
+.quarto-dashboard .value-box:hover .bi, 
+.quarto-dashboard .value-box:hover i {
+    transform: rotate(0deg) scale(1.1) !important; 
+    opacity: 0.15 !important; 
+    right: -5px !important; 
+    color: var(--accent-pink) !important;
+}
+
+/* ==========================================================================
+   7. CARD & BIỂU ĐỒ
+   ========================================================================== */
+.card { 
+    background-color: var(--dash-card-bg) !important;
+    border-radius: 12px; 
+    border: 1px solid var(--dash-card-border) !important;
+}
+
+.card, .card-body { 
+    overflow: hidden !important; 
+    position: relative !important; 
+}
+
+.card:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); 
+    border-color: rgba(56, 189, 248, 0.3) !important; 
+}
+
+.card-header {
+    background-color: transparent !important; 
+    color: var(--primary-blue) !important;            
+    font-family: inherit !important; 
+    font-weight: 700 !important; 
+    font-size: 1rem !important;
+    text-transform: uppercase; 
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2) !important;
+    padding-left: 20px !important; 
+    transition: all 0.3s ease;
+}
+
+.card:hover .card-header { 
+    border-bottom: 1px solid var(--primary-blue) !important; 
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.4); 
+}
+
+/* ==========================================================================
+   8. THANH TÌM KIẾM (Search Input)
+   ========================================================================== */
+form label { 
+    font-weight: 600 !important; 
+    color: var(--primary-blue) !important; 
+}
+
+form input[type="search"] {
+    background-color: var(--dash-bg) !important; 
+    color: var(--text-main) !important;
+    border: 1px solid var(--dash-card-border) !important; 
+    border-radius: 20px !important;
+    padding: 8px 15px !important; 
+    width: 250px !important; 
+    font-size: 0.9rem !important; 
+    transition: all 0.3s ease;
+}
+
+form input[type="search"]:focus { 
+    border-color: var(--primary-blue) !important; 
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.3) !important; 
+    outline: none; 
+}
+
+/* ==========================================================================
+   9. BẢNG KẾT QUẢ DỊCH TỄ (Epi Table Style)
+   ========================================================================== */
+.clean-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    font-family: inherit; 
+    font-size: 0.9rem; 
+    color: var(--text-main); 
+}
+
+.clean-table thead th {
+    position: sticky; 
+    top: 0; 
+    background-color: var(--dash-bg); 
+    color: var(--accent-pink); 
+    font-weight: 700; 
+    font-size: 0.8rem; 
+    padding: 14px 10px; 
+    border-bottom: 2px solid var(--accent-pink); 
+    z-index: 2; 
+    text-transform: uppercase; 
+    letter-spacing: 0.5px;
+}
+
+.clean-table tbody tr { 
+    border-bottom: 1px solid var(--dash-card-border); 
+    transition: background-color 0.2s ease; 
+}
+
+.clean-table tbody tr:hover { 
+    background-color: rgba(56, 189, 248, 0.08); 
+}
+
+.clean-table td { 
+    padding: 12px 10px; 
+    vertical-align: middle; 
+}
+
+/* ==========================================================================
+   10. BADGE (Nhãn cảnh báo nguy cơ)
+   ========================================================================== */
+.badge-pill {
+    display: inline-block; 
+    padding: 0.4em 0.8em; 
+    font-size: 0.75em; 
+    font-weight: 700; 
+    line-height: 1;
+    text-align: center; 
+    white-space: nowrap; 
+    vertical-align: baseline; 
+    border-radius: 10rem; 
+    letter-spacing: 0.5px;
+}
+
+/* Mức Thấp / Bình thường */
+.bg-primary-subtle { 
+    background-color: rgba(56, 189, 248, 0.15); 
+    color: #7dd3fc; 
+    border: 1px solid rgba(56, 189, 248, 0.3); 
+}
+
+/* Mức Trung bình */
+.bg-warning-subtle { 
+    background-color: rgba(250, 204, 21, 0.15); 
+    color: #fde047; 
+    border: 1px solid rgba(250, 204, 21, 0.3); 
+}
+
+/* Mức Cao / Ổ dịch */
+.bg-danger-subtle { 
+    background-color: rgba(244, 63, 94, 0.2); 
+    color: #fda4af; 
+    border: 1px solid rgba(244, 63, 94, 0.5); 
+}
+
+/* Hiệu ứng nhấp nháy đỏ chót báo động */
+.badge-outbreak { 
+    animation: alertPulseDark 1.5s infinite; 
+}
+
+@keyframes alertPulseDark {
+    0% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.6); }
+    70% { box-shadow: 0 0 0 8px rgba(244, 63, 94, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+}
+
+/* ==========================================================================
+   11. TRỊ LỖI MÀU BIỂU ĐỒ (PLOTLY/HTMLWIDGETS) CHO DARK MODE
+   ========================================================================== */
+/* Làm nền biểu đồ trong suốt để ăn theo màu thẻ Card */
+.html-widget, 
+.html-widget svg, 
+.plotly .bg, 
+.plotly .plotbg, 
+.plotly rect.bg, 
+.plotly rect.plotbg {
+    fill: transparent !important; 
+    background: transparent !important;
+}
+
+/* Ép Font chữ trong biểu đồ (Tên trục, số liệu, chú thích) sang Trắng */
+.html-widget text, 
+.plotly text, 
+.g-gtitle, 
+.g-xtitle, 
+.g-ytitle, 
+.legendtext {
+    fill: var(--text-main) !important;
+    font-family: inherit !important;
+}
+
+/* Làm mờ các đường lưới (Grid lines) và trục để không chói mắt */
+.plotly .gridlayer path, 
+.plotly .zerolinelayer path {
+    stroke: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Ép nền Tooltip (khung hiện ra khi hover) thành màu tối */
+.plotly .hoverlayer .bg {
+    fill: var(--dash-card-bg) !important;
+    stroke: var(--primary-blue) !important;
+}
+
+/* ==========================================================================
+   BẢN VÁ LỖI TỐI THƯỢNG CHO OJS VÀ HIGHCHARTS (ÉP XUYÊN INLINE STYLES)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. FIX LỖI TỔNG QUAN: TRẢ LẠI 4 MÀU CHO VALUE BOX
+   (Hủy ép nền đen, cho phép Quarto hiện 4 màu: Xanh, Lơ, Vàng, Đỏ gốc)
+-------------------------------------------------------------------------- */
+.quarto-dashboard .value-box,
+.bslib-value-box {
+    background-color: transparent !important; 
+}
+/* Làm dịu 4 màu sáng đi 10% để không bị chói mắt trong nền đen */
+.value-box-area {
+    opacity: 0.9;
+}
+
+/* --------------------------------------------------------------------------
+   2. FIX BIỂU ĐỒ HIGHCHARTS: ÉP CHỮ TRẮNG, NỀN TRONG SUỐT, LƯỚI MỜ
+-------------------------------------------------------------------------- */
+.highcharts-background {
+    fill: transparent !important;
+}
+/* Săn tất cả các thẻ chữ SVG của Highcharts và đè lên cái màu #000000 bị fix cứng */
+.highcharts-text,
+.highcharts-title,
+.highcharts-subtitle,
+.highcharts-axis-title,
+.highcharts-axis-labels text,
+.highcharts-legend-item text,
+.highcharts-data-label text {
+    fill: #f8fafc !important;
+    color: #f8fafc !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8) !important;
+}
+/* Đổi đường kẻ lưới thành trắng mờ */
+.highcharts-grid-line,
+.highcharts-axis-line,
+.highcharts-tick {
+    stroke: rgba(255, 255, 255, 0.15) !important;
+}
+/* Ép màu Tooltip (Cái bảng nhỏ hiện ra khi di chuột vào biểu đồ) sang tối */
+.highcharts-tooltip-box {
+    fill: rgba(15, 23, 42, 0.95) !important;
+    stroke: #38bdf8 !important;
+}
+.highcharts-tooltip text {
+    fill: #ffffff !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. FIX LỖI NGƯỠNG DỊCH: ĐẬP BỎ CỤC NỀN TRẮNG CỦA CÁC THẺ CẢNH BÁO
+-------------------------------------------------------------------------- */
+/* Ép nền thẻ cảnh báo sang Dark Mode */
+.alert-card {
+    background-color: var(--dash-card-bg) !important;
+}
+/* Ghi đè 4 cấp độ nền cảnh báo thành dạng "neon trong suốt" siêu ngầu */
+#btn-alert-3 { background: rgba(220, 53, 69, 0.15) !important; border-left-color: #dc3545 !important; }
+#btn-alert-2 { background: rgba(253, 126, 20, 0.15) !important; border-left-color: #fd7e14 !important; }
+#btn-alert-1 { background: rgba(255, 193, 7, 0.15) !important; border-left-color: #ffc107 !important; }
+#btn-alert-0 { background: rgba(40, 167, 69, 0.15) !important; border-left-color: #28a745 !important; }
+
+/* --------------------------------------------------------------------------
+   4. FIX LỖI CHỮ BỊ CHÌM & BẢNG NỀN TRẮNG (Bắt theo chuỗi CSS hardcode)
+-------------------------------------------------------------------------- */
+/* Xóa nền trắng/màu lợt bị fix cứng bằng hàm getStyle trong bảng */
+.clean-table tbody tr[style*="background-color: white"],
+.clean-table tbody tr[style*="background-color: #ffffff;"] {
+    background-color: transparent !important;
+}
+.clean-table tbody tr[style*="background-color: #fff0f0;"] { background-color: rgba(220, 53, 69, 0.15) !important; }
+.clean-table tbody tr[style*="background-color: #fff5e6;"] { background-color: rgba(253, 126, 20, 0.15) !important; }
+.clean-table tbody tr[style*="background-color: #fffbf0;"] { background-color: rgba(255, 193, 7, 0.15) !important; }
+
+/* Ép toàn bộ các chữ màu xám đen (color: #666, #444, #999) trong thẻ HTML nội suy sang màu xám sáng (Đặc biệt là cột Tóm tắt đặc điểm dịch tễ) */
+div[style*="color: #666"],
+td[style*="color: #666"],
+span[style*="color: #666"],
+td[style*="color: #999"],
+div[style*="color: #444"],
+td[style*="color: #005d88"] {
+    color: #e2e8f0 !important;
+}
+
+/* Sửa nền khối "Thông tin cảnh báo" và "Tóm tắt đặc điểm" */
+.info-card-container, 
+div[style*="background-color: #fdfefe"] {
+    background-color: var(--dash-card-bg) !important;
+    border-color: var(--dash-card-border) !important;
+}
+.info-card-container:hover {
+    background-color: #1e293b !important;
+}
+

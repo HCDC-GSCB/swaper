@@ -17,6 +17,7 @@ if (dir.exists("dashboard")) {
 source(paste0(base_path, "function_analysis.R"))
 source(paste0(base_path, "function_threshold.R"))
 source(paste0(base_path, "function_pisa.R"))
+source(paste0(base_path, "function_rt.R"))
 
 ##########################
 ##### OVERALL DATA #####
@@ -370,4 +371,20 @@ full_context <- paste0(
 
 writeLines(full_context, paste0(base_path, "ai_context.txt"))
 message("✅ Đã xuất file ai_context.txt phục vụ chatbot.")
+
+################################################################################
+##### TÍNH TOÁN HỆ SỐ LÂY NHIỄM (Rt) VỚI EPINOW2 ##############################
+################################################################################
+message("--- Đang khởi động thuật toán EpiNow2 tính Rt cho Cúm và Covid-19 ---")
+
+# 2. Chạy cho CÚM 
+rt_cum <- run_epinow_multi_wards(raw_df, "Cúm", gt_mean = 3.2, gt_sd = 1.3, inc_mean = 2.0, inc_sd = 1.0) 
+if(nrow(rt_cum) > 0) encrypt_data(rt_cum, paste0(base_path, "rt_cum.dat"), "Swaper@234")
+
+# 3. Chạy cho COVID-19 
+rt_covid <- run_epinow_multi_wards(raw_df, "Covid-19", gt_mean = 3.0, gt_sd = 1.6, inc_mean = 3.4, inc_sd = 1.5) 
+if(nrow(rt_covid) > 0) encrypt_data(rt_covid, paste0(base_path, "rt_covid.dat"), "Swaper@234")
+
+message("✅ Đã xuất Rt cấp Phường/Xã thành công!")
+
 

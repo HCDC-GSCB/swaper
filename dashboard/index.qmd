@@ -12,6 +12,7 @@ format:
           <script src="exporting.js"></script>
           <script src="export-data.js"></script>
           <script src="accessibility.js"></script>
+          <script src="highcharts-more.js"></script>
 navbar: false
 ---
 
@@ -29,6 +30,8 @@ mutable data_threshold = []
 mutable data_transmission = []
 mutable data_severity = []
 mutable data_pred = []
+mutable data_rt_cum = []  
+mutable data_rt_covid = []
 
 // 3. GIAO DIỆN & LOGIC GIẢI MÃ
 {
@@ -86,13 +89,15 @@ mutable data_pred = []
         }
 
         // Giải mã 5 file
-        const [sxh, tcm, thr, trans, sev, pred] = await Promise.all([
+        const [sxh, tcm, thr, trans, sev, pred, rtC, rtCov] = await Promise.all([
           decryptData("sxh.dat", pass), 
           decryptData("tcm.dat", pass),
           decryptData("threshold.dat", pass),
           decryptData("transmission.dat", pass), 
           decryptData("severity.dat", pass),
-          decryptData("pred.dat", pass)
+          decryptData("pred.dat", pass),
+          decryptData("rt_cum.dat", pass),    
+          decryptData("rt_covid.dat", pass)
         ]);
 
         // Cập nhật biến mutable
@@ -102,6 +107,8 @@ mutable data_pred = []
         mutable data_transmission = trans; 
         mutable data_severity = sev;
         mutable data_pred = pred;
+        mutable data_rt_cum = rtC;
+        mutable data_rt_covid = rtCov;
 
         // Mở khóa màn hình
         overlay.style.opacity = "0";
@@ -349,29 +356,28 @@ age_colors = [
 ```{ojs}
 viewof selected_year = {
   let input = Inputs.select(years, {
-    label: "Năm báo cáo:",
-    unique: true,
-    format: d => d.toString()
+    label: "Năm báo cáo:", unique: true, format: d => d.toString()
   });
   input.id = "wrap-nam";
   return input;
 }
 
 viewof selected_disease = {
-  let input = Inputs.radio(
-    ["Sốt xuất huyết", "Tay chân miệng"],
-    {label: "Loại bệnh:", value: "Sốt xuất huyết"}
-  );
+  let input = Inputs.radio(["Sốt xuất huyết", "Tay chân miệng"], {label: "Loại bệnh:", value: "Sốt xuất huyết"});
   input.id = "wrap-benh";
   return input;
 }
 
 viewof selected_ward = {
-  let input = Inputs.select(
-    wards,
-    {label: "Địa bàn:", value: "Toàn Thành phố"}
-  );
+  let input = Inputs.select(wards, {label: "Địa bàn:", value: "Toàn Thành phố"});
   input.id = "wrap-diaban";
+  return input;
+}
+
+// BỘ LỌC MỚI DÀNH RIÊNG CHO TAB RT (Nằm thẳng trong Sidebar)
+viewof rt_disease_select = {
+  let input = Inputs.select(["Cúm", "Covid-19"], { label: "📍 Phân tích Rt cho bệnh:", value: "Cúm" });
+  input.id = "wrap-rt-benh";
   return input;
 }
 ```
@@ -525,64 +531,54 @@ document.addEventListener("DOMContentLoaded", function() {
     let activeTab = document.querySelector('.navbar-nav .nav-link.active');
     if (!activeTab) return;
     
-    // Lấy tên Tab hiện tại
     let tabName = activeTab.textContent.trim();
     let wrapNam = document.getElementById('wrap-nam');
     let wrapDiaBan = document.getElementById('wrap-diaban');
     let wrapBenh = document.getElementById('wrap-benh');
+    let wrapRtBenh = document.getElementById('wrap-rt-benh'); // Mới thêm
 
-    if (!wrapNam || !wrapDiaBan) return;
-
-    // --- HÀM RESET BỘ LỌC (Tự động đưa về Toàn Thành phố) ---
-    function resetFilters() {
-      let selectDiaBan = wrapDiaBan.querySelector('select');
-      if (selectDiaBan && selectDiaBan.selectedIndex !== 0) {
-        selectDiaBan.selectedIndex = 0; 
-        selectDiaBan.dispatchEvent(new Event('input', { bubbles: true }));
-        selectDiaBan.dispatchEvent(new Event('change', { bubbles: true }));
-      }
-      let selectNam = wrapNam.querySelector('select');
-      if (selectNam && selectNam.selectedIndex !== 0) {
-        selectNam.selectedIndex = 0;
-        selectNam.dispatchEvent(new Event('input', { bubbles: true }));
-        selectNam.dispatchEvent(new Event('change', { bubbles: true }));
-      }
-    }
-
-    // Tự động reset mỗi khi click đổi tab
-    resetFilters();
-
-    // --- BẬT/TẮT BỘ LỌC TÙY THEO TAB (Dùng includes bắt lỗi cực chuẩn) ---
-    if (tabName.includes('Đánh giá nguy cơ')) {
-      wrapNam.style.display = '';
-      wrapDiaBan.style.display = 'none';
-      if(wrapBenh) wrapBenh.style.display = '';
+    // --- BẬT/TẮT BỘ LỌC TÙY THEO TAB ĐANG CHỌN ---
+    if (tabName.includes('Hệ số lây nhiễm')) {
+      // TAB Rt: Ẩn 3 cái cũ, chỉ bật cái chọn Cúm/Covid
+      if(wrapNam) wrapNam.style.display = 'none';
+      if(wrapDiaBan) wrapDiaBan.style.display = 'none';
+      if(wrapBenh) wrapBenh.style.display = 'none';
+      if(wrapRtBenh) wrapRtBenh.style.display = '';
     } 
-    else if (tabName.includes('Ngưỡng dịch')) {
-      wrapNam.style.display = 'none';
-      wrapDiaBan.style.display = '';
-      if(wrapBenh) wrapBenh.style.display = '';
-    }
-    else if (tabName.includes('Bản đồ')) {
-      wrapNam.style.display = 'none';
-      wrapDiaBan.style.display = 'none';
-      if(wrapBenh) wrapBenh.style.display = '';
-    } 
-    else if (tabName.includes('Dự báo')) { 
-      // CHỈ HIỆN MỖI BỆNH, ẨN BIỆT TÍCH NĂM VÀ ĐỊA BÀN
-      wrapNam.style.display = 'none';
-      wrapDiaBan.style.display = 'none'; 
-      if(wrapBenh) wrapBenh.style.display = '';
-    }
-    else { 
-      // Các tab còn lại (như Tổng quan) thì hiện Full
-      wrapNam.style.display = '';
-      wrapDiaBan.style.display = '';
-      if(wrapBenh) wrapBenh.style.display = '';
+    else {
+      // CÁC TAB CÒN LẠI: Luôn ẩn cái chọn Cúm/Covid đi
+      if(wrapRtBenh) wrapRtBenh.style.display = 'none';
+      
+      if (tabName.includes('Đánh giá nguy cơ')) {
+        if(wrapNam) wrapNam.style.display = '';
+        if(wrapDiaBan) wrapDiaBan.style.display = 'none';
+        if(wrapBenh) wrapBenh.style.display = '';
+      } 
+      else if (tabName.includes('Ngưỡng dịch')) {
+        if(wrapNam) wrapNam.style.display = 'none';
+        if(wrapDiaBan) wrapDiaBan.style.display = '';
+        if(wrapBenh) wrapBenh.style.display = '';
+      }
+      else if (tabName.includes('Bản đồ')) {
+        if(wrapNam) wrapNam.style.display = 'none';
+        if(wrapDiaBan) wrapDiaBan.style.display = 'none';
+        if(wrapBenh) wrapBenh.style.display = '';
+      } 
+      else if (tabName.includes('Dự báo')) { 
+        if(wrapNam) wrapNam.style.display = 'none';
+        if(wrapDiaBan) wrapDiaBan.style.display = 'none'; 
+        if(wrapBenh) wrapBenh.style.display = '';
+      }
+      else { 
+        // Tab Tổng quan (Full)
+        if(wrapNam) wrapNam.style.display = '';
+        if(wrapDiaBan) wrapDiaBan.style.display = '';
+        if(wrapBenh) wrapBenh.style.display = '';
+      }
     }
   }
 
-  // Canh me lúc web vừa tải xong lần đầu để chạy
+  // Chạy lần đầu khi load trang
   let initCheck = setInterval(() => {
     let wrapNam = document.getElementById('wrap-nam');
     if (wrapNam) {
@@ -591,12 +587,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }, 500);
 
-  // Lắng nghe lúc mày click chuyển Tab
+  // Lắng nghe khi click đổi Tab
   let navLinks = document.querySelectorAll('.navbar-nav .nav-link');
   navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-       setTimeout(updateSidebarVisibility, 150);
-    });
+    link.addEventListener('click', () => { setTimeout(updateSidebarVisibility, 150); });
   });
 });
 </script>
@@ -2105,6 +2099,383 @@ chart_pred_main = {
       ]
     })
   }
+}
+```
+
+# Hệ số lây nhiễm (Rt)
+
+```{ojs}
+//| output: false
+//| echo: false
+
+// --- CSS CHO HIỆU ỨNG HOVER BẢNG THÔNG TIN (Không làm giật màn hình) ---
+html`<style>
+  .cdc-info-wrap { display: inline-block; position: relative; margin-left: 5px; cursor: help; }
+  .cdc-info-wrap .cdc-tooltip {
+      position: absolute; left: 30px; top: -15px; width: 380px;
+      background: #ffffff; padding: 15px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      border: 1px solid #dee2e6; z-index: 99999; font-size: 0.85rem; color: #333; font-weight: normal;
+      line-height: 1.6; pointer-events: none; opacity: 0; visibility: hidden;
+      transform: translateX(-10px); transition: all 0.2s ease-in-out;
+  }
+  .cdc-info-wrap:hover .cdc-tooltip { opacity: 1; visibility: visible; transform: translateX(0); }
+</style>`
+
+// 1. LỌC VÀ CHUẨN BỊ DỮ LIỆU
+rt_raw_selected = rt_disease_select === "Cúm" ? data_rt_cum : data_rt_covid;
+
+rt_val_only = (rt_raw_selected || []).filter(d => d.variable === "R" && d.estimate != null && d.date);
+
+// TÌM NGÀY MỚI NHẤT CỦA TOÀN THÀNH PHỐ
+city_data_raw = rt_val_only.filter(d => String(d.WardId).trim() === "Toàn Thành phố");
+city_latest_date = d3.max(city_data_raw, d => d.date);
+city_rt_latest = city_data_raw.find(d => d.date === city_latest_date);
+
+// CHECK XEM CÓ DỮ LIỆU PHƯỜNG NÀO QUA ĐƯỢC BỘ LỌC 10 CA CỦA R KHÔNG
+rt_wards_list = [...new Set(rt_val_only.map(d => String(d.WardId).trim()))].filter(w => w !== "Toàn Thành phố");
+has_ward_data = rt_wards_list.length > 0;
+
+// 2. HÀM TÍNH XÁC SUẤT P(Rt > 1) 
+function getRtProbability(mean, lower, upper) {
+    if (mean == null || lower == null || upper == null) return null;
+    const m = Number(mean); const l = Number(lower); const u = Number(upper);
+    if (isNaN(m) || isNaN(l) || isNaN(u)) return null;
+
+    const std = (u - l) / (2 * 1.645);
+    if (std <= 0) return m > 1 ? 1 : 0;
+
+    const z = (1 - m) / std;
+    const t = 1 / (1 + 0.2316419 * Math.abs(z));
+    const d = 0.3989423 * Math.exp(-z * z / 2);
+    let prob_le_1 = d * t * (0.31938153 + t * (-0.356563782 + t * (1.781477937 + t * (-1.821255978 + t * 1.330274429))));
+    if (z > 0) prob_le_1 = 1 - prob_le_1;
+
+    return 1 - prob_le_1;
+}
+
+// 3. HÀM PHÂN LOẠI MỨC ĐỘ LÂY NHIỄM
+getRtClass = (prob) => {
+    if (prob === null) return { class: "Không tính được", color: "#6c757d", value: -1 }; 
+    if (prob > 0.90) return { class: "Tăng", color: "#d73027", value: 4 }; 
+    if (prob >= 0.75) return { class: "Có khả năng tăng", color: "#fdae61", value: 3 }; 
+    if (prob >= 0.25) return { class: "Ổn định", color: "#ffffff", value: 2 }; 
+    if (prob >= 0.10) return { class: "Có khả năng giảm", color: "#a6d96a", value: 1 }; 
+    return { class: "Giảm", color: "#1a9850", value: 0 }; 
+};
+
+// 4. MAP DỮ LIỆU LÊN BẢN ĐỒ
+combined_wards = [...new Set([...all_wards, ...rt_wards_list])]; 
+
+rt_map_data = combined_wards.map(ward_name => {
+    const clean_name = String(ward_name).trim();
+    const ward_data = rt_val_only.filter(d => String(d.WardId).trim() === clean_name);
+    
+    if (ward_data.length > 0) {
+        const ward_latest_date = d3.max(ward_data, d => d.date);
+        const ward_rt = ward_data.find(d => d.date === ward_latest_date);
+        
+        const prob = getRtProbability(ward_rt.estimate, ward_rt.lower, ward_rt.upper);
+        const cls = getRtClass(prob);
+        return {
+            "hc-key": ward_name, 
+            value: cls.value,
+            estimate: Number(ward_rt.estimate).toFixed(2), 
+            lower: Number(ward_rt.lower).toFixed(2), 
+            upper: Number(ward_rt.upper).toFixed(2),
+            prob_percent: prob !== null ? (prob * 100).toFixed(0) : null, 
+            className: cls.class, color: cls.color
+        };
+    } else {
+        const cls = getRtClass(null);
+        return { "hc-key": ward_name, value: cls.value, estimate: null, lower: null, upper: null, prob_percent: null, className: cls.class, color: cls.color };
+    }
+});
+
+rt_summary = d3.rollup(rt_map_data, v => v.length, d => d.className);
+mutable selected_rt_ward = null;
+```
+
+## Row 1 {height=500px}
+
+### Column 1 {width=35%}
+
+```{ojs}
+//| title: "Tóm tắt mức độ lây nhiễm"
+html`
+<div style="padding: 10px; font-family: 'Inter', Arial, sans-serif;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+        <h4 style="color: var(--primary-blue); font-weight: bold; font-size: 1.15rem; margin: 0;">
+            Ước lượng Rt 
+            
+            <div class="cdc-info-wrap">
+                <span style="color:#1a9fcc; font-size:1.1rem; opacity: 0.8;">ⓘ</span>
+                <div class="cdc-tooltip">
+                    <b style="color: var(--primary-blue); font-size: 1rem;">Cơ sở phân loại (Theo US CDC)</b><br/>
+                    Dựa trên xác suất của R<sub>t</sub> > 1 (từ khoảng tin cậy 90%):<br/>
+                    <ul style="margin-top: 8px; margin-bottom: 12px; padding-left: 20px; color: #555;">
+                        <li><b style="color: #d73027;">Tăng:</b> >90%</li>
+                        <li><b style="color: #fdae61;">Có khả năng tăng:</b> 76% - 90%</li>
+                        <li><b style="color: #666;">Ổn định/Không rõ:</b> 26% - 75%</li>
+                        <li><b style="color: #a6d96a;">Có khả năng giảm:</b> 10% - 25%</li>
+                        <li><b style="color: #1a9850;">Giảm:</b> &lt;10%</li>
+                    </ul>
+                    <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #ccc;"/>
+                    <b style="color: #6c757d;">Không tính được:</b> Cả 2 tuần gần nhất đều có &lt;10 ca báo cáo (mô hình loại bỏ để đảm bảo độ tin cậy).
+                </div>
+            </div>
+
+        </h4>
+    </div>
+    
+    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; margin-top: 5px;">
+      Cập nhật lúc: <b style="color: var(--text-main);">${city_latest_date ? new Date(city_latest_date).toLocaleDateString('vi-VN') : 'Đang xử lý'}</b>
+    </p>
+    
+    <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 25px;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 20px; height: 20px; background-color: #d73027; border-radius: 4px; box-shadow: 0 0 8px rgba(215, 48, 39, 0.4);"></div>
+                <span style="font-weight: bold; color: #ff5252;">Tăng</span>
+            </div>
+            <span style="font-size: 1.2rem; font-weight: bold; color: var(--text-main);">${rt_summary.get("Tăng") || 0}</span>
+        </div>
+        
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 20px; height: 20px; background-color: #fdae61; border-radius: 4px;"></div>
+                <span style="font-weight: 600; color: #ffb74d;">Có khả năng tăng</span>
+            </div>
+            <span style="font-size: 1.2rem; font-weight: bold; color: var(--text-main);">${rt_summary.get("Có khả năng tăng") || 0}</span>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 20px; height: 20px; background-color: #ffffff; border-radius: 4px; box-shadow: 0 0 5px rgba(255,255,255,0.8);"></div>
+                <span style="font-weight: 600; color: #666;">Ổn định</span>
+            </div>
+            <span style="font-size: 1.2rem; font-weight: bold; color: var(--text-main);">${rt_summary.get("Ổn định") || 0}</span>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 20px; height: 20px; background-color: #a6d96a; border-radius: 4px;"></div>
+                <span style="font-weight: 600; color: #a6d96a;">Có khả năng giảm</span>
+            </div>
+            <span style="font-size: 1.2rem; font-weight: bold; color: var(--text-main);">${rt_summary.get("Có khả năng giảm") || 0}</span>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 20px; height: 20px; background-color: #1a9850; border-radius: 4px; box-shadow: 0 0 8px rgba(26, 152, 80, 0.4);"></div>
+                <span style="font-weight: bold; color: #4caf50;">Giảm</span>
+            </div>
+            <span style="font-size: 1.2rem; font-weight: bold; color: var(--text-main);">${rt_summary.get("Giảm") || 0}</span>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px dashed #444; padding-top: 10px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 20px; height: 20px; background-color: #6c757d; border-radius: 4px;"></div>
+                <span style="font-weight: 500; color: #6c757d; font-style: italic;">Không tính được</span>
+            </div>
+            <span style="font-size: 1.2rem; font-weight: bold; color: #6c757d;">${rt_summary.get("Không tính được") || 0}</span>
+        </div>
+    </div>
+
+    ${(function() {
+        if (!city_rt_latest) return `<div style="color: #999; text-align: center;">Chưa có dữ liệu Toàn Thành phố</div>`;
+        
+        const prob = getRtProbability(city_rt_latest.estimate, city_rt_latest.lower, city_rt_latest.upper);
+        const cls = getRtClass(prob);
+        const prob_pct = (prob * 100).toFixed(0);
+        
+        return `
+        <div style="padding: 15px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--dash-card-border); border-left: 4px solid var(--primary-blue); border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+            <h4 style="margin: 0 0 10px 0; color: var(--text-main); font-weight: bold; font-size: 1.1rem; border-bottom: 1px solid var(--dash-card-border); padding-bottom: 8px;">Toàn Thành phố</h4>
+            
+            <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 15px; line-height: 1.5;">
+                Xu hướng lây nhiễm ${rt_disease_select} hiện tại đang <b style="color: ${cls.color};">${cls.class.toLowerCase()}</b>.
+            </p>
+
+            <p style="margin: 0 0 5px 0; font-size: 0.85rem; color: var(--text-muted);">
+                Xác suất dịch bệnh tăng: <b style="color: var(--text-main);">${prob_pct}%</b> (<span style="color: ${cls.color};">${cls.class}</span>)
+            </p>
+            <p style="margin: 0 0 10px 0; font-size: 0.85rem; color: var(--text-muted);">
+                Ước lượng R<sub>t</sub>: <b style="color: var(--text-main);">${Number(city_rt_latest.estimate).toFixed(2)}</b> (${Number(city_rt_latest.lower).toFixed(2)} - ${Number(city_rt_latest.upper).toFixed(2)})
+            </p>
+
+            <i style="font-size: 0.8rem; color: var(--accent-pink);">👉 Bấm vào một phường/xã trên bản đồ để xem chi tiết.</i>
+        </div>
+        `;
+    })()}
+
+    ${!has_ward_data ? `
+    <div style="margin-top: 15px; padding: 10px; background: #fff3cd; border: 1px solid #ffe69c; border-radius: 6px; font-size: 0.8rem; color: #664d03; line-height: 1.4;">
+        ⚠️ <b>Ghi chú:</b> Dữ liệu gốc hiện không có phường nào vượt qua bộ lọc >10 ca của mô hình (nên toàn bộ bản đồ hiển thị màu xám). 
+    </div>` : ''}
+
+</div>
+`
+```
+
+### Column 2 {width = 65%}
+
+```{ojs}
+//| title: "Bản đồ mức độ cảnh báo Hệ số Rt"
+{
+  const container = html`<div style="height: 480px; width: 100%;"></div>`;
+  
+  if (Highcharts && typeof Highcharts.mapChart === "function" && rt_map_data.length > 0) {
+    Highcharts.mapChart(container, {
+        chart: { map: hcm_geo, mapView: { center: [106.702, 10.775], zoom: 10 }, backgroundColor: 'transparent' },
+        title: { text: null },
+        mapNavigation: { enabled: true, buttonOptions: { verticalAlign: 'bottom' } },
+        legend: { enabled: false }, 
+        tooltip: {
+            useHTML: true,
+            backgroundColor: 'var(--dash-card-bg)',
+            borderColor: 'var(--primary-blue)',
+            style: { color: 'var(--text-main)' },
+            formatter: function() {
+                if (this.point.value === -1) {
+                    return `
+                    <div style="font-family: inherit; padding: 5px;">
+                        <b style="font-size: 1.1rem; color: #9ca3af;">${this.point.name}</b><br/>
+                        <hr style="margin: 5px 0; border-color: rgba(0,0,0,0.1);"/>
+                        Trạng thái: <b style="color: #9ca3af;">Không tính được</b><br/>
+                        <i style="font-size: 0.85rem; color: #6b7280;">(Cả 2 tuần gần nhất đều < 10 ca)</i>
+                    </div>`;
+                }
+                return `
+                    <div style="font-family: inherit; padding: 5px;">
+                        <b style="font-size: 1.1rem; color: var(--primary-blue);">${this.point.name}</b><br/>
+                        <hr style="margin: 5px 0; border-color: rgba(255,255,255,0.2);"/>
+                        Trạng thái: <b style="color: ${this.point.color};">${this.point.className}</b><br/>
+                        Hệ số Rt: <b style="font-size: 1.1rem;">${this.point.estimate}</b><br/>
+                        Khoảng tin cậy (90%): [${this.point.lower} - ${this.point.upper}]<br/>
+                        Xác suất Rt > 1: <b>${this.point.prob_percent}%</b><br/>
+                        <i style="font-size: 0.8rem; color: var(--accent-pink); margin-top: 5px; display: block;">👉 Click để xem biểu đồ xu hướng</i>
+                    </div>
+                `;
+            }
+        },
+        plotOptions: {
+            series: {
+                cursor: 'pointer',
+                point: {
+                    events: {
+                        click: function() { 
+                            if (this.value !== -1) { mutable selected_rt_ward = this['hc-key']; }
+                        }
+                    }
+                }
+            }
+        },
+        series: [{
+            data: rt_map_data,
+            joinBy: ['NoiOHienTai_SauKhiSapNhap_WardId', 'hc-key'],
+            name: "Rt Level",
+            allowPointSelect: true,
+            states: {
+                hover: { filter: { type: 'brightness', value: 1.1 } },
+                select: { borderColor: 'var(--accent-pink)', borderWidth: 3 }
+            },
+            nullColor: 'rgba(255,255,255,0.05)', borderColor: '#1e293b', borderWidth: 1
+        }]
+    });
+  }
+  return container;
+}
+```
+
+## Row 2 {height = 500px}
+
+```{ojs}
+//| title: "Biểu đồ xu hướng Hệ số lây nhiễm (Rt)"
+{
+  const formatLineData = (wardName) => {
+      const clean_ward_name = String(wardName).trim();
+      const ward_data = rt_val_only.filter(d => String(d.WardId).trim() === clean_ward_name);
+      let line_data = [], area_data = [];
+      
+      const latest_time = city_latest_date ? new Date(city_latest_date).getTime() : new Date().getTime();
+      const two_months_ago = latest_time - (60 * 24 * 60 * 60 * 1000); 
+
+      ward_data.forEach(row => {
+          const d_time = new Date(row.date).getTime();
+          if (d_time >= two_months_ago) {
+              line_data.push([d_time, Number(row.estimate)]);
+              if (row.lower != null && row.upper != null) {
+                  area_data.push([d_time, Number(row.lower), Number(row.upper)]);
+              }
+          }
+      });
+      line_data.sort((a, b) => a[0] - b[0]);
+      area_data.sort((a, b) => a[0] - b[0]);
+      return { line_data, area_data };
+  };
+
+  const city_data = formatLineData("Toàn Thành phố");
+  
+  let series_list = [
+    { 
+        name: 'Khoảng tin cậy 90% (Toàn TP)', type: 'arearange', 
+        data: city_data.area_data, color: '#1a9fcc', fillOpacity: 0.15, lineWidth: 0, zIndex: 0
+    },
+    { 
+        name: 'Rt (Toàn Thành phố)', type: 'line', 
+        data: city_data.line_data, color: '#1a9fcc', lineWidth: 3, zIndex: 2
+    }
+  ];
+
+  if (selected_rt_ward && selected_rt_ward !== "Toàn Thành phố") {
+      const ward_data = formatLineData(selected_rt_ward);
+      
+      if(ward_data.line_data.length > 0) {
+          series_list.push({ 
+              name: `Khoảng tin cậy 90% (${selected_rt_ward})`, type: 'arearange', 
+              data: ward_data.area_data, color: '#f472b6', fillOpacity: 0.25, lineWidth: 0, zIndex: 1
+          });
+          series_list.push({ 
+              name: `Rt (${selected_rt_ward})`, type: 'line', 
+              data: ward_data.line_data, color: '#f472b6', lineWidth: 3, zIndex: 3
+          });
+      }
+  }
+
+  const container = html`<div style="height: 480px; width: 100%;"></div>`;
+  
+  if (window.Highcharts) {
+    Highcharts.chart(container, {
+        chart: { backgroundColor: 'transparent' },
+        xAxis: { 
+            type: 'datetime', crosshair: true,
+            labels: { style: { color: 'var(--text-main)' } }
+        },
+        yAxis: {
+            title: { text: 'Hệ số lây nhiễm (Rt)', style: { fontWeight: 'bold', color: 'var(--text-main)' } },
+            labels: { style: { color: 'var(--text-main)' } },
+            plotLines: [{ 
+                value: 1, color: '#000000', dashStyle: 'Dash', width: 2, zIndex: 5,
+                label: { text: 'Ngưỡng Rt = 1', style: { color: 'var(--accent-pink)', fontWeight: 'bold' } }
+            }],
+            min: 0
+        },
+        tooltip: { shared: true, xDateFormat: '%d/%m/%Y' },
+        
+        plotOptions: {
+            series: {
+                marker: { enabled: false },
+                states: { hover: { halo: { size: 0 } } }
+            },
+            arearange: {
+                lineWidth: 0, 
+                marker: { enabled: false }
+            }
+        },
+        series: series_list
+    });
+  }
+  return container;
 }
 ```
 
