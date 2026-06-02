@@ -31,14 +31,16 @@ website:
         href: about/index.qmd
       - text: "News"
         href: news/index.qmd
-      - text: "Seminars"
-        href: seminars/index.qmd
+      - text: "SOPs"
+        href: sops/index.qmd
       - text: "Learning"
         menu:
           - text: "E-Learning"
             href: learning/index.qmd
           - text: "Book"
             href: book/index.qmd
+          - text: "Seminars"
+            href: seminars/index.qmd
       - text: "Epidemic Channel"
         icon: card-text
         href: snapshot/index.qmd
@@ -79,7 +81,6 @@ website:
 format:
   html:
     respect-user-color-scheme: true
-    self-contained: true
     theme:
       light: flatly
       dark: darkly

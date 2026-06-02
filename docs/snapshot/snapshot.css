@@ -1,0 +1,43 @@
+/* ==============================================================
+   1. XỬ LÝ TIÊU ĐỀ CỘT (HEADER): Ép đen toàn bộ kể cả link Sort
+   ============================================================== */
+table.quarto-listing-table thead th,
+table.quarto-listing-table thead th a,
+table.quarto-listing-table thead th a.sort {
+    background-color: #f8fbfd !important;
+    color: #000000 !important; /* Ép chữ đen thui tuyệt đối */
+    font-weight: 800 !important;
+    text-decoration: none !important; /* Bỏ gạch chân nếu có của thẻ link */
+    padding: 16px !important;
+    border-bottom: 2px solid #edf2f7 !important;
+    text-transform: uppercase !important;
+    font-size: 0.85rem !important;
+}
+
+/* KHI HOVER VÀO TIÊU ĐỀ CỘT: Cho nó nhạt đi xíu để biết là nút bấm được */
+table.quarto-listing-table thead th a:hover {
+    color: #475569 !important; 
+}
+
+
+/* ==============================================================
+   2. XỬ LÝ NỘI DUNG CỘT TITLE (CÁC DÒNG): Mặc định đen, Hover xanh
+   ============================================================== */
+/* Trạng thái mặc định: Chữ đen/xám đậm */
+table.quarto-listing-table tbody td.listing-title a,
+table.quarto-listing-table tbody td .title {
+    color: #408cfe !important; /* Màu đen/xám đậm nhìn cho sang */
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease-in-out !important;
+    display: inline-block !important;
+}
+
+/* Trạng thái Hover: Rực màu xanh dương và có gạch chân */
+table.quarto-listing-table tbody td.listing-title a:hover,
+table.quarto-listing-table tbody td .title:hover {
+    color: #0d6dfe !important; /* Xanh dương sáng kiểu Hyperlink */
+    text-decoration: underline !important; 
+    text-underline-offset: 4px !important; 
+    cursor: pointer !important; 
+}

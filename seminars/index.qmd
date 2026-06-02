@@ -52,22 +52,3 @@ This session introduces key online learning resources on Public Health Emergency
 
 8.  Facilitating a Case Study (18/2/2026) [Link](https://taskforce-org.zoom.us/webinar/register/WN_8sIeK5IRTG2cU1_uyQjU0w)
 
-# MIDSEA
-
-::::: columns
-::: {.column width="60%"}
-**Date & Time**: June 18, 2025 (13:00 Vietnam)
-
-**Location**: Room 3.03 (HCDC - District 8)
-
-**Via**: Zoom
-
-**Speakers**: Dr. Michael Lydeamore *(Monash University, Melbourne, Australia)*
-
-**Topic**: Understanding prevalence, and potential for tranmission of healthcare associated infections in Victoria, Australia
-:::
-
-::: {.column width="40%"}
-![](../picture/midsea.png)
-:::
-:::::

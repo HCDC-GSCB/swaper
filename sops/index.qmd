@@ -1,0 +1,46 @@
+---
+title: "Danh sách Quy trình chuẩn của SWAPER"
+execute:
+  echo: false
+---
+
+Dưới đây là hệ thống các văn bản, hướng dẫn và quy trình vận hành đang được áp dụng tại Khoa. Sử dụng thanh tìm kiếm bên dưới để tra cứu nhanh.
+
+```{ojs}
+// 1. GỌI THƯ VIỆN D3 ĐỂ XỬ LÝ DẤU CHẤM PHẨY (;) CỦA EXCEL
+d3 = require("d3")
+
+// Tải file dạng text thô
+sops_text = FileAttachment("danhsach_sops.csv").text()
+
+// OJS tự động chờ sops_text tải xong mới chạy dòng parse này. Lọc bỏ mấy dòng rỗng dư thừa.
+sops_data = d3.dsvFormat(";").parse(sops_text).filter(d => d["Mã"] != null && d["Mã"].trim() !== "")
+```
+
+```{ojs}
+// 2. THANH TÌM KIẾM
+viewof search_sop = Inputs.search(sops_data, {
+  placeholder: "🔍 Nhập mã SOP, tên quy trình, năm ban hành...",
+  width: "100%"
+})
+```
+
+```{ojs}
+// 3. VẼ BẢNG
+Inputs.table(search_sop, {
+  // KHAI BÁO KHỚP 100% VỚI TÊN CỘT TRONG FILE EXCEL CỦA MÀY
+  columns: [
+    "Mã", 
+    "Quy trình", 
+    "Ngày ban hành", 
+    "Phiên bản", 
+    "Link truy cập"
+  ],
+  format: {
+    // Bắt đúng cột "Link truy cập" để biến thành nút bấm
+    "Link truy cập": x => x ? html`<a href="${x}" target="_blank" style="background-color: #005d88; color: white; padding: 5px 12px; border-radius: 5px; text-decoration: none; font-size: 0.85rem; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.15); white-space: nowrap;">📥 Xem PDF</a>` : html`<span style="color:#aaa; font-style:italic;">Trống</span>`
+  },
+  layout: "auto"
+})
+```
+
