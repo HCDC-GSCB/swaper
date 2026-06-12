@@ -2108,39 +2108,24 @@ chart_pred_main = {
 //| output: false
 //| echo: false
 
-// --- CSS CHO HIỆU ỨNG HOVER BẢNG THÔNG TIN (Không làm giật màn hình) ---
-html`<style>
-  .cdc-info-wrap { display: inline-block; position: relative; margin-left: 5px; cursor: help; }
-  .cdc-info-wrap .cdc-tooltip {
-      position: absolute; left: 30px; top: -15px; width: 380px;
-      background: #ffffff; padding: 15px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-      border: 1px solid #dee2e6; z-index: 99999; font-size: 0.85rem; color: #333; font-weight: normal;
-      line-height: 1.6; pointer-events: none; opacity: 0; visibility: hidden;
-      transform: translateX(-10px); transition: all 0.2s ease-in-out;
-  }
-  .cdc-info-wrap:hover .cdc-tooltip { opacity: 1; visibility: visible; transform: translateX(0); }
-</style>`
-
 // 1. LỌC VÀ CHUẨN BỊ DỮ LIỆU
 rt_raw_selected = rt_disease_select === "Cúm" ? data_rt_cum : data_rt_covid;
 
-rt_val_only = (rt_raw_selected || []).filter(d => d.variable === "R" && d.estimate != null && d.date);
+city_rt_data = (rt_raw_selected || [])
+  .filter(d => d.variable === "R" && String(d.WardId).trim() === "Toàn Thành phố")
+  .map(d => ({ ...d, date_ts: new Date(d.date).getTime() }))
+  .sort((a, b) => a.date_ts - b.date_ts);
 
-// TÌM NGÀY MỚI NHẤT CỦA TOÀN THÀNH PHỐ
-city_data_raw = rt_val_only.filter(d => String(d.WardId).trim() === "Toàn Thành phố");
-city_latest_date = d3.max(city_data_raw, d => d.date);
-city_rt_latest = city_data_raw.find(d => d.date === city_latest_date);
+// LẤY NGÀY MỚI NHẤT BAO GỒM CẢ ESTIMATE VÀ PARTIAL DATA (Bỏ qua Forecast)
+city_estimate_only = city_rt_data.filter(d => d.type === 'estimate' || d.type === 'estimate based on partial data');
+city_latest_estimate_date = d3.max(city_estimate_only, d => d.date);
+latest_estimate_entry = city_estimate_only.find(d => d.date === city_latest_estimate_date) || {};
 
-// CHECK XEM CÓ DỮ LIỆU PHƯỜNG NÀO QUA ĐƯỢC BỘ LỌC 10 CA CỦA R KHÔNG
-rt_wards_list = [...new Set(rt_val_only.map(d => String(d.WardId).trim()))].filter(w => w !== "Toàn Thành phố");
-has_ward_data = rt_wards_list.length > 0;
-
-// 2. HÀM TÍNH XÁC SUẤT P(Rt > 1) 
+// 2. HÀM TÍNH XÁC SUẤT P(Rt > 1) VÀ BẢNG MÀU MỚI
 function getRtProbability(mean, lower, upper) {
     if (mean == null || lower == null || upper == null) return null;
     const m = Number(mean); const l = Number(lower); const u = Number(upper);
     if (isNaN(m) || isNaN(l) || isNaN(u)) return null;
-
     const std = (u - l) / (2 * 1.645);
     if (std <= 0) return m > 1 ? 1 : 0;
 
@@ -2149,332 +2134,321 @@ function getRtProbability(mean, lower, upper) {
     const d = 0.3989423 * Math.exp(-z * z / 2);
     let prob_le_1 = d * t * (0.31938153 + t * (-0.356563782 + t * (1.781477937 + t * (-1.821255978 + t * 1.330274429))));
     if (z > 0) prob_le_1 = 1 - prob_le_1;
-
     return 1 - prob_le_1;
 }
 
-// 3. HÀM PHÂN LOẠI MỨC ĐỘ LÂY NHIỄM
 getRtClass = (prob) => {
-    if (prob === null) return { class: "Không tính được", color: "#6c757d", value: -1 }; 
-    if (prob > 0.90) return { class: "Tăng", color: "#d73027", value: 4 }; 
-    if (prob >= 0.75) return { class: "Có khả năng tăng", color: "#fdae61", value: 3 }; 
-    if (prob >= 0.25) return { class: "Ổn định", color: "#ffffff", value: 2 }; 
-    if (prob >= 0.10) return { class: "Có khả năng giảm", color: "#a6d96a", value: 1 }; 
-    return { class: "Giảm", color: "#1a9850", value: 0 }; 
+    if (prob === null) return { class: "Không tính được", color: "#6c757d" };
+    if (prob > 0.90) return { class: "Tăng", color: "#6f42c1" }; // Tím
+    if (prob >= 0.76) return { class: "Có khả năng tăng", color: "#dc3545" }; // Đỏ
+    if (prob >= 0.26) return { class: "Ổn định / Không rõ", color: "#fd7e14" }; // Cam
+    if (prob >= 0.10) return { class: "Có khả năng giảm", color: "#eab308" }; // Vàng (Dùng mã eab308 để dễ đọc trên nền trắng)
+    return { class: "Giảm", color: "#28a745" }; // Xanh lá
 };
 
-// 4. MAP DỮ LIỆU LÊN BẢN ĐỒ
-combined_wards = [...new Set([...all_wards, ...rt_wards_list])]; 
-
-rt_map_data = combined_wards.map(ward_name => {
-    const clean_name = String(ward_name).trim();
-    const ward_data = rt_val_only.filter(d => String(d.WardId).trim() === clean_name);
-    
-    if (ward_data.length > 0) {
-        const ward_latest_date = d3.max(ward_data, d => d.date);
-        const ward_rt = ward_data.find(d => d.date === ward_latest_date);
-        
-        const prob = getRtProbability(ward_rt.estimate, ward_rt.lower, ward_rt.upper);
-        const cls = getRtClass(prob);
-        return {
-            "hc-key": ward_name, 
-            value: cls.value,
-            estimate: Number(ward_rt.estimate).toFixed(2), 
-            lower: Number(ward_rt.lower).toFixed(2), 
-            upper: Number(ward_rt.upper).toFixed(2),
-            prob_percent: prob !== null ? (prob * 100).toFixed(0) : null, 
-            className: cls.class, color: cls.color
-        };
-    } else {
-        const cls = getRtClass(null);
-        return { "hc-key": ward_name, value: cls.value, estimate: null, lower: null, upper: null, prob_percent: null, className: cls.class, color: cls.color };
-    }
-});
-
-rt_summary = d3.rollup(rt_map_data, v => v.length, d => d.className);
-mutable selected_rt_ward = null;
+city_risk = getRtClass(getRtProbability(latest_estimate_entry.estimate, latest_estimate_entry.lower, latest_estimate_entry.upper));
+city_prob = getRtProbability(latest_estimate_entry.estimate, latest_estimate_entry.lower, latest_estimate_entry.upper);
 ```
 
-## Row 1 {height=500px}
+## Row 1 {height = "auto}
 
-### Column 1 {width=35%}
+### Column 1 {width="35%"}
 
 ```{ojs}
-//| title: "Tóm tắt mức độ lây nhiễm"
+//| title: "📊 Thông tin mức độ nguy cơ"
 html`
-<div style="padding: 10px; font-family: 'Inter', Arial, sans-serif;">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
-        <h4 style="color: var(--primary-blue); font-weight: bold; font-size: 1.15rem; margin: 0;">
-            Ước lượng Rt 
-            
-            <div class="cdc-info-wrap">
-                <span style="color:#1a9fcc; font-size:1.1rem; opacity: 0.8;">ⓘ</span>
-                <div class="cdc-tooltip">
-                    <b style="color: var(--primary-blue); font-size: 1rem;">Cơ sở phân loại (Theo US CDC)</b><br/>
-                    Dựa trên xác suất của R<sub>t</sub> > 1 (từ khoảng tin cậy 90%):<br/>
-                    <ul style="margin-top: 8px; margin-bottom: 12px; padding-left: 20px; color: #555;">
-                        <li><b style="color: #d73027;">Tăng:</b> >90%</li>
-                        <li><b style="color: #fdae61;">Có khả năng tăng:</b> 76% - 90%</li>
-                        <li><b style="color: #666;">Ổn định/Không rõ:</b> 26% - 75%</li>
-                        <li><b style="color: #a6d96a;">Có khả năng giảm:</b> 10% - 25%</li>
-                        <li><b style="color: #1a9850;">Giảm:</b> &lt;10%</li>
-                    </ul>
-                    <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #ccc;"/>
-                    <b style="color: #6c757d;">Không tính được:</b> Cả 2 tuần gần nhất đều có &lt;10 ca báo cáo (mô hình loại bỏ để đảm bảo độ tin cậy).
+<style>
+  /* KHUNG CHỨA NÚT THÔNG TIN VÀ POPUP PANEL */
+  .param-popup-container {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 100;
+  }
+  .param-info-btn {
+    background: #f8fafc;
+    color: #0369a1;
+    border: 1px solid #cbd5e1;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    transition: all 0.2s ease;
+  }
+  .param-info-btn:hover {
+    background: #0284c7;
+    color: #ffffff;
+    border-color: #0284c7;
+  }
+  .param-dropdown-panel {
+    position: absolute;
+    right: 0;
+    top: 28px;
+    width: 460px;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    padding: 15px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 101;
+  }
+  /* KÍCH HOẠT HIỂN THỊ KHI HOVER CONTAINER */
+  .param-popup-container:hover .param-dropdown-panel {
+    display: flex;
+  }
+</style>
+
+<div style="padding: 20px; font-family: sans-serif; background: #fff; border-radius: 8px; position: relative;">
+    
+    <div class="param-popup-container">
+        <button class="param-info-btn">ⓘ Tham số mô hình</button>
+        <div class="param-dropdown-panel">
+            <h4 style="margin: 0 0 5px 0; color: #003366; font-size: 0.9rem; border-bottom: 2px solid #f1f3f5; padding-bottom: 5px; font-weight: bold;">
+                🛠️ Tham số cấu hình Bayes MCMC (${rt_disease_select})
+            </h4>
+            ${rt_disease_select === "Cúm" ? `
+                <div style="display: flex; gap: 8px; flex-direction: column;">
+                    <div style="padding: 8px 12px; background: #f0f4f8; border-radius: 6px; border-left: 4px solid #01665e;">
+                        <div style="font-size: 0.75rem; color: #475569; font-weight: bold; text-transform: uppercase;">Thời gian thế hệ (Generation Time)</div>
+                        <div style="color: #01665e; font-size: 0.85rem; margin-top: 2px;">Trung bình (&mu;): <b>3.2 ngày</b> | Độ lệch (&sigma;): <b>2.1 ngày</b></div>
+                    </div>
+                    <div style="padding: 8px 12px; background: #f0f4f8; border-radius: 6px; border-left: 4px solid #01665e;">
+                        <div style="font-size: 0.75rem; color: #475569; font-weight: bold; text-transform: uppercase;">Thời gian ủ bệnh (Incubation Period)</div>
+                        <div style="color: #01665e; font-size: 0.85rem; margin-top: 2px;">Trung bình (&mu;): <b>2.1 ngày</b> | Độ lệch (&sigma;): <b>0.72 ngày</b></div>
+                    </div>
+                    <div style="padding: 8px 12px; background: #f0f4f8; border-radius: 6px; border-left: 4px solid #01665e;">
+                        <div style="font-size: 0.75rem; color: #475569; font-weight: bold; text-transform: uppercase;">Độ trễ báo cáo (Reporting Delay)</div>
+                        <div style="color: #01665e; font-size: 0.85rem; margin-top: 2px;">Trung bình (&mu;): <b>1.48 ngày</b> | Độ lệch (&sigma;): <b>1.19 ngày</b></div>
+                    </div>
+                    <div style="font-size: 0.75rem; color: #555; background: #fafafa; padding: 8px; border: 1px dashed #ccc; border-radius: 4px; line-height: 1.4; font-style: italic;">
+                        <b>Mô tả:</b> Tham số Cúm được tham khảo từ y văn. Độ trễ báo cáo được nội suy thực tế từ dữ liệu giám sát.
+                    </div>
                 </div>
-            </div>
-
-        </h4>
-    </div>
-    
-    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; margin-top: 5px;">
-      Cập nhật lúc: <b style="color: var(--text-main);">${city_latest_date ? new Date(city_latest_date).toLocaleDateString('vi-VN') : 'Đang xử lý'}</b>
-    </p>
-    
-    <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 25px;">
-        <div style="display: flex; align-items: center; justify-content: space-between;">
-            <div style="display: flex; align-items: center; gap: 12px;">
-                <div style="width: 20px; height: 20px; background-color: #d73027; border-radius: 4px; box-shadow: 0 0 8px rgba(215, 48, 39, 0.4);"></div>
-                <span style="font-weight: bold; color: #ff5252;">Tăng</span>
-            </div>
-            <span style="font-size: 1.2rem; font-weight: bold; color: var(--text-main);">${rt_summary.get("Tăng") || 0}</span>
-        </div>
-        
-        <div style="display: flex; align-items: center; justify-content: space-between;">
-            <div style="display: flex; align-items: center; gap: 12px;">
-                <div style="width: 20px; height: 20px; background-color: #fdae61; border-radius: 4px;"></div>
-                <span style="font-weight: 600; color: #ffb74d;">Có khả năng tăng</span>
-            </div>
-            <span style="font-size: 1.2rem; font-weight: bold; color: var(--text-main);">${rt_summary.get("Có khả năng tăng") || 0}</span>
-        </div>
-
-        <div style="display: flex; align-items: center; justify-content: space-between;">
-            <div style="display: flex; align-items: center; gap: 12px;">
-                <div style="width: 20px; height: 20px; background-color: #ffffff; border-radius: 4px; box-shadow: 0 0 5px rgba(255,255,255,0.8);"></div>
-                <span style="font-weight: 600; color: #666;">Ổn định</span>
-            </div>
-            <span style="font-size: 1.2rem; font-weight: bold; color: var(--text-main);">${rt_summary.get("Ổn định") || 0}</span>
-        </div>
-
-        <div style="display: flex; align-items: center; justify-content: space-between;">
-            <div style="display: flex; align-items: center; gap: 12px;">
-                <div style="width: 20px; height: 20px; background-color: #a6d96a; border-radius: 4px;"></div>
-                <span style="font-weight: 600; color: #a6d96a;">Có khả năng giảm</span>
-            </div>
-            <span style="font-size: 1.2rem; font-weight: bold; color: var(--text-main);">${rt_summary.get("Có khả năng giảm") || 0}</span>
-        </div>
-
-        <div style="display: flex; align-items: center; justify-content: space-between;">
-            <div style="display: flex; align-items: center; gap: 12px;">
-                <div style="width: 20px; height: 20px; background-color: #1a9850; border-radius: 4px; box-shadow: 0 0 8px rgba(26, 152, 80, 0.4);"></div>
-                <span style="font-weight: bold; color: #4caf50;">Giảm</span>
-            </div>
-            <span style="font-size: 1.2rem; font-weight: bold; color: var(--text-main);">${rt_summary.get("Giảm") || 0}</span>
-        </div>
-
-        <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px dashed #444; padding-top: 10px;">
-            <div style="display: flex; align-items: center; gap: 12px;">
-                <div style="width: 20px; height: 20px; background-color: #6c757d; border-radius: 4px;"></div>
-                <span style="font-weight: 500; color: #6c757d; font-style: italic;">Không tính được</span>
-            </div>
-            <span style="font-size: 1.2rem; font-weight: bold; color: #6c757d;">${rt_summary.get("Không tính được") || 0}</span>
+            ` : `
+                <div style="display: flex; gap: 8px; flex-direction: column;">
+                    <div style="padding: 8px 12px; background: #fff0f0; border-radius: 6px; border-left: 4px solid #d73027;">
+                        <div style="font-size: 0.75rem; color: #475569; font-weight: bold; text-transform: uppercase;">Thời gian thế hệ (Generation Time)</div>
+                        <div style="color: #d73027; font-size: 0.85rem; margin-top: 2px;">Trung bình (&mu;): <b>3.5 ngày</b> | Độ lệch (&sigma;): <b>2.1 ngày</b></div>
+                    </div>
+                    <div style="padding: 8px 12px; background: #fff0f0; border-radius: 6px; border-left: 4px solid #d73027;">
+                        <div style="font-size: 0.75rem; color: #475569; font-weight: bold; text-transform: uppercase;">Thời gian ủ bệnh (Incubation Period)</div>
+                        <div style="color: #d73027; font-size: 0.85rem; margin-top: 2px;">Trung bình (&mu;): <b>2.6 ngày</b> | Độ lệch (&sigma;): <b>1.0 ngày</b></div>
+                    </div>
+                    <div style="padding: 8px 12px; background: #fff0f0; border-radius: 6px; border-left: 4px solid #d73027;">
+                        <div style="font-size: 0.75rem; color: #475569; font-weight: bold; text-transform: uppercase;">Độ trễ báo cáo (Reporting Delay)</div>
+                        <div style="color: #d73027; font-size: 0.85rem; margin-top: 2px;">Trung bình (&mu;): <b>3.0 ngày</b> | Độ lệch (&sigma;): <b>2.0 ngày</b></div>
+                    </div>
+                    <div style="font-size: 0.75rem; color: #555; background: #fafafa; padding: 8px; border: 1px dashed #ccc; border-radius: 4px; line-height: 1.4; font-style: italic;">
+                        <b>Mô tả:</b> Tham số COVID-19 tham khảo từ y văn. Độ trễ báo cáo được nội suy thực tế từ dữ liệu giám sát.
+                    </div>
+                </div>
+            `}
         </div>
     </div>
 
-    ${(function() {
-        if (!city_rt_latest) return `<div style="color: #999; text-align: center;">Chưa có dữ liệu Toàn Thành phố</div>`;
-        
-        const prob = getRtProbability(city_rt_latest.estimate, city_rt_latest.lower, city_rt_latest.upper);
-        const cls = getRtClass(prob);
-        const prob_pct = (prob * 100).toFixed(0);
-        
-        return `
-        <div style="padding: 15px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--dash-card-border); border-left: 4px solid var(--primary-blue); border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-            <h4 style="margin: 0 0 10px 0; color: var(--text-main); font-weight: bold; font-size: 1.1rem; border-bottom: 1px solid var(--dash-card-border); padding-bottom: 8px;">Toàn Thành phố</h4>
-            
-            <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 15px; line-height: 1.5;">
-                Xu hướng lây nhiễm ${rt_disease_select} hiện tại đang <b style="color: ${cls.color};">${cls.class.toLowerCase()}</b>.
-            </p>
+    <div style="border-bottom: 2px solid #f1f3f5; padding-bottom: 15px; margin-bottom: 20px; padding-right: 140px;">
+        <h3 style="color: #003366; margin: 0; font-size: 1.4rem; font-weight: bold;">Toàn Thành phố</h3>
+        <p style="color: #666; font-size: 0.9rem; margin: 5px 0 0 0;">Cập nhật: <b>${city_latest_estimate_date ? new Date(city_latest_estimate_date).toLocaleDateString('vi-VN') : '---'}</b></p>
+    </div>
 
-            <p style="margin: 0 0 5px 0; font-size: 0.85rem; color: var(--text-muted);">
-                Xác suất dịch bệnh tăng: <b style="color: var(--text-main);">${prob_pct}%</b> (<span style="color: ${cls.color};">${cls.class}</span>)
-            </p>
-            <p style="margin: 0 0 10px 0; font-size: 0.85rem; color: var(--text-muted);">
-                Ước lượng R<sub>t</sub>: <b style="color: var(--text-main);">${Number(city_rt_latest.estimate).toFixed(2)}</b> (${Number(city_rt_latest.lower).toFixed(2)} - ${Number(city_rt_latest.upper).toFixed(2)})
-            </p>
-
-            <i style="font-size: 0.8rem; color: var(--accent-pink);">👉 Bấm vào một phường/xã trên bản đồ để xem chi tiết.</i>
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; border-left: 5px solid #005d88; margin-bottom: 20px;">
+        <div style="margin-bottom: 15px;">
+            <div style="font-size: 0.9rem; color: #555;">Hệ số lây nhiễm (R<sub>t</sub>):</div>
+            <div style="font-size: 2.8rem; font-weight: 900; color: #003366; line-height: 1;">
+                ${latest_estimate_entry.estimate ? Number(latest_estimate_entry.estimate).toFixed(2) : '---'}
+            </div>
+            <div style="font-size: 0.95rem; color: #666; margin-top: 5px;">
+                Khoảng tin cậy: [${latest_estimate_entry.lower ? Number(latest_estimate_entry.lower).toFixed(2) : '---'} - ${latest_estimate_entry.upper ? Number(latest_estimate_entry.upper).toFixed(2) : '---'}]
+            </div>
         </div>
-        `;
-    })()}
+        
+        <div style="border-top: 1px solid #dee2e6; padding-top: 15px;">
+            <div style="font-size: 0.8rem; color: #555;">
+                Xác suất dịch đang ở mức <b style="color: ${city_risk.color}; font-size: 0.8rem;">${city_risk.class} (${city_prob !== null ? (city_prob * 100).toFixed(1) : '---'}%)</b>
+            </div>
+        </div>
+    </div>
 
-    ${!has_ward_data ? `
-    <div style="margin-top: 15px; padding: 10px; background: #fff3cd; border: 1px solid #ffe69c; border-radius: 6px; font-size: 0.8rem; color: #664d03; line-height: 1.4;">
-        ⚠️ <b>Ghi chú:</b> Dữ liệu gốc hiện không có phường nào vượt qua bộ lọc >10 ca của mô hình (nên toàn bộ bản đồ hiển thị màu xám). 
-    </div>` : ''}
-
+    <div style="padding-top: 10px;">
+        <div style="font-size: 0.85rem; color: #888; font-weight: bold; margin-bottom: 8px; text-transform: uppercase;">Tiêu chuẩn phân loại US CDC</div>
+        <table style="width: 100%; font-size: 0.8rem; border-collapse: collapse; text-align: center;">
+            <thead>
+                <tr style="border-bottom: 2px solid #ccc;">
+                    <th style="padding: 6px; text-align: left;">Nguy cơ</th>
+                    <th style="padding: 6px;">Mã màu</th>
+                    <th style="padding: 6px;">Xác suất P(R<sub>t</sub> > 1)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 6px; text-align: left; font-weight: bold;">Tăng</td>
+                    <td style="padding: 6px; color: #6f42c1; font-weight: bold;">Tím</td>
+                    <td style="padding: 6px;">> 90%</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 6px; text-align: left; font-weight: bold;">Có khả năng tăng</td>
+                    <td style="padding: 6px; color: #dc3545; font-weight: bold;">Đỏ</td>
+                    <td style="padding: 6px;">76% – 90%</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 6px; text-align: left; font-weight: bold;">Ổn định / Không rõ</td>
+                    <td style="padding: 6px; color: #fd7e14; font-weight: bold;">Cam</td>
+                    <td style="padding: 6px;">26% – 75%</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 6px; text-align: left; font-weight: bold;">Có khả năng giảm</td>
+                    <td style="padding: 6px; color: #eab308; font-weight: bold;">Vàng</td>
+                    <td style="padding: 6px;">10% – 25%</td>
+                </tr>
+                <tr>
+                    <td style="padding: 6px; text-align: left; font-weight: bold;">Giảm</td>
+                    <td style="padding: 6px; color: #28a745; font-weight: bold;">Xanh lá</td>
+                    <td style="padding: 6px;">< 10%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 `
 ```
 
-### Column 2 {width = 65%}
+### Column 2 {width="65%"}
 
 ```{ojs}
-//| title: "Bản đồ mức độ cảnh báo Hệ số Rt"
+//| title: "Hệ số lây nhiễm hiệu quả Rt"
 {
-  const container = html`<div style="height: 480px; width: 100%;"></div>`;
+  const container = html`<div style="height: 100%; width: 100%;"></div>`;
   
-  if (Highcharts && typeof Highcharts.mapChart === "function" && rt_map_data.length > 0) {
-    Highcharts.mapChart(container, {
-        chart: { map: hcm_geo, mapView: { center: [106.702, 10.775], zoom: 10 }, backgroundColor: 'transparent' },
+  // 1. CHUẨN BỊ MẢNG DỮ LIỆU CHUẨN
+  const data = city_rt_data;
+  
+  const estRows = data.filter(d => d.type === 'estimate');
+  const partRows = data.filter(d => d.type === 'estimate based on partial data');
+  const foreRows = data.filter(d => d.type === 'forecast');
+
+  // Đổ dữ liệu Line
+  const estLine = estRows.map(d => [d.date_ts, Number(d.estimate)]);
+  const partLine = partRows.map(d => [d.date_ts, Number(d.estimate)]);
+  const foreLine = foreRows.map(d => [d.date_ts, Number(d.estimate)]);
+
+  // Đổ dữ liệu Area (Khoảng tin cậy)
+  const estArea = estRows.map(d => [d.date_ts, Number(d.lower), Number(d.upper)]);
+  const partArea = partRows.map(d => [d.date_ts, Number(d.lower), Number(d.upper)]);
+  const foreArea = foreRows.map(d => [d.date_ts, Number(d.lower), Number(d.upper)]);
+
+  // Nối đuôi biểu đồ liền mạch
+  if (estRows.length > 0 && partRows.length > 0) {
+      const last = estRows[estRows.length - 1];
+      partLine.unshift([last.date_ts, Number(last.estimate)]);
+      partArea.unshift([last.date_ts, Number(last.lower), Number(last.upper)]);
+  }
+  if (partRows.length > 0 && foreRows.length > 0) {
+      const last = partRows[partRows.length - 1];
+      foreLine.unshift([last.date_ts, Number(last.estimate)]);
+      foreArea.unshift([last.date_ts, Number(last.lower), Number(last.upper)]);
+  }
+  if (estRows.length > 0 && partRows.length === 0 && foreRows.length > 0) {
+      const last = estRows[estRows.length - 1];
+      foreLine.unshift([last.date_ts, Number(last.estimate)]);
+      foreArea.unshift([last.date_ts, Number(last.lower), Number(last.upper)]);
+  }
+
+  // 2. KHAI BÁO BẢNG MÀU CHUẨN EPINOW2
+  const colEstLine = '#01665e', colEstFill = '#5ab4ac';
+  const colPartLine = '#8c510a', colPartFill = '#d8b365';
+  const colForeLine = '#542788', colForeFill = '#b2abd2';
+
+  const dummyX = data.length > 0 ? data[0].date_ts : new Date().getTime();
+
+  requestAnimationFrame(() => {
+    if (Highcharts) {
+      Highcharts.chart(container, {
+        chart: { 
+          type: 'line', 
+          zoomType: 'x', 
+          backgroundColor: 'transparent',
+          spacingTop: 15,
+          spacingBottom: 10
+        },
         title: { text: null },
-        mapNavigation: { enabled: true, buttonOptions: { verticalAlign: 'bottom' } },
-        legend: { enabled: false }, 
-        tooltip: {
-            useHTML: true,
-            backgroundColor: 'var(--dash-card-bg)',
-            borderColor: 'var(--primary-blue)',
-            style: { color: 'var(--text-main)' },
-            formatter: function() {
-                if (this.point.value === -1) {
-                    return `
-                    <div style="font-family: inherit; padding: 5px;">
-                        <b style="font-size: 1.1rem; color: #9ca3af;">${this.point.name}</b><br/>
-                        <hr style="margin: 5px 0; border-color: rgba(0,0,0,0.1);"/>
-                        Trạng thái: <b style="color: #9ca3af;">Không tính được</b><br/>
-                        <i style="font-size: 0.85rem; color: #6b7280;">(Cả 2 tuần gần nhất đều < 10 ca)</i>
-                    </div>`;
-                }
-                return `
-                    <div style="font-family: inherit; padding: 5px;">
-                        <b style="font-size: 1.1rem; color: var(--primary-blue);">${this.point.name}</b><br/>
-                        <hr style="margin: 5px 0; border-color: rgba(255,255,255,0.2);"/>
-                        Trạng thái: <b style="color: ${this.point.color};">${this.point.className}</b><br/>
-                        Hệ số Rt: <b style="font-size: 1.1rem;">${this.point.estimate}</b><br/>
-                        Khoảng tin cậy (90%): [${this.point.lower} - ${this.point.upper}]<br/>
-                        Xác suất Rt > 1: <b>${this.point.prob_percent}%</b><br/>
-                        <i style="font-size: 0.8rem; color: var(--accent-pink); margin-top: 5px; display: block;">👉 Click để xem biểu đồ xu hướng</i>
-                    </div>
-                `;
-            }
-        },
-        plotOptions: {
-            series: {
-                cursor: 'pointer',
-                point: {
-                    events: {
-                        click: function() { 
-                            if (this.value !== -1) { mutable selected_rt_ward = this['hc-key']; }
-                        }
-                    }
-                }
-            }
-        },
-        series: [{
-            data: rt_map_data,
-            joinBy: ['NoiOHienTai_SauKhiSapNhap_WardId', 'hc-key'],
-            name: "Rt Level",
-            allowPointSelect: true,
-            states: {
-                hover: { filter: { type: 'brightness', value: 1.1 } },
-                select: { borderColor: 'var(--accent-pink)', borderWidth: 3 }
-            },
-            nullColor: 'rgba(255,255,255,0.05)', borderColor: '#1e293b', borderWidth: 1
-        }]
-    });
-  }
-  return container;
-}
-```
-
-## Row 2 {height = 500px}
-
-```{ojs}
-//| title: "Biểu đồ xu hướng Hệ số lây nhiễm (Rt)"
-{
-  const formatLineData = (wardName) => {
-      const clean_ward_name = String(wardName).trim();
-      const ward_data = rt_val_only.filter(d => String(d.WardId).trim() === clean_ward_name);
-      let line_data = [], area_data = [];
-      
-      const latest_time = city_latest_date ? new Date(city_latest_date).getTime() : new Date().getTime();
-      const two_months_ago = latest_time - (60 * 24 * 60 * 60 * 1000); 
-
-      ward_data.forEach(row => {
-          const d_time = new Date(row.date).getTime();
-          if (d_time >= two_months_ago) {
-              line_data.push([d_time, Number(row.estimate)]);
-              if (row.lower != null && row.upper != null) {
-                  area_data.push([d_time, Number(row.lower), Number(row.upper)]);
-              }
-          }
-      });
-      line_data.sort((a, b) => a[0] - b[0]);
-      area_data.sort((a, b) => a[0] - b[0]);
-      return { line_data, area_data };
-  };
-
-  const city_data = formatLineData("Toàn Thành phố");
-  
-  let series_list = [
-    { 
-        name: 'Khoảng tin cậy 90% (Toàn TP)', type: 'arearange', 
-        data: city_data.area_data, color: '#1a9fcc', fillOpacity: 0.15, lineWidth: 0, zIndex: 0
-    },
-    { 
-        name: 'Rt (Toàn Thành phố)', type: 'line', 
-        data: city_data.line_data, color: '#1a9fcc', lineWidth: 3, zIndex: 2
-    }
-  ];
-
-  if (selected_rt_ward && selected_rt_ward !== "Toàn Thành phố") {
-      const ward_data = formatLineData(selected_rt_ward);
-      
-      if(ward_data.line_data.length > 0) {
-          series_list.push({ 
-              name: `Khoảng tin cậy 90% (${selected_rt_ward})`, type: 'arearange', 
-              data: ward_data.area_data, color: '#f472b6', fillOpacity: 0.25, lineWidth: 0, zIndex: 1
-          });
-          series_list.push({ 
-              name: `Rt (${selected_rt_ward})`, type: 'line', 
-              data: ward_data.line_data, color: '#f472b6', lineWidth: 3, zIndex: 3
-          });
-      }
-  }
-
-  const container = html`<div style="height: 480px; width: 100%;"></div>`;
-  
-  if (window.Highcharts) {
-    Highcharts.chart(container, {
-        chart: { backgroundColor: 'transparent' },
         xAxis: { 
-            type: 'datetime', crosshair: true,
-            labels: { style: { color: 'var(--text-main)' } }
+          type: 'datetime',
+          labels: { style: { color: '#444' } },
+          crosshair: true
         },
         yAxis: {
-            title: { text: 'Hệ số lây nhiễm (Rt)', style: { fontWeight: 'bold', color: 'var(--text-main)' } },
-            labels: { style: { color: 'var(--text-main)' } },
-            plotLines: [{ 
-                value: 1, color: '#000000', dashStyle: 'Dash', width: 2, zIndex: 5,
-                label: { text: 'Ngưỡng Rt = 1', style: { color: 'var(--accent-pink)', fontWeight: 'bold' } }
-            }],
-            min: 0
+          title: { text: 'Hệ số Rt', style: { fontWeight: 'bold' } },
+          min: 0,
+          plotLines: [{ value: 1, color: '#000000', dashStyle: 'Dash', width: 2, zIndex: 5 }]
         },
-        tooltip: { shared: true, xDateFormat: '%d/%m/%Y' },
         
-        plotOptions: {
-            series: {
-                marker: { enabled: false },
-                states: { hover: { halo: { size: 0 } } }
-            },
-            arearange: {
-                lineWidth: 0, 
-                marker: { enabled: false }
-            }
+        // 3. TOOLTIP THÔNG MINH
+        tooltip: {
+          shared: true,
+          useHTML: true,
+          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+          formatter: function () {
+            let tooltipHtml = `<b>${Highcharts.dateFormat('%d/%m/%Y', this.x)}</b><br/><hr style="margin: 4px 0; border: 0; border-top: 1px solid #ccc;" />`;
+            
+            let rtPoints = this.points.filter(p => p.series.name.startsWith('Rt ('));
+            
+            const hasEst = rtPoints.some(p => p.series.name === 'Rt (Estimate)');
+            const hasPart = rtPoints.some(p => p.series.name === 'Rt (Estimate based on partial data)');
+            const hasFore = rtPoints.some(p => p.series.name === 'Rt (Forecast)');
+            
+            if (hasEst && hasPart) rtPoints = rtPoints.filter(p => p.series.name !== 'Rt (Estimate based on partial data)');
+            if (hasPart && hasFore) rtPoints = rtPoints.filter(p => p.series.name !== 'Rt (Forecast)');
+            if (hasEst && hasFore) rtPoints = rtPoints.filter(p => p.series.name !== 'Rt (Forecast)');
+
+            rtPoints.forEach(p => {
+                const catName = p.series.name.replace('Rt (', '').replace(')', '');
+                const areaSeriesName = `CI (${catName})`;
+                
+                const areaSeries = this.series.chart.series.find(s => s.name === areaSeriesName);
+                const areaPoint = areaSeries ? areaSeries.data.find(d => d.x === p.x) : null;
+                
+                const lower = areaPoint ? areaPoint.low.toFixed(2) : '--';
+                const upper = areaPoint ? areaPoint.high.toFixed(2) : '--';
+                
+                tooltipHtml += `<span style="color:${p.color}">■</span> ${catName}: <b>${p.y.toFixed(2)}</b> <span style="color: #555; font-size: 0.85rem;">[${lower} - ${upper}]</span><br/>`;
+            });
+            return tooltipHtml;
+          }
         },
-        series: series_list
-    });
-  }
+        
+        legend: { enabled: true, align: 'center', verticalAlign: 'bottom', itemStyle: { fontWeight: 'normal' } },
+        credits: { enabled: false },
+        plotOptions: {
+          series: { marker: { enabled: false }, connectNulls: true, states: { hover: { halo: { size: 0 } } } },
+          arearange: { fillOpacity: 0.6, lineWidth: 0, zIndex: 0, marker: { enabled: false }, enableMouseTracking: false }
+        },
+        
+        series: [
+          { name: 'Estimate', type: 'scatter', color: colEstFill, marker: { enabled: true, symbol: 'square', radius: 7, lineWidth: 2, lineColor: colEstLine }, data: [[dummyX, null]] },
+          { name: 'Estimate based on partial data', type: 'scatter', color: colPartFill, marker: { enabled: true, symbol: 'square', radius: 7, lineWidth: 2, lineColor: colPartLine }, data: [[dummyX, null]] },
+          { name: 'Forecast', type: 'scatter', color: colForeFill, marker: { enabled: true, symbol: 'square', radius: 7, lineWidth: 2, lineColor: colForeLine }, data: [[dummyX, null]] },
+          
+          { name: 'CI (Estimate)', type: 'arearange', data: estArea, color: colEstFill, showInLegend: false },
+          { name: 'Rt (Estimate)', data: estLine, color: colEstLine, lineWidth: 2, zIndex: 3, showInLegend: false },
+          
+          { name: 'CI (Estimate based on partial data)', type: 'arearange', data: partArea, color: colPartFill, showInLegend: false },
+          { name: 'Rt (Estimate based on partial data)', data: partLine, color: colPartLine, lineWidth: 2, dashStyle: 'Dot', zIndex: 3, showInLegend: false },
+          
+          { name: 'CI (Forecast)', type: 'arearange', data: foreArea, color: colForeFill, showInLegend: false },
+          { name: 'Rt (Forecast)', data: foreLine, color: colForeLine, lineWidth: 2, dashStyle: 'ShortDash', zIndex: 3, showInLegend: false }
+        ]
+      });
+    }
+  });
+
   return container;
 }
 ```
