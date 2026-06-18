@@ -598,6 +598,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
 # Tổng quan
 
+```{=html}
+<div style="width: 100%; margin-top: 15px; margin-bottom: 15px; text-align: left;">
+    <h3 style="margin: 0; color: #222222; font-family: inherit; font-weight: 800; font-size: 1.4rem; letter-spacing: 0.5px; text-transform: uppercase;">
+        📅 TUẦN <span id="kpi-week-text">Đang tải...</span> / <span id="kpi-year-text">...</span>
+    </h3>
+</div>
+```
+
+```{ojs}
+//| output: false
+//| echo: false
+// 2. Đoạn mã ngầm này sẽ tự động bắn số Tuần và Năm vào cái khung HTML ở trên
+update_banner = {
+  const wk = document.getElementById("kpi-week-text");
+  const yr = document.getElementById("kpi-year-text");
+  if (wk) wk.innerText = kpi_sys_wk;
+  if (yr) yr.innerText = kpi_sys_yr;
+}
+```
+
 ## Row 1 {height=300px}
 
 :::{.valuebox icon="virus" color="#4F94CD"}
@@ -648,13 +668,31 @@ severe_rate = total_cases_year > 0 ? ((severe_cnt / total_cases_year) * 100).toF
 ### Column 1 {width=75%}
 
 ```{ojs}
-//| title: "Diễn tiến số ca mắc theo tuần"
-// Chart 1: Diễn tiến tổng 
-createHighchart("chart-total", {
-  series: series_total,
-  legend: { enabled: false }, // Ẩn chú thích vì chỉ có 1 màu
-  plotOptions: { column: { stacking: null } }
-})
+{
+  // 1. Đặt biến tên biểu đồ tự nhảy theo bộ lọc
+  const dynamic_title = selected_disease === "Sốt xuất huyết" 
+    ? "DIỄN TIẾN TÌNH HÌNH SỐT XUẤT HUYẾT DENGUE THEO TUẦN" 
+    : "DIỄN TIẾN TÌNH HÌNH TAY CHÂN MIỆNG THEO TUẦN";
+
+  // 2. Gọi hàm vẽ biểu đồ
+  const chart_node = createHighchart("chart-total", {
+    series: series_total,
+    legend: { enabled: false }, 
+    plotOptions: { column: { stacking: null } }
+  });
+
+  // 3. Nặn ra một khối HTML chứa cả "Tiêu đề động" và "Biểu đồ"
+  return html`
+    <div style="display: flex; flex-direction: column; width: 100%; height: 100%;">
+      <div class="card-title" style="font-family: inherit; font-size: 1.1rem; font-weight: 600; color: #005d88; text-transform: uppercase; padding-bottom: 8px; border-bottom: 1px solid #f1f3f5; margin-bottom: 10px; letter-spacing: 0.2px;">
+        ${dynamic_title}
+      </div>
+      <div style="flex-grow: 1; position: relative;">
+        ${chart_node}
+      </div>
+    </div>
+  `;
+}
 ```
 
 ### Column 2 {width=25%}
@@ -666,7 +704,7 @@ html`
   <table class="clean-table" style="font-size: 0.95rem; width: 100%;">
     <tbody>
       <tr>
-        <td style="padding: 10px;"><b>Tổng ca mắc</b></td>
+        <td style="padding: 10px;"><b>Số ca tích lũy</b></td>
         <td style="text-align: right; padding: 10px; color: #1a9fcc; font-weight: bold; font-size: 1.1rem;">
           ${total_cases_year}
         </td>
@@ -1179,7 +1217,7 @@ ranking_data = {
 }
 ```
 
-### Column2 {width=25%}
+### Column 2 {width=25%}
 
 ```{ojs}
 //| title: "💡 THÔNG TIN CẢNH BÁO"
@@ -1193,10 +1231,19 @@ html`
 
     if (!ward_info) return `<div style="padding: 20px; color: #999; text-align: center;">Không có dữ liệu tuần này</div>`;
 
-    // LẤY SỐ CA TỪ DỮ LIỆU GỐC ĐỂ KHỚP VỚI BIỂU ĐỒ 100%
+    // 1. TÍNH SỐ CA TUẦN HIỆN TẠI
     let current_cases = d3.sum(
         current_data.filter(d => 
             d.Year === sys_max_yr && d.Week === sys_max_wk && 
+            (selected_ward === "Toàn Thành phố" || (d.NoiOHienTai_SauKhiSapNhap_WardId || d.WardId) === selected_ward)
+        ), 
+        d => d.SoCa
+    ) || 0;
+
+    // 2. TÍNH SỐ CA TÍCH LŨY (TỪ TUẦN 1 ĐẾN TUẦN HIỆN TẠI)
+    let cumulative_cases = d3.sum(
+        current_data.filter(d => 
+            d.Year === sys_max_yr && d.Week <= sys_max_wk && 
             (selected_ward === "Toàn Thành phố" || (d.NoiOHienTai_SauKhiSapNhap_WardId || d.WardId) === selected_ward)
         ), 
         d => d.SoCa
@@ -1213,7 +1260,7 @@ html`
     let m = getNum(ward_info.CDC);
     let cu = getNum(ward_info.Cusum);
 
-    // LOGIC CẢNH BÁO MỚI
+    // LOGIC CẢNH BÁO
     let score = 0;
     let is_over_sea = current_cases >= s;
     
@@ -1264,6 +1311,10 @@ html`
         <tr style="border-bottom: 1px solid #eee;">
           <td style="padding: 8px 0; color: #666;">Ca mắc tuần ${sys_max_wk}:</td>
           <td style="text-align: right; font-weight: bold; color: #005d88; font-size: 1.1rem;">${current_cases}</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+          <td style="padding: 8px 0; color: #666;">Số ca tích lũy đến tuần ${sys_max_wk}:</td>
+          <td style="text-align: right; font-weight: bold; color: #1a9fcc; font-size: 1.1rem;">${cumulative_cases}</td>
         </tr>
         <tr>
           <td colspan="2" style="padding: 12px 0 5px 0; font-size: 0.85rem; color: #999; text-transform: uppercase;">Chênh lệch so với ngưỡng</td>
