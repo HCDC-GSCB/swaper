@@ -7,123 +7,347 @@
     "text": "Dưới đây là hệ thống các văn bản, hướng dẫn và quy trình vận hành đang được áp dụng tại Khoa. Sử dụng thanh tìm kiếm bên dưới để tra cứu nhanh.\n\nd3 = require(\"d3\")\n\n// Tải file dạng text thô\nsops_text = FileAttachment(\"danhsach_sops.csv\").text()\n\n// OJS tự động chờ sops_text tải xong mới chạy dòng parse này. Lọc bỏ mấy dòng rỗng dư thừa.\nsops_data = d3.dsvFormat(\";\").parse(sops_text).filter(d =&gt; d[\"Mã\"] != null && d[\"Mã\"].trim() !== \"\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n// 2. THANH TÌM KIẾM\nviewof search_sop = Inputs.search(sops_data, {\n  placeholder: \"🔍 Nhập mã SOP, tên quy trình, năm ban hành...\",\n  width: \"100%\"\n})\n\n\n\n\n\n\n\n// 3. VẼ BẢNG\nInputs.table(search_sop, {\n  // KHAI BÁO KHỚP 100% VỚI TÊN CỘT TRONG FILE EXCEL CỦA MÀY\n  columns: [\n    \"Mã\", \n    \"Quy trình\", \n    \"Ngày ban hành\", \n    \"Phiên bản\", \n    \"Link truy cập\"\n  ],\n  format: {\n    // Bắt đúng cột \"Link truy cập\" để biến thành nút bấm\n    \"Link truy cập\": x =&gt; x ? html`&lt;a href=\"${x}\" target=\"_blank\" style=\"background-color: #005d88; color: white; padding: 5px 12px; border-radius: 5px; text-decoration: none; font-size: 0.85rem; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.15); white-space: nowrap;\"&gt;📥 Xem PDF&lt;/a&gt;` : html`&lt;span style=\"color:#aaa; font-style:italic;\"&gt;Trống&lt;/span&gt;`\n  },\n  layout: \"auto\"\n})\n\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "seminars/index.html#epidemiology",
-    "href": "seminars/index.html#epidemiology",
-    "title": "Online semniars for infectious diseases",
-    "section": "Epidemiology",
-    "text": "Epidemiology\n\nJoint UNIversities Pandemic and Epidemiological Research (JUNIPER) seminar Link\nLSHTM Centre for Epidemic Preparedness and Response seminar series Link\nHavard T.H. Chan School of Public Health: Seminars in Epidemiology Link\nHavard T.H. Chan School of Public Health: Center for Communicable Disease Dynamics, ID Epi Spring Seminar Series Link"
-  },
-  {
-    "objectID": "seminars/index.html#modeling",
-    "href": "seminars/index.html#modeling",
-    "title": "Online semniars for infectious diseases",
-    "section": "Modeling",
-    "text": "Modeling\n\nAdvances in Socio-Epidemic Mathematical Modelling UMI-MSE online seminar Link\nLSHTM Centre for data and statistical science for health seminar series Link\nLSHTM Centre for Mathematical Modelling of Infectious Diseases seminar series Link\nThe MIDSEA Network Link"
-  },
-  {
-    "objectID": "seminars/index.html#the-public-health-emergency-operations-centre",
-    "href": "seminars/index.html#the-public-health-emergency-operations-centre",
-    "title": "Online semniars for infectious diseases",
-    "section": "The Public Health Emergency Operations Centre",
-    "text": "The Public Health Emergency Operations Centre\nThis session introduces key online learning resources on Public Health Emergency Operations Centres (PHEOC) and Public Health Emergency Management (PHEM). Participants will be guided to relevant self-paced courses provided by trusted institutions such as WHO, CDC, and other global partners. These resources support capacity building for emergency preparedness and response.\n\nReady4Response Tier 2: Systems, structures and skills Link\nThe Public Health Emergency Operations Centre (PHEOC) Link\nKing County Emergency Management Link\nRapid Response Teams Training Programme - WHO Link"
-  },
-  {
-    "objectID": "seminars/index.html#field-epidemiology-training-program",
-    "href": "seminars/index.html#field-epidemiology-training-program",
-    "title": "Online semniars for infectious diseases",
-    "section": "Field Epidemiology Training Program",
-    "text": "Field Epidemiology Training Program\n\nAbstract Writing (18/6/2025) Link\nQualitative Data Collection During an Outbreak Part I (16/7/2025) Link\nQualitative Data Collection During an Outbreak Part II (20/8/2025) Link\nInformatics & Data Viz Basics for Field Epidemiology (17/9/2025) Link\nSurveillance System Evaluations (15/10/2025) Link\nMatching in Case: Control Studies: Should I Do It? When to Do It and Why (19/11/2025) Link\nUsing an Outline When Writing: How to Clear Your Thoughts Before Putting Pen to Paper (21/1/2026) Link\nFacilitating a Case Study (18/2/2026) Link"
-  },
-  {
-    "objectID": "news/post7.html",
-    "href": "news/post7.html",
-    "title": "Workshop on Using the EIOS System for Monitoring Public Health Events",
+    "objectID": "snapshot/index.html",
+    "href": "snapshot/index.html",
+    "title": "Bản tin hàng tuần (Epidemic Channel)",
     "section": "",
-    "text": "The Department of Surveillance, Warning, Preparedness, and Emergency Response organized an internal workshop on the Epidemic Intelligence from Open Sources (EIOS) system to strengthen the team’s capacity in early detection of public health events.\nDuring the session, members were introduced to how EIOS collects, aggregates, and filters information from various open sources, including news outlets, social media, and online platforms. The workshop also focused on how to use EIOS to identify unusual signals, monitor disease trends, and support early warning activities.\n\n\n\nTeam members getting ready for the presentation.\n\n\nThis workshop enhanced the team’s skills in utilizing open-source intelligence, contributing to more effective public health surveillance and timely response to emerging risks.\n\n\n\n\n\n\n{{&lt; fa book-open &gt;}}Access the full lecture notes and slides at here\n\n\n\n\n\n\n Back to top"
+    "text": "Chọn một tuần bên dưới để xem bản tin nhanh.\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n \n\n\n\nDate\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\n\n\n\nJun 25, 2026\n\n\nBản tin nhanh - Tuần 25/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nJun 18, 2026\n\n\nBản tin nhanh - Tuần 24/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nJun 10, 2026\n\n\nBản tin nhanh - Tuần 23/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nJun 3, 2026\n\n\nBản tin nhanh - Tuần 22/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nMay 27, 2026\n\n\nBản tin nhanh - Tuần 21/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nMay 20, 2026\n\n\nBản tin nhanh - Tuần 20/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nMay 13, 2026\n\n\nBản tin nhanh - Tuần 19/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nMay 6, 2026\n\n\nBản tin nhanh - Tuần 18/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nApr 24, 2026\n\n\nBản tin nhanh - Tuần 16/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nApr 16, 2026\n\n\nBản tin nhanh - Tuần 15/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nApr 9, 2026\n\n\nBản tin nhanh - Tuần 14/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nApr 2, 2026\n\n\nBản tin nhanh - Tuần 13/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nMar 30, 2026\n\n\nBản tin nhanh - Tuần 12/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nMar 20, 2026\n\n\nBản tin nhanh - Tuần 11/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nMar 13, 2026\n\n\nBản tin nhanh - Tuần 10/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nMar 6, 2026\n\n\nBản tin nhanh - Tuần 09/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nFeb 27, 2026\n\n\nBản tin nhanh - Tuần 08/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nFeb 20, 2026\n\n\nBản tin nhanh - Tuần 07/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nFeb 13, 2026\n\n\nBản tin nhanh - Tuần 06/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nFeb 6, 2026\n\n\nBản tin nhanh - Tuần 05/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nJan 30, 2026\n\n\nBản tin nhanh - Tuần 04/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nJan 23, 2026\n\n\nBản tin nhanh - Tuần 03/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nJan 16, 2026\n\n\nBản tin nhanh - Tuần 02/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nJan 9, 2026\n\n\nBản tin nhanh - Tuần 01/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\nNo matching items\n Back to top"
   },
   {
-    "objectID": "news/post5.html",
-    "href": "news/post5.html",
-    "title": "Workshop Spatial Analysis and Risk map",
+    "objectID": "news/post8.html",
+    "href": "news/post8.html",
+    "title": "Workshop on “Transmission Assessment” Held by the Department",
     "section": "",
-    "text": "Recently, the Department organized a workshop on “Spatial Analysis” with the participation of members from the Surveillance and Early Warning Division (GSCB). The session provided foundational knowledge on spatial analysis, the development of dengue risk maps, and various approaches for applying spatial modeling in epidemiology.\nDuring the workshop, participants were introduced to an overview of key spatial analysis techniques and global examples of risk-mapping approaches. These insights helped identify lessons learned and inform directions for developing a risk map tailored to the context of Ho Chi Minh City. Members also engaged in active discussions on data application, spatial modeling, and practical implementation for dengue.\nThe department organized a workshop to introduce Risk Map, a tool that supports visualization, management, and prediction of infectious disease risks based on case data. The tool displays spatial risk distribution, helping identify priority areas for investigation and informing decision-making in surveillance and outbreak response activities.\nRisk Map integrates multiple data sources, including case data, population density, growth patterns, and other transmission-related factors. It visualizes risk levels through graded color scales, incorporates hotspots and the growthRate indicator for early warning, and supports prioritization of resources such as vaccines and healthcare personnel.\nThe workshop provided an overview of Risk Map’s potential applications in analysis and decision support, contributing to improved effectiveness in disease prevention and control.\n\n\n\nTeam members getting ready for the presentation.\n\n\n\n\n\n\n\n\n{{&lt; fa book-open &gt;}}Access the full lecture notes and slides at here\n\n\n\n\n\n\n Back to top"
+    "text": "The Department recently organized a workshop titled “Transmission Assessment” with the participation of staff members across the unit. The session focused on providing foundational knowledge and methodologies for evaluating the transmissibility of infectious diseases to support surveillance and outbreak response.\nThe workshop introduced key concepts such as the reproduction number (R), generation time, and other indicators used to analyze disease transmission dynamics. The reporting team also presented methods for estimating time-varying R, analyzing epidemiological trends, and interpreting results to inform decision-making.\n\n\n\nTeam members getting ready for the presentation.\n\n\nParticipants engaged in active discussions on the applicability of each method in real-world settings, including assessing outbreak risk, forecasting epidemic trends, and supporting resource prioritization during response activities.\nThe workshop concluded with a shared direction to strengthen the use of transmission-assessment methods in routine surveillance, contributing to improved forecasting capacity and more effective disease control.\n\n\n\n\n\n\n{{&lt; fa book-open &gt;}}Access the full lecture notes and slides at here {{&lt; fa book-open &gt;}}\n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "news/post3.html",
-    "href": "news/post3.html",
-    "title": "Workshop on the Chikungunya Situation in France and Italy",
+    "objectID": "news/post6.html",
+    "href": "news/post6.html",
+    "title": "Workshop Introducing the RRT Management Tool",
     "section": "",
-    "text": "The Department of Surveillance, Warning, Preparedness, and Emergency Response organized an internal workshop to update team members on the current Chikungunya situation in France and Italy, where an increase in reported cases has recently been observed.\nDuring the session, participants reviewed epidemiological trends in both countries and discussed the key factors contributing to the rise in cases, including the expanding distribution of Aedes albopictus, the impact of climate change creating favorable conditions for vector breeding, and high volumes of international travel during the summer season.\nThis activity strengthened the team’s understanding of Chikungunya transmission risks and supported the department’s early warning efforts.\n\n\n\nTeam members getting ready for the presentation.\n\n\n\n\n\n\n\n\nAccess the full lecture notes and slides at here {{&lt; fa book-open &gt;}}\n\n\n\n\n\n\n Back to top"
+    "text": "On 26 November 2025, the Department of … organized a workshop to introduce the Rapid Response Team (RRT) Management Tool, designed to support data management and coordination activities during public health emergencies.\n\n\n\nTeam members getting ready for the presentation.\n\n\nThe workshop focused on two main components: - An overview of activities that the tool can support across the three phases: preparedness, response, and post-response.\n\nA feature demonstration, showcasing how the tool operates and the practical workflow for users.\nThe session helped participants gain a clearer understanding of the tool’s potential applications and provided direction for establishing and deploying the RRT in the near future.\n\n\n\n\n\n\n\n{{&lt; fa book-open &gt;}}Access the full lecture notes and slides at here\n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "news/post1.html#meeting-with-oucru",
-    "href": "news/post1.html#meeting-with-oucru",
-    "title": "Meeting with OUCRU",
-    "section": "Meeting with OUCRU",
-    "text": "Meeting with OUCRU\nOn July 02, 2025, the SWAPER development team held a formal meeting with representatives from the Oxford University Clinical Research Unit (OUCRU) in Ho Chi Minh City. This was one of the initial steps in building a long-term partnership between the two organizations, centered around infectious disease surveillance and applied epidemiological research.\nThe meeting provided an opportunity for both sides to discuss key challenges in early warning systems, explore local data collection needs at the district level, and share perspectives on the use of artificial intelligence in outbreak detection and prediction. OUCRU shared their experience with previous research projects, while SWAPER presented their ongoing efforts to digitize surveillance workflows and develop integrated platforms for real-time monitoring.\nThe atmosphere of the meeting was open and collaborative, fostering mutual understanding and laying the groundwork for future joint initiatives. As of July 2025, the discussions from this meeting have helped shape several shared projects and contributed to a growing network of partners committed to improving public health systems in Vietnam."
-  },
-  {
-    "objectID": "news/post1.html#meeting-highlight",
-    "href": "news/post1.html#meeting-highlight",
-    "title": "Meeting with OUCRU",
-    "section": "Meeting Highlight",
-    "text": "Meeting Highlight\n\n\n\nMeeting with OUCRU\n\n\nThis meeting marked a promising beginning for deeper scientific collaboration and set the tone for more frequent technical exchanges and co-designed research activities."
-  },
-  {
-    "objectID": "learning/workshop.html",
-    "href": "learning/workshop.html",
-    "title": "Workshops",
+    "objectID": "news/post4.html",
+    "href": "news/post4.html",
+    "title": "Workshop on Collaboration with OUCRU for Rt Research in Dengue",
     "section": "",
-    "text": "Welcome to SWAPER’s Workshop repository. The latest lectures will be updated here.\n\n\n\n\n\n\n\n\n\n\n Back to top"
+    "text": "The Department of Surveillance, Warning, Preparedness, and Emergency Response recently held a workshop to present the research concept on the time-varying reproduction number (Rt) in Dengue with representatives from OUCRU.\nDuring the session, the department introduced its proposed study on estimating Rt and its potential application in disease surveillance. Both sides discussed initial steps for collaboration, including research design, data sharing, and strengthening analytical capacity in epidemiology.\n\n\n\nQuan Truong getting ready for the presentation.\n\n\n\n\n\n\n\n\n{{&lt; fa book-open &gt;}}Access the full lecture notes and slides at here\n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "learning/surveillance_system.html",
-    "href": "learning/surveillance_system.html",
-    "title": "Quality of surveillance system",
+    "objectID": "news/post2.html#the-outstanding-presentation-award",
+    "href": "news/post2.html#the-outstanding-presentation-award",
+    "title": "RECOGNIZING THE OUTSTANDING PRESENTER OF Q2/2025",
+    "section": "The Outstanding Presentation award",
+    "text": "The Outstanding Presentation award\nAt any organization, expertise and the ability to share knowledge effectively play a vital role in building a strong, capable team. At our department, internal workshops are not only a learning opportunity but also a platform for individuals to showcase their strengths, inspire others, and contribute to the collective development of the team.\nFor Quarter 2 of 2025, Mr. Khang has been named the Outstanding Presenter, thanks to his impressive performance during a recent workshop that received overwhelmingly positive feedback from attendees.\n\n\n\nMs. Lan is presenting him with the award\n\n\n🌱 This award is not only a well-deserved recognition for Mr. Khang but also a source of motivation for all of us to continue learning, sharing, and growing together.\nOnce again, congratulations to Mr. Khang! We look forward to more outstanding presentations in the quarters to come."
+  },
+  {
+    "objectID": "news/index.html",
+    "href": "news/index.html",
+    "title": "What’s news",
     "section": "",
-    "text": "Welcome to SWAPER’s surveillance system repository. The latest lectures will be updated here.\n\n\n\n\n\n\n\n\n\n\n Back to top"
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nWorkshop on the Chikungunya Situation in France and Italy\n\n\n\nWorkshop\n\nLearning\n\n\n\n\n\n\n\nTuyen Pham\n\n\nDec 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorkshop on Collaboration with OUCRU for Rt Research in Dengue\n\n\n\nWorkshop\n\nLearning\n\n\n\n\n\n\n\nTuyen Pham\n\n\nDec 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorkshop Spatial Analysis and Risk map\n\n\n\nWorkshop\n\nLearning\n\n\n\n\n\n\n\nTuyen Pham\n\n\nDec 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorkshop Introducing the RRT Management Tool\n\n\n\nWorkshop\n\nLearning\n\n\n\n\n\n\n\nTuyen Pham\n\n\nDec 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorkshop on Using the EIOS System for Monitoring Public Health Events\n\n\n\nWorkshop\n\nLearning\n\n\n\n\n\n\n\nTuyen Pham\n\n\nDec 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorkshop on “Transmission Assessment” Held by the Department\n\n\n\nWorkshop\n\nLearning\n\n\n\n\n\n\n\nTuyen Pham\n\n\nDec 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nRECOGNIZING THE OUTSTANDING PRESENTER OF Q2/2025\n\n\n\nOutstanding Presentation award\n\n\n\nCongratulations to Mr. Khang - Winner of the Outstanding Presentation award for Q2/2025 !\n\n\n\nTuyen Pham\n\n\nJul 15, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nMeeting with OUCRU\n\n\n\nCollaboration\n\nPartner Meeting\n\n\n\nSummary of the collaboration meeting between SWAPER and OUCRU to discuss infectious disease surveillance and future joint activities.\n\n\n\nTuyen Pham\n\n\nJul 2, 2025\n\n\n\n\n\n\nNo matching items\n Back to top"
   },
   {
-    "objectID": "learning/r/r04.html#trực-quan-hóa",
-    "href": "learning/r/r04.html#trực-quan-hóa",
-    "title": "Trực quan hóa dữ liệu với R",
-    "section": "Trực quan hóa",
-    "text": "Trực quan hóa\n\nTrực quan hóa nó để truyền bá thông tin.\nTrong R-based, chúng ta sử dụng plot() để vẽ hình.\nTrong tidyverse, chúng ta sử dụng gói ggplot2\n\n\nVí dụ\n\n\nBase R:\n\nplot(\n  x = mtcars$wt,\n  y = mtcars$mpg,\n  xlab = \"Weight (1000 lbs)\",\n  ylab = \"Miles Per Gallon\",\n  main = \"MPG vs. Weight\",\n  pch = 19,       # Solid circle points\n  col = \"blue\"\n)\n\n\n\n\n\n\n\n\n\nggplot2:\n\nlibrary(ggplot2)\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point(color = \"blue\") +\n  scale_x_continuous(\"Weight (1000 lbs)\") +\n  scale_y_continuous(\"Miles Per Gallon\") +\n  ggtitle(\"MPG vs. Weight\") + \n  theme_bw()"
+    "objectID": "learning/warning_forecast.html",
+    "href": "learning/warning_forecast.html",
+    "title": "Modeling",
+    "section": "",
+    "text": "Welcome to SWAPER’s modeling repository. The latest lectures will be updated here.\n\n\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "learning/r/r04.html#package-ggplot2",
-    "href": "learning/r/r04.html#package-ggplot2",
-    "title": "Trực quan hóa dữ liệu với R",
-    "section": "Package ggplot2",
-    "text": "Package ggplot2\n\nggplot2 hoạt động trực tiếp với dữ liệu tidy (giống như mọi thứ trong tidyverse).\nNó dựa trên một khái niệm gọi là grammar of graphics.\nCó tài liệu hướng dẫn toàn diện về cách sử dụng.\nCung cấp đủ tính linh hoạt để tùy chỉnh."
+    "objectID": "learning/r_basic.html",
+    "href": "learning/r_basic.html",
+    "title": "R Basic",
+    "section": "",
+    "text": "Tổng quan về R\n\n\n\nOverview\n\nR\n\n\n\nR là một ngôn ngữ lập trình, không phải phần mềm\n\n\n\n\n\nJul 2, 2025\n\n\nThu Pham\n\n\n\n\n\n\n\n\n\n\n\n\nLàm sạch và xử lý dữ liệu với R\n\n\n\nCleaning\n\nAnalysis\n\nR\n\n\n\nLàm sạch và xử lý dữ liệu phải là 1 quy trình, đây là một bước chuẩn bị chi tiết cho phân tích dữ liệu\n\n\n\n\n\nJul 2, 2025\n\n\nAnh Huynh, Thu Pham\n\n\n\n\n\n\n\n\n\n\n\n\nPhân tích dữ liệu với R\n\n\n\nCleaning\n\nAnalysis\n\nR\n\n\n\nPhân tích trên dữ liệu sạch và phải có kế hoạch phân tích cụ thể\n\n\n\n\n\nJul 2, 2025\n\n\nAnh Huynh\n\n\n\n\n\n\n\n\n\n\n\n\nTrực quan hóa dữ liệu với R\n\n\n\nVisualization\n\nR\n\n\n\nTrực quan hóa cung cấp cái nhìn tổng quát trong so sánh kết quả. Trực quan hóa là một nghệ thuật\n\n\n\n\n\nJul 2, 2025\n\n\nAn Tran\n\n\n\n\n\nNo matching items\n Back to top"
   },
   {
-    "objectID": "learning/r/r04.html#cấu-trúc-của-ggplot2",
-    "href": "learning/r/r04.html#cấu-trúc-của-ggplot2",
-    "title": "Trực quan hóa dữ liệu với R",
-    "section": "Cấu trúc của ggplot2",
-    "text": "Cấu trúc của ggplot2\n\nMột khuôn khổ để mô tả và xây dựng biểu đồ theo cách có cấu trúc.\nPhương pháp tiếp cận theo layer, tức là mỗi thành phần của một hình là các layer riêng biệt.\n\n\n\nVí dụ\n\nHãy xem code ví dụ sau:\n\n\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point(color = \"blue\") +\n  scale_x_continuous(\"Weight (1000 lbs)\") +\n  scale_y_continuous(\"Miles Per Gallon\") +\n  ggtitle(\"MPG vs. Weight\") + \n  theme_bw()\n\n\n\n\n\n\n\n\n\nData: mtcars\nAesthetics: aes(x = wt, y = mpg)\nGeometries: geom_point\nCoordinates: scale_x_continuous, scale_y_continuous\nTheme: theme_bw, ggtitle\n\n\n\n\n\n\n\nTip\n\n\n\nggplot2 chỉ chạy với dữ liệu là data frame và không thể chạy với loại dữ liệu khác (ví dụ: ma trận hoặc vectơ).\n\n\n\n\nAesthetics\n\nPhải đặt trong aes().\nKhai báo thông tin các trục x, y.\nKhai báo màu sắc color, fill.\n\n\ndf &lt;- data.frame(\n  x = 1:10,\n  y = (1:10)^2,\n  group = rep(c(\"A\", \"B\"), each = 5)\n) \n\n\n\n\nggplot(df, aes(x, y, color = group)) + \n  geom_col()\n\n\n\n\n\n\n\n\n\n\nggplot(df, aes(x, y, fill = group)) + \n  geom_col()\n\n\n\n\n\n\n\n\n\n\n\n\nGeometries\n\ngeom_col or geom_bar: biểu đồ cột/ thanh\ngeom_histogram: histograms\ngeom_point: biểu đồ chấm (scatter)\ngeom_line or geom_smooth: biểu đồ đường (làm mượt)\ngeom_boxplot: biểu đồ hộp\n\n\n\n\n\n\n\nTip\n\n\n\nData, aesthetic, geometric đối tượng là thành phần quan trọng của biểu đồ, nếu cấu trúc này không đủ thì cốt truyện sẽ không hoạt động.\n\n\n\n\nShape of geom_point\n\n\n\nCoordinates\n\nTùy chỉnh hiển thị của các trục: scale_x_..., scale_y_..., xlim, ylim,…\nTùy chỉnh màu sắc theo giá trị của từng biến: scale_color_..., scale_fill_...,…\nTùy chỉnh tên cột, tên biểu đồ, tên chú thích: labs\n\n\n\nThemes\n\nTùy chỉnh background của biểu đồ: màu sắc, lưới,…\nTùy chỉnh kiểu chữ trên biểu đồ.\nCó sẵn một số theme để lựa chọn: theme_classic, theme_minimal,…"
+    "objectID": "learning/r/r03.html#r-project",
+    "href": "learning/r/r03.html#r-project",
+    "title": "Phân tích dữ liệu với R",
+    "section": "R project",
+    "text": "R project\n\nTạo Project trong R Studio\nR project là một thư mục với file .Rproj . Để thuận tiện cho việc quản lý code và dữ liệu, ta nên tạo R project cho mỗi nghiên cứu/ báo cáo.\nQuá trình tạo R project như sau:\n\nVào menu File &gt; New Project\nBấm New Directory &gt; New Project\nĐiền tên folder cho R Project tại mục Directory name\nBấm Browse và chọn Desktop để lưu R project tại Desktop\nBấm Create Project\n\n\n\nCấu trúc của một Project\nCấu trúc của một R project sẽ có định dạng như sau:\n\n\ndata thư mục chứa dữ liệu cần phân tích\noutput lưu trữ đầu ra mã (cốt truyện, số liệu, v.v.)\nanalysis.R là tệp chứa mã R. Có thể có nhiều file .R trong 1 project.\n\n\n\nR markdown\nFile .Rmd thường được dùng cho báo cáo vì có thể kết hợp các lệnh R, văn bản thường, đồ thị trong 1 file \nGồm 3 phần chính:\n\nPhần YAML header: nằm ở trên cùng trong và ngăn cách với phần còn lại bằng cặp dấu ---. Phần này để mô tả tiêu đề tài liệu, tác giả, ngày tháng, định dạng mong muốn\nPhần văn bản (được viết bằng ngôn ngữ markdown)\nPhần lệnh R (được gọi là chunk). Phần kết quả của câu lệnh R (chunk output) có thể hiển thị dưới dạng string, bảng dữ liệu hoặc đồ thị.\n\n\nTạo R Markdown bằng cách vào menu File &gt; New File &gt; R Markdown..."
   },
   {
-    "objectID": "learning/r/r04.html#cheatseet",
-    "href": "learning/r/r04.html#cheatseet",
-    "title": "Trực quan hóa dữ liệu với R",
-    "section": "Cheatseet",
-    "text": "Cheatseet"
+    "objectID": "learning/r/r03.html#bảng-phân-tích-thống-kê",
+    "href": "learning/r/r03.html#bảng-phân-tích-thống-kê",
+    "title": "Phân tích dữ liệu với R",
+    "section": "Bảng phân tích thống kê",
+    "text": "Bảng phân tích thống kê\n\nTải package:  tidyverse, gtsummary\nLoad package:\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlibrary(tidyverse) \nlibrary(gtsummary) \n\n\nChúng ta sẽ sử dụng dữ liệu mô phỏng các ca bệnh Covid 19\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n#linelist &lt;- read_rds(\"https://raw.githubusercontent.com/HCDC-GSCB/swaper/main/data/simulated_covid.rds\") %&gt;% mutate_if(is.Date, ymd) \n\nlinelist &lt;- read_rds(\"../../data/simulated_covid.rds\") %&gt;% mutate_if(is.Date, ymd)\n\n\nDữ liệu bao gồm 2 đợt bùng phát dịch.\n\ngtsummary\nPackage gtsummary được dùng vẽ bảng thống kê một cách nhanh chóng bằng lệnh tbl_summary()\nVD: sử dụng tbl_summary() \n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist[,-2] %&gt;% tbl_summary()\n\n\n\n\nOutput\n\n\n\n\n\n\nCharacteristic\n\n\nN = 2,7621\n\n\n\n\n\n\nid\n\n\n1,320 (654, 2,017)\n\n\n\n\ncase_type\n\n\n\n\n\n\n\n    confirmed\n\n\n1,325 (48%)\n\n\n\n\n    probable\n\n\n879 (32%)\n\n\n\n\n    suspected\n\n\n558 (20%)\n\n\n\n\nsex\n\n\n\n\n\n\n\n    f\n\n\n1,365 (49%)\n\n\n\n\n    m\n\n\n1,397 (51%)\n\n\n\n\nage\n\n\n15 (8, 22)\n\n\n\n\ndate_onset\n\n\n2023-05-31 (2023-04-28, 2023-08-05)\n\n\n\n\ndate_admission\n\n\n2023-06-12 (NA, 2023-08-16)\n\n\n\n\n    Unknown\n\n\n2,206\n\n\n\n\noutcome\n\n\n\n\n\n\n\n    died\n\n\n220 (8.0%)\n\n\n\n\n    recovered\n\n\n2,542 (92%)\n\n\n\n\ndate_outcome\n\n\n2023-06-29 (2023-05-21, 2023-09-04)\n\n\n\n\n    Unknown\n\n\n2,542\n\n\n\n\ndate_first_contact\n\n\n2023-05-28 (2023-04-25, 2023-08-03)\n\n\n\n\n    Unknown\n\n\n2\n\n\n\n\ndate_last_contact\n\n\n2023-05-30 (2023-04-28, 2023-08-06)\n\n\n\n\n    Unknown\n\n\n2\n\n\n\n\ndistrict\n\n\n\n\n\n\n\n    Binh Chanh\n\n\n126 (4.6%)\n\n\n\n\n    Binh Tan\n\n\n140 (5.1%)\n\n\n\n\n    Binh Thanh\n\n\n161 (5.8%)\n\n\n\n\n    Can Gio\n\n\n123 (4.5%)\n\n\n\n\n    Cu Chi\n\n\n88 (3.2%)\n\n\n\n\n    Go Vap\n\n\n119 (4.3%)\n\n\n\n\n    Hoc Mon\n\n\n99 (3.6%)\n\n\n\n\n    Nha Be\n\n\n84 (3.0%)\n\n\n\n\n    Phu Nhuan\n\n\n167 (6.0%)\n\n\n\n\n    Quan 1\n\n\n120 (4.3%)\n\n\n\n\n    Quan 10\n\n\n161 (5.8%)\n\n\n\n\n    Quan 11\n\n\n159 (5.8%)\n\n\n\n\n    Quan 12\n\n\n129 (4.7%)\n\n\n\n\n    Quan 3\n\n\n115 (4.2%)\n\n\n\n\n    Quan 4\n\n\n81 (2.9%)\n\n\n\n\n    Quan 5\n\n\n130 (4.7%)\n\n\n\n\n    Quan 6\n\n\n154 (5.6%)\n\n\n\n\n    Quan 7\n\n\n46 (1.7%)\n\n\n\n\n    Quan 8\n\n\n68 (2.5%)\n\n\n\n\n    Tan Binh\n\n\n152 (5.5%)\n\n\n\n\n    Tan Phu\n\n\n164 (5.9%)\n\n\n\n\n    Thu Duc\n\n\n176 (6.4%)\n\n\n\n\noutbreak\n\n\n\n\n\n\n\n    1st outbreak\n\n\n1,513 (55%)\n\n\n\n\n    2nd outbreak\n\n\n1,249 (45%)\n\n\n\n\n\n\n1 Median (Q1, Q3); n (%)\n\n\n\n\n\n\n\n\nĐiều chỉnh bảng thống kê\nMột số tham số của tbl_summary hỗ trợ điều chỉnh bảng thống kê\n\n\n\nTên tham số\nCông dụng\n\n\n\n\ninclude\nChọn các biến được hiển thị trên bảng thống kê\n\n\nlabel\nĐổi cách hiển thị tên biến\n\n\nby\nHiển thị thống kê nhóm theo giá trị của 1 biến\n\n\nstatistic\nĐiều chỉnh thống kê được hiển thị\n\n\n\nChọn các biến được thống kê qua tham số include\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist %&gt;%\n  tbl_summary(\n    include = c(age, sex, outcome, date_onset, date_admission, date_first_contact, date_last_contact, outbreak)\n  )\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nN = 2,7621\n\n\n\n\nage\n15 (8, 22)\n\n\nsex\n\n\n\n\n    f\n1,365 (49%)\n\n\n    m\n1,397 (51%)\n\n\noutcome\n\n\n\n\n    died\n220 (8.0%)\n\n\n    recovered\n2,542 (92%)\n\n\ndate_onset\n2023-05-31 (2023-04-28, 2023-08-05)\n\n\ndate_admission\n2023-06-12 (NA, 2023-08-16)\n\n\n    Unknown\n2,206\n\n\ndate_first_contact\n2023-05-28 (2023-04-25, 2023-08-03)\n\n\n    Unknown\n2\n\n\ndate_last_contact\n2023-05-30 (2023-04-28, 2023-08-06)\n\n\n    Unknown\n2\n\n\noutbreak\n\n\n\n\n    1st outbreak\n1,513 (55%)\n\n\n    2nd outbreak\n1,249 (45%)\n\n\n\n1 Median (Q1, Q3); n (%)\n\n\n\n\n\n\n\n\nThay đổi tên biến qua tham số label\nVD: đổi tên được hiển thị cho các biến\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist %&gt;% tbl_summary(\n    include = c(age, sex, outcome, date_onset, date_admission,\n                date_first_contact, date_last_contact, outbreak),\n    # ----- Thay đổi cách hiển thị tên biến ------\n    label = list(\n      age ~ \"Tuổi\",\n      sex ~ \"Giới tính\",\n      outcome ~ \"Kết quả\",\n      date_onset ~ \"Ngày phát bệnh\",\n      date_admission ~ \"Ngày nhập viện\",\n      date_first_contact ~ \"Ngày tiếp xúc đầu tiên\",\n      date_last_contact ~ \"Ngày tiếp xúc cuối cùng\",\n      outbreak ~ \"Đợt dịch\"\n    )\n  )\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nN = 2,7621\n\n\n\n\nTuổi\n15 (8, 22)\n\n\nGiới tính\n\n\n\n\n    f\n1,365 (49%)\n\n\n    m\n1,397 (51%)\n\n\nKết quả\n\n\n\n\n    died\n220 (8.0%)\n\n\n    recovered\n2,542 (92%)\n\n\nNgày phát bệnh\n2023-05-31 (2023-04-28, 2023-08-05)\n\n\nNgày nhập viện\n2023-06-12 (NA, 2023-08-16)\n\n\n    Unknown\n2,206\n\n\nNgày tiếp xúc đầu tiên\n2023-05-28 (2023-04-25, 2023-08-03)\n\n\n    Unknown\n2\n\n\nNgày tiếp xúc cuối cùng\n2023-05-30 (2023-04-28, 2023-08-06)\n\n\n    Unknown\n2\n\n\nĐợt dịch\n\n\n\n\n    1st outbreak\n1,513 (55%)\n\n\n    2nd outbreak\n1,249 (45%)\n\n\n\n1 Median (Q1, Q3); n (%)\n\n\n\n\n\n\n\n\nThống kê theo nhóm qua tham số by\nVD: hiện thống kê cho từng đợt dịch\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist %&gt;% tbl_summary(\n  include = c(age, sex, outcome, date_onset, date_admission,\n                date_first_contact, date_last_contact, outbreak),\n  label = list(\n      age ~ \"Tuổi\",\n      sex ~ \"Giới tính\",\n      outcome ~ \"Kết quả\",\n      date_onset ~ \"Ngày phát bệnh\",\n      date_admission ~ \"Ngày nhập viện\",\n      date_first_contact ~ \"Ngày tiếp xúc đầu tiên\",\n      date_last_contact ~ \"Ngày tiếp xúc cuối cùng\"\n    ),\n  # ----- Hiển thị thống kê cho từng đợt dịch ------\n  by = outbreak)\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\n1st outbreak\nN = 1,5131\n2nd outbreak\nN = 1,2491\n\n\n\n\nTuổi\n13 (6, 20)\n19 (10, 27)\n\n\nGiới tính\n\n\n\n\n\n\n    f\n746 (49%)\n619 (50%)\n\n\n    m\n767 (51%)\n630 (50%)\n\n\nKết quả\n\n\n\n\n\n\n    died\n110 (7.3%)\n110 (8.8%)\n\n\n    recovered\n1,403 (93%)\n1,139 (91%)\n\n\nNgày phát bệnh\n2023-04-30 (2023-04-11, 2023-05-16)\n2023-08-12 (2023-07-16, 2023-08-31)\n\n\nNgày nhập viện\n2023-05-06 (2023-04-15, 2023-05-23)\n2023-08-18 (2023-07-25, 2023-09-05)\n\n\n    Unknown\n1,216\n990\n\n\nNgày tiếp xúc đầu tiên\n2023-04-27 (2023-04-08, 2023-05-13)\n2023-08-09 (2023-07-12, 2023-08-28)\n\n\n    Unknown\n1\n1\n\n\nNgày tiếp xúc cuối cùng\n2023-04-30 (2023-04-11, 2023-05-16)\n2023-08-11 (2023-07-15, 2023-08-31)\n\n\n    Unknown\n1\n1\n\n\n\n1 Median (Q1, Q3); n (%)\n\n\n\n\n\n\n\n\nĐiều chỉnh thống kê được hiển thị qua tham số statistic\nNgười dùng có thể lựa chọn các phép thống kê để áp dụng lên các biến\nVD: format thống kê cho  sex  và outcome\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist %&gt;% tbl_summary(\n  include = c(age, sex, outcome, date_onset, date_admission,\n                date_first_contact, date_last_contact, outbreak),\n  label = list(\n      age ~ \"Tuổi\",\n      sex ~ \"Giới tính\",\n      outcome ~ \"Kết quả\",\n      date_onset ~ \"Ngày phát bệnh\",\n      date_admission ~ \"Ngày nhập viện\",\n      date_first_contact ~ \"Ngày tiếp xúc đầu tiên\",\n      date_last_contact ~ \"Ngày tiếp xúc cuối cùng\"\n    ),\n  by = outbreak,\n  # ----- điều chỉnh thống kê ------\n  statistic = list(\n    sex ~ \"{n} / {N} ({p}%)\",\n    outcome ~ \"{n} / {N} ({p}%)\"\n  ))\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\n1st outbreak\nN = 1,5131\n2nd outbreak\nN = 1,2491\n\n\n\n\nTuổi\n13 (6, 20)\n19 (10, 27)\n\n\nGiới tính\n\n\n\n\n\n\n    f\n746 / 1,513 (49%)\n619 / 1,249 (50%)\n\n\n    m\n767 / 1,513 (51%)\n630 / 1,249 (50%)\n\n\nKết quả\n\n\n\n\n\n\n    died\n110 / 1,513 (7.3%)\n110 / 1,249 (8.8%)\n\n\n    recovered\n1,403 / 1,513 (93%)\n1,139 / 1,249 (91%)\n\n\nNgày phát bệnh\n2023-04-30 (2023-04-11, 2023-05-16)\n2023-08-12 (2023-07-16, 2023-08-31)\n\n\nNgày nhập viện\n2023-05-06 (2023-04-15, 2023-05-23)\n2023-08-18 (2023-07-25, 2023-09-05)\n\n\n    Unknown\n1,216\n990\n\n\nNgày tiếp xúc đầu tiên\n2023-04-27 (2023-04-08, 2023-05-13)\n2023-08-09 (2023-07-12, 2023-08-28)\n\n\n    Unknown\n1\n1\n\n\nNgày tiếp xúc cuối cùng\n2023-04-30 (2023-04-11, 2023-05-16)\n2023-08-11 (2023-07-15, 2023-08-31)\n\n\n    Unknown\n1\n1\n\n\n\n1 Median (Q1, Q3); n / N (%)\n\n\n\n\n\n\n\n\nĐiều chỉnh số chữ số thập phân qua tham số digits\nVD: Hiển thị tuổi với 2 chữ số thập phân\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist %&gt;% tbl_summary(\n  include = c(age, sex, outcome, date_onset, date_admission,\n                date_first_contact, date_last_contact, outbreak),\n  label = list(\n      age ~ \"Tuổi\",\n      sex ~ \"Giới tính\",\n      outcome ~ \"Kết quả\",\n      date_onset ~ \"Ngày phát bệnh\",\n      date_admission ~ \"Ngày nhập viện\",\n      date_first_contact ~ \"Ngày tiếp xúc đầu tiên\",\n      date_last_contact ~ \"Ngày tiếp xúc cuối cùng\"\n    ),\n  by = outbreak,\n  statistic = list(\n    sex ~ \"{n} / {N} ({p}%)\",\n    outcome ~ \"{n} / {N} ({p}%)\",\n    all_continuous() ~ \"{mean} [{min}, {max}]\"\n  ), \n  # ----- hiển thị 2 chữ số thập phân cho tuổi ------\n  digits = age ~ 2)\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\n1st outbreak\nN = 1,5131\n2nd outbreak\nN = 1,2491\n\n\n\n\nTuổi\n12.76 [0.00, 25.00]\n18.76 [3.00, 35.00]\n\n\nGiới tính\n\n\n\n\n\n\n    f\n746 / 1,513 (49%)\n619 / 1,249 (50%)\n\n\n    m\n767 / 1,513 (51%)\n630 / 1,249 (50%)\n\n\nKết quả\n\n\n\n\n\n\n    died\n110 / 1,513 (7.3%)\n110 / 1,249 (8.8%)\n\n\n    recovered\n1,403 / 1,513 (93%)\n1,139 / 1,249 (91%)\n\n\nNgày phát bệnh\n2023-04-26 [2023-01-01, 2023-07-10]\n2023-08-05 [2023-05-01, 2023-10-09]\n\n\nNgày nhập viện\n2023-05-06 [2023-01-06, 2025-03-02]\n2023-08-15 [2023-05-10, 2025-02-03]\n\n\n    Unknown\n1,216\n990\n\n\nNgày tiếp xúc đầu tiên\n2023-04-23 [2022-12-29, 2023-07-03]\n2023-08-03 [2023-05-03, 2023-10-15]\n\n\n    Unknown\n1\n1\n\n\nNgày tiếp xúc cuối cùng\n2023-04-26 [2023-01-04, 2023-07-05]\n2023-08-06 [2023-05-07, 2023-10-17]\n\n\n    Unknown\n1\n1\n\n\n\n1 Mean [Min, Max]; n / N (%)\n\n\n\n\n\n\n\n\nĐiều chỉnh giá trị được hiển thị\nĐể thay đổi tên các nhóm của biến phân loại, ta có thể sử dụng lệnh factor trước khi tạo bảng\nĐể thay đổi cách hiển thị giá trị bị thiếu, ta có thể sử dụng tham số missing_textcủa tbl_summary\nVD:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist %&gt;% \n  mutate(\n    # ------ đổi tên các nhóm trong biến phân loại ----\n    sex = factor(sex, levels = c(\"f\", \"m\"), labels = c(\"nữ\", \"nam\")),\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\")),\n    outbreak = factor(outbreak, \n                      levels = c(\"1st outbreak\", \"2nd outbreak\"), \n                      labels = c(\"Đợt dịch 1\", \"Đợt dịch 2\"))\n  ) %&gt;% \n  tbl_summary(\n    # ----- Đổi label cho các giá trị bị thiếu từ \"Unknown\" sang \"NA\" -----\n    missing_text = \"NA\",    \n    include = c(age, sex, outcome, date_onset, date_admission,\n                  date_first_contact, date_last_contact, outbreak),\n    label = list(\n        age ~ \"Tuổi\",\n        sex ~ \"Giới tính\",\n        outcome ~ \"Kết quả\",\n        date_onset ~ \"Ngày phát bệnh\",\n        date_admission ~ \"Ngày nhập viện\",\n        date_first_contact ~ \"Ngày tiếp xúc đầu tiên\",\n        date_last_contact ~ \"Ngày tiếp xúc cuối cùng\"\n      ),\n    by = outbreak,\n    statistic = list(\n      sex ~ \"{n} / {N} ({p}%)\",\n      outcome ~ \"{n} / {N} ({p}%)\",\n      all_continuous() ~ \"{mean} [{min}, {max}]\"),\n    digits = age ~ 2\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nĐợt dịch 1\nN = 1,5131\nĐợt dịch 2\nN = 1,2491\n\n\n\n\nTuổi\n12.76 [0.00, 25.00]\n18.76 [3.00, 35.00]\n\n\nGiới tính\n\n\n\n\n\n\n    nữ\n746 / 1,513 (49%)\n619 / 1,249 (50%)\n\n\n    nam\n767 / 1,513 (51%)\n630 / 1,249 (50%)\n\n\nKết quả\n\n\n\n\n\n\n    tử vong\n110 / 1,513 (7.3%)\n110 / 1,249 (8.8%)\n\n\n    khỏi bệnh\n1,403 / 1,513 (93%)\n1,139 / 1,249 (91%)\n\n\nNgày phát bệnh\n2023-04-26 [2023-01-01, 2023-07-10]\n2023-08-05 [2023-05-01, 2023-10-09]\n\n\nNgày nhập viện\n2023-05-06 [2023-01-06, 2025-03-02]\n2023-08-15 [2023-05-10, 2025-02-03]\n\n\n    NA\n1,216\n990\n\n\nNgày tiếp xúc đầu tiên\n2023-04-23 [2022-12-29, 2023-07-03]\n2023-08-03 [2023-05-03, 2023-10-15]\n\n\n    NA\n1\n1\n\n\nNgày tiếp xúc cuối cùng\n2023-04-26 [2023-01-04, 2023-07-05]\n2023-08-06 [2023-05-07, 2023-10-17]\n\n\n    NA\n1\n1\n\n\n\n1 Mean [Min, Max]; n / N (%)\n\n\n\n\n\n\n\n\n\n\nKết hợp nhiều bảng thống kê\nLệnh tbl_stack được sử dụng để kết hợp nhiều bảng thống kê có header giống nhau\nVD: Làm bảng tỉ lệ tử vong theo quận trong đợt 1, đợt 2 và cả 2 đợt\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng tỷ lệ tử vong trong cả 2 đợt dịch -----\nboth_outbreak &lt;- linelist %&gt;% \n  mutate(\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  tbl_summary(\n    include = c(outcome, district),\n    label = outcome ~ \"Kết quả\",\n    by = district,\n    statistic = outcome ~ \"{n} / {N} ({p}%)\"\n  ) %&gt;% \n  modify_header(all_stat_cols() ~ \"**{level}**\", label = \"**Quận**\") \n\n# ----- Bảng tỷ lệ tử vong trong đợt 1 -----\ntbl_first_outbreak &lt;- linelist %&gt;%\n  mutate(\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  filter(outbreak == \"1st outbreak\") %&gt;%\n  tbl_summary(\n    include = c(outcome, district),\n    label = outcome ~ \"Kết quả\",\n    by = district,\n    statistic = outcome ~ \"{n} / {N} ({p}%)\"\n  ) %&gt;% \n  modify_header(all_stat_cols() ~ \"**{level}**\", label = \"**Quận**\") \n\n# ----- Bảng tỷ lệ tử vong trong đợt 2 -----\ntbl_second_outbreak &lt;- linelist %&gt;%\n  mutate(\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  filter(outbreak == \"2nd outbreak\") %&gt;%\n  tbl_summary(\n    include = c(outcome, district),\n    label = outcome ~ \"Kết quả\",\n    by = district,\n    statistic = outcome ~ \"{n} / {N} ({p}%)\"\n  ) %&gt;% \n  modify_header(all_stat_cols() ~ \"**{level}**\", label = \"**Quận**\") \n\ntbl_stack(list(tbl_first_outbreak, tbl_second_outbreak, both_outbreak), group_header = c(\"Đợt 1\", \"Đợt 2\", \"Cả 2 đợt\")) %&gt;% \n  # --- optional: code điều chỉnh header cho từng bảng để dễ nhìn hơn ---- \n  as_gt() %&gt;% \n  gt::tab_style(\n    style = gt::cell_text(weight = \"bold\"),\n    locations = gt::cells_row_groups(groups = everything())\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuận\nBinh Chanh1\nBinh Tan1\nBinh Thanh1\nCan Gio1\nCu Chi1\nGo Vap1\nHoc Mon1\nNha Be1\nPhu Nhuan1\nQuan 11\nQuan 101\nQuan 111\nQuan 121\nQuan 31\nQuan 41\nQuan 51\nQuan 61\nQuan 71\nQuan 81\nTan Binh1\nTan Phu1\nThu Duc1\n\n\n\n\nĐợt 1\n\n\nKết quả\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    tử vong\n9 / 115 (7.8%)\n8 / 119 (6.7%)\n6 / 110 (5.5%)\n0 / 23 (0%)\n10 / 85 (12%)\n9 / 111 (8.1%)\n11 / 97 (11%)\n1 / 12 (8.3%)\n10 / 113 (8.8%)\n2 / 26 (7.7%)\n4 / 50 (8.0%)\n3 / 61 (4.9%)\n2 / 123 (1.6%)\n3 / 31 (9.7%)\n1 / 8 (13%)\n0 / 16 (0%)\n5 / 65 (7.7%)\n0 / 8 (0%)\n1 / 5 (20%)\n8 / 113 (7.1%)\n10 / 129 (7.8%)\n7 / 93 (7.5%)\n\n\n    khỏi bệnh\n106 / 115 (92%)\n111 / 119 (93%)\n104 / 110 (95%)\n23 / 23 (100%)\n75 / 85 (88%)\n102 / 111 (92%)\n86 / 97 (89%)\n11 / 12 (92%)\n103 / 113 (91%)\n24 / 26 (92%)\n46 / 50 (92%)\n58 / 61 (95%)\n121 / 123 (98%)\n28 / 31 (90%)\n7 / 8 (88%)\n16 / 16 (100%)\n60 / 65 (92%)\n8 / 8 (100%)\n4 / 5 (80%)\n105 / 113 (93%)\n119 / 129 (92%)\n86 / 93 (92%)\n\n\nĐợt 2\n\n\nKết quả\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    tử vong\n1 / 11 (9.1%)\n1 / 21 (4.8%)\n11 / 51 (22%)\n3 / 100 (3.0%)\n0 / 3 (0%)\n0 / 8 (0%)\n0 / 2 (0%)\n11 / 72 (15%)\n5 / 54 (9.3%)\n10 / 94 (11%)\n4 / 111 (3.6%)\n7 / 98 (7.1%)\n1 / 6 (17%)\n10 / 84 (12%)\n8 / 73 (11%)\n7 / 114 (6.1%)\n11 / 89 (12%)\n2 / 38 (5.3%)\n4 / 63 (6.3%)\n8 / 39 (21%)\n1 / 35 (2.9%)\n5 / 83 (6.0%)\n\n\n    khỏi bệnh\n10 / 11 (91%)\n20 / 21 (95%)\n40 / 51 (78%)\n97 / 100 (97%)\n3 / 3 (100%)\n8 / 8 (100%)\n2 / 2 (100%)\n61 / 72 (85%)\n49 / 54 (91%)\n84 / 94 (89%)\n107 / 111 (96%)\n91 / 98 (93%)\n5 / 6 (83%)\n74 / 84 (88%)\n65 / 73 (89%)\n107 / 114 (94%)\n78 / 89 (88%)\n36 / 38 (95%)\n59 / 63 (94%)\n31 / 39 (79%)\n34 / 35 (97%)\n78 / 83 (94%)\n\n\nCả 2 đợt\n\n\nKết quả\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    tử vong\n10 / 126 (7.9%)\n9 / 140 (6.4%)\n17 / 161 (11%)\n3 / 123 (2.4%)\n10 / 88 (11%)\n9 / 119 (7.6%)\n11 / 99 (11%)\n12 / 84 (14%)\n15 / 167 (9.0%)\n12 / 120 (10%)\n8 / 161 (5.0%)\n10 / 159 (6.3%)\n3 / 129 (2.3%)\n13 / 115 (11%)\n9 / 81 (11%)\n7 / 130 (5.4%)\n16 / 154 (10%)\n2 / 46 (4.3%)\n5 / 68 (7.4%)\n16 / 152 (11%)\n11 / 164 (6.7%)\n12 / 176 (6.8%)\n\n\n    khỏi bệnh\n116 / 126 (92%)\n131 / 140 (94%)\n144 / 161 (89%)\n120 / 123 (98%)\n78 / 88 (89%)\n110 / 119 (92%)\n88 / 99 (89%)\n72 / 84 (86%)\n152 / 167 (91%)\n108 / 120 (90%)\n153 / 161 (95%)\n149 / 159 (94%)\n126 / 129 (98%)\n102 / 115 (89%)\n72 / 81 (89%)\n123 / 130 (95%)\n138 / 154 (90%)\n44 / 46 (96%)\n63 / 68 (93%)\n136 / 152 (89%)\n153 / 164 (93%)\n164 / 176 (93%)\n\n\n\n1 n / N (%)"
   },
   {
-    "objectID": "learning/r/r04.html#thực-hành",
-    "href": "learning/r/r04.html#thực-hành",
-    "title": "Trực quan hóa dữ liệu với R",
-    "section": "Thực hành",
-    "text": "Thực hành\n\nChúng ta có thể vẽ biểu đồ như thế này không? \n\n\ncountry &lt;- c(\"Angola\", \"Papua New Guinea\", \"Pakistan\", \"Chad\", \"Ethiopia\", \"Kenya\", \"Nigeria\", \"Liberia\", \"Burkina Faso\", \"India\")\ncoverage &lt;- c(-0.14, -0.35, 0.12, 0.14, 0.32, 0.07, 0.2, 0.18, 0.3, 0.35)\ninequality &lt;- c(0.1, 0.08, 0.05, 0.01, 0.005, -0.06, -0.07, -0.11, -0.13, -0.16)\ndf_plot &lt;- data.frame(country, coverage, inequality)\ndf_plot\n\n            country coverage inequality\n1            Angola    -0.14      0.100\n2  Papua New Guinea    -0.35      0.080\n3          Pakistan     0.12      0.050\n4              Chad     0.14      0.010\n5          Ethiopia     0.32      0.005\n6             Kenya     0.07     -0.060\n7           Nigeria     0.20     -0.070\n8           Liberia     0.18     -0.110\n9      Burkina Faso     0.30     -0.130\n10            India     0.35     -0.160\n\n\n\nChúng ta hãy nhớ lại, thành phần quan trọng của biểu đồ là gì?\nĐầu tiên, chúng ta xác định trục của biểu đồ.\n\n\n\nggplot(df_plot, aes(x = coverage, y = inequality))\n\n\n\n\n\n\n\n\n\n\nTiếp theo, chúng ta nên sử dụng loại hình học nào?\n\n\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\nSau đó, chúng ta phải hiển thị tên quốc gia.\n\n\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point() +\n  geom_text(aes(label = country))\n\n\n\n\n\n\n\n\n\n\nCăn chỉnh tên quốc gia sao cho dễ nhìn.\n\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point() +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2)\n\n\n\n\n\n\n\n\n\nTùy chỉnh giá trị hiển thị của trục x, y.\n\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point() +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  xlim(c(-0.35, 0.55)) +\n  ylim(c(-0.17, 0.1))\n\n\n\n\n\n\n\n\n\nKích thước của mỗi điểm là khác nhau, vì vậy chúng ta phải tạo 2 biến: kích thước và màu sắc.\n\n\n\ndf_plot$size &lt;- c(1.1, 0.6, 3, 1, 2, 1.1, 3, 0.7, 1.1, 8)\ndf_plot$color &lt;- c(\"purple\", \"blue\", \"yellow\", \"purple\", \"purple\", \"purple\", \"purple\", \"purple\", \"purple\", \"yellow\")\ndf_plot\n\n            country coverage inequality size  color\n1            Angola    -0.14      0.100  1.1 purple\n2  Papua New Guinea    -0.35      0.080  0.6   blue\n3          Pakistan     0.12      0.050  3.0 yellow\n4              Chad     0.14      0.010  1.0 purple\n5          Ethiopia     0.32      0.005  2.0 purple\n6             Kenya     0.07     -0.060  1.1 purple\n7           Nigeria     0.20     -0.070  3.0 purple\n8           Liberia     0.18     -0.110  0.7 purple\n9      Burkina Faso     0.30     -0.130  1.1 purple\n10            India     0.35     -0.160  8.0 yellow\n\n\n\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color)) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  xlim(c(-0.35, 0.55)) +\n  ylim(c(-0.17, 0.1))\n\n\n\n\n\n\n\n\n\nset.seed(123)\nnp &lt;- 50\nrd &lt;- data.frame(\n  country = rep(\"\", np),\n  coverage = rnorm(n = np, mean = 0.1, sd = 0.12),\n  inequality = rnorm(n = np, mean = -0.05, sd = 0.04),\n  size = rnorm(n = np, mean = 1, sd = 0.4),\n  color = sample(\n    c(\"red\", \"green\", \"darkblue\", \"yellow\", \"blue\", \"purple\"),\n    np,\n    replace = T\n  )\n)\nhead(rd)\n\n  country   coverage   inequality      size color\n1         0.03274292 -0.039867259 0.7158374 green\n2         0.07237870 -0.051141870 1.1027535 green\n3         0.28704500 -0.051714818 0.9013232   red\n4         0.10846101  0.004744091 0.8609830 green\n5         0.11551453 -0.059030839 0.6193526   red\n6         0.30580780  0.010658824 0.9819889  blue\n\n\n\nset.seed(123): dùng để cố định cách tạo ra các điểm ngẫu nhiên.\nnp &lt;- 50: tạo ra 50 điểm ngẫu nhiên.\ncountry = rep(\"\", np): các điểm này không có tên quốc gia.\ncoverage = rnorm(n = np, mean = 0.1, sd = 0.12): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là 0.1 và độ lệch chuẩn là 0.12.\ninequality = rnorm(n = np, mean = -0.05, sd = 0.04): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là -0.05 và độ lệch chuẩn là 0.04.\nsize = rnorm(n = np, mean = 1, sd = 0.4): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là 1 và độ lệch chuẩn là 0.4.\ncolor = sample(1:6, np, replace = T): màu sắc là số nguyên ngẫu nhiên từ 1 đến 6.\nChúng ta thử ghép 2 bộ dữ liệu.\n\n\n\ndf_plot &lt;- rbind(df_plot, rd)\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color)) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  xlim(c(-0.35, 0.55)) +\n  ylim(c(-0.17, 0.1))\n\n\n\n\n\n\n\n\n\n\ncols &lt;- c(\n  \"red\" = \"#fa8495\",\n  \"green\" = \"#4ca258\",\n  \"darkblue\" = \"#6493bb\",\n  \"yellow\" = \"#d7c968\",\n  \"blue\" = \"#7dd8f3\",\n  \"purple\" = \"#bc5c91\"\n)\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color), alpha = 0.8) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  geom_vline(xintercept = 0, color = \"#999999\") +\n  geom_hline(yintercept = 0, color = \"#999999\") +\n  scale_x_continuous(breaks = c(-0.25, 0, 0.25, 0.5),\n                     limits = c(-0.4, 0.55)) +\n  scale_y_continuous(breaks = c(-0.1, 0, 0.1), limits = c(-0.16, 0.1)) +\n  scale_size_continuous(\n    breaks = c(2, 4, 6, 8),\n    labels = c(\"50 million\", \"100 million\", \"150 million\", \"200 million\"),\n    range = c(0, 8),\n    guide = guide_legend(order = 1)\n  ) +\n  scale_color_manual(\n    values = cols,\n    breaks = c(\"red\", \"green\", \"darkblue\", \"yellow\", \"blue\", \"purple\"),\n    labels = c(\n      \"Central Europe, Eastern Europe and Central Asia\",\n      \"Latin America and Caribbean\",\n      \"North Africa and Middle East\",\n      \"South Asia\",\n      \"Southeast Asia, East Asia and Oceania\",\n      \"Sub-Saharan Africa\"\n    ),\n    guide = guide_legend(order = 2)\n  ) +\n  labs(x = \"Change in MCV1 coverage (2019-2000)\",\n       y = \"Change in absolute geographical inequality (2019-2000)\",\n       size = NULL,\n       color = NULL) +\n  theme_classic() +\n  theme(\n    legend.position = \"top\",\n    legend.direction = \"vertical\",\n    legend.text = element_text(size = 11),\n    legend.key.height = unit(0.5, \"cm\"),\n    axis.text = element_text(size = 11)\n  )"
+    "objectID": "learning/r/r03.html#kiểm-định-thống-kê",
+    "href": "learning/r/r03.html#kiểm-định-thống-kê",
+    "title": "Phân tích dữ liệu với R",
+    "section": "Kiểm định thống kê",
+    "text": "Kiểm định thống kê\nĐể thêm kết quả cho phép kiểm định thống kê vào bảng phân tích, sử dụng lệnh add_p theo cú pháp add_p(tên_biến ~ \"phép kiểm định\")\nMột số phép kiểm định thông dụng\n\nt.test - Kiểm định t\nchisq.test - Kiểm định Chi bình phương ( )\nfisher.test - Kiểm tra Fisher exact\n\nTổng hợp các phép kiểm định thống kê\n\n\n\n\n\n\n\n\nPhép kiểm\nMô tả\nKết quả\n\n\n\n\nKiểm định T\nSo sánh giá trị trung bình của biến liên tục giữa hai nhóm.\n không có sự khác biệt giữa trung bình của 2 nhóm\np-value &lt; 0.05: có sự khác biệt giữa 2 nhóm\np-value &gt; 0.05: không có sự khác biệt giữa 2 nhóm\n\n\nKiểm định Chi-Square\nKiểm tra biến phân loại giữa 2 nhóm có liên quan hay không\n không có sự liên quan giữa 2 biến\np-value &lt; 0.05: có sự liên quan giữa 2 nhóm\np-value &gt; 0.05: không có sự liên quan giữa 2 nhóm\n\n\nKiểm định Fisher’s Exact\nTương tự như Chi-squared, kiểm tra mối liên hệ giữa hai biến phân loại nhưng cho cỡ mẫu nhỏ\n\n\n\n\n\nKiểm định T\nVD 1: Kiểm tra độ tuổi trung bình giữa 2 đợt dịch\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist %&gt;% \n  mutate(\n    outbreak = factor(outbreak, \n                      levels = c(\"1st outbreak\", \"2nd outbreak\"), \n                      labels = c(\"Đợt 1\", \"Đợt 2\"))\n  ) %&gt;% \n  tbl_summary(\n    include = c(age, outbreak),\n    label = age ~ \"Tuổi\",\n    by = outbreak\n  ) %&gt;% \n  modify_header(label = \"**Đặc điểm**\")  %&gt;% \n  add_p(test = age ~ \"t.test\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nĐặc điểm\nĐợt 1\nN = 1,5131\nĐợt 2\nN = 1,2491\np-value2\n\n\n\n\nTuổi\n13 (6, 20)\n19 (10, 27)\n&lt;0.001\n\n\n\n1 Median (Q1, Q3)\n\n\n2 Welch Two Sample t-test\n\n\n\n\n\n\n\n\nVD 2: Kiểm tra độ tuổi trung bình của 2 nhóm khỏi bệnh và tử vong\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho đợt dịch đầu ---- \nfirst_outbreak &lt;- linelist %&gt;% \n  mutate(\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  filter(outbreak == \"1st outbreak\") %&gt;% \n  tbl_summary(\n    include = c(age, outcome),\n    label = age ~ \"Tuổi\",\n    by = outcome\n  ) %&gt;% \n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = age ~ \"t.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho đợt dịch thứ hai ---- \nsecond_outbreak &lt;- linelist %&gt;% \n  filter(outbreak == \"2nd outbreak\") %&gt;% \n  mutate(\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  tbl_summary(\n    include = c(age, outcome),\n    label = age ~ \"Tuổi\",\n    by = outcome\n  ) %&gt;% \n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = age ~ \"t.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho cả hai đợt dịch ---- \nboth_outbreak &lt;- linelist %&gt;% \n  mutate(\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  tbl_summary(\n    include = c(age, outcome),\n    label = age ~ \"Tuổi\",\n    by = outcome\n  ) %&gt;% \n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = age ~ \"t.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\ntbl_stack(list(first_outbreak, second_outbreak, both_outbreak), \n          group_header = c(\"Đợt 1\", \"Đợt 2\", \"Cả 2 đợt\")) %&gt;% \n  # --- optional: code điều chỉnh style header ---- \n  modify_header(label = \"**Đặc điểm**\")  %&gt;% \n  as_gt() %&gt;% \n  gt::tab_style(\n    style = gt::cell_text(weight = \"bold\"),\n    locations = gt::cells_row_groups(groups = everything())\n  )\n\n\n\n\n\n\n\n\nĐặc điểm\ntử vong1\nkhỏi bệnh1\np-value2\n\n\n\n\nĐợt 1\n\n\nTuổi\n12 (5, 19)\n13 (6, 20)\n0.8\n\n\nĐợt 2\n\n\nTuổi\n21 (12, 27)\n19 (10, 27)\n0.2\n\n\nCả 2 đợt\n\n\nTuổi\n17 (9, 23)\n15 (8, 22)\n0.2\n\n\n\n1 Median (Q1, Q3)\n\n\n2 Welch Two Sample t-test\n\n\n\n\n\n\n\n\n\n\nKiểm định Chi bình phương\nVD: Kiểm tra giới tính có ảnh hưởng đến khả năng tử vong hay không\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho đợt dịch đầu ---- \ntbl_first_outbreak &lt;- linelist %&gt;%\n  mutate(\n    sex = factor(sex, levels = c(\"f\", \"m\"), labels = c(\"nữ\", \"nam\")),\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  filter(outbreak == \"1st outbreak\") %&gt;%\n  tbl_summary(\n    include = c(sex, outcome), \n    label = outcome ~ \"Kết quả\",\n    by = sex) %&gt;%\n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = outcome ~ \"chisq.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho đợt dịch thứ 2 ---- \ntbl_second_outbreak &lt;- linelist %&gt;%\n  mutate(\n    sex = factor(sex, levels = c(\"f\", \"m\"), labels = c(\"nữ\", \"nam\")),\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  filter(outbreak == \"2nd outbreak\") %&gt;%\n  tbl_summary(\n    include= c(sex, outcome), label = outcome ~ \"Kết quả\",\n    by = sex) %&gt;%\n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = outcome ~ \"chisq.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho cả 2 đợt dịch ---- \nboth_outbreak &lt;- linelist %&gt;% \n  mutate(\n    sex = factor(sex, levels = c(\"f\", \"m\"), labels = c(\"nữ\", \"nam\")),\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  tbl_summary(\n    include = c(sex, outcome),\n    label = outcome ~ \"Kết quả\",\n    by = c(sex)\n  ) %&gt;% \n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = outcome ~ \"chisq.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\ntbl_stack(list(tbl_first_outbreak, tbl_second_outbreak, both_outbreak), \n          group_header = c(c(\"Đợt 1\", \"Đợt 2\", \"Cả 2 đợt\"))) %&gt;%\n  # --- optional: code điều chỉnh style header ---- \n  modify_header(label = \"**Đặc điểm**\")  %&gt;% \n  as_gt() %&gt;% \n  gt::tab_style(\n    style = gt::cell_text(weight = \"bold\"),\n    locations = gt::cells_row_groups(groups = everything())\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nĐặc điểm\nnữ1\nnam1\np-value2\n\n\n\n\nĐợt 1\n\n\nKết quả\n\n\n\n\n0.8\n\n\n    tử vong\n56 (7.5%)\n54 (7.0%)\n\n\n\n\n    khỏi bệnh\n690 (92%)\n713 (93%)\n\n\n\n\nĐợt 2\n\n\nKết quả\n\n\n\n\n0.5\n\n\n    tử vong\n51 (8.2%)\n59 (9.4%)\n\n\n\n\n    khỏi bệnh\n568 (92%)\n571 (91%)\n\n\n\n\nCả 2 đợt\n\n\nKết quả\n\n\n\n\n0.9\n\n\n    tử vong\n107 (7.8%)\n113 (8.1%)\n\n\n\n\n    khỏi bệnh\n1,258 (92%)\n1,284 (92%)\n\n\n\n\n\n1 n (%)\n\n\n2 Pearson’s Chi-squared test\n\n\n\n\n\n\n\n\n\n\nKiểm định Fisher exact\nThử thực hiện kiểm định Fisher trên bộ dữ liệu và so sánh với kiểm định Chi bình phương\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho đợt dịch đầu ---- \ntbl_first_outbreak &lt;- linelist %&gt;%\n  mutate(\n    sex = factor(sex, levels = c(\"f\", \"m\"), labels = c(\"nữ\", \"nam\")),\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  filter(outbreak == \"1st outbreak\") %&gt;%\n  tbl_summary(\n    include = c(sex, outcome), \n    label = outcome ~ \"Kết quả\",\n    by = sex) %&gt;%\n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = outcome ~ \"fisher.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho đợt dịch thứ 2 ---- \ntbl_second_outbreak &lt;- linelist %&gt;%\n  mutate(\n    sex = factor(sex, levels = c(\"f\", \"m\"), labels = c(\"nữ\", \"nam\")),\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  filter(outbreak == \"2nd outbreak\") %&gt;%\n  tbl_summary(\n    include= c(sex, outcome), label = outcome ~ \"Kết quả\",\n    by = sex) %&gt;%\n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = outcome ~ \"fisher.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho cả 2 đợt dịch ---- \nboth_outbreak &lt;- linelist %&gt;% \n  mutate(\n    sex = factor(sex, levels = c(\"f\", \"m\"), labels = c(\"nữ\", \"nam\")),\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  tbl_summary(\n    include = c(sex, outcome),\n    label = outcome ~ \"Kết quả\",\n    by = c(sex)\n  ) %&gt;% \n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = outcome ~ \"fisher.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\ntbl_stack(list(tbl_first_outbreak, tbl_second_outbreak, both_outbreak), \n          group_header = c(c(\"Đợt 1\", \"Đợt 2\", \"Cả 2 đợt\"))) %&gt;%\n  # --- optional: code điều chỉnh style header ---- \n  modify_header(label = \"**Đặc điểm**\")  %&gt;% \n  as_gt() %&gt;% \n  gt::tab_style(\n    style = gt::cell_text(weight = \"bold\"),\n    locations = gt::cells_row_groups(groups = everything())\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nĐặc điểm\nnữ1\nnam1\np-value2\n\n\n\n\nĐợt 1\n\n\nKết quả\n\n\n\n\n0.8\n\n\n    tử vong\n56 (7.5%)\n54 (7.0%)\n\n\n\n\n    khỏi bệnh\n690 (92%)\n713 (93%)\n\n\n\n\nĐợt 2\n\n\nKết quả\n\n\n\n\n0.5\n\n\n    tử vong\n51 (8.2%)\n59 (9.4%)\n\n\n\n\n    khỏi bệnh\n568 (92%)\n571 (91%)\n\n\n\n\nCả 2 đợt\n\n\nKết quả\n\n\n\n\n0.8\n\n\n    tử vong\n107 (7.8%)\n113 (8.1%)\n\n\n\n\n    khỏi bệnh\n1,258 (92%)\n1,284 (92%)\n\n\n\n\n\n1 n (%)\n\n\n2 Fisher’s exact test"
   },
   {
-    "objectID": "learning/r/r04.html#bản-đồ",
-    "href": "learning/r/r04.html#bản-đồ",
-    "title": "Trực quan hóa dữ liệu với R",
-    "section": "Bản đồ",
-    "text": "Bản đồ\n\nTrước khi bạn muốn tạo bản đồ, bạn phải có shapefile (định dạng là .shp).\nTrong ggplot2, bạn có thể sử dụng hàm geom_map để tạo bản đồ.\nBạn có thể xem thêm thông tin trong Cheatsheet.\n\n\n\n\n\n\n\nTip\n\n\n\nNếu sử dụng `ggplot2, chúng ta cần sử dụng tidyverse."
+    "objectID": "learning/r/r03.html#bài-tập",
+    "href": "learning/r/r03.html#bài-tập",
+    "title": "Phân tích dữ liệu với R",
+    "section": "Bài tập",
+    "text": "Bài tập\n\nĐọc dữ liệu\nĐọc dữ liệu tiêm chủng sau phần làm sạch\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nTạo và điều chỉnh bảng thống kê\nTạo bảng thống kê cho dữ liệu vaccine theo các yêu cầu sau\n\nHiển thị thống kê cho các biến ngaysinh, ngaytiem, khangnguyen, cho từng nhóm giới tính (gioitinh)\nThay đổi tên các biến được hiển thị như sau: ngaysinh -&gt; Ngày sinh, ngaytiem -&gt; Ngày tiêm, khangnguyen -&gt; Kháng nguyên\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPhân tích\nTạo bảng thống kê số mũi viêm gan b sơ sinh (khangnguyen mang giá trị vgb_truoc_24, vgb_sau_24) theo quận huyện\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTạo bảng tỷ lệ tiêm chủng bằng tbl_summary theo quận/huyện\n\n\n\n\n\n\nTipGợi ý\n\n\n\n\n\n\nChuyển từ bảng dạng ngang sang dọc bằng pivot_wider\nFormat các biến ngày tiêm thành tình trạng tiêm\nDùng tbl_summary để hiển thị số trẻ được tiêm cho từng mũi"
+  },
+  {
+    "objectID": "learning/r/r01.html#r-là-gì",
+    "href": "learning/r/r01.html#r-là-gì",
+    "title": "Tổng quan về R",
+    "section": "R là gì?",
+    "text": "R là gì?\n\nR là một ngôn ngữ lập trình được phát triển bởi GS. Robert Gentleman và GS. Ross Ihaka tại Đại học Auckland1. Tên gọi R được đặt theo chữ cái đầu của tên 2 tác giả (Robert và Ross).\nĐể tính toán thống kê và trực quan hóa dữ liệu.\nBao gồm phần cơ bản (tích hợp sẵn khi cài đặt R) và phần mở rộng thông qua các gói (packages)"
+  },
+  {
+    "objectID": "learning/r/r01.html#ngôn-ngữ-lập-trình",
+    "href": "learning/r/r01.html#ngôn-ngữ-lập-trình",
+    "title": "Tổng quan về R",
+    "section": "Ngôn ngữ lập trình",
+    "text": "Ngôn ngữ lập trình\n\nNgôn ngữ lập trình là một tập hợp các hướng dẫn để yêu cầu máy tính thực hiện một số tác vụ nhất định.\nNgười dùng giao tiếp, đối thoại với máy tính bằng cách nhập những câu văn (code) giống như chat với máy tính, để máy hiểu và làm đúng những gì con người muốn"
+  },
+  {
+    "objectID": "learning/r/r01.html#nên-sử-dụng-r-vì",
+    "href": "learning/r/r01.html#nên-sử-dụng-r-vì",
+    "title": "Tổng quan về R",
+    "section": "Nên sử dụng R vì",
+    "text": "Nên sử dụng R vì\n\nMiễn phí, liên tục cập nhật\nRất tốt trong xử lý thống kê và vẽ đồ họa\nLưu trữ câu lệnh và thực hiện lại dễ dàng\nNên sử dụng RStudio thay vì R cơ bản\nHoàn toàn có thể tự học từ nguồn internet"
+  },
+  {
+    "objectID": "learning/r/r01.html#installation-r",
+    "href": "learning/r/r01.html#installation-r",
+    "title": "Tổng quan về R",
+    "section": "Installation R",
+    "text": "Installation R\nTrang web chính thức của R: https://www.r-project.org"
+  },
+  {
+    "objectID": "learning/r/r01.html#installation-r-studio",
+    "href": "learning/r/r01.html#installation-r-studio",
+    "title": "Tổng quan về R",
+    "section": "Installation R-Studio",
+    "text": "Installation R-Studio\n\nTrang web chính thức của R-Studio: https://posit.co/download/rstudio-desktop/\nCần cài đặt R trước khi cài RStudio"
+  },
+  {
+    "objectID": "learning/r/r01.html#phân-tích-và-trực-quan-hóa-dữ-liệu",
+    "href": "learning/r/r01.html#phân-tích-và-trực-quan-hóa-dữ-liệu",
+    "title": "Tổng quan về R",
+    "section": "Phân tích và trực quan hóa dữ liệu",
+    "text": "Phân tích và trực quan hóa dữ liệu\n\nR cung cấp nhiều thư viện mạnh mẽ như ggplot2,dplyr,tidyverseđể xử lý và trực quan hóa dữ liệu.\nThường được sử dụng trong nghiên cứu khoa học, kinh tế, y tế và kinh doanh để phân tích dữ liệu và tạo báo cáo."
+  },
+  {
+    "objectID": "learning/r/r01.html#thống-kê-và-kiểm-định-giả-thuyết",
+    "href": "learning/r/r01.html#thống-kê-và-kiểm-định-giả-thuyết",
+    "title": "Tổng quan về R",
+    "section": "Thống kê và kiểm định giả thuyết",
+    "text": "Thống kê và kiểm định giả thuyết\n\nHỗ trợ các phương pháp thống kê như hồi quy tuyến tính, kiểm định t-test, ANOVA, và các mô hình thống kê khác.\nPhù hợp cho nghiên cứu học thuật và phân tích dữ liệu chuyên sâu."
+  },
+  {
+    "objectID": "learning/r/r01.html#machine-learning",
+    "href": "learning/r/r01.html#machine-learning",
+    "title": "Tổng quan về R",
+    "section": "Machine Learning",
+    "text": "Machine Learning\n\nCó các thư viện nhưcaret,randomForest,e1071,xgboost giúp xây dựng mô hình dự đoán.\nR thường được dùng để phát triển và đánh giá các mô hình học máy."
+  },
+  {
+    "objectID": "learning/r/r01.html#big-data-analytics",
+    "href": "learning/r/r01.html#big-data-analytics",
+    "title": "Tổng quan về R",
+    "section": "Big Data Analytics",
+    "text": "Big Data Analytics\n\nR có thể tích hợp với Apache Spark thông qua sparklyr, giúp xử lý dữ liệu lớn.\nKết hợp SQL, NoSQL để phân tích dữ liệu quy mô lớn."
+  },
+  {
+    "objectID": "learning/r/r01.html#khoa-học-dữ-liệu-và-báo-cáo-tự-động",
+    "href": "learning/r/r01.html#khoa-học-dữ-liệu-và-báo-cáo-tự-động",
+    "title": "Tổng quan về R",
+    "section": "Khoa học dữ liệu và báo cáo tự động",
+    "text": "Khoa học dữ liệu và báo cáo tự động\n\nR hỗ trợ tạo báo cáo động với R Markdown, giúp tự động hóa báo cáo dữ liệu.\nR Shiny cho phép xây dựng ứng dụng web tương tác để trình bày dữ liệu."
+  },
+  {
+    "objectID": "learning/r/r01.html#y-học-và-sinh-học",
+    "href": "learning/r/r01.html#y-học-và-sinh-học",
+    "title": "Tổng quan về R",
+    "section": "Y học và sinh học",
+    "text": "Y học và sinh học\n\nHỗ trợ nghiên cứu dịch tễ học, mô hình hóa bệnh tật."
+  },
+  {
+    "objectID": "learning/r/r01.html#git",
+    "href": "learning/r/r01.html#git",
+    "title": "Tổng quan về R",
+    "section": "Git ",
+    "text": "Git \nGit là một phần mềm mã nguồn mở, quản lý phiên bản (Version Control System - VCS), mục đích của nó là theo dõi các thay đổi của tệp trong một kho lưu trữ và cung cấp khả năng quay lại phiên bản trước đó (bao gồm các thay đổi trong mã nguồn mở cho các mô hình tính toán, thuật toán theo thời gian).\nGit là một phần mềm hoạt động cục bộ. Bạn không cần GitHub để Git có thể hoạt động. Bạn có thể sử dụng Git độc lập."
+  },
+  {
+    "objectID": "learning/r/r01.html#github",
+    "href": "learning/r/r01.html#github",
+    "title": "Tổng quan về R",
+    "section": "GitHub",
+    "text": "GitHub\nGitHub là một dịch vụ dựa trên đám mây để lưu trữ kho lưu trữ Git, mục đích chính của nó là lưu trữ và/hoặc chia sẻ dự án Git của bạn với các cộng tác viên trên đám mây.\nGiao diện dưới dạng Web-based.\nMiễn phí và công khai."
+  },
+  {
+    "objectID": "learning/r/r01.html#repository",
+    "href": "learning/r/r01.html#repository",
+    "title": "Tổng quan về R",
+    "section": "Repository",
+    "text": "Repository\nKho lưu trữ (Repository): Chứa một tập hợp các tệp và thư mục, ghi lại lịch sử thay đổi, theo dõi trạng thái và các phiên bản của chúng. Có hai loại:\n\nKho lưu trữ từ xa (Remote repository): Lưu trữ trên máy chủ từ xa, được chia sẻ giữa nhiều thành viên trong nhóm.\nKho lưu trữ cục bộ (Local repository): Lưu trữ trên máy tính cá nhân của người dùng."
+  },
+  {
+    "objectID": "learning/r/r01.html#github-desktop",
+    "href": "learning/r/r01.html#github-desktop",
+    "title": "Tổng quan về R",
+    "section": "GitHub Desktop ",
+    "text": "GitHub Desktop \nGitHub Desktop là một phần mềm giúp bạn sử dụng Git dễ dàng hơn. Nó là một phần mềm được xây dựng bởi GitHub.\nƯu điểm: - Đơn giản hóa mọi thứ và chỉ cung cấp các chức năng thường được sử dụng của Git.\n-   Giảm khả năng bạn sẽ mắc lỗi khi sử dụng Git.\n\n-   Tích hợp trực tiếp với GitHub, giúp xác thực dễ dàng hơn."
+  },
+  {
+    "objectID": "learning/r/r01.html#thiết-kế-website-giới-thiệu-khoa-thông-tin-khóa-học",
+    "href": "learning/r/r01.html#thiết-kế-website-giới-thiệu-khoa-thông-tin-khóa-học",
+    "title": "Tổng quan về R",
+    "section": "Thiết kế Website giới thiệu Khoa, thông tin khóa học",
+    "text": "Thiết kế Website giới thiệu Khoa, thông tin khóa học"
+  },
+  {
+    "objectID": "learning/r/r01.html#trình-bày-kết-quả-phân-tích-cảnh-báo-dự-báo-dịch",
+    "href": "learning/r/r01.html#trình-bày-kết-quả-phân-tích-cảnh-báo-dự-báo-dịch",
+    "title": "Tổng quan về R",
+    "section": "Trình bày kết quả phân tích, cảnh báo, dự báo dịch",
+    "text": "Trình bày kết quả phân tích, cảnh báo, dự báo dịch"
+  },
+  {
+    "objectID": "learning/r/r01.html#thiết-kế-dashboard",
+    "href": "learning/r/r01.html#thiết-kế-dashboard",
+    "title": "Tổng quan về R",
+    "section": "Thiết kế Dashboard",
+    "text": "Thiết kế Dashboard"
+  },
+  {
+    "objectID": "learning/r/r01.html#r-script",
+    "href": "learning/r/r01.html#r-script",
+    "title": "Tổng quan về R",
+    "section": "R script",
+    "text": "R script\n\nCác đoạn hội thoại giữa chúng ta và máy tính có thể được lưu lại bằng file R Script (.r) hoặc R Markdown (.rmd) files.\nGần đây có thêm Quarto (.qmd) mở rộng hơn những gì R Markdown có thể làm.\nVì cách viết Quarto khá giống R Markdown, nên chúng ta sẽ tập trung vào học R Markdown cơ bản."
+  },
+  {
+    "objectID": "learning/r/r01.html#r-script-1",
+    "href": "learning/r/r01.html#r-script-1",
+    "title": "Tổng quan về R",
+    "section": "R script",
+    "text": "R script\nTạo R Script bằng cách vào menu File &gt; New File &gt; R Script.\nR Script là file chứa các câu lệnh R và những dòng chú thích ngắn gọn về câu lệnh (comments). Có 2 cách để comment:\n\nViết dấu # đầu dòng để xác định dòng này là comment.\nViết dấu # ở cuối dòng lệnh."
+  },
+  {
+    "objectID": "learning/r/r01.html#r-script-2",
+    "href": "learning/r/r01.html#r-script-2",
+    "title": "Tổng quan về R",
+    "section": "R script",
+    "text": "R script"
+  },
+  {
+    "objectID": "learning/r/r01.html#r-markdown",
+    "href": "learning/r/r01.html#r-markdown",
+    "title": "Tổng quan về R",
+    "section": "R Markdown",
+    "text": "R Markdown\n\nTạo R Markdown bằng cách vào menu File &gt; New File &gt; R Markdown.\nR Markdown là công cụ để tạo ra tài liệu tự động.\nTrong file R Markdown chứa code R xen kẽ với văn bản mô tả, bảng, biểu đồ… có thể xuất ra nhiều loại định dạng như .docx, .pdf, .html, .pptx."
+  },
+  {
+    "objectID": "learning/r/r01.html#r-markdown-1",
+    "href": "learning/r/r01.html#r-markdown-1",
+    "title": "Tổng quan về R",
+    "section": "R Markdown",
+    "text": "R Markdown\nYAML header: nằm ở trên cùng trong và ngăn cách với phần còn lại bằng cặp dấu ---. Phần này để mô tả tiêu đề tài liệu, tác giả, ngày tháng, định dạng mong muốn.\nVăn bản: phần diễn giải cho tài liệu, gồm các đề mục và chữ diễn giải viết theo ngôn ngữ\n\nĐề mục được đánh dấu bằng dấu # và các đề mục nhỏ hơn thì tăng thêm số dấu # như ##, ###.\nPhải xuống hàng 2 lần để viết hàng mới trong văn bản.\n\nĐoạn code (code chunks): là nơi để viết code và xuất ra các kết quả mong muốn. Code chunks của R được đặt trong cặp dấu:"
+  },
+  {
+    "objectID": "learning/r/r01.html#r-markdown-2",
+    "href": "learning/r/r01.html#r-markdown-2",
+    "title": "Tổng quan về R",
+    "section": "R Markdown",
+    "text": "R Markdown\n\nĐể tạo code chunk chúng ta nhấn tổ hợp phím tắt Ctrl + Alt + I, hoặc nhấn vào icon này trên thanh công cụ, chọn R: \nVí dụ có file R Markdown sau:"
+  },
+  {
+    "objectID": "learning/r/r01.html#r-markdown-3",
+    "href": "learning/r/r01.html#r-markdown-3",
+    "title": "Tổng quan về R",
+    "section": "R Markdown",
+    "text": "R Markdown\n\nKhi knit file R Markdown trên sẽ tạo ra file báo cáo sau với đầy đủ tiêu đề, đề mục, bảng kết quả, biểu đồ… giống như được tạo ra từ 1 chương trình soạn thảo văn bản như Word.\nĐể knit file R Markdown thì chọn kí hiệu knit trên thanh công cụ:"
+  },
+  {
+    "objectID": "learning/r/r01.html#r-markdown-4",
+    "href": "learning/r/r01.html#r-markdown-4",
+    "title": "Tổng quan về R",
+    "section": "R Markdown",
+    "text": "R Markdown"
+  },
+  {
+    "objectID": "learning/r/r01.html#r-markdown-5",
+    "href": "learning/r/r01.html#r-markdown-5",
+    "title": "Tổng quan về R",
+    "section": "R Markdown",
+    "text": "R Markdown"
+  },
+  {
+    "objectID": "learning/r/r01.html#r-markdown-6",
+    "href": "learning/r/r01.html#r-markdown-6",
+    "title": "Tổng quan về R",
+    "section": "R Markdown",
+    "text": "R Markdown"
+  },
+  {
+    "objectID": "learning/r/r01.html#r-markdown-7",
+    "href": "learning/r/r01.html#r-markdown-7",
+    "title": "Tổng quan về R",
+    "section": "R Markdown",
+    "text": "R Markdown"
+  },
+  {
+    "objectID": "learning/index.html",
+    "href": "learning/index.html",
+    "title": "E-Learning",
+    "section": "",
+    "text": "Modeling\n\n\nTổng hợp các bài hướng dẫn về thuật toán cảnh báo và mô hình dự báo dịch\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPublic Health Emergency Operations Centre\n\n\nTổng hợp các bài hướng dẫn về PHEOC và RRT\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuality of surveillance system\n\n\nTổng hợp các bài hướng dẫn về hệ thống giám sát và đảm bảo chất lượng dữ liệu\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Basic\n\n\nTổng hợp các bài hướng dẫn cơ bản về R cho phân tích dữ liệu\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorkshops\n\n\nTổng hợp các bài workshops nội bộ của Khoa\n\n\n\n\n\n\n\n\n\n\nNo matching items\n Back to top"
+  },
+  {
+    "objectID": "about/index.html",
+    "href": "about/index.html",
+    "title": "Welcome to the SWAPER 🌍",
+    "section": "",
+    "text": "Our department consists of two key teams:\n\nModeling Team: Focused on epidemiological surveillance and outbreak forecasting, this team requires a solid understanding of epidemiology as well as proficiency in R programming for data analysis and modeling.\nEOC Team: Responsible for ensuring rapid preparedness and effective response to public health emergencies, this team focuses on planning, coordination, and operational readiness during outbreaks.\n\nWe welcome you to connect for more projects. 💪\n\n    \n        \n        \n            Lan Truong\n            Position: Head of Department of Surveillance, Warning and Preparedness, Emergency Response\n            Major: Master of Public Health\n        \n    \n\n    \n        \n        An Tran\n        Major: Doctor of Preventive Medicine\n        Modeling team\n    \n    \n    \n        \n        Anh Huynh\n        Major: Doctor of Preventive Medicine\n        Modeling team\n    \n\n    \n        \n        Diem Le\n        Major: Doctor of Preventive Medicine\n        Modeling team\n    \n\n    \n        \n        Thu Pham\n        Major: Bachelor of Public Health\n        Modeling team\n    \n\n    \n        \n        Khang Huynh\n        Major: Doctor of Preventive Medicine\n        EOC team\n    \n\n    \n        \n        Vy Tran\n        Major: Doctor of Preventive Medicine\n        EOC team\n    \n\n    \n        \n        Ngoc Dinh\n        Major: Doctor of Preventive Medicine\n        EOC team\n    \n\n    \n        \n        Le Tran\n        Major: Bachelor of Public Health\n        EOC team\n    \n    \n    \n        \n        Tuyen Pham\n        Major: Doctor of Preventive Medicine\n        EOC team\n    \n\n    \n        \n        Quan Truong\n        Major: Doctor of Preventive Medicine\n        Modeling team\n    \n\n    \n        \n        Nhon Nguyen\n        Major: Bachelor of Public Health\n        EOC team\n    \n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "book/index.html#book",
+    "href": "book/index.html#book",
+    "title": "Documents",
+    "section": "Book",
+    "text": "Book\n\nPrinciples of Epidemiology in Public Health Practice, 2012 (USCDC) Link\nHandbook of Applied Health Economics in Vaccines, 2023 Link\nNational RRT SOPs, 2024 (NIH, Pakistan) Link\nFramework for a Public Health Emergency Operations Centre Link\nInternational Health Regulation (2005) Link\nHandbook for Developing a Public Health Emergency Operations Center (Part A) Link\nHandbook for Developing a Public Health Emergency Operations Center (Part C) Link\nHandbook for Public Health Emergency Operations Center Operations and Management-WHO Regional Office for Africa Link\nEstablishment and Management of Public Health Rapid Response Teams For Diseases Outbreaks Link\nGuidance for after action review Link\nWHO Simulation Exercise Manual Link\nEmergency Exercise Development Link\nCommunicating risk in public health emergencies: a WHO guideline for emergency risk communication policy and practice Link\nWHO community engagement framework for quality, people-centred and resilient health services Link"
+  },
+  {
+    "objectID": "book/index.html#e-book",
+    "href": "book/index.html#e-book",
+    "title": "Documents",
+    "section": "E-Book",
+    "text": "E-Book\n\nEpidemic R Handbook, 2024 Link\nIntroduction to Data Science, 2019 Link\nggplot2: Elegant Graphics for Data Analysis, 2019 Link\nTelling Stories with Data, 2023 Link\nSpatial Statistics for Data Science: Theory and Practice with R, 2019 Link"
+  },
+  {
+    "objectID": "index.html#our-mission",
+    "href": "index.html#our-mission",
+    "title": "SWAPER",
+    "section": "Our mission",
+    "text": "Our mission\nThe Department of Surveillance, Warning, Preparedness, and Emergency Response is tasked with protecting public health through a structured and systematic approach. The department’s mandate is executed through three primary missions:\n1. To Ensure the Quality of the Public Health Monitoring System\nThis mission focuses on the development and oversight of processes that guarantee the accuracy, completeness, and timeliness of data from all public health surveillance systems. It includes conducting systematic evaluations and rapid surveys to inform and continuously improve monitoring strategies.\n2. To Monitor, Detect, and Alert on Unusual Health Events\nThis mission involves the systematic collection and management of epidemiological data to monitor health trends, forecast outcomes, and assess risks. The objective is to promptly detect unusual events, issue evidence-based alerts, and propose scientifically grounded solutions to mitigate public health threats.\n3. To Prepare for and Respond to Public Health Emergencies\nThis mission centers on maintaining a high state of operational readiness. It includes managing the Public Health Emergency Operations Center (PHEOC) and the Provincial Rapid Response Teams (RRT), and implementing comprehensive preparedness activities such as planning, training, drills, and resource allocation for effective emergency response."
+  },
+  {
+    "objectID": "index.html#our-work",
+    "href": "index.html#our-work",
+    "title": "SWAPER",
+    "section": "Our work",
+    "text": "Our work\nTo accomplish these missions, the department is organized into two primary divisions with distinct functions:\nDivision of Surveillance and Warning\nThis division is responsible for all data collection, analysis, and risk assessment functions. Its key responsibilities include:\n\nAssessing the performance and quality of existing surveillance systems.\nDeveloping and implementing an integrated, digital disease surveillance system, including an early warning mechanism for schools and communities, with a target for completion by 2025.\nConducting formal risk assessments for endemic, zoonotic, and emerging/re-emerging infectious diseases.\nEstablishing official epidemic warning thresholds for all administrative levels (city and ward).\nDeveloping and applying mathematical models for the purpose of forecasting disease outbreaks.\nDefining and utilizing key data indicators for the evaluation of outbreak severity and response effectiveness.\n\nDivision of Preparedness and Emergency Response\nThis division is responsible for all operational planning, readiness, and response coordination. Its key responsibilities include:\n\nAdvising on and developing the legal and operational frameworks for the Public Health Emergency Operations Center (PHEOC) and the Rapid Response Teams (RRT).\nDeveloping and standardizing operational guidelines and Standard Operating Procedures (SOPs) for the PHEOC and RRTs.\nCreating and managing the activation system for the Rapid Response Teams.\nOverseeing the strategic planning, procurement, and maintenance of essential infrastructure, equipment, and supplies for emergency response.\nProviding technical guidance on the development of the city’s long-term Pandemic Response Plan for 2030 and beyond."
+  },
+  {
+    "objectID": "index.html#collaboration",
+    "href": "index.html#collaboration",
+    "title": "SWAPER",
+    "section": "Collaboration",
+    "text": "Collaboration\nWe maintain strong working relationships with leading academic research institutions, non-governmental organizations (NGOs), and other specialized departments within the Ho Chi Minh City Center for Disease Control (HCDC).\nThese partnerships are vital for conducting cutting-edge research, validating new methodologies, and strengthening the city’s overall public health framework. Notable partners include the Oxford University Clinical Research Unit (OUCRU) and FHI 360.\nA selection of key research projects undertaken through these collaborations includes:\n\nEvaluation of the Reproduction Number (Rt) in Measles Outbreaks in HCMC.\nMethods for Determining Epidemic Thresholds in Endemic Disease Surveillance: A Scoping Review and Benchmark.\nDengue Advanced Readiness Tools (DART).\nAssessment of the Infectious Disease and Public Health Event Surveillance System in HCMC.\nA Review of Methodological Approaches to Infectious Disease Risk Assessment.\nEvent-Based Surveillance Using Social Media, Google Search Data, and Online News Media."
+  },
+  {
+    "objectID": "learning/pheoc.html",
+    "href": "learning/pheoc.html",
+    "title": "Public Health Emergency Operations Centre",
+    "section": "",
+    "text": "Welcome to SWAPER’s PHEOC repository. The latest lectures will be updated here.\n\n\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "learning/r/r02.html#xác-định-đường-dẫn",
@@ -490,346 +714,122 @@
     "text": "Exercise tại lớp\n\nThay đổi colname = là sẽ làm tương tự cho các quốc gia khác.\n\n\ncompute_stats(covid_cases, colname = \"cases_chn\")\n\n    min      q1  median      q3     max \n    0.0    65.5   128.0   950.5 19461.0"
   },
   {
-    "objectID": "learning/pheoc.html",
-    "href": "learning/pheoc.html",
-    "title": "Public Health Emergency Operations Centre",
+    "objectID": "learning/r/r04.html#trực-quan-hóa",
+    "href": "learning/r/r04.html#trực-quan-hóa",
+    "title": "Trực quan hóa dữ liệu với R",
+    "section": "Trực quan hóa",
+    "text": "Trực quan hóa\n\nTrực quan hóa nó để truyền bá thông tin.\nTrong R-based, chúng ta sử dụng plot() để vẽ hình.\nTrong tidyverse, chúng ta sử dụng gói ggplot2\n\n\nVí dụ\n\n\nBase R:\n\nplot(\n  x = mtcars$wt,\n  y = mtcars$mpg,\n  xlab = \"Weight (1000 lbs)\",\n  ylab = \"Miles Per Gallon\",\n  main = \"MPG vs. Weight\",\n  pch = 19,       # Solid circle points\n  col = \"blue\"\n)\n\n\n\n\n\n\n\n\n\nggplot2:\n\nlibrary(ggplot2)\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point(color = \"blue\") +\n  scale_x_continuous(\"Weight (1000 lbs)\") +\n  scale_y_continuous(\"Miles Per Gallon\") +\n  ggtitle(\"MPG vs. Weight\") + \n  theme_bw()"
+  },
+  {
+    "objectID": "learning/r/r04.html#package-ggplot2",
+    "href": "learning/r/r04.html#package-ggplot2",
+    "title": "Trực quan hóa dữ liệu với R",
+    "section": "Package ggplot2",
+    "text": "Package ggplot2\n\nggplot2 hoạt động trực tiếp với dữ liệu tidy (giống như mọi thứ trong tidyverse).\nNó dựa trên một khái niệm gọi là grammar of graphics.\nCó tài liệu hướng dẫn toàn diện về cách sử dụng.\nCung cấp đủ tính linh hoạt để tùy chỉnh."
+  },
+  {
+    "objectID": "learning/r/r04.html#cấu-trúc-của-ggplot2",
+    "href": "learning/r/r04.html#cấu-trúc-của-ggplot2",
+    "title": "Trực quan hóa dữ liệu với R",
+    "section": "Cấu trúc của ggplot2",
+    "text": "Cấu trúc của ggplot2\n\nMột khuôn khổ để mô tả và xây dựng biểu đồ theo cách có cấu trúc.\nPhương pháp tiếp cận theo layer, tức là mỗi thành phần của một hình là các layer riêng biệt.\n\n\n\nVí dụ\n\nHãy xem code ví dụ sau:\n\n\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point(color = \"blue\") +\n  scale_x_continuous(\"Weight (1000 lbs)\") +\n  scale_y_continuous(\"Miles Per Gallon\") +\n  ggtitle(\"MPG vs. Weight\") + \n  theme_bw()\n\n\n\n\n\n\n\n\n\nData: mtcars\nAesthetics: aes(x = wt, y = mpg)\nGeometries: geom_point\nCoordinates: scale_x_continuous, scale_y_continuous\nTheme: theme_bw, ggtitle\n\n\n\n\n\n\n\nTip\n\n\n\nggplot2 chỉ chạy với dữ liệu là data frame và không thể chạy với loại dữ liệu khác (ví dụ: ma trận hoặc vectơ).\n\n\n\n\nAesthetics\n\nPhải đặt trong aes().\nKhai báo thông tin các trục x, y.\nKhai báo màu sắc color, fill.\n\n\ndf &lt;- data.frame(\n  x = 1:10,\n  y = (1:10)^2,\n  group = rep(c(\"A\", \"B\"), each = 5)\n) \n\n\n\n\nggplot(df, aes(x, y, color = group)) + \n  geom_col()\n\n\n\n\n\n\n\n\n\n\nggplot(df, aes(x, y, fill = group)) + \n  geom_col()\n\n\n\n\n\n\n\n\n\n\n\n\nGeometries\n\ngeom_col or geom_bar: biểu đồ cột/ thanh\ngeom_histogram: histograms\ngeom_point: biểu đồ chấm (scatter)\ngeom_line or geom_smooth: biểu đồ đường (làm mượt)\ngeom_boxplot: biểu đồ hộp\n\n\n\n\n\n\n\nTip\n\n\n\nData, aesthetic, geometric đối tượng là thành phần quan trọng của biểu đồ, nếu cấu trúc này không đủ thì cốt truyện sẽ không hoạt động.\n\n\n\n\nShape of geom_point\n\n\n\nCoordinates\n\nTùy chỉnh hiển thị của các trục: scale_x_..., scale_y_..., xlim, ylim,…\nTùy chỉnh màu sắc theo giá trị của từng biến: scale_color_..., scale_fill_...,…\nTùy chỉnh tên cột, tên biểu đồ, tên chú thích: labs\n\n\n\nThemes\n\nTùy chỉnh background của biểu đồ: màu sắc, lưới,…\nTùy chỉnh kiểu chữ trên biểu đồ.\nCó sẵn một số theme để lựa chọn: theme_classic, theme_minimal,…"
+  },
+  {
+    "objectID": "learning/r/r04.html#cheatseet",
+    "href": "learning/r/r04.html#cheatseet",
+    "title": "Trực quan hóa dữ liệu với R",
+    "section": "Cheatseet",
+    "text": "Cheatseet"
+  },
+  {
+    "objectID": "learning/r/r04.html#thực-hành",
+    "href": "learning/r/r04.html#thực-hành",
+    "title": "Trực quan hóa dữ liệu với R",
+    "section": "Thực hành",
+    "text": "Thực hành\n\nChúng ta có thể vẽ biểu đồ như thế này không? \n\n\ncountry &lt;- c(\"Angola\", \"Papua New Guinea\", \"Pakistan\", \"Chad\", \"Ethiopia\", \"Kenya\", \"Nigeria\", \"Liberia\", \"Burkina Faso\", \"India\")\ncoverage &lt;- c(-0.14, -0.35, 0.12, 0.14, 0.32, 0.07, 0.2, 0.18, 0.3, 0.35)\ninequality &lt;- c(0.1, 0.08, 0.05, 0.01, 0.005, -0.06, -0.07, -0.11, -0.13, -0.16)\ndf_plot &lt;- data.frame(country, coverage, inequality)\ndf_plot\n\n            country coverage inequality\n1            Angola    -0.14      0.100\n2  Papua New Guinea    -0.35      0.080\n3          Pakistan     0.12      0.050\n4              Chad     0.14      0.010\n5          Ethiopia     0.32      0.005\n6             Kenya     0.07     -0.060\n7           Nigeria     0.20     -0.070\n8           Liberia     0.18     -0.110\n9      Burkina Faso     0.30     -0.130\n10            India     0.35     -0.160\n\n\n\nChúng ta hãy nhớ lại, thành phần quan trọng của biểu đồ là gì?\nĐầu tiên, chúng ta xác định trục của biểu đồ.\n\n\n\nggplot(df_plot, aes(x = coverage, y = inequality))\n\n\n\n\n\n\n\n\n\n\nTiếp theo, chúng ta nên sử dụng loại hình học nào?\n\n\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\nSau đó, chúng ta phải hiển thị tên quốc gia.\n\n\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point() +\n  geom_text(aes(label = country))\n\n\n\n\n\n\n\n\n\n\nCăn chỉnh tên quốc gia sao cho dễ nhìn.\n\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point() +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2)\n\n\n\n\n\n\n\n\n\nTùy chỉnh giá trị hiển thị của trục x, y.\n\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point() +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  xlim(c(-0.35, 0.55)) +\n  ylim(c(-0.17, 0.1))\n\n\n\n\n\n\n\n\n\nKích thước của mỗi điểm là khác nhau, vì vậy chúng ta phải tạo 2 biến: kích thước và màu sắc.\n\n\n\ndf_plot$size &lt;- c(1.1, 0.6, 3, 1, 2, 1.1, 3, 0.7, 1.1, 8)\ndf_plot$color &lt;- c(\"purple\", \"blue\", \"yellow\", \"purple\", \"purple\", \"purple\", \"purple\", \"purple\", \"purple\", \"yellow\")\ndf_plot\n\n            country coverage inequality size  color\n1            Angola    -0.14      0.100  1.1 purple\n2  Papua New Guinea    -0.35      0.080  0.6   blue\n3          Pakistan     0.12      0.050  3.0 yellow\n4              Chad     0.14      0.010  1.0 purple\n5          Ethiopia     0.32      0.005  2.0 purple\n6             Kenya     0.07     -0.060  1.1 purple\n7           Nigeria     0.20     -0.070  3.0 purple\n8           Liberia     0.18     -0.110  0.7 purple\n9      Burkina Faso     0.30     -0.130  1.1 purple\n10            India     0.35     -0.160  8.0 yellow\n\n\n\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color)) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  xlim(c(-0.35, 0.55)) +\n  ylim(c(-0.17, 0.1))\n\n\n\n\n\n\n\n\n\nset.seed(123)\nnp &lt;- 50\nrd &lt;- data.frame(\n  country = rep(\"\", np),\n  coverage = rnorm(n = np, mean = 0.1, sd = 0.12),\n  inequality = rnorm(n = np, mean = -0.05, sd = 0.04),\n  size = rnorm(n = np, mean = 1, sd = 0.4),\n  color = sample(\n    c(\"red\", \"green\", \"darkblue\", \"yellow\", \"blue\", \"purple\"),\n    np,\n    replace = T\n  )\n)\nhead(rd)\n\n  country   coverage   inequality      size color\n1         0.03274292 -0.039867259 0.7158374 green\n2         0.07237870 -0.051141870 1.1027535 green\n3         0.28704500 -0.051714818 0.9013232   red\n4         0.10846101  0.004744091 0.8609830 green\n5         0.11551453 -0.059030839 0.6193526   red\n6         0.30580780  0.010658824 0.9819889  blue\n\n\n\nset.seed(123): dùng để cố định cách tạo ra các điểm ngẫu nhiên.\nnp &lt;- 50: tạo ra 50 điểm ngẫu nhiên.\ncountry = rep(\"\", np): các điểm này không có tên quốc gia.\ncoverage = rnorm(n = np, mean = 0.1, sd = 0.12): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là 0.1 và độ lệch chuẩn là 0.12.\ninequality = rnorm(n = np, mean = -0.05, sd = 0.04): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là -0.05 và độ lệch chuẩn là 0.04.\nsize = rnorm(n = np, mean = 1, sd = 0.4): số thực được tạo ra ngẫu nhiên theo phân phối bình thường với trung bình là 1 và độ lệch chuẩn là 0.4.\ncolor = sample(1:6, np, replace = T): màu sắc là số nguyên ngẫu nhiên từ 1 đến 6.\nChúng ta thử ghép 2 bộ dữ liệu.\n\n\n\ndf_plot &lt;- rbind(df_plot, rd)\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color)) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  xlim(c(-0.35, 0.55)) +\n  ylim(c(-0.17, 0.1))\n\n\n\n\n\n\n\n\n\n\ncols &lt;- c(\n  \"red\" = \"#fa8495\",\n  \"green\" = \"#4ca258\",\n  \"darkblue\" = \"#6493bb\",\n  \"yellow\" = \"#d7c968\",\n  \"blue\" = \"#7dd8f3\",\n  \"purple\" = \"#bc5c91\"\n)\n\nggplot(df_plot, aes(x = coverage, y = inequality)) +\n  geom_point(aes(size = size, color = color), alpha = 0.8) +\n  geom_text(aes(label = country), hjust = -0.2, vjust = 0.2) +\n  geom_vline(xintercept = 0, color = \"#999999\") +\n  geom_hline(yintercept = 0, color = \"#999999\") +\n  scale_x_continuous(breaks = c(-0.25, 0, 0.25, 0.5),\n                     limits = c(-0.4, 0.55)) +\n  scale_y_continuous(breaks = c(-0.1, 0, 0.1), limits = c(-0.16, 0.1)) +\n  scale_size_continuous(\n    breaks = c(2, 4, 6, 8),\n    labels = c(\"50 million\", \"100 million\", \"150 million\", \"200 million\"),\n    range = c(0, 8),\n    guide = guide_legend(order = 1)\n  ) +\n  scale_color_manual(\n    values = cols,\n    breaks = c(\"red\", \"green\", \"darkblue\", \"yellow\", \"blue\", \"purple\"),\n    labels = c(\n      \"Central Europe, Eastern Europe and Central Asia\",\n      \"Latin America and Caribbean\",\n      \"North Africa and Middle East\",\n      \"South Asia\",\n      \"Southeast Asia, East Asia and Oceania\",\n      \"Sub-Saharan Africa\"\n    ),\n    guide = guide_legend(order = 2)\n  ) +\n  labs(x = \"Change in MCV1 coverage (2019-2000)\",\n       y = \"Change in absolute geographical inequality (2019-2000)\",\n       size = NULL,\n       color = NULL) +\n  theme_classic() +\n  theme(\n    legend.position = \"top\",\n    legend.direction = \"vertical\",\n    legend.text = element_text(size = 11),\n    legend.key.height = unit(0.5, \"cm\"),\n    axis.text = element_text(size = 11)\n  )"
+  },
+  {
+    "objectID": "learning/r/r04.html#bản-đồ",
+    "href": "learning/r/r04.html#bản-đồ",
+    "title": "Trực quan hóa dữ liệu với R",
+    "section": "Bản đồ",
+    "text": "Bản đồ\n\nTrước khi bạn muốn tạo bản đồ, bạn phải có shapefile (định dạng là .shp).\nTrong ggplot2, bạn có thể sử dụng hàm geom_map để tạo bản đồ.\nBạn có thể xem thêm thông tin trong Cheatsheet.\n\n\n\n\n\n\n\nTip\n\n\n\nNếu sử dụng `ggplot2, chúng ta cần sử dụng tidyverse."
+  },
+  {
+    "objectID": "learning/surveillance_system.html",
+    "href": "learning/surveillance_system.html",
+    "title": "Quality of surveillance system",
     "section": "",
-    "text": "Welcome to SWAPER’s PHEOC repository. The latest lectures will be updated here.\n\n\n\n\n\n\n\n\n\n\n Back to top"
+    "text": "Welcome to SWAPER’s surveillance system repository. The latest lectures will be updated here.\n\n\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "index.html#our-mission",
-    "href": "index.html#our-mission",
-    "title": "SWAPER",
-    "section": "Our mission",
-    "text": "Our mission\nThe Department of Surveillance, Warning, Preparedness, and Emergency Response is tasked with protecting public health through a structured and systematic approach. The department’s mandate is executed through three primary missions:\n1. To Ensure the Quality of the Public Health Monitoring System\nThis mission focuses on the development and oversight of processes that guarantee the accuracy, completeness, and timeliness of data from all public health surveillance systems. It includes conducting systematic evaluations and rapid surveys to inform and continuously improve monitoring strategies.\n2. To Monitor, Detect, and Alert on Unusual Health Events\nThis mission involves the systematic collection and management of epidemiological data to monitor health trends, forecast outcomes, and assess risks. The objective is to promptly detect unusual events, issue evidence-based alerts, and propose scientifically grounded solutions to mitigate public health threats.\n3. To Prepare for and Respond to Public Health Emergencies\nThis mission centers on maintaining a high state of operational readiness. It includes managing the Public Health Emergency Operations Center (PHEOC) and the Provincial Rapid Response Teams (RRT), and implementing comprehensive preparedness activities such as planning, training, drills, and resource allocation for effective emergency response."
-  },
-  {
-    "objectID": "index.html#our-work",
-    "href": "index.html#our-work",
-    "title": "SWAPER",
-    "section": "Our work",
-    "text": "Our work\nTo accomplish these missions, the department is organized into two primary divisions with distinct functions:\nDivision of Surveillance and Warning\nThis division is responsible for all data collection, analysis, and risk assessment functions. Its key responsibilities include:\n\nAssessing the performance and quality of existing surveillance systems.\nDeveloping and implementing an integrated, digital disease surveillance system, including an early warning mechanism for schools and communities, with a target for completion by 2025.\nConducting formal risk assessments for endemic, zoonotic, and emerging/re-emerging infectious diseases.\nEstablishing official epidemic warning thresholds for all administrative levels (city and ward).\nDeveloping and applying mathematical models for the purpose of forecasting disease outbreaks.\nDefining and utilizing key data indicators for the evaluation of outbreak severity and response effectiveness.\n\nDivision of Preparedness and Emergency Response\nThis division is responsible for all operational planning, readiness, and response coordination. Its key responsibilities include:\n\nAdvising on and developing the legal and operational frameworks for the Public Health Emergency Operations Center (PHEOC) and the Rapid Response Teams (RRT).\nDeveloping and standardizing operational guidelines and Standard Operating Procedures (SOPs) for the PHEOC and RRTs.\nCreating and managing the activation system for the Rapid Response Teams.\nOverseeing the strategic planning, procurement, and maintenance of essential infrastructure, equipment, and supplies for emergency response.\nProviding technical guidance on the development of the city’s long-term Pandemic Response Plan for 2030 and beyond."
-  },
-  {
-    "objectID": "index.html#collaboration",
-    "href": "index.html#collaboration",
-    "title": "SWAPER",
-    "section": "Collaboration",
-    "text": "Collaboration\nWe maintain strong working relationships with leading academic research institutions, non-governmental organizations (NGOs), and other specialized departments within the Ho Chi Minh City Center for Disease Control (HCDC).\nThese partnerships are vital for conducting cutting-edge research, validating new methodologies, and strengthening the city’s overall public health framework. Notable partners include the Oxford University Clinical Research Unit (OUCRU) and FHI 360.\nA selection of key research projects undertaken through these collaborations includes:\n\nEvaluation of the Reproduction Number (Rt) in Measles Outbreaks in HCMC.\nMethods for Determining Epidemic Thresholds in Endemic Disease Surveillance: A Scoping Review and Benchmark.\nDengue Advanced Readiness Tools (DART).\nAssessment of the Infectious Disease and Public Health Event Surveillance System in HCMC.\nA Review of Methodological Approaches to Infectious Disease Risk Assessment.\nEvent-Based Surveillance Using Social Media, Google Search Data, and Online News Media."
-  },
-  {
-    "objectID": "book/index.html#book",
-    "href": "book/index.html#book",
-    "title": "Documents",
-    "section": "Book",
-    "text": "Book\n\nPrinciples of Epidemiology in Public Health Practice, 2012 (USCDC) Link\nHandbook of Applied Health Economics in Vaccines, 2023 Link\nNational RRT SOPs, 2024 (NIH, Pakistan) Link\nFramework for a Public Health Emergency Operations Centre Link\nInternational Health Regulation (2005) Link\nHandbook for Developing a Public Health Emergency Operations Center (Part A) Link\nHandbook for Developing a Public Health Emergency Operations Center (Part C) Link\nHandbook for Public Health Emergency Operations Center Operations and Management-WHO Regional Office for Africa Link\nEstablishment and Management of Public Health Rapid Response Teams For Diseases Outbreaks Link\nGuidance for after action review Link\nWHO Simulation Exercise Manual Link\nEmergency Exercise Development Link\nCommunicating risk in public health emergencies: a WHO guideline for emergency risk communication policy and practice Link\nWHO community engagement framework for quality, people-centred and resilient health services Link"
-  },
-  {
-    "objectID": "book/index.html#e-book",
-    "href": "book/index.html#e-book",
-    "title": "Documents",
-    "section": "E-Book",
-    "text": "E-Book\n\nEpidemic R Handbook, 2024 Link\nIntroduction to Data Science, 2019 Link\nggplot2: Elegant Graphics for Data Analysis, 2019 Link\nTelling Stories with Data, 2023 Link\nSpatial Statistics for Data Science: Theory and Practice with R, 2019 Link"
-  },
-  {
-    "objectID": "about/index.html",
-    "href": "about/index.html",
-    "title": "Welcome to the SWAPER 🌍",
+    "objectID": "learning/workshop.html",
+    "href": "learning/workshop.html",
+    "title": "Workshops",
     "section": "",
-    "text": "Our department consists of two key teams:\n\nModeling Team: Focused on epidemiological surveillance and outbreak forecasting, this team requires a solid understanding of epidemiology as well as proficiency in R programming for data analysis and modeling.\nEOC Team: Responsible for ensuring rapid preparedness and effective response to public health emergencies, this team focuses on planning, coordination, and operational readiness during outbreaks.\n\nWe welcome you to connect for more projects. 💪\n\n    \n        \n        \n            Lan Truong\n            Position: Head of Department of Surveillance, Warning and Preparedness, Emergency Response\n            Major: Master of Public Health\n        \n    \n\n    \n        \n        An Tran\n        Major: Doctor of Preventive Medicine\n        Modeling team\n    \n    \n    \n        \n        Anh Huynh\n        Major: Doctor of Preventive Medicine\n        Modeling team\n    \n\n    \n        \n        Diem Le\n        Major: Doctor of Preventive Medicine\n        Modeling team\n    \n\n    \n        \n        Thu Pham\n        Major: Bachelor of Public Health\n        Modeling team\n    \n\n    \n        \n        Khang Huynh\n        Major: Doctor of Preventive Medicine\n        EOC team\n    \n\n    \n        \n        Vy Tran\n        Major: Doctor of Preventive Medicine\n        EOC team\n    \n\n    \n        \n        Ngoc Dinh\n        Major: Doctor of Preventive Medicine\n        EOC team\n    \n\n    \n        \n        Le Tran\n        Major: Bachelor of Public Health\n        EOC team\n    \n    \n    \n        \n        Tuyen Pham\n        Major: Doctor of Preventive Medicine\n        EOC team\n    \n\n    \n        \n        Quan Truong\n        Major: Doctor of Preventive Medicine\n        Modeling team\n    \n\n    \n        \n        Nhon Nguyen\n        Major: Bachelor of Public Health\n        EOC team\n    \n\n\n\n\n Back to top"
+    "text": "Welcome to SWAPER’s Workshop repository. The latest lectures will be updated here.\n\n\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "learning/index.html",
-    "href": "learning/index.html",
-    "title": "E-Learning",
+    "objectID": "news/post1.html#meeting-with-oucru",
+    "href": "news/post1.html#meeting-with-oucru",
+    "title": "Meeting with OUCRU",
+    "section": "Meeting with OUCRU",
+    "text": "Meeting with OUCRU\nOn July 02, 2025, the SWAPER development team held a formal meeting with representatives from the Oxford University Clinical Research Unit (OUCRU) in Ho Chi Minh City. This was one of the initial steps in building a long-term partnership between the two organizations, centered around infectious disease surveillance and applied epidemiological research.\nThe meeting provided an opportunity for both sides to discuss key challenges in early warning systems, explore local data collection needs at the district level, and share perspectives on the use of artificial intelligence in outbreak detection and prediction. OUCRU shared their experience with previous research projects, while SWAPER presented their ongoing efforts to digitize surveillance workflows and develop integrated platforms for real-time monitoring.\nThe atmosphere of the meeting was open and collaborative, fostering mutual understanding and laying the groundwork for future joint initiatives. As of July 2025, the discussions from this meeting have helped shape several shared projects and contributed to a growing network of partners committed to improving public health systems in Vietnam."
+  },
+  {
+    "objectID": "news/post1.html#meeting-highlight",
+    "href": "news/post1.html#meeting-highlight",
+    "title": "Meeting with OUCRU",
+    "section": "Meeting Highlight",
+    "text": "Meeting Highlight\n\n\n\nMeeting with OUCRU\n\n\nThis meeting marked a promising beginning for deeper scientific collaboration and set the tone for more frequent technical exchanges and co-designed research activities."
+  },
+  {
+    "objectID": "news/post3.html",
+    "href": "news/post3.html",
+    "title": "Workshop on the Chikungunya Situation in France and Italy",
     "section": "",
-    "text": "Modeling\n\n\nTổng hợp các bài hướng dẫn về thuật toán cảnh báo và mô hình dự báo dịch\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPublic Health Emergency Operations Centre\n\n\nTổng hợp các bài hướng dẫn về PHEOC và RRT\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuality of surveillance system\n\n\nTổng hợp các bài hướng dẫn về hệ thống giám sát và đảm bảo chất lượng dữ liệu\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Basic\n\n\nTổng hợp các bài hướng dẫn cơ bản về R cho phân tích dữ liệu\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorkshops\n\n\nTổng hợp các bài workshops nội bộ của Khoa\n\n\n\n\n\n\n\n\n\n\nNo matching items\n Back to top"
+    "text": "The Department of Surveillance, Warning, Preparedness, and Emergency Response organized an internal workshop to update team members on the current Chikungunya situation in France and Italy, where an increase in reported cases has recently been observed.\nDuring the session, participants reviewed epidemiological trends in both countries and discussed the key factors contributing to the rise in cases, including the expanding distribution of Aedes albopictus, the impact of climate change creating favorable conditions for vector breeding, and high volumes of international travel during the summer season.\nThis activity strengthened the team’s understanding of Chikungunya transmission risks and supported the department’s early warning efforts.\n\n\n\nTeam members getting ready for the presentation.\n\n\n\n\n\n\n\n\nAccess the full lecture notes and slides at here {{&lt; fa book-open &gt;}}\n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "learning/r/r01.html#r-là-gì",
-    "href": "learning/r/r01.html#r-là-gì",
-    "title": "Tổng quan về R",
-    "section": "R là gì?",
-    "text": "R là gì?\n\nR là một ngôn ngữ lập trình được phát triển bởi GS. Robert Gentleman và GS. Ross Ihaka tại Đại học Auckland1. Tên gọi R được đặt theo chữ cái đầu của tên 2 tác giả (Robert và Ross).\nĐể tính toán thống kê và trực quan hóa dữ liệu.\nBao gồm phần cơ bản (tích hợp sẵn khi cài đặt R) và phần mở rộng thông qua các gói (packages)"
-  },
-  {
-    "objectID": "learning/r/r01.html#ngôn-ngữ-lập-trình",
-    "href": "learning/r/r01.html#ngôn-ngữ-lập-trình",
-    "title": "Tổng quan về R",
-    "section": "Ngôn ngữ lập trình",
-    "text": "Ngôn ngữ lập trình\n\nNgôn ngữ lập trình là một tập hợp các hướng dẫn để yêu cầu máy tính thực hiện một số tác vụ nhất định.\nNgười dùng giao tiếp, đối thoại với máy tính bằng cách nhập những câu văn (code) giống như chat với máy tính, để máy hiểu và làm đúng những gì con người muốn"
-  },
-  {
-    "objectID": "learning/r/r01.html#nên-sử-dụng-r-vì",
-    "href": "learning/r/r01.html#nên-sử-dụng-r-vì",
-    "title": "Tổng quan về R",
-    "section": "Nên sử dụng R vì",
-    "text": "Nên sử dụng R vì\n\nMiễn phí, liên tục cập nhật\nRất tốt trong xử lý thống kê và vẽ đồ họa\nLưu trữ câu lệnh và thực hiện lại dễ dàng\nNên sử dụng RStudio thay vì R cơ bản\nHoàn toàn có thể tự học từ nguồn internet"
-  },
-  {
-    "objectID": "learning/r/r01.html#installation-r",
-    "href": "learning/r/r01.html#installation-r",
-    "title": "Tổng quan về R",
-    "section": "Installation R",
-    "text": "Installation R\nTrang web chính thức của R: https://www.r-project.org"
-  },
-  {
-    "objectID": "learning/r/r01.html#installation-r-studio",
-    "href": "learning/r/r01.html#installation-r-studio",
-    "title": "Tổng quan về R",
-    "section": "Installation R-Studio",
-    "text": "Installation R-Studio\n\nTrang web chính thức của R-Studio: https://posit.co/download/rstudio-desktop/\nCần cài đặt R trước khi cài RStudio"
-  },
-  {
-    "objectID": "learning/r/r01.html#phân-tích-và-trực-quan-hóa-dữ-liệu",
-    "href": "learning/r/r01.html#phân-tích-và-trực-quan-hóa-dữ-liệu",
-    "title": "Tổng quan về R",
-    "section": "Phân tích và trực quan hóa dữ liệu",
-    "text": "Phân tích và trực quan hóa dữ liệu\n\nR cung cấp nhiều thư viện mạnh mẽ như ggplot2,dplyr,tidyverseđể xử lý và trực quan hóa dữ liệu.\nThường được sử dụng trong nghiên cứu khoa học, kinh tế, y tế và kinh doanh để phân tích dữ liệu và tạo báo cáo."
-  },
-  {
-    "objectID": "learning/r/r01.html#thống-kê-và-kiểm-định-giả-thuyết",
-    "href": "learning/r/r01.html#thống-kê-và-kiểm-định-giả-thuyết",
-    "title": "Tổng quan về R",
-    "section": "Thống kê và kiểm định giả thuyết",
-    "text": "Thống kê và kiểm định giả thuyết\n\nHỗ trợ các phương pháp thống kê như hồi quy tuyến tính, kiểm định t-test, ANOVA, và các mô hình thống kê khác.\nPhù hợp cho nghiên cứu học thuật và phân tích dữ liệu chuyên sâu."
-  },
-  {
-    "objectID": "learning/r/r01.html#machine-learning",
-    "href": "learning/r/r01.html#machine-learning",
-    "title": "Tổng quan về R",
-    "section": "Machine Learning",
-    "text": "Machine Learning\n\nCó các thư viện nhưcaret,randomForest,e1071,xgboost giúp xây dựng mô hình dự đoán.\nR thường được dùng để phát triển và đánh giá các mô hình học máy."
-  },
-  {
-    "objectID": "learning/r/r01.html#big-data-analytics",
-    "href": "learning/r/r01.html#big-data-analytics",
-    "title": "Tổng quan về R",
-    "section": "Big Data Analytics",
-    "text": "Big Data Analytics\n\nR có thể tích hợp với Apache Spark thông qua sparklyr, giúp xử lý dữ liệu lớn.\nKết hợp SQL, NoSQL để phân tích dữ liệu quy mô lớn."
-  },
-  {
-    "objectID": "learning/r/r01.html#khoa-học-dữ-liệu-và-báo-cáo-tự-động",
-    "href": "learning/r/r01.html#khoa-học-dữ-liệu-và-báo-cáo-tự-động",
-    "title": "Tổng quan về R",
-    "section": "Khoa học dữ liệu và báo cáo tự động",
-    "text": "Khoa học dữ liệu và báo cáo tự động\n\nR hỗ trợ tạo báo cáo động với R Markdown, giúp tự động hóa báo cáo dữ liệu.\nR Shiny cho phép xây dựng ứng dụng web tương tác để trình bày dữ liệu."
-  },
-  {
-    "objectID": "learning/r/r01.html#y-học-và-sinh-học",
-    "href": "learning/r/r01.html#y-học-và-sinh-học",
-    "title": "Tổng quan về R",
-    "section": "Y học và sinh học",
-    "text": "Y học và sinh học\n\nHỗ trợ nghiên cứu dịch tễ học, mô hình hóa bệnh tật."
-  },
-  {
-    "objectID": "learning/r/r01.html#git",
-    "href": "learning/r/r01.html#git",
-    "title": "Tổng quan về R",
-    "section": "Git ",
-    "text": "Git \nGit là một phần mềm mã nguồn mở, quản lý phiên bản (Version Control System - VCS), mục đích của nó là theo dõi các thay đổi của tệp trong một kho lưu trữ và cung cấp khả năng quay lại phiên bản trước đó (bao gồm các thay đổi trong mã nguồn mở cho các mô hình tính toán, thuật toán theo thời gian).\nGit là một phần mềm hoạt động cục bộ. Bạn không cần GitHub để Git có thể hoạt động. Bạn có thể sử dụng Git độc lập."
-  },
-  {
-    "objectID": "learning/r/r01.html#github",
-    "href": "learning/r/r01.html#github",
-    "title": "Tổng quan về R",
-    "section": "GitHub",
-    "text": "GitHub\nGitHub là một dịch vụ dựa trên đám mây để lưu trữ kho lưu trữ Git, mục đích chính của nó là lưu trữ và/hoặc chia sẻ dự án Git của bạn với các cộng tác viên trên đám mây.\nGiao diện dưới dạng Web-based.\nMiễn phí và công khai."
-  },
-  {
-    "objectID": "learning/r/r01.html#repository",
-    "href": "learning/r/r01.html#repository",
-    "title": "Tổng quan về R",
-    "section": "Repository",
-    "text": "Repository\nKho lưu trữ (Repository): Chứa một tập hợp các tệp và thư mục, ghi lại lịch sử thay đổi, theo dõi trạng thái và các phiên bản của chúng. Có hai loại:\n\nKho lưu trữ từ xa (Remote repository): Lưu trữ trên máy chủ từ xa, được chia sẻ giữa nhiều thành viên trong nhóm.\nKho lưu trữ cục bộ (Local repository): Lưu trữ trên máy tính cá nhân của người dùng."
-  },
-  {
-    "objectID": "learning/r/r01.html#github-desktop",
-    "href": "learning/r/r01.html#github-desktop",
-    "title": "Tổng quan về R",
-    "section": "GitHub Desktop ",
-    "text": "GitHub Desktop \nGitHub Desktop là một phần mềm giúp bạn sử dụng Git dễ dàng hơn. Nó là một phần mềm được xây dựng bởi GitHub.\nƯu điểm: - Đơn giản hóa mọi thứ và chỉ cung cấp các chức năng thường được sử dụng của Git.\n-   Giảm khả năng bạn sẽ mắc lỗi khi sử dụng Git.\n\n-   Tích hợp trực tiếp với GitHub, giúp xác thực dễ dàng hơn."
-  },
-  {
-    "objectID": "learning/r/r01.html#thiết-kế-website-giới-thiệu-khoa-thông-tin-khóa-học",
-    "href": "learning/r/r01.html#thiết-kế-website-giới-thiệu-khoa-thông-tin-khóa-học",
-    "title": "Tổng quan về R",
-    "section": "Thiết kế Website giới thiệu Khoa, thông tin khóa học",
-    "text": "Thiết kế Website giới thiệu Khoa, thông tin khóa học"
-  },
-  {
-    "objectID": "learning/r/r01.html#trình-bày-kết-quả-phân-tích-cảnh-báo-dự-báo-dịch",
-    "href": "learning/r/r01.html#trình-bày-kết-quả-phân-tích-cảnh-báo-dự-báo-dịch",
-    "title": "Tổng quan về R",
-    "section": "Trình bày kết quả phân tích, cảnh báo, dự báo dịch",
-    "text": "Trình bày kết quả phân tích, cảnh báo, dự báo dịch"
-  },
-  {
-    "objectID": "learning/r/r01.html#thiết-kế-dashboard",
-    "href": "learning/r/r01.html#thiết-kế-dashboard",
-    "title": "Tổng quan về R",
-    "section": "Thiết kế Dashboard",
-    "text": "Thiết kế Dashboard"
-  },
-  {
-    "objectID": "learning/r/r01.html#r-script",
-    "href": "learning/r/r01.html#r-script",
-    "title": "Tổng quan về R",
-    "section": "R script",
-    "text": "R script\n\nCác đoạn hội thoại giữa chúng ta và máy tính có thể được lưu lại bằng file R Script (.r) hoặc R Markdown (.rmd) files.\nGần đây có thêm Quarto (.qmd) mở rộng hơn những gì R Markdown có thể làm.\nVì cách viết Quarto khá giống R Markdown, nên chúng ta sẽ tập trung vào học R Markdown cơ bản."
-  },
-  {
-    "objectID": "learning/r/r01.html#r-script-1",
-    "href": "learning/r/r01.html#r-script-1",
-    "title": "Tổng quan về R",
-    "section": "R script",
-    "text": "R script\nTạo R Script bằng cách vào menu File &gt; New File &gt; R Script.\nR Script là file chứa các câu lệnh R và những dòng chú thích ngắn gọn về câu lệnh (comments). Có 2 cách để comment:\n\nViết dấu # đầu dòng để xác định dòng này là comment.\nViết dấu # ở cuối dòng lệnh."
-  },
-  {
-    "objectID": "learning/r/r01.html#r-script-2",
-    "href": "learning/r/r01.html#r-script-2",
-    "title": "Tổng quan về R",
-    "section": "R script",
-    "text": "R script"
-  },
-  {
-    "objectID": "learning/r/r01.html#r-markdown",
-    "href": "learning/r/r01.html#r-markdown",
-    "title": "Tổng quan về R",
-    "section": "R Markdown",
-    "text": "R Markdown\n\nTạo R Markdown bằng cách vào menu File &gt; New File &gt; R Markdown.\nR Markdown là công cụ để tạo ra tài liệu tự động.\nTrong file R Markdown chứa code R xen kẽ với văn bản mô tả, bảng, biểu đồ… có thể xuất ra nhiều loại định dạng như .docx, .pdf, .html, .pptx."
-  },
-  {
-    "objectID": "learning/r/r01.html#r-markdown-1",
-    "href": "learning/r/r01.html#r-markdown-1",
-    "title": "Tổng quan về R",
-    "section": "R Markdown",
-    "text": "R Markdown\nYAML header: nằm ở trên cùng trong và ngăn cách với phần còn lại bằng cặp dấu ---. Phần này để mô tả tiêu đề tài liệu, tác giả, ngày tháng, định dạng mong muốn.\nVăn bản: phần diễn giải cho tài liệu, gồm các đề mục và chữ diễn giải viết theo ngôn ngữ\n\nĐề mục được đánh dấu bằng dấu # và các đề mục nhỏ hơn thì tăng thêm số dấu # như ##, ###.\nPhải xuống hàng 2 lần để viết hàng mới trong văn bản.\n\nĐoạn code (code chunks): là nơi để viết code và xuất ra các kết quả mong muốn. Code chunks của R được đặt trong cặp dấu:"
-  },
-  {
-    "objectID": "learning/r/r01.html#r-markdown-2",
-    "href": "learning/r/r01.html#r-markdown-2",
-    "title": "Tổng quan về R",
-    "section": "R Markdown",
-    "text": "R Markdown\n\nĐể tạo code chunk chúng ta nhấn tổ hợp phím tắt Ctrl + Alt + I, hoặc nhấn vào icon này trên thanh công cụ, chọn R: \nVí dụ có file R Markdown sau:"
-  },
-  {
-    "objectID": "learning/r/r01.html#r-markdown-3",
-    "href": "learning/r/r01.html#r-markdown-3",
-    "title": "Tổng quan về R",
-    "section": "R Markdown",
-    "text": "R Markdown\n\nKhi knit file R Markdown trên sẽ tạo ra file báo cáo sau với đầy đủ tiêu đề, đề mục, bảng kết quả, biểu đồ… giống như được tạo ra từ 1 chương trình soạn thảo văn bản như Word.\nĐể knit file R Markdown thì chọn kí hiệu knit trên thanh công cụ:"
-  },
-  {
-    "objectID": "learning/r/r01.html#r-markdown-4",
-    "href": "learning/r/r01.html#r-markdown-4",
-    "title": "Tổng quan về R",
-    "section": "R Markdown",
-    "text": "R Markdown"
-  },
-  {
-    "objectID": "learning/r/r01.html#r-markdown-5",
-    "href": "learning/r/r01.html#r-markdown-5",
-    "title": "Tổng quan về R",
-    "section": "R Markdown",
-    "text": "R Markdown"
-  },
-  {
-    "objectID": "learning/r/r01.html#r-markdown-6",
-    "href": "learning/r/r01.html#r-markdown-6",
-    "title": "Tổng quan về R",
-    "section": "R Markdown",
-    "text": "R Markdown"
-  },
-  {
-    "objectID": "learning/r/r01.html#r-markdown-7",
-    "href": "learning/r/r01.html#r-markdown-7",
-    "title": "Tổng quan về R",
-    "section": "R Markdown",
-    "text": "R Markdown"
-  },
-  {
-    "objectID": "learning/r/r03.html#r-project",
-    "href": "learning/r/r03.html#r-project",
-    "title": "Phân tích dữ liệu với R",
-    "section": "R project",
-    "text": "R project\n\nTạo Project trong R Studio\nR project là một thư mục với file .Rproj . Để thuận tiện cho việc quản lý code và dữ liệu, ta nên tạo R project cho mỗi nghiên cứu/ báo cáo.\nQuá trình tạo R project như sau:\n\nVào menu File &gt; New Project\nBấm New Directory &gt; New Project\nĐiền tên folder cho R Project tại mục Directory name\nBấm Browse và chọn Desktop để lưu R project tại Desktop\nBấm Create Project\n\n\n\nCấu trúc của một Project\nCấu trúc của một R project sẽ có định dạng như sau:\n\n\ndata thư mục chứa dữ liệu cần phân tích\noutput lưu trữ đầu ra mã (cốt truyện, số liệu, v.v.)\nanalysis.R là tệp chứa mã R. Có thể có nhiều file .R trong 1 project.\n\n\n\nR markdown\nFile .Rmd thường được dùng cho báo cáo vì có thể kết hợp các lệnh R, văn bản thường, đồ thị trong 1 file \nGồm 3 phần chính:\n\nPhần YAML header: nằm ở trên cùng trong và ngăn cách với phần còn lại bằng cặp dấu ---. Phần này để mô tả tiêu đề tài liệu, tác giả, ngày tháng, định dạng mong muốn\nPhần văn bản (được viết bằng ngôn ngữ markdown)\nPhần lệnh R (được gọi là chunk). Phần kết quả của câu lệnh R (chunk output) có thể hiển thị dưới dạng string, bảng dữ liệu hoặc đồ thị.\n\n\nTạo R Markdown bằng cách vào menu File &gt; New File &gt; R Markdown..."
-  },
-  {
-    "objectID": "learning/r/r03.html#bảng-phân-tích-thống-kê",
-    "href": "learning/r/r03.html#bảng-phân-tích-thống-kê",
-    "title": "Phân tích dữ liệu với R",
-    "section": "Bảng phân tích thống kê",
-    "text": "Bảng phân tích thống kê\n\nTải package:  tidyverse, gtsummary\nLoad package:\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlibrary(tidyverse) \nlibrary(gtsummary) \n\n\nChúng ta sẽ sử dụng dữ liệu mô phỏng các ca bệnh Covid 19\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n#linelist &lt;- read_rds(\"https://raw.githubusercontent.com/HCDC-GSCB/swaper/main/data/simulated_covid.rds\") %&gt;% mutate_if(is.Date, ymd) \n\nlinelist &lt;- read_rds(\"../../data/simulated_covid.rds\") %&gt;% mutate_if(is.Date, ymd)\n\n\nDữ liệu bao gồm 2 đợt bùng phát dịch.\n\ngtsummary\nPackage gtsummary được dùng vẽ bảng thống kê một cách nhanh chóng bằng lệnh tbl_summary()\nVD: sử dụng tbl_summary() \n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist[,-2] %&gt;% tbl_summary()\n\n\n\n\nOutput\n\n\n\n\n\n\nCharacteristic\n\n\nN = 2,7621\n\n\n\n\n\n\nid\n\n\n1,320 (654, 2,017)\n\n\n\n\ncase_type\n\n\n\n\n\n\n\n    confirmed\n\n\n1,325 (48%)\n\n\n\n\n    probable\n\n\n879 (32%)\n\n\n\n\n    suspected\n\n\n558 (20%)\n\n\n\n\nsex\n\n\n\n\n\n\n\n    f\n\n\n1,365 (49%)\n\n\n\n\n    m\n\n\n1,397 (51%)\n\n\n\n\nage\n\n\n15 (8, 22)\n\n\n\n\ndate_onset\n\n\n2023-05-31 (2023-04-28, 2023-08-05)\n\n\n\n\ndate_admission\n\n\n2023-06-12 (NA, 2023-08-16)\n\n\n\n\n    Unknown\n\n\n2,206\n\n\n\n\noutcome\n\n\n\n\n\n\n\n    died\n\n\n220 (8.0%)\n\n\n\n\n    recovered\n\n\n2,542 (92%)\n\n\n\n\ndate_outcome\n\n\n2023-06-29 (2023-05-21, 2023-09-04)\n\n\n\n\n    Unknown\n\n\n2,542\n\n\n\n\ndate_first_contact\n\n\n2023-05-28 (2023-04-25, 2023-08-03)\n\n\n\n\n    Unknown\n\n\n2\n\n\n\n\ndate_last_contact\n\n\n2023-05-30 (2023-04-28, 2023-08-06)\n\n\n\n\n    Unknown\n\n\n2\n\n\n\n\ndistrict\n\n\n\n\n\n\n\n    Binh Chanh\n\n\n126 (4.6%)\n\n\n\n\n    Binh Tan\n\n\n140 (5.1%)\n\n\n\n\n    Binh Thanh\n\n\n161 (5.8%)\n\n\n\n\n    Can Gio\n\n\n123 (4.5%)\n\n\n\n\n    Cu Chi\n\n\n88 (3.2%)\n\n\n\n\n    Go Vap\n\n\n119 (4.3%)\n\n\n\n\n    Hoc Mon\n\n\n99 (3.6%)\n\n\n\n\n    Nha Be\n\n\n84 (3.0%)\n\n\n\n\n    Phu Nhuan\n\n\n167 (6.0%)\n\n\n\n\n    Quan 1\n\n\n120 (4.3%)\n\n\n\n\n    Quan 10\n\n\n161 (5.8%)\n\n\n\n\n    Quan 11\n\n\n159 (5.8%)\n\n\n\n\n    Quan 12\n\n\n129 (4.7%)\n\n\n\n\n    Quan 3\n\n\n115 (4.2%)\n\n\n\n\n    Quan 4\n\n\n81 (2.9%)\n\n\n\n\n    Quan 5\n\n\n130 (4.7%)\n\n\n\n\n    Quan 6\n\n\n154 (5.6%)\n\n\n\n\n    Quan 7\n\n\n46 (1.7%)\n\n\n\n\n    Quan 8\n\n\n68 (2.5%)\n\n\n\n\n    Tan Binh\n\n\n152 (5.5%)\n\n\n\n\n    Tan Phu\n\n\n164 (5.9%)\n\n\n\n\n    Thu Duc\n\n\n176 (6.4%)\n\n\n\n\noutbreak\n\n\n\n\n\n\n\n    1st outbreak\n\n\n1,513 (55%)\n\n\n\n\n    2nd outbreak\n\n\n1,249 (45%)\n\n\n\n\n\n\n1 Median (Q1, Q3); n (%)\n\n\n\n\n\n\n\n\nĐiều chỉnh bảng thống kê\nMột số tham số của tbl_summary hỗ trợ điều chỉnh bảng thống kê\n\n\n\nTên tham số\nCông dụng\n\n\n\n\ninclude\nChọn các biến được hiển thị trên bảng thống kê\n\n\nlabel\nĐổi cách hiển thị tên biến\n\n\nby\nHiển thị thống kê nhóm theo giá trị của 1 biến\n\n\nstatistic\nĐiều chỉnh thống kê được hiển thị\n\n\n\nChọn các biến được thống kê qua tham số include\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist %&gt;%\n  tbl_summary(\n    include = c(age, sex, outcome, date_onset, date_admission, date_first_contact, date_last_contact, outbreak)\n  )\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nN = 2,7621\n\n\n\n\nage\n15 (8, 22)\n\n\nsex\n\n\n\n\n    f\n1,365 (49%)\n\n\n    m\n1,397 (51%)\n\n\noutcome\n\n\n\n\n    died\n220 (8.0%)\n\n\n    recovered\n2,542 (92%)\n\n\ndate_onset\n2023-05-31 (2023-04-28, 2023-08-05)\n\n\ndate_admission\n2023-06-12 (NA, 2023-08-16)\n\n\n    Unknown\n2,206\n\n\ndate_first_contact\n2023-05-28 (2023-04-25, 2023-08-03)\n\n\n    Unknown\n2\n\n\ndate_last_contact\n2023-05-30 (2023-04-28, 2023-08-06)\n\n\n    Unknown\n2\n\n\noutbreak\n\n\n\n\n    1st outbreak\n1,513 (55%)\n\n\n    2nd outbreak\n1,249 (45%)\n\n\n\n1 Median (Q1, Q3); n (%)\n\n\n\n\n\n\n\n\nThay đổi tên biến qua tham số label\nVD: đổi tên được hiển thị cho các biến\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist %&gt;% tbl_summary(\n    include = c(age, sex, outcome, date_onset, date_admission,\n                date_first_contact, date_last_contact, outbreak),\n    # ----- Thay đổi cách hiển thị tên biến ------\n    label = list(\n      age ~ \"Tuổi\",\n      sex ~ \"Giới tính\",\n      outcome ~ \"Kết quả\",\n      date_onset ~ \"Ngày phát bệnh\",\n      date_admission ~ \"Ngày nhập viện\",\n      date_first_contact ~ \"Ngày tiếp xúc đầu tiên\",\n      date_last_contact ~ \"Ngày tiếp xúc cuối cùng\",\n      outbreak ~ \"Đợt dịch\"\n    )\n  )\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nN = 2,7621\n\n\n\n\nTuổi\n15 (8, 22)\n\n\nGiới tính\n\n\n\n\n    f\n1,365 (49%)\n\n\n    m\n1,397 (51%)\n\n\nKết quả\n\n\n\n\n    died\n220 (8.0%)\n\n\n    recovered\n2,542 (92%)\n\n\nNgày phát bệnh\n2023-05-31 (2023-04-28, 2023-08-05)\n\n\nNgày nhập viện\n2023-06-12 (NA, 2023-08-16)\n\n\n    Unknown\n2,206\n\n\nNgày tiếp xúc đầu tiên\n2023-05-28 (2023-04-25, 2023-08-03)\n\n\n    Unknown\n2\n\n\nNgày tiếp xúc cuối cùng\n2023-05-30 (2023-04-28, 2023-08-06)\n\n\n    Unknown\n2\n\n\nĐợt dịch\n\n\n\n\n    1st outbreak\n1,513 (55%)\n\n\n    2nd outbreak\n1,249 (45%)\n\n\n\n1 Median (Q1, Q3); n (%)\n\n\n\n\n\n\n\n\nThống kê theo nhóm qua tham số by\nVD: hiện thống kê cho từng đợt dịch\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist %&gt;% tbl_summary(\n  include = c(age, sex, outcome, date_onset, date_admission,\n                date_first_contact, date_last_contact, outbreak),\n  label = list(\n      age ~ \"Tuổi\",\n      sex ~ \"Giới tính\",\n      outcome ~ \"Kết quả\",\n      date_onset ~ \"Ngày phát bệnh\",\n      date_admission ~ \"Ngày nhập viện\",\n      date_first_contact ~ \"Ngày tiếp xúc đầu tiên\",\n      date_last_contact ~ \"Ngày tiếp xúc cuối cùng\"\n    ),\n  # ----- Hiển thị thống kê cho từng đợt dịch ------\n  by = outbreak)\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\n1st outbreak\nN = 1,5131\n2nd outbreak\nN = 1,2491\n\n\n\n\nTuổi\n13 (6, 20)\n19 (10, 27)\n\n\nGiới tính\n\n\n\n\n\n\n    f\n746 (49%)\n619 (50%)\n\n\n    m\n767 (51%)\n630 (50%)\n\n\nKết quả\n\n\n\n\n\n\n    died\n110 (7.3%)\n110 (8.8%)\n\n\n    recovered\n1,403 (93%)\n1,139 (91%)\n\n\nNgày phát bệnh\n2023-04-30 (2023-04-11, 2023-05-16)\n2023-08-12 (2023-07-16, 2023-08-31)\n\n\nNgày nhập viện\n2023-05-06 (2023-04-15, 2023-05-23)\n2023-08-18 (2023-07-25, 2023-09-05)\n\n\n    Unknown\n1,216\n990\n\n\nNgày tiếp xúc đầu tiên\n2023-04-27 (2023-04-08, 2023-05-13)\n2023-08-09 (2023-07-12, 2023-08-28)\n\n\n    Unknown\n1\n1\n\n\nNgày tiếp xúc cuối cùng\n2023-04-30 (2023-04-11, 2023-05-16)\n2023-08-11 (2023-07-15, 2023-08-31)\n\n\n    Unknown\n1\n1\n\n\n\n1 Median (Q1, Q3); n (%)\n\n\n\n\n\n\n\n\nĐiều chỉnh thống kê được hiển thị qua tham số statistic\nNgười dùng có thể lựa chọn các phép thống kê để áp dụng lên các biến\nVD: format thống kê cho  sex  và outcome\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist %&gt;% tbl_summary(\n  include = c(age, sex, outcome, date_onset, date_admission,\n                date_first_contact, date_last_contact, outbreak),\n  label = list(\n      age ~ \"Tuổi\",\n      sex ~ \"Giới tính\",\n      outcome ~ \"Kết quả\",\n      date_onset ~ \"Ngày phát bệnh\",\n      date_admission ~ \"Ngày nhập viện\",\n      date_first_contact ~ \"Ngày tiếp xúc đầu tiên\",\n      date_last_contact ~ \"Ngày tiếp xúc cuối cùng\"\n    ),\n  by = outbreak,\n  # ----- điều chỉnh thống kê ------\n  statistic = list(\n    sex ~ \"{n} / {N} ({p}%)\",\n    outcome ~ \"{n} / {N} ({p}%)\"\n  ))\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\n1st outbreak\nN = 1,5131\n2nd outbreak\nN = 1,2491\n\n\n\n\nTuổi\n13 (6, 20)\n19 (10, 27)\n\n\nGiới tính\n\n\n\n\n\n\n    f\n746 / 1,513 (49%)\n619 / 1,249 (50%)\n\n\n    m\n767 / 1,513 (51%)\n630 / 1,249 (50%)\n\n\nKết quả\n\n\n\n\n\n\n    died\n110 / 1,513 (7.3%)\n110 / 1,249 (8.8%)\n\n\n    recovered\n1,403 / 1,513 (93%)\n1,139 / 1,249 (91%)\n\n\nNgày phát bệnh\n2023-04-30 (2023-04-11, 2023-05-16)\n2023-08-12 (2023-07-16, 2023-08-31)\n\n\nNgày nhập viện\n2023-05-06 (2023-04-15, 2023-05-23)\n2023-08-18 (2023-07-25, 2023-09-05)\n\n\n    Unknown\n1,216\n990\n\n\nNgày tiếp xúc đầu tiên\n2023-04-27 (2023-04-08, 2023-05-13)\n2023-08-09 (2023-07-12, 2023-08-28)\n\n\n    Unknown\n1\n1\n\n\nNgày tiếp xúc cuối cùng\n2023-04-30 (2023-04-11, 2023-05-16)\n2023-08-11 (2023-07-15, 2023-08-31)\n\n\n    Unknown\n1\n1\n\n\n\n1 Median (Q1, Q3); n / N (%)\n\n\n\n\n\n\n\n\nĐiều chỉnh số chữ số thập phân qua tham số digits\nVD: Hiển thị tuổi với 2 chữ số thập phân\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist %&gt;% tbl_summary(\n  include = c(age, sex, outcome, date_onset, date_admission,\n                date_first_contact, date_last_contact, outbreak),\n  label = list(\n      age ~ \"Tuổi\",\n      sex ~ \"Giới tính\",\n      outcome ~ \"Kết quả\",\n      date_onset ~ \"Ngày phát bệnh\",\n      date_admission ~ \"Ngày nhập viện\",\n      date_first_contact ~ \"Ngày tiếp xúc đầu tiên\",\n      date_last_contact ~ \"Ngày tiếp xúc cuối cùng\"\n    ),\n  by = outbreak,\n  statistic = list(\n    sex ~ \"{n} / {N} ({p}%)\",\n    outcome ~ \"{n} / {N} ({p}%)\",\n    all_continuous() ~ \"{mean} [{min}, {max}]\"\n  ), \n  # ----- hiển thị 2 chữ số thập phân cho tuổi ------\n  digits = age ~ 2)\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\n1st outbreak\nN = 1,5131\n2nd outbreak\nN = 1,2491\n\n\n\n\nTuổi\n12.76 [0.00, 25.00]\n18.76 [3.00, 35.00]\n\n\nGiới tính\n\n\n\n\n\n\n    f\n746 / 1,513 (49%)\n619 / 1,249 (50%)\n\n\n    m\n767 / 1,513 (51%)\n630 / 1,249 (50%)\n\n\nKết quả\n\n\n\n\n\n\n    died\n110 / 1,513 (7.3%)\n110 / 1,249 (8.8%)\n\n\n    recovered\n1,403 / 1,513 (93%)\n1,139 / 1,249 (91%)\n\n\nNgày phát bệnh\n2023-04-26 [2023-01-01, 2023-07-10]\n2023-08-05 [2023-05-01, 2023-10-09]\n\n\nNgày nhập viện\n2023-05-06 [2023-01-06, 2025-03-02]\n2023-08-15 [2023-05-10, 2025-02-03]\n\n\n    Unknown\n1,216\n990\n\n\nNgày tiếp xúc đầu tiên\n2023-04-23 [2022-12-29, 2023-07-03]\n2023-08-03 [2023-05-03, 2023-10-15]\n\n\n    Unknown\n1\n1\n\n\nNgày tiếp xúc cuối cùng\n2023-04-26 [2023-01-04, 2023-07-05]\n2023-08-06 [2023-05-07, 2023-10-17]\n\n\n    Unknown\n1\n1\n\n\n\n1 Mean [Min, Max]; n / N (%)\n\n\n\n\n\n\n\n\nĐiều chỉnh giá trị được hiển thị\nĐể thay đổi tên các nhóm của biến phân loại, ta có thể sử dụng lệnh factor trước khi tạo bảng\nĐể thay đổi cách hiển thị giá trị bị thiếu, ta có thể sử dụng tham số missing_textcủa tbl_summary\nVD:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist %&gt;% \n  mutate(\n    # ------ đổi tên các nhóm trong biến phân loại ----\n    sex = factor(sex, levels = c(\"f\", \"m\"), labels = c(\"nữ\", \"nam\")),\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\")),\n    outbreak = factor(outbreak, \n                      levels = c(\"1st outbreak\", \"2nd outbreak\"), \n                      labels = c(\"Đợt dịch 1\", \"Đợt dịch 2\"))\n  ) %&gt;% \n  tbl_summary(\n    # ----- Đổi label cho các giá trị bị thiếu từ \"Unknown\" sang \"NA\" -----\n    missing_text = \"NA\",    \n    include = c(age, sex, outcome, date_onset, date_admission,\n                  date_first_contact, date_last_contact, outbreak),\n    label = list(\n        age ~ \"Tuổi\",\n        sex ~ \"Giới tính\",\n        outcome ~ \"Kết quả\",\n        date_onset ~ \"Ngày phát bệnh\",\n        date_admission ~ \"Ngày nhập viện\",\n        date_first_contact ~ \"Ngày tiếp xúc đầu tiên\",\n        date_last_contact ~ \"Ngày tiếp xúc cuối cùng\"\n      ),\n    by = outbreak,\n    statistic = list(\n      sex ~ \"{n} / {N} ({p}%)\",\n      outcome ~ \"{n} / {N} ({p}%)\",\n      all_continuous() ~ \"{mean} [{min}, {max}]\"),\n    digits = age ~ 2\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nĐợt dịch 1\nN = 1,5131\nĐợt dịch 2\nN = 1,2491\n\n\n\n\nTuổi\n12.76 [0.00, 25.00]\n18.76 [3.00, 35.00]\n\n\nGiới tính\n\n\n\n\n\n\n    nữ\n746 / 1,513 (49%)\n619 / 1,249 (50%)\n\n\n    nam\n767 / 1,513 (51%)\n630 / 1,249 (50%)\n\n\nKết quả\n\n\n\n\n\n\n    tử vong\n110 / 1,513 (7.3%)\n110 / 1,249 (8.8%)\n\n\n    khỏi bệnh\n1,403 / 1,513 (93%)\n1,139 / 1,249 (91%)\n\n\nNgày phát bệnh\n2023-04-26 [2023-01-01, 2023-07-10]\n2023-08-05 [2023-05-01, 2023-10-09]\n\n\nNgày nhập viện\n2023-05-06 [2023-01-06, 2025-03-02]\n2023-08-15 [2023-05-10, 2025-02-03]\n\n\n    NA\n1,216\n990\n\n\nNgày tiếp xúc đầu tiên\n2023-04-23 [2022-12-29, 2023-07-03]\n2023-08-03 [2023-05-03, 2023-10-15]\n\n\n    NA\n1\n1\n\n\nNgày tiếp xúc cuối cùng\n2023-04-26 [2023-01-04, 2023-07-05]\n2023-08-06 [2023-05-07, 2023-10-17]\n\n\n    NA\n1\n1\n\n\n\n1 Mean [Min, Max]; n / N (%)\n\n\n\n\n\n\n\n\n\n\nKết hợp nhiều bảng thống kê\nLệnh tbl_stack được sử dụng để kết hợp nhiều bảng thống kê có header giống nhau\nVD: Làm bảng tỉ lệ tử vong theo quận trong đợt 1, đợt 2 và cả 2 đợt\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng tỷ lệ tử vong trong cả 2 đợt dịch -----\nboth_outbreak &lt;- linelist %&gt;% \n  mutate(\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  tbl_summary(\n    include = c(outcome, district),\n    label = outcome ~ \"Kết quả\",\n    by = district,\n    statistic = outcome ~ \"{n} / {N} ({p}%)\"\n  ) %&gt;% \n  modify_header(all_stat_cols() ~ \"**{level}**\", label = \"**Quận**\") \n\n# ----- Bảng tỷ lệ tử vong trong đợt 1 -----\ntbl_first_outbreak &lt;- linelist %&gt;%\n  mutate(\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  filter(outbreak == \"1st outbreak\") %&gt;%\n  tbl_summary(\n    include = c(outcome, district),\n    label = outcome ~ \"Kết quả\",\n    by = district,\n    statistic = outcome ~ \"{n} / {N} ({p}%)\"\n  ) %&gt;% \n  modify_header(all_stat_cols() ~ \"**{level}**\", label = \"**Quận**\") \n\n# ----- Bảng tỷ lệ tử vong trong đợt 2 -----\ntbl_second_outbreak &lt;- linelist %&gt;%\n  mutate(\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  filter(outbreak == \"2nd outbreak\") %&gt;%\n  tbl_summary(\n    include = c(outcome, district),\n    label = outcome ~ \"Kết quả\",\n    by = district,\n    statistic = outcome ~ \"{n} / {N} ({p}%)\"\n  ) %&gt;% \n  modify_header(all_stat_cols() ~ \"**{level}**\", label = \"**Quận**\") \n\ntbl_stack(list(tbl_first_outbreak, tbl_second_outbreak, both_outbreak), group_header = c(\"Đợt 1\", \"Đợt 2\", \"Cả 2 đợt\")) %&gt;% \n  # --- optional: code điều chỉnh header cho từng bảng để dễ nhìn hơn ---- \n  as_gt() %&gt;% \n  gt::tab_style(\n    style = gt::cell_text(weight = \"bold\"),\n    locations = gt::cells_row_groups(groups = everything())\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuận\nBinh Chanh1\nBinh Tan1\nBinh Thanh1\nCan Gio1\nCu Chi1\nGo Vap1\nHoc Mon1\nNha Be1\nPhu Nhuan1\nQuan 11\nQuan 101\nQuan 111\nQuan 121\nQuan 31\nQuan 41\nQuan 51\nQuan 61\nQuan 71\nQuan 81\nTan Binh1\nTan Phu1\nThu Duc1\n\n\n\n\nĐợt 1\n\n\nKết quả\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    tử vong\n9 / 115 (7.8%)\n8 / 119 (6.7%)\n6 / 110 (5.5%)\n0 / 23 (0%)\n10 / 85 (12%)\n9 / 111 (8.1%)\n11 / 97 (11%)\n1 / 12 (8.3%)\n10 / 113 (8.8%)\n2 / 26 (7.7%)\n4 / 50 (8.0%)\n3 / 61 (4.9%)\n2 / 123 (1.6%)\n3 / 31 (9.7%)\n1 / 8 (13%)\n0 / 16 (0%)\n5 / 65 (7.7%)\n0 / 8 (0%)\n1 / 5 (20%)\n8 / 113 (7.1%)\n10 / 129 (7.8%)\n7 / 93 (7.5%)\n\n\n    khỏi bệnh\n106 / 115 (92%)\n111 / 119 (93%)\n104 / 110 (95%)\n23 / 23 (100%)\n75 / 85 (88%)\n102 / 111 (92%)\n86 / 97 (89%)\n11 / 12 (92%)\n103 / 113 (91%)\n24 / 26 (92%)\n46 / 50 (92%)\n58 / 61 (95%)\n121 / 123 (98%)\n28 / 31 (90%)\n7 / 8 (88%)\n16 / 16 (100%)\n60 / 65 (92%)\n8 / 8 (100%)\n4 / 5 (80%)\n105 / 113 (93%)\n119 / 129 (92%)\n86 / 93 (92%)\n\n\nĐợt 2\n\n\nKết quả\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    tử vong\n1 / 11 (9.1%)\n1 / 21 (4.8%)\n11 / 51 (22%)\n3 / 100 (3.0%)\n0 / 3 (0%)\n0 / 8 (0%)\n0 / 2 (0%)\n11 / 72 (15%)\n5 / 54 (9.3%)\n10 / 94 (11%)\n4 / 111 (3.6%)\n7 / 98 (7.1%)\n1 / 6 (17%)\n10 / 84 (12%)\n8 / 73 (11%)\n7 / 114 (6.1%)\n11 / 89 (12%)\n2 / 38 (5.3%)\n4 / 63 (6.3%)\n8 / 39 (21%)\n1 / 35 (2.9%)\n5 / 83 (6.0%)\n\n\n    khỏi bệnh\n10 / 11 (91%)\n20 / 21 (95%)\n40 / 51 (78%)\n97 / 100 (97%)\n3 / 3 (100%)\n8 / 8 (100%)\n2 / 2 (100%)\n61 / 72 (85%)\n49 / 54 (91%)\n84 / 94 (89%)\n107 / 111 (96%)\n91 / 98 (93%)\n5 / 6 (83%)\n74 / 84 (88%)\n65 / 73 (89%)\n107 / 114 (94%)\n78 / 89 (88%)\n36 / 38 (95%)\n59 / 63 (94%)\n31 / 39 (79%)\n34 / 35 (97%)\n78 / 83 (94%)\n\n\nCả 2 đợt\n\n\nKết quả\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    tử vong\n10 / 126 (7.9%)\n9 / 140 (6.4%)\n17 / 161 (11%)\n3 / 123 (2.4%)\n10 / 88 (11%)\n9 / 119 (7.6%)\n11 / 99 (11%)\n12 / 84 (14%)\n15 / 167 (9.0%)\n12 / 120 (10%)\n8 / 161 (5.0%)\n10 / 159 (6.3%)\n3 / 129 (2.3%)\n13 / 115 (11%)\n9 / 81 (11%)\n7 / 130 (5.4%)\n16 / 154 (10%)\n2 / 46 (4.3%)\n5 / 68 (7.4%)\n16 / 152 (11%)\n11 / 164 (6.7%)\n12 / 176 (6.8%)\n\n\n    khỏi bệnh\n116 / 126 (92%)\n131 / 140 (94%)\n144 / 161 (89%)\n120 / 123 (98%)\n78 / 88 (89%)\n110 / 119 (92%)\n88 / 99 (89%)\n72 / 84 (86%)\n152 / 167 (91%)\n108 / 120 (90%)\n153 / 161 (95%)\n149 / 159 (94%)\n126 / 129 (98%)\n102 / 115 (89%)\n72 / 81 (89%)\n123 / 130 (95%)\n138 / 154 (90%)\n44 / 46 (96%)\n63 / 68 (93%)\n136 / 152 (89%)\n153 / 164 (93%)\n164 / 176 (93%)\n\n\n\n1 n / N (%)"
-  },
-  {
-    "objectID": "learning/r/r03.html#kiểm-định-thống-kê",
-    "href": "learning/r/r03.html#kiểm-định-thống-kê",
-    "title": "Phân tích dữ liệu với R",
-    "section": "Kiểm định thống kê",
-    "text": "Kiểm định thống kê\nĐể thêm kết quả cho phép kiểm định thống kê vào bảng phân tích, sử dụng lệnh add_p theo cú pháp add_p(tên_biến ~ \"phép kiểm định\")\nMột số phép kiểm định thông dụng\n\nt.test - Kiểm định t\nchisq.test - Kiểm định Chi bình phương ( )\nfisher.test - Kiểm tra Fisher exact\n\nTổng hợp các phép kiểm định thống kê\n\n\n\n\n\n\n\n\nPhép kiểm\nMô tả\nKết quả\n\n\n\n\nKiểm định T\nSo sánh giá trị trung bình của biến liên tục giữa hai nhóm.\n không có sự khác biệt giữa trung bình của 2 nhóm\np-value &lt; 0.05: có sự khác biệt giữa 2 nhóm\np-value &gt; 0.05: không có sự khác biệt giữa 2 nhóm\n\n\nKiểm định Chi-Square\nKiểm tra biến phân loại giữa 2 nhóm có liên quan hay không\n không có sự liên quan giữa 2 biến\np-value &lt; 0.05: có sự liên quan giữa 2 nhóm\np-value &gt; 0.05: không có sự liên quan giữa 2 nhóm\n\n\nKiểm định Fisher’s Exact\nTương tự như Chi-squared, kiểm tra mối liên hệ giữa hai biến phân loại nhưng cho cỡ mẫu nhỏ\n\n\n\n\n\nKiểm định T\nVD 1: Kiểm tra độ tuổi trung bình giữa 2 đợt dịch\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\nlinelist %&gt;% \n  mutate(\n    outbreak = factor(outbreak, \n                      levels = c(\"1st outbreak\", \"2nd outbreak\"), \n                      labels = c(\"Đợt 1\", \"Đợt 2\"))\n  ) %&gt;% \n  tbl_summary(\n    include = c(age, outbreak),\n    label = age ~ \"Tuổi\",\n    by = outbreak\n  ) %&gt;% \n  modify_header(label = \"**Đặc điểm**\")  %&gt;% \n  add_p(test = age ~ \"t.test\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nĐặc điểm\nĐợt 1\nN = 1,5131\nĐợt 2\nN = 1,2491\np-value2\n\n\n\n\nTuổi\n13 (6, 20)\n19 (10, 27)\n&lt;0.001\n\n\n\n1 Median (Q1, Q3)\n\n\n2 Welch Two Sample t-test\n\n\n\n\n\n\n\n\nVD 2: Kiểm tra độ tuổi trung bình của 2 nhóm khỏi bệnh và tử vong\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho đợt dịch đầu ---- \nfirst_outbreak &lt;- linelist %&gt;% \n  mutate(\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  filter(outbreak == \"1st outbreak\") %&gt;% \n  tbl_summary(\n    include = c(age, outcome),\n    label = age ~ \"Tuổi\",\n    by = outcome\n  ) %&gt;% \n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = age ~ \"t.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho đợt dịch thứ hai ---- \nsecond_outbreak &lt;- linelist %&gt;% \n  filter(outbreak == \"2nd outbreak\") %&gt;% \n  mutate(\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  tbl_summary(\n    include = c(age, outcome),\n    label = age ~ \"Tuổi\",\n    by = outcome\n  ) %&gt;% \n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = age ~ \"t.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho cả hai đợt dịch ---- \nboth_outbreak &lt;- linelist %&gt;% \n  mutate(\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  tbl_summary(\n    include = c(age, outcome),\n    label = age ~ \"Tuổi\",\n    by = outcome\n  ) %&gt;% \n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = age ~ \"t.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\ntbl_stack(list(first_outbreak, second_outbreak, both_outbreak), \n          group_header = c(\"Đợt 1\", \"Đợt 2\", \"Cả 2 đợt\")) %&gt;% \n  # --- optional: code điều chỉnh style header ---- \n  modify_header(label = \"**Đặc điểm**\")  %&gt;% \n  as_gt() %&gt;% \n  gt::tab_style(\n    style = gt::cell_text(weight = \"bold\"),\n    locations = gt::cells_row_groups(groups = everything())\n  )\n\n\n\n\n\n\n\n\nĐặc điểm\ntử vong1\nkhỏi bệnh1\np-value2\n\n\n\n\nĐợt 1\n\n\nTuổi\n12 (5, 19)\n13 (6, 20)\n0.8\n\n\nĐợt 2\n\n\nTuổi\n21 (12, 27)\n19 (10, 27)\n0.2\n\n\nCả 2 đợt\n\n\nTuổi\n17 (9, 23)\n15 (8, 22)\n0.2\n\n\n\n1 Median (Q1, Q3)\n\n\n2 Welch Two Sample t-test\n\n\n\n\n\n\n\n\n\n\nKiểm định Chi bình phương\nVD: Kiểm tra giới tính có ảnh hưởng đến khả năng tử vong hay không\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho đợt dịch đầu ---- \ntbl_first_outbreak &lt;- linelist %&gt;%\n  mutate(\n    sex = factor(sex, levels = c(\"f\", \"m\"), labels = c(\"nữ\", \"nam\")),\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  filter(outbreak == \"1st outbreak\") %&gt;%\n  tbl_summary(\n    include = c(sex, outcome), \n    label = outcome ~ \"Kết quả\",\n    by = sex) %&gt;%\n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = outcome ~ \"chisq.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho đợt dịch thứ 2 ---- \ntbl_second_outbreak &lt;- linelist %&gt;%\n  mutate(\n    sex = factor(sex, levels = c(\"f\", \"m\"), labels = c(\"nữ\", \"nam\")),\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  filter(outbreak == \"2nd outbreak\") %&gt;%\n  tbl_summary(\n    include= c(sex, outcome), label = outcome ~ \"Kết quả\",\n    by = sex) %&gt;%\n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = outcome ~ \"chisq.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho cả 2 đợt dịch ---- \nboth_outbreak &lt;- linelist %&gt;% \n  mutate(\n    sex = factor(sex, levels = c(\"f\", \"m\"), labels = c(\"nữ\", \"nam\")),\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  tbl_summary(\n    include = c(sex, outcome),\n    label = outcome ~ \"Kết quả\",\n    by = c(sex)\n  ) %&gt;% \n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = outcome ~ \"chisq.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\ntbl_stack(list(tbl_first_outbreak, tbl_second_outbreak, both_outbreak), \n          group_header = c(c(\"Đợt 1\", \"Đợt 2\", \"Cả 2 đợt\"))) %&gt;%\n  # --- optional: code điều chỉnh style header ---- \n  modify_header(label = \"**Đặc điểm**\")  %&gt;% \n  as_gt() %&gt;% \n  gt::tab_style(\n    style = gt::cell_text(weight = \"bold\"),\n    locations = gt::cells_row_groups(groups = everything())\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nĐặc điểm\nnữ1\nnam1\np-value2\n\n\n\n\nĐợt 1\n\n\nKết quả\n\n\n\n\n0.8\n\n\n    tử vong\n56 (7.5%)\n54 (7.0%)\n\n\n\n\n    khỏi bệnh\n690 (92%)\n713 (93%)\n\n\n\n\nĐợt 2\n\n\nKết quả\n\n\n\n\n0.5\n\n\n    tử vong\n51 (8.2%)\n59 (9.4%)\n\n\n\n\n    khỏi bệnh\n568 (92%)\n571 (91%)\n\n\n\n\nCả 2 đợt\n\n\nKết quả\n\n\n\n\n0.9\n\n\n    tử vong\n107 (7.8%)\n113 (8.1%)\n\n\n\n\n    khỏi bệnh\n1,258 (92%)\n1,284 (92%)\n\n\n\n\n\n1 n (%)\n\n\n2 Pearson’s Chi-squared test\n\n\n\n\n\n\n\n\n\n\nKiểm định Fisher exact\nThử thực hiện kiểm định Fisher trên bộ dữ liệu và so sánh với kiểm định Chi bình phương\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho đợt dịch đầu ---- \ntbl_first_outbreak &lt;- linelist %&gt;%\n  mutate(\n    sex = factor(sex, levels = c(\"f\", \"m\"), labels = c(\"nữ\", \"nam\")),\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  filter(outbreak == \"1st outbreak\") %&gt;%\n  tbl_summary(\n    include = c(sex, outcome), \n    label = outcome ~ \"Kết quả\",\n    by = sex) %&gt;%\n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = outcome ~ \"fisher.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho đợt dịch thứ 2 ---- \ntbl_second_outbreak &lt;- linelist %&gt;%\n  mutate(\n    sex = factor(sex, levels = c(\"f\", \"m\"), labels = c(\"nữ\", \"nam\")),\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  filter(outbreak == \"2nd outbreak\") %&gt;%\n  tbl_summary(\n    include= c(sex, outcome), label = outcome ~ \"Kết quả\",\n    by = sex) %&gt;%\n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = outcome ~ \"fisher.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\n# ----- Bảng kết quả cho cả 2 đợt dịch ---- \nboth_outbreak &lt;- linelist %&gt;% \n  mutate(\n    sex = factor(sex, levels = c(\"f\", \"m\"), labels = c(\"nữ\", \"nam\")),\n    outcome = factor(outcome, \n                     levels = c(\"died\", \"recovered\"), \n                     labels = c(\"tử vong\", \"khỏi bệnh\"))\n  ) %&gt;% \n  tbl_summary(\n    include = c(sex, outcome),\n    label = outcome ~ \"Kết quả\",\n    by = c(sex)\n  ) %&gt;% \n  # điều chỉnh header để các bảng có chung header\n  modify_header(all_stat_cols() ~ \"**{level}**\") %&gt;% \n  add_p(test = outcome ~ \"fisher.test\")\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nCode\ntbl_stack(list(tbl_first_outbreak, tbl_second_outbreak, both_outbreak), \n          group_header = c(c(\"Đợt 1\", \"Đợt 2\", \"Cả 2 đợt\"))) %&gt;%\n  # --- optional: code điều chỉnh style header ---- \n  modify_header(label = \"**Đặc điểm**\")  %&gt;% \n  as_gt() %&gt;% \n  gt::tab_style(\n    style = gt::cell_text(weight = \"bold\"),\n    locations = gt::cells_row_groups(groups = everything())\n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nĐặc điểm\nnữ1\nnam1\np-value2\n\n\n\n\nĐợt 1\n\n\nKết quả\n\n\n\n\n0.8\n\n\n    tử vong\n56 (7.5%)\n54 (7.0%)\n\n\n\n\n    khỏi bệnh\n690 (92%)\n713 (93%)\n\n\n\n\nĐợt 2\n\n\nKết quả\n\n\n\n\n0.5\n\n\n    tử vong\n51 (8.2%)\n59 (9.4%)\n\n\n\n\n    khỏi bệnh\n568 (92%)\n571 (91%)\n\n\n\n\nCả 2 đợt\n\n\nKết quả\n\n\n\n\n0.8\n\n\n    tử vong\n107 (7.8%)\n113 (8.1%)\n\n\n\n\n    khỏi bệnh\n1,258 (92%)\n1,284 (92%)\n\n\n\n\n\n1 n (%)\n\n\n2 Fisher’s exact test"
-  },
-  {
-    "objectID": "learning/r/r03.html#bài-tập",
-    "href": "learning/r/r03.html#bài-tập",
-    "title": "Phân tích dữ liệu với R",
-    "section": "Bài tập",
-    "text": "Bài tập\n\nĐọc dữ liệu\nĐọc dữ liệu tiêm chủng sau phần làm sạch\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nTạo và điều chỉnh bảng thống kê\nTạo bảng thống kê cho dữ liệu vaccine theo các yêu cầu sau\n\nHiển thị thống kê cho các biến ngaysinh, ngaytiem, khangnguyen, cho từng nhóm giới tính (gioitinh)\nThay đổi tên các biến được hiển thị như sau: ngaysinh -&gt; Ngày sinh, ngaytiem -&gt; Ngày tiêm, khangnguyen -&gt; Kháng nguyên\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPhân tích\nTạo bảng thống kê số mũi viêm gan b sơ sinh (khangnguyen mang giá trị vgb_truoc_24, vgb_sau_24) theo quận huyện\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTạo bảng tỷ lệ tiêm chủng bằng tbl_summary theo quận/huyện\n\n\n\n\n\n\nTipGợi ý\n\n\n\n\n\n\nChuyển từ bảng dạng ngang sang dọc bằng pivot_wider\nFormat các biến ngày tiêm thành tình trạng tiêm\nDùng tbl_summary để hiển thị số trẻ được tiêm cho từng mũi"
-  },
-  {
-    "objectID": "learning/r_basic.html",
-    "href": "learning/r_basic.html",
-    "title": "R Basic",
+    "objectID": "news/post5.html",
+    "href": "news/post5.html",
+    "title": "Workshop Spatial Analysis and Risk map",
     "section": "",
-    "text": "Tổng quan về R\n\n\n\nOverview\n\nR\n\n\n\nR là một ngôn ngữ lập trình, không phải phần mềm\n\n\n\n\n\nJul 2, 2025\n\n\nThu Pham\n\n\n\n\n\n\n\n\n\n\n\n\nLàm sạch và xử lý dữ liệu với R\n\n\n\nCleaning\n\nAnalysis\n\nR\n\n\n\nLàm sạch và xử lý dữ liệu phải là 1 quy trình, đây là một bước chuẩn bị chi tiết cho phân tích dữ liệu\n\n\n\n\n\nJul 2, 2025\n\n\nAnh Huynh, Thu Pham\n\n\n\n\n\n\n\n\n\n\n\n\nPhân tích dữ liệu với R\n\n\n\nCleaning\n\nAnalysis\n\nR\n\n\n\nPhân tích trên dữ liệu sạch và phải có kế hoạch phân tích cụ thể\n\n\n\n\n\nJul 2, 2025\n\n\nAnh Huynh\n\n\n\n\n\n\n\n\n\n\n\n\nTrực quan hóa dữ liệu với R\n\n\n\nVisualization\n\nR\n\n\n\nTrực quan hóa cung cấp cái nhìn tổng quát trong so sánh kết quả. Trực quan hóa là một nghệ thuật\n\n\n\n\n\nJul 2, 2025\n\n\nAn Tran\n\n\n\n\n\nNo matching items\n Back to top"
+    "text": "Recently, the Department organized a workshop on “Spatial Analysis” with the participation of members from the Surveillance and Early Warning Division (GSCB). The session provided foundational knowledge on spatial analysis, the development of dengue risk maps, and various approaches for applying spatial modeling in epidemiology.\nDuring the workshop, participants were introduced to an overview of key spatial analysis techniques and global examples of risk-mapping approaches. These insights helped identify lessons learned and inform directions for developing a risk map tailored to the context of Ho Chi Minh City. Members also engaged in active discussions on data application, spatial modeling, and practical implementation for dengue.\nThe department organized a workshop to introduce Risk Map, a tool that supports visualization, management, and prediction of infectious disease risks based on case data. The tool displays spatial risk distribution, helping identify priority areas for investigation and informing decision-making in surveillance and outbreak response activities.\nRisk Map integrates multiple data sources, including case data, population density, growth patterns, and other transmission-related factors. It visualizes risk levels through graded color scales, incorporates hotspots and the growthRate indicator for early warning, and supports prioritization of resources such as vaccines and healthcare personnel.\nThe workshop provided an overview of Risk Map’s potential applications in analysis and decision support, contributing to improved effectiveness in disease prevention and control.\n\n\n\nTeam members getting ready for the presentation.\n\n\n\n\n\n\n\n\n{{&lt; fa book-open &gt;}}Access the full lecture notes and slides at here\n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "learning/warning_forecast.html",
-    "href": "learning/warning_forecast.html",
-    "title": "Modeling",
+    "objectID": "news/post7.html",
+    "href": "news/post7.html",
+    "title": "Workshop on Using the EIOS System for Monitoring Public Health Events",
     "section": "",
-    "text": "Welcome to SWAPER’s modeling repository. The latest lectures will be updated here.\n\n\n\n\n\n\n\n\n\n\n Back to top"
+    "text": "The Department of Surveillance, Warning, Preparedness, and Emergency Response organized an internal workshop on the Epidemic Intelligence from Open Sources (EIOS) system to strengthen the team’s capacity in early detection of public health events.\nDuring the session, members were introduced to how EIOS collects, aggregates, and filters information from various open sources, including news outlets, social media, and online platforms. The workshop also focused on how to use EIOS to identify unusual signals, monitor disease trends, and support early warning activities.\n\n\n\nTeam members getting ready for the presentation.\n\n\nThis workshop enhanced the team’s skills in utilizing open-source intelligence, contributing to more effective public health surveillance and timely response to emerging risks.\n\n\n\n\n\n\n{{&lt; fa book-open &gt;}}Access the full lecture notes and slides at here\n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "news/index.html",
-    "href": "news/index.html",
-    "title": "What’s news",
-    "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nWorkshop on the Chikungunya Situation in France and Italy\n\n\n\nWorkshop\n\nLearning\n\n\n\n\n\n\n\nTuyen Pham\n\n\nDec 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorkshop on Collaboration with OUCRU for Rt Research in Dengue\n\n\n\nWorkshop\n\nLearning\n\n\n\n\n\n\n\nTuyen Pham\n\n\nDec 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorkshop Spatial Analysis and Risk map\n\n\n\nWorkshop\n\nLearning\n\n\n\n\n\n\n\nTuyen Pham\n\n\nDec 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorkshop Introducing the RRT Management Tool\n\n\n\nWorkshop\n\nLearning\n\n\n\n\n\n\n\nTuyen Pham\n\n\nDec 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorkshop on Using the EIOS System for Monitoring Public Health Events\n\n\n\nWorkshop\n\nLearning\n\n\n\n\n\n\n\nTuyen Pham\n\n\nDec 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nWorkshop on “Transmission Assessment” Held by the Department\n\n\n\nWorkshop\n\nLearning\n\n\n\n\n\n\n\nTuyen Pham\n\n\nDec 5, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nRECOGNIZING THE OUTSTANDING PRESENTER OF Q2/2025\n\n\n\nOutstanding Presentation award\n\n\n\nCongratulations to Mr. Khang - Winner of the Outstanding Presentation award for Q2/2025 !\n\n\n\nTuyen Pham\n\n\nJul 15, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nMeeting with OUCRU\n\n\n\nCollaboration\n\nPartner Meeting\n\n\n\nSummary of the collaboration meeting between SWAPER and OUCRU to discuss infectious disease surveillance and future joint activities.\n\n\n\nTuyen Pham\n\n\nJul 2, 2025\n\n\n\n\n\n\nNo matching items\n Back to top"
+    "objectID": "seminars/index.html#epidemiology",
+    "href": "seminars/index.html#epidemiology",
+    "title": "Online semniars for infectious diseases",
+    "section": "Epidemiology",
+    "text": "Epidemiology\n\nJoint UNIversities Pandemic and Epidemiological Research (JUNIPER) seminar Link\nLSHTM Centre for Epidemic Preparedness and Response seminar series Link\nHavard T.H. Chan School of Public Health: Seminars in Epidemiology Link\nHavard T.H. Chan School of Public Health: Center for Communicable Disease Dynamics, ID Epi Spring Seminar Series Link"
   },
   {
-    "objectID": "news/post2.html#the-outstanding-presentation-award",
-    "href": "news/post2.html#the-outstanding-presentation-award",
-    "title": "RECOGNIZING THE OUTSTANDING PRESENTER OF Q2/2025",
-    "section": "The Outstanding Presentation award",
-    "text": "The Outstanding Presentation award\nAt any organization, expertise and the ability to share knowledge effectively play a vital role in building a strong, capable team. At our department, internal workshops are not only a learning opportunity but also a platform for individuals to showcase their strengths, inspire others, and contribute to the collective development of the team.\nFor Quarter 2 of 2025, Mr. Khang has been named the Outstanding Presenter, thanks to his impressive performance during a recent workshop that received overwhelmingly positive feedback from attendees.\n\n\n\nMs. Lan is presenting him with the award\n\n\n🌱 This award is not only a well-deserved recognition for Mr. Khang but also a source of motivation for all of us to continue learning, sharing, and growing together.\nOnce again, congratulations to Mr. Khang! We look forward to more outstanding presentations in the quarters to come."
+    "objectID": "seminars/index.html#modeling",
+    "href": "seminars/index.html#modeling",
+    "title": "Online semniars for infectious diseases",
+    "section": "Modeling",
+    "text": "Modeling\n\nAdvances in Socio-Epidemic Mathematical Modelling UMI-MSE online seminar Link\nLSHTM Centre for data and statistical science for health seminar series Link\nLSHTM Centre for Mathematical Modelling of Infectious Diseases seminar series Link\nThe MIDSEA Network Link"
   },
   {
-    "objectID": "news/post4.html",
-    "href": "news/post4.html",
-    "title": "Workshop on Collaboration with OUCRU for Rt Research in Dengue",
-    "section": "",
-    "text": "The Department of Surveillance, Warning, Preparedness, and Emergency Response recently held a workshop to present the research concept on the time-varying reproduction number (Rt) in Dengue with representatives from OUCRU.\nDuring the session, the department introduced its proposed study on estimating Rt and its potential application in disease surveillance. Both sides discussed initial steps for collaboration, including research design, data sharing, and strengthening analytical capacity in epidemiology.\n\n\n\nQuan Truong getting ready for the presentation.\n\n\n\n\n\n\n\n\n{{&lt; fa book-open &gt;}}Access the full lecture notes and slides at here\n\n\n\n\n\n\n Back to top"
+    "objectID": "seminars/index.html#the-public-health-emergency-operations-centre",
+    "href": "seminars/index.html#the-public-health-emergency-operations-centre",
+    "title": "Online semniars for infectious diseases",
+    "section": "The Public Health Emergency Operations Centre",
+    "text": "The Public Health Emergency Operations Centre\nThis session introduces key online learning resources on Public Health Emergency Operations Centres (PHEOC) and Public Health Emergency Management (PHEM). Participants will be guided to relevant self-paced courses provided by trusted institutions such as WHO, CDC, and other global partners. These resources support capacity building for emergency preparedness and response.\n\nReady4Response Tier 2: Systems, structures and skills Link\nThe Public Health Emergency Operations Centre (PHEOC) Link\nKing County Emergency Management Link\nRapid Response Teams Training Programme - WHO Link"
   },
   {
-    "objectID": "news/post6.html",
-    "href": "news/post6.html",
-    "title": "Workshop Introducing the RRT Management Tool",
-    "section": "",
-    "text": "On 26 November 2025, the Department of … organized a workshop to introduce the Rapid Response Team (RRT) Management Tool, designed to support data management and coordination activities during public health emergencies.\n\n\n\nTeam members getting ready for the presentation.\n\n\nThe workshop focused on two main components: - An overview of activities that the tool can support across the three phases: preparedness, response, and post-response.\n\nA feature demonstration, showcasing how the tool operates and the practical workflow for users.\nThe session helped participants gain a clearer understanding of the tool’s potential applications and provided direction for establishing and deploying the RRT in the near future.\n\n\n\n\n\n\n\n{{&lt; fa book-open &gt;}}Access the full lecture notes and slides at here\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "news/post8.html",
-    "href": "news/post8.html",
-    "title": "Workshop on “Transmission Assessment” Held by the Department",
-    "section": "",
-    "text": "The Department recently organized a workshop titled “Transmission Assessment” with the participation of staff members across the unit. The session focused on providing foundational knowledge and methodologies for evaluating the transmissibility of infectious diseases to support surveillance and outbreak response.\nThe workshop introduced key concepts such as the reproduction number (R), generation time, and other indicators used to analyze disease transmission dynamics. The reporting team also presented methods for estimating time-varying R, analyzing epidemiological trends, and interpreting results to inform decision-making.\n\n\n\nTeam members getting ready for the presentation.\n\n\nParticipants engaged in active discussions on the applicability of each method in real-world settings, including assessing outbreak risk, forecasting epidemic trends, and supporting resource prioritization during response activities.\nThe workshop concluded with a shared direction to strengthen the use of transmission-assessment methods in routine surveillance, contributing to improved forecasting capacity and more effective disease control.\n\n\n\n\n\n\n{{&lt; fa book-open &gt;}}Access the full lecture notes and slides at here {{&lt; fa book-open &gt;}}\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "snapshot/index.html",
-    "href": "snapshot/index.html",
-    "title": "Bản tin hàng tuần (Epidemic Channel)",
-    "section": "",
-    "text": "Chọn một tuần bên dưới để xem bản tin nhanh.\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n \n\n\n\nDate\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\n\n\n\nJun 18, 2026\n\n\nBản tin nhanh - Tuần 24/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nJun 10, 2026\n\n\nBản tin nhanh - Tuần 23/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nJun 3, 2026\n\n\nBản tin nhanh - Tuần 22/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nMay 27, 2026\n\n\nBản tin nhanh - Tuần 21/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nMay 20, 2026\n\n\nBản tin nhanh - Tuần 20/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nMay 13, 2026\n\n\nBản tin nhanh - Tuần 19/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nMay 6, 2026\n\n\nBản tin nhanh - Tuần 18/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nApr 24, 2026\n\n\nBản tin nhanh - Tuần 16/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nApr 16, 2026\n\n\nBản tin nhanh - Tuần 15/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nApr 9, 2026\n\n\nBản tin nhanh - Tuần 14/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nApr 2, 2026\n\n\nBản tin nhanh - Tuần 13/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nMar 30, 2026\n\n\nBản tin nhanh - Tuần 12/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nMar 20, 2026\n\n\nBản tin nhanh - Tuần 11/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nMar 13, 2026\n\n\nBản tin nhanh - Tuần 10/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nMar 6, 2026\n\n\nBản tin nhanh - Tuần 09/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nFeb 27, 2026\n\n\nBản tin nhanh - Tuần 08/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nFeb 20, 2026\n\n\nBản tin nhanh - Tuần 07/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nFeb 13, 2026\n\n\nBản tin nhanh - Tuần 06/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nFeb 6, 2026\n\n\nBản tin nhanh - Tuần 05/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nJan 30, 2026\n\n\nBản tin nhanh - Tuần 04/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nJan 23, 2026\n\n\nBản tin nhanh - Tuần 03/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nJan 16, 2026\n\n\nBản tin nhanh - Tuần 02/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\n\n\n\nJan 9, 2026\n\n\nBản tin nhanh - Tuần 01/2026\n\n\nSurveillance, Warning and Preparedness, Emergency Response to Epidemic\n\n\n\n\n\n\nNo matching items\n Back to top"
+    "objectID": "seminars/index.html#field-epidemiology-training-program",
+    "href": "seminars/index.html#field-epidemiology-training-program",
+    "title": "Online semniars for infectious diseases",
+    "section": "Field Epidemiology Training Program",
+    "text": "Field Epidemiology Training Program\n\nAbstract Writing (18/6/2025) Link\nQualitative Data Collection During an Outbreak Part I (16/7/2025) Link\nQualitative Data Collection During an Outbreak Part II (20/8/2025) Link\nInformatics & Data Viz Basics for Field Epidemiology (17/9/2025) Link\nSurveillance System Evaluations (15/10/2025) Link\nMatching in Case: Control Studies: Should I Do It? When to Do It and Why (19/11/2025) Link\nUsing an Outline When Writing: How to Clear Your Thoughts Before Putting Pen to Paper (21/1/2026) Link\nFacilitating a Case Study (18/2/2026) Link"
   }
 ]
