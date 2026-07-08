@@ -1,0 +1,51 @@
+---
+subtitle: "Documents"
+---
+
+## Conference
+
+1. Dengue Modelling Consortium 2026 [Link](https://gscb.hcdc.vn/index.php/s/xPQo4KTimknr6rk){target="_blank"}
+
+## E-Book
+
+1.  Epidemic R Handbook, 2024 [Link](https://epirhandbook.com/en/){target="_blank"}
+
+2.  Introduction to Data Science, 2019 [Link](https://rafalab.dfci.harvard.edu/dsbook/index.html){target="_blank"}
+
+3.  ggplot2: Elegant Graphics for Data Analysis, 2019 [Link](https://ggplot2-book.org/){target="_blank"}
+
+4.  Telling Stories with Data, 2023 [Link](https://tellingstorieswithdata.com/){target="_blank"}
+
+5.  Spatial Statistics for Data Science: Theory and Practice with R, 2019 [Link](https://www.paulamoraga.com/book-spatial/index.html){target="_blank"}
+
+## Book
+
+1.  Principles of Epidemiology in Public Health Practice, 2012 **(USCDC)** [Link](https://gscb.hcdc.vn/index.php/s/3BG8MBzQcSJW2jg){target="_blank"}
+
+2.  Handbook of Applied Health Economics in Vaccines, 2023 [Link](https://gscb.hcdc.vn/index.php/s/4wcEMZqojHCoBTQ){target="_blank"}
+
+3.  National RRT SOPs, 2024 **(NIH, Pakistan)** [Link](https://gscb.hcdc.vn/index.php/s/jC5Bq8pkocXgDBC){target="_blank"}
+
+4.  Framework for a Public Health Emergency Operations Centre [Link](https://gscb.hcdc.vn/index.php/s/MrJaDtyRAM2SwHM){target="_blank"}
+
+5.  International Health Regulation (2005) [Link](https://gscb.hcdc.vn/index.php/s/PqeNbc96cnsLRwG){target="_blank"}
+
+6.  Handbook for Developing a Public Health Emergency Operations Center (Part A) [Link](https://gscb.hcdc.vn/index.php/s/TCmaX8pJfFfR47D){target="_blank"}
+
+7.  Handbook for Developing a Public Health Emergency Operations Center (Part C) [Link](https://gscb.hcdc.vn/index.php/s/2B9q5seWC89HMQH){target="_blank"}
+
+8.  Handbook for Public Health Emergency Operations Center Operations and Management-WHO Regional Office for Africa [Link](https://gscb.hcdc.vn/index.php/s/aTCXoebZadHEBqi){target="_blank"}
+
+9.  Establishment and Management of Public Health Rapid Response Teams For Diseases Outbreaks [Link](https://gscb.hcdc.vn/index.php/s/TA6ZQXiycCWHAnp){target="_blank"}
+
+10. Guidance for after action review [Link](https://gscb.hcdc.vn/index.php/s/JAfGZmeGqNf7gKL){target="_blank"}
+
+11. WHO Simulation Exercise Manual [Link](https://gscb.hcdc.vn/index.php/s/JMgwkpRRDeaP7MH){target="_blank"}
+
+12. Emergency Exercise Development [Link](https://gscb.hcdc.vn/index.php/s/924efTYowxqGkN9){target="_blank"}
+
+13. Communicating risk in public health emergencies: a WHO guideline for emergency risk communication policy and practice [Link](https://gscb.hcdc.vn/index.php/s/C7y2n2NRFanroGe){target="_blank"}
+
+14. WHO community engagement framework for quality, people-centred and resilient health services [Link](https://gscb.hcdc.vn/index.php/s/t8g3LjCaRSP5WHt){target="_blank"}
+
+

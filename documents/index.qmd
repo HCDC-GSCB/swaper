@@ -1,6 +1,22 @@
 ---
-title: "Documents"
+subtitle: "Documents"
 ---
+
+## Conference
+
+1. Dengue Modelling Consortium 2026 [Link](https://gscb.hcdc.vn/index.php/s/xPQo4KTimknr6rk){target="_blank"}
+
+## E-Book
+
+1.  Epidemic R Handbook, 2024 [Link](https://epirhandbook.com/en/){target="_blank"}
+
+2.  Introduction to Data Science, 2019 [Link](https://rafalab.dfci.harvard.edu/dsbook/index.html){target="_blank"}
+
+3.  ggplot2: Elegant Graphics for Data Analysis, 2019 [Link](https://ggplot2-book.org/){target="_blank"}
+
+4.  Telling Stories with Data, 2023 [Link](https://tellingstorieswithdata.com/){target="_blank"}
+
+5.  Spatial Statistics for Data Science: Theory and Practice with R, 2019 [Link](https://www.paulamoraga.com/book-spatial/index.html){target="_blank"}
 
 ## Book
 
@@ -32,14 +48,4 @@ title: "Documents"
 
 14. WHO community engagement framework for quality, people-centred and resilient health services [Link](https://gscb.hcdc.vn/index.php/s/t8g3LjCaRSP5WHt){target="_blank"}
 
-## E-Book
 
-1.  Epidemic R Handbook, 2024 [Link](https://epirhandbook.com/en/){target="_blank"}
-
-2.  Introduction to Data Science, 2019 [Link](https://rafalab.dfci.harvard.edu/dsbook/index.html){target="_blank"}
-
-3.  ggplot2: Elegant Graphics for Data Analysis, 2019 [Link](https://ggplot2-book.org/){target="_blank"}
-
-4.  Telling Stories with Data, 2023 [Link](https://tellingstorieswithdata.com/){target="_blank"}
-
-5.  Spatial Statistics for Data Science: Theory and Practice with R, 2019 [Link](https://www.paulamoraga.com/book-spatial/index.html){target="_blank"}

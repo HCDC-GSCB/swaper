@@ -37,8 +37,8 @@ website:
         menu:
           - text: "E-Learning"
             href: learning/index.qmd
-          - text: "Book"
-            href: book/index.qmd
+          - text: "Documents"
+            href: documents/index.qmd
           - text: "Seminars"
             href: seminars/index.qmd
       - text: "Epidemic Channel"
