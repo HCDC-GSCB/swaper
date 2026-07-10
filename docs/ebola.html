@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Ebola Situation</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    
+    <style>
+        body { 
+            background-color: #f4f6f9; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+        .dashboard-header { 
+            background-color: #2c3e50; 
+            color: white; 
+            padding: 15px 20px; 
+            margin-bottom: 20px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .nav-tabs .nav-link { color: #2c3e50; font-weight: 500; font-size: 1.1rem; }
+        .nav-tabs .nav-link.active { font-weight: bold; color: #0d6efd; border-bottom: 3px solid #0d6efd; background-color: transparent; }
+        
+        /* Value Boxes */
+        .value-box { 
+            border-radius: 8px; 
+            padding: 20px; 
+            color: white; 
+            margin-bottom: 20px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+            transition: transform 0.2s;
+            position: relative;
+        }
+        .value-box:hover { transform: translateY(-5px); }
+        .box-blue { background-color: #0d6efd; }       
+        .box-red { background-color: #dc3545; }        
+        .box-lightblue { background-color: #0dcaf0; color: #000; } 
+        .box-darkred { background-color: #8b0000; }    
+        
+        .value-box h3 { font-size: 2.5rem; font-weight: bold; margin: 0; }
+        .value-box p { margin: 0; font-size: 1.05rem; opacity: 0.9; text-transform: uppercase; letter-spacing: 0.5px;}
+        .value-box.box-lightblue p { opacity: 1; }
+        .value-box .icon { font-size: 3.5rem; opacity: 0.2; position: absolute; right: 20px; top: 20px; }
+        
+        .section-card { background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .section-title { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 15px; font-size: 1.25rem; font-weight: bold; }
+        #map-iframe { width: 100%; height: 75vh; border: none; border-radius: 8px; }
+
+        /* Chỉnh tỷ lệ thay đổi % nổi bật */
+        .change-badge { font-size: 0.9rem; padding: 5px 10px; border-radius: 20px; display: inline-block; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-header d-flex justify-content-between align-items-center">
+    <h2 class="m-0"><i class="fas fa-virus-slash"></i> DASHBOARD EBOLA</h2>
+    <span class="badge bg-danger fs-6 blink">Cập nhật tự động</span>
+</div>
+
+<div class="container-fluid px-4">
+    <ul class="nav nav-tabs mb-4" id="dashboardTabs" role="tablist">
+        <li class="nav-item">
+            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#epidemic" type="button"><i class="fas fa-chart-bar"></i> Tình hình dịch bệnh</button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#map" type="button"><i class="fas fa-map-location-dot"></i> Bản đồ phân bố</button>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="dashboardTabsContent">
+        <div class="tab-pane fade show active" id="epidemic">
+            
+            <div class="d-flex justify-content-between align-items-center mb-3 bg-white p-3 rounded shadow-sm border">
+                <h5 class="m-0 text-primary"><i class="fas fa-filter"></i> Bộ lọc khu vực:</h5>
+                <div>
+                    <select id="country-select" class="form-select border-primary fw-bold text-primary shadow-sm" style="min-width: 250px;">
+                        <option value="All">🌍 Toàn thế giới (Tất cả khu vực)</option>
+                        </select>
+                </div>
+            </div>
+
+            <div class="section-card bg-light border-start border-info border-5">
+                <h5 class="text-info-emphasis fw-bold"><i class="fas fa-bullhorn"></i> Nhận định tình hình dịch (Theo tổ chức WHO)</h5>
+                <p id="summary-text" class="mb-0 fs-5 text-secondary">Đang tải dữ liệu từ Google Sheet...</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="value-box box-blue">
+                        <i class="fas fa-procedures icon"></i>
+                        <h3 id="val-new-cases">--</h3>
+                        <p>Ca mắc mới</p>
+                        <div class="mt-2" id="change-new-cases"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="value-box box-red">
+                        <i class="fas fa-skull-crossbones icon"></i>
+                        <h3 id="val-new-deaths">--</h3>
+                        <p>Tử vong mới</p>
+                        <div class="mt-2" id="change-new-deaths"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="value-box box-lightblue">
+                        <i class="fas fa-users icon"></i>
+                        <h3 id="val-acc-cases">--</h3>
+                        <p>Tích lũy mắc</p>
+                        <div class="mt-2" id="change-acc-cases"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="value-box box-darkred">
+                        <i class="fas fa-book-dead icon"></i>
+                        <h3 id="val-acc-deaths">--</h3>
+                        <p>Tích lũy tử vong</p>
+                        <div class="mt-2" id="change-acc-deaths"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-title d-flex justify-content-between">
+                    <span>Diễn biến số ca mắc và tử vong theo ngày</span>
+                    <span class="fs-6 text-muted fw-normal" id="chart-subtitle">Khu vực: Toàn thế giới</span>
+                </div>
+                <div id="epi-chart" style="width: 100%; height: 500px;"></div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-title text-danger"><i class="fas fa-exclamation-triangle"></i> Đánh giá nguy cơ (Nguồn: WHO & ECDC)</div>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width: 20%;">Khu vực</th>
+                                <th style="width: 15%; text-align: center;">Mức độ</th>
+                                <th>Lý do đánh giá</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Quốc gia lưu hành (Congo, Uganda)</strong></td>
+                                <td class="text-center"><span class="badge bg-danger fs-6 px-3">RẤT CAO</span></td>
+                                <td>Dịch bùng phát tại cộng đồng, lây lan trong môi trường chăm sóc y tế, khả năng giám sát còn hạn chế.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Quốc gia lân cận</strong></td>
+                                <td class="text-center"><span class="badge bg-warning text-dark fs-6 px-3">CAO</span></td>
+                                <td>Giao thương xuyên biên giới nhiều, khó kiểm soát luồng di biến động dân cư tự do.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Toàn thế giới</strong></td>
+                                <td class="text-center"><span class="badge bg-success fs-6 px-3">THẤP</span></td>
+                                <td>Giám sát cửa khẩu và đường hàng không quốc tế đang được thực hiện nghiêm ngặt.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="map">
+            <div class="section-card p-0 overflow-hidden">
+                <div class="p-3 bg-light border-bottom text-primary"><h5 class="m-0"><i class="fas fa-map-marked-alt"></i> Bản đồ tổng hợp từ CDC Hoa Kỳ</h5></div>
+                <iframe id="map-iframe" src="https://www.cdc.gov/ebola/situation-summary/" title="Bản đồ Ebola CDC"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Gọi thẳng vào sheet tên là "Countries"
+    const sheetCsvUrl = 'https://docs.google.com/spreadsheets/d/1BjJCk7Weh8_mh13xVyigmwgyHd-FIw5t80Wl1BcOV6M/gviz/tq?tqx=out:csv&sheet=Countries';
+
+    let globalRawData = []; // Chứa dữ liệu gốc để filter
+
+    Papa.parse(sheetCsvUrl, {
+        download: true,
+        header: true,
+        dynamicTyping: true,
+        complete: function(results) {
+            globalRawData = results.data.filter(row => row.Dates); // Lọc dòng trống
+            
+            if(globalRawData.length === 0) {
+                document.getElementById('summary-text').innerHTML = "<span class='text-danger'>Không tìm thấy dữ liệu.</span>";
+                return;
+            }
+
+            // Đổ danh sách quốc gia vào dropdown
+            let countries = [...new Set(globalRawData.map(item => item.Country).filter(Boolean))].sort();
+            let select = document.getElementById('country-select');
+            countries.forEach(c => {
+                select.add(new Option(c, c));
+            });
+
+            // Lắng nghe sự kiện đổi bộ lọc
+            select.addEventListener('change', function() {
+                updateDashboard(this.value);
+            });
+
+            // Lần đầu tải trang -> Vẽ chế độ 'All'
+            updateDashboard('All');
+        }
+    });
+
+    // Hàm tạo badge Tăng/Giảm % (Tăng = Đỏ, Giảm = Xanh, Không đổi = Xám)
+    function formatChangePercentage(current, previous) {
+        if (previous === 0) {
+            if (current === 0) return `<span class="change-badge bg-white text-secondary fw-bold"><i class="fas fa-minus"></i> 0% so với kỳ trước</span>`;
+            return `<span class="change-badge bg-white text-danger fw-bold"><i class="fas fa-arrow-up"></i> Có ca mới</span>`;
+        }
+        
+        let pct = ((current - previous) / previous) * 100;
+        
+        if (pct > 0) {
+            return `<span class="change-badge bg-white text-danger fw-bold"><i class="fas fa-arrow-up"></i> ${pct.toFixed(1)}% so với kỳ trước</span>`;
+        } else if (pct < 0) {
+            return `<span class="change-badge bg-white text-success fw-bold"><i class="fas fa-arrow-down"></i> ${Math.abs(pct).toFixed(1)}% so với kỳ trước</span>`;
+        } else {
+            return `<span class="change-badge bg-white text-secondary fw-bold"><i class="fas fa-minus"></i> 0% so với kỳ trước</span>`;
+        }
+    }
+
+    function updateDashboard(selectedCountry) {
+        document.getElementById('chart-subtitle').innerText = "Khu vực: " + (selectedCountry === 'All' ? "Toàn thế giới" : selectedCountry);
+
+        // Lọc data theo quốc gia (nếu All thì giữ nguyên toàn bộ)
+        let filteredData = selectedCountry === 'All' ? globalRawData : globalRawData.filter(d => d.Country === selectedCountry);
+
+        // Gom nhóm (Sum) dữ liệu theo từng ngày
+        let aggByDate = {};
+        filteredData.forEach(row => {
+            let d = row.Dates;
+            if(!aggByDate[d]) {
+                aggByDate[d] = { new_cases: 0, deaths: 0, acc_cases: 0, acc_deaths: 0 };
+            }
+            aggByDate[d].new_cases += (row.New_confirmed_cases || 0);
+            aggByDate[d].deaths += (row.Death || 0);
+            aggByDate[d].acc_cases += (row.Accumulative_confirmed_cases || 0);
+            aggByDate[d].acc_deaths += (row.Accumulative_death || 0);
+        });
+
+        // Sắp xếp các ngày từ cũ đến mới
+        let sortedDates = Object.keys(aggByDate).sort((a, b) => new Date(a) - new Date(b));
+        
+        if(sortedDates.length === 0) return;
+
+        // Lấy ngày mới nhất và ngày sát trước đó
+        let latestDate = sortedDates[sortedDates.length - 1];
+        let previousDate = sortedDates.length > 1 ? sortedDates[sortedDates.length - 2] : null;
+
+        let currentStats = aggByDate[latestDate];
+        let previousStats = previousDate ? aggByDate[previousDate] : { new_cases: 0, deaths: 0, acc_cases: 0, acc_deaths: 0 };
+
+        // 1. UPDATE VALUE BOXES
+        document.getElementById('val-new-cases').innerText = currentStats.new_cases;
+        document.getElementById('change-new-cases').innerHTML = formatChangePercentage(currentStats.new_cases, previousStats.new_cases);
+
+        document.getElementById('val-new-deaths').innerText = currentStats.deaths;
+        document.getElementById('change-new-deaths').innerHTML = formatChangePercentage(currentStats.deaths, previousStats.deaths);
+
+        document.getElementById('val-acc-cases').innerText = currentStats.acc_cases;
+        document.getElementById('change-acc-cases').innerHTML = formatChangePercentage(currentStats.acc_cases, previousStats.acc_cases);
+
+        document.getElementById('val-acc-deaths').innerText = currentStats.acc_deaths;
+        document.getElementById('change-acc-deaths').innerHTML = formatChangePercentage(currentStats.acc_deaths, previousStats.acc_deaths);
+
+        // 2. CẬP NHẬT TEXT SUMMARY
+        let cfr = currentStats.acc_cases > 0 ? ((currentStats.acc_deaths / currentStats.acc_cases) * 100).toFixed(1) : 0;
+        let areaText = selectedCountry === 'All' ? 'Toàn thế giới' : selectedCountry;
+        
+        let summaryHtml = `Tính đến ngày <strong>${latestDate}</strong>, tại hệ thống giám sát <strong>${areaText}</strong> đã ghi nhận 
+        <strong>${currentStats.new_cases}</strong> ca xác định mới và <strong>${currentStats.deaths}</strong> trường hợp tử vong. 
+        Tổng số tích lũy gồm <strong>${currentStats.acc_cases}</strong> ca mắc, trong đó tử vong tích lũy là 
+        <strong>${currentStats.acc_deaths}</strong> trường hợp. Tỷ lệ tử vong trên ca xác định (CFR) khu vực này hiện đang ở mức 
+        <strong class="text-danger">${cfr}%</strong>.`;
+        document.getElementById('summary-text').innerHTML = summaryHtml;
+
+        // 3. VẼ BIỂU ĐỒ CHỒNG (STACKED BAR CHART)
+        let aliveCasesArray = [];
+        let deathCasesArray = [];
+        
+        sortedDates.forEach(date => {
+            let stats = aggByDate[date];
+            let deaths = stats.deaths;
+            let alive = stats.new_cases - deaths; 
+            if(alive < 0) alive = 0; // Đề phòng data lỗi
+            
+            aliveCasesArray.push(alive);
+            deathCasesArray.push(deaths);
+        });
+
+        var traceAlive = {
+            x: sortedDates, y: aliveCasesArray, name: 'Ca xác định (Còn sống)', type: 'bar',
+            marker: { color: '#0d6efd', line: { width: 0.5, color: 'white' } }
+        };
+
+        var traceDeath = {
+            x: sortedDates, y: deathCasesArray, name: 'Ca tử vong', type: 'bar',
+            marker: { color: '#dc3545', line: { width: 0.5, color: 'white' } }
+        };
+
+        var layout = {
+            barmode: 'stack',
+            margin: { t: 20, l: 60, r: 20, b: 60 },
+            legend: { orientation: 'h', y: 1.1, x: 0.5, xanchor: 'center' },
+            xaxis: { title: 'Ngày báo cáo', type: 'category' },
+            yaxis: { title: 'Số lượng ca', gridcolor: '#e9ecef' },
+            plot_bgcolor: 'white', paper_bgcolor: 'white', hovermode: 'x unified'
+        };
+
+        Plotly.newPlot('epi-chart', [traceDeath, traceAlive], layout, {responsive: true, displayModeBar: false});
+    }
+</script>
+
+</body>
+</html>
