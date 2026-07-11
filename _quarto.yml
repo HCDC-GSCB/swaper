@@ -52,17 +52,13 @@ website:
           - text: "EBS"
             icon: newspaper
             href: ebs.html
+          - text: "Ebola"
+            icon: virus
+            href: ebola.html
     right:
-      - text: "Tools"
-        menu:
-          - text: "Risk map (Demo)"
-            icon: map
-            href: riskmap.html
-          - text: "Chill"
-            icon: discord
-            href: game.html
-      - icon: github
-        href: https://github.com/HCDC-GSCB/swaper/
+      - text: "Chill"
+        icon: discord
+        href: game.html
 
   back-to-top-navigation: true
   page-footer:

@@ -26,14 +26,18 @@
         .nav-tabs .nav-link.active { font-weight: bold; color: #0d6efd; border-bottom: 3px solid #0d6efd; background-color: transparent; }
         
         /* Value Boxes */
-        .value-box { 
+        .value-box {
             border-radius: 8px; 
-            padding: 20px; 
+            
+            /* Sửa dòng padding 40px của mày thành dòng này: */
+            padding: 15px 20px 50px 20px; /* Trên: 15px, Phải: 20px, Dưới: 50px, Trái: 20px */
+            
             color: white; 
-            margin-bottom: 20px; 
+            margin-bottom: 40px; 
             box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
             transition: transform 0.2s;
-            position: relative;
+            position: relative; 
+            overflow: hidden; 
         }
         .value-box:hover { transform: translateY(-5px); }
         .box-blue { background-color: #0d6efd; }       
@@ -41,16 +45,36 @@
         .box-lightblue { background-color: #0dcaf0; color: #000; } 
         .box-darkred { background-color: #8b0000; }    
         
+        /* Đẩy nội dung chữ lên trên (z-index cao hơn biểu đồ) */
+        .value-box .box-content {
+            position: relative;
+            z-index: 2;
+        }
+        
         .value-box h3 { font-size: 2.5rem; font-weight: bold; margin: 0; }
         .value-box p { margin: 0; font-size: 1.05rem; opacity: 0.9; text-transform: uppercase; letter-spacing: 0.5px;}
         .value-box.box-lightblue p { opacity: 1; }
-        .value-box .icon { font-size: 3.5rem; opacity: 0.2; position: absolute; right: 20px; top: 20px; }
+        .badge-container { 
+            position: absolute; 
+            right: 20px; 
+            top: 8px; 
+            z-index: 3; 
+        }
         
+        /* Khung chứa Sparkline ở đáy hộp */
+        .sparkline-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 65px;
+            z-index: 1;
+        }
+
         .section-card { background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
         .section-title { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 15px; font-size: 1.25rem; font-weight: bold; }
         #map-iframe { width: 100%; height: 75vh; border: none; border-radius: 8px; }
 
-        /* Chỉnh tỷ lệ thay đổi % nổi bật */
         .change-badge { font-size: 0.9rem; padding: 5px 10px; border-radius: 20px; display: inline-block; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
     </style>
 </head>
@@ -58,7 +82,6 @@
 
 <div class="dashboard-header d-flex justify-content-between align-items-center">
     <h2 class="m-0"><i class="fas fa-virus-slash"></i> DASHBOARD EBOLA</h2>
-    <span class="badge bg-danger fs-6 blink">Cập nhật tự động</span>
 </div>
 
 <div class="container-fluid px-4">
@@ -78,8 +101,8 @@
                 <h5 class="m-0 text-primary"><i class="fas fa-filter"></i> Bộ lọc khu vực:</h5>
                 <div>
                     <select id="country-select" class="form-select border-primary fw-bold text-primary shadow-sm" style="min-width: 250px;">
-                        <option value="All">🌍 Toàn thế giới (Tất cả khu vực)</option>
-                        </select>
+                        <option value="All">🌍 Tất cả khu vực</option>
+                    </select>
                 </div>
             </div>
 
@@ -91,34 +114,42 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="value-box box-blue">
-                        <i class="fas fa-procedures icon"></i>
-                        <h3 id="val-new-cases">--</h3>
-                        <p>Ca mắc mới</p>
-                        <div class="mt-2" id="change-new-cases"></div>
+                        <div class="box-content">
+                            <h3 id="val-new-cases">--</h3>
+                            <p>Ca mắc mới</p>
+                            <div class="badge-container" id="change-new-cases"></div>
+                        </div>
+                        <div id="spark-new-cases" class="sparkline-container"></div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="value-box box-red">
-                        <i class="fas fa-skull-crossbones icon"></i>
-                        <h3 id="val-new-deaths">--</h3>
-                        <p>Tử vong mới</p>
-                        <div class="mt-2" id="change-new-deaths"></div>
+                        <div class="box-content">
+                            <h3 id="val-new-deaths">--</h3>
+                            <p>Tử vong mới</p>
+                            <div class="badge-container" id="change-new-deaths"></div>
+                        </div>
+                        <div id="spark-new-deaths" class="sparkline-container"></div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="value-box box-lightblue">
-                        <i class="fas fa-users icon"></i>
-                        <h3 id="val-acc-cases">--</h3>
-                        <p>Tích lũy mắc</p>
-                        <div class="mt-2" id="change-acc-cases"></div>
+                        <div class="box-content">
+                            <h3 id="val-acc-cases">--</h3>
+                            <p>Tích lũy mắc</p>
+                            <div class="badge-container" id="change-acc-cases"></div>
+                        </div>
+                        <div id="spark-acc-cases" class="sparkline-container"></div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="value-box box-darkred">
-                        <i class="fas fa-book-dead icon"></i>
-                        <h3 id="val-acc-deaths">--</h3>
-                        <p>Tích lũy tử vong</p>
-                        <div class="mt-2" id="change-acc-deaths"></div>
+                        <div class="box-content">
+                            <h3 id="val-acc-deaths">--</h3>
+                            <p>Tích lũy tử vong</p>
+                            <div class="badge-container" id="change-acc-deaths"></div>
+                        </div>
+                        <div id="spark-acc-deaths" class="sparkline-container"></div>
                     </div>
                 </div>
             </div>
@@ -126,7 +157,7 @@
             <div class="section-card">
                 <div class="section-title d-flex justify-content-between">
                     <span>Diễn biến số ca mắc và tử vong theo ngày</span>
-                    <span class="fs-6 text-muted fw-normal" id="chart-subtitle">Khu vực: Toàn thế giới</span>
+                    <span class="fs-6 text-muted fw-normal" id="chart-subtitle">Tất cả khu vực</span>
                 </div>
                 <div id="epi-chart" style="width: 100%; height: 500px;"></div>
             </div>
@@ -176,65 +207,83 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-    // Gọi thẳng vào sheet tên là "Countries"
     const sheetCsvUrl = 'https://docs.google.com/spreadsheets/d/1BjJCk7Weh8_mh13xVyigmwgyHd-FIw5t80Wl1BcOV6M/gviz/tq?tqx=out:csv&sheet=Countries';
-
-    let globalRawData = []; // Chứa dữ liệu gốc để filter
+    let globalRawData = []; 
 
     Papa.parse(sheetCsvUrl, {
         download: true,
         header: true,
         dynamicTyping: true,
         complete: function(results) {
-            globalRawData = results.data.filter(row => row.Dates); // Lọc dòng trống
+            globalRawData = results.data.filter(row => row.Dates); 
             
             if(globalRawData.length === 0) {
                 document.getElementById('summary-text').innerHTML = "<span class='text-danger'>Không tìm thấy dữ liệu.</span>";
                 return;
             }
 
-            // Đổ danh sách quốc gia vào dropdown
             let countries = [...new Set(globalRawData.map(item => item.Country).filter(Boolean))].sort();
             let select = document.getElementById('country-select');
             countries.forEach(c => {
                 select.add(new Option(c, c));
             });
 
-            // Lắng nghe sự kiện đổi bộ lọc
             select.addEventListener('change', function() {
                 updateDashboard(this.value);
             });
 
-            // Lần đầu tải trang -> Vẽ chế độ 'All'
             updateDashboard('All');
         }
     });
 
-    // Hàm tạo badge Tăng/Giảm % (Tăng = Đỏ, Giảm = Xanh, Không đổi = Xám)
     function formatChangePercentage(current, previous) {
         if (previous === 0) {
-            if (current === 0) return `<span class="change-badge bg-white text-secondary fw-bold"><i class="fas fa-minus"></i> 0% so với kỳ trước</span>`;
+            if (current === 0) return `<span class="change-badge bg-white text-secondary fw-bold"><i class="fas fa-minus"></i> 0% so với ngày trước</span>`;
             return `<span class="change-badge bg-white text-danger fw-bold"><i class="fas fa-arrow-up"></i> Có ca mới</span>`;
         }
         
         let pct = ((current - previous) / previous) * 100;
         
         if (pct > 0) {
-            return `<span class="change-badge bg-white text-danger fw-bold"><i class="fas fa-arrow-up"></i> ${pct.toFixed(1)}% so với kỳ trước</span>`;
+            return `<span class="change-badge bg-white text-danger fw-bold"><i class="fas fa-arrow-up"></i> ${pct.toFixed(1)}% so với ngày trước</span>`;
         } else if (pct < 0) {
-            return `<span class="change-badge bg-white text-success fw-bold"><i class="fas fa-arrow-down"></i> ${Math.abs(pct).toFixed(1)}% so với kỳ trước</span>`;
+            return `<span class="change-badge bg-white text-success fw-bold"><i class="fas fa-arrow-down"></i> ${Math.abs(pct).toFixed(1)}% so với ngày trước</span>`;
         } else {
-            return `<span class="change-badge bg-white text-secondary fw-bold"><i class="fas fa-minus"></i> 0% so với kỳ trước</span>`;
+            return `<span class="change-badge bg-white text-secondary fw-bold"><i class="fas fa-minus"></i> 0% so với ngày trước</span>`;
         }
     }
 
-    function updateDashboard(selectedCountry) {
-        document.getElementById('chart-subtitle').innerText = "Khu vực: " + (selectedCountry === 'All' ? "Toàn thế giới" : selectedCountry);
+    // Hàm vẽ Sparkline dùng Plotly
+    function drawSparkline(elementId, xData, yData) {
+        var trace = {
+            x: xData, 
+            y: yData, 
+            type: 'scatter', 
+            mode: 'lines',
+            line: {color: 'rgba(255, 255, 255, 0.9)', width: 2, shape: 'spline'}, // Viền trắng uốn cong mềm mại
+            fill: 'tozeroy', 
+            fillcolor: 'rgba(255, 255, 255, 0.2)', // Nền trắng mờ
+            hoverinfo: 'skip' // Tắt tooltip khi trỏ chuột để tránh vướng
+        };
+        
+        var layout = {
+            margin: {t:0, b:0, l:0, r:0}, // Ép sát lề bằng 0
+            xaxis: {visible: false, fixedrange: true}, // Ẩn trục X
+            yaxis: {visible: false, fixedrange: true}, // Ẩn trục Y
+            paper_bgcolor: 'transparent',
+            plot_bgcolor: 'transparent',
+            showlegend: false
+        };
+        
+        // Vẽ biểu đồ tĩnh (staticPlot) để nhẹ web
+        Plotly.newPlot(elementId, [trace], layout, {displayModeBar: false, staticPlot: true, responsive: true});
+    }
 
-        // Lọc data theo quốc gia (nếu All thì giữ nguyên toàn bộ)
+    function updateDashboard(selectedCountry) {
+        document.getElementById('chart-subtitle').innerText = "Khu vực: " + (selectedCountry === 'All' ? "Tất cả": selectedCountry);
+
         let filteredData = selectedCountry === 'All' ? globalRawData : globalRawData.filter(d => d.Country === selectedCountry);
 
-        // Gom nhóm (Sum) dữ liệu theo từng ngày
         let aggByDate = {};
         filteredData.forEach(row => {
             let d = row.Dates;
@@ -247,12 +296,10 @@
             aggByDate[d].acc_deaths += (row.Accumulative_death || 0);
         });
 
-        // Sắp xếp các ngày từ cũ đến mới
         let sortedDates = Object.keys(aggByDate).sort((a, b) => new Date(a) - new Date(b));
         
         if(sortedDates.length === 0) return;
 
-        // Lấy ngày mới nhất và ngày sát trước đó
         let latestDate = sortedDates[sortedDates.length - 1];
         let previousDate = sortedDates.length > 1 ? sortedDates[sortedDates.length - 2] : null;
 
@@ -267,12 +314,30 @@
         document.getElementById('change-new-deaths').innerHTML = formatChangePercentage(currentStats.deaths, previousStats.deaths);
 
         document.getElementById('val-acc-cases').innerText = currentStats.acc_cases;
-        document.getElementById('change-acc-cases').innerHTML = formatChangePercentage(currentStats.acc_cases, previousStats.acc_cases);
 
         document.getElementById('val-acc-deaths').innerText = currentStats.acc_deaths;
-        document.getElementById('change-acc-deaths').innerHTML = formatChangePercentage(currentStats.acc_deaths, previousStats.acc_deaths);
 
-        // 2. CẬP NHẬT TEXT SUMMARY
+        // 2. CHUẨN BỊ DATA CHO SPARKLINE
+        let histNewCases = [];
+        let histNewDeaths = [];
+        let histAccCases = [];
+        let histAccDeaths = [];
+        
+        sortedDates.forEach(date => {
+            let stats = aggByDate[date];
+            histNewCases.push(stats.new_cases);
+            histNewDeaths.push(stats.deaths);
+            histAccCases.push(stats.acc_cases);
+            histAccDeaths.push(stats.acc_deaths);
+        });
+
+        // Gọi hàm vẽ 4 cái Sparkline
+        drawSparkline('spark-new-cases', sortedDates, histNewCases);
+        drawSparkline('spark-new-deaths', sortedDates, histNewDeaths);
+        drawSparkline('spark-acc-cases', sortedDates, histAccCases);
+        drawSparkline('spark-acc-deaths', sortedDates, histAccDeaths);
+
+        // 3. CẬP NHẬT TEXT SUMMARY
         let cfr = currentStats.acc_cases > 0 ? ((currentStats.acc_deaths / currentStats.acc_cases) * 100).toFixed(1) : 0;
         let areaText = selectedCountry === 'All' ? 'Toàn thế giới' : selectedCountry;
         
@@ -283,7 +348,7 @@
         <strong class="text-danger">${cfr}%</strong>.`;
         document.getElementById('summary-text').innerHTML = summaryHtml;
 
-        // 3. VẼ BIỂU ĐỒ CHỒNG (STACKED BAR CHART)
+        // 4. VẼ BIỂU ĐỒ CHỒNG (STACKED BAR CHART)
         let aliveCasesArray = [];
         let deathCasesArray = [];
         
@@ -291,14 +356,14 @@
             let stats = aggByDate[date];
             let deaths = stats.deaths;
             let alive = stats.new_cases - deaths; 
-            if(alive < 0) alive = 0; // Đề phòng data lỗi
+            if(alive < 0) alive = 0;
             
             aliveCasesArray.push(alive);
             deathCasesArray.push(deaths);
         });
 
         var traceAlive = {
-            x: sortedDates, y: aliveCasesArray, name: 'Ca xác định (Còn sống)', type: 'bar',
+            x: sortedDates, y: aliveCasesArray, name: 'Còn sống', type: 'bar',
             marker: { color: '#0d6efd', line: { width: 0.5, color: 'white' } }
         };
 
@@ -309,10 +374,16 @@
 
         var layout = {
             barmode: 'stack',
-            margin: { t: 20, l: 60, r: 20, b: 60 },
+            margin: { t: 20, l: 60, r: 20, b: 80 }, /* Tăng margin b (bottom) lên 80 để chữ xéo không bị cắt */
             legend: { orientation: 'h', y: 1.1, x: 0.5, xanchor: 'center' },
-            xaxis: { title: 'Ngày báo cáo', type: 'category' },
-            yaxis: { title: 'Số lượng ca', gridcolor: '#e9ecef' },
+            xaxis: { 
+                title: 'Ngày báo cáo', 
+                type: 'category', 
+                tickangle: -45,     /* Xoay xéo nhãn -45 độ */
+                tickmode: 'linear', /* Chuyển chế độ giãn cách tuyến tính */
+                dtick: 7            /* Ép cách nhau 7 đơn vị (7 ngày) mới hiển thị 1 nhãn */
+            },
+            yaxis: { title: 'Số ca', gridcolor: '#e9ecef' },
             plot_bgcolor: 'white', paper_bgcolor: 'white', hovermode: 'x unified'
         };
 
