@@ -317,7 +317,7 @@
 
         document.getElementById('val-acc-deaths').innerText = currentStats.acc_deaths;
 
-        // 2. CHUẨN BỊ DATA CHO SPARKLINE
+        // 2. CHUẨN BỊ DATA CHO SPARKLINE & LINE CHART
         let histNewCases = [];
         let histNewDeaths = [];
         let histAccCases = [];
@@ -348,7 +348,7 @@
         <strong class="text-danger">${cfr}%</strong>.`;
         document.getElementById('summary-text').innerHTML = summaryHtml;
 
-        // 4. VẼ BIỂU ĐỒ CHỒNG (STACKED BAR CHART)
+        // 4. VẼ BIỂU ĐỒ CHỒNG (STACKED BAR CHART + LINE CHART TÍCH LŨY)
         let aliveCasesArray = [];
         let deathCasesArray = [];
         
@@ -362,19 +362,33 @@
             deathCasesArray.push(deaths);
         });
 
+        // Trace 1: Còn sống
         var traceAlive = {
             x: sortedDates, y: aliveCasesArray, name: 'Còn sống', type: 'bar',
             marker: { color: '#0d6efd', line: { width: 0.5, color: 'white' } }
         };
 
+        // Trace 2: Ca tử vong
         var traceDeath = {
             x: sortedDates, y: deathCasesArray, name: 'Ca tử vong', type: 'bar',
             marker: { color: '#dc3545', line: { width: 0.5, color: 'white' } }
         };
 
+        // Trace 3: Đường tích lũy (Cần 1 trục y riêng biệt - y2)
+        var traceCumulative = {
+            x: sortedDates, 
+            y: histAccCases, 
+            name: 'Số ca tích lũy', 
+            type: 'scatter', 
+            mode: 'lines',
+            line: { color: '#198754', width: 3 }, // Màu xanh lá để nổi bật
+            yaxis: 'y2' // Chỉ định gắn vào trục Y thứ 2
+        };
+
         var layout = {
             barmode: 'stack',
-            margin: { t: 20, l: 60, r: 20, b: 80 }, /* Tăng margin b (bottom) lên 80 để chữ xéo không bị cắt */
+            bargap: 0, /* <--- Thiết lập bargap bằng 0 để tạo hiệu ứng Histogram */
+            margin: { t: 20, l: 60, r: 60, b: 80 }, /* Tăng margin r (right) lên 60 để có chỗ cho trục y2 */
             legend: { orientation: 'h', y: 1.1, x: 0.5, xanchor: 'center' },
             xaxis: { 
                 title: 'Ngày báo cáo', 
@@ -383,11 +397,22 @@
                 tickmode: 'linear', /* Chuyển chế độ giãn cách tuyến tính */
                 dtick: 7            /* Ép cách nhau 7 đơn vị (7 ngày) mới hiển thị 1 nhãn */
             },
-            yaxis: { title: 'Số ca', gridcolor: '#e9ecef' },
+            yaxis: { 
+                title: 'Số ca (Ngày)', 
+                gridcolor: '#e9ecef' 
+            },
+            yaxis2: { 
+                title: 'Số ca tích lũy', 
+                overlaying: 'y', 
+                side: 'right', 
+                showgrid: false,
+                zeroline: false
+            },
             plot_bgcolor: 'white', paper_bgcolor: 'white', hovermode: 'x unified'
         };
 
-        Plotly.newPlot('epi-chart', [traceDeath, traceAlive], layout, {responsive: true, displayModeBar: false});
+        // Thêm traceCumulative vào mảng Data của Plotly
+        Plotly.newPlot('epi-chart', [traceDeath, traceAlive, traceCumulative], layout, {responsive: true, displayModeBar: false});
     }
 </script>
 
