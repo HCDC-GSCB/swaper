@@ -461,9 +461,13 @@ chat_widget = {
     chatBox.scrollTop = chatBox.scrollHeight;
 
     try {
-      const res = await fetch("https://hcdc-swaper.duckdns.org/api/chat", {
+      // ĐIỀN LINK WEB APP URL TỪ GOOGLE APPS SCRIPT VÀO ĐÂY
+      const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzl9YBYKJPVpyjFUIW__rk1IDs7ItvXdxovZSvaBB26B70ICty_K-0iXVPD1kAZvrbq/exec"; 
+
+      const res = await fetch(GAS_WEB_APP_URL, {
         method: "POST",
-        headers: {"Content-Type": "application/json"},
+        // Bắt buộc dùng text/plain để vượt qua chính sách CORS của GAS
+        headers: {"Content-Type": "text/plain;charset=utf-8"},
         body: JSON.stringify({message: text})
       });
       
@@ -471,11 +475,17 @@ chat_widget = {
       
       const data = await res.json();
       chatWin.querySelector('#' + loadId).remove();
-      appendMsg(data.reply, 'bot');
+      
+      if(data.status === "success"){
+         appendMsg(data.reply, 'bot');
+      } else {
+         appendMsg(`❌ Lỗi xử lý AI: ${data.reply}`, 'bot');
+      }
       
     } catch (err) {
       chatWin.querySelector('#' + loadId).remove();
-      appendMsg(`❌ Mất kết nối! Lý do: ${err.message}. Sếp kiểm tra lại Server R nhé!`, 'bot');
+      // Đã xóa câu báo lỗi kiểm tra lại Server R vì hiện tại ta dùng GAS
+      appendMsg(`❌ Mất kết nối! Lý do: ${err.message}. Hệ thống đang bảo trì, bạn thử lại sau nhé!`, 'bot');
     }
   };
 
