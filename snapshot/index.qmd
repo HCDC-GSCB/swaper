@@ -1,12 +1,14 @@
 ---
-title: "Bản tin hàng tuần (Epidemic Channel)"
+title: "Bản tin hàng tuần"
 listing:
   contents: posts
   sort: "date desc"
   type: table
+  page-size: 10
   filter-ui: true  
   sort-ui: true   
   fields: [image, date, title, author]
+  categories: false
 page-layout: full
 css: snapshot.css
 ---
