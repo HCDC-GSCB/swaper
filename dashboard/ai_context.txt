@@ -1,354 +1,354 @@
 Hệ thống: Trợ lý dịch tễ SWAPER HCDC.
-Dữ liệu cập nhật: Tuần 29 năm 2026.
+Dữ liệu cập nhật: Tuần 30 năm 2026.
 Hướng dẫn: Luôn ưu tiên trả lời mức độ nguy cơ/trạng thái trước khi đưa số liệu thô. Nếu hỏi về Phường X, hãy tìm trong danh sách phường/xã.
 
 --- DỮ LIỆU BỆNH SỐT XUẤT HUYẾT ---
-  + Toàn Thành phố: 956 ca (tăng 4.0% so với 919 ca tuần trước). Tích lũy: 22426 ca. Ngưỡng [Mùa: 532.5, Cusum: 0, Farrington: 1184.68076035018, Mean+2SD: 1491.71501239233]. Trạng thái: Lưu ý (Mức 1).
+  + Toàn Thành phố: 1013 ca (tăng 3.3% so với 981 ca tuần trước). Tích lũy: 23478 ca. Ngưỡng [Mùa: 532.5, Cusum: 0, Farrington: 1181.59839518163, Mean+2SD: 1471.93271199091]. Trạng thái: Lưu ý (Mức 1).
   + Đánh giá nguy cơ PISA (Toàn Thành phố):
-    - Mức độ lây truyền: Đang ở mức Thấp (Số ca: 956. Các ngưỡng: Mùa 532.5, Vừa 1351.4611247325, Cao 1613.20538831816, Rất cao 1751.08852717132).
-    - Mức độ nặng: Đang ở mức Rất cao (Số ca nội trú: 615. Các ngưỡng: Thấp 296.4, Vừa 390.61411783804, Cao 579.042353514119).
+    - Mức độ lây truyền: Đang ở mức Thấp (Số ca: 1013. Các ngưỡng: Mùa 532.5, Vừa 1351.4611247325, Cao 1613.20538831816, Rất cao 1751.08852717132).
+    - Mức độ nặng: Đang ở mức Rất cao (Số ca nội trú: 652. Các ngưỡng: Thấp 304.2, Vừa 368.021626428664, Cao 495.664879285993).
 CHI TIẾT CÁC PHƯỜNG/XÃ:
-  + Phường An Hội Tây: 0 ca (giảm 100.0% so với 3 ca tuần trước). Tích lũy: 197 ca. Ngưỡng [Mùa: 3.5, Cusum: 12.430930591764, Farrington: NA, Mean+2SD: 7.36070170039655]. Trạng thái: Bình thường (Mức 0).
-  + Phường An Hội Đông: 0 ca (giảm 100.0% so với 3 ca tuần trước). Tích lũy: 128 ca. Ngưỡng [Mùa: 2, Cusum: 2.91361343141351, Farrington: NA, Mean+2SD: 4.88035085019828]. Trạng thái: Bình thường (Mức 0).
-  + Phường An Khánh: 0 ca (giảm 100.0% so với 6 ca tuần trước). Tích lũy: 77 ca. Ngưỡng [Mùa: 2, Cusum: 3.7041618141263, Farrington: NA, Mean+2SD: 5.28328157299975]. Trạng thái: Bình thường (Mức 0).
-  + Phường An Lạc: 0 ca (giảm 100.0% so với 13 ca tuần trước). Tích lũy: 314 ca. Ngưỡng [Mùa: 7, Cusum: 18.0796964653944, Farrington: NA, Mean+2SD: 24.201149387325]. Trạng thái: Bình thường (Mức 0).
-  + Phường An Nhơn: 0 ca (giảm 100.0% so với 5 ca tuần trước). Tích lũy: 101 ca. Ngưỡng [Mùa: 2, Cusum: 8.50756063855362, Farrington: NA, Mean+2SD: 4.63315017762062]. Trạng thái: Bình thường (Mức 0).
-  + Phường An Phú: 14 ca (không đổi so với 14 ca tuần trước). Tích lũy: 302 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 36.8021671790109, Mean+2SD: 44.8711915483254]. Trạng thái: Lưu ý (Mức 1).
-  + Phường An Phú Đông: 0 ca (giảm 100.0% so với 3 ca tuần trước). Tích lũy: 114 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: NA, Mean+2SD: 6.69041575982343]. Trạng thái: Bình thường (Mức 0).
-  + Phường An Đông: 0 ca (giảm 100.0% so với 1 ca tuần trước). Tích lũy: 47 ca. Ngưỡng [Mùa: 2, Cusum: 10.1873379199104, Farrington: NA, Mean+2SD: 18.580542409798]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bà Rịa: 0 ca (giảm 100.0% so với 2 ca tuần trước). Tích lũy: 13 ca. Ngưỡng [Mùa: 1, Cusum: 6.95142338938109, Farrington: NA, Mean+2SD: 1.69544511501033]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bàn Cờ: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 33 ca. Ngưỡng [Mùa: 2, Cusum: 9.71687568524385, Farrington: NA, Mean+2SD: 6.89897948556636]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bình Cơ: 0 ca (giảm 100.0% so với 7 ca tuần trước). Tích lũy: 71 ca. Ngưỡng [Mùa: 2, Cusum: 6.80647711946464, Farrington: NA, Mean+2SD: 10.0710678118655]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bình Dương: 0 ca (giảm 100.0% so với 25 ca tuần trước). Tích lũy: 254 ca. Ngưỡng [Mùa: 4, Cusum: 0, Farrington: NA, Mean+2SD: 14.938094023943]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bình Hòa: 12 ca (giảm 14.3% so với 14 ca tuần trước). Tích lũy: 163 ca. Ngưỡng [Mùa: 3, Cusum: 6.06004442588159, Farrington: 22.7742357178215, Mean+2SD: 22.0760184877832]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Bình Hưng Hòa: 16 ca (tăng 45.5% so với 11 ca tuần trước). Tích lũy: 510 ca. Ngưỡng [Mùa: 12, Cusum: 31.689061624044, Farrington: 33.2853470326399, Mean+2SD: 36.1914714586043]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bình Lợi Trung: 5 ca (không đổi so với 5 ca tuần trước). Tích lũy: 163 ca. Ngưỡng [Mùa: 4, Cusum: 13.4327919002063, Farrington: 7.61888815099981, Mean+2SD: 9.00434577328853]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bình Phú: 1 ca (giảm 83.3% so với 6 ca tuần trước). Tích lũy: 146 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 7.50388784699168, Mean+2SD: 7.69041575982343]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Bình Quới: 2 ca (không đổi so với 2 ca tuần trước). Tích lũy: 46 ca. Ngưỡng [Mùa: 1, Cusum: 6.99628080591158, Farrington: 3.25534403100117, Mean+2SD: 3.82842712474619]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bình Thạnh: 1 ca (giảm 80.0% so với 5 ca tuần trước). Tích lũy: 139 ca. Ngưỡng [Mùa: 4, Cusum: 14.9486739529501, Farrington: 8.87713501147015, Mean+2SD: 14.611104260855]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bình Thới: 2 ca (không đổi so với 2 ca tuần trước). Tích lũy: 81 ca. Ngưỡng [Mùa: 2, Cusum: 9.1107807270328, Farrington: 7.99611057385777, Mean+2SD: 9.99743547584717]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bình Tiên: 1 ca (giảm 50.0% so với 2 ca tuần trước). Tích lũy: 107 ca. Ngưỡng [Mùa: 2, Cusum: 9.41594611603218, Farrington: 2.85748513974861, Mean+2SD: 4.82842712474619]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bình Trưng: 7 ca (giảm 22.2% so với 9 ca tuần trước). Tích lũy: 216 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 10.318758803802, Mean+2SD: 9.52712842531054]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Bình Trị Đông: 8 ca (không đổi so với 8 ca tuần trước). Tích lũy: 361 ca. Ngưỡng [Mùa: 10, Cusum: 23.3121807838498, Farrington: 19.12038239058, Mean+2SD: 21.9241298554448]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bình Tân: 2 ca (giảm 71.4% so với 7 ca tuần trước). Tích lũy: 382 ca. Ngưỡng [Mùa: 7, Cusum: 0, Farrington: 26.9537483773302, Mean+2SD: 26.4997354478839]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Bình Tây: 0 ca (giảm 100.0% so với 2 ca tuần trước). Tích lũy: 80 ca. Ngưỡng [Mùa: 1, Cusum: 8.0327377077239, Farrington: 0, Mean+2SD: 5.08328157299975]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bình Đông: 8 ca (tăng 60.0% so với 5 ca tuần trước). Tích lũy: 229 ca. Ngưỡng [Mùa: 5, Cusum: 14.8701795402261, Farrington: 15.1448652313485, Mean+2SD: 18.2815161417561]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bảy Hiền: 0 ca (giảm 100.0% so với 10 ca tuần trước). Tích lũy: 219 ca. Ngưỡng [Mùa: 5, Cusum: 15.9458569199038, Farrington: NA, Mean+2SD: 21.2126704035519]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bến Cát: 0 ca (giảm 100.0% so với 11 ca tuần trước). Tích lũy: 203 ca. Ngưỡng [Mùa: 4, Cusum: 3.83832224070096, Farrington: NA, Mean+2SD: 11.9630681604756]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bến Thành: 0 ca (giảm 100.0% so với 1 ca tuần trước). Tích lũy: 33 ca. Ngưỡng [Mùa: 2, Cusum: 10.2173775740457, Farrington: NA, Mean+2SD: 6.77995983919549]. Trạng thái: Bình thường (Mức 0).
-  + Phường Chánh Hiệp: 7 ca (giảm 30.0% so với 10 ca tuần trước). Tích lũy: 121 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 8.62229790548317, Mean+2SD: 9.92820323027551]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Chánh Hưng: 3 ca (giảm 25.0% so với 4 ca tuần trước). Tích lũy: 306 ca. Ngưỡng [Mùa: 9, Cusum: 21.8797639925758, Farrington: 13.954861755765, Mean+2SD: 13.9630681604756]. Trạng thái: Bình thường (Mức 0).
-  + Phường Chánh Phú Hòa: 11 ca (giảm 45.0% so với 20 ca tuần trước). Tích lũy: 196 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 5.91125686773452, Mean+2SD: 6.77995983919549]. Trạng thái: Báo động (Mức 3).
-  + Phường Chợ Lớn: 2 ca (không đổi so với 2 ca tuần trước). Tích lũy: 47 ca. Ngưỡng [Mùa: 2, Cusum: 9.75516708350072, Farrington: 9.89159650388843, Mean+2SD: 9]. Trạng thái: Bình thường (Mức 0).
-  + Phường Chợ Quán: 0 ca (giảm 100.0% so với 2 ca tuần trước). Tích lũy: 47 ca. Ngưỡng [Mùa: 2, Cusum: 8.88090010140912, Farrington: 0, Mean+2SD: 8.69918027279076]. Trạng thái: Bình thường (Mức 0).
-  + Phường Cát Lái: 8 ca (tăng 14.3% so với 7 ca tuần trước). Tích lũy: 101 ca. Ngưỡng [Mùa: 2, Cusum: 2.10187447993222, Farrington: 5.28276572708916, Mean+2SD: 3]. Trạng thái: Báo động (Mức 3).
-  + Phường Cầu Kiệu: 4 ca (không đổi so với 4 ca tuần trước). Tích lũy: 85 ca. Ngưỡng [Mùa: 2, Cusum: 9.44699982630249, Farrington: 4.85457577357499, Mean+2SD: 2.87332005306815]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Cầu Ông Lãnh: 1 ca (không đổi so với 1 ca tuần trước). Tích lũy: 86 ca. Ngưỡng [Mùa: 4, Cusum: 13.4733984975187, Farrington: 0, Mean+2SD: 8.29878030638384]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Diên Hồng: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 55 ca. Ngưỡng [Mùa: 3, Cusum: 10.194851249527, Farrington: 0, Mean+2SD: 8.29150262212918]. Trạng thái: Bình thường (Mức 0).
-  + Phường Dĩ An: 0 ca (giảm 100.0% so với 16 ca tuần trước). Tích lũy: 297 ca. Ngưỡng [Mùa: 4, Cusum: 0.739808995980127, Farrington: NA, Mean+2SD: 42.7745240835043]. Trạng thái: Bình thường (Mức 0).
-  + Phường Gia Định: 5 ca (giảm 54.5% so với 11 ca tuần trước). Tích lũy: 168 ca. Ngưỡng [Mùa: 5, Cusum: 11.53185981588, Farrington: 16.7496000055987, Mean+2SD: 24.1287628091155]. Trạng thái: Bình thường (Mức 0).
-  + Phường Gò Vấp: 3 ca (không đổi so với 3 ca tuần trước). Tích lũy: 135 ca. Ngưỡng [Mùa: 2, Cusum: 9.06343341983096, Farrington: 4.52493133965296, Mean+2SD: 5.74165738677394]. Trạng thái: Bình thường (Mức 0).
-  + Phường Hiệp Bình: 13 ca (tăng 30.0% so với 10 ca tuần trước). Tích lũy: 233 ca. Ngưỡng [Mùa: 7, Cusum: 19.7035317609567, Farrington: 19.5839629724758, Mean+2SD: 25.8373074744683]. Trạng thái: Bình thường (Mức 0).
-  + Phường Hòa Bình: 1 ca (không đổi so với 1 ca tuần trước). Tích lũy: 74 ca. Ngưỡng [Mùa: 2, Cusum: 8.64023164390928, Farrington: 0, Mean+2SD: 5.74728827066554]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Hòa Hưng: 2 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 94 ca. Ngưỡng [Mùa: 3, Cusum: 10.8621886330926, Farrington: 8.29662693249548, Mean+2SD: 7.92712842531054]. Trạng thái: Bình thường (Mức 0).
-  + Phường Hòa Lợi: 13 ca (giảm 7.1% so với 14 ca tuần trước). Tích lũy: 182 ca. Ngưỡng [Mùa: 3, Cusum: 1.4758432636897, Farrington: 11.4333520200056, Mean+2SD: 8.80370243444252]. Trạng thái: Báo động (Mức 3).
-  + Phường Hạnh Thông: 5 ca (tăng 25.0% so với 4 ca tuần trước). Tích lũy: 129 ca. Ngưỡng [Mùa: 3, Cusum: 11.2548411402888, Farrington: 10.7947526967761, Mean+2SD: 14.0386991009991]. Trạng thái: Bình thường (Mức 0).
-  + Phường Khánh Hội: 2 ca (giảm 33.3% so với 3 ca tuần trước). Tích lũy: 90 ca. Ngưỡng [Mùa: 2, Cusum: 10.0290237629935, Farrington: 5.71673459169745, Mean+2SD: 4.38885438199983]. Trạng thái: Bình thường (Mức 0).
-  + Phường Linh Xuân: 16 ca (tăng 23.1% so với 13 ca tuần trước). Tích lũy: 262 ca. Ngưỡng [Mùa: 6, Cusum: 13.4558791544342, Farrington: 16.4334735660353, Mean+2SD: 15.1863530545955]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Long Bình: 3 ca (tăng 200.0% so với 1 ca tuần trước). Tích lũy: 78 ca. Ngưỡng [Mùa: 2, Cusum: 8.94457915522143, Farrington: 5.67206003773477, Mean+2SD: 6.37770876399966]. Trạng thái: Bình thường (Mức 0).
-  + Phường Long Hương: 3 ca (tăng 200.0% so với 1 ca tuần trước). Tích lũy: 10 ca. Ngưỡng [Mùa: 0, Cusum: 4.9471036254425, Farrington: 0, Mean+2SD: 1.49544511501033]. Trạng thái: Báo động (Mức 3).
-  + Phường Long Nguyên: 0 ca (giảm 100.0% so với 1 ca tuần trước). Tích lũy: 65 ca. Ngưỡng [Mùa: 1, Cusum: 7.55796660793365, Farrington: 3.72485887859011, Mean+2SD: 2.41421356237309]. Trạng thái: Bình thường (Mức 0).
-  + Phường Long Phước: 4 ca (không đổi so với 4 ca tuần trước). Tích lũy: 54 ca. Ngưỡng [Mùa: 1, Cusum: 5.0588808358518, Farrington: 5.59818202665464, Mean+2SD: 6.69041575982343]. Trạng thái: Bình thường (Mức 0).
-  + Phường Long Trường: 10 ca (tăng 11.1% so với 9 ca tuần trước). Tích lũy: 166 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 5.18665304363992, Mean+2SD: 6.98178046004133]. Trạng thái: Báo động (Mức 3).
-  + Phường Lái Thiêu: 1 ca (giảm 75.0% so với 4 ca tuần trước). Tích lũy: 175 ca. Ngưỡng [Mùa: 4, Cusum: 15.000930413443, Farrington: 16.6580861421169, Mean+2SD: 15.8815161417561]. Trạng thái: Bình thường (Mức 0).
-  + Phường Minh Phụng: 0 ca (giảm 100.0% so với 1 ca tuần trước). Tích lũy: 94 ca. Ngưỡng [Mùa: 2, Cusum: 9.6785200222803, Farrington: 0, Mean+2SD: 6.04707681233427]. Trạng thái: Bình thường (Mức 0).
-  + Phường Nhiêu Lộc: 4 ca (tăng 300.0% so với 1 ca tuần trước). Tích lũy: 121 ca. Ngưỡng [Mùa: 3, Cusum: 11.095526823535, Farrington: 8.72132061725369, Mean+2SD: 10.9630681604756]. Trạng thái: Bình thường (Mức 0).
-  + Phường Phú An: 0 ca (giảm 100.0% so với 9 ca tuần trước). Tích lũy: 97 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: NA, Mean+2SD: 5.16227766016838]. Trạng thái: Bình thường (Mức 0).
-  + Phường Phú Lâm: 1 ca (giảm 80.0% so với 5 ca tuần trước). Tích lũy: 114 ca. Ngưỡng [Mùa: 3, Cusum: 10.8328830887619, Farrington: 8.51891648972001, Mean+2SD: 5.37770876399966]. Trạng thái: Bình thường (Mức 0).
-  + Phường Phú Lợi: 9 ca (tăng 28.6% so với 7 ca tuần trước). Tích lũy: 154 ca. Ngưỡng [Mùa: 4, Cusum: 16.4611627335789, Farrington: 23.0681646530379, Mean+2SD: 25.9705627484771]. Trạng thái: Bình thường (Mức 0).
-  + Phường Phú Mỹ: 5 ca (tăng 25.0% so với 4 ca tuần trước). Tích lũy: 90 ca. Ngưỡng [Mùa: 2, Cusum: 9.35370476724595, Farrington: 4.87753722889702, Mean+2SD: 4.76647939483827]. Trạng thái: Báo động (Mức 3).
-  + Phường Phú Nhuận: 1 ca (giảm 66.7% so với 3 ca tuần trước). Tích lũy: 84 ca. Ngưỡng [Mùa: 2, Cusum: 8.60791174556481, Farrington: 2.72895607447621, Mean+2SD: 7.81536192416212]. Trạng thái: Bình thường (Mức 0).
-  + Phường Phú Thuận: 10 ca (tăng 42.9% so với 7 ca tuần trước). Tích lũy: 101 ca. Ngưỡng [Mùa: 2, Cusum: 4.25897474607657, Farrington: 7.54144079285606, Mean+2SD: 7.89897948556636]. Trạng thái: Báo động (Mức 3).
-  + Phường Phú Thạnh: 0 ca (giảm 100.0% so với 2 ca tuần trước). Tích lũy: 145 ca. Ngưỡng [Mùa: 4.5, Cusum: 15.9896867248968, Farrington: 22.0583035000185, Mean+2SD: 18.3983049630021]. Trạng thái: Bình thường (Mức 0).
-  + Phường Phú Thọ: 2 ca (giảm 33.3% so với 3 ca tuần trước). Tích lũy: 58 ca. Ngưỡng [Mùa: 2, Cusum: 8.41279788605977, Farrington: 6.36430708423406, Mean+2SD: 3.88035085019828]. Trạng thái: Bình thường (Mức 0).
-  + Phường Phú Thọ Hòa: 9 ca (tăng 125.0% so với 4 ca tuần trước). Tích lũy: 219 ca. Ngưỡng [Mùa: 7, Cusum: 24.5926872721901, Farrington: 40.3620661676266, Mean+2SD: 42.9576635837798]. Trạng thái: Bình thường (Mức 0).
-  + Phường Phú Định: 5 ca (tăng 25.0% so với 4 ca tuần trước). Tích lũy: 225 ca. Ngưỡng [Mùa: 5, Cusum: 15.3067813045965, Farrington: 10.8932489807377, Mean+2SD: 13.8303846073715]. Trạng thái: Bình thường (Mức 0).
-  + Phường Phước Long: 8 ca (tăng 33.3% so với 6 ca tuần trước). Tích lũy: 163 ca. Ngưỡng [Mùa: 4, Cusum: 14.0576341640895, Farrington: 13.7211478982229, Mean+2SD: 11.9974354758472]. Trạng thái: Bình thường (Mức 0).
-  + Phường Phước Thắng: 2 ca (giảm 33.3% so với 3 ca tuần trước). Tích lũy: 60 ca. Ngưỡng [Mùa: 4, Cusum: 12.2215312865926, Farrington: 8.21961088142185, Mean+2SD: 11.8486993241759]. Trạng thái: Bình thường (Mức 0).
-  + Phường Rạch Dừa: 8 ca (tăng 100.0% so với 4 ca tuần trước). Tích lũy: 70 ca. Ngưỡng [Mùa: 5, Cusum: 15.4945390591037, Farrington: 10.8917473269153, Mean+2SD: 20.6593404968054]. Trạng thái: Bình thường (Mức 0).
-  + Phường Sài Gòn: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 22 ca. Ngưỡng [Mùa: 1, Cusum: 6.72478021111227, Farrington: 0, Mean+2SD: 5.7466401061363]. Trạng thái: Bình thường (Mức 0).
-  + Phường Tam Bình: 9 ca (tăng 350.0% so với 2 ca tuần trước). Tích lũy: 202 ca. Ngưỡng [Mùa: 4, Cusum: 15.5655714293676, Farrington: 12.6744598006699, Mean+2SD: 14.1570487341204]. Trạng thái: Bình thường (Mức 0).
-  + Phường Tam Long: 1 ca (giảm 50.0% so với 2 ca tuần trước). Tích lũy: 32 ca. Ngưỡng [Mùa: 1, Cusum: 7.12108764086028, Farrington: 3.91669686469657, Mean+2SD: 3.68035085019828]. Trạng thái: Bình thường (Mức 0).
-  + Phường Tam Thắng: 1 ca (giảm 75.0% so với 4 ca tuần trước). Tích lũy: 46 ca. Ngưỡng [Mùa: 4, Cusum: 14.3367768736117, Farrington: 12.9206354851596, Mean+2SD: 18.0542568506211]. Trạng thái: Bình thường (Mức 0).
-  + Phường Thuận An: 0 ca (giảm 100.0% so với 5 ca tuần trước). Tích lũy: 81 ca. Ngưỡng [Mùa: 1, Cusum: 8.34483897196008, Farrington: NA, Mean+2SD: 6.04707681233427]. Trạng thái: Bình thường (Mức 0).
-  + Phường Thuận Giao: 10 ca (giảm 16.7% so với 12 ca tuần trước). Tích lũy: 277 ca. Ngưỡng [Mùa: 4, Cusum: 18.1394841428386, Farrington: 59.4482257175772, Mean+2SD: 52.479233031118]. Trạng thái: Bình thường (Mức 0).
-  + Phường Thông Tây Hội: 5 ca (tăng 66.7% so với 3 ca tuần trước). Tích lũy: 231 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 6.61869178605525, Mean+2SD: 7.41996015920445]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Thới An: 0 ca (giảm 100.0% so với 4 ca tuần trước). Tích lũy: 170 ca. Ngưỡng [Mùa: 3, Cusum: 11.2331680861695, Farrington: NA, Mean+2SD: 7.78178046004133]. Trạng thái: Bình thường (Mức 0).
-  + Phường Thạnh Mỹ Tây: 4 ca (tăng 100.0% so với 2 ca tuần trước). Tích lũy: 97 ca. Ngưỡng [Mùa: 5, Cusum: 15.4039869101993, Farrington: 9.7956590404999, Mean+2SD: 12.6027022093287]. Trạng thái: Bình thường (Mức 0).
-  + Phường Thới Hòa: 7 ca (tăng 133.3% so với 3 ca tuần trước). Tích lũy: 159 ca. Ngưỡng [Mùa: 3, Cusum: 12.9901200305329, Farrington: 14.6865632071363, Mean+2SD: 17.4891252930761]. Trạng thái: Bình thường (Mức 0).
-  + Phường Thủ Dầu Một: 5 ca (tăng 66.7% so với 3 ca tuần trước). Tích lũy: 94 ca. Ngưỡng [Mùa: 3, Cusum: 12.2844871185209, Farrington: 13.2628089244327, Mean+2SD: 13.2142735871851]. Trạng thái: Bình thường (Mức 0).
-  + Phường Thủ Đức: 12 ca (tăng 71.4% so với 7 ca tuần trước). Tích lũy: 184 ca. Ngưỡng [Mùa: 4, Cusum: 11.260715956523, Farrington: 8.70354968404467, Mean+2SD: 9.49918027279076]. Trạng thái: Báo động (Mức 3).
-  + Phường Trung Mỹ Tây: 11 ca (tăng 22.2% so với 9 ca tuần trước). Tích lũy: 290 ca. Ngưỡng [Mùa: 5, Cusum: 17.3673424730603, Farrington: 21.3864135400131, Mean+2SD: 21.132721699668]. Trạng thái: Bình thường (Mức 0).
-  + Phường Tân Bình: 2 ca (giảm 50.0% so với 4 ca tuần trước). Tích lũy: 125 ca. Ngưỡng [Mùa: 4, Cusum: 12.5698234083408, Farrington: 12.0488005556607, Mean+2SD: 10.5665631459995]. Trạng thái: Bình thường (Mức 0).
-  + Phường Tân Hiệp: 39 ca (tăng 2.6% so với 38 ca tuần trước). Tích lũy: 493 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 10.079496955607, Mean+2SD: 9.86099033699941]. Trạng thái: Báo động (Mức 3).
-  + Phường Tân Hòa: 3 ca (tăng 50.0% so với 2 ca tuần trước). Tích lũy: 101 ca. Ngưỡng [Mùa: 2, Cusum: 10.1497369226082, Farrington: 6.85784703175252, Mean+2SD: 8.86630035524124]. Trạng thái: Bình thường (Mức 0).
-  + Phường Tân Hưng: 7 ca (tăng 16.7% so với 6 ca tuần trước). Tích lũy: 290 ca. Ngưỡng [Mùa: 6.5, Cusum: 18.3768821910724, Farrington: 19.3579853249253, Mean+2SD: 21.9404512298541]. Trạng thái: Bình thường (Mức 0).
-  + Phường Tân Hải: 0 ca (giảm 100.0% so với 1 ca tuần trước). Tích lũy: 21 ca. Ngưỡng [Mùa: 0, Cusum: 4.42369591272632, Farrington: 0, Mean+2SD: 4.46410161513775]. Trạng thái: Bình thường (Mức 0).
-  + Phường Tân Khánh: 13 ca (tăng 116.7% so với 6 ca tuần trước). Tích lũy: 297 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 14.3378708627378, Mean+2SD: 17.2332871651931]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Tân Mỹ: 2 ca (không đổi so với 2 ca tuần trước). Tích lũy: 55 ca. Ngưỡng [Mùa: 2, Cusum: 9.86966194673277, Farrington: 12.0059005779709, Mean+2SD: 10.6027022093287]. Trạng thái: Bình thường (Mức 0).
-  + Phường Tân Phú: 3 ca (không đổi so với 3 ca tuần trước). Tích lũy: 146 ca. Ngưỡng [Mùa: 4, Cusum: 13.5814789201962, Farrington: 10.2871762603049, Mean+2SD: 12.4230428862432]. Trạng thái: Bình thường (Mức 0).
-  + Phường Tân Phước: 4 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 33 ca. Ngưỡng [Mùa: 1, Cusum: 5.12073800429819, Farrington: 0, Mean+2SD: 1.09442719099992]. Trạng thái: Báo động (Mức 3).
-  + Phường Tân Sơn: 5 ca (tăng 400.0% so với 1 ca tuần trước). Tích lũy: 125 ca. Ngưỡng [Mùa: 3, Cusum: 10.3744965399593, Farrington: 2.22556278820268, Mean+2SD: 2.47332005306815]. Trạng thái: Báo động (Mức 3).
-  + Phường Tân Sơn Hòa: 2 ca (không đổi so với 2 ca tuần trước). Tích lũy: 61 ca. Ngưỡng [Mùa: 2, Cusum: 9.56306098075215, Farrington: 6.33802467885557, Mean+2SD: 3]. Trạng thái: Bình thường (Mức 0).
-  + Phường Tân Sơn Nhì: 4 ca (giảm 20.0% so với 5 ca tuần trước). Tích lũy: 175 ca. Ngưỡng [Mùa: 5, Cusum: 15.7330676914715, Farrington: 25.1816240042581, Mean+2SD: 23.9705627484771]. Trạng thái: Bình thường (Mức 0).
-  + Phường Tân Sơn Nhất: 1 ca (giảm 80.0% so với 5 ca tuần trước). Tích lũy: 62 ca. Ngưỡng [Mùa: 3, Cusum: 10.5528838145132, Farrington: 5.25531382872942, Mean+2SD: 6.53589667773576]. Trạng thái: Bình thường (Mức 0).
-  + Phường Tân Thuận: 5 ca (tăng 400.0% so với 1 ca tuần trước). Tích lũy: 163 ca. Ngưỡng [Mùa: 5, Cusum: 14.620727996355, Farrington: 11.1845189592613, Mean+2SD: 9.47722557505166]. Trạng thái: Bình thường (Mức 0).
-  + Phường Tân Thành: 0 ca (giảm 100.0% so với 1 ca tuần trước). Tích lũy: 23 ca. Ngưỡng [Mùa: 0, Cusum: 4.19479579967126, Farrington: 0, Mean+2SD: 2.38885438199983]. Trạng thái: Bình thường (Mức 0).
-  + Phường Tân Thới Hiệp: 4 ca (giảm 60.0% so với 10 ca tuần trước). Tích lũy: 292 ca. Ngưỡng [Mùa: 7, Cusum: 20.5489162816322, Farrington: 42.3271284516011, Mean+2SD: 51.7624151769984]. Trạng thái: Bình thường (Mức 0).
-  + Phường Tân Tạo: 11 ca (giảm 38.9% so với 18 ca tuần trước). Tích lũy: 241 ca. Ngưỡng [Mùa: 5.5, Cusum: 10.325812226095, Farrington: 32.2006771030296, Mean+2SD: 23.8073154415949]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Tân Uyên: 2 ca (giảm 33.3% so với 3 ca tuần trước). Tích lũy: 128 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 3.84776906528608, Mean+2SD: 2.87332005306815]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Tân Đông Hiệp: 13 ca (tăng 44.4% so với 9 ca tuần trước). Tích lũy: 161 ca. Ngưỡng [Mùa: 2, Cusum: 9.95967592603068, Farrington: 26.1246560662987, Mean+2SD: 25.6361354847538]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Tân Định: 2 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 35 ca. Ngưỡng [Mùa: 2, Cusum: 10.4712757449358, Farrington: 0, Mean+2SD: 9.09915248150105]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Tây Nam: 2 ca (giảm 60.0% so với 5 ca tuần trước). Tích lũy: 194 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 6.50205180910433, Mean+2SD: 7.8309518948453]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Tây Thạnh: 5 ca (giảm 28.6% so với 7 ca tuần trước). Tích lũy: 226 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 13.0332796701231, Mean+2SD: 11.8681158050723]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Tăng Nhơn Phú: 7 ca (tăng 250.0% so với 2 ca tuần trước). Tích lũy: 139 ca. Ngưỡng [Mùa: 6, Cusum: 19.2620677329968, Farrington: 11.5951959540129, Mean+2SD: 12.2941536246685]. Trạng thái: Bình thường (Mức 0).
-  + Phường Vĩnh Hội: 2 ca (không đổi so với 2 ca tuần trước). Tích lũy: 56 ca. Ngưỡng [Mùa: 2, Cusum: 8.1907324651642, Farrington: 0, Mean+2SD: 4.43315017762062]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Vĩnh Tân: 3 ca (giảm 40.0% so với 5 ca tuần trước). Tích lũy: 88 ca. Ngưỡng [Mùa: 1, Cusum: 5.38773060356016, Farrington: 4.2890694598059, Mean+2SD: 5.54728827066554]. Trạng thái: Bình thường (Mức 0).
-  + Phường Vũng Tàu: 5 ca (tăng 150.0% so với 2 ca tuần trước). Tích lũy: 55 ca. Ngưỡng [Mùa: 4, Cusum: 15.0074583853242, Farrington: 7.95391035471138, Mean+2SD: 15.1570487341204]. Trạng thái: Bình thường (Mức 0).
-  + Phường Vườn Lài: 2 ca (không đổi so với 2 ca tuần trước). Tích lũy: 71 ca. Ngưỡng [Mùa: 3, Cusum: 11.9120106573713, Farrington: 8.4862851167094, Mean+2SD: 6.76070170039655]. Trạng thái: Bình thường (Mức 0).
-  + Phường Xuân Hòa: 2 ca (tăng 100.0% so với 1 ca tuần trước). Tích lũy: 33 ca. Ngưỡng [Mùa: 2, Cusum: 9.50123780272569, Farrington: 6.22228979642781, Mean+2SD: 5.086335345031]. Trạng thái: Bình thường (Mức 0).
-  + Phường Xóm Chiếu: 0 ca (giảm 100.0% so với 1 ca tuần trước). Tích lũy: 61 ca. Ngưỡng [Mùa: 1, Cusum: 7.61810517496487, Farrington: 0, Mean+2SD: 2.47332005306815]. Trạng thái: Bình thường (Mức 0).
-  + Phường Đông Hòa: 44 ca (tăng 2.3% so với 43 ca tuần trước). Tích lũy: 306 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 17.2158643001721, Mean+2SD: 32.0756909451778]. Trạng thái: Báo động (Mức 3).
-  + Phường Đông Hưng Thuận: 12 ca (tăng 50.0% so với 8 ca tuần trước). Tích lũy: 211 ca. Ngưỡng [Mùa: 6, Cusum: 16.8719759896057, Farrington: 26.7918796540839, Mean+2SD: 22.3493033905491]. Trạng thái: Bình thường (Mức 0).
-  + Phường Đức Nhuận: 0 ca (giảm 100.0% so với 2 ca tuần trước). Tích lũy: 92 ca. Ngưỡng [Mùa: 1.5, Cusum: 8.66443516973606, Farrington: 0, Mean+2SD: 8.34977477020464]. Trạng thái: Bình thường (Mức 0).
-  + Xã An Long: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 15 ca. Ngưỡng [Mùa: 1, Cusum: 5.2801810708102, Farrington: NA, Mean+2SD: 6.69041575982343]. Trạng thái: Bình thường (Mức 0).
-  + Xã An Nhơn Tây: 0 ca (giảm 100.0% so với 2 ca tuần trước). Tích lũy: 210 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: NA, Mean+2SD: 1.69544511501033]. Trạng thái: Bình thường (Mức 0).
-  + Xã An Thới Đông: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 9 ca. Ngưỡng [Mùa: 0, Cusum: 4.14547729561676, Farrington: NA, Mean+2SD: 2.38885438199983]. Trạng thái: Bình thường (Mức 0).
-  + Xã Bà Điểm: 21 ca (tăng 75.0% so với 12 ca tuần trước). Tích lũy: 340 ca. Ngưỡng [Mùa: 6, Cusum: 0.00417269511362761, Farrington: 18.6252277572989, Mean+2SD: 14.5635609200827]. Trạng thái: Báo động (Mức 3).
-  + Xã Bàu Bàng: 2 ca (tăng 100.0% so với 1 ca tuần trước). Tích lũy: 68 ca. Ngưỡng [Mùa: 1, Cusum: 2.02907329358533, Farrington: 3.7394731920575, Mean+2SD: 3.39089023002066]. Trạng thái: Bình thường (Mức 0).
-  + Xã Bàu Lâm: 4 ca (tăng 100.0% so với 2 ca tuần trước). Tích lũy: 15 ca. Ngưỡng [Mùa: 0, Cusum: 4.16688524563131, Farrington: 1.23825258214153, Mean+2SD: 4.9466401061363]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Bình Chánh: 4 ca (giảm 66.7% so với 12 ca tuần trước). Tích lũy: 155 ca. Ngưỡng [Mùa: 3.5, Cusum: 6.05868311401519, Farrington: 9.99591332715205, Mean+2SD: 8.74977477020464]. Trạng thái: Bình thường (Mức 0).
+  + Phường An Hội Tây: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 197 ca. Ngưỡng [Mùa: 3.5, Cusum: 0, Farrington: NA, Mean+2SD: 9.81536192416212]. Trạng thái: Bình thường (Mức 0).
+  + Phường An Hội Đông: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 128 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: NA, Mean+2SD: 1.69544511501033]. Trạng thái: Bình thường (Mức 0).
+  + Phường An Khánh: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 78 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: NA, Mean+2SD: 8.92712842531054]. Trạng thái: Bình thường (Mức 0).
+  + Phường An Lạc: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 314 ca. Ngưỡng [Mùa: 7, Cusum: 0, Farrington: NA, Mean+2SD: 30.69798197147]. Trạng thái: Bình thường (Mức 0).
+  + Phường An Nhơn: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 101 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: NA, Mean+2SD: 6.086335345031]. Trạng thái: Bình thường (Mức 0).
+  + Phường An Phú: 12 ca (giảm 20.0% so với 15 ca tuần trước). Tích lũy: 315 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 38.5450680498904, Mean+2SD: 38.3598365118064]. Trạng thái: Lưu ý (Mức 1).
+  + Phường An Phú Đông: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 114 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: NA, Mean+2SD: 7.13589667773576]. Trạng thái: Bình thường (Mức 0).
+  + Phường An Đông: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 47 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: NA, Mean+2SD: 15.607404868885]. Trạng thái: Bình thường (Mức 0).
+  + Phường Bà Rịa: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 13 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: NA, Mean+2SD: 6.74728827066554]. Trạng thái: Bình thường (Mức 0).
+  + Phường Bàn Cờ: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 33 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: NA, Mean+2SD: 7.98569601750758]. Trạng thái: Bình thường (Mức 0).
+  + Phường Bình Cơ: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 71 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: NA, Mean+2SD: 6.64707681233427]. Trạng thái: Bình thường (Mức 0).
+  + Phường Bình Dương: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 254 ca. Ngưỡng [Mùa: 4, Cusum: 0, Farrington: NA, Mean+2SD: 12.2663003552412]. Trạng thái: Bình thường (Mức 0).
+  + Phường Bình Hòa: 15 ca (tăng 25.0% so với 12 ca tuần trước). Tích lũy: 178 ca. Ngưỡng [Mùa: 3, Cusum: 2.93281639669714, Farrington: 25.3499334181991, Mean+2SD: 30.6637056377526]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Bình Hưng Hòa: 10 ca (giảm 37.5% so với 16 ca tuần trước). Tích lũy: 520 ca. Ngưỡng [Mùa: 12, Cusum: 31.689061624044, Farrington: 34.7598587623896, Mean+2SD: 45.6354635860333]. Trạng thái: Bình thường (Mức 0).
+  + Phường Bình Lợi Trung: 9 ca (tăng 80.0% so với 5 ca tuần trước). Tích lũy: 172 ca. Ngưỡng [Mùa: 4, Cusum: 13.4327919002063, Farrington: 7.71329349310741, Mean+2SD: 7.20434577328854]. Trạng thái: Báo động (Mức 3).
+  + Phường Bình Phú: 8 ca (tăng 300.0% so với 2 ca tuần trước). Tích lũy: 155 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 7.70665706142011, Mean+2SD: 5.78178046004133]. Trạng thái: Báo động (Mức 3).
+  + Phường Bình Quới: 2 ca (không đổi so với 2 ca tuần trước). Tích lũy: 48 ca. Ngưỡng [Mùa: 1, Cusum: 6.99628080591158, Farrington: 3.16495140188183, Mean+2SD: 3]. Trạng thái: Bình thường (Mức 0).
+  + Phường Bình Thạnh: 6 ca (tăng 200.0% so với 2 ca tuần trước). Tích lũy: 146 ca. Ngưỡng [Mùa: 4, Cusum: 14.9486739529501, Farrington: 9.2802523676389, Mean+2SD: 6.68035085019828]. Trạng thái: Bình thường (Mức 0).
+  + Phường Bình Thới: 1 ca (giảm 50.0% so với 2 ca tuần trước). Tích lũy: 82 ca. Ngưỡng [Mùa: 2, Cusum: 9.1107807270328, Farrington: 3.70526176400824, Mean+2SD: 7.03318042491699]. Trạng thái: Bình thường (Mức 0).
+  + Phường Bình Tiên: 2 ca (tăng 100.0% so với 1 ca tuần trước). Tích lũy: 109 ca. Ngưỡng [Mùa: 2, Cusum: 9.41594611603218, Farrington: 6.07520935735157, Mean+2SD: 6.78178046004133]. Trạng thái: Bình thường (Mức 0).
+  + Phường Bình Trưng: 13 ca (tăng 85.7% so với 7 ca tuần trước). Tích lũy: 229 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 12.034081800311, Mean+2SD: 11.8938330115242]. Trạng thái: Báo động (Mức 3).
+  + Phường Bình Trị Đông: 16 ca (tăng 100.0% so với 8 ca tuần trước). Tích lũy: 377 ca. Ngưỡng [Mùa: 10, Cusum: 23.3121807838498, Farrington: 18.0259607428681, Mean+2SD: 29.1243437789852]. Trạng thái: Bình thường (Mức 0).
+  + Phường Bình Tân: 8 ca (tăng 300.0% so với 2 ca tuần trước). Tích lũy: 390 ca. Ngưỡng [Mùa: 7, Cusum: 0, Farrington: 24.2297937980947, Mean+2SD: 30.666252583998]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Bình Tây: 1 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 81 ca. Ngưỡng [Mùa: 1, Cusum: 8.0327377077239, Farrington: 0, Mean+2SD: 2.09442719099992]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Bình Đông: 7 ca (giảm 22.2% so với 9 ca tuần trước). Tích lũy: 241 ca. Ngưỡng [Mùa: 5, Cusum: 14.3052622707134, Farrington: 16.733264368728, Mean+2SD: 15.8399203184089]. Trạng thái: Bình thường (Mức 0).
+  + Phường Bảy Hiền: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 219 ca. Ngưỡng [Mùa: 5, Cusum: 0, Farrington: NA, Mean+2SD: 11.7856996786292]. Trạng thái: Bình thường (Mức 0).
+  + Phường Bến Cát: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 203 ca. Ngưỡng [Mùa: 4, Cusum: 0, Farrington: NA, Mean+2SD: 20.2088206689632]. Trạng thái: Bình thường (Mức 0).
+  + Phường Bến Thành: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 33 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: NA, Mean+2SD: 4.82842712474619]. Trạng thái: Bình thường (Mức 0).
+  + Phường Chánh Hiệp: 3 ca (giảm 57.1% so với 7 ca tuần trước). Tích lũy: 124 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 9.49046027776525, Mean+2SD: 8.09901951359278]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Chánh Hưng: 9 ca (tăng 200.0% so với 3 ca tuần trước). Tích lũy: 317 ca. Ngưỡng [Mùa: 9, Cusum: 21.8797639925758, Farrington: 17.4159596372315, Mean+2SD: 18.3261578935526]. Trạng thái: Bình thường (Mức 0).
+  + Phường Chánh Phú Hòa: 15 ca (tăng 36.4% so với 11 ca tuần trước). Tích lũy: 211 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 6.00418481432953, Mean+2SD: 5.74165738677394]. Trạng thái: Báo động (Mức 3).
+  + Phường Chợ Lớn: 3 ca (tăng 50.0% so với 2 ca tuần trước). Tích lũy: 51 ca. Ngưỡng [Mùa: 2, Cusum: 9.75516708350072, Farrington: 8.69567318728931, Mean+2SD: 12.4486993241759]. Trạng thái: Bình thường (Mức 0).
+  + Phường Chợ Quán: 5 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 52 ca. Ngưỡng [Mùa: 2, Cusum: 8.88090010140912, Farrington: 8.10214873621245, Mean+2SD: 13.1166517590817]. Trạng thái: Bình thường (Mức 0).
+  + Phường Cát Lái: 4 ca (giảm 50.0% so với 8 ca tuần trước). Tích lũy: 105 ca. Ngưỡng [Mùa: 2, Cusum: 0.00631956828602931, Farrington: 6.79250410474847, Mean+2SD: 7.74728827066554]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Cầu Kiệu: 7 ca (tăng 75.0% so với 4 ca tuần trước). Tích lũy: 91 ca. Ngưỡng [Mùa: 2, Cusum: 9.44699982630249, Farrington: 4.42391510525668, Mean+2SD: 7.17995983919549]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Cầu Ông Lãnh: 3 ca (tăng 200.0% so với 1 ca tuần trước). Tích lũy: 89 ca. Ngưỡng [Mùa: 4, Cusum: 13.4733984975187, Farrington: 10.2883057620758, Mean+2SD: 8.97687164221791]. Trạng thái: Bình thường (Mức 0).
+  + Phường Diên Hồng: 2 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 57 ca. Ngưỡng [Mùa: 3, Cusum: 10.194851249527, Farrington: 0, Mean+2SD: 3.80768096208106]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Dĩ An: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 299 ca. Ngưỡng [Mùa: 4, Cusum: 0, Farrington: NA, Mean+2SD: 49.4966665185054]. Trạng thái: Bình thường (Mức 0).
+  + Phường Gia Định: 17 ca (tăng 112.5% so với 8 ca tuần trước). Tích lũy: 188 ca. Ngưỡng [Mùa: 5, Cusum: 12.3567262398119, Farrington: 16.8502376296865, Mean+2SD: 15.5344085462111]. Trạng thái: Báo động (Mức 3).
+  + Phường Gò Vấp: 0 ca (giảm 100.0% so với 3 ca tuần trước). Tích lũy: 135 ca. Ngưỡng [Mùa: 2, Cusum: 9.06343341983096, Farrington: 6.91152486491063, Mean+2SD: 6.40768096208106]. Trạng thái: Bình thường (Mức 0).
+  + Phường Hiệp Bình: 22 ca (tăng 57.1% so với 14 ca tuần trước). Tích lũy: 256 ca. Ngưỡng [Mùa: 7, Cusum: 17.5826029269226, Farrington: 22.7831787831866, Mean+2SD: 16.4852813742386]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Hòa Bình: 4 ca (tăng 300.0% so với 1 ca tuần trước). Tích lũy: 78 ca. Ngưỡng [Mùa: 2, Cusum: 8.64023164390928, Farrington: 2.83870065216557, Mean+2SD: 6.53589667773576]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Hòa Hưng: 2 ca (không đổi so với 2 ca tuần trước). Tích lũy: 96 ca. Ngưỡng [Mùa: 3, Cusum: 10.8621886330926, Farrington: 8.60334461376822, Mean+2SD: 9.86099033699941]. Trạng thái: Bình thường (Mức 0).
+  + Phường Hòa Lợi: 16 ca (tăng 14.3% so với 14 ca tuần trước). Tích lũy: 198 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 11.3942332207242, Mean+2SD: 10.8663003552412]. Trạng thái: Báo động (Mức 3).
+  + Phường Hạnh Thông: 1 ca (giảm 80.0% so với 5 ca tuần trước). Tích lũy: 130 ca. Ngưỡng [Mùa: 3, Cusum: 11.2548411402888, Farrington: 13.9952787107841, Mean+2SD: 11.2027022093287]. Trạng thái: Bình thường (Mức 0).
+  + Phường Khánh Hội: 3 ca (tăng 50.0% so với 2 ca tuần trước). Tích lũy: 93 ca. Ngưỡng [Mùa: 2, Cusum: 10.0290237629935, Farrington: 6.55207413220864, Mean+2SD: 5.43315017762062]. Trạng thái: Bình thường (Mức 0).
+  + Phường Linh Xuân: 15 ca (giảm 11.8% so với 17 ca tuần trước). Tích lũy: 278 ca. Ngưỡng [Mùa: 6, Cusum: 8.48467729560188, Farrington: 13.1186182214996, Mean+2SD: 18.4995495404093]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Long Bình: 4 ca (tăng 33.3% so với 3 ca tuần trước). Tích lũy: 82 ca. Ngưỡng [Mùa: 2, Cusum: 8.94457915522143, Farrington: 5.79283913357979, Mean+2SD: 3.47332005306815]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Long Hương: 3 ca (không đổi so với 3 ca tuần trước). Tích lũy: 13 ca. Ngưỡng [Mùa: 0, Cusum: 3.92287846520691, Farrington: 2.45606043182728, Mean+2SD: 2.47332005306815]. Trạng thái: Báo động (Mức 3).
+  + Phường Long Nguyên: 3 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 68 ca. Ngưỡng [Mùa: 1, Cusum: 7.55796660793365, Farrington: 3.54804566992592, Mean+2SD: 2.47332005306815]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Long Phước: 0 ca (giảm 100.0% so với 4 ca tuần trước). Tích lũy: 54 ca. Ngưỡng [Mùa: 1, Cusum: 3.84666221712437, Farrington: 6.37296640234934, Mean+2SD: 8.16194411635517]. Trạng thái: Bình thường (Mức 0).
+  + Phường Long Trường: 13 ca (tăng 44.4% so với 9 ca tuần trước). Tích lũy: 178 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 7.27199398894558, Mean+2SD: 3.47332005306815]. Trạng thái: Báo động (Mức 3).
+  + Phường Lái Thiêu: 4 ca (tăng 300.0% so với 1 ca tuần trước). Tích lũy: 179 ca. Ngưỡng [Mùa: 4, Cusum: 15.000930413443, Farrington: 15.7335325825411, Mean+2SD: 17.7498953970317]. Trạng thái: Bình thường (Mức 0).
+  + Phường Minh Phụng: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 94 ca. Ngưỡng [Mùa: 2, Cusum: 9.6785200222803, Farrington: 0, Mean+2SD: 6.64707681233427]. Trạng thái: Bình thường (Mức 0).
+  + Phường Nhiêu Lộc: 4 ca (không đổi so với 4 ca tuần trước). Tích lũy: 125 ca. Ngưỡng [Mùa: 3, Cusum: 11.095526823535, Farrington: 8.80546555694722, Mean+2SD: 9.8309518948453]. Trạng thái: Bình thường (Mức 0).
+  + Phường Phú An: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 97 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: NA, Mean+2SD: 2.09442719099992]. Trạng thái: Bình thường (Mức 0).
+  + Phường Phú Lâm: 5 ca (tăng 400.0% so với 1 ca tuần trước). Tích lũy: 119 ca. Ngưỡng [Mùa: 3, Cusum: 10.8328830887619, Farrington: 8.52687263137754, Mean+2SD: 13.9498691090507]. Trạng thái: Bình thường (Mức 0).
+  + Phường Phú Lợi: 13 ca (tăng 44.4% so với 9 ca tuần trước). Tích lũy: 167 ca. Ngưỡng [Mùa: 4, Cusum: 16.4611627335789, Farrington: 24.0269197930154, Mean+2SD: 22.4054044186574]. Trạng thái: Bình thường (Mức 0).
+  + Phường Phú Mỹ: 2 ca (giảm 60.0% so với 5 ca tuần trước). Tích lũy: 92 ca. Ngưỡng [Mùa: 2, Cusum: 9.03424954319131, Farrington: 5.79044182682844, Mean+2SD: 6.49871773792359]. Trạng thái: Bình thường (Mức 0).
+  + Phường Phú Nhuận: 1 ca (giảm 50.0% so với 2 ca tuần trước). Tích lũy: 86 ca. Ngưỡng [Mùa: 2, Cusum: 8.60791174556481, Farrington: 5.64838852881708, Mean+2SD: 5.086335345031]. Trạng thái: Bình thường (Mức 0).
+  + Phường Phú Thuận: 2 ca (giảm 80.0% so với 10 ca tuần trước). Tích lũy: 103 ca. Ngưỡng [Mùa: 2, Cusum: 0.355984111755745, Farrington: 12.6951057994436, Mean+2SD: 3.38885438199983]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Phú Thạnh: 6 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 151 ca. Ngưỡng [Mùa: 4.5, Cusum: 15.9896867248968, Farrington: 20.0019120019416, Mean+2SD: 22.2531550176655]. Trạng thái: Bình thường (Mức 0).
+  + Phường Phú Thọ: 1 ca (giảm 50.0% so với 2 ca tuần trước). Tích lũy: 60 ca. Ngưỡng [Mùa: 2, Cusum: 8.41279788605977, Farrington: 5.82718220689441, Mean+2SD: 7.17995983919549]. Trạng thái: Bình thường (Mức 0).
+  + Phường Phú Thọ Hòa: 4 ca (giảm 55.6% so với 9 ca tuần trước). Tích lũy: 223 ca. Ngưỡng [Mùa: 7, Cusum: 24.5926872721901, Farrington: 38.3833739605909, Mean+2SD: 41.5198930479372]. Trạng thái: Bình thường (Mức 0).
+  + Phường Phú Định: 3 ca (giảm 40.0% so với 5 ca tuần trước). Tích lũy: 230 ca. Ngưỡng [Mùa: 5, Cusum: 15.3067813045965, Farrington: 11.9288523874944, Mean+2SD: 9.74977477020464]. Trạng thái: Bình thường (Mức 0).
+  + Phường Phước Long: 11 ca (tăng 37.5% so với 8 ca tuần trước). Tích lũy: 174 ca. Ngưỡng [Mùa: 4, Cusum: 13.9621018790847, Farrington: 13.0871914697533, Mean+2SD: 17.4017542509914]. Trạng thái: Bình thường (Mức 0).
+  + Phường Phước Thắng: 2 ca (không đổi so với 2 ca tuần trước). Tích lũy: 62 ca. Ngưỡng [Mùa: 4, Cusum: 12.2215312865926, Farrington: 9.4502603241539, Mean+2SD: 6.74728827066554]. Trạng thái: Bình thường (Mức 0).
+  + Phường Rạch Dừa: 9 ca (tăng 12.5% so với 8 ca tuần trước). Tích lũy: 79 ca. Ngưỡng [Mùa: 5, Cusum: 15.4945390591037, Farrington: 13.0153664897709, Mean+2SD: 10.4721359549996]. Trạng thái: Bình thường (Mức 0).
+  + Phường Sài Gòn: 3 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 25 ca. Ngưỡng [Mùa: 1, Cusum: 6.72478021111227, Farrington: 0, Mean+2SD: 4.7466401061363]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Tam Bình: 4 ca (giảm 55.6% so với 9 ca tuần trước). Tích lũy: 206 ca. Ngưỡng [Mùa: 4, Cusum: 15.5558437530031, Farrington: 14.2976112481021, Mean+2SD: 16.1451410611713]. Trạng thái: Bình thường (Mức 0).
+  + Phường Tam Long: 2 ca (tăng 100.0% so với 1 ca tuần trước). Tích lũy: 34 ca. Ngưỡng [Mùa: 1, Cusum: 7.12108764086028, Farrington: 1.71159195305359, Mean+2SD: 5.74728827066554]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Tam Thắng: 0 ca (giảm 100.0% so với 1 ca tuần trước). Tích lũy: 46 ca. Ngưỡng [Mùa: 4, Cusum: 14.3367768736117, Farrington: 14.4100499557469, Mean+2SD: 17.4015872016187]. Trạng thái: Bình thường (Mức 0).
+  + Phường Thuận An: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 81 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: NA, Mean+2SD: 13.1451410611713]. Trạng thái: Bình thường (Mức 0).
+  + Phường Thuận Giao: 15 ca (tăng 50.0% so với 10 ca tuần trước). Tích lũy: 292 ca. Ngưỡng [Mùa: 4, Cusum: 18.8239556167887, Farrington: 56.1268423493142, Mean+2SD: 65.4607481339629]. Trạng thái: Bình thường (Mức 0).
+  + Phường Thông Tây Hội: 3 ca (giảm 40.0% so với 5 ca tuần trước). Tích lũy: 234 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 5.96295605065306, Mean+2SD: 5.40768096208106]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Thới An: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 170 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: NA, Mean+2SD: 10.164414002969]. Trạng thái: Bình thường (Mức 0).
+  + Phường Thạnh Mỹ Tây: 7 ca (tăng 133.3% so với 3 ca tuần trước). Tích lũy: 103 ca. Ngưỡng [Mùa: 5, Cusum: 15.4039869101993, Farrington: 12.1638138190766, Mean+2SD: 5.77770876399966]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Thới Hòa: 1 ca (giảm 85.7% so với 7 ca tuần trước). Tích lũy: 160 ca. Ngưỡng [Mùa: 3, Cusum: 12.9901200305329, Farrington: 15.7927653243354, Mean+2SD: 16.0995049383621]. Trạng thái: Bình thường (Mức 0).
+  + Phường Thủ Dầu Một: 5 ca (không đổi so với 5 ca tuần trước). Tích lũy: 100 ca. Ngưỡng [Mùa: 3, Cusum: 12.2844871185209, Farrington: 12.5122192776759, Mean+2SD: 16.8579292019179]. Trạng thái: Bình thường (Mức 0).
+  + Phường Thủ Đức: 11 ca (tăng 22.2% so với 9 ca tuần trước). Tích lũy: 192 ca. Ngưỡng [Mùa: 4, Cusum: 9.04395338951368, Farrington: 8.53490880457282, Mean+2SD: 8.61536192416212]. Trạng thái: Báo động (Mức 3).
+  + Phường Trung Mỹ Tây: 10 ca (giảm 9.1% so với 11 ca tuần trước). Tích lũy: 300 ca. Ngưỡng [Mùa: 5, Cusum: 16.5968743763037, Farrington: 25.192314108301, Mean+2SD: 22.1377067415524]. Trạng thái: Bình thường (Mức 0).
+  + Phường Tân Bình: 5 ca (tăng 150.0% so với 2 ca tuần trước). Tích lũy: 130 ca. Ngưỡng [Mùa: 4, Cusum: 12.5698234083408, Farrington: 12.548037064996, Mean+2SD: 14.9537432844358]. Trạng thái: Bình thường (Mức 0).
+  + Phường Tân Hiệp: 36 ca (giảm 7.7% so với 39 ca tuần trước). Tích lũy: 529 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 9.83073968900795, Mean+2SD: 10.3421708935184]. Trạng thái: Báo động (Mức 3).
+  + Phường Tân Hòa: 4 ca (tăng 33.3% so với 3 ca tuần trước). Tích lũy: 105 ca. Ngưỡng [Mùa: 2, Cusum: 10.1497369226082, Farrington: 5.33296459430441, Mean+2SD: 4.80768096208106]. Trạng thái: Bình thường (Mức 0).
+  + Phường Tân Hưng: 4 ca (giảm 50.0% so với 8 ca tuần trước). Tích lũy: 295 ca. Ngưỡng [Mùa: 6.5, Cusum: 18.3768821910724, Farrington: 20.696992977943, Mean+2SD: 20.0830459735946]. Trạng thái: Bình thường (Mức 0).
+  + Phường Tân Hải: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 21 ca. Ngưỡng [Mùa: 0, Cusum: 4.42369591272632, Farrington: 0, Mean+2SD: 3.44948974278318]. Trạng thái: Bình thường (Mức 0).
+  + Phường Tân Khánh: 3 ca (giảm 78.6% so với 14 ca tuần trước). Tích lũy: 301 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 12.1283162190071, Mean+2SD: 9.13589667773576]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Tân Mỹ: 1 ca (giảm 50.0% so với 2 ca tuần trước). Tích lũy: 56 ca. Ngưỡng [Mùa: 2, Cusum: 9.86966194673277, Farrington: 10.5459268740859, Mean+2SD: 12.411104260855]. Trạng thái: Bình thường (Mức 0).
+  + Phường Tân Phú: 3 ca (giảm 25.0% so với 4 ca tuần trước). Tích lũy: 150 ca. Ngưỡng [Mùa: 4, Cusum: 13.5814789201962, Farrington: 6.3123120675984, Mean+2SD: 7.40768096208106]. Trạng thái: Bình thường (Mức 0).
+  + Phường Tân Phước: 1 ca (giảm 75.0% so với 4 ca tuần trước). Tích lũy: 34 ca. Ngưỡng [Mùa: 1, Cusum: 3.18583563932363, Farrington: 2.75169379633556, Mean+2SD: 4.37770876399966]. Trạng thái: Bình thường (Mức 0).
+  + Phường Tân Sơn: 7 ca (tăng 40.0% so với 5 ca tuần trước). Tích lũy: 132 ca. Ngưỡng [Mùa: 3, Cusum: 10.3744965399593, Farrington: 4.85457577357499, Mean+2SD: 2.99089023002066]. Trạng thái: Báo động (Mức 3).
+  + Phường Tân Sơn Hòa: 1 ca (giảm 50.0% so với 2 ca tuần trước). Tích lũy: 62 ca. Ngưỡng [Mùa: 2, Cusum: 9.56306098075215, Farrington: 5.67364773920636, Mean+2SD: 5.68035085019828]. Trạng thái: Bình thường (Mức 0).
+  + Phường Tân Sơn Nhì: 7 ca (tăng 75.0% so với 4 ca tuần trước). Tích lũy: 182 ca. Ngưỡng [Mùa: 5, Cusum: 15.7330676914715, Farrington: 26.7635393103381, Mean+2SD: 24.3770926280817]. Trạng thái: Bình thường (Mức 0).
+  + Phường Tân Sơn Nhất: 3 ca (tăng 200.0% so với 1 ca tuần trước). Tích lũy: 65 ca. Ngưỡng [Mùa: 3, Cusum: 10.5528838145132, Farrington: 6.42480804288329, Mean+2SD: 5.086335345031]. Trạng thái: Bình thường (Mức 0).
+  + Phường Tân Thuận: 0 ca (giảm 100.0% so với 5 ca tuần trước). Tích lũy: 163 ca. Ngưỡng [Mùa: 5, Cusum: 14.620727996355, Farrington: 12.8804295328586, Mean+2SD: 11.9974354758472]. Trạng thái: Bình thường (Mức 0).
+  + Phường Tân Thành: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 23 ca. Ngưỡng [Mùa: 0, Cusum: 4.19479579967126, Farrington: 0, Mean+2SD: 0]. Trạng thái: Bình thường (Mức 0).
+  + Phường Tân Thới Hiệp: 11 ca (tăng 175.0% so với 4 ca tuần trước). Tích lũy: 303 ca. Ngưỡng [Mùa: 7, Cusum: 20.5489162816322, Farrington: 39.6378562711553, Mean+2SD: 37.5276416838336]. Trạng thái: Bình thường (Mức 0).
+  + Phường Tân Tạo: 8 ca (giảm 27.3% so với 11 ca tuần trước). Tích lũy: 250 ca. Ngưỡng [Mùa: 5.5, Cusum: 9.03463090621405, Farrington: 24.929320149807, Mean+2SD: 33.6665743303861]. Trạng thái: Bình thường (Mức 0).
+  + Phường Tân Uyên: 8 ca (tăng 300.0% so với 2 ca tuần trước). Tích lũy: 136 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 4.38934448016274, Mean+2SD: 4.76647939483827]. Trạng thái: Báo động (Mức 3).
+  + Phường Tân Đông Hiệp: 14 ca (tăng 7.7% so với 13 ca tuần trước). Tích lũy: 175 ca. Ngưỡng [Mùa: 2, Cusum: 4.15982811892381, Farrington: 23.3618560290744, Mean+2SD: 21.5231850475024]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Tân Định: 3 ca (tăng 50.0% so với 2 ca tuần trước). Tích lũy: 38 ca. Ngưỡng [Mùa: 2, Cusum: 10.4712757449358, Farrington: 9.37437128658525, Mean+2SD: 9.36194411635517]. Trạng thái: Bình thường (Mức 0).
+  + Phường Tây Nam: 6 ca (tăng 200.0% so với 2 ca tuần trước). Tích lũy: 200 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 6.11634331748112, Mean+2SD: 5.98178046004133]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Tây Thạnh: 5 ca (không đổi so với 5 ca tuần trước). Tích lũy: 231 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 9.75208818109546, Mean+2SD: 11.4833147735479]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Tăng Nhơn Phú: 4 ca (giảm 50.0% so với 8 ca tuần trước). Tích lũy: 144 ca. Ngưỡng [Mùa: 6, Cusum: 19.2620677329968, Farrington: 13.7498542047448, Mean+2SD: 10.5472882706655]. Trạng thái: Bình thường (Mức 0).
+  + Phường Vĩnh Hội: 0 ca (giảm 100.0% so với 2 ca tuần trước). Tích lũy: 56 ca. Ngưỡng [Mùa: 2, Cusum: 8.1907324651642, Farrington: 0, Mean+2SD: 4.82842712474619]. Trạng thái: Bình thường (Mức 0).
+  + Phường Vĩnh Tân: 2 ca (giảm 33.3% so với 3 ca tuần trước). Tích lũy: 90 ca. Ngưỡng [Mùa: 1, Cusum: 5.98959268995913, Farrington: 4.65583862761218, Mean+2SD: 3.80768096208106]. Trạng thái: Bình thường (Mức 0).
+  + Phường Vũng Tàu: 2 ca (giảm 60.0% so với 5 ca tuần trước). Tích lũy: 57 ca. Ngưỡng [Mùa: 4, Cusum: 15.0074583853242, Farrington: 12.3103685411879, Mean+2SD: 7.23318042491699]. Trạng thái: Bình thường (Mức 0).
+  + Phường Vườn Lài: 3 ca (tăng 50.0% so với 2 ca tuần trước). Tích lũy: 74 ca. Ngưỡng [Mùa: 3, Cusum: 11.9120106573713, Farrington: 7.64035636485184, Mean+2SD: 9]. Trạng thái: Bình thường (Mức 0).
+  + Phường Xuân Hòa: 2 ca (không đổi so với 2 ca tuần trước). Tích lũy: 35 ca. Ngưỡng [Mùa: 2, Cusum: 9.50123780272569, Farrington: 6.67050837822211, Mean+2SD: 5.39089023002066]. Trạng thái: Bình thường (Mức 0).
+  + Phường Xóm Chiếu: 4 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 65 ca. Ngưỡng [Mùa: 1, Cusum: 7.61810517496487, Farrington: 4.41414668556388, Mean+2SD: 6.04707681233427]. Trạng thái: Bình thường (Mức 0).
+  + Phường Đông Hòa: 43 ca (giảm 6.5% so với 46 ca tuần trước). Tích lũy: 351 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 16.7644028236229, Mean+2SD: 11.9442719099992]. Trạng thái: Báo động (Mức 3).
+  + Phường Đông Hưng Thuận: 19 ca (tăng 58.3% so với 12 ca tuần trước). Tích lũy: 230 ca. Ngưỡng [Mùa: 6, Cusum: 14.6467793187401, Farrington: 24.2023149285433, Mean+2SD: 36.0910241654651]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Đức Nhuận: 2 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 94 ca. Ngưỡng [Mùa: 1.5, Cusum: 8.66443516973606, Farrington: 3.84491299593893, Mean+2SD: 6.61996015920445]. Trạng thái: Bình thường (Mức 0).
+  + Xã An Long: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 15 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: NA, Mean+2SD: 2.09442719099992]. Trạng thái: Bình thường (Mức 0).
+  + Xã An Nhơn Tây: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 210 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: NA, Mean+2SD: 2.38885438199983]. Trạng thái: Bình thường (Mức 0).
+  + Xã An Thới Đông: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 9 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: NA, Mean+2SD: 5.47213595499958]. Trạng thái: Bình thường (Mức 0).
+  + Xã Bà Điểm: 14 ca (giảm 33.3% so với 21 ca tuần trước). Tích lũy: 354 ca. Ngưỡng [Mùa: 6, Cusum: 0, Farrington: 18.5486074213445, Mean+2SD: 23.0130373198656]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Bàu Bàng: 4 ca (tăng 100.0% so với 2 ca tuần trước). Tích lũy: 72 ca. Ngưỡng [Mùa: 1, Cusum: 2.07702182894977, Farrington: 4.17375028112534, Mean+2SD: 4.08328157299975]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Bàu Lâm: 3 ca (giảm 25.0% so với 4 ca tuần trước). Tích lũy: 18 ca. Ngưỡng [Mùa: 0, Cusum: 1.93269668358452, Farrington: 4.80611920312004, Mean+2SD: 1.69544511501033]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Bình Chánh: 7 ca (tăng 75.0% so với 4 ca tuần trước). Tích lũy: 162 ca. Ngưỡng [Mùa: 3.5, Cusum: 8.546806617996, Farrington: 8.86164343320798, Mean+2SD: 10.6609903369994]. Trạng thái: Bình thường (Mức 0).
   + Xã Bình Châu: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 3 ca. Ngưỡng [Mùa: 0, Cusum: 3.69395433558614, Farrington: 0, Mean+2SD: 1.09442719099992]. Trạng thái: Bình thường (Mức 0).
-  + Xã Bình Giã: 2 ca (tăng 100.0% so với 1 ca tuần trước). Tích lũy: 41 ca. Ngưỡng [Mùa: 1, Cusum: 5.88075409929485, Farrington: 2.23659965280273, Mean+2SD: 2.38885438199983]. Trạng thái: Bình thường (Mức 0).
-  + Xã Bình Hưng: 7 ca (không đổi so với 7 ca tuần trước). Tích lũy: 344 ca. Ngưỡng [Mùa: 5, Cusum: 0, Farrington: 11.0884360951033, Mean+2SD: 14.7214034007931]. Trạng thái: Lưu ý (Mức 1).
-  + Xã Bình Khánh: 0 ca (giảm 100.0% so với 5 ca tuần trước). Tích lũy: 23 ca. Ngưỡng [Mùa: 1, Cusum: 4.54954015349979, Farrington: 13.3522335433099, Mean+2SD: 14.1909053312273]. Trạng thái: Bình thường (Mức 0).
-  + Xã Bình Lợi: 0 ca (giảm 100.0% so với 4 ca tuần trước). Tích lũy: 119 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 6.36317889180538, Mean+2SD: 5.74165738677394]. Trạng thái: Bình thường (Mức 0).
-  + Xã Bình Mỹ: 15 ca (tăng 50.0% so với 10 ca tuần trước). Tích lũy: 192 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 7.28236660075124, Mean+2SD: 8.41996015920445]. Trạng thái: Báo động (Mức 3).
-  + Xã Bắc Tân Uyên: 2 ca (tăng 100.0% so với 1 ca tuần trước). Tích lũy: 29 ca. Ngưỡng [Mùa: 1, Cusum: 7.18306496996889, Farrington: 7.50126600651592, Mean+2SD: 13.1863530545955]. Trạng thái: Bình thường (Mức 0).
-  + Xã Châu Pha: 6 ca (giảm 33.3% so với 9 ca tuần trước). Tích lũy: 58 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 1.68153509085048, Mean+2SD: 0]. Trạng thái: Báo động (Mức 3).
-  + Xã Châu Đức: 4 ca (không đổi so với 4 ca tuần trước). Tích lũy: 79 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 3.38478001708419, Mean+2SD: 4.63315017762062]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Cần Giờ: 5 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 23 ca. Ngưỡng [Mùa: 0, Cusum: 1.81650328814352, Farrington: 1.77169334905564, Mean+2SD: 2.38885438199983]. Trạng thái: Báo động (Mức 3).
-  + Xã Củ Chi: 16 ca (tăng 60.0% so với 10 ca tuần trước). Tích lũy: 216 ca. Ngưỡng [Mùa: 4, Cusum: 10.3625046888539, Farrington: 13.2882518767719, Mean+2SD: 13.6023252670426]. Trạng thái: Báo động (Mức 3).
-  + Xã Dầu Tiếng: 1 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 15 ca. Ngưỡng [Mùa: 1, Cusum: 4.6446769046043, Farrington: 0, Mean+2SD: 1.49544511501033]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Hiệp Phước: 6 ca (tăng 50.0% so với 4 ca tuần trước). Tích lũy: 185 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 6.96698069994072, Mean+2SD: 7.41663783151692]. Trạng thái: Lưu ý (Mức 1).
-  + Xã Hòa Hiệp: 1 ca (không đổi so với 1 ca tuần trước). Tích lũy: 12 ca. Ngưỡng [Mùa: 0, Cusum: 4.36427586398912, Farrington: 0, Mean+2SD: 3.28328157299975]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Hòa Hội: 5 ca (không đổi so với 5 ca tuần trước). Tích lũy: 62 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 3.77152828909545, Mean+2SD: 5.53589667773576]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Hóc Môn: 3 ca (giảm 66.7% so với 9 ca tuần trước). Tích lũy: 171 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 11.2503058834178, Mean+2SD: 6.23318042491699]. Trạng thái: Lưu ý (Mức 1).
-  + Xã Hưng Long: 4 ca (tăng 100.0% so với 2 ca tuần trước). Tích lũy: 128 ca. Ngưỡng [Mùa: 2, Cusum: 9.16588173051267, Farrington: 6.188393118589, Mean+2SD: 6.03318042491699]. Trạng thái: Bình thường (Mức 0).
-  + Xã Hồ Tràm: 4 ca (giảm 20.0% so với 5 ca tuần trước). Tích lũy: 64 ca. Ngưỡng [Mùa: 1, Cusum: 3.13401991933701, Farrington: 1.55426459499818, Mean+2SD: 4.486335345031]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Kim Long: 1 ca (giảm 66.7% so với 3 ca tuần trước). Tích lũy: 76 ca. Ngưỡng [Mùa: 1, Cusum: 1.8463779744494, Farrington: 3.87598934608465, Mean+2SD: 2.87332005306815]. Trạng thái: Bình thường (Mức 0).
-  + Xã Long Hoà: 1 ca (không đổi so với 1 ca tuần trước). Tích lũy: 32 ca. Ngưỡng [Mùa: 0, Cusum: 3.37301552415083, Farrington: 0, Mean+2SD: 1.09442719099992]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Long Hải: 17 ca (tăng 13.3% so với 15 ca tuần trước). Tích lũy: 112 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 4.4128294264757, Mean+2SD: 3.40768096208106]. Trạng thái: Báo động (Mức 3).
-  + Xã Long Sơn: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 3 ca. Ngưỡng [Mùa: 0, Cusum: 2.71122957265389, Farrington: 0, Mean+2SD: 3]. Trạng thái: Bình thường (Mức 0).
-  + Xã Long Điền: 1 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 36 ca. Ngưỡng [Mùa: 0, Cusum: 5.3326598937391, Farrington: 0, Mean+2SD: 2.38885438199983]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Minh Thạnh: 7 ca (giảm 46.2% so với 13 ca tuần trước). Tích lũy: 69 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 2.81304214687943, Mean+2SD: 1.09442719099992]. Trạng thái: Báo động (Mức 3).
-  + Xã Nghĩa Thành: 1 ca (không đổi so với 1 ca tuần trước). Tích lũy: 27 ca. Ngưỡng [Mùa: 0, Cusum: 4.26801040432072, Farrington: 0, Mean+2SD: 1.09442719099992]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Ngãi Giao: 9 ca (giảm 30.8% so với 13 ca tuần trước). Tích lũy: 175 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 6.39069176295896, Mean+2SD: 7.17995983919549]. Trạng thái: Báo động (Mức 3).
-  + Xã Nhuận Đức: 5 ca (tăng 66.7% so với 3 ca tuần trước). Tích lũy: 94 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 2.51143481111543, Mean+2SD: 2.41421356237309]. Trạng thái: Báo động (Mức 3).
-  + Xã Nhà Bè: 16 ca (tăng 23.1% so với 13 ca tuần trước). Tích lũy: 321 ca. Ngưỡng [Mùa: 5, Cusum: 0, Farrington: 19.0605547747465, Mean+2SD: 19.9865604245452]. Trạng thái: Lưu ý (Mức 1).
-  + Xã Phú Giáo: 3 ca (tăng 50.0% so với 2 ca tuần trước). Tích lũy: 38 ca. Ngưỡng [Mùa: 2, Cusum: 8.6240786554859, Farrington: 6.06228084294492, Mean+2SD: 9.81872261435248]. Trạng thái: Bình thường (Mức 0).
-  + Xã Phú Hòa Đông: 26 ca (tăng 36.8% so với 19 ca tuần trước). Tích lũy: 268 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 7.60269945435428, Mean+2SD: 5.89878030638384]. Trạng thái: Báo động (Mức 3).
-  + Xã Phước Hoà: 6 ca (tăng 500.0% so với 1 ca tuần trước). Tích lũy: 78 ca. Ngưỡng [Mùa: 1, Cusum: 2.63153571426846, Farrington: 5.31742688301214, Mean+2SD: 7.5665631459995]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Phước Hải: 1 ca (giảm 50.0% so với 2 ca tuần trước). Tích lũy: 50 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 0, Mean+2SD: 2.18885438199983]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Phước Thành: 3 ca (tăng 200.0% so với 1 ca tuần trước). Tích lũy: 22 ca. Ngưỡng [Mùa: 0, Cusum: 5.13146467046861, Farrington: 8.82837084581237, Mean+2SD: 9.36194411635517]. Trạng thái: Bình thường (Mức 0).
-  + Xã Thanh An: 0 ca (giảm 100.0% so với 3 ca tuần trước). Tích lũy: 17 ca. Ngưỡng [Mùa: 0, Cusum: 1.68962832075361, Farrington: 2.71951623281372, Mean+2SD: 3.40768096208106]. Trạng thái: Bình thường (Mức 0).
-  + Xã Thái Mỹ: 9 ca (tăng 28.6% so với 7 ca tuần trước). Tích lũy: 155 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 4.24909598919337, Mean+2SD: 4.43315017762062]. Trạng thái: Báo động (Mức 3).
-  + Xã Thường Tân: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 34 ca. Ngưỡng [Mùa: 0, Cusum: 2.96180618212068, Farrington: 0, Mean+2SD: 0]. Trạng thái: Bình thường (Mức 0).
-  + Xã Thạnh An: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 0 ca. Ngưỡng [Mùa: 0, Cusum: 1.75511696344208, Farrington: 0, Mean+2SD: 1.09442719099992]. Trạng thái: Bình thường (Mức 0).
-  + Xã Trừ Văn Thố: 3 ca (tăng 50.0% so với 2 ca tuần trước). Tích lũy: 37 ca. Ngưỡng [Mùa: 0, Cusum: 3.93206142040259, Farrington: 4.18800123035393, Mean+2SD: 4.486335345031]. Trạng thái: Bình thường (Mức 0).
-  + Xã Tân An Hội: 0 ca (giảm 100.0% so với 3 ca tuần trước). Tích lũy: 141 ca. Ngưỡng [Mùa: 2, Cusum: 5.0467546729906, Farrington: NA, Mean+2SD: 7]. Trạng thái: Bình thường (Mức 0).
-  + Xã Tân Nhựt: 6 ca (tăng 100.0% so với 3 ca tuần trước). Tích lũy: 243 ca. Ngưỡng [Mùa: 4, Cusum: 0, Farrington: 10.7016563696986, Mean+2SD: 9.1665631459995]. Trạng thái: Lưu ý (Mức 1).
-  + Xã Tân Vĩnh Lộc: 8 ca (giảm 27.3% so với 11 ca tuần trước). Tích lũy: 436 ca. Ngưỡng [Mùa: 8, Cusum: 12.9902370662693, Farrington: 33.1291707001823, Mean+2SD: 40.0630500831032]. Trạng thái: Bình thường (Mức 0).
-  + Xã Vĩnh Lộc: 13 ca (tăng 44.4% so với 9 ca tuần trước). Tích lũy: 301 ca. Ngưỡng [Mùa: 6, Cusum: 18.3031028391626, Farrington: 20.2143110016785, Mean+2SD: 17.5758369027902]. Trạng thái: Bình thường (Mức 0).
-  + Xã Xuyên Mộc: 1 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 17 ca. Ngưỡng [Mùa: 0, Cusum: 4.00761833268194, Farrington: 5.0070923587398, Mean+2SD: 4.486335345031]. Trạng thái: Bình thường (Mức 0).
-  + Xã Xuân Sơn: 1 ca (giảm 50.0% so với 2 ca tuần trước). Tích lũy: 58 ca. Ngưỡng [Mùa: 0, Cusum: 5.01266943678481, Farrington: 0, Mean+2SD: 2.47332005306815]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Xuân Thới Sơn: 18 ca (giảm 21.7% so với 23 ca tuần trước). Tích lũy: 281 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 7.2020808692535, Mean+2SD: 6.13589667773576]. Trạng thái: Báo động (Mức 3).
-  + Xã Đông Thạnh: 16 ca (tăng 14.3% so với 14 ca tuần trước). Tích lũy: 290 ca. Ngưỡng [Mùa: 6, Cusum: 0.35089729506026, Farrington: 19.5032951747636, Mean+2SD: 13.0710678118655]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Đất Đỏ: 5 ca (không đổi so với 5 ca tuần trước). Tích lũy: 47 ca. Ngưỡng [Mùa: 0, Cusum: 1.07501189607426, Farrington: 3.86618817369742, Mean+2SD: 3.82842712474619]. Trạng thái: Báo động (Mức 3).
-  + Đặc khu Côn Đảo: 0 ca (giảm 100.0% so với 1 ca tuần trước). Tích lũy: 9 ca. Ngưỡng [Mùa: 0, Cusum: 3.32937841407262, Farrington: NA, Mean+2SD: 3.40768096208106]. Trạng thái: Bình thường (Mức 0).
+  + Xã Bình Giã: 0 ca (giảm 100.0% so với 2 ca tuần trước). Tích lũy: 41 ca. Ngưỡng [Mùa: 1, Cusum: 5.88075409929485, Farrington: 0, Mean+2SD: 2.38885438199983]. Trạng thái: Bình thường (Mức 0).
+  + Xã Bình Hưng: 10 ca (tăng 42.9% so với 7 ca tuần trước). Tích lũy: 355 ca. Ngưỡng [Mùa: 5, Cusum: 0, Farrington: 11.2827913964142, Mean+2SD: 9.80370243444252]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Bình Khánh: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 23 ca. Ngưỡng [Mùa: 1, Cusum: 6.64218145788943, Farrington: 10.8127198702651, Mean+2SD: 7.69918027279076]. Trạng thái: Bình thường (Mức 0).
+  + Xã Bình Lợi: 3 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 122 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 7.71243667310235, Mean+2SD: 7.37687164221791]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Bình Mỹ: 13 ca (giảm 13.3% so với 15 ca tuần trước). Tích lũy: 205 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 9.90212350651408, Mean+2SD: 9.49918027279076]. Trạng thái: Báo động (Mức 3).
+  + Xã Bắc Tân Uyên: 2 ca (không đổi so với 2 ca tuần trước). Tích lũy: 31 ca. Ngưỡng [Mùa: 1, Cusum: 7.18306496996889, Farrington: 8.73221975349767, Mean+2SD: 6.40768096208106]. Trạng thái: Bình thường (Mức 0).
+  + Xã Châu Pha: 8 ca (tăng 33.3% so với 6 ca tuần trước). Tích lũy: 66 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 2.03230609838622, Mean+2SD: 1.69544511501033]. Trạng thái: Báo động (Mức 3).
+  + Xã Châu Đức: 6 ca (tăng 50.0% so với 4 ca tuần trước). Tích lũy: 85 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 3.10633036307353, Mean+2SD: 1.09442719099992]. Trạng thái: Báo động (Mức 3).
+  + Xã Cần Giờ: 0 ca (giảm 100.0% so với 5 ca tuần trước). Tích lũy: 23 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 1.77169334905564, Mean+2SD: 1.09442719099992]. Trạng thái: Bình thường (Mức 0).
+  + Xã Củ Chi: 8 ca (giảm 50.0% so với 16 ca tuần trước). Tích lũy: 224 ca. Ngưỡng [Mùa: 4, Cusum: 2.80060993897701, Farrington: 14.7525561000998, Mean+2SD: 13.3274118724822]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Dầu Tiếng: 4 ca (tăng 300.0% so với 1 ca tuần trước). Tích lũy: 19 ca. Ngưỡng [Mùa: 1, Cusum: 4.6446769046043, Farrington: 2.67754104445781, Mean+2SD: 1.49544511501033]. Trạng thái: Báo động (Mức 3).
+  + Xã Hiệp Phước: 11 ca (tăng 83.3% so với 6 ca tuần trước). Tích lũy: 196 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 8.2268509169565, Mean+2SD: 7.81536192416212]. Trạng thái: Báo động (Mức 3).
+  + Xã Hòa Hiệp: 1 ca (không đổi so với 1 ca tuần trước). Tích lũy: 13 ca. Ngưỡng [Mùa: 0, Cusum: 4.36427586398912, Farrington: 0, Mean+2SD: 2.38885438199983]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Hòa Hội: 5 ca (không đổi so với 5 ca tuần trước). Tích lũy: 67 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 3.95333967434888, Mean+2SD: 3.82842712474619]. Trạng thái: Báo động (Mức 3).
+  + Xã Hóc Môn: 8 ca (tăng 166.7% so với 3 ca tuần trước). Tích lũy: 179 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 6.79661598258325, Mean+2SD: 9.86630035524124]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Hưng Long: 3 ca (giảm 25.0% so với 4 ca tuần trước). Tích lũy: 131 ca. Ngưỡng [Mùa: 2, Cusum: 9.16588173051267, Farrington: 5.97199172276704, Mean+2SD: 4.18885438199983]. Trạng thái: Bình thường (Mức 0).
+  + Xã Hồ Tràm: 2 ca (giảm 50.0% so với 4 ca tuần trước). Tích lũy: 66 ca. Ngưỡng [Mùa: 1, Cusum: 2.61223711247104, Farrington: 1.72985495073181, Mean+2SD: 2.87332005306815]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Kim Long: 3 ca (tăng 200.0% so với 1 ca tuần trước). Tích lũy: 79 ca. Ngưỡng [Mùa: 1, Cusum: 4.02350177139158, Farrington: 4.40555219289013, Mean+2SD: 3.88035085019828]. Trạng thái: Bình thường (Mức 0).
+  + Xã Long Hoà: 0 ca (giảm 100.0% so với 1 ca tuần trước). Tích lũy: 32 ca. Ngưỡng [Mùa: 0, Cusum: 3.37301552415083, Farrington: 0, Mean+2SD: 1.09442719099992]. Trạng thái: Bình thường (Mức 0).
+  + Xã Long Hải: 12 ca (giảm 29.4% so với 17 ca tuần trước). Tích lũy: 124 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 5.394304877337, Mean+2SD: 6.03318042491699]. Trạng thái: Báo động (Mức 3).
+  + Xã Long Sơn: 1 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 4 ca. Ngưỡng [Mùa: 0, Cusum: 2.71122957265389, Farrington: 0, Mean+2SD: 2.18885438199983]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Long Điền: 4 ca (tăng 300.0% so với 1 ca tuần trước). Tích lũy: 40 ca. Ngưỡng [Mùa: 0, Cusum: 5.3326598937391, Farrington: 3.03661221039015, Mean+2SD: 3.44948974278318]. Trạng thái: Báo động (Mức 3).
+  + Xã Minh Thạnh: 8 ca (giảm 38.5% so với 13 ca tuần trước). Tích lũy: 83 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 2.40722820442467, Mean+2SD: 3.80768096208106]. Trạng thái: Báo động (Mức 3).
+  + Xã Nghĩa Thành: 1 ca (không đổi so với 1 ca tuần trước). Tích lũy: 28 ca. Ngưỡng [Mùa: 0, Cusum: 4.26801040432072, Farrington: 0, Mean+2SD: 2.47332005306815]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Ngãi Giao: 13 ca (tăng 44.4% so với 9 ca tuần trước). Tích lũy: 188 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 7.41419181536556, Mean+2SD: 7.98569601750758]. Trạng thái: Báo động (Mức 3).
+  + Xã Nhuận Đức: 3 ca (giảm 40.0% so với 5 ca tuần trước). Tích lũy: 97 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 3.46338444092597, Mean+2SD: 2.99089023002066]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Nhà Bè: 10 ca (giảm 37.5% so với 16 ca tuần trước). Tích lũy: 331 ca. Ngưỡng [Mùa: 5, Cusum: 0, Farrington: 20.3140749958595, Mean+2SD: 21.41034021896]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Phú Giáo: 3 ca (không đổi so với 3 ca tuần trước). Tích lũy: 41 ca. Ngưỡng [Mùa: 2, Cusum: 8.6240786554859, Farrington: 8.65727818761578, Mean+2SD: 5.76647939483827]. Trạng thái: Bình thường (Mức 0).
+  + Xã Phú Hòa Đông: 9 ca (giảm 65.4% so với 26 ca tuần trước). Tích lũy: 277 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 8.64750391483471, Mean+2SD: 9.8309518948453]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Phước Hoà: 16 ca (tăng 100.0% so với 8 ca tuần trước). Tích lũy: 96 ca. Ngưỡng [Mùa: 1, Cusum: 0.166740786114552, Farrington: 6.20689887001519, Mean+2SD: 4.44948974278318]. Trạng thái: Báo động (Mức 3).
+  + Xã Phước Hải: 4 ca (tăng 300.0% so với 1 ca tuần trước). Tích lũy: 54 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 1.77169334905564, Mean+2SD: 1.09442719099992]. Trạng thái: Báo động (Mức 3).
+  + Xã Phước Thành: 1 ca (giảm 66.7% so với 3 ca tuần trước). Tích lũy: 23 ca. Ngưỡng [Mùa: 0, Cusum: 4.21206044734025, Farrington: 10.3259321994572, Mean+2SD: 11.4945765413311]. Trạng thái: Bình thường (Mức 0).
+  + Xã Thanh An: 0 ca (giảm 100.0% so với 1 ca tuần trước). Tích lũy: 18 ca. Ngưỡng [Mùa: 0, Cusum: 2.21598700496228, Farrington: 3.48024764246424, Mean+2SD: 3.28328157299975]. Trạng thái: Bình thường (Mức 0).
+  + Xã Thái Mỹ: 10 ca (không đổi so với 10 ca tuần trước). Tích lũy: 166 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 5.06187874436536, Mean+2SD: 2.18885438199983]. Trạng thái: Báo động (Mức 3).
+  + Xã Thường Tân: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 34 ca. Ngưỡng [Mùa: 0, Cusum: 2.96180618212068, Farrington: 0, Mean+2SD: 1.49544511501033]. Trạng thái: Bình thường (Mức 0).
+  + Xã Thạnh An: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 0 ca. Ngưỡng [Mùa: 0, Cusum: 1.75511696344208, Farrington: 0, Mean+2SD: 0]. Trạng thái: Bình thường (Mức 0).
+  + Xã Trừ Văn Thố: 5 ca (giảm 16.7% so với 6 ca tuần trước). Tích lũy: 45 ca. Ngưỡng [Mùa: 0, Cusum: 0.495151849365685, Farrington: 5.03833373501662, Mean+2SD: 4.7466401061363]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Tân An Hội: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 141 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: NA, Mean+2SD: 6.97493455452533]. Trạng thái: Bình thường (Mức 0).
+  + Xã Tân Nhựt: 7 ca (tăng 16.7% so với 6 ca tuần trước). Tích lũy: 250 ca. Ngưỡng [Mùa: 4, Cusum: 0, Farrington: 11.0383223355952, Mean+2SD: 9.97493455452533]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Tân Vĩnh Lộc: 22 ca (tăng 175.0% so với 8 ca tuần trước). Tích lũy: 458 ca. Ngưỡng [Mùa: 8, Cusum: 19.7315309490525, Farrington: 29.1672450234888, Mean+2SD: 39.3071946169278]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Vĩnh Lộc: 11 ca (giảm 8.3% so với 12 ca tuần trước). Tích lũy: 311 ca. Ngưỡng [Mùa: 6, Cusum: 17.1978009370635, Farrington: 18.0214181194791, Mean+2SD: 21.2285423334001]. Trạng thái: Bình thường (Mức 0).
+  + Xã Xuyên Mộc: 1 ca (không đổi so với 1 ca tuần trước). Tích lũy: 18 ca. Ngưỡng [Mùa: 0, Cusum: 4.00761833268194, Farrington: 0, Mean+2SD: 2.47332005306815]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Xuân Sơn: 1 ca (không đổi so với 1 ca tuần trước). Tích lũy: 59 ca. Ngưỡng [Mùa: 0, Cusum: 5.01266943678481, Farrington: 2.79619606601749, Mean+2SD: 2.47332005306815]. Trạng thái: Bình thường (Mức 0).
+  + Xã Xuân Thới Sơn: 9 ca (giảm 50.0% so với 18 ca tuần trước). Tích lũy: 290 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 7.83189501983653, Mean+2SD: 11.0296702484027]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Đông Thạnh: 11 ca (giảm 31.2% so với 16 ca tuần trước). Tích lũy: 301 ca. Ngưỡng [Mùa: 6, Cusum: 0, Farrington: 15.7626774131486, Mean+2SD: 18.8567051239665]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Đất Đỏ: 0 ca (giảm 100.0% so với 5 ca tuần trước). Tích lũy: 47 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 4.71454843210575, Mean+2SD: 3.88035085019828]. Trạng thái: Bình thường (Mức 0).
+  + Đặc khu Côn Đảo: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 9 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: NA, Mean+2SD: 0]. Trạng thái: Bình thường (Mức 0).
 
 --- DỮ LIỆU BỆNH TAY CHÂN MIỆNG ---
-  + Toàn Thành phố: 1020 ca (tăng 0.2% so với 1018 ca tuần trước). Tích lũy: 26108 ca. Ngưỡng [Mùa: 434.5, Cusum: 0, Farrington: 1065.01463458365, Mean+2SD: 1372.81264753676]. Trạng thái: Lưu ý (Mức 1).
+  + Toàn Thành phố: 1047 ca (tăng 2.0% so với 1026 ca tuần trước). Tích lũy: 27163 ca. Ngưỡng [Mùa: 434.5, Cusum: 0, Farrington: 816.721271238498, Mean+2SD: 1380.24524515108]. Trạng thái: Cảnh báo (Mức 2).
   + Đánh giá nguy cơ PISA (Toàn Thành phố):
-    - Mức độ lây truyền: Đang ở mức Thấp (Số ca: 1020. Các ngưỡng: Mùa 434.5, Vừa 1904.39256257606, Cao 2594.55043066133, Rất cao 2958.11573617053).
-    - Mức độ nặng: Đang ở mức Cao (Số ca nội trú: 180. Các ngưỡng: Thấp 99.8, Vừa 162.495294879281, Cao 287.885884637843).
+    - Mức độ lây truyền: Đang ở mức Thấp (Số ca: 1047. Các ngưỡng: Mùa 434.5, Vừa 1904.39256257606, Cao 2594.55043066133, Rất cao 2958.11573617053).
+    - Mức độ nặng: Đang ở mức Cao (Số ca nội trú: 166. Các ngưỡng: Thấp 101, Vừa 164.980465768858, Cao 292.941397306574).
 CHI TIẾT CÁC PHƯỜNG/XÃ:
-  + Phường An Hội Tây: 6 ca (giảm 50.0% so với 12 ca tuần trước). Tích lũy: 173 ca. Ngưỡng [Mùa: 3, Cusum: 2.07969378260876, Farrington: 7.82300194666107, Mean+2SD: 19.6418648119966]. Trạng thái: Lưu ý (Mức 1).
-  + Phường An Hội Đông: 11 ca (tăng 175.0% so với 4 ca tuần trước). Tích lũy: 180 ca. Ngưỡng [Mùa: 2.5, Cusum: 0, Farrington: 10.3769039485449, Mean+2SD: 8.49871773792358]. Trạng thái: Báo động (Mức 3).
-  + Phường An Khánh: 7 ca (không đổi so với 7 ca tuần trước). Tích lũy: 184 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 13.2039803716296, Mean+2SD: 14.1344085462111]. Trạng thái: Lưu ý (Mức 1).
-  + Phường An Lạc: 24 ca (tăng 33.3% so với 18 ca tuần trước). Tích lũy: 413 ca. Ngưỡng [Mùa: 7, Cusum: 0, Farrington: 23.4714151544814, Mean+2SD: 29.7108905417905]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường An Nhơn: 4 ca (giảm 55.6% so với 9 ca tuần trước). Tích lũy: 127 ca. Ngưỡng [Mùa: 2, Cusum: 2.96699202890026, Farrington: 4.99418492467678, Mean+2SD: 8.61536192416212]. Trạng thái: Lưu ý (Mức 1).
-  + Phường An Phú: 17 ca (giảm 15.0% so với 20 ca tuần trước). Tích lũy: 533 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 6.51646562849425, Mean+2SD: 13.9635609200827]. Trạng thái: Báo động (Mức 3).
-  + Phường An Phú Đông: 0 ca (giảm 100.0% so với 4 ca tuần trước). Tích lũy: 231 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: NA, Mean+2SD: 18.7473401244707]. Trạng thái: Bình thường (Mức 0).
-  + Phường An Đông: 3 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 76 ca. Ngưỡng [Mùa: 2, Cusum: 9.15801914661828, Farrington: 6.29787079802877, Mean+2SD: 9.74217089351845]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bà Rịa: 6 ca (tăng 100.0% so với 3 ca tuần trước). Tích lũy: 100 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 0.918462740360434, Mean+2SD: 4.486335345031]. Trạng thái: Báo động (Mức 3).
-  + Phường Bàn Cờ: 3 ca (tăng 200.0% so với 1 ca tuần trước). Tích lũy: 63 ca. Ngưỡng [Mùa: 2, Cusum: 9.7475139146036, Farrington: 6.06227833794587, Mean+2SD: 9.92820323027551]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bình Cơ: 3 ca (tăng 200.0% so với 1 ca tuần trước). Tích lũy: 85 ca. Ngưỡng [Mùa: 0.5, Cusum: 0, Farrington: 5.39382953272042, Mean+2SD: 2.09442719099992]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Bình Dương: 11 ca (tăng 266.7% so với 3 ca tuần trước). Tích lũy: 168 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 6.63930669393016, Mean+2SD: 4.63315017762062]. Trạng thái: Báo động (Mức 3).
-  + Phường Bình Hòa: 8 ca (giảm 38.5% so với 13 ca tuần trước). Tích lũy: 284 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 7.47752833119886, Mean+2SD: 18.5593103261893]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Bình Hưng Hòa: 12 ca (giảm 7.7% so với 13 ca tuần trước). Tích lũy: 501 ca. Ngưỡng [Mùa: 8, Cusum: 0, Farrington: 21.8679114740512, Mean+2SD: 18.0710678118655]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Bình Lợi Trung: 8 ca (giảm 11.1% so với 9 ca tuần trước). Tích lũy: 127 ca. Ngưỡng [Mùa: 2, Cusum: 7.209007092531, Farrington: 4.87488814371024, Mean+2SD: 9.69041575982343]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Bình Phú: 9 ca (tăng 125.0% so với 4 ca tuần trước). Tích lũy: 164 ca. Ngưỡng [Mùa: 3, Cusum: 0.0447967575128949, Farrington: 10.9681016231176, Mean+2SD: 11.1230945255886]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Bình Quới: 1 ca (giảm 66.7% so với 3 ca tuần trước). Tích lũy: 57 ca. Ngưỡng [Mùa: 1, Cusum: 7.76318470951911, Farrington: 5.5417560039516, Mean+2SD: 2.49544511501033]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bình Thạnh: 3 ca (giảm 57.1% so với 7 ca tuần trước). Tích lũy: 148 ca. Ngưỡng [Mùa: 3, Cusum: 12.2066654706414, Farrington: 12.4569989668536, Mean+2SD: 13.6746516952745]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bình Thới: 1 ca (giảm 88.9% so với 9 ca tuần trước). Tích lũy: 86 ca. Ngưỡng [Mùa: 2, Cusum: 1.10019997643895, Farrington: 7.82614135979169, Mean+2SD: 12.9186537372342]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bình Tiên: 3 ca (tăng 50.0% so với 2 ca tuần trước). Tích lũy: 81 ca. Ngưỡng [Mùa: 3, Cusum: 12.3961200349466, Farrington: 7.24076463144243, Mean+2SD: 20.8806939873179]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bình Trưng: 18 ca (tăng 38.5% so với 13 ca tuần trước). Tích lũy: 285 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 19.3719746975332, Mean+2SD: 19.9813411800185]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Bình Trị Đông: 6 ca (giảm 62.5% so với 16 ca tuần trước). Tích lũy: 413 ca. Ngưỡng [Mùa: 7, Cusum: 0, Farrington: 27.4689664139215, Mean+2SD: 15.2027022093287]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Bình Tân: 11 ca (giảm 31.2% so với 16 ca tuần trước). Tích lũy: 405 ca. Ngưỡng [Mùa: 4, Cusum: 0, Farrington: 17.1466293756678, Mean+2SD: 16.466360849834]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Bình Tây: 3 ca (giảm 25.0% so với 4 ca tuần trước). Tích lũy: 67 ca. Ngưỡng [Mùa: 2, Cusum: 9.13441345821315, Farrington: 8.65083928034388, Mean+2SD: 5.74165738677394]. Trạng thái: Bình thường (Mức 0).
-  + Phường Bình Đông: 17 ca (tăng 41.7% so với 12 ca tuần trước). Tích lũy: 238 ca. Ngưỡng [Mùa: 5.5, Cusum: 17.3086188658041, Farrington: 15.0954730471363, Mean+2SD: 9.77770876399966]. Trạng thái: Báo động (Mức 3).
-  + Phường Bảy Hiền: 8 ca (giảm 27.3% so với 11 ca tuần trước). Tích lũy: 199 ca. Ngưỡng [Mùa: 4, Cusum: 0, Farrington: 10.5743007102229, Mean+2SD: 12.6609903369994]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Bến Cát: 12 ca (tăng 20.0% so với 10 ca tuần trước). Tích lũy: 205 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 2.63763261525669, Mean+2SD: 6.69041575982343]. Trạng thái: Báo động (Mức 3).
-  + Phường Bến Thành: 2 ca (giảm 50.0% so với 4 ca tuần trước). Tích lũy: 40 ca. Ngưỡng [Mùa: 1, Cusum: 7.34854747263323, Farrington: 5.67243729578667, Mean+2SD: 4.40768096208106]. Trạng thái: Bình thường (Mức 0).
-  + Phường Chánh Hiệp: 2 ca (tăng 100.0% so với 1 ca tuần trước). Tích lũy: 72 ca. Ngưỡng [Mùa: 1, Cusum: 0.0222899927962952, Farrington: 2.99938118692696, Mean+2SD: 3.88035085019828]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Chánh Hưng: 18 ca (tăng 260.0% so với 5 ca tuần trước). Tích lũy: 380 ca. Ngưỡng [Mùa: 9, Cusum: 24.7580582770406, Farrington: 25.3736103902755, Mean+2SD: 26.2531550176655]. Trạng thái: Bình thường (Mức 0).
-  + Phường Chánh Phú Hòa: 5 ca (tăng 66.7% so với 3 ca tuần trước). Tích lũy: 102 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 3.39388349158346, Mean+2SD: 2.47332005306815]. Trạng thái: Báo động (Mức 3).
-  + Phường Chợ Lớn: 4 ca (tăng 100.0% so với 2 ca tuần trước). Tích lũy: 74 ca. Ngưỡng [Mùa: 2, Cusum: 9.69387004002589, Farrington: 9.60224050015764, Mean+2SD: 10]. Trạng thái: Bình thường (Mức 0).
-  + Phường Chợ Quán: 7 ca (tăng 250.0% so với 2 ca tuần trước). Tích lũy: 78 ca. Ngưỡng [Mùa: 1, Cusum: 7.78864786403108, Farrington: 6.20805323497543, Mean+2SD: 6.23318042491699]. Trạng thái: Báo động (Mức 3).
-  + Phường Cát Lái: 8 ca (giảm 27.3% so với 11 ca tuần trước). Tích lũy: 148 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 8.76363967968841, Mean+2SD: 9.98178046004133]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Cầu Kiệu: 2 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 47 ca. Ngưỡng [Mùa: 1, Cusum: 8.04943853000213, Farrington: 7.90897897963863, Mean+2SD: 5.23318042491699]. Trạng thái: Bình thường (Mức 0).
-  + Phường Cầu Ông Lãnh: 2 ca (không đổi so với 2 ca tuần trước). Tích lũy: 78 ca. Ngưỡng [Mùa: 2, Cusum: 10.2698598201437, Farrington: 8.89267419309824, Mean+2SD: 9.34977477020464]. Trạng thái: Bình thường (Mức 0).
-  + Phường Diên Hồng: 3 ca (không đổi so với 3 ca tuần trước). Tích lũy: 84 ca. Ngưỡng [Mùa: 2, Cusum: 9.27564806626943, Farrington: 10.861200622915, Mean+2SD: 13.6769364084689]. Trạng thái: Bình thường (Mức 0).
-  + Phường Dĩ An: 13 ca (giảm 50.0% so với 26 ca tuần trước). Tích lũy: 499 ca. Ngưỡng [Mùa: 6, Cusum: 0, Farrington: 5.66932925191237, Mean+2SD: 33.6220236220354]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Gia Định: 7 ca (giảm 30.0% so với 10 ca tuần trước). Tích lũy: 159 ca. Ngưỡng [Mùa: 3, Cusum: 9.71407717516324, Farrington: 12.1484323156503, Mean+2SD: 13.5974354758472]. Trạng thái: Bình thường (Mức 0).
-  + Phường Gò Vấp: 7 ca (tăng 133.3% so với 3 ca tuần trước). Tích lũy: 156 ca. Ngưỡng [Mùa: 2, Cusum: 5.16050158986719, Farrington: 14.365228301158, Mean+2SD: 15.8815161417561]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Hiệp Bình: 22 ca (tăng 46.7% so với 15 ca tuần trước). Tích lũy: 360 ca. Ngưỡng [Mùa: 6, Cusum: 0.466751659524444, Farrington: 18.9211719711468, Mean+2SD: 28.6619037896906]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Hòa Bình: 6 ca (không đổi so với 6 ca tuần trước). Tích lũy: 68 ca. Ngưỡng [Mùa: 2, Cusum: 1.02227932383539, Farrington: 5.79283913357979, Mean+2SD: 5.37770876399966]. Trạng thái: Báo động (Mức 3).
-  + Phường Hòa Hưng: 5 ca (tăng 150.0% so với 2 ca tuần trước). Tích lũy: 121 ca. Ngưỡng [Mùa: 2, Cusum: 11.1100464975562, Farrington: 10.8743669237016, Mean+2SD: 14.7289033996573]. Trạng thái: Bình thường (Mức 0).
-  + Phường Hòa Lợi: 1 ca (giảm 66.7% so với 3 ca tuần trước). Tích lũy: 103 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 11.4115798105829, Mean+2SD: 19.4966161108757]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Hạnh Thông: 10 ca (tăng 233.3% so với 3 ca tuần trước). Tích lũy: 177 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 8.72862575969469, Mean+2SD: 6.63315017762062]. Trạng thái: Báo động (Mức 3).
-  + Phường Khánh Hội: 6 ca (giảm 40.0% so với 10 ca tuần trước). Tích lũy: 136 ca. Ngưỡng [Mùa: 3, Cusum: 8.54279528730943, Farrington: 13.9200710602004, Mean+2SD: 13.2941536246685]. Trạng thái: Bình thường (Mức 0).
-  + Phường Linh Xuân: 11 ca (tăng 83.3% so với 6 ca tuần trước). Tích lũy: 192 ca. Ngưỡng [Mùa: 3.5, Cusum: 13.3669414869264, Farrington: 7.37422228405446, Mean+2SD: 14.4142711667001]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Long Bình: 6 ca (tăng 20.0% so với 5 ca tuần trước). Tích lũy: 229 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 7.2155019687526, Mean+2SD: 7.74165738677394]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Long Hương: 1 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 95 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 0, Mean+2SD: 4.37770876399966]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Long Nguyên: 1 ca (giảm 75.0% so với 4 ca tuần trước). Tích lũy: 70 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 2.51143481111543, Mean+2SD: 1.09442719099992]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Long Phước: 3 ca (không đổi so với 3 ca tuần trước). Tích lũy: 52 ca. Ngưỡng [Mùa: 1, Cusum: 7.08554591511147, Farrington: 2.47824773507706, Mean+2SD: 5.89878030638384]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Long Trường: 11 ca (tăng 83.3% so với 6 ca tuần trước). Tích lũy: 211 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 11.9080998833645, Mean+2SD: 13.4086915465771]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Lái Thiêu: 7 ca (giảm 22.2% so với 9 ca tuần trước). Tích lũy: 278 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 14.7464290762712, Mean+2SD: 20.4211951048307]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Minh Phụng: 5 ca (tăng 66.7% so với 3 ca tuần trước). Tích lũy: 118 ca. Ngưỡng [Mùa: 2.5, Cusum: 10.5602900962566, Farrington: 9.98317189044979, Mean+2SD: 11.8740078740118]. Trạng thái: Bình thường (Mức 0).
-  + Phường Nhiêu Lộc: 5 ca (tăng 66.7% so với 3 ca tuần trước). Tích lũy: 111 ca. Ngưỡng [Mùa: 3, Cusum: 11.6992549294799, Farrington: 6.10790924010688, Mean+2SD: 10.2915026221292]. Trạng thái: Bình thường (Mức 0).
-  + Phường Phú An: 3 ca (tăng 50.0% so với 2 ca tuần trước). Tích lũy: 80 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 4.54126971469835, Mean+2SD: 2.69544511501033]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Phú Lâm: 15 ca (tăng 25.0% so với 12 ca tuần trước). Tích lũy: 158 ca. Ngưỡng [Mùa: 3, Cusum: 1.16334676714262, Farrington: 11.957103026958, Mean+2SD: 16.6090871556183]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Phú Lợi: 4 ca (không đổi so với 4 ca tuần trước). Tích lũy: 146 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 5.70594406212967, Mean+2SD: 4.44948974278318]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Phú Mỹ: 1 ca (giảm 50.0% so với 2 ca tuần trước). Tích lũy: 96 ca. Ngưỡng [Mùa: 1, Cusum: 8.5106141254336, Farrington: 6.21565819607121, Mean+2SD: 6.20434577328854]. Trạng thái: Bình thường (Mức 0).
-  + Phường Phú Nhuận: 2 ca (giảm 66.7% so với 6 ca tuần trước). Tích lũy: 81 ca. Ngưỡng [Mùa: 1, Cusum: 5.58138756831388, Farrington: 7.2143227928776, Mean+2SD: 7.77995983919549]. Trạng thái: Bình thường (Mức 0).
-  + Phường Phú Thuận: 7 ca (không đổi so với 7 ca tuần trước). Tích lũy: 202 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 5.8461143867255, Mean+2SD: 7.47213595499958]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Phú Thạnh: 13 ca (tăng 116.7% so với 6 ca tuần trước). Tích lũy: 198 ca. Ngưỡng [Mùa: 4, Cusum: 12.4368416003293, Farrington: 15.3732570050061, Mean+2SD: 15.9390334845093]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Phú Thọ: 4 ca (giảm 20.0% so với 5 ca tuần trước). Tích lũy: 74 ca. Ngưỡng [Mùa: 1, Cusum: 5.64217965701395, Farrington: 6.65979645939508, Mean+2SD: 5.7466401061363]. Trạng thái: Bình thường (Mức 0).
-  + Phường Phú Thọ Hòa: 7 ca (không đổi so với 7 ca tuần trước). Tích lũy: 258 ca. Ngưỡng [Mùa: 5, Cusum: 7.56892215175703, Farrington: 8.96854582240963, Mean+2SD: 24.0821051011897]. Trạng thái: Bình thường (Mức 0).
-  + Phường Phú Định: 6 ca (giảm 40.0% so với 10 ca tuần trước). Tích lũy: 250 ca. Ngưỡng [Mùa: 6.5, Cusum: 19.0250979813309, Farrington: 22.48177735105, Mean+2SD: 27.8522995463527]. Trạng thái: Bình thường (Mức 0).
-  + Phường Phước Long: 8 ca (không đổi so với 8 ca tuần trước). Tích lũy: 155 ca. Ngưỡng [Mùa: 3, Cusum: 10.2731807886612, Farrington: 9.08649140760425, Mean+2SD: 8.41663783151692]. Trạng thái: Bình thường (Mức 0).
-  + Phường Phước Thắng: 4 ca (tăng 300.0% so với 1 ca tuần trước). Tích lũy: 117 ca. Ngưỡng [Mùa: 2, Cusum: 10.2023622989789, Farrington: 4.96149989236621, Mean+2SD: 8.97687164221791]. Trạng thái: Bình thường (Mức 0).
-  + Phường Rạch Dừa: 7 ca (tăng 75.0% so với 4 ca tuần trước). Tích lũy: 97 ca. Ngưỡng [Mùa: 2, Cusum: 11.499362319402, Farrington: 14.8469656479268, Mean+2SD: 10.164414002969]. Trạng thái: Bình thường (Mức 0).
-  + Phường Sài Gòn: 4 ca (tăng 100.0% so với 2 ca tuần trước). Tích lũy: 35 ca. Ngưỡng [Mùa: 0, Cusum: 5.1742298640239, Farrington: 4.36913883597475, Mean+2SD: 4.40768096208106]. Trạng thái: Bình thường (Mức 0).
-  + Phường Tam Bình: 12 ca (giảm 7.7% so với 13 ca tuần trước). Tích lũy: 252 ca. Ngưỡng [Mùa: 4, Cusum: 0, Farrington: 9.26877251352231, Mean+2SD: 22.3549990912395]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Tam Long: 3 ca (giảm 40.0% so với 5 ca tuần trước). Tích lũy: 110 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 2.62519888297725, Mean+2SD: 3.80768096208106]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Tam Thắng: 5 ca (tăng 66.7% so với 3 ca tuần trước). Tích lũy: 116 ca. Ngưỡng [Mùa: 2, Cusum: 2.0456542549845, Farrington: 1.53936669521402, Mean+2SD: 6.64707681233427]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Thuận An: 6 ca (tăng 20.0% so với 5 ca tuần trước). Tích lũy: 142 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 1.9636323463951, Mean+2SD: 8.16194411635517]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Thuận Giao: 16 ca (tăng 33.3% so với 12 ca tuần trước). Tích lũy: 331 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 11.3546372720653, Mean+2SD: 9.54728827066554]. Trạng thái: Báo động (Mức 3).
-  + Phường Thông Tây Hội: 4 ca (giảm 66.7% so với 12 ca tuần trước). Tích lũy: 189 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 11.217352685327, Mean+2SD: 7.68035085019828]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Thới An: 11 ca (giảm 45.0% so với 20 ca tuần trước). Tích lũy: 321 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 14.7682260171449, Mean+2SD: 16.3863530545955]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Thạnh Mỹ Tây: 19 ca (tăng 72.7% so với 11 ca tuần trước). Tích lũy: 300 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 16.9717799487162, Mean+2SD: 18.7398189118313]. Trạng thái: Báo động (Mức 3).
-  + Phường Thới Hòa: 6 ca (giảm 57.1% so với 14 ca tuần trước). Tích lũy: 194 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 5.35232277129854, Mean+2SD: 5.64707681233427]. Trạng thái: Báo động (Mức 3).
-  + Phường Thủ Dầu Một: 3 ca (giảm 25.0% so với 4 ca tuần trước). Tích lũy: 128 ca. Ngưỡng [Mùa: 3, Cusum: 0.886971108131885, Farrington: 10.3778155289538, Mean+2SD: 10.7607017003966]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Thủ Đức: 8 ca (tăng 100.0% so với 4 ca tuần trước). Tích lũy: 130 ca. Ngưỡng [Mùa: 2, Cusum: 9.47026111575924, Farrington: 9.11990256250627, Mean+2SD: 9.21663783151692]. Trạng thái: Bình thường (Mức 0).
-  + Phường Trung Mỹ Tây: 16 ca (tăng 33.3% so với 12 ca tuần trước). Tích lũy: 314 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 13.5970025885313, Mean+2SD: 23.6996855314814]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Tân Bình: 1 ca (giảm 75.0% so với 4 ca tuần trước). Tích lũy: 177 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 12.368354003856, Mean+2SD: 12.7554175279993]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Tân Hiệp: 14 ca (tăng 27.3% so với 11 ca tuần trước). Tích lũy: 220 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 4.9855794507992, Mean+2SD: 6.74165738677394]. Trạng thái: Báo động (Mức 3).
-  + Phường Tân Hòa: 7 ca (tăng 40.0% so với 5 ca tuần trước). Tích lũy: 113 ca. Ngưỡng [Mùa: 2, Cusum: 4.65033340765035, Farrington: 8.55586841115524, Mean+2SD: 7.13589667773576]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Tân Hưng: 12 ca (tăng 20.0% so với 10 ca tuần trước). Tích lũy: 376 ca. Ngưỡng [Mùa: 5, Cusum: 0, Farrington: 15.3466054067242, Mean+2SD: 15.1630681604756]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Tân Hải: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 55 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 0, Mean+2SD: 3.40768096208106]. Trạng thái: Bình thường (Mức 0).
-  + Phường Tân Khánh: 1 ca (giảm 83.3% so với 6 ca tuần trước). Tích lũy: 171 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 10.500808709555, Mean+2SD: 10.4199601592045]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Tân Mỹ: 5 ca (giảm 50.0% so với 10 ca tuần trước). Tích lũy: 181 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 9.14543546567757, Mean+2SD: 15.0086915465771]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Tân Phú: 8 ca (giảm 57.9% so với 19 ca tuần trước). Tích lũy: 190 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 10.5127358998949, Mean+2SD: 14.5916630466254]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Tân Phước: 0 ca (giảm 100.0% so với 3 ca tuần trước). Tích lũy: 19 ca. Ngưỡng [Mùa: 0, Cusum: 2.08478298560821, Farrington: 0, Mean+2SD: 2.38885438199983]. Trạng thái: Bình thường (Mức 0).
-  + Phường Tân Sơn: 8 ca (tăng 100.0% so với 4 ca tuần trước). Tích lũy: 155 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 8.02088634064928, Mean+2SD: 10.028964600959]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Tân Sơn Hòa: 4 ca (giảm 42.9% so với 7 ca tuần trước). Tích lũy: 115 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 9.37746686833863, Mean+2SD: 12.4945765413311]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Tân Sơn Nhì: 9 ca (giảm 10.0% so với 10 ca tuần trước). Tích lũy: 285 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 8.9793426547101, Mean+2SD: 9.1665631459995]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Tân Sơn Nhất: 4 ca (giảm 63.6% so với 11 ca tuần trước). Tích lũy: 118 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 7.32640864341678, Mean+2SD: 6.54728827066554]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Tân Thuận: 4 ca (giảm 33.3% so với 6 ca tuần trước). Tích lũy: 235 ca. Ngưỡng [Mùa: 4, Cusum: 7.32344415532099, Farrington: 7.51592905170402, Mean+2SD: 11.6609903369994]. Trạng thái: Bình thường (Mức 0).
-  + Phường Tân Thành: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 20 ca. Ngưỡng [Mùa: 0, Cusum: 4.02029214455728, Farrington: 0, Mean+2SD: 6.81536192416212]. Trạng thái: Bình thường (Mức 0).
-  + Phường Tân Thới Hiệp: 20 ca (tăng 53.8% so với 13 ca tuần trước). Tích lũy: 364 ca. Ngưỡng [Mùa: 5, Cusum: 0, Farrington: 7.86278553032799, Mean+2SD: 31.3540064096768]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Tân Tạo: 17 ca (tăng 54.5% so với 11 ca tuần trước). Tích lũy: 328 ca. Ngưỡng [Mùa: 5.5, Cusum: 0, Farrington: 12.8225335733458, Mean+2SD: 10.7472882706655]. Trạng thái: Báo động (Mức 3).
-  + Phường Tân Uyên: 5 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 114 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 3.38226895813558, Mean+2SD: 5.37770876399966]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Tân Đông Hiệp: 10 ca (giảm 16.7% so với 12 ca tuần trước). Tích lũy: 272 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 4.12125524796663, Mean+2SD: 14.938094023943]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Tân Định: 1 ca (giảm 83.3% so với 6 ca tuần trước). Tích lũy: 52 ca. Ngưỡng [Mùa: 1, Cusum: 3.16295349761065, Farrington: 1.75759110814107, Mean+2SD: 9.89383301152419]. Trạng thái: Bình thường (Mức 0).
-  + Phường Tây Nam: 5 ca (tăng 150.0% so với 2 ca tuần trước). Tích lũy: 74 ca. Ngưỡng [Mùa: 0, Cusum: 0.35745496191763, Farrington: 4.63983497429791, Mean+2SD: 2.38885438199983]. Trạng thái: Báo động (Mức 3).
-  + Phường Tây Thạnh: 6 ca (giảm 14.3% so với 7 ca tuần trước). Tích lũy: 168 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 8.66457114255933, Mean+2SD: 7.29878030638384]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Tăng Nhơn Phú: 10 ca (tăng 233.3% so với 3 ca tuần trước). Tích lũy: 149 ca. Ngưỡng [Mùa: 4, Cusum: 13.6892672099639, Farrington: 14.1126553977001, Mean+2SD: 15.9390334845093]. Trạng thái: Bình thường (Mức 0).
-  + Phường Vĩnh Hội: 5 ca (tăng 66.7% so với 3 ca tuần trước). Tích lũy: 95 ca. Ngưỡng [Mùa: 2, Cusum: 9.85442845714949, Farrington: 11.7640408513307, Mean+2SD: 11.955699854483]. Trạng thái: Bình thường (Mức 0).
-  + Phường Vĩnh Tân: 1 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 38 ca. Ngưỡng [Mùa: 0, Cusum: 4.6446769046043, Farrington: 0, Mean+2SD: 5.43315017762062]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Vũng Tàu: 3 ca (giảm 57.1% so với 7 ca tuần trước). Tích lũy: 123 ca. Ngưỡng [Mùa: 2, Cusum: 10.1222931019752, Farrington: 3.14939261125346, Mean+2SD: 20.8012986465428]. Trạng thái: Bình thường (Mức 0).
-  + Phường Vườn Lài: 2 ca (tăng 100.0% so với 1 ca tuần trước). Tích lũy: 87 ca. Ngưỡng [Mùa: 3, Cusum: 12.3263924532357, Farrington: 9.39961228260148, Mean+2SD: 8.76070170039655]. Trạng thái: Bình thường (Mức 0).
-  + Phường Xuân Hòa: 2 ca (không đổi so với 2 ca tuần trước). Tích lũy: 50 ca. Ngưỡng [Mùa: 1, Cusum: 4.83560713307276, Farrington: 5.36822609899827, Mean+2SD: 6.16227766016838]. Trạng thái: Bình thường (Mức 0).
-  + Phường Xóm Chiếu: 3 ca (giảm 57.1% so với 7 ca tuần trước). Tích lũy: 91 ca. Ngưỡng [Mùa: 1, Cusum: 6.32841929170599, Farrington: 7.99981020929419, Mean+2SD: 12.7975606127677]. Trạng thái: Bình thường (Mức 0).
-  + Phường Đông Hòa: 8 ca (không đổi so với 8 ca tuần trước). Tích lũy: 266 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 6.51630189181529, Mean+2SD: 17.6076900332073]. Trạng thái: Cảnh báo (Mức 2).
-  + Phường Đông Hưng Thuận: 12 ca (giảm 7.7% so với 13 ca tuần trước). Tích lũy: 423 ca. Ngưỡng [Mùa: 5, Cusum: 0, Farrington: 12.0937034932635, Mean+2SD: 22.4674796506159]. Trạng thái: Lưu ý (Mức 1).
-  + Phường Đức Nhuận: 3 ca (giảm 40.0% so với 5 ca tuần trước). Tích lũy: 80 ca. Ngưỡng [Mùa: 1, Cusum: 6.40606735856153, Farrington: 7.75957616919398, Mean+2SD: 4.99089023002066]. Trạng thái: Bình thường (Mức 0).
-  + Xã An Long: 1 ca (giảm 50.0% so với 2 ca tuần trước). Tích lũy: 18 ca. Ngưỡng [Mùa: 0, Cusum: 1.5648669764837, Farrington: 0, Mean+2SD: 0]. Trạng thái: Báo động (Mức 3).
-  + Xã An Nhơn Tây: 8 ca (tăng 14.3% so với 7 ca tuần trước). Tích lũy: 111 ca. Ngưỡng [Mùa: 1, Cusum: 6.71423205389703, Farrington: 5.18134903491415, Mean+2SD: 13.4332756630338]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã An Thới Đông: 0 ca (giảm 100.0% so với 3 ca tuần trước). Tích lũy: 32 ca. Ngưỡng [Mùa: 0, Cusum: 4.77979935814784, Farrington: 0, Mean+2SD: 0]. Trạng thái: Bình thường (Mức 0).
-  + Xã Bà Điểm: 17 ca (giảm 32.0% so với 25 ca tuần trước). Tích lũy: 375 ca. Ngưỡng [Mùa: 6, Cusum: 0, Farrington: 24.3500856924774, Mean+2SD: 36.4790977252326]. Trạng thái: Lưu ý (Mức 1).
-  + Xã Bàu Bàng: 2 ca (giảm 33.3% so với 3 ca tuần trước). Tích lũy: 46 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 1.96406878944785, Mean+2SD: 2.18885438199983]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Bàu Lâm: 1 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 29 ca. Ngưỡng [Mùa: 0, Cusum: 1.03081250763507, Farrington: 0, Mean+2SD: 1.49544511501033]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Bình Chánh: 5 ca (giảm 16.7% so với 6 ca tuần trước). Tích lũy: 173 ca. Ngưỡng [Mùa: 3, Cusum: 3.45649406838524, Farrington: 16.4862943351948, Mean+2SD: 18.0540147089177]. Trạng thái: Lưu ý (Mức 1).
-  + Xã Bình Châu: 0 ca (giảm 100.0% so với 1 ca tuần trước). Tích lũy: 38 ca. Ngưỡng [Mùa: 0, Cusum: 3.61236928133536, Farrington: 0, Mean+2SD: 5.47213595499958]. Trạng thái: Bình thường (Mức 0).
-  + Xã Bình Giã: 2 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 39 ca. Ngưỡng [Mùa: 0, Cusum: 4.05814051606076, Farrington: 0, Mean+2SD: 3.40768096208106]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Bình Hưng: 27 ca (tăng 107.7% so với 13 ca tuần trước). Tích lũy: 380 ca. Ngưỡng [Mùa: 5, Cusum: 0, Farrington: 17.5413100882142, Mean+2SD: 17.3289033996573]. Trạng thái: Báo động (Mức 3).
-  + Xã Bình Khánh: 6 ca (tăng 100.0% so với 3 ca tuần trước). Tích lũy: 178 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 3.73183374300543, Mean+2SD: 5.89878030638384]. Trạng thái: Báo động (Mức 3).
-  + Xã Bình Lợi: 4 ca (tăng 100.0% so với 2 ca tuần trước). Tích lũy: 145 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 2.86626457655014, Mean+2SD: 3.44948974278318]. Trạng thái: Báo động (Mức 3).
-  + Xã Bình Mỹ: 4 ca (giảm 33.3% so với 6 ca tuần trước). Tích lũy: 158 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 6.09608153652724, Mean+2SD: 8.97687164221791]. Trạng thái: Lưu ý (Mức 1).
-  + Xã Bắc Tân Uyên: 0 ca (giảm 100.0% so với 1 ca tuần trước). Tích lũy: 45 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 0, Mean+2SD: 3.82842712474619]. Trạng thái: Bình thường (Mức 0).
-  + Xã Châu Pha: 1 ca (không đổi so với 1 ca tuần trước). Tích lũy: 58 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 0.0803027976618764, Mean+2SD: 3.40768096208106]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Châu Đức: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 19 ca. Ngưỡng [Mùa: 0, Cusum: 4.23151528594595, Farrington: 0, Mean+2SD: 4.486335345031]. Trạng thái: Bình thường (Mức 0).
-  + Xã Cần Giờ: 1 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 19 ca. Ngưỡng [Mùa: 0, Cusum: 7.10332835731905, Farrington: 0, Mean+2SD: 2.47332005306815]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Củ Chi: 3 ca (giảm 72.7% so với 11 ca tuần trước). Tích lũy: 326 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 7.47402790709939, Mean+2SD: 22.9921032118664]. Trạng thái: Lưu ý (Mức 1).
-  + Xã Dầu Tiếng: 2 ca (không đổi so với 2 ca tuần trước). Tích lũy: 22 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 0.926090415911616, Mean+2SD: 5.74728827066554]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Hiệp Phước: 11 ca (giảm 8.3% so với 12 ca tuần trước). Tích lũy: 233 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 11.0412939961097, Mean+2SD: 9.69915248150105]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường An Hội Tây: 8 ca (tăng 33.3% so với 6 ca tuần trước). Tích lũy: 181 ca. Ngưỡng [Mùa: 3, Cusum: 0.346999662127422, Farrington: 10.1386765249046, Mean+2SD: 21.5698050899765]. Trạng thái: Lưu ý (Mức 1).
+  + Phường An Hội Đông: 16 ca (tăng 45.5% so với 11 ca tuần trước). Tích lũy: 196 ca. Ngưỡng [Mùa: 2.5, Cusum: 0, Farrington: 9.81383572909984, Mean+2SD: 12.4807406984079]. Trạng thái: Báo động (Mức 3).
+  + Phường An Khánh: 6 ca (giảm 14.3% so với 7 ca tuần trước). Tích lũy: 190 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 11.6756845828791, Mean+2SD: 12.2702256149271]. Trạng thái: Lưu ý (Mức 1).
+  + Phường An Lạc: 28 ca (tăng 12.0% so với 25 ca tuần trước). Tích lũy: 442 ca. Ngưỡng [Mùa: 7, Cusum: 0, Farrington: 15.9167166236973, Mean+2SD: 28.1340135912763]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường An Nhơn: 4 ca (không đổi so với 4 ca tuần trước). Tích lũy: 131 ca. Ngưỡng [Mùa: 2, Cusum: 3.64990283831882, Farrington: 3.4925745864037, Mean+2SD: 14.0769364084689]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường An Phú: 12 ca (giảm 29.4% so với 17 ca tuần trước). Tích lũy: 545 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 5.40490176349971, Mean+2SD: 9]. Trạng thái: Báo động (Mức 3).
+  + Phường An Phú Đông: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 231 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: NA, Mean+2SD: 11.7497747702046]. Trạng thái: Bình thường (Mức 0).
+  + Phường An Đông: 5 ca (tăng 66.7% so với 3 ca tuần trước). Tích lũy: 81 ca. Ngưỡng [Mùa: 2, Cusum: 9.15801914661828, Farrington: 6.87611416455656, Mean+2SD: 4.47332005306815]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Bà Rịa: 2 ca (giảm 66.7% so với 6 ca tuần trước). Tích lũy: 102 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 1.2784951406543, Mean+2SD: 8.74217089351845]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Bàn Cờ: 1 ca (giảm 66.7% so với 3 ca tuần trước). Tích lũy: 64 ca. Ngưỡng [Mùa: 2, Cusum: 9.7475139146036, Farrington: 6.86351751060677, Mean+2SD: 5.39089023002066]. Trạng thái: Bình thường (Mức 0).
+  + Phường Bình Cơ: 5 ca (tăng 66.7% so với 3 ca tuần trước). Tích lũy: 90 ca. Ngưỡng [Mùa: 0.5, Cusum: 0, Farrington: 4.64042892548765, Mean+2SD: 4.39089023002066]. Trạng thái: Báo động (Mức 3).
+  + Phường Bình Dương: 11 ca (giảm 8.3% so với 12 ca tuần trước). Tích lũy: 180 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 6.9971481308304, Mean+2SD: 6.44948974278318]. Trạng thái: Báo động (Mức 3).
+  + Phường Bình Hòa: 15 ca (tăng 87.5% so với 8 ca tuần trước). Tích lũy: 299 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 3.81880128230657, Mean+2SD: 18.7909053312273]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Bình Hưng Hòa: 24 ca (tăng 118.2% so với 11 ca tuần trước). Tích lũy: 524 ca. Ngưỡng [Mùa: 8, Cusum: 0, Farrington: 25.85305874796, Mean+2SD: 25.6567051239665]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Bình Lợi Trung: 9 ca (tăng 12.5% so với 8 ca tuần trước). Tích lũy: 136 ca. Ngưỡng [Mùa: 2, Cusum: 5.00285716628324, Farrington: 5.28402470240765, Mean+2SD: 8.74977477020464]. Trạng thái: Báo động (Mức 3).
+  + Phường Bình Phú: 6 ca (giảm 33.3% so với 9 ca tuần trước). Tích lũy: 170 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 10.8613732592275, Mean+2SD: 14.2230428862432]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Bình Quới: 1 ca (không đổi so với 1 ca tuần trước). Tích lũy: 58 ca. Ngưỡng [Mùa: 1, Cusum: 7.76318470951911, Farrington: 6.82724130568055, Mean+2SD: 5.80768096208106]. Trạng thái: Bình thường (Mức 0).
+  + Phường Bình Thạnh: 7 ca (tăng 133.3% so với 3 ca tuần trước). Tích lũy: 155 ca. Ngưỡng [Mùa: 3, Cusum: 12.4448449527784, Farrington: 7.08354932254401, Mean+2SD: 14.6023252670426]. Trạng thái: Bình thường (Mức 0).
+  + Phường Bình Thới: 5 ca (tăng 400.0% so với 1 ca tuần trước). Tích lũy: 91 ca. Ngưỡng [Mùa: 2, Cusum: 4.56599444117002, Farrington: 10.6499220537981, Mean+2SD: 4.82842712474619]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Bình Tiên: 1 ca (giảm 66.7% so với 3 ca tuần trước). Tích lũy: 83 ca. Ngưỡng [Mùa: 3, Cusum: 12.3961200349466, Farrington: 12.7574775209583, Mean+2SD: 8.80370243444252]. Trạng thái: Bình thường (Mức 0).
+  + Phường Bình Trưng: 10 ca (giảm 47.4% so với 19 ca tuần trước). Tích lũy: 296 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 17.9203808483646, Mean+2SD: 17.7177978870813]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Bình Trị Đông: 7 ca (tăng 16.7% so với 6 ca tuần trước). Tích lũy: 420 ca. Ngưỡng [Mùa: 7, Cusum: 0, Farrington: 26.9490024626221, Mean+2SD: 21.155699854483]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Bình Tân: 11 ca (không đổi so với 11 ca tuần trước). Tích lũy: 416 ca. Ngưỡng [Mùa: 4, Cusum: 0, Farrington: 16.7803700806854, Mean+2SD: 18.0086915465771]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Bình Tây: 6 ca (tăng 100.0% so với 3 ca tuần trước). Tích lũy: 73 ca. Ngưỡng [Mùa: 2, Cusum: 9.13441345821315, Farrington: 8.07920861827661, Mean+2SD: 9.80370243444252]. Trạng thái: Bình thường (Mức 0).
+  + Phường Bình Đông: 16 ca (giảm 5.9% so với 17 ca tuần trước). Tích lũy: 254 ca. Ngưỡng [Mùa: 5.5, Cusum: 11.3196447675974, Farrington: 16.7115481453012, Mean+2SD: 24.0012986465428]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Bảy Hiền: 12 ca (tăng 50.0% so với 8 ca tuần trước). Tích lũy: 211 ca. Ngưỡng [Mùa: 4, Cusum: 0, Farrington: 12.2562006737217, Mean+2SD: 9.53589667773576]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Bến Cát: 6 ca (giảm 50.0% so với 12 ca tuần trước). Tích lũy: 211 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 1.12594412741434, Mean+2SD: 7.5665631459995]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Bến Thành: 3 ca (tăng 50.0% so với 2 ca tuần trước). Tích lũy: 43 ca. Ngưỡng [Mùa: 1, Cusum: 7.71213452956508, Farrington: 5.71603857145246, Mean+2SD: 6.64707681233427]. Trạng thái: Bình thường (Mức 0).
+  + Phường Chánh Hiệp: 1 ca (giảm 50.0% so với 2 ca tuần trước). Tích lũy: 73 ca. Ngưỡng [Mùa: 1, Cusum: 0.2755458959909, Farrington: 2.44920319215146, Mean+2SD: 4.40768096208106]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Chánh Hưng: 7 ca (giảm 61.1% so với 18 ca tuần trước). Tích lũy: 387 ca. Ngưỡng [Mùa: 9, Cusum: 22.4957724969809, Farrington: 29.0774316475091, Mean+2SD: 33.699760764181]. Trạng thái: Bình thường (Mức 0).
+  + Phường Chánh Phú Hòa: 5 ca (không đổi so với 5 ca tuần trước). Tích lũy: 107 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 2.7809373971744, Mean+2SD: 1.69544511501033]. Trạng thái: Báo động (Mức 3).
+  + Phường Chợ Lớn: 2 ca (giảm 50.0% so với 4 ca tuần trước). Tích lũy: 76 ca. Ngưỡng [Mùa: 2, Cusum: 9.69387004002589, Farrington: 10.2659090259751, Mean+2SD: 8.76070170039655]. Trạng thái: Bình thường (Mức 0).
+  + Phường Chợ Quán: 2 ca (giảm 71.4% so với 7 ca tuần trước). Tích lũy: 80 ca. Ngưỡng [Mùa: 1, Cusum: 4.43131619876764, Farrington: 6.7492874758588, Mean+2SD: 10.0187226143525]. Trạng thái: Bình thường (Mức 0).
+  + Phường Cát Lái: 6 ca (giảm 25.0% so với 8 ca tuần trước). Tích lũy: 154 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 8.76363967968841, Mean+2SD: 8.61996015920445]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Cầu Kiệu: 3 ca (tăng 50.0% so với 2 ca tuần trước). Tích lũy: 50 ca. Ngưỡng [Mùa: 1, Cusum: 8.04943853000213, Farrington: 10.6767903455911, Mean+2SD: 9.20434577328853]. Trạng thái: Bình thường (Mức 0).
+  + Phường Cầu Ông Lãnh: 2 ca (không đổi so với 2 ca tuần trước). Tích lũy: 80 ca. Ngưỡng [Mùa: 2, Cusum: 10.2698598201437, Farrington: 6.04702217383947, Mean+2SD: 10.8663003552412]. Trạng thái: Bình thường (Mức 0).
+  + Phường Diên Hồng: 5 ca (tăng 66.7% so với 3 ca tuần trước). Tích lũy: 89 ca. Ngưỡng [Mùa: 2, Cusum: 9.27564806626943, Farrington: 8.98041592438002, Mean+2SD: 9.09901951359278]. Trạng thái: Bình thường (Mức 0).
+  + Phường Dĩ An: 10 ca (giảm 23.1% so với 13 ca tuần trước). Tích lũy: 509 ca. Ngưỡng [Mùa: 6, Cusum: 0, Farrington: 4.13500001354743, Mean+2SD: 36.3952376452376]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Gia Định: 7 ca (không đổi so với 7 ca tuần trước). Tích lũy: 166 ca. Ngưỡng [Mùa: 3, Cusum: 9.77483139607733, Farrington: 13.5764154483967, Mean+2SD: 17.4096736459909]. Trạng thái: Bình thường (Mức 0).
+  + Phường Gò Vấp: 11 ca (tăng 57.1% so với 7 ca tuần trước). Tích lũy: 167 ca. Ngưỡng [Mùa: 2, Cusum: 3.62956291424397, Farrington: 15.2473215462772, Mean+2SD: 14.8317608663278]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Hiệp Bình: 20 ca (giảm 9.1% so với 22 ca tuần trước). Tích lũy: 380 ca. Ngưỡng [Mùa: 6, Cusum: 0, Farrington: 13.5587157743966, Mean+2SD: 24.8840987267251]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Hòa Bình: 4 ca (giảm 20.0% so với 5 ca tuần trước). Tích lũy: 71 ca. Ngưỡng [Mùa: 2, Cusum: 0.293338157786875, Farrington: 5.62658883261318, Mean+2SD: 5.28328157299975]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Hòa Hưng: 0 ca (giảm 100.0% so với 5 ca tuần trước). Tích lũy: 121 ca. Ngưỡng [Mùa: 2, Cusum: 11.1100464975562, Farrington: 12.6790505992308, Mean+2SD: 11.1230945255886]. Trạng thái: Bình thường (Mức 0).
+  + Phường Hòa Lợi: 6 ca (tăng 500.0% so với 1 ca tuần trước). Tích lũy: 109 ca. Ngưỡng [Mùa: 2, Cusum: 1.13093064755507, Farrington: 13.2853339630838, Mean+2SD: 13.0553851381374]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Hạnh Thông: 3 ca (giảm 70.0% so với 10 ca tuần trước). Tích lũy: 180 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 4.59665493614395, Mean+2SD: 15.2815161417561]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Khánh Hội: 9 ca (tăng 50.0% so với 6 ca tuần trước). Tích lũy: 145 ca. Ngưỡng [Mùa: 3, Cusum: 9.15896207642597, Farrington: 14.9974503071107, Mean+2SD: 13.2230428862432]. Trạng thái: Bình thường (Mức 0).
+  + Phường Linh Xuân: 5 ca (giảm 54.5% so với 11 ca tuần trước). Tích lũy: 197 ca. Ngưỡng [Mùa: 3.5, Cusum: 9.65127309677503, Farrington: 9.95818909200531, Mean+2SD: 15.7365774725667]. Trạng thái: Bình thường (Mức 0).
+  + Phường Long Bình: 13 ca (tăng 116.7% so với 6 ca tuần trước). Tích lũy: 242 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 8.29279494613738, Mean+2SD: 7.23318042491699]. Trạng thái: Báo động (Mức 3).
+  + Phường Long Hương: 0 ca (giảm 100.0% so với 1 ca tuần trước). Tích lũy: 95 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 0, Mean+2SD: 3.82842712474619]. Trạng thái: Bình thường (Mức 0).
+  + Phường Long Nguyên: 3 ca (tăng 200.0% so với 1 ca tuần trước). Tích lũy: 73 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 0.821453146934167, Mean+2SD: 2.38885438199983]. Trạng thái: Báo động (Mức 3).
+  + Phường Long Phước: 2 ca (giảm 33.3% so với 3 ca tuần trước). Tích lũy: 54 ca. Ngưỡng [Mùa: 1, Cusum: 7.08554591511147, Farrington: 7.95052914042376, Mean+2SD: 10.2027022093287]. Trạng thái: Bình thường (Mức 0).
+  + Phường Long Trường: 14 ca (tăng 16.7% so với 12 ca tuần trước). Tích lũy: 226 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 9.14432042593161, Mean+2SD: 8]. Trạng thái: Báo động (Mức 3).
+  + Phường Lái Thiêu: 10 ca (tăng 42.9% so với 7 ca tuần trước). Tích lũy: 288 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 5.42620936319521, Mean+2SD: 14.0380092438916]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Minh Phụng: 2 ca (giảm 60.0% so với 5 ca tuần trước). Tích lũy: 120 ca. Ngưỡng [Mùa: 2.5, Cusum: 10.5602900962566, Farrington: 11.828195136031, Mean+2SD: 11.0187226143525]. Trạng thái: Bình thường (Mức 0).
+  + Phường Nhiêu Lộc: 2 ca (giảm 60.0% so với 5 ca tuần trước). Tích lũy: 113 ca. Ngưỡng [Mùa: 3, Cusum: 11.6992549294799, Farrington: 6.20669936021533, Mean+2SD: 10.0043457732885]. Trạng thái: Bình thường (Mức 0).
+  + Phường Phú An: 7 ca (tăng 133.3% so với 3 ca tuần trước). Tích lũy: 87 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 4.17217664300685, Mean+2SD: 3.80768096208106]. Trạng thái: Báo động (Mức 3).
+  + Phường Phú Lâm: 11 ca (giảm 26.7% so với 15 ca tuần trước). Tích lũy: 169 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 5.88601188901986, Mean+2SD: 11.3329587896765]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Phú Lợi: 7 ca (tăng 40.0% so với 5 ca tuần trước). Tích lũy: 154 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 7.76465971788962, Mean+2SD: 7.77995983919549]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Phú Mỹ: 3 ca (tăng 200.0% so với 1 ca tuần trước). Tích lũy: 99 ca. Ngưỡng [Mùa: 1, Cusum: 8.5106141254336, Farrington: 6.92307361401962, Mean+2SD: 4.40768096208106]. Trạng thái: Bình thường (Mức 0).
+  + Phường Phú Nhuận: 2 ca (không đổi so với 2 ca tuần trước). Tích lũy: 83 ca. Ngưỡng [Mùa: 1, Cusum: 7.73468594023828, Farrington: 3.34644665468187, Mean+2SD: 7.54728827066554]. Trạng thái: Bình thường (Mức 0).
+  + Phường Phú Thuận: 4 ca (giảm 42.9% so với 7 ca tuần trước). Tích lũy: 207 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 7.31121207818064, Mean+2SD: 6.43315017762062]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Phú Thạnh: 5 ca (giảm 61.5% so với 13 ca tuần trước). Tích lũy: 203 ca. Ngưỡng [Mùa: 4, Cusum: 6.63736216090333, Farrington: 18.1559968502697, Mean+2SD: 15.0945765413311]. Trạng thái: Bình thường (Mức 0).
+  + Phường Phú Thọ: 3 ca (giảm 25.0% so với 4 ca tuần trước). Tích lũy: 77 ca. Ngưỡng [Mùa: 1, Cusum: 5.21990503584939, Farrington: 7.29083755720323, Mean+2SD: 10.7365774725667]. Trạng thái: Bình thường (Mức 0).
+  + Phường Phú Thọ Hòa: 10 ca (tăng 66.7% so với 6 ca tuần trước). Tích lũy: 267 ca. Ngưỡng [Mùa: 5, Cusum: 11.7508363676253, Farrington: 8.92046531647035, Mean+2SD: 13.6568542494924]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Phú Định: 10 ca (tăng 66.7% so với 6 ca tuần trước). Tích lũy: 260 ca. Ngưỡng [Mùa: 6.5, Cusum: 19.0250979813309, Farrington: 15.0497079062367, Mean+2SD: 23.3203550249245]. Trạng thái: Bình thường (Mức 0).
+  + Phường Phước Long: 10 ca (tăng 25.0% so với 8 ca tuần trước). Tích lũy: 165 ca. Ngưỡng [Mùa: 3, Cusum: 8.81413288440502, Farrington: 8.96327434605833, Mean+2SD: 9.24264068711928]. Trạng thái: Báo động (Mức 3).
+  + Phường Phước Thắng: 4 ca (không đổi so với 4 ca tuần trước). Tích lũy: 121 ca. Ngưỡng [Mùa: 2, Cusum: 10.2023622989789, Farrington: 8.07144250425111, Mean+2SD: 8.47213595499958]. Trạng thái: Bình thường (Mức 0).
+  + Phường Rạch Dừa: 4 ca (giảm 42.9% so với 7 ca tuần trước). Tích lũy: 101 ca. Ngưỡng [Mùa: 2, Cusum: 10.5461096812402, Farrington: 5.92842412695, Mean+2SD: 22.5529453572468]. Trạng thái: Bình thường (Mức 0).
+  + Phường Sài Gòn: 4 ca (không đổi so với 4 ca tuần trước). Tích lũy: 39 ca. Ngưỡng [Mùa: 0, Cusum: 3.26630043236292, Farrington: 4.53437103932101, Mean+2SD: 3]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Tam Bình: 15 ca (tăng 25.0% so với 12 ca tuần trước). Tích lũy: 268 ca. Ngưỡng [Mùa: 4, Cusum: 0, Farrington: 6.91744827227719, Mean+2SD: 23.5646599662505]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Tam Long: 0 ca (giảm 100.0% so với 3 ca tuần trước). Tích lũy: 110 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 2.4131180235692, Mean+2SD: 5.086335345031]. Trạng thái: Bình thường (Mức 0).
+  + Phường Tam Thắng: 1 ca (giảm 80.0% so với 5 ca tuần trước). Tích lũy: 117 ca. Ngưỡng [Mùa: 2, Cusum: 1.46227530789814, Farrington: 1.90872660234156, Mean+2SD: 8.86099033699941]. Trạng thái: Bình thường (Mức 0).
+  + Phường Thuận An: 5 ca (giảm 16.7% so với 6 ca tuần trước). Tích lũy: 147 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 2.17704708764624, Mean+2SD: 8.5665631459995]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Thuận Giao: 17 ca (tăng 6.2% so với 16 ca tuần trước). Tích lũy: 348 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 4.70589516282328, Mean+2SD: 11.9630681604756]. Trạng thái: Báo động (Mức 3).
+  + Phường Thông Tây Hội: 16 ca (tăng 300.0% so với 4 ca tuần trước). Tích lũy: 205 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 14.7097596266416, Mean+2SD: 22.5749804381727]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Thới An: 16 ca (tăng 60.0% so với 10 ca tuần trước). Tích lũy: 336 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 17.9949820769918, Mean+2SD: 19.5892805845595]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Thạnh Mỹ Tây: 13 ca (giảm 31.6% so với 19 ca tuần trước). Tích lũy: 313 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 18.1871497707606, Mean+2SD: 18.607404868885]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Thới Hòa: 8 ca (tăng 33.3% so với 6 ca tuần trước). Tích lũy: 202 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 4.86489979864843, Mean+2SD: 6.61536192416212]. Trạng thái: Báo động (Mức 3).
+  + Phường Thủ Dầu Một: 3 ca (không đổi so với 3 ca tuần trước). Tích lũy: 131 ca. Ngưỡng [Mùa: 3, Cusum: 3.04592391922953, Farrington: 9.76295045071686, Mean+2SD: 7.43315017762062]. Trạng thái: Bình thường (Mức 0).
+  + Phường Thủ Đức: 8 ca (tăng 14.3% so với 7 ca tuần trước). Tích lũy: 137 ca. Ngưỡng [Mùa: 2, Cusum: 7.10978962103631, Farrington: 9.50032764052034, Mean+2SD: 11.164414002969]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Trung Mỹ Tây: 7 ca (giảm 56.2% so với 16 ca tuần trước). Tích lũy: 321 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 7.93016404799627, Mean+2SD: 20.637445228705]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Tân Bình: 11 ca (tăng 1000.0% so với 1 ca tuần trước). Tích lũy: 188 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 13.9120644282857, Mean+2SD: 17.8542568506211]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Tân Hiệp: 10 ca (giảm 28.6% so với 14 ca tuần trước). Tích lũy: 230 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 4.47056907614296, Mean+2SD: 11.1874877690685]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Tân Hòa: 3 ca (giảm 57.1% so với 7 ca tuần trước). Tích lũy: 116 ca. Ngưỡng [Mùa: 2, Cusum: 2.70996703772395, Farrington: 7.89776649878756, Mean+2SD: 8.74728827066554]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Tân Hưng: 14 ca (tăng 16.7% so với 12 ca tuần trước). Tích lũy: 390 ca. Ngưỡng [Mùa: 5, Cusum: 0, Farrington: 17.7281541983008, Mean+2SD: 16.8445751624941]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Tân Hải: 1 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 56 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 0, Mean+2SD: 6.61536192416212]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Tân Khánh: 4 ca (tăng 300.0% so với 1 ca tuần trước). Tích lũy: 175 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 7.05602832602948, Mean+2SD: 9.77995983919549]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Tân Mỹ: 9 ca (tăng 80.0% so với 5 ca tuần trước). Tích lũy: 190 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 11.3375380167095, Mean+2SD: 8.98178046004133]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Tân Phú: 10 ca (tăng 25.0% so với 8 ca tuần trước). Tích lũy: 200 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 14.307101835873, Mean+2SD: 12.0410525505948]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Tân Phước: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 19 ca. Ngưỡng [Mùa: 0, Cusum: 3.72084534748758, Farrington: 0, Mean+2SD: 1.69544511501033]. Trạng thái: Bình thường (Mức 0).
+  + Phường Tân Sơn: 12 ca (tăng 50.0% so với 8 ca tuần trước). Tích lũy: 167 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 8.59657463892727, Mean+2SD: 5.086335345031]. Trạng thái: Báo động (Mức 3).
+  + Phường Tân Sơn Hòa: 5 ca (không đổi so với 5 ca tuần trước). Tích lũy: 121 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 9.79048825494628, Mean+2SD: 10.4702256149271]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Tân Sơn Nhì: 11 ca (tăng 22.2% so với 9 ca tuần trước). Tích lũy: 296 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 8.93119957312737, Mean+2SD: 10.0043457732885]. Trạng thái: Báo động (Mức 3).
+  + Phường Tân Sơn Nhất: 2 ca (giảm 50.0% so với 4 ca tuần trước). Tích lũy: 120 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 9.17917655012936, Mean+2SD: 7.69041575982343]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Tân Thuận: 6 ca (tăng 50.0% so với 4 ca tuần trước). Tích lũy: 241 ca. Ngưỡng [Mùa: 4, Cusum: 12.6987157388001, Farrington: 15.3170291001591, Mean+2SD: 13.1230945255886]. Trạng thái: Bình thường (Mức 0).
+  + Phường Tân Thành: 0 ca (giảm 100.0% so với 1 ca tuần trước). Tích lũy: 21 ca. Ngưỡng [Mùa: 0, Cusum: 4.02029214455728, Farrington: 0, Mean+2SD: 2.38885438199983]. Trạng thái: Bình thường (Mức 0).
+  + Phường Tân Thới Hiệp: 12 ca (giảm 42.9% so với 21 ca tuần trước). Tích lũy: 377 ca. Ngưỡng [Mùa: 5, Cusum: 0, Farrington: 7.97143707720662, Mean+2SD: 25.2315462117278]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Tân Tạo: 9 ca (giảm 47.1% so với 17 ca tuần trước). Tích lũy: 337 ca. Ngưỡng [Mùa: 5.5, Cusum: 0, Farrington: 16.0941616818566, Mean+2SD: 14.1799598391955]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Tân Uyên: 12 ca (tăng 140.0% so với 5 ca tuần trước). Tích lũy: 126 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 6.81206840457319, Mean+2SD: 4]. Trạng thái: Báo động (Mức 3).
+  + Phường Tân Đông Hiệp: 6 ca (giảm 40.0% so với 10 ca tuần trước). Tích lũy: 278 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 3.75067032485839, Mean+2SD: 14.8994505328619]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Tân Định: 4 ca (tăng 300.0% so với 1 ca tuần trước). Tích lũy: 56 ca. Ngưỡng [Mùa: 1, Cusum: 5.96629166052957, Farrington: 1.82960285444332, Mean+2SD: 8.8932802122726]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Tây Nam: 6 ca (tăng 20.0% so với 5 ca tuần trước). Tích lũy: 80 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 3.90253747864969, Mean+2SD: 3.88035085019828]. Trạng thái: Báo động (Mức 3).
+  + Phường Tây Thạnh: 3 ca (giảm 57.1% so với 7 ca tuần trước). Tích lũy: 172 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 9.3406016454703, Mean+2SD: 9.34977477020464]. Trạng thái: Lưu ý (Mức 1).
+  + Phường Tăng Nhơn Phú: 14 ca (tăng 27.3% so với 11 ca tuần trước). Tích lũy: 164 ca. Ngưỡng [Mùa: 4, Cusum: 10.1686465581179, Farrington: 7.34453370864526, Mean+2SD: 14.4945765413311]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Vĩnh Hội: 7 ca (tăng 40.0% so với 5 ca tuần trước). Tích lũy: 102 ca. Ngưỡng [Mùa: 2, Cusum: 9.85442845714949, Farrington: 5.70792424172892, Mean+2SD: 15.7261578935526]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Vĩnh Tân: 1 ca (không đổi so với 1 ca tuần trước). Tích lũy: 39 ca. Ngưỡng [Mùa: 0, Cusum: 4.6446769046043, Farrington: 0, Mean+2SD: 3.82842712474619]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Vũng Tàu: 6 ca (tăng 100.0% so với 3 ca tuần trước). Tích lũy: 129 ca. Ngưỡng [Mùa: 2, Cusum: 11.2548411402888, Farrington: 4.34097895416509, Mean+2SD: 10.8681158050723]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Vườn Lài: 6 ca (tăng 200.0% so với 2 ca tuần trước). Tích lũy: 93 ca. Ngưỡng [Mùa: 3, Cusum: 12.3263924532357, Farrington: 5.99401345174364, Mean+2SD: 12.6410525505948]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Xuân Hòa: 1 ca (giảm 50.0% so với 2 ca tuần trước). Tích lũy: 51 ca. Ngưỡng [Mùa: 1, Cusum: 6.06814484419276, Farrington: 6.35170616729165, Mean+2SD: 4]. Trạng thái: Bình thường (Mức 0).
+  + Phường Xóm Chiếu: 5 ca (tăng 66.7% so với 3 ca tuần trước). Tích lũy: 96 ca. Ngưỡng [Mùa: 1, Cusum: 8.20720410305822, Farrington: 9.94926065076965, Mean+2SD: 7.54728827066554]. Trạng thái: Bình thường (Mức 0).
+  + Phường Đông Hòa: 6 ca (giảm 25.0% so với 8 ca tuần trước). Tích lũy: 272 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 5.32638968449189, Mean+2SD: 13.411104260855]. Trạng thái: Cảnh báo (Mức 2).
+  + Phường Đông Hưng Thuận: 20 ca (tăng 66.7% so với 12 ca tuần trước). Tích lũy: 443 ca. Ngưỡng [Mùa: 5, Cusum: 0, Farrington: 10.4257045186418, Mean+2SD: 19.3808315196469]. Trạng thái: Báo động (Mức 3).
+  + Phường Đức Nhuận: 5 ca (tăng 66.7% so với 3 ca tuần trước). Tích lũy: 85 ca. Ngưỡng [Mùa: 1, Cusum: 7.2503989704929, Farrington: 7.74582327212218, Mean+2SD: 9.57493455452533]. Trạng thái: Bình thường (Mức 0).
+  + Xã An Long: 0 ca (giảm 100.0% so với 1 ca tuần trước). Tích lũy: 18 ca. Ngưỡng [Mùa: 0, Cusum: 1.50928289797474, Farrington: 0, Mean+2SD: 1.49544511501033]. Trạng thái: Bình thường (Mức 0).
+  + Xã An Nhơn Tây: 2 ca (giảm 75.0% so với 8 ca tuần trước). Tích lũy: 113 ca. Ngưỡng [Mùa: 1, Cusum: 3.50182788509135, Farrington: 12.4033902317322, Mean+2SD: 13.3322916030806]. Trạng thái: Bình thường (Mức 0).
+  + Xã An Thới Đông: 1 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 32 ca. Ngưỡng [Mùa: 0, Cusum: 5.48821701914706, Farrington: 2.44532838041586, Mean+2SD: 3]. Trạng thái: Bình thường (Mức 0).
+  + Xã Bà Điểm: 18 ca (tăng 12.5% so với 16 ca tuần trước). Tích lũy: 392 ca. Ngưỡng [Mùa: 6, Cusum: 0, Farrington: 16.1631566019396, Mean+2SD: 25.142135623731]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Bàu Bàng: 3 ca (tăng 50.0% so với 2 ca tuần trước). Tích lũy: 49 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 2.44532838041586, Mean+2SD: 2.18885438199983]. Trạng thái: Báo động (Mức 3).
+  + Xã Bàu Lâm: 1 ca (không đổi so với 1 ca tuần trước). Tích lũy: 30 ca. Ngưỡng [Mùa: 0, Cusum: 1.26523962092393, Farrington: 0, Mean+2SD: 1.69544511501033]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Bình Chánh: 10 ca (tăng 150.0% so với 4 ca tuần trước). Tích lũy: 182 ca. Ngưỡng [Mùa: 3, Cusum: 6.5115559538852, Farrington: 16.5705762791229, Mean+2SD: 24.0166584076623]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Bình Châu: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 38 ca. Ngưỡng [Mùa: 0, Cusum: 3.61236928133536, Farrington: 0, Mean+2SD: 5.47213595499958]. Trạng thái: Bình thường (Mức 0).
+  + Xã Bình Giã: 1 ca (giảm 50.0% so với 2 ca tuần trước). Tích lũy: 40 ca. Ngưỡng [Mùa: 0, Cusum: 3.60996016100469, Farrington: 0, Mean+2SD: 5.29871773792359]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Bình Hưng: 25 ca (giảm 10.7% so với 28 ca tuần trước). Tích lũy: 405 ca. Ngưỡng [Mùa: 5, Cusum: 0, Farrington: 18.3889572413331, Mean+2SD: 20.911649033835]. Trạng thái: Báo động (Mức 3).
+  + Xã Bình Khánh: 1 ca (giảm 83.3% so với 6 ca tuần trước). Tích lũy: 179 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 3.73183374300543, Mean+2SD: 2.38885438199983]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Bình Lợi: 5 ca (tăng 25.0% so với 4 ca tuần trước). Tích lũy: 150 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 3.78804513890837, Mean+2SD: 2.47332005306815]. Trạng thái: Báo động (Mức 3).
+  + Xã Bình Mỹ: 6 ca (tăng 50.0% so với 4 ca tuần trước). Tích lũy: 164 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 8.19779510273469, Mean+2SD: 9.61536192416212]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Bắc Tân Uyên: 1 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 46 ca. Ngưỡng [Mùa: 0, Cusum: 0.00160411319120235, Farrington: 0, Mean+2SD: 1.49544511501033]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Châu Pha: 2 ca (tăng 100.0% so với 1 ca tuần trước). Tích lũy: 60 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 0.209820996485916, Mean+2SD: 4.37770876399966]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Châu Đức: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 19 ca. Ngưỡng [Mùa: 0, Cusum: 4.23151528594595, Farrington: 0, Mean+2SD: 3]. Trạng thái: Bình thường (Mức 0).
+  + Xã Cần Giờ: 0 ca (giảm 100.0% so với 1 ca tuần trước). Tích lũy: 19 ca. Ngưỡng [Mùa: 0, Cusum: 7.10332835731905, Farrington: 0, Mean+2SD: 2.99089023002066]. Trạng thái: Bình thường (Mức 0).
+  + Xã Củ Chi: 6 ca (tăng 200.0% so với 2 ca tuần trước). Tích lũy: 331 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 6.15270596403567, Mean+2SD: 29.5260404201061]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Dầu Tiếng: 3 ca (tăng 50.0% so với 2 ca tuần trước). Tích lũy: 25 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 0.785074377169593, Mean+2SD: 1.09442719099992]. Trạng thái: Báo động (Mức 3).
+  + Xã Hiệp Phước: 10 ca (giảm 9.1% so với 11 ca tuần trước). Tích lũy: 243 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 4.62344138754811, Mean+2SD: 13.0717933554715]. Trạng thái: Cảnh báo (Mức 2).
   + Xã Hòa Hiệp: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 27 ca. Ngưỡng [Mùa: 0, Cusum: 3.50132680404983, Farrington: 0, Mean+2SD: 1.09442719099992]. Trạng thái: Bình thường (Mức 0).
-  + Xã Hòa Hội: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 49 ca. Ngưỡng [Mùa: 0, Cusum: 4.7129906965228, Farrington: 0, Mean+2SD: 1.09442719099992]. Trạng thái: Bình thường (Mức 0).
-  + Xã Hóc Môn: 3 ca (không đổi so với 3 ca tuần trước). Tích lũy: 155 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 12.5843096362054, Mean+2SD: 12.4681158050723]. Trạng thái: Lưu ý (Mức 1).
-  + Xã Hưng Long: 7 ca (giảm 30.0% so với 10 ca tuần trước). Tích lũy: 143 ca. Ngưỡng [Mùa: 3, Cusum: 4.95170570913417, Farrington: 8.29141106066163, Mean+2SD: 6.74165738677394]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Hồ Tràm: 1 ca (không đổi so với 1 ca tuần trước). Tích lũy: 107 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 0, Mean+2SD: 5.23318042491699]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Kim Long: 2 ca (tăng 100.0% so với 1 ca tuần trước). Tích lũy: 43 ca. Ngưỡng [Mùa: 0, Cusum: 4.76941766526141, Farrington: 0, Mean+2SD: 3.44948974278318]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Long Hoà: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 18 ca. Ngưỡng [Mùa: 0, Cusum: 2.65866944011919, Farrington: 0, Mean+2SD: 2.18885438199983]. Trạng thái: Bình thường (Mức 0).
-  + Xã Long Hải: 1 ca (giảm 50.0% so với 2 ca tuần trước). Tích lũy: 131 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 0, Mean+2SD: 8.97267069006199]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Long Sơn: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 17 ca. Ngưỡng [Mùa: 0, Cusum: 1.65068226324338, Farrington: 0, Mean+2SD: 1.09442719099992]. Trạng thái: Bình thường (Mức 0).
-  + Xã Long Điền: 2 ca (giảm 33.3% so với 3 ca tuần trước). Tích lũy: 157 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 0.672998451747685, Mean+2SD: 6.77995983919549]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Minh Thạnh: 0 ca (giảm 100.0% so với 1 ca tuần trước). Tích lũy: 18 ca. Ngưỡng [Mùa: 0, Cusum: 3.10708749156892, Farrington: 0, Mean+2SD: 1.49544511501033]. Trạng thái: Bình thường (Mức 0).
-  + Xã Nghĩa Thành: 0 ca (giảm 100.0% so với 1 ca tuần trước). Tích lũy: 55 ca. Ngưỡng [Mùa: 0, Cusum: 4.47083719269562, Farrington: 0, Mean+2SD: 2.47332005306815]. Trạng thái: Bình thường (Mức 0).
-  + Xã Ngãi Giao: 0 ca (giảm 100.0% so với 2 ca tuần trước). Tích lũy: 67 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 4.70359094485509, Mean+2SD: 9.96306816047561]. Trạng thái: Bình thường (Mức 0).
-  + Xã Nhuận Đức: 6 ca (giảm 45.5% so với 11 ca tuần trước). Tích lũy: 83 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 5.9621355892434, Mean+2SD: 4.28328157299975]. Trạng thái: Báo động (Mức 3).
-  + Xã Nhà Bè: 25 ca (tăng 13.6% so với 22 ca tuần trước). Tích lũy: 509 ca. Ngưỡng [Mùa: 7, Cusum: 0, Farrington: 16.1205019468235, Mean+2SD: 12.9749345545253]. Trạng thái: Báo động (Mức 3).
-  + Xã Phú Giáo: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 43 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 3.16495140188183, Mean+2SD: 3.82842712474619]. Trạng thái: Bình thường (Mức 0).
-  + Xã Phú Hòa Đông: 11 ca (tăng 10.0% so với 10 ca tuần trước). Tích lũy: 219 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 4.16242776545976, Mean+2SD: 9.37687164221791]. Trạng thái: Báo động (Mức 3).
-  + Xã Phước Hoà: 1 ca (giảm 66.7% so với 3 ca tuần trước). Tích lũy: 21 ca. Ngưỡng [Mùa: 0, Cusum: 2.14213994213679, Farrington: 3.21068226654439, Mean+2SD: 1.49544511501033]. Trạng thái: Bình thường (Mức 0).
-  + Xã Phước Hải: 2 ca (không đổi so với 2 ca tuần trước). Tích lũy: 97 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 3.46831814668138, Mean+2SD: 3.28328157299975]. Trạng thái: Lưu ý (Mức 1).
-  + Xã Phước Thành: 0 ca (giảm 100.0% so với 1 ca tuần trước). Tích lũy: 8 ca. Ngưỡng [Mùa: 0, Cusum: 1.52894321429903, Farrington: 0, Mean+2SD: 0]. Trạng thái: Bình thường (Mức 0).
-  + Xã Thanh An: 0 ca (giảm 100.0% so với 2 ca tuần trước). Tích lũy: 19 ca. Ngưỡng [Mùa: 0, Cusum: 2.28404518713895, Farrington: 0, Mean+2SD: 1.09442719099992]. Trạng thái: Bình thường (Mức 0).
-  + Xã Thái Mỹ: 2 ca (giảm 77.8% so với 9 ca tuần trước). Tích lũy: 113 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 10.1101245404393, Mean+2SD: 7.24264068711928]. Trạng thái: Lưu ý (Mức 1).
-  + Xã Thường Tân: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 50 ca. Ngưỡng [Mùa: 1, Cusum: 5.34311710218897, Farrington: 0, Mean+2SD: 3.80768096208106]. Trạng thái: Bình thường (Mức 0).
+  + Xã Hòa Hội: 1 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 50 ca. Ngưỡng [Mùa: 0, Cusum: 4.7129906965228, Farrington: 0, Mean+2SD: 2.38885438199983]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Hóc Môn: 5 ca (tăng 150.0% so với 2 ca tuần trước). Tích lũy: 159 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 13.6195691585622, Mean+2SD: 18.2275534829989]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Hưng Long: 5 ca (giảm 37.5% so với 8 ca tuần trước). Tích lũy: 149 ca. Ngưỡng [Mùa: 3, Cusum: 2.8670969795441, Farrington: 8.37232221493316, Mean+2SD: 11.6938330115242]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Hồ Tràm: 1 ca (không đổi so với 1 ca tuần trước). Tích lũy: 108 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 0, Mean+2SD: 4]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Kim Long: 2 ca (không đổi so với 2 ca tuần trước). Tích lũy: 45 ca. Ngưỡng [Mùa: 0, Cusum: 4.74144078700246, Farrington: 3.32927983910086, Mean+2SD: 4.46410161513775]. Trạng thái: Bình thường (Mức 0).
+  + Xã Long Hoà: 2 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 20 ca. Ngưỡng [Mùa: 0, Cusum: 2.65866944011919, Farrington: 0, Mean+2SD: 1.09442719099992]. Trạng thái: Báo động (Mức 3).
+  + Xã Long Hải: 1 ca (không đổi so với 1 ca tuần trước). Tích lũy: 132 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 7.1751015400932, Mean+2SD: 7.80370243444252]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Long Sơn: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 17 ca. Ngưỡng [Mùa: 0, Cusum: 2.92945986854487, Farrington: 0, Mean+2SD: 1.09442719099992]. Trạng thái: Bình thường (Mức 0).
+  + Xã Long Điền: 2 ca (không đổi so với 2 ca tuần trước). Tích lũy: 159 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 1.42138499357448, Mean+2SD: 3.39089023002066]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Minh Thạnh: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 18 ca. Ngưỡng [Mùa: 0, Cusum: 3.43050984771335, Farrington: 0, Mean+2SD: 2.18885438199983]. Trạng thái: Bình thường (Mức 0).
+  + Xã Nghĩa Thành: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 55 ca. Ngưỡng [Mùa: 0, Cusum: 4.47083719269562, Farrington: 0, Mean+2SD: 4.40768096208106]. Trạng thái: Bình thường (Mức 0).
+  + Xã Ngãi Giao: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 67 ca. Ngưỡng [Mùa: 1, Cusum: 0.00598651025773567, Farrington: 6.00727151404395, Mean+2SD: 3.18885438199983]. Trạng thái: Bình thường (Mức 0).
+  + Xã Nhuận Đức: 3 ca (giảm 50.0% so với 6 ca tuần trước). Tích lũy: 86 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 6.64544581099793, Mean+2SD: 5.39089023002066]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Nhà Bè: 36 ca (tăng 50.0% so với 24 ca tuần trước). Tích lũy: 544 ca. Ngưỡng [Mùa: 7, Cusum: 0, Farrington: 17.4759633822673, Mean+2SD: 20.2258948821795]. Trạng thái: Báo động (Mức 3).
+  + Xã Phú Giáo: 2 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 45 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 3.18805082564492, Mean+2SD: 2.47332005306815]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Phú Hòa Đông: 6 ca (giảm 50.0% so với 12 ca tuần trước). Tích lũy: 226 ca. Ngưỡng [Mùa: 2, Cusum: 0, Farrington: 3.39975165769702, Mean+2SD: 9.09915248150105]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Phước Hoà: 1 ca (không đổi so với 1 ca tuần trước). Tích lũy: 22 ca. Ngưỡng [Mùa: 0, Cusum: 2.65841010717446, Farrington: 3.32927983910086, Mean+2SD: 5.23318042491699]. Trạng thái: Bình thường (Mức 0).
+  + Xã Phước Hải: 3 ca (tăng 50.0% so với 2 ca tuần trước). Tích lũy: 100 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 3.54788865310726, Mean+2SD: 5.53589667773576]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Phước Thành: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 8 ca. Ngưỡng [Mùa: 0, Cusum: 2.26052170331261, Farrington: 0, Mean+2SD: 0]. Trạng thái: Bình thường (Mức 0).
+  + Xã Thanh An: 1 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 20 ca. Ngưỡng [Mùa: 0, Cusum: 3.18046845503413, Farrington: 0, Mean+2SD: 1.09442719099992]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Thái Mỹ: 2 ca (không đổi so với 2 ca tuần trước). Tích lũy: 115 ca. Ngưỡng [Mùa: 1, Cusum: 0, Farrington: 9.45881856366169, Mean+2SD: 16.6498962651137]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Thường Tân: 1 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 51 ca. Ngưỡng [Mùa: 1, Cusum: 5.34311710218897, Farrington: 0, Mean+2SD: 6.23318042491699]. Trạng thái: Cảnh báo (Mức 2).
   + Xã Thạnh An: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 1 ca. Ngưỡng [Mùa: 0, Cusum: 2.09054457885959, Farrington: 0, Mean+2SD: 0]. Trạng thái: Bình thường (Mức 0).
-  + Xã Trừ Văn Thố: 0 ca (giảm 100.0% so với 2 ca tuần trước). Tích lũy: 19 ca. Ngưỡng [Mùa: 0, Cusum: 0.450984768905023, Farrington: 0, Mean+2SD: 1.09442719099992]. Trạng thái: Bình thường (Mức 0).
-  + Xã Tân An Hội: 2 ca (tăng 100.0% so với 1 ca tuần trước). Tích lũy: 103 ca. Ngưỡng [Mùa: 2, Cusum: 9.82393166008265, Farrington: 11.9477900440447, Mean+2SD: 12.7888820216977]. Trạng thái: Bình thường (Mức 0).
-  + Xã Tân Nhựt: 7 ca (không đổi so với 7 ca tuần trước). Tích lũy: 392 ca. Ngưỡng [Mùa: 4, Cusum: 0, Farrington: 15.41032196994, Mean+2SD: 14.0710678118655]. Trạng thái: Lưu ý (Mức 1).
-  + Xã Tân Vĩnh Lộc: 15 ca (giảm 21.1% so với 19 ca tuần trước). Tích lũy: 336 ca. Ngưỡng [Mùa: 5, Cusum: 0, Farrington: 12.6906613000756, Mean+2SD: 12.7607017003966]. Trạng thái: Báo động (Mức 3).
-  + Xã Vĩnh Lộc: 17 ca (tăng 41.7% so với 12 ca tuần trước). Tích lũy: 364 ca. Ngưỡng [Mùa: 5, Cusum: 0, Farrington: 30.1640830119558, Mean+2SD: 19.0086915465771]. Trạng thái: Lưu ý (Mức 1).
-  + Xã Xuyên Mộc: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 43 ca. Ngưỡng [Mùa: 0, Cusum: 4.39999472633053, Farrington: 0, Mean+2SD: 2.47332005306815]. Trạng thái: Bình thường (Mức 0).
-  + Xã Xuân Sơn: 2 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 27 ca. Ngưỡng [Mùa: 0, Cusum: 4.7129906965228, Farrington: 0, Mean+2SD: 4.7466401061363]. Trạng thái: Cảnh báo (Mức 2).
-  + Xã Xuân Thới Sơn: 7 ca (tăng 40.0% so với 5 ca tuần trước). Tích lũy: 185 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 13.4074500514032, Mean+2SD: 12.699152481501]. Trạng thái: Lưu ý (Mức 1).
-  + Xã Đông Thạnh: 25 ca (tăng 47.1% so với 17 ca tuần trước). Tích lũy: 335 ca. Ngưỡng [Mùa: 4, Cusum: 0, Farrington: 15.024592606989, Mean+2SD: 20.8627804912002]. Trạng thái: Báo động (Mức 3).
-  + Xã Đất Đỏ: 1 ca (giảm 50.0% so với 2 ca tuần trước). Tích lũy: 114 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 4.69451523471288, Mean+2SD: 4.7466401061363]. Trạng thái: Lưu ý (Mức 1).
-  + Đặc khu Côn Đảo: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 60 ca. Ngưỡng [Mùa: 0, Cusum: 0.0281388412076489, Farrington: 0, Mean+2SD: 3.82842712474619]. Trạng thái: Bình thường (Mức 0).
+  + Xã Trừ Văn Thố: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 19 ca. Ngưỡng [Mùa: 0, Cusum: 2.11848797070845, Farrington: 0, Mean+2SD: 1.09442719099992]. Trạng thái: Bình thường (Mức 0).
+  + Xã Tân An Hội: 3 ca (tăng 50.0% so với 2 ca tuần trước). Tích lũy: 106 ca. Ngưỡng [Mùa: 2, Cusum: 9.82393166008265, Farrington: 3.35931158669449, Mean+2SD: 18.637445228705]. Trạng thái: Bình thường (Mức 0).
+  + Xã Tân Nhựt: 4 ca (giảm 42.9% so với 7 ca tuần trước). Tích lũy: 396 ca. Ngưỡng [Mùa: 4, Cusum: 0, Farrington: 14.5272191612676, Mean+2SD: 17.5144761887831]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Tân Vĩnh Lộc: 21 ca (tăng 31.2% so với 16 ca tuần trước). Tích lũy: 358 ca. Ngưỡng [Mùa: 5, Cusum: 0, Farrington: 15.0668224465126, Mean+2SD: 12.2987177379236]. Trạng thái: Báo động (Mức 3).
+  + Xã Vĩnh Lộc: 12 ca (giảm 29.4% so với 17 ca tuần trước). Tích lũy: 376 ca. Ngưỡng [Mùa: 5, Cusum: 0, Farrington: 35.1351254655637, Mean+2SD: 21.2399203184089]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Xuyên Mộc: 1 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 44 ca. Ngưỡng [Mùa: 0, Cusum: 4.39999472633053, Farrington: 0, Mean+2SD: 2.18885438199983]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Xuân Sơn: 1 ca (giảm 50.0% so với 2 ca tuần trước). Tích lũy: 28 ca. Ngưỡng [Mùa: 0, Cusum: 4.65003358476004, Farrington: 0, Mean+2SD: 1.69544511501033]. Trạng thái: Cảnh báo (Mức 2).
+  + Xã Xuân Thới Sơn: 6 ca (giảm 25.0% so với 8 ca tuần trước). Tích lũy: 193 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 14.2592769113602, Mean+2SD: 14.9974354758472]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Đông Thạnh: 7 ca (giảm 73.1% so với 26 ca tuần trước). Tích lũy: 343 ca. Ngưỡng [Mùa: 4, Cusum: 0, Farrington: 10.6501167323305, Mean+2SD: 14.6746516952745]. Trạng thái: Lưu ý (Mức 1).
+  + Xã Đất Đỏ: 4 ca (tăng 300.0% so với 1 ca tuần trước). Tích lũy: 118 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: 3.84403736377035, Mean+2SD: 4.46410161513775]. Trạng thái: Cảnh báo (Mức 2).
+  + Đặc khu Côn Đảo: 1 ca (tăng 100.0% so với 0 ca tuần trước). Tích lũy: 61 ca. Ngưỡng [Mùa: 0, Cusum: 2.07764089697088, Farrington: 0, Mean+2SD: 0]. Trạng thái: Báo động (Mức 3).
 
