@@ -1,39 +1,8 @@
 [
   {
-    "listing": "/learning/index.html",
-    "items": [
-      "/learning/warning_forecast.html",
-      "/learning/pheoc.html",
-      "/learning/surveillance_system.html",
-      "/learning/r_basic.html",
-      "/learning/workshop.html"
-    ]
-  },
-  {
-    "listing": "/learning/r_basic.html",
-    "items": [
-      "/learning/r/r01.html",
-      "/learning/r/r02.html",
-      "/learning/r/r03.html",
-      "/learning/r/r04.html"
-    ]
-  },
-  {
-    "listing": "/news/index.html",
-    "items": [
-      "/news/post3.html",
-      "/news/post4.html",
-      "/news/post5.html",
-      "/news/post6.html",
-      "/news/post7.html",
-      "/news/post8.html",
-      "/news/post2.html",
-      "/news/post1.html"
-    ]
-  },
-  {
     "listing": "/snapshot/index.html",
     "items": [
+      "/snapshot/posts/2026_W31.html",
       "/snapshot/posts/2026_W30.html",
       "/snapshot/posts/2026_W29.html",
       "/snapshot/posts/2026_W28.html",
@@ -63,6 +32,38 @@
       "/snapshot/posts/2026_W03.html",
       "/snapshot/posts/2026_W02.html",
       "/snapshot/posts/2026_W01.html"
+    ]
+  },
+  {
+    "listing": "/news/index.html",
+    "items": [
+      "/news/post3.html",
+      "/news/post4.html",
+      "/news/post5.html",
+      "/news/post6.html",
+      "/news/post7.html",
+      "/news/post8.html",
+      "/news/post2.html",
+      "/news/post1.html"
+    ]
+  },
+  {
+    "listing": "/learning/r_basic.html",
+    "items": [
+      "/learning/r/r01.html",
+      "/learning/r/r02.html",
+      "/learning/r/r03.html",
+      "/learning/r/r04.html"
+    ]
+  },
+  {
+    "listing": "/learning/index.html",
+    "items": [
+      "/learning/warning_forecast.html",
+      "/learning/pheoc.html",
+      "/learning/surveillance_system.html",
+      "/learning/r_basic.html",
+      "/learning/workshop.html"
     ]
   }
 ]
