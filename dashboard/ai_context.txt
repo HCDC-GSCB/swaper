@@ -178,9 +178,9 @@ CHI TIẾT CÁC PHƯỜNG/XÃ:
   + Đặc khu Côn Đảo: 0 ca (không đổi so với 0 ca tuần trước). Tích lũy: 9 ca. Ngưỡng [Mùa: 0, Cusum: 0, Farrington: NA, Mean+2SD: 7.66099033699941]. Trạng thái: Bình thường (Mức 0).
 
 --- DỮ LIỆU BỆNH TAY CHÂN MIỆNG ---
-  + Toàn Thành phố: 0 ca (giảm 100.0% so với 1027 ca tuần trước). Tích lũy: 31326 ca. Ngưỡng [Mùa: 434.5, Cusum: 0, Farrington: NA, Mean+2SD: 1955.15771117126]. Trạng thái: Bình thường (Mức 0).
+  + Toàn Thành phố: 833 ca (giảm 18.9% so với 1027 ca tuần trước). Tích lũy: 32159 ca. Ngưỡng [Mùa: 434.5, Cusum: 0, Farrington: 421.045053451533, Mean+2SD: 1955.15771117126]. Trạng thái: Cảnh báo (Mức 2).
   + Đánh giá nguy cơ PISA (Toàn Thành phố):
-    - Mức độ lây truyền: Đang ở mức Rất thấp (Số ca: 0. Các ngưỡng: Mùa 434.5, Vừa 1904.39256257606, Cao 2594.55043066133, Rất cao 2958.11573617053).
+    - Mức độ lây truyền: Đang ở mức Thấp (Số ca: 833. Các ngưỡng: Mùa 434.5, Vừa 1904.39256257606, Cao 2594.55043066133, Rất cao 2958.11573617053).
     - Mức độ nặng: Đang ở mức Thấp (Số ca nội trú: 131. Các ngưỡng: Thấp 141.4, Vừa 233.751502424162, Cao 418.454507272486).
 CHI TIẾT CÁC PHƯỜNG/XÃ:
   + Phường An Hội Tây: 11 ca (không đổi so với 11 ca tuần trước). Tích lũy: 229 ca. Ngưỡng [Mùa: 3, Cusum: 0, Farrington: 5.80442980042139, Mean+2SD: 23.132721699668]. Trạng thái: Cảnh báo (Mức 2).
