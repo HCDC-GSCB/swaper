@@ -576,7 +576,7 @@ document.addEventListener("DOMContentLoaded", function() {
       } 
       else if (tabName.includes('Dự báo')) { 
         if(wrapNam) wrapNam.style.display = 'none';
-        if(wrapDiaBan) wrapDiaBan.style.display = 'none'; 
+        if(wrapDiaBan) wrapDiaBan.style.display = ''; 
         if(wrapBenh) wrapBenh.style.display = '';
       }
       else { 
@@ -1965,81 +1965,97 @@ html`
 //| output: false
 
 // ==========================================
-// XỬ LÝ DỮ LIỆU TỪ 3 NGUỒN: SXH, PRED, THRESHOLD
+// XỬ LÝ DỮ LIỆU TỪ 2 NGUỒN: THỰC TẾ & DỰ BÁO (XGBoost)
 // ==========================================
 pred_weeks = Array.from({length: 52}, (_, i) => i + 1);
 
-// 1. Số ca thực tế (từ sxh.dat) - Đã thêm lọc "KV1"
-actual_cases = pred_weeks.map(wk => {
-  // Bổ sung điều kiện d.khuvuc === "KV1"
-  let rows = chart_raw_data.filter(d => Number(d.Week) === wk && d.area === "KV1");
-  let sum = d3.sum(rows, d => Number(d.SoCa) || 0);
-  let limit_wk = (Number(selected_year) === sys_max_yr) ? sys_max_wk : 52;
-  return wk <= limit_wk ? sum : null;
+// 1. SỐ CA THỰC TẾ (Đồng bộ theo Sidebar)
+actual_cases_pred = pred_weeks.map(wk => {
+  if (wk > sys_max_wk) return null; 
+  let rows = chart_raw_data.filter(d => Number(d.Week) === wk);
+  return d3.sum(rows, d => d.SoCa) || 0;
 });
 
-last_actual_wk = (Number(selected_year) === sys_max_yr) ? sys_max_wk : 52;
+// Hàm ép kiểu an toàn
+getPredVal = (row, colName) => {
+  if (!row) return null;
+  let targetKey = Object.keys(row).find(k => k.trim().toLowerCase() === colName.trim().toLowerCase());
+  if (!targetKey) return null;
+  
+  let val_str = String(row[targetKey]).trim();
+  if (val_str === "" || val_str.toLowerCase() === "na" || val_str.toLowerCase() === "null") return null;
+  
+  let num = Number(val_str.replace(',', '.')); 
+  return isNaN(num) ? null : num;
+};
 
-// 2. Dữ liệu dự báo (từ pred.dat) 
-pred_data_yr = data_pred.filter(d => Number(d.Year) === Number(selected_year));
-
-// 3. Dự báo LSTM
-series_pred_lstm = pred_weeks.map(wk => {
-  let row = pred_data_yr.find(d => Number(d.Week) === wk);
-  return (row && row.Pred_LSTM != null) ? Number(row.Pred_LSTM) : null;
-});
-
-// 4. Dự báo SARIMA 
-series_pred_sarima = pred_weeks.map(wk => {
-  let row = pred_data_yr.find(d => Number(d.Week) === wk);
-  return (row && row.Pred_SARIMA != null) ? Number(row.Pred_SARIMA) : null;
-});
-
-// THÊM MỚI: Dự báo Random Forest (RF)
-series_pred_rf = pred_weeks.map(wk => {
-  let row = pred_data_yr.find(d => Number(d.Week) === wk);
-  // Nếu data trống (ví dụ tuần 1-12), nó sẽ trả về null
-  return (row && row.Pred_RF != null) ? Number(row.Pred_RF) : null;
-});
-
-// 5. Đường Ngưỡng (Từ threshold.dat - LẤY ĐÚNG CỘT "CDC")
-series_threshold = pred_weeks.map(wk => {
-  if (typeof data_threshold !== 'undefined') {
-    let row = data_threshold.find(d => Number(d.Week) === wk);
-    if (row && row.CDC != null && row.CDC !== "") {
-      let val = String(row.CDC).replace(',', '.');
-      let num = Number(val);
-      return isNaN(num) ? null : num;
-    }
+// 2. DỮ LIỆU DỰ BÁO (Từ pred.dat)
+pred_data_filtered = data_pred.filter(d => {
+  let year_ok = !d.Year || String(d.Year) === String(sys_max_yr);
+  
+  let disKey = Object.keys(d).find(k => k.trim().toLowerCase() === "disease");
+  let disease_ok = true;
+  if (disKey && d[disKey]) {
+      let disVal = String(d[disKey]).trim().toLowerCase();
+      if (disVal !== "na" && disVal !== "null" && disVal !== "") {
+          disease_ok = (disVal === String(selected_disease).toLowerCase());
+      }
   }
-  return null; 
+
+  let wardKey = Object.keys(d).find(k => k.trim().toLowerCase() === "noiohientai_saukhisapnhap_wardid" || k.trim().toLowerCase() === "wardid");
+  let ward_ok = false; 
+  
+  if (selected_ward === "Toàn Thành phố") {
+      if (!wardKey || !d[wardKey]) {
+          ward_ok = true;
+      } else {
+          let wardVal = String(d[wardKey]).trim().toLowerCase();
+          if (wardVal === "na" || wardVal === "null" || wardVal === "" || wardVal === "toàn thành phố") {
+              ward_ok = true;
+          }
+      }
+  } else {
+      if (wardKey && d[wardKey]) {
+          let wardVal = String(d[wardKey]).trim().toLowerCase();
+          if (wardVal === String(selected_ward).toLowerCase()) {
+              ward_ok = true;
+          }
+      }
+  }
+  
+  return year_ok && disease_ok && ward_ok;
 });
 
-// 6. Sai số APE LSTM
-series_ape_lstm = pred_weeks.map(wk => {
-  if (wk > last_actual_wk) return null;
-  let actual = actual_cases[wk - 1];
-  let pred = series_pred_lstm[wk - 1];
-  if (actual > 0 && pred !== null) return Number((Math.abs(actual - pred) / actual * 100).toFixed(2));
-  return null;
+// 3. BÓC TÁCH XGBOOST VÀ KHOẢNG TIN CẬY
+series_pred_xgboost = pred_weeks.map(wk => {
+  if (wk < sys_max_wk) return null; 
+  if (wk === sys_max_wk) return actual_cases_pred[wk - 1]; // Điểm neo
+  
+  let row = pred_data_filtered.find(d => Number(d.Week || d.week) === wk);
+  return getPredVal(row, 'Pred_XGBoost');
 });
 
-// 7. Sai số APE SARIMA
-series_ape_sarima = pred_weeks.map(wk => {
-  if (wk > last_actual_wk) return null;
-  let actual = actual_cases[wk - 1];
-  let pred = series_pred_sarima[wk - 1];
-  if (actual > 0 && pred !== null) return Number((Math.abs(actual - pred) / actual * 100).toFixed(2));
-  return null;
+series_pred_lower = pred_weeks.map(wk => {
+  if (wk < sys_max_wk) return null; 
+  if (wk === sys_max_wk) return actual_cases_pred[wk - 1]; 
+  
+  let row = pred_data_filtered.find(d => Number(d.Week || d.week) === wk);
+  return getPredVal(row, 'lower');
 });
 
-// THÊM MỚI: Sai số APE RF
-series_ape_rf = pred_weeks.map(wk => {
-  if (wk > last_actual_wk) return null;
-  let actual = actual_cases[wk - 1];
-  let pred = series_pred_rf[wk - 1];
-  if (actual > 0 && pred !== null) return Number((Math.abs(actual - pred) / actual * 100).toFixed(2));
-  return null;
+series_pred_upper = pred_weeks.map(wk => {
+  if (wk < sys_max_wk) return null; 
+  if (wk === sys_max_wk) return actual_cases_pred[wk - 1]; 
+  
+  let row = pred_data_filtered.find(d => Number(d.Week || d.week) === wk);
+  return getPredVal(row, 'upper');
+});
+
+// Mảng cấu trúc cho vùng mờ arearange
+series_pred_ci = pred_weeks.map(wk => {
+  let low = series_pred_lower[wk - 1];
+  let up = series_pred_upper[wk - 1];
+  return (low !== null && up !== null) ? [low, up] : [null, null];
 });
 ```
 
@@ -2050,63 +2066,122 @@ series_ape_rf = pred_weeks.map(wk => {
 
 chart_pred_main = {
   if (selected_disease === "Tay chân miệng") {
-    // 1. TRƯỜNG HỢP TAY CHÂN MIỆNG: Hiển thị bảng chưa có dữ liệu
     return html`
-      <div style="height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: var(--dash-card-bg, #f8f9fa); border: 2px dashed var(--dash-card-border, #dee2e6); border-radius: 8px; padding: 20px;">
-        <h4 style="color: var(--text-muted, #6c757d); font-weight: 600; margin: 0; margin-bottom: 8px;">Chưa có dữ liệu dự báo</h4>
-        <span style="color: var(--text-muted, #adb5bd); font-size: 0.95rem; text-align: center;">Mô hình dự báo Tay chân miệng đang được phát triển.</span>
+      <div style="height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #f8f9fa; border: 2px dashed #dee2e6; border-radius: 8px; padding: 20px;">
+        <h4 style="color: #6c757d; font-weight: 600; margin: 0; margin-bottom: 8px;">Chưa có dữ liệu dự báo</h4>
+        <span style="color: #adb5bd; font-size: 0.95rem; text-align: center;">Mô hình dự báo Tay chân miệng đang được phát triển và kiểm định.</span>
       </div>
     `;
   } else {
-    // 2. TRƯỜNG HỢP SỐT XUẤT HUYẾT: Vẽ biểu đồ kèm hiệu ứng Toast thông báo
+    
+    let hasPredData = series_pred_xgboost.some((v, idx) => v !== null && idx > sys_max_wk);
+
     const chartNode = createHighchart("chart-pred-main", {
       chart: { type: 'line' },
       xAxis: { 
-        categories: pred_weeks.map(w => 'Tuần ' + w), 
-        title: { text: 'Tuần giám sát', style: { fontWeight: 'bold' } },
-        crosshair: true
+        categories: pred_weeks.map(w => 'T' + w), // Đổi thành T1, T2... T52
+        title: { text: 'Tuần', style: { fontWeight: 'bold', color: '#000000' } },
+        labels: { 
+          rotation: 0,   
+          step: 4       
+        },
+        crosshair: true,
+        plotLines: [{
+          color: '#1a9fcc',
+          width: 2,
+          dashStyle: 'Dash',
+          value: sys_max_wk - 1, 
+          zIndex: 5,
+        }]
       },
       yAxis: { 
-        title: { text: 'Số ca mắc', style: { fontWeight: 'bold' } },
+        title: { text: 'Số ca mắc', style: { fontWeight: 'bold', color: '#000000' } },
         min: 0
       },
-      tooltip: { shared: true, valueSuffix: ' ca' },
+      tooltip: { 
+        shared: true, 
+        useHTML: true,
+        formatter: function () {
+          let tooltipHtml = `<b>${this.x}</b><br/>`;
+          
+          this.points.forEach(p => {
+             // Ẩn các đường biên và arearange khỏi tooltip để giao diện gọn gàng
+             if (p.series.name.includes('Cận') || p.series.name.includes('KTC')) return;
+
+             if (p.series.name === 'Số ca thực tế') {
+                 tooltipHtml += `<span style="color:${p.color}">●</span> Thực tế: <b>${Highcharts.numberFormat(p.y, 0)} ca</b><br/>`;
+             }
+             if (p.series.name === 'Dự báo XGBoost') {
+                 if (this.x === 'T' + sys_max_wk) return; // Bỏ qua điểm neo tuần hiện tại
+                 
+                 let lowVal = series_pred_lower[this.point.index];
+                 let upVal = series_pred_upper[this.point.index];
+                 let ciStr = (lowVal !== null && upVal !== null) 
+                     ? ` <span style="color:#888; font-size: 0.85em;">(${Highcharts.numberFormat(lowVal, 0)} - ${Highcharts.numberFormat(upVal, 0)})</span>` : '';
+                 
+                 tooltipHtml += `<span style="color:${p.color}">■</span> Dự báo: <b>${Highcharts.numberFormat(p.y, 0)} ca</b>${ciStr}<br/>`;
+             }
+          });
+          return tooltipHtml;
+        }
+      },
       plotOptions: {
-        line: { marker: { enabled: false }, lineWidth: 2.5, connectNulls: false }
+        line: { 
+          connectNulls: false 
+        }
       },
       series: [
-        { name: 'Số ca thực tế', data: actual_cases, color: '#000000', zIndex: 5 },
-        { name: 'Mean+2SD', data: series_threshold, color: '#d32f2f', dashStyle: 'LongDashDot', lineWidth: 2, zIndex: 4 },
-        { name: 'Dự báo LSTM', data: series_pred_lstm, color: '#1976d2', dashStyle: 'ShortDash' },
-        { name: 'Dự báo SARIMA', data: series_pred_sarima, color: '#388e3c', dashStyle: 'ShortDash' },
-        { name: 'Dự báo RF', data: series_pred_rf, color: '#f57c00', dashStyle: 'ShortDash' }
+        { 
+            name: 'Khoảng tin cậy 95%', type: 'arearange', 
+            data: series_pred_ci, color: '#ff9999', fillOpacity: 0.2, 
+            lineWidth: 0, marker: { enabled: false }, zIndex: 1, enableMouseTracking: false 
+        },
+        { 
+            name: 'Cận dưới (Lower)', type: 'line', 
+            data: series_pred_lower, color: '#ff7f7f', 
+            lineWidth: 1.5, dashStyle: 'solid', marker: { enabled: false }, zIndex: 2, enableMouseTracking: false, showInLegend: false
+        },
+        { 
+            name: 'Cận trên (Upper)', type: 'line', 
+            data: series_pred_upper, color: '#ff7f7f', 
+            lineWidth: 1.5, dashStyle: 'solid', marker: { enabled: false }, zIndex: 2, enableMouseTracking: false, showInLegend: false
+        },
+        { 
+            name: 'Dự báo XGBoost', data: series_pred_xgboost, 
+            color: '#dc3545', dashStyle: 'ShortDash', 
+            lineWidth: 2.5, marker: { symbol: 'square', radius: 3, enabled: true }, zIndex: 3 
+        },
+        { 
+            name: 'Số ca thực tế', data: actual_cases_pred, 
+            color: '#222222', 
+            lineWidth: 2.5, marker: { symbol: 'circle', radius: 3, enabled: true }, zIndex: 4 
+        }
       ]
     });
 
-    // Tạo khung (wrapper) bọc bên ngoài biểu đồ để nhét Toast vào
     const wrapper = document.createElement("div");
     wrapper.style.position = "relative";
     wrapper.style.width = "100%";
     wrapper.style.height = "100%";
     wrapper.appendChild(chartNode);
-
-    // Tạo thẻ Toast thông báo tự ẩn bằng Keyframes (Tắt sau 7s)
-    const toast = document.createElement("div");
-    toast.innerHTML = `
-      <style>
-        @keyframes toastSlideOut {
-          0% { opacity: 0; transform: translateX(20px); }
-          10% { opacity: 1; transform: translateX(0); }
-          85% { opacity: 1; transform: translateX(0); }
-          100% { opacity: 0; transform: translateY(-15px); visibility: hidden; }
-        }
-      </style>
-      <div style="position: absolute; top: 15px; right: 25px; background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(244, 114, 182, 0.3); border-left: 4px solid var(--accent-pink, #f472b6); color: var(--text-main, #f8fafc); padding: 10px 15px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; box-shadow: 0 4px 20px rgba(0,0,0,0.5); z-index: 100; animation: toastSlideOut 7s ease-in-out forwards; pointer-events: none; backdrop-filter: blur(8px);">
-        💡 <b>Lưu ý:</b> Mô hình được xây cho TPHCM cũ, đang được phát triển thêm.
-      </div>
-    `;
-    wrapper.appendChild(toast);
-
+    
+    let toastHtml = '';
+    if (!hasPredData && selected_ward !== "Toàn Thành phố") {
+      toastHtml = `
+        <div style="position: absolute; top: 15px; right: 25px; background: rgba(255, 243, 205, 0.95); border-left: 4px solid #ffc107; color: #856404; padding: 12px 18px; border-radius: 6px; font-size: 0.9rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1); z-index: 100; backdrop-filter: blur(5px);">
+          ⚠️ <b>Đang cập nhật:</b> Mô hình XGBoost cho <b>${selected_ward}</b> đang được tính toán. Vui lòng xem tạm ở mức Toàn thành phố.
+        </div>
+      `;
+    } else if (hasPredData) {
+      toastHtml = `
+        <div style="position: absolute; top: 15px; right: 25px; background: rgba(232, 244, 253, 0.9); border-left: 4px solid #1a9fcc; color: #0c5460; padding: 10px 15px; border-radius: 6px; font-size: 0.85rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1); z-index: 100; animation: fadeOut 8s forwards; pointer-events: none;">
+          💡 <b>Cập nhật:</b> Mô hình XGBoost đã triển khai (Tuần ${sys_max_wk + 1} - 52)
+        </div>
+        <style>@keyframes fadeOut { 0% {opacity: 1;} 80% {opacity: 1;} 100% {opacity: 0; display:none;} }</style>
+      `;
+    }
+    
+    wrapper.insertAdjacentHTML('beforeend', toastHtml);
     return wrapper;
   }
 }
@@ -2115,51 +2190,70 @@ chart_pred_main = {
 ## Row 2
 
 ```{ojs}
-//| title: "Đánh giá sai số mô hình (APE %)"
+//| title: "Nhận định & Mô tả thuật toán"
+
 {
   if (selected_disease === "Tay chân miệng") {
-    return html`
-      <div style="height: 350px; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #f8f9fa; border: 2px dashed #dee2e6; border-radius: 8px;">
-        <h4 style="color: #6c757d; font-weight: 600; margin: 0;">Chưa có dữ liệu sai số</h4>
-      </div>
-    `;
-  } else {
-    return createHighchart("chart-ape", {
-      chart: { type: 'line' },
-      xAxis: { 
-        categories: pred_weeks, 
-        title: { text: 'Tuần', style: { fontWeight: 'bold' } } 
-      },
-      yAxis: { 
-        title: { text: 'Sai số tuyệt đối phần trăm (APE %)', style: { fontWeight: 'bold' } }, 
-        min: 0 
-      },
-      tooltip: { shared: true, valueSuffix: ' %' },
-      plotOptions: {
-        line: { 
-          marker: { enabled: true, radius: 4 },
-          connectNulls: false
-        }
-      },
-      series: [
-        { 
-          name: 'Sai số LSTM', 
-          data: series_ape_lstm, 
-          color: '#1976d2'    
-        },
-        { 
-          name: 'Sai số SARIMA', 
-          data: series_ape_sarima, 
-          color: '#388e3c'   
-        },
-        { 
-          name: 'Sai số RF', 
-          data: series_ape_rf, 
-          color: '#f57c00'   
-        }
-      ]
-    })
+    return html`<div style="display:none;"></div>`; 
   }
+
+  let start_pred_val = series_pred_xgboost[sys_max_wk] || 0; 
+  let end_pred_val = [...series_pred_xgboost].reverse().find(v => v !== null) || 0;
+  let is_trend_up = end_pred_val > start_pred_val;
+
+  let hasPredData = series_pred_xgboost.some((v, idx) => v !== null && idx > sys_max_wk);
+
+  return html`
+    <div style="display: flex; gap: 20px; width: 100%; padding: 5px;">
+      
+      <!-- CỘT 1: NHẬN ĐỊNH KẾT QUẢ -->
+      <div style="flex: 1; background: #ffffff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+        <h4 style="margin-top: 0; color: #d32f2f; font-weight: 700; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          Nhận định kết quả dự báo
+        </h4>
+        <div style="color: #444; font-size: 0.95rem; line-height: 1.6; margin-top: 15px;">
+          ${!hasPredData 
+            ? `<div style="padding: 20px; text-align: center; color: #888; font-style: italic;">Đang chờ cập nhật kết quả dự báo cho địa bàn này...</div>`
+            : `
+              <p>Dựa trên kết quả chạy mô hình từ Tuần ${sys_max_wk + 1} cho <b>${selected_ward}</b>, hệ thống ghi nhận:</p>
+              <ul style="padding-left: 20px; margin-bottom: 15px;">
+                <li style="margin-bottom: 8px;">Đường dự báo (màu đỏ đứt nét, đánh dấu bằng ô vuông) thể hiện giá trị kỳ vọng về số ca mắc mới trong các tuần tới.</li>
+                <li style="margin-bottom: 8px;">Vùng mây nền kết hợp với hai đường biên cận trên và cận dưới (màu đỏ nhạt, nét liền độ dày 1.5) tạo thành hành lang khoảng tin cậy 95%.</li>
+                <li>Theo mô hình XGBoost, số ca mắc có dấu hiệu <b>${is_trend_up ? '<span style="color:#d32f2f; font-weight:bold;">TĂNG</span>' : '<span style="color:#28a745; font-weight:bold;">GIẢM HOẶC ĐI NGANG</span>'}</b> trong giai đoạn cuối năm ${sys_max_yr}.</li>
+              </ul>
+              <div style="background: #fff8e1; border-left: 4px solid #ffc107; padding: 10px 15px; border-radius: 4px; font-size: 0.85rem; color: #856404;">
+                <b>Khuyến nghị:</b> Các đơn vị y tế dự phòng cần căn cứ vào <i>cận trên (Upper limit)</i> của biểu đồ để chuẩn bị sẵn sàng vật tư và nhân lực ứng phó.
+              </div>
+            `
+          }
+        </div>
+      </div>
+
+      <!-- CỘT 2: MÔ TẢ THUẬT TOÁN -->
+      <div style="flex: 1; background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+        <h4 style="margin-top: 0; color: #005d88; font-weight: 700; font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          Mô hình XGBoost (Extreme Gradient Boosting)
+        </h4>
+        <div style="color: #444; font-size: 0.95rem; line-height: 1.6; margin-top: 15px;">
+          <p style="margin-bottom: 10px;">Hệ thống SWAPER hiện sử dụng mô hình học máy <b>XGBoost</b> để dự báo số ca bệnh, tối ưu hơn so với các mô hình chuỗi thời gian tuyến tính truyền thống.</p>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px;">
+            <div style="background: white; padding: 12px; border-radius: 6px; border: 1px solid #eee;">
+              <div style="font-weight: bold; color: #333; margin-bottom: 5px;">🎯 Ưu điểm vượt trội</div>
+              <div style="font-size: 0.85rem; color: #666;">Xử lý cực tốt dữ liệu phi tuyến tính, tự động hiệu chỉnh sai số (boosting) qua từng cây quyết định để cho ra dự báo sát thực tế nhất.</div>
+            </div>
+            <div style="background: white; padding: 12px; border-radius: 6px; border: 1px solid #eee;">
+              <div style="font-weight: bold; color: #333; margin-bottom: 5px;">📊 Dữ liệu đầu vào</div>
+              <div style="font-size: 0.85rem; color: #666;">Bao gồm chuỗi ca bệnh quá khứ (Lag features), dữ liệu khí hậu (Nhiệt độ, lượng mưa) và các biến xu hướng theo mùa.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  `;
 }
 ```
 
