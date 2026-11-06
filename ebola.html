@@ -291,7 +291,7 @@
         // 4. TEXT SUMMARY
         let cfr = currentStats.acc_cases > 0 ? ((currentStats.acc_deaths / currentStats.acc_cases) * 100).toFixed(1) : 0;
         let areaText = selectedCountry === 'All' ? 'Toàn thế giới' : selectedCountry;
-        document.getElementById('summary-text').innerHTML = `Tính đến ngày <strong>${latestDate}</strong>, tại hệ thống giám sát <strong>${areaText}</strong> đã ghi nhận 
+        document.getElementById('summary-text').innerHTML = `Trong ngày <strong>${latestDate}</strong>, tại hệ thống giám sát <strong>${areaText}</strong> đã ghi nhận 
         <strong>${currentStats.new_cases.toLocaleString()}</strong> ca xác định mới và <strong>${currentStats.deaths.toLocaleString()}</strong> trường hợp tử vong. 
         Tổng số tích lũy gồm <strong>${currentStats.acc_cases.toLocaleString()}</strong> ca mắc, trong đó tử vong tích lũy là 
         <strong>${currentStats.acc_deaths.toLocaleString()}</strong> trường hợp. Tỷ lệ tử vong trên ca xác định (CFR) khu vực này hiện đang ở mức 
