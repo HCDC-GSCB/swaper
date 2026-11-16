@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Online semniars for infectious diseases – SWAPER</title>
+<title>Seminars – SWAPER</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,6 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -77,7 +79,65 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../custom_v2.css">
 </head>
@@ -291,6 +351,10 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-learning">    
         <li>
+    <a class="dropdown-item" href="../seminars/index.html">
+ <span class="dropdown-text">Seminars</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../learning/index.html">
  <span class="dropdown-text">E-Learning</span></a>
   </li>  
@@ -299,8 +363,8 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Documents</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../seminars/index.html">
- <span class="dropdown-text">Seminars</span></a>
+    <a class="dropdown-item" href="../courses/index.html">
+ <span class="dropdown-text">Courses</span></a>
   </li>  
     </ul>
   </li>
@@ -347,23 +411,14 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#epidemiology" id="toc-epidemiology" class="nav-link active" data-scroll-target="#epidemiology">Epidemiology</a></li>
-  <li><a href="#modeling" id="toc-modeling" class="nav-link" data-scroll-target="#modeling">Modeling</a></li>
-  <li><a href="#the-public-health-emergency-operations-centre" id="toc-the-public-health-emergency-operations-centre" class="nav-link" data-scroll-target="#the-public-health-emergency-operations-centre">The Public Health Emergency Operations Centre</a></li>
-  <li><a href="#field-epidemiology-training-program" id="toc-field-epidemiology-training-program" class="nav-link" data-scroll-target="#field-epidemiology-training-program">Field Epidemiology Training Program</a></li>
-  </ul>
-</nav>
-    </div>
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <div id="page-loader">
 
@@ -389,12 +444,12 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Online semniars for infectious diseases</h1>
+<h1 class="title">Seminars</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -406,51 +461,36 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="epidemiology" class="level2">
-<h2 class="anchored" data-anchor-id="epidemiology">Epidemiology</h2>
-<ol type="1">
-<li><p>Joint UNIversities Pandemic and Epidemiological Research (JUNIPER) seminar <a href="https://maths.org/juniper/seminars">Link</a></p></li>
-<li><p>LSHTM Centre for Epidemic Preparedness and Response seminar series <a href="https://www.lshtm.ac.uk/newsevents/events/series/centre-epidemic-preparedness-and-response">Link</a></p></li>
-<li><p>Havard T.H. Chan School of Public Health: Seminars in Epidemiology <a href="https://hsph.harvard.edu/department/epidemiology/seminar-series/">Link</a></p></li>
-<li><p>Havard T.H. Chan School of Public Health: Center for Communicable Disease Dynamics, ID Epi Spring Seminar Series <a href="https://hsph.harvard.edu/research/communicable-disease-ccdd/id-epi-spring-seminar-series-2025/">Link</a></p></li>
-</ol>
-</section>
-<section id="modeling" class="level2">
-<h2 class="anchored" data-anchor-id="modeling">Modeling</h2>
-<ol type="1">
-<li><p>Advances in Socio-Epidemic Mathematical Modelling UMI-MSE online seminar <a href="https://mseumi.wordpress.com/online-seminars/">Link</a></p></li>
-<li><p>LSHTM Centre for data and statistical science for health seminar series <a href="https://www.lshtm.ac.uk/newsevents/events/series/centre-data-and-statistical-science-health">Link</a></p></li>
-<li><p>LSHTM Centre for Mathematical Modelling of Infectious Diseases seminar series <a href="https://www.lshtm.ac.uk/newsevents/events/series/centre-mathematical-modelling-infectious-diseases">Link</a></p></li>
-<li><p>The MIDSEA Network <a href="https://midsea.network/event/">Link</a></p></li>
-</ol>
-</section>
-<section id="the-public-health-emergency-operations-centre" class="level2">
-<h2 class="anchored" data-anchor-id="the-public-health-emergency-operations-centre">The Public Health Emergency Operations Centre</h2>
-<p>This session introduces key online learning resources on Public Health Emergency Operations Centres (PHEOC) and Public Health Emergency Management (PHEM). Participants will be guided to relevant self-paced courses provided by trusted institutions such as WHO, CDC, and other global partners. These resources support capacity building for emergency preparedness and response.</p>
-<ol type="1">
-<li><p>Ready4Response Tier 2: Systems, structures and skills <a href="https://drive.google.com/drive/u/2/folders/1aLq6bfMAk0dv1HtO_lg4WAqQFLWs64K8">Link</a></p></li>
-<li><p>The Public Health Emergency Operations Centre (PHEOC) <a href="https://drive.google.com/drive/u/2/folders/1Qzv4Yt9El_9C88xDRLWtgPfWs1R1s211">Link</a></p></li>
-<li><p>King County Emergency Management <a href="https://kingcounty.gov/en/dept/executive-services/governance-leadership/">Link</a></p></li>
-<li><p>Rapid Response Teams Training Programme - WHO <a href="https://extranet.who.int/hslp/package/rapid-response-teams-training-programme">Link</a></p></li>
-</ol>
-</section>
-<section id="field-epidemiology-training-program" class="level2">
-<h2 class="anchored" data-anchor-id="field-epidemiology-training-program">Field Epidemiology Training Program</h2>
-<ol type="1">
-<li><p>Abstract Writing (18/6/2025) <a href="https://taskforce-org.zoom.us/webinar/register/WN_kh2hzd9TS8uANXWJRP4C-A">Link</a></p></li>
-<li><p>Qualitative Data Collection During an Outbreak Part I (16/7/2025) <a href="https://taskforce-org.zoom.us/webinar/register/WN_Ol6TwQChRpKGVSD2cdZWNQ">Link</a></p></li>
-<li><p>Qualitative Data Collection During an Outbreak Part II (20/8/2025) <a href="https://taskforce-org.zoom.us/webinar/register/WN_ODv4Hs_FQaaPrne5WdRHhw">Link</a></p></li>
-<li><p>Informatics &amp; Data Viz Basics for Field Epidemiology (17/9/2025) <a href="https://taskforce-org.zoom.us/webinar/register/WN_gkqhsbY0RbuD9E1e2PmvKQ">Link</a></p></li>
-<li><p>Surveillance System Evaluations (15/10/2025) <a href="https://taskforce-org.zoom.us/webinar/register/WN_5N8iFGolS6CqwiD4FaK8FQ">Link</a></p></li>
-<li><p>Matching in Case: Control Studies: Should I Do It? When to Do It and Why (19/11/2025) <a href="https://taskforce-org.zoom.us/webinar/register/WN_q2m9v_csQNCGs7OEyRABAQ">Link</a></p></li>
-<li><p>Using an Outline When Writing: How to Clear Your Thoughts Before Putting Pen to Paper (21/1/2026) <a href="https://taskforce-org.zoom.us/webinar/register/WN_bm-M5DrhQO2y7wLuSHCN9g">Link</a></p></li>
-<li><p>Facilitating a Case Study (18/2/2026) <a href="https://taskforce-org.zoom.us/webinar/register/WN_8sIeK5IRTG2cU1_uyQjU0w">Link</a></p></li>
-</ol>
 
 
-</section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1794821081993" data-listing-reading-time-sort="2" data-listing-word-count-sort="288">
+<a href="../seminars/s1811.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../seminars/picture/hcdc-logo.jpeg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Hội thảo chia sẻ kĩ thuật xử lý dữ liệu đầu vào cho việc xây dựng mô hình dự báo sốt xuất huyết
+</h5>
+<div class="card-text listing-description delink">
+<p>Trong khuôn khổ dự án SCI</p>
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div></a>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

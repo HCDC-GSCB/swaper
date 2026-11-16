@@ -49,6 +49,31 @@
     ]
   },
   {
+    "listing": "/seminars/index.html",
+    "items": [
+      "/seminars/s1811.html"
+    ]
+  },
+  {
+    "listing": "/learning/index.html",
+    "items": [
+      "/learning/warning_forecast.html",
+      "/learning/pheoc.html",
+      "/learning/surveillance_system.html",
+      "/learning/r_basic.html",
+      "/learning/workshop.html"
+    ]
+  },
+  {
+    "listing": "/learning/r_basic.html",
+    "items": [
+      "/learning/r/r01.html",
+      "/learning/r/r02.html",
+      "/learning/r/r03.html",
+      "/learning/r/r04.html"
+    ]
+  },
+  {
     "listing": "/news/index.html",
     "items": [
       "/news/post3.html",
@@ -62,22 +87,9 @@
     ]
   },
   {
-    "listing": "/learning/r_basic.html",
+    "listing": "/seminars/s1811.html",
     "items": [
-      "/learning/r/r01.html",
-      "/learning/r/r02.html",
-      "/learning/r/r03.html",
-      "/learning/r/r04.html"
-    ]
-  },
-  {
-    "listing": "/learning/index.html",
-    "items": [
-      "/learning/warning_forecast.html",
-      "/learning/pheoc.html",
-      "/learning/surveillance_system.html",
-      "/learning/r_basic.html",
-      "/learning/workshop.html"
+      "/seminars/index.html"
     ]
   }
 ]

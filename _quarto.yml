@@ -35,12 +35,14 @@ website:
         href: sops/index.qmd
       - text: "Learning"
         menu:
+          - text: "Seminars"
+            href: seminars/index.qmd
           - text: "E-Learning"
             href: learning/index.qmd
           - text: "Documents"
             href: documents/index.qmd
-          - text: "Seminars"
-            href: seminars/index.qmd
+          - text: "Courses"
+            href: courses/index.qmd
       - text: "Epidemic Channel"
         icon: card-text
         href: snapshot/index.qmd
