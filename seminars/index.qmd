@@ -4,8 +4,6 @@ listing:
   contents: 
     - s1811.qmd
   type: grid
-  sort: "date desc"
-  categories: true
 page-layout: full
 ---
 
